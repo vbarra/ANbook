@@ -1117,12 +1117,14 @@ en <span class="math notranslate nohighlight">\(n^2\)</span>.</p>
 triangularisation), tout nouveau système linéaire <span class="math notranslate nohighlight">\({\bf Ax}={\bf b'}\)</span> peut être
 résolu par la résolution de deux systèmes triangulaires (donc en <span class="math notranslate nohighlight">\(O(n^2)\)</span> flops).
 En effet, pour résoudre <span class="math notranslate nohighlight">\({\bf LUx}={\bf b'}\)</span>, on résout d’abord <span class="math notranslate nohighlight">\({\bf Ly}={\bf b'}\)</span> puis <span class="math notranslate nohighlight">\({\bf Ux}={\bf y}\)</span>.</p>
-<p>\exemple{
-Soit <span class="math notranslate nohighlight">\({\bf A} = \begin{pmatrix}1&amp;4&amp;7\\2&amp;5&amp;8\\3&amp;6&amp;10\end{pmatrix}\)</span>. En appliquant l’algorithme de factorisation <span class="math notranslate nohighlight">\({\bf LU}\)</span> (cf. ci-dessus), on obtient
-$<span class="math notranslate nohighlight">\({\bf L} = \begin{pmatrix}1&amp;0&amp;0\\2&amp;1&amp;0\\3&amp;2&amp;1\end{pmatrix}\quad {\bf U} = \begin{pmatrix}1&amp;4&amp;7\\0&amp;-3&amp;-6\\0&amp;0&amp;1\end{pmatrix}\)</span><span class="math notranslate nohighlight">\(
-Si \)</span>{\bf b} = \begin{pmatrix}1\1\1\end{pmatrix}<span class="math notranslate nohighlight">\(, \)</span>{\bf Ly}={\bf b}<span class="math notranslate nohighlight">\( donne \)</span>{\bf y} = \begin{pmatrix}1-1\0\end{pmatrix}<span class="math notranslate nohighlight">\( et \)</span>{\bf Ux}={\bf y}<span class="math notranslate nohighlight">\( donne \)</span>{\bf x} =\frac{1}{3} \begin{pmatrix}-1\1\0\end{pmatrix}$
-}</p>
-<p>Quand aucun pivot nul n’est rencontré, <span class="math notranslate nohighlight">\({\bf A}\)</span> peut se mettre sous la forme <span class="math notranslate nohighlight">\({\bf LU}\)</span>
+<div class="proof example admonition" id="example-11">
+<p class="admonition-title"><span class="caption-number">Example 5 </span></p>
+<div class="example-content section" id="proof-content">
+<p>Soit <span class="math notranslate nohighlight">\({\bf A} = \begin{pmatrix}1&amp;4&amp;7\\2&amp;5&amp;8\\3&amp;6&amp;10\end{pmatrix}\)</span>. En appliquant l’algorithme de factorisation <span class="math notranslate nohighlight">\({\bf LU}\)</span> (cf. ci-dessus), on obtient</p>
+<p><span class="math notranslate nohighlight">\({\bf L} = \begin{pmatrix}1&amp;0&amp;0\\2&amp;1&amp;0\\3&amp;2&amp;1\end{pmatrix}\quad {\bf U} = \begin{pmatrix}1&amp;4&amp;7\\0&amp;-3&amp;-6\\0&amp;0&amp;1\end{pmatrix}\)</span></p>
+<p>Si <span class="math notranslate nohighlight">\({\bf b} = \begin{pmatrix}1\\1\\1\end{pmatrix}\)</span>, <span class="math notranslate nohighlight">\({\bf Ly}={\bf b}\)</span> donne <span class="math notranslate nohighlight">\({\bf y} = \begin{pmatrix}1\\-1\\0\end{pmatrix}\)</span> et <span class="math notranslate nohighlight">\({\bf Ux}={\bf y}\)</span> donne <span class="math notranslate nohighlight">\({\bf x} =\frac{1}{3} \begin{pmatrix}-1\\1\\0\end{pmatrix}\)</span></p>
+</div>
+</div><p>Quand aucun pivot nul n’est rencontré, <span class="math notranslate nohighlight">\({\bf A}\)</span> peut se mettre sous la forme <span class="math notranslate nohighlight">\({\bf LU}\)</span>
 et cette factorisation est unique. En effet, s’il existe deux factorisations
 <span class="math notranslate nohighlight">\({\bf L_1U_1}\)</span> et <span class="math notranslate nohighlight">\({\bf L_2U_2}\)</span> de <span class="math notranslate nohighlight">\({\bf A}\)</span>, on a alors
 <span class="math notranslate nohighlight">\({\bf L_1U_1}={\bf L_2U_2}\)</span>. Ce qui implique que <span class="math notranslate nohighlight">\({\bf L_2^{-1}L_1}={\bf U_2U_1^{-1}}\)</span> et le produit
