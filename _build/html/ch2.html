@@ -877,7 +877,7 @@ du  paragraphe précédent.</p>
 le second membre du système transformé, notée <span class="math notranslate nohighlight">\({\bf b^{(k)}}\)</span>) dont les <span class="math notranslate nohighlight">\(k-1\)</span> premières colonnes
 sont triangulaires supérieures.</p>
 <p><img alt="" src="_images/gaussk.png" /></p>
-<p>On met donc à zéro chaque élément de la colonne <span class="math notranslate nohighlight">\(k\)</span> sous le pivot\index{pivot}
+<p>On met donc à zéro chaque élément de la colonne <span class="math notranslate nohighlight">\(k\)</span> sous le pivot
 <span class="math notranslate nohighlight">\(a^{(k)}_{kk}\)</span> (supposé non nul) en remplaçant la ligne <span class="math notranslate nohighlight">\(i\)</span> (pour <span class="math notranslate nohighlight">\(i\in[\![k+1, n]\!]\)</span>) par</p>
 <div class="math notranslate nohighlight">
 \[
@@ -943,25 +943,30 @@ le second membre du système)</p>
 <div class="section" id="strategies-pour-les-pivots-nuls">
 <h2>Stratégies pour les pivots nuls<a class="headerlink" href="#strategies-pour-les-pivots-nuls" title="Lien permanent vers ce titre">#</a></h2>
 <p>Si le pivot est nul (en pratique, on évitera aussi les pivots de valeur
-absolue trop petite, cf. chapitre 3), on le remplace en effectuant une
+absolue trop petite-), on le remplace en effectuant une
 permutation avec un
 élément non nul parmi les éléments sous lui et/ou à sa droite. On distingue
-généralement deux stratégies :
-\begin{description}
-\item[Pivotage total] \index{pivot!total}On permute lignes et colonnes pour
+généralement deux stratégies :</p>
+<ul class="simple">
+<li><p>Pivotage total</p></li>
+</ul>
+<p id="index-6">On permute lignes et colonnes pour
 choisir le plus grand élément en valeur absolue dans la sous-matrice en bas à
 droite (voir
 Fig. \ref{Gaussétapek}) :
 $<span class="math notranslate nohighlight">\(
 \max\left\{\left|a^{(k)}_{ij}\right|\ ; \ i,j\in [\![k,n]\!]
     \right\}
-\)</span><span class="math notranslate nohighlight">\(
-\item[Pivotage partiel] \index{pivot!partiel}On ne permute que les lignes sous le 
-pivot en  choisissant le plus grand élément en valeur absolue
-\)</span><span class="math notranslate nohighlight">\(
+\)</span>$</p>
+<ul class="simple">
+<li><p>Pivotage partiel</p></li>
+</ul>
+<p id="index-7">On ne permute que les lignes sous le
+pivot en  choisissant le plus grand élément en valeur absolue</p>
+<p><span class="math notranslate nohighlight">\(
 \max\left\{\left|a^{(k)}_{ik}\right|\ ; \ i\in [\![k,n]\!]
     \right\}
-\)</span>$
+\)</span>
 \end{description}</p>
 <p>La stratégie du pivotage partiel est la plus utilisée car la plus économique
 (la recherche du plus grand élément sur une liste de <span class="math notranslate nohighlight">\(p\)</span> nombres coûte

@@ -323,7 +323,7 @@ def SubstitutionInverse(A,b):
 # ![](./images/gaussk.png)
 # 
 # 
-# On met donc à zéro chaque élément de la colonne $k$ sous le pivot\index{pivot}
+# On met donc à zéro chaque élément de la colonne $k$ sous le pivot
 # $a^{(k)}_{kk}$ (supposé non nul) en remplaçant la ligne $i$ (pour $i\in[\![k+1, n]\!]$) par
 # 
 # $$
@@ -390,12 +390,14 @@ def SubstitutionInverse(A,b):
 # 
 # 
 # Si le pivot est nul (en pratique, on évitera aussi les pivots de valeur
-# absolue trop petite, cf. chapitre 3), on le remplace en effectuant une 
+# absolue trop petite-), on le remplace en effectuant une 
 # permutation avec un 
 # élément non nul parmi les éléments sous lui et/ou à sa droite. On distingue
 # généralement deux stratégies :
-# \begin{description}
-# \item[Pivotage total] \index{pivot!total}On permute lignes et colonnes pour 
+# - Pivotage total
+# ```{index} Pivot ; total
+# ``` 
+# On permute lignes et colonnes pour 
 # choisir le plus grand élément en valeur absolue dans la sous-matrice en bas à 
 # droite (voir
 # Fig. \ref{Gaussétapek}) :
@@ -403,12 +405,16 @@ def SubstitutionInverse(A,b):
 # \max\left\{\left|a^{(k)}_{ij}\right|\ ; \ i,j\in [\![k,n]\!]
 #     \right\}
 # $$
-# \item[Pivotage partiel] \index{pivot!partiel}On ne permute que les lignes sous le 
+# - Pivotage partiel 
+# ```{index} Pivot ; partiel
+# ``` 
+# On ne permute que les lignes sous le 
 # pivot en  choisissant le plus grand élément en valeur absolue
-# $$
+# 
+# $
 # \max\left\{\left|a^{(k)}_{ik}\right|\ ; \ i\in [\![k,n]\!]
 #     \right\}
-# $$
+# $
 # \end{description}
 # 
 # La stratégie du pivotage partiel est la plus utilisée car la plus économique
