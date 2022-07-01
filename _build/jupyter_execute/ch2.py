@@ -501,10 +501,10 @@ def SubstitutionInverse(A,b):
 # \end{equation}$
 # 
 # Notons ${\bf U}$ la matrice triangulaire supérieure ${\bf A^{(n-1)}}$ et
-# réécrivons la relation (\ref{MatriceU})
-# $$
-# {\bf A}={\bf E_1^{-1}}\cdots {\bf E_{n-1}^{-1} U}
-# $$ 
+# réécrivons la relation précédente
+# 
+# $ {\bf A}={\bf E_1^{-1}}\cdots {\bf E_{n-1}^{-1} U}$ 
+# 
 # On vérifie que la matrice inverse ${\bf E_k^{-1}}$ a la même forme que
 # ${\bf E_k}$ avec les éléments de la sous-colonne $k$ changés de signe et que les 
 # produits ${\bf E_k^{-1}E_{k+1}^{-1}}$ s'effectuent sans calcul en accolant les
