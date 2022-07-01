@@ -207,11 +207,7 @@
 # 
 # On remarque que le calcul de $x_k$ coûte $n-k$ flops et une division. Le
 # coût total de l'algorithme est donc de $1+2+\cdots+n-1=\frac{n(n-1)}{2}$,
-# soit (on ne garde que les termes de plus haut degré)
-# 
-# $
-# \frac{{n^2}}{ 2}$ et $n$ divisions.
-# $
+# soit (on ne garde que les termes de plus haut degré) $\frac{{n^2}}{ 2}$ et $n$ divisions.$
 # 
 # Dans le cas d'un système triangulaire inférieur, on effectue des substitutions
 # directes :

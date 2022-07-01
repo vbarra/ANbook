@@ -217,7 +217,7 @@ k\in[\![n-1, 1]\!]\label{BckSub2}
 
 On remarque que le calcul de $x_k$ coûte $n-k$ flops et une division. Le
 coût total de l'algorithme est donc de $1+2+\cdots+n-1=\frac{n(n-1)}{2}$,
-soit (on ne garde que les termes de plus haut degré) $\frac{{n^2}}{ 2}$ et $n$ divisions.$
+soit (on ne garde que les termes de plus haut degré) $\frac{{n^2}}{ 2}$ et $n$ divisions.
 
 Dans le cas d'un système triangulaire inférieur, on effectue des substitutions
 directes :
@@ -229,8 +229,8 @@ x_{k}&=&\frac{1}{a_{kk}}\left[b_k-\sum_{j=1}^{k-1}a_{kj}x_j\right],\quad
 k\in[\![2, n]\!].\label{FwdSub2}
 \end{eqnarray}\right .$
 
-Le coût de l'algorithme de substitution (\ref{FwdSub1})-(\ref{FwdSub2}) est
-le même que celui de substitution inverse (\ref{BckSub1})-(\ref{BckSub2}).
+Le coût de l'algorithme de substitution directe est
+le même que celui de substitution inverse.
 
 ## Méthode de Gauss (ou du pivot) pour les systèmes linéaires
 
