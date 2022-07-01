@@ -185,12 +185,14 @@
 # triangulaire est un système dont la matrice est triangulaire.
 # 
 # Un système triangulaire supérieur se résout par substitution inverse
-# \index{substitution!inverse}
+# ```{index} Substitution ; inverse
+# ```
 # (on supposera tous les éléments diagonaux $a_{ii}$ non nuls).
-# \begin{eqnarray*}
+# 
+# $\begin{eqnarray*}\left \{
 # a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n&=&b_1\\ a_{2n}x_2+\cdots+a_{2n}x_n &=&
 # b_2\\ \vdots & & \vdots\\ a_{nn}x_n&=&b_n
-# \end{eqnarray*}
+# \end{eqnarray*}\right .$
 # 
 # On commence d'abord par calculer $x_n$ dans l'équation $n$. Puis à l'aide de
 # $x_n$, on peut calculer $x_{n-1}$ dans l'équation $n-1$ et ainsi de suite
