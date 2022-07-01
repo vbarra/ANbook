@@ -962,44 +962,57 @@ pivot en  choisissant le plus grand élément en valeur absolue : <span class="m
 (la recherche du plus grand élément sur une liste de <span class="math notranslate nohighlight">\(p\)</span> nombres coûte
 <span class="math notranslate nohighlight">\(p\)</span> comparaisons numériques, ce qui donne <span class="math notranslate nohighlight">\(n^3/3\)</span> comparaisons pour le pivotage
 total). L’algorithme d’élimination de Gauss avec recherche du pivot partiel est
-décrit dans l’algorithme~\ref{MGauss2}. Le second membre est
+décrit dans l’algorithme <a class="reference internal" href="#AlgoGaussPartiel">Algorithm 3</a>. Le second membre est
 stocké dans la dernière colonne de <span class="math notranslate nohighlight">\({\bf A}\)</span>.</p>
-<p>\begin{algorithm}
-\caption{Méthode de Gauss avec pivot partiel}
-\label{MGauss2}
-\Entree{<span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{n,n+1}(\mathbb R)\)</span> (la dernière colonne représente
-le second membre du système)}
-\Sortie{Solution <span class="math notranslate nohighlight">\({\bf x}\)</span> du syst`eme <span class="math notranslate nohighlight">\({\bf Ax}={\bf b}\)</span>}
-\Deb{
-\textit{1. Elimination};
-\Pour{<span class="math notranslate nohighlight">\(k=1,\ldots, n-1\)</span>}{
-\textit{Recherche du pivot};
-<span class="math notranslate nohighlight">\(c_p\leftarrow |a_{kk}|,\: i_p\leftarrow k\)</span>;
-\Pour{<span class="math notranslate nohighlight">\(i=k+1,\ldots,n\)</span>}{
-\Si{<span class="math notranslate nohighlight">\( |a_{ik}|&gt; c_p\)</span>}{
-<span class="math notranslate nohighlight">\(c_p\leftarrow |a_{ik}|,\: i_p\leftarrow i\)</span>
-}
-}
-\textit{Permutation};
-\Si{<span class="math notranslate nohighlight">\(i_p\ne k\)</span>}{
-Permuter les lignes <span class="math notranslate nohighlight">\(i_p\)</span> et <span class="math notranslate nohighlight">\(k\)</span> de la matrice <span class="math notranslate nohighlight">\(A\)</span>
-}
-\textit{Pivotage};
-\Pour{<span class="math notranslate nohighlight">\(i=k+1,\ldots, n\)</span>}{
-\Pour{<span class="math notranslate nohighlight">\(j=k+1,\ldots,n+1\)</span>}{
-<span class="math notranslate nohighlight">\(\dps{a_{ij} \leftarrow  a_{ij}-\frac{a_{ik}}{a_{kk}}a_{kj}}\)</span>;
-}
-}
-}
-\textit{2. Résolution du système triangulaire};
-<span class="math notranslate nohighlight">\(\dps{x_n\leftarrow \frac{a_{n,n+1}}{a_{nn}}}\)</span>;
-\Pour{<span class="math notranslate nohighlight">\(k=n-1,\ldots,1\)</span>}{
-<span class="math notranslate nohighlight">\(\dps{x_k\leftarrow \frac{1}{a_{kk}}\left[
-                    a_{k,n+1}-\sum_{j=k+1}^na_{kj}x_j
-                                               \right]}\)</span>;
-}}
-\end{algorithm}</p>
+<div class="proof algorithm admonition" id="AlgoGaussPartiel">
+<p class="admonition-title"><span class="caption-number">Algorithm 3 </span> (Méthode de Gauss avec pivot partiel)</p>
+<div class="algorithm-content section" id="proof-content">
+<p>**Entrée : ** <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{n,n+1}(\mathbb R)\)</span> (la dernière colonne représente
+le second membre du système)</p>
+<p>**Sortie : ** Solution <span class="math notranslate nohighlight">\({\bf x}\)</span> du système <span class="math notranslate nohighlight">\({\bf Ax}={\bf b}\)</span></p>
+<p><code class="docutils literal notranslate"><span class="pre">étape</span> <span class="pre">1.</span> <span class="pre">Elimination</span></code></p>
+<ol class="simple">
+<li><p>Pour <span class="math notranslate nohighlight">\(k=1,\ldots, n-1\)</span></p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(c_p\leftarrow |a_{kk}|,\: i_p\leftarrow k\)</span></p></li>
+<li><p>Pour <span class="math notranslate nohighlight">\(i=k+1,\ldots, n\)</span></p>
+<ol class="simple">
+<li><p>Si <span class="math notranslate nohighlight">\( |a_{ik}|&gt; c_p\)</span></p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(c_p\leftarrow |a_{ik}|,\: i_p\leftarrow i\)</span></p></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Si <span class="math notranslate nohighlight">\(i_p\ne k\)</span></p>
+<ol class="simple">
+<li><p>Pour <span class="math notranslate nohighlight">\(i=k+1,\ldots, n\)</span></p>
+<ol class="simple">
+<li><p>Pour <span class="math notranslate nohighlight">\(j=k+1,\ldots,n+1\)</span></p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(\displaystyle\sum{a_{ij} \leftarrow  a_{ij}-\frac{a_{ik}}{a_{kk}}a_{kj}}\)</span></p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">étape</span> <span class="pre">2.</span> <span class="pre">Résolution</span> <span class="pre">du</span> <span class="pre">système</span> <span class="pre">triangulaire</span></code></p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(\displaystyle\sum{x_n\leftarrow \frac{a_{n,n+1}}{a_{nn}}}\)</span></p></li>
+<li><p>Pour <span class="math notranslate nohighlight">\(k=n-1,\ldots,1\)</span></p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(\displaystyle\sum{x_k\leftarrow \frac{1}{a_{kk}}\left[
+                           a_{k,n+1}-\sum_{j=k+1}^na_{kj}x_j
+                                        \right]}\)</span></p></li>
+</ol>
+</li>
+</ol>
 </div>
+</div></div>
 <div class="section" id="cas-singulier-et-calcul-du-rang-d-une-matrice">
 <h2>Cas singulier et calcul du rang d’une matrice<a class="headerlink" href="#cas-singulier-et-calcul-du-rang-d-une-matrice" title="Lien permanent vers ce titre">#</a></h2>
 <p>\subsubsection{Pivotage total} Si, à l’itération <span class="math notranslate nohighlight">\(k\)</span> de la méthode de Gauss

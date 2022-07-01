@@ -424,44 +424,37 @@ La stratégie du pivotage partiel est la plus utilisée car la plus économique
 (la recherche du plus grand élément sur une liste de $p$ nombres coûte
 $p$ comparaisons numériques, ce qui donne $n^3/3$ comparaisons pour le pivotage
 total). L'algorithme d'élimination de Gauss avec recherche du pivot partiel est 
-décrit dans l'algorithme~\ref{MGauss2}. Le second membre est
+décrit dans l'algorithme {prf:ref}`AlgoGaussPartiel`. Le second membre est
 stocké dans la dernière colonne de ${\bf A}$.  
 
-\begin{algorithm}
-\caption{Méthode de Gauss avec pivot partiel}
-\label{MGauss2}
-\Entree{${\bf A}\in\mathcal{M}_{n,n+1}(\mathbb R)$ (la dernière colonne représente
-le second membre du système)}
-\Sortie{Solution ${\bf x}$ du syst\`eme ${\bf Ax}={\bf b}$}
-\Deb{
-\textit{1. Elimination}\;
-\Pour{$k=1,\ldots, n-1$}{
-         \textit{Recherche du pivot}\;
-         $c_p\leftarrow |a_{kk}|,\: i_p\leftarrow k$\;
-         \Pour{$i=k+1,\ldots,n$}{
-         \Si{$ |a_{ik}|> c_p$}{
-           $c_p\leftarrow |a_{ik}|,\: i_p\leftarrow i$
-         }
-        }
-         \textit{Permutation}\;
-         \Si{$i_p\ne k$}{
-         Permuter les lignes $i_p$ et $k$ de la matrice $A$
-         }
-         \textit{Pivotage}\;
-    \Pour{$i=k+1,\ldots, n$}{
-    \Pour{$j=k+1,\ldots,n+1$}{
-         $\dps{a_{ij} \leftarrow  a_{ij}-\frac{a_{ik}}{a_{kk}}a_{kj}}$\;
-      }
-    }
-}
-\textit{2. Résolution du système triangulaire}\;
-$\dps{x_n\leftarrow \frac{a_{n,n+1}}{a_{nn}}}$\;
-\Pour{$k=n-1,\ldots,1$}{
-    $\dps{x_k\leftarrow \frac{1}{a_{kk}}\left[
-                    a_{k,n+1}-\sum_{j=k+1}^na_{kj}x_j
-                                               \right]}$\;
-}}
-\end{algorithm}
+```{prf:algorithm} Méthode de Gauss avec pivot partiel
+:label: AlgoGaussPartiel
+
+**Entrée : ** ${\bf A}\in\mathcal{M}_{n,n+1}(\mathbb R)$ (la dernière colonne représente
+le second membre du système)
+
+**Sortie : ** Solution ${\bf x}$ du système ${\bf Ax}={\bf b}$
+
+`étape 1. Elimination`
+
+1. Pour $k=1,\ldots, n-1$
+    1. $c_p\leftarrow |a_{kk}|,\: i_p\leftarrow k$
+    2. Pour $i=k+1,\ldots, n$
+        1. Si $ |a_{ik}|> c_p$
+            1. $c_p\leftarrow |a_{ik}|,\: i_p\leftarrow i$
+    3. Si $i_p\ne k$
+        1. Pour $i=k+1,\ldots, n$
+            1. Pour $j=k+1,\ldots,n+1$
+                1. $\displaystyle\sum{a_{ij} \leftarrow  a_{ij}-\frac{a_{ik}}{a_{kk}}a_{kj}}$
+
+`étape 2. Résolution du système triangulaire`
+
+1. $\displaystyle\sum{x_n\leftarrow \frac{a_{n,n+1}}{a_{nn}}}$
+2. Pour $k=n-1,\ldots,1$
+    1. $\displaystyle\sum{x_k\leftarrow \frac{1}{a_{kk}}\left[
+                                  a_{k,n+1}-\sum_{j=k+1}^na_{kj}x_j
+                                               \right]}$
+```
 
 
 
