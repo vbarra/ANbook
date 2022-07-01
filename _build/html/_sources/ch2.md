@@ -546,11 +546,13 @@ triangularisation), tout nouveau système linéaire ${\bf Ax}={\bf b'}$ peut êt
 résolu par la résolution de deux systèmes triangulaires (donc en $O(n^2)$ flops).
 En effet, pour résoudre ${\bf LUx}={\bf b'}$, on résout d'abord ${\bf Ly}={\bf b'}$ puis ${\bf Ux}={\bf y}$.
 
-\exemple{
+````{prf:example}
 Soit ${\bf A} = \begin{pmatrix}1&4&7\\2&5&8\\3&6&10\end{pmatrix}$. En appliquant l'algorithme de factorisation ${\bf LU}$ (cf. ci-dessus), on obtient 
-$${\bf L} = \begin{pmatrix}1&0&0\\2&1&0\\3&2&1\end{pmatrix}\quad {\bf U} = \begin{pmatrix}1&4&7\\0&-3&-6\\0&0&1\end{pmatrix}$$
+
+${\bf L} = \begin{pmatrix}1&0&0\\2&1&0\\3&2&1\end{pmatrix}\quad {\bf U} = \begin{pmatrix}1&4&7\\0&-3&-6\\0&0&1\end{pmatrix}$
+
 Si ${\bf b} = \begin{pmatrix}1\\1\\1\end{pmatrix}$, ${\bf Ly}={\bf b}$ donne ${\bf y} = \begin{pmatrix}1\\-1\\0\end{pmatrix}$ et ${\bf Ux}={\bf y}$ donne ${\bf x} =\frac{1}{3} \begin{pmatrix}-1\\1\\0\end{pmatrix}$
-}
+````
 
 Quand aucun pivot nul n'est rencontré, ${\bf A}$ peut se mettre sous la forme ${\bf LU}$
 et cette factorisation est unique. En effet, s'il existe deux factorisations
