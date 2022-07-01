@@ -308,10 +308,12 @@ def SubstitutionInverse(A,b):
 # ```` 
 # 
 # On pose alors 
+# $
 # \begin{eqnarray*}
 # {\bf A^{(1)}}&=&{\bf A}\\[.2pc]
 # {\bf b^{(1)}}&=&{\bf b}.
-# \end{eqnarray*}
+# \end{eqnarray*}$
+# 
 # Dans le cas général, on a donc à l'étape $k$ de l'algorithme une matrice
 # ${\bf A^{(k)}}\in\mathcal{M}_{n,n+1}(\mathbb R)$ (la dernière colonne représente
 # le second membre du système transformé, notée ${\bf b^{(k)}}$) dont les $k-1$ premières colonnes

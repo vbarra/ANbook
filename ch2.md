@@ -330,28 +330,9 @@ Dans le cas général, on a donc à l'étape $k$ de l'algorithme une matrice
 ${\bf A^{(k)}}\in\mathcal{M}_{n,n+1}(\mathbb R)$ (la dernière colonne représente
 le second membre du système transformé, notée ${\bf b^{(k)}}$) dont les $k-1$ premières colonnes
 sont triangulaires supérieures (cf. figure \ref{Gaussétapek}).
-\bigskip
-\begin{figure}[htp]
-\begin{center}
-\unitlength=1mm
-\begin{picture}(80,60)(0,0)
-\put(0,0){\line(1,0){70}}
-\put(70,0){\line(0,1){60}}
-\put(60,0){\line(0,1){60}}
-\put(0,60){\line(1,0){70}}
-\put(0,0){\line(0,1){60}}
-\put(25,0){\line(0,1){30}}
-\put(25,30){\line(1,0){45}}
-\put(25,30){\line(-5,6){25}}
-\put(25,25){\framebox(10,5){$a^{(k)}_{kk}$}}
-\put(8,20){\makebox(10,10){\Large (O)}}
-\put(30,35){\makebox(10,10){\Huge *}}
-\put(-20,25){\makebox(10,10){$\left[{\bf A^{(k)}}|{\bf b^{(k})}\right]=$}}
-\end{picture}
-\caption{Etape $k$ de la méthode de Gauss} 
-\label{Gaussétapek}
-\end{center}
-\end{figure}
+
+
+![](./images/gaussk.png)
 
 
 On met donc à zéro chaque élément de la colonne $k$ sous le pivot\index{pivot}
