@@ -154,8 +154,8 @@
 # par son expression
 # 
 # $\left \{begin{eqnarray}
-# x_2+x_3 = 1 \label{SLR1}\\ 
-# 2x_2-3x_3 =2\label{SLR2}.
+# x_2+x_3 = 1 \\ 
+# 2x_2-3x_3 =2
 # \end{eqnarray}\right .$
 # 
 # Tirons $x_2$ de ce nouveau système 
