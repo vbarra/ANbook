@@ -170,7 +170,7 @@
 # inverse des variables :
 # 
 # $\left \{\begin{eqnarray*}
-# (x_3=0\\ x_2=1\\ x_1=3
+# x_3=0\\ x_2=1\\ x_1=3
 # \end{eqnarray*}\right .$
 # 
 # On remarque qu'à une étape donnée, l'élimination d'une variable peut se faire
