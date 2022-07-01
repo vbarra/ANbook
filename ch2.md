@@ -9,9 +9,9 @@ kernelspec:
   language: python
   name: python3
 header-includes:
-  - \usepackage{algorithm2e}
+  - \usepackage[ruled,vlined,linesnumbered]{algorithm2e}
 ---
----
+
 
 
 # Gauss et LU

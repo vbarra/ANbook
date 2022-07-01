@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# ---
+# 
+# 
 # # Gauss et LU
 # Parmi toutes les méthodes de résolution de systèmes linéaires, nous étudions dans la suite deux algorithmes largement utilisés : l'élimination de Gauss et la méthode LU.
 # 
@@ -382,6 +385,35 @@ def SubstitutionInverse(A,b):
 #                                   a_{k,n+1}-\sum_{j=k+1}^na_{kj}x_j
 #                                                \right]}$\;
 # ```
+# 
+# 
+# 
+# \begin{algorithm}
+# \caption{Méthode de Gauss}
+# %%-----------------------------------------------
+# \Entree{${\bf A}\in\mathcal{M}_{n,n+1}(\mbb R)$ (la dernière colonne représente
+# le second membre du système)}
+# \Sortie{Solution ${\bf x}$ du syst\`eme ${\bf Ax}={\bf b}$}
+# \Deb{
+# \textit{Étape 1. Elimination}\;
+# \Pour{$k=1,\ldots, n-1$}{
+#     \Pour{$i=k+1,\ldots, n$}{
+#     \Pour{$j=k+1,\ldots,n+1$}{
+#          $\dps{a_{ij} \leftarrow  a_{ij}-\frac{a_{ik}}{a_{kk}}a_{kj}}$\;
+#         }
+#     }
+# }
+# \textit{Étape 2. Résolution du système triangulaire}\;
+# $\dps{x_n\leftarrow \frac{a_{n,n+1}}{a_{nn}}}$\;
+# \Pour{$k=n-1,\ldots,1$}{
+#     $\dps{x_k\leftarrow \frac{1}{a_{kk}}\left[
+#                                   a_{k,n+1}-\sum_{j=k+1}^na_{kj}x_j
+#                                                \right]}$\;
+# }}
+# \label{MGauss1}
+# \end{algorithm}
+# 
+# 
 # 
 # ## Stratégies pour les pivots nuls
 # 
