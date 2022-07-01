@@ -915,9 +915,12 @@ le second membre du système)</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">étape</span> <span class="pre">1.</span> <span class="pre">Elimination</span></code></p></li>
 </ol>
 <p>Pour(<span class="math notranslate nohighlight">\(k=1,\ldots, n-1\)</span>)
-1. Pour <span class="math notranslate nohighlight">\(i=k+1,\ldots, n\)</span>
-1. Pour<span class="math notranslate nohighlight">\(j=k+1,\ldots,n+1\)</span>
-<span class="math notranslate nohighlight">\(\displaystyle\sum{a_{ij} \leftarrow  a_{ij}-\frac{a_{ik}}{a_{kk}}a_{kj}}\)</span>;</p>
+1. Pour <span class="math notranslate nohighlight">\(i=k+1,\ldots, n\)</span></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    1. Pour$j=k+1,\ldots,n+1$
+    
+        $\displaystyle\sum{a_{ij} \leftarrow  a_{ij}-\frac{a_{ik}}{a_{kk}}a_{kj}}$\;
+</pre></div>
+</div>
 <ol class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">étape</span> <span class="pre">2.</span> <span class="pre">Résolution</span> <span class="pre">du</span> <span class="pre">système</span> <span class="pre">triangulaire</span></code>
 <span class="math notranslate nohighlight">\(\displaystyle\sum{x_n\leftarrow \frac{a_{n,n+1}}{a_{nn}}}\)</span>;</p></li>
