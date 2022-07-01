@@ -119,22 +119,23 @@ cas général et nécessite le stockage de deux matrices $n\times n$. On lui
 préférera les méthodes étudiées dans la suite, basées elles aussi sur
 des pivotages successifs de la matrice, mais plus robustes et moins 
 coûteuses.
-\exemple
-{Pivotons la première colonne de 
+
+````{prf:example}
+Pivotons la première colonne de 
 $
 {\bf A}=
 \begin{pmatrix}1 & 1 & 1\\ 1 & 0 & -1\\ -2 & 1 & 3\end{pmatrix}
 $
 avec $a_{11}=1$ comme pivot. On doit donc multiplier $A$ à gauche par
 la matrice élémentaire 
-$$
+$
 {\bf E}=
-\begin{pmatrix}1 & 0 & 0\\ -1 & 1 & 0\\ 2 & 0 & 1\end{pmatrix}
-\textrm{ et le résultat est }
-{\bf A'}={\bf E}{\bf A}=
+\begin{pmatrix}1 & 0 & 0\\ -1 & 1 & 0\\ 2 & 0 & 1\end{pmatrix}$
+et le résultat est 
+${\bf A'}={\bf E}{\bf A}=
 \begin{pmatrix}1 & 1 & 1\\ 0 & -1 & -2\\ 0 & 3 & 5\end{pmatrix}
-$$
-}
+$
+````
 
 # Elimination de Gauss
 ## Exemple introductif
