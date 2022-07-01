@@ -287,7 +287,8 @@ triangulaire avec les pivots sur la diagonale.
 
 Les transformations successives sont décrites ci-dessous pour l'exemple
 du  paragraphe précédent.
-\noindent
+
+
 Itération 1 :
 
 $
@@ -301,7 +302,8 @@ $
       \end{array} 
 \right)
 $
-\noindent
+
+
 Itération 2 :
 
 $

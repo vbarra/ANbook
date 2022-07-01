@@ -275,7 +275,8 @@ def SubstitutionInverse(A,b):
 # 
 # Les transformations successives sont décrites ci-dessous pour l'exemple
 # du  paragraphe précédent.
-# \noindent
+# 
+# 
 # Itération 1 :
 # 
 # $
@@ -289,7 +290,8 @@ def SubstitutionInverse(A,b):
 #       \end{array} 
 # \right)
 # $
-# \noindent
+# 
+# 
 # Itération 2 :
 # 
 # $
