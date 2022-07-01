@@ -134,6 +134,7 @@ et $\sigma$ les permutations de lignes éventuelles.
         1. $\sigma(k)=i_p$
         2. $\sigma_{i_p} = k$
     5. Pour $i=k+1,\ldots, n$
+    
         `Remplissage de la colonne $k$`
 
         1. $a_{ik}\leftarrow \frac{a_{ik}}{a_{kk}}$
