@@ -1,0 +1,739 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Systèmes d’équations linéaires &#8212; Analyse numérique</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Exercices" href="ch1exos.html" />
+    <link rel="prev" title="Matrices" href="matrices.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="fr">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/isimainp.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Analyse numérique</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutoriels
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tutoriel-jupyter.html">
+   Tutoriel Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tutoriel-numpy.html">
+   Tutoriel Numpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tutoriel-matplotlib.html">
+   Tutoriel Matplotlib
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction au calcul matriciel
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ev.html">
+   Espaces Vectoriels
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matrices.html">
+   Matrices
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Systèmes d’équations linéaires
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch1exos.html">
+   Exercices
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Elimination de Gauss
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch2.html">
+   Gauss et LU
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gauss.html">
+   Elimination de Gauss
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lu.html">
+   Facteurs LU d’une matrice non singulière
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="genindex.html">
+   Index
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/vbarra/anbook.git"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/vbarra/anbook.git/issues/new?title=Issue%20on%20page%20%2Fsl.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/sl.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="_sources/sl.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#representations-des-systemes-d-equations-lineaires">
+   Représentations des systèmes d’équations linéaires
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#systemes-d-equations-lineaires-homogenes">
+   Systèmes d’équations linéaires homogènes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Systèmes d’équations linéaires
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Systèmes d’équations linéaires</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#representations-des-systemes-d-equations-lineaires">
+   Représentations des systèmes d’équations linéaires
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#systemes-d-equations-lineaires-homogenes">
+   Systèmes d’équations linéaires homogènes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Systèmes d’équations linéaires
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="systemes-d-equations-lineaires">
+<h1>Systèmes d’équations linéaires<a class="headerlink" href="#systemes-d-equations-lineaires" title="Lien permanent vers ce titre">#</a></h1>
+<p id="index-0">Les systèmes linéaires interviennent dans de nombreux contextes
+d’applications (physique, mécanique, sciences du vivant, chimie,
+économie,…).</p>
+<p>Un système linéaire s’écrit d’une manière générale sous la forme
+<span class="math notranslate nohighlight">\({\bf A}{\bf x}={\bf b}\)</span> où
+<span class="math notranslate nohighlight">\({\bf A}\in \mathcal{M}_{m,n}(\mathbb{R})\)</span>, <span class="math notranslate nohighlight">\({\bf x}\in \mathbb R^n\)</span> et
+<span class="math notranslate nohighlight">\({\bf b}\in \mathbb R^m\)</span>. <span class="math notranslate nohighlight">\({\bf A}\)</span> est donnée, <span class="math notranslate nohighlight">\({\bf b}\)</span> est le second
+membre également donné, et il s’agit de trouver s’il existe un (ou des)
+vecteur(s) <span class="math notranslate nohighlight">\({\bf x}\)</span> satisfaisant l’équation : il faut donc résoudre le
+système linéaire.</p>
+<div class="proof definition admonition" id="definition-0">
+<p class="admonition-title"><span class="caption-number">Definition 22 </span> (Système singulier)</p>
+<div class="definition-content section" id="proof-content">
+<p id="index-1">On dira que le système est singulier s’il n’a pas de
+solution ou s’il a une infinité de solutions.</p>
+</div>
+</div><div class="section" id="representations-des-systemes-d-equations-lineaires">
+<h2>Représentations des systèmes d’équations linéaires<a class="headerlink" href="#representations-des-systemes-d-equations-lineaires" title="Lien permanent vers ce titre">#</a></h2>
+<p>Considérons le système de 2 équations à 2 inconnues <span class="math notranslate nohighlight">\(\begin{aligned}
+2x_1-x_2&amp;=&amp;1\label{explsl1}\\
+x_1+x_2&amp;=&amp;5 \label{explsl2}\end{aligned}\)</span></p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><img alt="" src="_images/syslin1.png" /></p>
+</div>
+<ul class="simple">
+<li><p><em>Première interprétation (lecture par ligne).</em> Chaque équation
+représente une droite de <span class="math notranslate nohighlight">\(\mathbb R^2\)</span>. La solution se trouve à
+l’intersection des deux droites (à moins qu’elles ne soient parallèles).
+On obtient ici le point <span class="math notranslate nohighlight">\(x_1=2\)</span>, <span class="math notranslate nohighlight">\(x_2=3\)</span>, c’est-à-dire le vecteur
+<span class="math notranslate nohighlight">\(x=\left(\begin{array}{c}2\\ 3\end{array}\right)\)</span> de <span class="math notranslate nohighlight">\(\mathbb R^2\)</span> .</p></li>
+</ul>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><img alt="" src="_images/syslin2.png" /></p>
+</div>
+<ul class="simple">
+<li><p><em>Deuxième interprétation (lecture par colonne).</em> On écrit le
+système sous la forme vectorielle
+<span class="math notranslate nohighlight">\(x_1\left(\begin{array}{c}2\\ 1\end{array}\right)
++x_2\left(\begin{array}{c}-1\\ 1\end{array}\right)=
+\left(\begin{array}{c}1\\ 5\end{array}\right).\)</span> ou
+<span class="math notranslate nohighlight">\(x_1{\bf u} + x_2{\bf v} ={\bf z}\)</span>. Il
+faut donc trouver les coefficients d’une combinaison linéaire de deux
+vecteurs qui donnent un troisième.</p></li>
+</ul>
+<p>Si <span class="math notranslate nohighlight">\({\bf A} = \begin{pmatrix}
+2&amp;-1\\1&amp;1
+\end{pmatrix}\)</span>, il s’agit donc de trouver si <span class="math notranslate nohighlight">\({\bf y} = \begin{pmatrix}
+1\\5
+\end{pmatrix}\)</span> peut s’écrire comme combinaison linéaire des colonnes de
+<span class="math notranslate nohighlight">\({\bf A}\)</span>, et donc de savoir si <span class="math notranslate nohighlight">\({\bf y}\in {Im(\bf A})\)</span>.</p>
+</div>
+<div class="section" id="systemes-d-equations-lineaires-homogenes">
+<h2>Systèmes d’équations linéaires homogènes<a class="headerlink" href="#systemes-d-equations-lineaires-homogenes" title="Lien permanent vers ce titre">#</a></h2>
+<div class="proof definition admonition" id="definition-1">
+<p class="admonition-title"><span class="caption-number">Definition 23 </span> (Système homogène )</p>
+<div class="definition-content section" id="proof-content">
+<p id="index-2">Un système d’équations linéaires est dit homogène si le
+second membre est nul.</p>
+</div>
+</div><p>Soit <span class="math notranslate nohighlight">\({\bf A}\in \mathcal{M}_{m,n}(\mathbb{R})\)</span> la matrice du système
+<span class="math notranslate nohighlight">\({\bf A}{\bf x}={\bf b}\)</span>. Analysons l’ensemble des solutions du système
+d’équations linéaires homogène
+<span class="math notranslate nohighlight">\({\bf A}{\bf x}={\bf 0}\)</span>. Il est clair que <span class="math notranslate nohighlight">\({\bf 0}\)</span>
+est toujours solution.</p>
+<div class="proof definition admonition" id="definition-2">
+<p class="admonition-title"><span class="caption-number">Definition 24 </span> (Noyau d’une matrice )</p>
+<div class="definition-content section" id="proof-content">
+<span class="target" id="index-3"></span><p id="index-4">L’ensemble des solutions du système linéaire est un sous-espace vectoriel de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>. Ce
+sous-espace est appelé noyau de <span class="math notranslate nohighlight">\({\bf A}\)</span>, noté <span class="math notranslate nohighlight">\(Ker({\bf A})\)</span>.</p>
+</div>
+</div><p>En effet, si <span class="math notranslate nohighlight">\({\bf x}\)</span> et <span class="math notranslate nohighlight">\({\bf y}\)</span> sont solutions de
+<span class="math notranslate nohighlight">\({\bf A}{\bf x}={\bf 0}\)</span>, <span class="math notranslate nohighlight">\({\bf x}+{\bf y}\)</span> est aussi solution, ainsi
+que <span class="math notranslate nohighlight">\(\lambda {\bf x}\)</span>, <span class="math notranslate nohighlight">\(\lambda\in\mathbb R\)</span>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">On</span> <span class="pre">s'aperçoit</span> <span class="pre">alors</span> <span class="pre">que</span> <span class="pre">tout</span> <span class="pre"> peut</span> <span class="pre">être</span> <span class="pre">représenté</span> <span class="pre">de</span> <span class="pre">deux</span> <span class="pre">manières</span> <span class="pre">distinctes</span></code> :</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">comme</span> <span class="pre">ensemble</span> <span class="pre">de</span> <span class="pre">combinaisons</span> <span class="pre">linéaires</span> <span class="pre">d'un</span> <span class="pre">nombre</span> <span class="pre">fini</span> <span class="pre">de</span> <span class="pre">vecteurs</span> <span class="pre">(espace</span> <span class="pre">des</span> <span class="pre">vecteurs</span> <span class="pre">colonnes</span> <span class="pre">ou</span> <span class="pre">image</span> <span class="pre">de</span> <span class="pre">la</span> <span class="pre">matrice</span> <span class="pre">formée</span> <span class="pre">par</span> <span class="pre">ces</span> <span class="pre">colonnes)</span></code> :
+<span class="math notranslate nohighlight">\({\bf y}=\displaystyle\sum_{j=1}^nx_jA_{\bullet j}\)</span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">comme</span> <span class="pre">ensemble</span> <span class="pre">des</span> <span class="pre">solutions</span> <span class="pre">d'un</span> <span class="pre">système</span> <span class="pre">linéaire</span> <span class="pre">homogène</span> <span class="pre">(noyau</span> <span class="pre">de</span> <span class="pre">la</span> <span class="pre">matrice</span> <span class="pre">dont</span> <span class="pre">les</span> <span class="pre">lignes</span> <span class="pre">contiennent</span> <span class="pre">les</span> <span class="pre">coefficients</span> <span class="pre">des</span> <span class="pre">équations)</span></code> :
+<span class="math notranslate nohighlight">\((\forall i\in [\![ 1,m]\!])A_{i\bullet}^\top x = 0\)</span></p></li>
+</ul>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><img alt="" src="_images/ssesp.png" /></p>
+</div>
+<div class="proof property admonition" id="property-3">
+<p class="admonition-title"><span class="caption-number">Property 6 </span> (Sous-espaces supplémentaires d’une matrice )</p>
+<div class="property-content section" id="proof-content">
+<p id="index-5">Soit
+<span class="math notranslate nohighlight">\({\bf A}\in \mathcal{M}_{m,n}(\mathbb{R})\)</span>. On a :</p>
+<p><span class="math notranslate nohighlight">\(\begin{aligned}
+&amp;&amp; Ker({\bf A})\perp Im({\bf A^\top} ),\quad\mbox{dans}\ \mathbb R^n\\
+&amp;&amp; Ker({\bf A^\top} )\perp Im({\bf A}),\quad\mbox{dans}\ \mathbb R^m.\end{aligned}\)</span></p>
+<p>et les sous-espaces sont supplémentaires.</p>
+</div>
+</div><p>Les dimensions respectives de ces quatre sous-espaces ne dépendent que
+du rang de <span class="math notranslate nohighlight">\({\bf A}\)</span>. <span class="math notranslate nohighlight">\(\begin{aligned}
+&amp;&amp;dim Ker({\bf A})=n-rang({\bf A}),\ dim Im({\bf A^\top} )=rang({\bf A}),\quad\mbox{dans}\ \mathbb R^n\\
+&amp;&amp;dim Ker({\bf A^\top} )=m-rang({\bf A}),\ dim Im({\bf A})=rang({\bf A}),\quad\mbox{dans}\ \mathbb R^m\end{aligned}\)</span></p>
+<p>Soit la matrice <span class="math notranslate nohighlight">\(2\times 2\)</span> suivante
+<span class="math notranslate nohighlight">\({\bf A}=\left[\begin{array}{rr}1  &amp; -3\\ -2  &amp;  6\end{array}\right].\)</span>
+On a <span class="math notranslate nohighlight">\(rang({\bf A})=1\)</span>.</p>
+<ul class="simple">
+<li><p>L’espace colonnes ou <span class="math notranslate nohighlight">\(Im({\bf A})\)</span> contient tous les multiples du
+vecteur <span class="math notranslate nohighlight">\((1\ -2)^\top\)</span>.</p></li>
+<li><p>Le noyau de <span class="math notranslate nohighlight">\({\bf A}\)</span> contient les multiples de <span class="math notranslate nohighlight">\((3\ 1)^\top\)</span>.</p></li>
+<li><p>L’espace lignes ou <span class="math notranslate nohighlight">\(Im({\bf A^\top} )\)</span> contient les multiples de
+<span class="math notranslate nohighlight">\((1\ -3)^\top\)</span>.</p></li>
+<li><p>Le noyau de <span class="math notranslate nohighlight">\({\bf A^\top}\)</span> contient les multiples de <span class="math notranslate nohighlight">\((2\ 1)^\top\)</span>.</p></li>
+</ul>
+<p>Ces quatre sous-espaces sont des droites de <span class="math notranslate nohighlight">\(\mathbb R^2\)</span>. Si on change la
+deuxième colonne en <span class="math notranslate nohighlight">\(\begin{pmatrix}-3&amp; 7\end{pmatrix}^\top\)</span>, les
+colonnes sont alors linéairement indépendantes et <span class="math notranslate nohighlight">\(rang({\bf A})=2\)</span>.
+Dans ce cas <span class="math notranslate nohighlight">\(Im(A)=Im({\bf A^\top} )=\mathbb R^2\)</span> et
+<span class="math notranslate nohighlight">\(Ker({\bf A})=Ker({\bf A^\top} )=\{0\}\)</span>.</p>
+</div>
+<div class="section" id="id1">
+<h2>Systèmes d’équations linéaires<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">#</a></h2>
+<p>Terminons par le problème général de la résolution d’un système linéaire
+<span class="math notranslate nohighlight">\({\bf A}{\bf x}={\bf b}\)</span> où <span class="math notranslate nohighlight">\({\bf A}\in \mathcal{M}_{m,n}(\mathbb{R})\)</span>,
+<span class="math notranslate nohighlight">\({\bf x}\in \mathbb R^n\)</span> et <span class="math notranslate nohighlight">\({\bf b}\in \mathbb R^m\)</span></p>
+<p>On cherche donc à décrire l’ensemble des <span class="math notranslate nohighlight">\({\bf x}\in\mathbb R^n\)</span> solutions
+du système. Avant de nous poser le problème de l’existence d’une
+solution, montrons que l’ensemble des solutions, quand il n’est pas
+vide, est un objet de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span> d’aspect familier. Soit <span class="math notranslate nohighlight">\({\bf x^0}\)</span> une
+solution particulière du système
+<span class="math notranslate nohighlight">\({\bf A}{\bf x}={\bf b}\)</span>. Alors, toute solution du système peut s’écrire
+sous la forme <span class="math notranslate nohighlight">\({\bf x}={\bf x^0}+{\bf y}\)</span>, <span class="math notranslate nohighlight">\({\bf y}\in Ker({\bf A})\)</span>. En
+effet comme <span class="math notranslate nohighlight">\({\bf x}\)</span> et <span class="math notranslate nohighlight">\({\bf x^0}\)</span> sont deux solutions du système, on
+a <span class="math notranslate nohighlight">\({\bf A}({\bf x}-{\bf x^0})={\bf 0}\)</span>. Donc, l’ensemble des solutions
+s’obtient par une translation du sous–espace noyau de <span class="math notranslate nohighlight">\({\bf A}\)</span>. Il en
+a donc la forme géométrique et quand <span class="math notranslate nohighlight">\({\bf y}\)</span> varie, on construit une
+famille d’objets linéaires parallèles entre eux.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><img alt="" src="_images/variete.png" /></p>
+</div>
+<p>On les
+appelle des <em>variétés linéaires</em> ou <em>sous-espaces affines</em>. Si une
+variété linéaire passe par l’origine, c’est un sous-espace vectoriel.</p>
+<p>Bien que la dimension ait été définie pour décrire la génération d’un
+sous–espace vectoriel, on l’emploie pour une variété linéaire par
+analogie pour exprimer le nombre de degrés de liberté. Si
+<span class="math notranslate nohighlight">\(V=\{{\bf x}\in\mathbb R^n\mid {\bf A}{\bf x}={\bf y}\}\)</span> est une variété
+linéaire (donc que l’ensemble des solutions du système est non vide)
+telle que <span class="math notranslate nohighlight">\(V=\{{\bf x^0}\}+Ker({\bf A})\)</span>, on définit sa dimension comme
+<span class="math notranslate nohighlight">\(\dim V=dim Ker({\bf A})=n-rang({\bf A}).\)</span> Si un système homogène a
+toujours une solution (l’origine), ce n’est pas vrai pour le cas
+général.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><img alt="" src="_images/incomp.png" /></p>
+</div>
+<div class="proof theorem admonition" id="theorem-4">
+<p class="admonition-title"><span class="caption-number">Theorem 2 </span> (Existence d’une solution )</p>
+<div class="theorem-content section" id="proof-content">
+<p>Le système linéaire
+<span class="math notranslate nohighlight">\({\bf A}{\bf x}={\bf b}\)</span> possède au moins une solution si, et seulement
+si, <span class="math notranslate nohighlight">\({\bf b}\in Im({\bf A})\)</span>.<br />
+Dans le cas contraire, on dit que le système est incompatible.</p>
+</div>
+</div><p>On remarque que cette condition s’exprime dans l’espace des colonnes
+<span class="math notranslate nohighlight">\(\mathbb R^m\)</span>. On sait déjà que le sous–espace <span class="math notranslate nohighlight">\(Im({\bf A})\)</span> est de
+dimension <span class="math notranslate nohighlight">\(rang({\bf A})\)</span>. On en déduit que si <span class="math notranslate nohighlight">\(rang({\bf A})&lt;m\)</span>, la
+probabilité pour que <span class="math notranslate nohighlight">\({\bf b}\)</span> soit dans <span class="math notranslate nohighlight">\(Im({\bf A})\)</span> est nulle et le
+système sera presque toujours sans solution.</p>
+<p>Par contre si <span class="math notranslate nohighlight">\(rang({\bf A})=m\)</span>, on dit que <span class="math notranslate nohighlight">\({\bf A}\)</span> est de rang
+plein, le système a donc toujours des solutions. Si de plus, <span class="math notranslate nohighlight">\(m=n\)</span>, le
+noyau de <span class="math notranslate nohighlight">\({\bf A}\)</span> est de dimension nulle et le système a une solution
+unique. Cette solution est l’image de <span class="math notranslate nohighlight">\({\bf b}\)</span> par la transformation
+inverse de <span class="math notranslate nohighlight">\({\bf A}\)</span>, <em>i.e.</em>
+<span class="math notranslate nohighlight">\({\bf x}={\bf A^{-1}}{\bf b}.\)</span>
+Donc
+seules les matrices carrées de rang plein sont inversibles. On dit aussi
+que ces transformations sont <em>régulières</em>. Les matrices carrées non
+inversibles sont associées aux transformations <em>singulières</em> de
+<span class="math notranslate nohighlight">\(\mathbb R^n\)</span>.</p>
+<div class="proof remark dropdown admonition" id="remark-5">
+<p class="admonition-title"><span class="caption-number">Remark 3 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>Une condition équivalente, nécessaire et suffisante, pour que le système
+ait une solution est :
+<span class="math notranslate nohighlight">\(rang({\bf A})=rang\left([{\bf A}\,|\,{\bf b}]\right),\label{SL_CNS1}\)</span>
+où <span class="math notranslate nohighlight">\([{\bf A}\,|\,{\bf b}] \in \mathcal{M}_{m,n+1}(\mathbb{R})\)</span> est la
+matrice obtenue en rajoutant la colonne <span class="math notranslate nohighlight">\({\bf b}\)</span> à <span class="math notranslate nohighlight">\({\bf A}\)</span>. On verra
+de toute façon qu’il est rare que l’on ait à calculer explicitement
+l’inverse d’une matrice et que la résolution itérative d’un système
+linéaire permet de tester la condition
+précédente
+comme elle permet de calculer le rang de <span class="math notranslate nohighlight">\({\bf A}\)</span>.</p>
+</div>
+</div></div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "vbarra/anbook.git",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="matrices.html" title="précédent page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">précédent</p>
+            <p class="prev-next-title">Matrices</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="ch1exos.html" title="suivant page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title">Exercices</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Vincent BARRA<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

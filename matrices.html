@@ -1,0 +1,1278 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matrices &#8212; Analyse numérique</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Systèmes d’équations linéaires" href="sl.html" />
+    <link rel="prev" title="Espaces Vectoriels" href="ev.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="fr">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/isimainp.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Analyse numérique</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutoriels
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tutoriel-jupyter.html">
+   Tutoriel Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tutoriel-numpy.html">
+   Tutoriel Numpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tutoriel-matplotlib.html">
+   Tutoriel Matplotlib
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction au calcul matriciel
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ev.html">
+   Espaces Vectoriels
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sl.html">
+   Systèmes d’équations linéaires
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch1exos.html">
+   Exercices
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Elimination de Gauss
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch2.html">
+   Gauss et LU
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gauss.html">
+   Elimination de Gauss
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lu.html">
+   Facteurs LU d’une matrice non singulière
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="genindex.html">
+   Index
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/vbarra/anbook.git"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/vbarra/anbook.git/issues/new?title=Issue%20on%20page%20%2Fmatrices.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/matrices.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="_sources/matrices.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definitions">
+   Définitions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#addition">
+     Addition
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multiplication-par-un-scalaire">
+     Multiplication par un scalaire
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rotation">
+     Rotation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transvection">
+     Transvection
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compression">
+     Compression
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reflexion">
+     Réflexion
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matrice-transposee">
+   Matrice transposée
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#trace-determinant">
+   Trace, déterminant
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#produit-matriciel">
+   Produit matriciel
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#produit-par-blocs">
+   Produit par blocs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inverse-d-une-matrice">
+   Inverse d’une matrice
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matrices-particulieres">
+   Matrices particulières
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#image-de-bf-a">
+   Image de
+   <span class="math notranslate nohighlight">
+    \({\bf A}\)
+   </span>
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Matrices</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definitions">
+   Définitions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#addition">
+     Addition
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multiplication-par-un-scalaire">
+     Multiplication par un scalaire
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rotation">
+     Rotation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transvection">
+     Transvection
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compression">
+     Compression
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reflexion">
+     Réflexion
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matrice-transposee">
+   Matrice transposée
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#trace-determinant">
+   Trace, déterminant
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#produit-matriciel">
+   Produit matriciel
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#produit-par-blocs">
+   Produit par blocs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inverse-d-une-matrice">
+   Inverse d’une matrice
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matrices-particulieres">
+   Matrices particulières
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#image-de-bf-a">
+   Image de
+   <span class="math notranslate nohighlight">
+    \({\bf A}\)
+   </span>
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="matrices">
+<h1>Matrices<a class="headerlink" href="#matrices" title="Lien permanent vers ce titre">#</a></h1>
+<div class="section" id="definitions">
+<h2>Définitions<a class="headerlink" href="#definitions" title="Lien permanent vers ce titre">#</a></h2>
+<div class="proof definition admonition" id="definition-0">
+<p class="admonition-title"><span class="caption-number">Definition 13 </span> (Matrice)</p>
+<div class="definition-content section" id="proof-content">
+<p id="index-0">Une matrice <span class="math notranslate nohighlight">\(m\times n\)</span> à coefficients réels est un tableau de
+scalaires rangés en <span class="math notranslate nohighlight">\(m\)</span> lignes et <span class="math notranslate nohighlight">\(n\)</span> colonnes.</p>
+</div>
+</div><p>La définition de matrice se fait simplement en Python à l’aide de la librairie <a href="https://numpy.org" target="_blank">numpy</a></p>
+<div class="cell tag_defmatrice docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">6</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Les matrices servent principalement à représenter des transformations
+linéaires de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span> dans <span class="math notranslate nohighlight">\(\mathbb R^m\)</span>.</p>
+<p>On notera <span class="math notranslate nohighlight">\(a_{ij}\)</span> les éléments de la matrice <span class="math notranslate nohighlight">\({\bf A}\)</span>,
+<span class="math notranslate nohighlight">\(i\in [\![1,m]\!]\)</span>, <span class="math notranslate nohighlight">\(j\in [\![1,n]\!]\)</span>. La matrice <span class="math notranslate nohighlight">\({\bf A}\)</span> représente
+la transformation linéaire de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span> dans <span class="math notranslate nohighlight">\(\mathbb R^m\)</span> suivante</p>
+<p><span class="math notranslate nohighlight">\((\forall {\bf x}\in\mathbb R^n)\ {\bf y}=A{\bf x}\ \Leftrightarrow\ 
+{\bf y}\in\mathbb R^m\ \mbox{et}\ (\forall i\in  [\![ 1, m]\!])\quad y_i=a_{i1}x_1+\cdots+a_{i n}x_n = \displaystyle\sum_{j=1}^n a_{ij}x_j\)</span></p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><img alt="" src="_images/translin.png" /></p>
+</div>
+<p>Si on note <span class="math notranslate nohighlight">\({\bf A_{\bullet j}}\)</span>, <span class="math notranslate nohighlight">\(j\in [\![1,n]\!]\)</span> les colonnes de
+<span class="math notranslate nohighlight">\({\bf A}\)</span> et <span class="math notranslate nohighlight">\(A_{i\bullet}\)</span>, <span class="math notranslate nohighlight">\(i\in[\![1,m]\!]\)</span> les vecteurs lignes de
+<span class="math notranslate nohighlight">\({\bf A}\)</span>, la transformation peut aussi s’écrire des deux manières
+suivantes :
+<span class="math notranslate nohighlight">\({\bf y}=\displaystyle\sum_{j=1}^nx_jA_{\bullet j}\qquad\mbox{ou}\qquad
+(\forall i\in[\![1,m]\!])\ y_i=A_{i\bullet}^\top x.\)</span></p>
+<p>Dans le cas où les colonnes de <span class="math notranslate nohighlight">\({\bf A}\)</span> sont les vecteurs de la base
+canonique, la matrice est appelée matrice identité et est notée
+<span class="math notranslate nohighlight">\({\bf \mathbb I}\)</span>.</p>
+<p>Comme mentionné précédemment, l’ensemble <span class="math notranslate nohighlight">\(\mathcal{M}_{m,n}(\mathbb{R})\)</span>
+des matrices de taille <span class="math notranslate nohighlight">\(m\times n\)</span> à coefficients réels est un espace
+vectoriel pour les lois “+” et “.” :</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\((\forall  {\bf A}, {\bf B}\in \mathcal{M}_{m,n}(\mathbb{R}))(\forall i\in  [\![ 1,m]\!])(\forall j\in  [\![ 1, n]\!])\quad \left ( {\bf A}+ {\bf B}\right )_{i,j} =\left ( {\bf A}\right )_{i,j} + \left ( {\bf B}\right )_{i,j}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\((\forall \lambda\in\mathbb R)(\forall {\bf A}\in \mathcal{M}_{m,n}(\mathbb{R}))(\forall i\in  [\![ 1, m]\!])(\forall j\in  [\![ 1, n]\!])\quad  \left ( {\bf \lambda.A}\right )_{i,j} =\lambda\left ( {\bf A}\right )_{i,j}\)</span></p></li>
+</ul>
+<p>et en Python</p>
+<div class="cell tag_defmatrice docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">A</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="o">+</span><span class="n">C</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[3 9]
+ [6 3]] 
+
+[[-1  4]
+ [ 6  2]] 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lorsque <span class="math notranslate nohighlight">\(m=n\)</span>, <span class="math notranslate nohighlight">\(\mathcal{M}_{m,n}(\mathbb{R})\)</span> est noté
+<span class="math notranslate nohighlight">\(\mathcal{M}_{n}(\mathbb{R})\)</span>. C’est l’espace des matrices carrées de
+taille <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<p>Voici quelques exemples de transformations linéaires.</p>
+<div class="section" id="addition">
+<h3>Addition<a class="headerlink" href="#addition" title="Lien permanent vers ce titre">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.patches</span> <span class="kn">import</span> <span class="n">Polygon</span>
+
+<span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">[</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">4.6</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
+    <span class="p">])</span>
+<span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">[</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">],</span>
+        <span class="p">[</span> <span class="mf">0.4</span><span class="p">,</span>  <span class="mf">0.4</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">]</span>
+    <span class="p">])</span>
+<span class="n">P_moved</span> <span class="o">=</span> <span class="n">P</span> <span class="o">+</span> <span class="n">H</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">Polygon</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">Polygon</span><span class="p">(</span><span class="n">P_moved</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">vector</span><span class="p">,</span> <span class="n">origin</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">H</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="o">.</span><span class="n">T</span><span class="p">):</span>
+    <span class="n">plot_vector2d</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="n">origin</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">2.2</span><span class="p">,</span> <span class="mf">1.8</span><span class="p">,</span> <span class="s2">&quot;$P$&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">,</span> <span class="s2">&quot;$P+H$&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;$H_{*,1}$&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">4.1</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="s2">&quot;$H_{*,2}$&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">2.6</span><span class="p">,</span> <span class="s2">&quot;$H_{*,3}$&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">4.4</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="s2">&quot;$H_{*,4}$&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">Polygon</span><span class="p">(</span><span class="n">P_moved</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="k">for</span> <span class="n">vector</span><span class="p">,</span> <span class="n">origin</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">H</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="o">.</span><span class="n">T</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">17</span>     <span class="n">plot_vector2d</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="n">origin</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">2.2</span><span class="p">,</span> <span class="mf">1.8</span><span class="p">,</span> <span class="s2">&quot;$P$&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">,</span> <span class="s2">&quot;$P+H$&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;plot_vector2d&#39; is not defined
+</pre></div>
+</div>
+<img alt="_images/matrices_5_1.png" src="_images/matrices_5_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="multiplication-par-un-scalaire">
+<h3>Multiplication par un scalaire<a class="headerlink" href="#multiplication-par-un-scalaire" title="Lien permanent vers ce titre">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_transformation</span><span class="p">(</span><span class="n">P_before</span><span class="p">,</span> <span class="n">P_after</span><span class="p">,</span> <span class="n">text_before</span><span class="p">,</span> <span class="n">text_after</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">arrows</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">vector_before</span><span class="p">,</span> <span class="n">vector_after</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">P_before</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">P_after</span><span class="o">.</span><span class="n">T</span><span class="p">):</span>
+            <span class="n">plot_vector2d</span><span class="p">(</span><span class="n">vector_before</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+            <span class="n">plot_vector2d</span><span class="p">(</span><span class="n">vector_after</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">Polygon</span><span class="p">(</span><span class="n">P_before</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">Polygon</span><span class="p">(</span><span class="n">P_after</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">P_before</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">P_before</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">text_before</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">P_after</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">P_after</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">text_after</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="n">axis</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">P_rescaled</span> <span class="o">=</span> <span class="mf">0.60</span> <span class="o">*</span> <span class="n">P</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plot_transformation</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">P_rescaled</span><span class="p">,</span> <span class="s2">&quot;$P$&quot;</span><span class="p">,</span> <span class="s2">&quot;$0.6 P$&quot;</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="rotation">
+<h3>Rotation<a class="headerlink" href="#rotation" title="Lien permanent vers ce titre">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">angle30</span> <span class="o">=</span> <span class="mi">30</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span>  
+<span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle30</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle30</span><span class="p">)],</span>
+        <span class="p">[</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle30</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle30</span><span class="p">)]</span>
+    <span class="p">])</span>
+<span class="n">P_rotated</span> <span class="o">=</span> <span class="n">R</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plot_transformation</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">P_rotated</span><span class="p">,</span> <span class="s2">&quot;$P$&quot;</span><span class="p">,</span> <span class="s2">&quot;$VP$&quot;</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="transvection">
+<h3>Transvection<a class="headerlink" href="#transvection" title="Lien permanent vers ce titre">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">F_transvection</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plot_transformation</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">F_transvection</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">P</span><span class="p">),</span> <span class="s2">&quot;$P$&quot;</span><span class="p">,</span> <span class="s2">&quot;$F_</span><span class="si">{transvection}</span><span class="s2"> P$&quot;</span><span class="p">,</span>
+                    <span class="n">axis</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="compression">
+<h3>Compression<a class="headerlink" href="#compression" title="Lien permanent vers ce titre">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">F_compression</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">[</span><span class="mf">1.8</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mf">1.4</span><span class="p">]</span>
+    <span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plot_transformation</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">F_compression</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">P</span><span class="p">),</span> <span class="s2">&quot;$P$&quot;</span><span class="p">,</span> <span class="s2">&quot;$F_</span><span class="si">{compression}</span><span class="s2"> P$&quot;</span><span class="p">,</span>
+                    <span class="n">axis</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="reflexion">
+<h3>Réflexion<a class="headerlink" href="#reflexion" title="Lien permanent vers ce titre">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">F_reflex</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plot_transformation</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">F_reflex</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">P</span><span class="p">),</span> <span class="s2">&quot;$P$&quot;</span><span class="p">,</span> <span class="s2">&quot;$F_</span><span class="si">{reflex}</span><span class="s2"> P$&quot;</span><span class="p">,</span>
+                    <span class="n">axis</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.5</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="matrice-transposee">
+<h2>Matrice transposée<a class="headerlink" href="#matrice-transposee" title="Lien permanent vers ce titre">#</a></h2>
+<div class="proof definition admonition" id="definition-1">
+<p class="admonition-title"><span class="caption-number">Definition 14 </span> (Transposée)</p>
+<div class="definition-content section" id="proof-content">
+<span class="target" id="index-1"></span><p id="index-2">Soit <span class="math notranslate nohighlight">\({\bf A}\in \mathcal{M}_{m,n}(\mathbb{R})\)</span>. On appelle
+matrice transposée de <span class="math notranslate nohighlight">\({\bf A}\)</span>, et on note <span class="math notranslate nohighlight">\({\bf A^\top}\)</span>, l’unique
+matrice de <span class="math notranslate nohighlight">\(\mathcal{M}_{n,m}(\mathbb{R})\)</span> telle que :
+<span class="math notranslate nohighlight">\((\forall  {\bf x} \in\mathbb R^n)\ (\forall  {\bf y} \in\mathbb R^m)\quad{\bf y}^\top ({\bf A}{\bf x})=({\bf A^\top }{\bf y})^\top {\bf x} 
+\label{MatriceTransposee}\)</span></p>
+</div>
+</div><p>Le premier produit scalaire est dans <span class="math notranslate nohighlight">\(\mathbb R^m\)</span> et le second dans
+<span class="math notranslate nohighlight">\(\mathbb R^n\)</span>. On montre alors que la matrice <span class="math notranslate nohighlight">\({\bf A^\top}\)</span> a pour lignes
+les colonnes de <span class="math notranslate nohighlight">\({\bf A}\)</span> (et donc pour colonnes les lignes de
+<span class="math notranslate nohighlight">\({\bf A}\)</span>). On remarque que la notation dans est cohérente avec celle du produit
+scalaire.</p>
+<p><span class="math notranslate nohighlight">\({\bf A} = \begin{pmatrix}
+1&amp;2&amp;3\\4&amp;5&amp;6\\7&amp;8&amp;9
+\end{pmatrix}\)</span> <span class="math notranslate nohighlight">\({\bf A^T} = \begin{pmatrix}
+1&amp;4&amp;7\\2&amp;5&amp;8\\3&amp;6&amp;9
+\end{pmatrix}\)</span></p>
+<div class="cell tag_transpose docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">],[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> 
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A^T = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">A</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="proof remark dropdown admonition" id="remark-2">
+<p class="admonition-title"><span class="caption-number">Remark 1 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>Dans le cas d’une matrice symétrique, on a <span class="math notranslate nohighlight">\({\bf A} = {\bf A^\top}\)</span>.</p>
+</div>
+</div></div>
+<div class="section" id="trace-determinant">
+<h2>Trace, déterminant<a class="headerlink" href="#trace-determinant" title="Lien permanent vers ce titre">#</a></h2>
+<div class="proof definition admonition" id="definition-3">
+<p class="admonition-title"><span class="caption-number">Definition 15 </span> (Trace)</p>
+<div class="definition-content section" id="proof-content">
+<p id="index-3">Soit <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_n(\mathbb R)\)</span>. La trace de <span class="math notranslate nohighlight">\({\bf A}\)</span>,
+notée <span class="math notranslate nohighlight">\(Tr({\bf A})\)</span>, est par définition :
+<span class="math notranslate nohighlight">\(Tr({\bf A}) = \displaystyle\sum_{i=1}^n a_{ii}\)</span></p>
+</div>
+</div><div class="cell tag_trace docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Trace de A : &quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>On démontre sans difficulté les propriétés suivantes pour toutes
+matrices <span class="math notranslate nohighlight">\({\bf A}\)</span> et <span class="math notranslate nohighlight">\({\bf B}\)</span> avec les bonnes dimensions :</p>
+<div class="proof property admonition" id="property-4">
+<p class="admonition-title"><span class="caption-number">Property 2 </span> (Propriétés de la trace)</p>
+<div class="property-content section" id="proof-content">
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(Tr({\bf A})\)</span>=<span class="math notranslate nohighlight">\(Tr({\bf A^T})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Tr({\bf AB})\)</span>=<span class="math notranslate nohighlight">\(Tr({\bf BA})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Tr({\bf A+B})\)</span>=<span class="math notranslate nohighlight">\(Tr({\bf A}) + Tr({\bf B})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\((\forall {\bf x}\in \mathbb R^n)\ {\bf x^Tx} = Tr({\bf xx^T})\)</span></p></li>
+</ol>
+</div>
+</div><div class="proof definition admonition" id="definition-5">
+<p class="admonition-title"><span class="caption-number">Definition 16 </span> (Déterminant)</p>
+<div class="definition-content section" id="proof-content">
+<p id="index-4">oit <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_n(\mathbb R)\)</span>. Le déterminant de
+<span class="math notranslate nohighlight">\({\bf A}\)</span>, noté <span class="math notranslate nohighlight">\(det({\bf A})\)</span> est défini récursivement comme suit :</p>
+<ol class="simple">
+<li><p>si <span class="math notranslate nohighlight">\(n=1\)</span>, <span class="math notranslate nohighlight">\(det({\bf A})=a_{11}\)</span></p></li>
+<li><p>si <span class="math notranslate nohighlight">\(n&gt;1\)</span>
+<span class="math notranslate nohighlight">\(det({\bf A})=\displaystyle\sum_{j=1}^n (-1)^{j+1}det ({\bf A_{1j}})\)</span></p></li>
+</ol>
+<p>où <span class="math notranslate nohighlight">\({\bf A_{1j}}\in \mathcal{M}_{n-1}(\mathbb R)\)</span> est obtenue à partir de
+<span class="math notranslate nohighlight">\({\bf A}\)</span> en supprimant la première ligne et la <span class="math notranslate nohighlight">\(j^e\)</span> colonne.</p>
+</div>
+</div><div class="cell tag_det docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Déterminant de A : &quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Le déterminant est la valeur d’une forme multilinéaire sur un ensemble
+de <span class="math notranslate nohighlight">\(n\)</span> vecteurs qui change de signe à chaque permutation des vecteurs et
+qui vaut 1 pour les <span class="math notranslate nohighlight">\(n\)</span> vecteurs d’une base orthonormée. C’est aussi le
+volume du <span class="math notranslate nohighlight">\(n\)</span>-parallélépipède engendré par <span class="math notranslate nohighlight">\(n\)</span> vecteurs dans <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>.
+L’une des applications principales des déterminants est de mesurer la
+liberté d’une famille.</p>
+<div class="proof property admonition" id="property-6">
+<p class="admonition-title"><span class="caption-number">Property 3 </span> (Propriétés du déterminant)</p>
+<div class="property-content section" id="proof-content">
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(\det(\mathbb I)=1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\det({\bf A})=0\ \Leftrightarrow\)</span> <span class="math notranslate nohighlight">\({\bf A}\)</span> est singulière.</p></li>
+<li><p><span class="math notranslate nohighlight">\((\forall \lambda\in \mathbb R)\ \det({\bf \lambda.A})\)</span> =
+<span class="math notranslate nohighlight">\(\lambda^n\det({\bf A})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\det({\bf AB})=\det({\bf A})\det({\bf B})\)</span> (donc
+<span class="math notranslate nohighlight">\(\det({\bf A^{-1}})=(\det({\bf A}))^{-1}\)</span>).</p></li>
+<li><p><span class="math notranslate nohighlight">\(\det({\bf A^\top} )=\det({\bf A})\)</span>.</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\({\bf A}\)</span> est triangulaire,
+<span class="math notranslate nohighlight">\(\det({\bf A})=\displaystyle\prod^n_{i=1}a_{ii}.\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\det({\bf A})\)</span> change de signe si on permute deux lignes (ou
+colonnes) de <span class="math notranslate nohighlight">\({\bf A}\)</span></p></li>
+</ol>
+</div>
+</div></div>
+<div class="section" id="produit-matriciel">
+<h2>Produit matriciel<a class="headerlink" href="#produit-matriciel" title="Lien permanent vers ce titre">#</a></h2>
+<p>Le produit matriciel correspond à la composition de deux transformations
+linéaires.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><img alt="" src="_images/prodmat.png" /></p>
+</div>
+<div class="proof definition admonition" id="definition-7">
+<p class="admonition-title"><span class="caption-number">Definition 17 </span> (Produit matriciel )</p>
+<div class="definition-content section" id="proof-content">
+<span class="target" id="index-5"></span><p id="index-6">Soient <span class="math notranslate nohighlight">\({\bf A}\in \mathcal{M}_{m,n}(\mathbb{R})\)</span> et
+<span class="math notranslate nohighlight">\({\bf B}\in \mathcal{M}_{n,p}(\mathbb{R})\)</span>. Le produit <span class="math notranslate nohighlight">\({\bf C = AB}\)</span>
+est une matrice de <span class="math notranslate nohighlight">\(\mathcal{M}_{m,p}(\mathbb{R})\)</span> avec
+<span class="math notranslate nohighlight">\((\forall i\in  [\![ 1, m]\!])(\forall j\in [\![ 1, p]\!])\quad c_{ij}=\sum_{k=1}^n a_{ik}b_{kj} = {\bf A_{i,\bullet}^T B_{\bullet,j}}
+\label{ProduitMatriciel}\)</span></p>
+</div>
+</div><p>On note que le nombre de colonnes de <span class="math notranslate nohighlight">\({\bf A}\)</span> doit être égal au nombre
+de lignes de <span class="math notranslate nohighlight">\({\bf B}\)</span> pour que l’opération puisse être réalisée.</p>
+<div class="cell tag_prod docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">]])</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@B</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="proof remark dropdown admonition" id="remark-8">
+<p class="admonition-title"><span class="caption-number">Remark 2 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>Plusieurs points d’attention doivent être soulignés :</p>
+<ol class="simple">
+<li><p>En général le produit n’est pas commutatif.</p></li>
+<li><p><span class="math notranslate nohighlight">\({\bf AB}\)</span>=<span class="math notranslate nohighlight">\({\bf 0}\)</span> n’implique pas <span class="math notranslate nohighlight">\({\bf A}\)</span>=<span class="math notranslate nohighlight">\({\bf 0}\)</span> ou
+<span class="math notranslate nohighlight">\({\bf B}\)</span>=<span class="math notranslate nohighlight">\({\bf 0}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\({\bf AB}\)</span>=<span class="math notranslate nohighlight">\({\bf AC}\)</span> n’implique pas <span class="math notranslate nohighlight">\({\bf B}\)</span>=<span class="math notranslate nohighlight">\({\bf C}\)</span></p></li>
+</ol>
+</div>
+</div><p>On trouve là le premier calcul sérieux du point de vue de la complexité.
+Ce qui permet d’introduire une unité de mesure de la complexité d’une
+opération et d’un algorithme.</p>
+<div class="proof definition admonition" id="definition-9">
+<p class="admonition-title"><span class="caption-number">Definition 18 </span> (Flop)</p>
+<div class="definition-content section" id="proof-content">
+<p id="index-7">On appelle flop l’opération élémentaire d’un produit scalaire : une
+multiplication suivie d’une addition et d’une substitution.</p>
+</div>
+</div><p>Un flop revient donc à mettre à jour une somme <span class="math notranslate nohighlight">\(s\)</span> en lui rajoutant le
+produit de deux nombres <span class="math notranslate nohighlight">\(a\)</span> et <span class="math notranslate nohighlight">\(b\)</span>, <em>i.e.</em> <span class="math notranslate nohighlight">\(s:=s+a\ast b.\)</span> Le coût
+d’un produit scalaire de deux vecteurs de longueur <span class="math notranslate nohighlight">\(n\)</span> est donc de <span class="math notranslate nohighlight">\(n\)</span>
+flops.</p>
+<p>Avec cette définition, le nombre d’opérations nécessaires pour effectuer
+le produit est de l’ordre de <span class="math notranslate nohighlight">\(n^3\)</span> flops. On verra
+plus loin que ce coût, très élevé, est en fait équivalent au coût de la
+résolution d’un système linéaire à <span class="math notranslate nohighlight">\(n\)</span> inconnues.</p>
+<div class="proof property admonition" id="property-10">
+<p class="admonition-title"><span class="caption-number">Property 4 </span> (Propriétés du produit matriciel)</p>
+<div class="property-content section" id="proof-content">
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\({\bf A(BC)}\)</span> = <span class="math notranslate nohighlight">\({\bf (AB)C}\)</span> [associativité du produit]</p></li>
+<li><p><span class="math notranslate nohighlight">\({\bf A(B+C)}\)</span> = <span class="math notranslate nohighlight">\({\bf AB}\)</span> + <span class="math notranslate nohighlight">\({\bf AC}\)</span> [distributivité par
+rapport à la somme]</p></li>
+<li><p><span class="math notranslate nohighlight">\(({\bf AB})^\top ={\bf B}^\top {\bf A}^\top\)</span> [transposition du
+produit]</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\({\bf A}\in \mathcal{M}_{m,n}(\mathbb{R})\)</span>, <span class="math notranslate nohighlight">\({\bf A\mathbb I}\)</span> =
+<span class="math notranslate nohighlight">\({\bf\mathbb I A}\)</span> = <span class="math notranslate nohighlight">\({\bf A}\)</span> [la première matrice identité est de
+taille <span class="math notranslate nohighlight">\(n\)</span>, la seconde de taille <span class="math notranslate nohighlight">\(m\)</span>]</p></li>
+</ol>
+</div>
+</div><p>Le produit matriciel correspond à une composition de transformations linéaires.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+
+<span class="k">def</span> <span class="nf">plot_vector2d</span><span class="p">(</span><span class="n">vector2d</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="o">**</span><span class="n">options</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">plt</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="n">origin</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">origin</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">vector2d</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vector2d</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+              <span class="n">head_width</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">head_length</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">length_includes_head</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">u</span><span class="p">)</span>
+<span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@B</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="n">u</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  
+<span class="n">plot_vector2d</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">2.1</span><span class="p">,</span> <span class="mf">5.1</span><span class="p">,</span> <span class="s2">&quot;u&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plot_vector2d</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">7.1</span><span class="p">,</span> <span class="s2">&quot;v=Bu&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plot_vector2d</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mf">8.5</span><span class="p">,</span> <span class="s2">&quot;Av&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  
+<span class="n">plot_vector2d</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">2.1</span><span class="p">,</span> <span class="mf">5.1</span><span class="p">,</span> <span class="s2">&quot;u&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plot_vector2d</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mf">8.5</span><span class="p">,</span> <span class="s2">&quot;ABu&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="produit-par-blocs">
+<h2>Produit par blocs<a class="headerlink" href="#produit-par-blocs" title="Lien permanent vers ce titre">#</a></h2>
+<p>Soient deux matrices :</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\({\bf A} = ({\bf A_{ij}}), i\in[\![1,m]\!], j\in[\![1, n]\!]\)</span> où <span class="math notranslate nohighlight">\({\bf A_{ij}}\in \mathcal{M}_{m_i,n_j}(\mathbb R)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\({\bf B} = ({\bf B_{kl}}),   k\in[\![1, n]\!], l\in[\![1, p]\!]\)</span> où <span class="math notranslate nohighlight">\({\bf B_{kl}}\in \mathcal{M}_{n_k,p_l}(\mathbb R)\)</span></p></li>
+</ul>
+<p id="index-8">Tous les produits <span class="math notranslate nohighlight">\({\bf A_{ik}}{\bf B_{kl}}\)</span> sont bien définis. Le
+produit par blocs des matrices <span class="math notranslate nohighlight">\({\bf A}\)</span> et <span class="math notranslate nohighlight">\({\bf B}\)</span> est défini par
+<span class="math notranslate nohighlight">\({\bf AB}= (({\bf AB})_{il})\)</span> avec :
+<span class="math notranslate nohighlight">\((\forall i\in  [\![ 1, m]\!])(\forall l\in  [\![ 1, p]\!])\quad ({\bf AB})_{il}  = \displaystyle\sum_{k=1}^n {\bf A_{ik}B_{kl}}\)</span></p>
+<p>L’écriture du produit est la même que dans le paragraphe précédent, mais
+la somme fait intervenir des produits de matrices, et non de scalaires.
+C’est pourquoi il faut prendre garde à la non commutativité des produits
+<span class="math notranslate nohighlight">\({\bf A_{ik}B_{kl}}\)</span> et respecter l’ordre des facteurs.</p>
+</div>
+<div class="section" id="inverse-d-une-matrice">
+<h2>Inverse d’une matrice<a class="headerlink" href="#inverse-d-une-matrice" title="Lien permanent vers ce titre">#</a></h2>
+<div class="proof definition admonition" id="definition-11">
+<p class="admonition-title"><span class="caption-number">Definition 19 </span> (Inverse)</p>
+<div class="definition-content section" id="proof-content">
+<span class="target" id="index-9"></span><p id="index-10">Soit <span class="math notranslate nohighlight">\({\bf A}\in \mathcal{M}_{n}(\mathbb{R})\)</span> une matrice carrée
+de taille <span class="math notranslate nohighlight">\(n\)</span>. L’inverse de <span class="math notranslate nohighlight">\({\bf A}\)</span>, notée <span class="math notranslate nohighlight">\({\bf A^{-1}}\)</span>, est
+l’unique matrice (lorsqu’elle existe) telle que
+<span class="math notranslate nohighlight">\({\bf A}{\bf A^{-1}}={\bf A^{-1}}{\bf A}=\mathbb I.\)</span></p>
+</div>
+</div><p>A noter que l’inverse d’une matrice (carrée) n’existe pas toujours. Pour
+assurer l’existence, il faut et il suffit que
+<span class="math notranslate nohighlight">\({\bf A}{\bf x}={\bf 0}\quad\Leftrightarrow\quad {\bf x}={\bf 0}.\)</span></p>
+<div class="cell tag_inv docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]])</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="proof property admonition" id="property-12">
+<p class="admonition-title"><span class="caption-number">Property 5 </span> (Propriétés de l’inverse)</p>
+<div class="property-content section" id="proof-content">
+<ol class="simple">
+<li><p>(<span class="math notranslate nohighlight">\({\bf A^{-1}})^{-1}={\bf A}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(({\bf AB})^{-1}={\bf B^{-1}}{\bf A^{-1}}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(({\bf A^\top )^{-1}}=({\bf A^{-1}})^\top\)</span></p></li>
+<li><p>Si <span class="math notranslate nohighlight">\({\bf C}\)</span> inversible et <span class="math notranslate nohighlight">\({\bf AC}={\bf BC}\)</span> alors
+<span class="math notranslate nohighlight">\({\bf A}={\bf B}\)</span>.</p></li>
+</ol>
+</div>
+</div></div>
+<div class="section" id="matrices-particulieres">
+<h2>Matrices particulières<a class="headerlink" href="#matrices-particulieres" title="Lien permanent vers ce titre">#</a></h2>
+<ul class="simple">
+<li><p>Quand <span class="math notranslate nohighlight">\(m=n\)</span>, on parle de matrice carrée.</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(m=n\)</span>, la matrice <span class="math notranslate nohighlight">\({\bf A}\)</span> telle que <span class="math notranslate nohighlight">\((\forall i\neq j) a_{ij}=0\)</span> est une matrice diagonale.</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(m=n\)</span>, la matrice <span class="math notranslate nohighlight">\({\bf A}\)</span> telle que
+<span class="math notranslate nohighlight">\((\forall i\in  [\![ 1,n]\!]) (\forall j\in  [\![ 1, i-1]\!])\)</span>
+(resp. <span class="math notranslate nohighlight">\((\forall j\in  [\![ i+1,n]\!])\)</span>) <span class="math notranslate nohighlight">\(a_{ij}=0\)</span> est une matrice
+triangulaire supérieure (resp. inférieure).</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(m=n\)</span> et <span class="math notranslate nohighlight">\((\forall i,j\in  [\![ 1, m]\!]) a_{ij} = a_{ji}\)</span>, la
+matrice <span class="math notranslate nohighlight">\({\bf A}\)</span> est dite symétrique.</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(m=n\)</span> et <span class="math notranslate nohighlight">\({\bf A^T}{\bf A} = {\bf A}{\bf A^T} = \mathbb I\)</span>,
+<span class="math notranslate nohighlight">\({\bf A}\)</span> est une matrice orthogonale</p></li>
+<li><p>si <span class="math notranslate nohighlight">\(m=1\)</span>, la matrice est un vecteur ligne. C’est la transposée d’un
+vecteur de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>.</p></li>
+<li><p>si <span class="math notranslate nohighlight">\(n=1\)</span>, la matrice est un vecteur de <span class="math notranslate nohighlight">\(\mathbb R^m\)</span>.</p></li>
+<li><p>Une sous-matrice d’une matrice <span class="math notranslate nohighlight">\({\bf A}\)</span> est une matrice obtenue en
+supprimant certaines lignes et certaines colonnes de <span class="math notranslate nohighlight">\({\bf A}\)</span>. En
+particulier, si on supprime les lignes et colonnes associées au même
+sous-ensemble d’indices de <span class="math notranslate nohighlight">\([\![1,n]\!]\)</span> d’une matrice carrée de
+taille <span class="math notranslate nohighlight">\(n\)</span>, on obtient une sous-matrice principale. Les déterminants
+des sous-matrices principales sont les mineurs de la matrice.</p></li>
+</ul>
+<div class="sd-tab-set docutils">
+<<<<<<< HEAD
+<input checked="checked" id="32ce9129-089f-4046-973c-c8772ffe8786" name="58dfd86e-33fa-4fd6-9012-f0691ec91111" type="radio">
+</input><label class="sd-tab-label" for="32ce9129-089f-4046-973c-c8772ffe8786">
+Diagonale</label><div class="sd-tab-content docutils">
+<p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;0&amp;0\\0&amp;-4&amp;0\\0&amp;0&amp;1\end{pmatrix}\)</span></p>
+</div>
+<input id="0f6f52a0-7f3f-4202-aa0c-37c52c17effd" name="58dfd86e-33fa-4fd6-9012-f0691ec91111" type="radio">
+</input><label class="sd-tab-label" for="0f6f52a0-7f3f-4202-aa0c-37c52c17effd">
+Triang. sup. </label><div class="sd-tab-content docutils">
+<p><span class="math notranslate nohighlight">\(\begin{pmatrix} 3&amp;2&amp;1\\0&amp;-4&amp;2\\0&amp;0&amp;1 \end{pmatrix}\)</span></p>
+</div>
+<input id="6ce04708-9406-4a9b-973d-c42d693cc469" name="58dfd86e-33fa-4fd6-9012-f0691ec91111" type="radio">
+</input><label class="sd-tab-label" for="6ce04708-9406-4a9b-973d-c42d693cc469">
+Triang. inf.</label><div class="sd-tab-content docutils">
+<p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;0&amp;0\\1&amp;-4&amp;0\\5&amp;8&amp;1 \end{pmatrix}\)</span></p>
+</div>
+<input id="f608709a-20f3-4bc5-90c2-aad863141d88" name="58dfd86e-33fa-4fd6-9012-f0691ec91111" type="radio">
+</input><label class="sd-tab-label" for="f608709a-20f3-4bc5-90c2-aad863141d88">
+=======
+<input checked="checked" id="2fe231df-44d7-479e-8ded-e2323e32b250" name="8fd29c5e-88cb-4d84-8a11-5d6554c12525" type="radio">
+</input><label class="sd-tab-label" for="2fe231df-44d7-479e-8ded-e2323e32b250">
+Diagonale</label><div class="sd-tab-content docutils">
+<p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;0&amp;0\\0&amp;-4&amp;0\\0&amp;0&amp;1\end{pmatrix}\)</span></p>
+</div>
+<input id="4475c6d6-5438-4403-811c-5c1a5ee1a8d1" name="8fd29c5e-88cb-4d84-8a11-5d6554c12525" type="radio">
+</input><label class="sd-tab-label" for="4475c6d6-5438-4403-811c-5c1a5ee1a8d1">
+Triang. sup. </label><div class="sd-tab-content docutils">
+<p><span class="math notranslate nohighlight">\(\begin{pmatrix} 3&amp;2&amp;1\\0&amp;-4&amp;2\\0&amp;0&amp;1 \end{pmatrix}\)</span></p>
+</div>
+<input id="293b78c5-fa40-4cde-9dfc-bca42abd44ea" name="8fd29c5e-88cb-4d84-8a11-5d6554c12525" type="radio">
+</input><label class="sd-tab-label" for="293b78c5-fa40-4cde-9dfc-bca42abd44ea">
+Triang. inf.</label><div class="sd-tab-content docutils">
+<p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;0&amp;0\\1&amp;-4&amp;0\\5&amp;8&amp;1 \end{pmatrix}\)</span></p>
+</div>
+<input id="30e2a99b-81b3-4be7-ae30-5c436a452ffb" name="8fd29c5e-88cb-4d84-8a11-5d6554c12525" type="radio">
+</input><label class="sd-tab-label" for="30e2a99b-81b3-4be7-ae30-5c436a452ffb">
+>>>>>>> 467086c3d3ed2654ce463d958a8dae974f96b9a4
+Vecteur ligne </label><div class="sd-tab-content docutils">
+<p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;2&amp;1&amp;-4&amp;0&amp;3.5 \end{pmatrix}\)</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="image-de-bf-a">
+<h2>Image de <span class="math notranslate nohighlight">\({\bf A}\)</span><a class="headerlink" href="#image-de-bf-a" title="Lien permanent vers ce titre">#</a></h2>
+<p>Une matrice <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{m,n}(\mathbb{R})\)</span> représente une
+transformation linéaire de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span> dans <span class="math notranslate nohighlight">\(\mathbb R^m\)</span>. Pour tout
+<span class="math notranslate nohighlight">\({\bf x}\in\mathbb R^n\)</span>, on définit l’image de <span class="math notranslate nohighlight">\({\bf x}\)</span> par la
+transformation <span class="math notranslate nohighlight">\({\bf A}\)</span> comme le vecteur <span class="math notranslate nohighlight">\({\bf y}\in \mathbb R^m\)</span> tel que
+<span class="math notranslate nohighlight">\({\bf y}={\bf A}{\bf x}=\sum_{j=1}^n {\bf A_{\bullet j}}x_j,\quad {\bf A_{\bullet j}}\in\mathbb R^m,\ j\in  [\![ 1, n]\!].\)</span></p>
+<div class="proof definition admonition" id="definition-13">
+<p class="admonition-title"><span class="caption-number">Definition 20 </span> (Image d’une matrice )</p>
+<div class="definition-content section" id="proof-content">
+<span class="target" id="index-11"></span><p id="index-12">Le sous-espace de <span class="math notranslate nohighlight">\(\mathbb R^m\)</span> engendré par les
+colonnes de <span class="math notranslate nohighlight">\({\bf A}\)</span> est appelé <em>sous-espace image</em> de <span class="math notranslate nohighlight">\({\bf A}\)</span>, noté
+<span class="math notranslate nohighlight">\(\mathrm{Im}({\bf A})\)</span>.</p>
+</div>
+</div><p>C’est donc l’ensemble des <span class="math notranslate nohighlight">\({\bf y}\)</span> de <span class="math notranslate nohighlight">\(\mathbb R^m\)</span> qui s’écrivent sous la
+forme <span class="math notranslate nohighlight">\({\bf A}{\bf x}\)</span> pour un certain <span class="math notranslate nohighlight">\({\bf x}\)</span> de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>.<br />
+<span class="math notranslate nohighlight">\(\mathrm{Im}({\bf A})\)</span> est clairement un sous-espace vectoriel de
+<span class="math notranslate nohighlight">\(\mathbb R^m\)</span>.</p>
+<div class="cell tag_im docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">init_printing</span><span class="p">,</span> <span class="n">Matrix</span><span class="p">,</span> <span class="n">symbols</span>
+<span class="n">init_printing</span><span class="p">(</span><span class="n">use_latex</span> <span class="o">=</span> <span class="s1">&#39;mathjax&#39;</span><span class="p">)</span> 
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="n">imA</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">columnspace</span><span class="p">()</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L&#39;image de A est le sous-espace engendré par &quot;</span><span class="p">)</span>
+<span class="n">imA</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="proof definition admonition" id="definition-14">
+<p class="admonition-title"><span class="caption-number">Definition 21 </span> (Rang d’une matrice )</p>
+<div class="definition-content section" id="proof-content">
+<span class="target" id="index-13"></span><p id="index-14">Soit <span class="math notranslate nohighlight">\({\bf A}\in \mathcal{M}_{m,n}(\mathbb{R})\)</span> Le
+rang de <span class="math notranslate nohighlight">\({\bf A}\)</span>, noté <span class="math notranslate nohighlight">\(\mathrm{rang}({\bf A})\)</span>, est le nombre maximal
+de colonnes de <span class="math notranslate nohighlight">\({\bf A}\)</span> linéairement indépendantes. C’est aussi le
+nombre maximal de lignes linéairement indépendantes. On a donc
+<span class="math notranslate nohighlight">\(\mathrm{rang}({\bf A})\le \min\{m,n\}.\)</span></p>
+</div>
+</div><div class="cell tag_im docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rang de A = &quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>De la définition précédente, on tire le résultat fondamental suivant
+<span class="math notranslate nohighlight">\(\dim\left(\mathrm{Im}({\bf A})\right)=\mathrm{rang}({\bf A}).\)</span></p>
+<p>Soit <span class="math notranslate nohighlight">\({\bf A}=\begin{pmatrix} 1&amp;0&amp;-2\\0&amp;1&amp;0\\-1&amp;0&amp;2\end{pmatrix}\)</span>.<br />
+Manifestement, la première et la troisième colonne sont liées, tandis que
+les deux premières sont linéairement indépendantes. <span class="math notranslate nohighlight">\({\bf A}\)</span>, qui
+réalise une transformation linéaire de <span class="math notranslate nohighlight">\(\mathbb R^3\)</span> dans <span class="math notranslate nohighlight">\(\mathbb R^3\)</span>, a
+donc pour image le plan
+<span class="math notranslate nohighlight">\(lin\left (\begin{pmatrix}1\\0\\-1 \end{pmatrix},\begin{pmatrix} 0\\1\\0 \end{pmatrix}  \right )\)</span>.<br />
+<span class="math notranslate nohighlight">\({\bf A}\)</span> est donc de rang 2.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "vbarra/anbook.git",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="ev.html" title="précédent page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">précédent</p>
+            <p class="prev-next-title">Espaces Vectoriels</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="sl.html" title="suivant page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title">Systèmes d’équations linéaires</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Vincent BARRA<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
