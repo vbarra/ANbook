@@ -391,9 +391,9 @@ le second membre du système)
 
 1. $\displaystyle\sum{x_n\leftarrow \frac{a_{n,n+1}}{a_{nn}}}$
 2. Pour $k=n-1,\ldots,1$
-    1. $\displaystyle\sum{x_k\leftarrow \frac{1}{a_{kk}}\left[
+    1. $x_k\leftarrow \frac{1}{a_{kk}}\left[
                                   a_{k,n+1}-\sum_{j=k+1}^na_{kj}x_j
-                                               \right]}$
+                                               \right]$
 ```
 
 
@@ -452,9 +452,9 @@ le second membre du système)
 
 1. $\displaystyle\sum{x_n\leftarrow \frac{a_{n,n+1}}{a_{nn}}}$
 2. Pour $k=n-1,\ldots,1$
-    1. $\displaystyle\sum{x_k\leftarrow \frac{1}{a_{kk}}\left[
+    1. $x_k\leftarrow \frac{1}{a_{kk}}\left[
                                   a_{k,n+1}-\sum_{j=k+1}^na_{kj}x_j
-                                               \right]}$
+                                               \right]$
 ```
 
 
