@@ -1,0 +1,20 @@
+format: jb-book
+root: intro
+parts:
+  - caption: Tutoriels
+    chapters:
+    - file: Tutoriel-jupyter
+    - file: Tutoriel-numpy
+    - file: Tutoriel-matplotlib
+  - caption: Introduction au calcul matriciel
+    chapters:
+    - file: ev
+    - file: matrices
+    - file: sl
+    - file: ch1exos
+  - caption: Elimination de Gauss
+    chapters:
+    - file: ch2    
+    - file: gauss    
+    - file: lu  
+    - file: genindex

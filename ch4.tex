@@ -1,0 +1,841 @@
+\chapter {Moindres carrés et transformations orthogonales}
+{\tiny \minitoc}
+
+
+
+\onenparle{gram}{Jorgen Gram (1850-1916) est un mathématicien danois. Il passa l'essentiel de sa vie à travailler dans le domaine des assurances. Sa nomination à l'académie des sciences danoise, ainsi que la médaille d'or de cette académie reçue en 1884, démontre la valeur de ce scientifique, qui, outre le procédé d'orthonormalisation, donna son nom à un déterminant permettant de calculer des volumes et de tester l'indépendance linéaire d'une famille de vecteurs. }
+%-----------------------------------------
+\section{Projections orthogonales}
+%-----------------------------------------
+
+On s'intéresse ici aux mécanismes de calcul de la projection orthogonale d'un vecteur de \R$^n$ sur un sous-espace. Les résultats fondamentaux d'existence, d'unicité et de caractérisation de la projection orthogonale d'un point sur un sous-espace, valables dans des espaces plus généraux que \R$^n$, sont rappelés ci-après. Dans tout le chapitre,
+la norme vectorielle utilisée, et notée $\|\cdot\|$, est la {norme euclidienne}.
+
+\begin{theo}{Théorème de projection}{}
+\label{T:proj}
+Soit $L$ un sous-espace vectoriel de \R$^n$. Étant donné un vecteur ${\bf y}\in\mbb R^n$, il existe un unique vecteur ${\bf p}\in L$, appelé projection orthogonale\index{projection orthogonale}
+de ${\bf y}$ sur $L$ (figure \ref{F:proj}), tel que :
+$$(\forall {\bf x}\in L)\ \norme{{\bf y}-{\bf p}}\leq \norme{{\bf y}-{\bf x}}$$
+Une condition nécessaire et suffisante pour que ${\bf p}\in L$ soit la projection orthogonale de ${\bf y}$ sur $L$ est ${\bf y}-{\bf p}\in L^\bot$
+\end{theo}
+
+\begin{figure}[htbp]
+\begin{center}
+\begin{tikzpicture}
+ \tkzDefPoint(5.5,2){0}
+\tkzDefPoint(7.5,4){y}
+\tkzDefPoint(7.5,2){p}
+
+\filldraw[fill=blue!20!] (2.5,1) -- (8.5,1) --  (10.5,3) -- (4.5,3) -- (2.5,1);
+\draw[->] (5.5,2) -- (7.5,4)node[anchor=south] {${\bf y}$};
+\draw[->,blue] (	5.5,2) -- (4.8,2.5)node[anchor=south] {${\bf x}$};
+\draw[->,red] (5.5,2) -- (7.5,2)node[anchor=south] {${\bf p}$};
+  \draw[dashed,red] (7.5,4) -- (7.5,2);
+  \draw[dashed,blue] (7.5,4) -- (4.8,2.5);
+  \tkzMarkRightAngle[color=red](0,p,y) %% This added
+
+\draw ((3.5,1.5)node[anchor=west, font=\footnotesize] {$L$};
+
+\end{tikzpicture}
+\caption[Projection orthogonale]{Projection orthogonale}
+\label{F:proj}
+\end{center}
+\end{figure}
+
+\textsc{Démonstration.} \\
+\textit{1) Existence:} On peut supposer que ${\bf y}\notin L$ et on introduit 
+$$\varepsilon=\inf_{{\bf x}\in L}\|{\bf y}-{\bf x}\|>0.$$ On veut trouver ${\bf p}\in L$ tel que $\|{\bf p}-{\bf y}\|=\varepsilon$. Soit une suite
+$\{{\bf p_i}\}$ de vecteurs de $L$ tels que $\|{\bf y}-{\bf p_i}\|\rightarrow\varepsilon$. On a alors (loi du parallélogramme)
+$$
+\|({\bf p_j}-{\bf y})+({\bf y}-{\bf p_i})\|^2+\|({\bf p_j}-{\bf y})-({\bf y}-{\bf p_i})\|^2=2\|{\bf p_j}-{\bf y}\|^2+2\|{\bf y}-{\bf p_i}\|^2.
+$$
+Soit
+$$
+\|{\bf p_j}-{\bf p_i}\|^2=2\|{\bf p_j}-{\bf y}\|^2+2\|{\bf y}-{\bf p_i}\|^2-4\|{\bf y}-({\bf p_i}+{\bf p_j})/2\|^2.
+$$
+Comme $({\bf p_i}+{\bf p_j})/2\in L$, on a 
+$$
+\|{\bf y}-({\bf p_i}+{\bf p_j})/2\|^2\ge \varepsilon^2,
+$$
+ce qui permet de majorer
+$$
+\|{\bf p_j}-{\bf p_i}\|^2\le 2\|{\bf p_j}-{\bf y}\|^2+2\|{\bf y}-{\bf p_i}\|^2-4\varepsilon^2.
+$$
+Par passage à la limite, on déduit que $\|{\bf p_j}-{\bf p_i}\|\rightarrow 0$. Ce qui prouve que la suite des 
+${\bf p_i}$ est une suite de Cauchy\footnote{Une suite de Cauchy est une suite de vecteurs $\{{\bf x_k}\}$
+qui satisfait $\lim_{k,\ell\rightarrow+\infty}\|{\bf x_k}-{\bf x_\ell}\|=0$. Toute suite convergente est bien sûr de Cauchy
+mais l'inverse n'est pas toujours vrai dans les espaces vectoriels normés généraux. C'est toujours vrai dans 
+les espaces de Hilbert (donc dans $\mbb R^n$).}
+
+
+% On prend un $l \in L$ et on applique 
+% le théorème de Weierstrass\footnote{Si $K$ est un compact non vide et $f$ est
+% continue, alors le problème $\min_{x\in K} f(x)$ admet une solution} \index{théorème!de Weierstrass} 
+% sur le compact  $L \cap B(y, \|y-l\|)$ pour la fonction continue et bornée inférieurement $\|x-y\|$.\\
+
+
+\textit{2) Orthogonalité:} Supposons qu'il existe ${\bf x}\in L$ tel que ${\bf x^T} ({\bf y}-{\bf p})=\delta \neq 0$. On peut supposer que $\|{\bf x}\|=1$. On prend ${\bf p_1}={\bf p}+\delta {\bf x}$ et on écrit : \[  \|{\bf y}-{\bf p_1}\|^2=\|{\bf y}-{\bf p}\|^2-2 ({\bf y}-{\bf p})^T (\delta {\bf x}) + \delta^2 = \|{\bf y}-{\bf p}\|^2- \delta^2 < \|{\bf y}-{\bf p}\|^2 \]
+d'où la contradiction.\\
+\textit{3) Unicité:} Supposons qu'il existe un ${\bf x}\ne {\bf p}$ qui réalise le minimum.
+On applique le théorème de Pythagore :
+\[ (\forall {\bf x} \in L)\ \|{\bf y}-{\bf x}\|^2=\|{\bf y}-{\bf p}+{\bf p}-{\bf x}\|^2  = \|{\bf y}-{\bf p}\|^2 + \|{\bf p}-{\bf x}\|^2  > \| {\bf y}-{\bf p}\|^2 \]
+d'où la contradiction. 
+
+%--------------------------------------------------------------------------
+\subsection{Projection sur une droite passant par l'origine}
+\label{drt}
+Une droite qui passe par l'origine est un sous-espace de dimension 1. Soit ${\bf y}\in \mbb R^n$ et $D$ le sous-espace de vecteurs engendrés par un vecteur ${\bf v}$ non nul : $$D=\{{\bf z}\in \mbb R^n /{\bf z}=\lambda {\bf v},\lambda\in \mbb R\}$$
+Si ${\bf p}\in D$ est la projection orthogonale de ${\bf y}$ sur la droite, on peut écrire  : ${\bf y}={\bf p}+{\bf u}$, avec ${\bf p}=\lambda {\bf v}$ et ${\bf u^T}{\bf v}=0$. (figure \ref{F:projD})\\
+
+On remarque que la dernière relation signifie que ${\bf u}\in D^\bot$ et donc que ${\bf u}$ est la projection orthogonale de ${\bf y}$ sur $D^\bot$.
+Alors :
+$${\bf v^T}  {\bf y}=\lambda {\bf v^T}  {\bf v} \Rightarrow \lambda=\frac{1}{{\bf v^T}{\bf v} }. {\bf v^T}  {\bf y}$$
+soit
+$${\bf p}=\frac{ {\bf v^T}  {\bf y}}{ {\bf v^T}  {\bf v}}.{\bf v}$$
+
+Ainsi, cette expression qui exprime le fait que ${\bf p}$ a la même direction que ${\bf v}$ peut s'écrire différemment pour représenter la transformation qui transforme ${\bf y}$ en ${\bf p}$.\\
+On vérifie que $({\bf v^T}  {\bf y}){\bf v} = ({\bf v} {\bf v^T}){\bf y}$ où l'on observe que $ {\bf v^T}  {\bf y}\in \mbb R$ alors que ${\bf v} {\bf v^T}\in\mathcal{M}_n(\mbb R)$  de rang 1 (toutes les colonnes sont des multiples de ${\bf v}$) qui { projette} l'espace $\mbb R^n$ sur la droite $D$. La projection orthogonale sur une droite qui passe par l'origine est donc une transformation linéaire, de matrice :\index{matrice!de projection}
+$${\bf P}=\frac{1}{\norme{{\bf v}}^2}{\bf v}{\bf v^T} $$
+\begin{figure}[hbtp!]
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=0.65]
+\clip(-3.52,-2.76) rectangle (7.36,5.76);
+\draw [->] (0.,0.) -- (0.,4.);
+\draw [->] (0.,0.) -- (-2.84,-2.02);
+\draw[-](0,0) -- (7.68,-3.28);
+\draw [->,line width=1.6pt,blue] (0.,0.) -- (3.84,3.62);
+\draw [->,line width=1.2pt,cyan] (0.,0.) -- (3.84,-1.64);
+\draw [->,line width=1.6pt,red] (0.,0.) -- (1.536,-0.656);
+\draw [->,line width=1.6pt,orange] (0.,0.) -- (1.54,3.62);
+\draw [dash pattern=on 4pt off 4pt] (3.84,3.62)-- (3.84,-1.64);
+\draw [dash pattern=on 4pt off 4pt] (3.84,3.62)-- (1.54,3.62);
+\draw [->] (0.,0.) -- (5.34,-1.3);
+\draw (-0.54,4.74) node[anchor=north west] { $x_3$ };
+\draw (-3.2,-1.4) node[anchor=north west] { $x_1$ };
+\draw (5.48,-0.96) node[anchor=north west] { $x_2$ };
+\draw (3.84,3.62) node[anchor=north west] { $\textcolor{blue}{{\bf y}}$ };
+\draw (3.84,-1.64) node[anchor=north west] { $\textcolor{cyan}{{\bf p}}$ };
+\draw (1.536,-0.656) node[anchor=north west] { $\textcolor{red}{{\bf v}}$ };
+\draw (1.54,3.62) node[anchor=north west] { $\textcolor{red}{{\bf u}}$ };
+\draw (5.76,-2.1) node[anchor=north west] { $D$ };
+\end{tikzpicture}
+
+\end{center}
+\caption{Projection sur une droite : exemple dans $\mbb R^3$}
+\label{F:projD}
+\end{figure}
+
+{\rem :
+\begin{enumerate}
+	\item Comme ${\bf p}={\bf Py}$, la projection orthogonale sur le sous-espace orthogonal $D^\bot$ est \\${\bf u}={\bf y}-{\bf p}=(\mbb I-{\bf P}){\bf y}$, donc $\mbb I-{\bf P}$ est la matrice de projection orthogonale sur $D^\bot$.
+	\item Soit $\theta$ l'angle entre les directions des vecteurs ${\bf v}$ et ${\bf y}$. On a alors :
+	$$cos(\theta)=\frac{{\bf v^T}{\bf  y}}{\norme{{\bf v}}\norme{{\bf y}}}$$
+	et on en déduit l'inégalité de Schwarz : 
+	$$(\forall {\bf x},{\bf y}\in \mbb R^n)\quad  |{\bf x^T}  {\bf y}|\leq \norme{{\bf x}}\norme{{\bf y}}$$
+\end{enumerate}
+}
+\exemple{
+Dans $\mbb R^2$, la projection sur l'axe des abscisses, dirigé par ${\bf v}=\begin{pmatrix}1 \\0\\\end{pmatrix}$, est effectuée par \mbox{${\bf P}= \begin{pmatrix}1&0\\0&0\end{pmatrix}$} et on a bien ${\bf p}={\bf Py}=\begin{pmatrix}y_1 \\0\\\end{pmatrix}$}
+
+\subsection{Projection sur une droite ne passant pas par l'origine}
+On utilise la représentation d'une droite comme un sous-espace affine parallèle à un sous-espace : 
+$$D=\{{\bf z}\in \mbb R^n / {\bf z}={\bf z_0}+\lambda {\bf v},\lambda \in \mbb R\}$$
+Soit ${\bf y}\in \mbb R^n$ et ${\bf p}$ sa projection orthogonale sur la droite $D$. Alors :\\
+${\bf y}={\bf p}+{\bf u}$ avec ${\bf p}={\bf z_0}+\lambda {\bf v}$ et ${\bf u^T}  {\bf v}=0$, d'où ${\bf p}={\bf z_0}+{\bf P}({\bf y}-{\bf z_0})=(\mbb I-{\bf P}){\bf z_0}+{\bf P}{\bf y}$,\\
+ où ${\bf P}$ est la matrice de projection sur le sous-espace engendré par ${\bf v}$ obtenu dans le paragraphe \ref{drt}.
+ 
+\subsection{Projection sur un sous-espace}\label{ssev}
+Soit ${\bf A}\in\mathcal{M}_{n,r}(\mbb R)$  de rang $r$ (donc $r\leq n$). Considérons la projection ${\bf p}$ d'un vecteur  ${\bf y}\in\mbb R^n$ sur le sous-espace image de ${\bf A}$ (figure \ref{F:projImA}).
+\begin{figure}[hbtp!]
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=0.5]
+\clip(-3.52,-2.76) rectangle (7.36,5.76);
+\filldraw[fill=blue!20!] (-3.5,-2) -- (3.5,-2) --  (5.5,1) -- (-0.5,1) -- (-3.5,-2);
+\draw[-](0,0) -- (0,4);
+
+\draw [->,line width=1.6pt,blue] (0.,0.) -- (3.84,3.62);
+\draw [->,line width=1.2pt,cyan] (0.,0.) -- (3.84,-1.64);
+\draw [->,line width=1.6pt,orange] (0.,0.) -- (0,3.62);
+\draw [dash pattern=on 4pt off 4pt] (3.84,3.62)-- (3.84,-1.64);
+\draw [dash pattern=on 4pt off 4pt] (3.84,3.62)-- (0,3.62);
+\draw (-0.54,4.74) node[anchor=north west] { $Ker({\bf A^T})$ };
+
+\draw (3.84,3.62) node[anchor=north west] { $\textcolor{blue}{{\bf y}}$ };
+\draw (3.84,-1.64) node[anchor=north west] { $\textcolor{cyan}{{\bf p}}$ };
+\draw (1.54,3.62) node[anchor=north west] { $\textcolor{red}{{\bf u}}$ };
+\draw (-3.5,-2) node[anchor=north west] { $ Im({\bf A})$ };
+\end{tikzpicture}
+
+\end{center}
+\caption{Projection sur un sous-espace}
+\label{F:projImA}
+\end{figure}
+
+Alors ${\bf y}={\bf p}+{\bf u}$ avec ${\bf p}={\bf Ax},{\bf x}\in \mbb R^r$ et ${\bf A^T}{\bf u}=0$ car ${\bf u}\in (Im({\bf A}))^\perp = Ker({\bf A^T})$.\\
+On obtient alors : ${\bf A^T} {\bf y}={\bf A^T}{\bf Ax}$, et comme ${\bf A}$ est de rang plein, la matrice ($r\times r$) ${\bf A^T A}\in\mathcal{M}_{r}(\mbb R)$ est inversible et :\\
+${\bf p}={\bf Py}$ avec ${\bf P}={\bf A(A^T A)^{-1}A^T }$.\\
+De plus, on retrouve la matrice de projection orthogonale $\mbb I -{\bf P}$ sur le noyau de ${\bf A^T }$.
+
+{\rem Si $r=1$ on retrouve la formule trouvée dans le paragraphe \ref{drt}.}
+%-----------------------------------
+\subsection{Matrices de projection}
+%-----------------------------------
+
+Les matrices de projection\index{matrice!de projection} sont des matrices
+qui possèdent les deux propriétés suivantes : 
+\begin{itemize}
+	\item ${\bf P}={\bf P^T} $ \rm [symétrie]
+	\item ${\bf P}^2={\bf P}$\rm  [idempotence]
+\end{itemize}
+Les matrices de projection sont en général singulières, puisqu'elles ramènent l'espace à un sous-espace de dimension plus petite. De plus, elles contractent les normes : $\norme{{\bf Py}}\leq \norme{{\bf y}}$.
+
+%--------------------------------------------------------------
+\section{Moindres carrés linéaires}
+%--------------------------------------------------------------
+\subsection{Modélisation}
+On observe un système $\mathcal S$ qui produit, pour une sollicitation en entrée $t$ donnée, une sortie $Y$ (par exemple la vitesse d'un coureur en fonction du temps, la température d'une pièce mesurée chaque seconde,...). L'objectif est de construire un modèle théorique de $\mathcal S$, qui reproduise aussi fidèlement que possible le comportement du système.\\
+On se donne donc un modèle (une fonction) $f_{\bf x}$, paramétrée par $n$ paramètres ${\bf x}=\left (x_1\cdots x_n\right )^T\in\mbb R^n$, qui calcule pour chaque entrée $t$ la valeur $f_{\bf x}(t) = y$. \\
+Pour $m$ entrées $t_i, 1\leq i\leq m$, on souhaite donc que les valeurs $y_i=f_{\bf x}(t_i)$ calculées par le modèle soient les plus proches possibles des valeurs théoriques $Y_i$ mesurées sur $\mathcal S$. L'ajustement du modèle se fait à l'aide du vecteur de paramètres ${\bf x}$.\\
+L'erreur entre le modèle théorique et la sortie mesurée pour l'entrée $t_i$ est $e_i=y_i-Y_i$ et la solution aux moindres carrés 
+consiste à choisir  ${\bf x}$ qui minimise la somme des carrés des erreurs. On pose donc le problème :
+\begin{center}
+Trouver ${\bf x}\in \mbb R^n$ tel que $\dps\sum_{i=1}^me_i^2$ soit minimale.
+\end{center}
+Si la fonction $f_{\bf x}$ est  linéaire par rapport aux paramètres ${\bf x}$, alors le modèle s'écrit 
+$f_{\bf x}(t_i) = {\bf a_i}^T{\bf x}$ et on parle de problème au moindres carrés linéaires. \\
+
+Soient ${\bf Y}\in \mbb R^m$ le vecteur des valeurs $Y_i$ mesurées sur $\mathcal{S}$, ${\bf e}\in \mbb R^m$ le vecteur dont les composantes sont les erreurs $e_i$ et  ${\bf A}\in\mathcal{M}_{mn}(\mbb R)$ la matrice dont les lignes sont les ${\bf a_i^T} $. Le problème consiste alors à :
+\begin{center}
+
+Trouver ${\bf x}\in \mbb R^n$ qui  minimise $\norme{{\bf Ax}-{\bf Y}}^2$.
+\end{center}
+
+Dans $\mbb R^m$, il s'agit donc de trouver le point de l'image de ${\bf A}$ le plus proche au sens de la norme euclidienne du vecteur ${\bf Y}$ (qui a peu de chances d'appartenir à $Im({\bf A})$, car $m>>n$). L'unique solution (cf.  théorème \ref{T:proj}) est  la  projection orthogonale du vecteur ${\bf Y}$ sur le sous-espace $Im({\bf A})$. La solution a déjà été calculée au paragraphe \ref{ssev}, c'est la solution du système linéaire suivant, dit système aux équations normales : 
+$${\bf A^T Ax}={\bf A^T Y}$$
+Si $\rang({\bf A})=n$ (hypothèse raisonnable car $m>>n$ et les ${\bf a_i}$ dépendent des entrées $t_i$), ce système a une solution unique 
+$${\bf x}={\bf (A^T A)^{-1}A^T Y}$$ 
+dite solution aux moindres carrés. La matrice ${\bf A^+}={\bf (A^T A)^{-1}A^T}$ (Attention !! ce n'est pas la matrice de projection) est la pseudo inverse de la matrice rectangulaire ${\bf A}$. Elle satisfait ${\bf A^+A}=\mbb I$ et ${\bf AA^+}={\bf P}$.
+
+
+\exemple{
+Le système $\mathcal{S}$ produit pour les entrées $t_i =\{-1,0,1\}$ les sorties $Y_i=\{4,5,9\}$\\
+On modélise $\mathcal{S}$ à l'aide d'un modèle affine $y=\alpha+\beta t$, où $\alpha$ et $\beta$ sont deux paramètres à déterminer pour minimiser au sens des moindres carrés l'erreur des trois mesures.\\
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Point&$t_i$&$Y_i$&$y_i$\\
+\hline
+$P_1$&-1&4&$\alpha-\beta$\\
+$P_2$&0&5&$\alpha$\\
+$P_3$&1&9&$\alpha+\beta$\\
+\hline
+\end{tabular}
+\end{center}
+Le système 
+\[{\bf Ax} = {\bf Y} :
+\left \{
+\begin{array}{ccccc}
+\alpha & - & \beta& = & 4 \\
+\alpha &  & & = & 5 \\
+\alpha & + & \beta& = & 9 \\
+\end{array}
+\right.
+\] 
+n'a bien sûr pas de solution. On construit les équations normales en multipliant 
+le système par 
+$${\bf A^T} =\left [\begin{array}{ccc}1 & 1 & 1\\-1 & 0 & 1\\\end{array}\right]$$
+Comme
+$$
+{\bf A^T A}=\left[\begin{array}{cc}3 & 0\\0 & 2\end{array}\right] 
+\textrm{ et }
+{\bf (A^T A)^{-1}}=\left [\begin{array}{cc}1/3 & 0\\0 & 1/2\\\end{array}\right]
+$$
+la solution aux moindres carrés est donc $\alpha=6$ et $\beta=5/2$.
+Le vecteur des erreurs ${\bf Y}-{\bf Ax}=(1/2$ $-1$ $1/2)^T $ est bien orthogonal dans $R^3$ aux colonnes de ${\bf A}$. Chaque erreur peut être également représentée par la distance verticale entre la mesure ${ Y_i}$ et la droite $f(t)=6+\frac{5}{2}t$ pour $t=t_i$ (segments rouges).\\
+\begin{center}
+\includegraphics[width=.5\textwidth]{images/ls1D}
+%\begin{tikzpicture}
+%\begin{axis}[enlargelimits=false,
+%             axis lines=middle,
+%			 xlabel={$t$},
+% 		 ylabel={$f_{\bf x}(t)$},
+%             samples=100,  
+%             xmin=	-2.5,
+%  			xmax=2.5,
+% 			 ymin=0,
+% 			 ymax=10,
+% 			 grid
+%             ]
+%  \addplot[domain=-2.5:2.5,no marks,orange,line width=1.1pt] {6 + 2.5*(x)};
+%  \node at (axis cs:-1,4){\color{blue}$\bullet$};
+%  \node at (axis cs:0,5){\color{blue}$\bullet$};
+%  \node at (axis cs:1,9){\color{blue}$\bullet$};
+%  \draw[red,line width=1.4pt] (axis cs:-1,4) -- node[left]{} (axis cs:-1,3.5);
+%  \draw[red,line width=1.4pt] (axis cs:0,5) -- node[left]{} (axis cs:0,6);
+%  \draw[red,line width=1.4pt] (axis cs:1,9) -- node[left]{} (axis cs:1,8.5);
+%\end{axis}
+%\end{tikzpicture}
+\end{center}
+}
+
+
+\exemple{
+Le système $\mathcal{S}$ produit pour les entrées $t_i =\{-2,-1,0,1,2\}$ les sorties \\$Y_i=\{3,1,-0.5,1.5,4\}$.
+\\On modélise $\mathcal{S}$ par un polynôme $P(t)=\alpha+\beta t+\gamma t^2 = {\bf a^T}{\bf x}$, où ${\bf x}=\begin{pmatrix}\alpha\\\beta\\\gamma\end{pmatrix} $et ${\bf a}=\begin{pmatrix}1\\t\\t^2\end{pmatrix}$. On recherche les valeurs de $\alpha,\beta,\gamma$ qui minimisent la somme des carrés des erreurs entre les valeurs théoriques et les valeurs mesurées.
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Point&$t_i$&$Y_i$&$y_i$\\
+\hline
+$P_1$&-2&3&$\alpha-2\beta+4\gamma$\\
+$P_2$&-1&1&$\alpha-\beta+\gamma$\\
+$P_3$&0&-0.5&$\alpha$\\
+$P_4$&1&1.5&$\alpha+\beta+\gamma$\\
+$P_5$&2&4&$\alpha+2\beta+4\gamma$\\
+\hline
+\end{tabular}
+\end{center}
+En posant ${\bf A}=\begin{pmatrix}
+1&-2&4\\1&-1&1\\1&0&0\\1&1&1\\1&2&4
+\end{pmatrix}$ et ${\bf Y}\begin{pmatrix}
+3\\1\\-0.5\\1.5\\4
+\end{pmatrix}
+$, on cherche ${\bf x}$ qui minimise $\norme{{\bf Ax}-{\bf Y}}^2$, soit encore ${\bf x}$ solution du système aux équations normales ${\bf A^T Ax}={\bf A^T Y}$\\
+On a alors $${\bf A^T A}=\begin{pmatrix}5&0&10\\0&10&0\\10&0&34\end{pmatrix}\quad{\bf A^T Y}=\begin{pmatrix}9\\2.5\\30.5\end{pmatrix}\textrm{ d'où } P(t)=\frac{1}{70}+\frac{1}{4}t+\frac{25}{28}t^2$$
+}
+%-----------------------------------------
+\subsection{Systèmes incompatibles}
+%-----------------------------------------
+Soit un système linéaire incompatible\index{système!incompatible}
+${\bf Ax}={\bf b}$, où ${\bf A}\in\mathcal{M}_{mn}(\mbb R)$ est telle que $\rang({\bf A})<m$ et ${\bf b}\notin Im({\bf A})$. On supposera par exemple (comme dans le cas des moindres carrés) que $m>n$ et $\rang({\bf A})=n$. Le système n'a donc pas de solution, et on le remplace par le système aux équations normales obtenu en le multipliant par ${\bf A^T} $ : 
+$${\bf A^T Ax}={\bf A^T b}$$
+Ce système est en général mal conditionné car $\sigma({\bf A^T A}) = \sigma^2({\bf A})$ dans le cas d'une matrice carrée ${\bf A}$. La méthode de Gauss risque d'être inefficace et on lui préférera des méthodes basées sur des transformations orthogonales qui ont l'avantage d'être numériquement stables.\\\\
+Finalement, si les colonnes de ${\bf A}$ sont orthonormées ({\it i.e.} orthogonales deux à deux et de norme 1) ${\bf A^T A}=\mbb I$ (l'identité dans la \og petite\fg{} dimension $n$) et la solution des équations normales est simplement ${\bf x^*}={\bf A^T b}$. La  \og bonne\fg{} stratégie pour résoudre le problème des moindres carrés est donc de construire une base orthonormée de $Im({\bf A})$ pour calculer explicitement la projection. On verra au paragraphe \ref{trortho} que cette construction revient à triangulariser la matrice par des transformations orthogonales.
+
+
+%-------------------------------------------------------------------------------------
+\section{Transformations orthogonales}\label{trortho}
+%--------------------------------------------------------------------------------------
+
+\subsection{Matrices orthogonales}
+\begin{defin}{Matrice orthogonale}{}
+Une matrice carrée ${\bf H}$ est dite {orthogonale}\index{matrice!orthogonale}
+si et seulement si ${\bf H^T}{\bf H}={\bf H}{\bf H^T} = \mbb I$
+\end{defin}
+Une matrice orthogonale est donc une matrice carrée dont les colonnes sont orthonormées. Les matrices de rotation, de symétrie, de permutation et l'identité sont des exemples de matrices orthogonales.\\
+Une matrice orthogonale ${\bf H}$ est naturellement inversible par définition, et l'inverse est ${\bf H^{-1}}={\bf H^T} $.\\\\
+
+\begin{prop}{Propriété fondamentale}{}
+Les transformations orthogonales\index{transformation!orthogonale}
+sont des isométries, les normes (euclidiennes), les produits scalaires et les angles sont conservés : 
+$$({\bf H} \textrm{ orthogonale}) \Leftrightarrow (\forall {\bf x}\in \mbb R^n)\norme{{\bf Hx}}=\norme{{\bf x}}$$
+\end{prop}
+
+En effet, $\norme{{\bf Hx}}^2=({\bf Hx)^T} ({\bf Hx})={\bf x^T H^T Hx}={\bf x^T x}=\norme{{\bf x}}^2$.\\
+Cette propriété entraîne une stabilité numérique des méthodes utilisant ces transformations. On les utilise principalement pour :
+\begin{itemize}
+	\item orthonormaliser un système de générateurs,
+	\item résoudre un systèmes aux équations normales,
+	\item triangulariser un système mal conditionné,
+	\item calculer les valeurs propres d'une matrice.
+\end{itemize}
+
+\noindent
+\vskip 5pt 
+Soit ${\bf Q}\in\mathcal{M}_n(\mbb R)$ orthogonale, de colonnes 
+${\bf q_1},{\bf q_2},\ldots,{\bf q_n}$. On a alors, pour tout ${\bf x}\in\mbb R^n$, une représentation unique sur la base 
+orthonormée telle que
+$$
+{\bf x}=\displaystyle\sum_{i=1}^n ({\bf q_i^T} {\bf x}){\bf q_i}
+$$
+ $({\bf q_i^T} {\bf x}){\bf q_i}$ est la projection orthogonale de ${\bf x}$ sur l'axe ${\bf q_i}$. Cette représentation se
+généralise aisement à une base orthonormée quelconque ${\bf q_1},{\bf q_2},\ldots,{\bf q_r}$ d'un sous-espace de dimension
+$r$ (cf. exercice \ref{exo44})
+
+%-------------------------------------------------
+\subsection{Orthogonalisation de Gram-Schmidt}
+%-------------------------------------------------
+\index{orthogonalisation de Gram-Schmidt}
+
+A partir d'une famille de $p$ vecteurs linéairement indépendants de \R$^n$, représentés par une matrice \mbox{${\bf A}\in\mathcal{M}_{n,p}(\mbb R)$} de rang $p$, on peut construire une famille $\{{\bf q_1}\cdots {\bf q_p}\}$, base orthonormée de $Im({\bf A})$. C'est un outil fondamental pour la résolution de systèmes surdéterminés.\\
+L'idée générale est donc de construire une base orthonormée du sous-espace image d'un ensemble de vecteurs. L'intérêt numérique est que cette construction équivaut à triangulariser la matrice formée par ces vecteurs. L'algorithme \ref{A:GS} et la figure \ref{F:GS} présentent le procédé d'orthonormalisation de Gram-Schmidt qui, s'il est simple à comprendre, ne présente qu'un intérêt académique puisqu'il est très coûteux. En pratique, on utilise la méthode de factorisation { QR} qui permet d'atteindre le même objectif grâce à des transformations orthogonales élémentaires ({rotations de Givens} ou transformations de { Householder}) numériquement stables et seulement deux fois plus chères que la méthode de Gauss.\\
+
+Le principe de Gram-Schmidt est de calculer, pour $j\in[\![2,p]\!]$,  chaque vecteur ${\bf q_j}$ en soustrayant à  ${\bf  A_{\bullet,j}}$ ses projections orthogonales sur les $j-1$
+ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le résultat.
+
+
+\begin{algorithm}
+\Entree{${\bf A}\in\mathcal{M}_{n,p}(\mbb R)$ de rang $p$}
+\Sortie{${\bf Q_1}\in\mathcal{M}_{n,p}(\mbb R)$ à colonnes orthonormées, ${\bf R_1}\in\mathcal{M}_{p}(\mbb R)$ triangulaire supérieure}
+\Deb{
+$r_{11} = \norme{{\bf A_{\bullet,1}}}$\\
+${\bf q_{{1}}} = \frac{{\bf A_{\bullet,1}}}{r_{11}}$\\
+\Pour {$j$=2 à $p$}{
+${\bf p_j}={\bf A_{\bullet,j}}$\\
+\Pour {$i$=1 à $j-1$}{
+$r_{ij}={\bf A_{\bullet,j}^T}{\bf q_{{i}}}$\\
+${\bf p_j}={\bf p_j}- r_{ij}{\bf q_{{i}}}$\\
+}
+$r_{jj} = \norme{{\bf p_j}}$\\
+${\bf q_{{j}}} = \frac{{\bf p_j}}{r_{jj}}$\\
+}}
+\caption{Procédé d'orthonormalisation de Gram-Schmidt - version de base}
+\label{A:GS}
+\end{algorithm}
+
+
+\begin{figure}[hbtp!]
+\begin{tabular}{ccccc}
+	\begin{tikzpicture}[scale=0.4]
+\draw[line width=1.5pt,blue,-stealth](0,0)--(2,1) node[anchor=south west]{$ {\bf A_{\bullet,1}}$};
+\draw[line width=1.5pt,green,-stealth](0,0)--(1,5) node[anchor=south west]{$ {\bf A_{\bullet,2}}$};
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale=0.4]
+\draw[line width=1pt,blue,opacity=0.5,-stealth](0,0)--(2,1) node[anchor=south west]{$ {\bf A_{\bullet,1}}$};
+\draw[line width=1.5pt,red,-stealth](0,0)--(1,0.5) node[anchor=south west]{$ {\bf q_{1}}$};
+\draw[line width=2pt,green,-stealth](0,0)--(1,5) node[anchor=south west]{$ {\bf A_{\bullet,2}}$};
+\end{tikzpicture}&
+\begin{tikzpicture}[scale=0.4]
+\draw[line width=1pt,black,opacity=0.2](0,0)--(5,2.5) node[anchor=south west]{};
+\draw[black,dashed](1,5)--(3.5,1.7) ;
+\draw[line width=2pt,red,-stealth,opacity=0.5](0,0)--(1,0.5) node[anchor=south west]{$ {\bf q_{1}}$};
+\draw[line width=2pt,orange,-stealth](0,0)--(4,1.9) node[anchor=south west]{$ ({\bf A_{\bullet,2}^T}{\bf q_{{1}}}){\bf q_{{1}}}$};
+\draw[line width=2pt,green,-stealth](0,0)--(1,5) node[anchor=south west]{$ {\bf A_{\bullet,2}}$};
+\end{tikzpicture}&
+\begin{tikzpicture}[scale=0.4]
+\draw[line width=2pt,red,-stealth,](0,0)--(1,0.5) node[anchor=south west]{$ {\bf q_{1}}$};
+\draw[line width=2pt,orange,-stealth,opacity=0.5](1,5)--(-2,3.9) node[anchor=south]{$ ({\bf A_{\bullet,2}^T}{\bf q_{{1}}}){\bf q_{{1}}}$};
+\draw[line width=2pt,green,-stealth](0,0)--(1,5) node[anchor=south west]{$ {\bf A_{\bullet,2}}$};
+\draw[line width=2pt,blue,-stealth](0,0)--(-2,3.9) node[anchor=north west]{$ {\bf p_2}$};
+\end{tikzpicture}&
+\begin{tikzpicture}[scale=0.4]
+\draw[line width=2pt,red,-stealth,](0,0)--(1,0.5) node[anchor=south west]{$ {\bf q_{1}}$};
+\draw[line width=2pt,blue,-stealth,opacity=0.5](0,0)--(-2,3.9) node[anchor=north west]{$ {\bf p_2}$};
+\draw[line width=2pt,red,-stealth,](0,0)--(-0.6,1.1) node[anchor=south west]{$ {\bf q_2}$};
+\end{tikzpicture}\\
+Vecteurs initiaux& Calcul de ${\bf q_1}$ et $r_{11}$&Calcul de $r_{12}$&${\bf p_2}={\bf p_2}- r_{12}{\bf q_{{1}}}$&${\bf q_{{2}}}$
+\end{tabular}
+
+\caption{Illustration du procédé d'orthonormalisation de Gram-Schmidt dans $\mbb R^2$}
+\label{F:GS}
+\end{figure}
+On remarque (voir boucles de l'algorithme) que la matrice ${\bf R_1}$ est triangulaire supérieure. \\
+Gram-Schmidt construit donc une matrice ${\bf Q_1}\in\mathcal{M}_{n,p}(\mbb R)$ à colonnes orthormées et une matrice ${\bf R_1}\in\mathcal{M}_{p}(\mbb R)$ telles que ${\bf Q_1^T}{\bf A} = {\bf R_1}$ soit ${\bf A}$=${\bf Q_1R_1}$.
+
+\exemple{
+Soit ${\bf A} = \begin{pmatrix} 1&1\\1&0\\1&1\end{pmatrix}$. Alors ${\bf A} ={\bf QR}$ avec ${\bf Q} = \begin{pmatrix} \textcolor{blue}{\frac{1}{\sqrt{3}}}&\textcolor{magenta}{\frac{1}{\sqrt{6}}}\\\textcolor{blue}{\frac{1}{\sqrt{3}}}&\textcolor{magenta}{-\frac{\sqrt 2}{\sqrt 3}}\\\textcolor{blue}{\frac{1}{\sqrt{3}}}&\textcolor{magenta}{\frac{1}{\sqrt{6}}}\end{pmatrix}$ et ${\bf R} = \begin{pmatrix} \textcolor{red}{\sqrt{3}}&\textcolor{orange}{\frac{2}{\sqrt{3}}}\\0&\textcolor{cyan}{\sqrt{\frac{2}{3}}}\end{pmatrix}$. En effet : 
+\begin{enumerate}
+\item \textcolor{red}{$r_{11}$} = $\norme{{\bf A_{\bullet,1}}}$ = \textcolor{red}{$\sqrt{3}$}
+\item \textcolor{blue}{${\bf q_{1}} $}= $\frac{1}{\sqrt{3}}{\bf A_{\bullet,1}}$= \textcolor{blue}{$\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}$}
+\item \textcolor{orange}{$r_{12}$}=${\bf A_{\bullet,2}^Tq_1}=\begin{pmatrix}1&0&1\end{pmatrix}.\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}$ =  \textcolor{orange}{$\frac{2}{\sqrt{3}}$}
+\item ${\bf p_2}={\bf A_{\bullet,2}}- r_{12}{\bf q_{{1}}}=\begin{pmatrix}1\\0\\1\end{pmatrix}-\frac{2}{\sqrt{3}}.\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}=\begin{pmatrix}\frac{1}{3}\\-\frac{2}{3}\\\frac{1}{3}\end{pmatrix}$
+\item \textcolor{cyan}{$r_{22}$} = $\norme{{\bf p_2}} $= \textcolor{cyan}{$\sqrt{\frac{2}{3}}$}
+\item \textcolor{magenta}{${\bf q_{2}} $} = $\frac{{\bf p_2}}{r_{22}}$ = \textcolor{magenta}{$\begin{pmatrix}\frac{1}{\sqrt{6}}\\-\frac{\sqrt 2}{\sqrt 3}\\\frac{1}{\sqrt{6}}\end{pmatrix} $} 
+\end{enumerate}
+}
+
+
+Il est possible de compléter ${\bf q_1}\cdots {\bf q_p}$ en une base orthonormée de $\mbb R^n$, en continuant la procédure de Gram-Schmidt avec $n-p$ vecteurs arbitraires, mais tels que les $n$ colonnes formées avec les ${\bf A_{\bullet,j}}$ soient linéairement indépendantes. Soit ${\bf Q_2}$ la matrice des $n-p$ derniers vecteurs orthonormés. On a alors bien :\\
+${\bf A^T} {\bf Q_2}={\bf R_1^T} {\bf Q_1^T} {\bf Q_2}=0$ ce qui montre que :
+${\bf A}={\bf QR}=[{\bf Q_1}\ {\bf Q_2}]\cdot\left [\begin{array}{c}{\bf R_1} \\{\bf 0} \\\end{array}\right]={\bf Q_1R_1}$.\\
+\vskip 20pt
+\begin{center}
+{\bfseries Les colonnes de ${\bf Q_1}$ forment une base orthonormée de $Im({\bf A})$, et les colonnes de ${\bf Q_2}$ forment 
+une base orthonormée de $Ker({\bf A^T})$}.
+\end{center}
+\vskip 20pt
+
+Appliqué au problème des moindres carrés, le système aux équations normales s'écrit donc 
+\begin{eqnarray*}
+{\bf A^TAx}&=& {\bf A^Tb}\\
+{\bf (Q_1R_1)^T(Q_1R_1)x}&=& {\bf (Q_1R_1)^Tb}\\
+{\bf R_1^TQ_1^TQ_1R_1x}&=& {\bf R_1^TQ_1^Tb}\\
+{\bf R_1^TR_1x}&=& {\bf R_1^TQ_1^Tb}\\
+{\bf R_1x}&=& {\bf Q_1^Tb}
+\end{eqnarray*}
+La dernière simplification étant possible car ${\bf R_1}$ est inversible (trangulaire supérieure, les éléments de la diagonale étant des normes, donc strictement positifs). La solution du 
+problème des moindres carrés est solution du système triangulaire 
+$$
+{\bf R_1x}= {\bf Q_1^Tb}
+$$
+et le calcul de l'erreur donne
+$$
+\|{\bf e}\|^2=\|{\bf b}\|^2-\displaystyle\sum_{i=1}^p  ({\bf b^T} {\bf q_i})^2$$
+
+%---------------------------------------------------
+\subsection{Transformations de Householder}
+%----------------------------------------------------
+
+On peut interpréter la méthode de Gram-Schmidt comme une méthode de triangularisation de la matrice ${\bf A}$, au même titre que la méthode de Gauss. Il est possible de réorganiser les calculs en construisant des transformations élémentaires orthogonales qui effectuent cette triangularisation colonne par colonne (ou élément par élément). Les symétries de Householder\index{transformation!de Householder}
+et les rotations de Givens sont des exemples simples et intéressants de telles transformations, car elles conduisent à des algorithmes numériquement plus stables que la méthode de Gram-Schmidt.\\
+\begin{defin}{Matrice de Householder}{}
+Une matrice de Householder\index{matrice!de Householder}
+est une matrice carrée ${\bf H}$ qui s'écrit ${\bf H}=\mbb I-2{\bf P}$, où ${\bf P}$ est
+la matrice de projection\index{matrice!de projection}
+sur la droite engendrée par un vecteur ${\bf v}$ non nul.
+\end{defin}
+On vérifie (figure  \ref{46}) que ${\bf H}$ représente une symétrie\index{symétrie}
+par rapport au sous-espace ${\bf v^\perp}$.
+
+\begin{figure}[hbtp!]
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=0.5]
+\clip(-5,-5) rectangle (7.36,5.76);
+\filldraw[fill=blue!20!] (-3.5,-2) -- (3.5,-2) --  (5.5,1) -- (-0.5,1) -- (-3.5,-2);
+
+\draw [->,line width=1.6pt,blue] (0.,0.) -- (3.84,3.62);
+\draw [->,line width=1.2pt,orange] (0.,0.) -- (3.84,-3.62);
+\draw [->,line width=1.6pt,red] (0.,0.) -- (0,3.62);
+\draw [-] (3.84,3.62)-- (3.84,0);
+\draw [dash pattern=on 4pt off 4pt] (3.84,0)-- (3.84,-3.62);
+\draw (-0.54,4.74) node[anchor=north west] { $v$ };
+
+\draw (3.84,3.62) node[anchor=north west] { $\textcolor{blue}{{\bf x}}$ };
+\draw (3.84,-3.62) node[anchor=north west] { $\textcolor{orange}{{\bf Hx}}$ };
+\draw (-3.5,-2) node[anchor=north west] { $ {\bf v}^\perp$ };
+\end{tikzpicture}
+\end{center}
+\caption{Transformation de Householder}
+\label{46}
+\end{figure}
+
+Le théorème suivant montre qu'il est toujours possible de trouver une matrice de Householder\index{matrice!de Householder}
+permettant de transformer un vecteur quelconque en un vecteur colinéaire à un vecteur donné 
+\begin{theo}{}{}
+\label{T:householder}
+Soient ${\bf f}$ et ${\bf e}$ deux vecteurs non colinéaires de $\mathbb{R}^n$; avec $\|{\bf e}\|_2=1$. Il est alors possible de trouver ${\bf u}\in \mathbb{R}^n$ tel que 
+\begin{enumerate}
+	\item $\|{\bf u}\|_2=1$
+	\item ${\bf H(u)f}=\alpha {\bf e}$
+\end{enumerate}
+\end{theo}
+
+\textsc{Démonstration:} 
+Remarquons tout d'abord que si ${\bf H(u)}$ est une matrice de Householder, alors ${\bf H(u)f}={\bf f-2u(u^T f)}$ et $\|{\bf H(u)f}\|_2=\|{\bf f}\|_2$.\\
+Posons alors $\mid\alpha\mid=\|{\bf f}\|_2$. On cherche alors ${\bf u}$ tel que ${\bf H(u)f}=\alpha {\bf e}$, soit 
+\begin{align*}
+{\bf f-2u(u^T f)}&=\alpha {\bf e}\\
+{\bf u}&=\frac{1}{2{\bf u^T f}}({\bf f-}\alpha {\bf e})
+\end{align*}
+Si $\beta={\bf u^T f}$, en multipliant à gauche par ${\bf f^T} $ :
+$$2\beta^2=\alpha^2-\alpha {\bf f^T e}$$
+et $\beta$ existe si $\alpha^2-\alpha {\bf f^T e}>0$. Or l'inégalité de Cauchy-Schwarz
+\index{inégalité!de Cauchy-Schwarz} nous donne
+$$\mid {\bf f^T e}\mid\leq\|{\bf f}\|_2\|{\bf e}\|_2=\|\alpha\|$$
+et l'inégalité est de plus stricte par hypothèse (${\bf f}$ et ${\bf e}$ non colinéaires). Ainsi :
+$${\bf u}=\frac{1}{2\beta}({\bf f}-\alpha {\bf e)}$$ répond à la question.
+
+ 
+\begin{rem}
+Si ${\bf f}$ et ${\bf  e}$ sont colinéaires, ${\bf H}=\mbb I$ ou ${\bf H}=\mbb I-2{\bf ee^T }$ répondent à la question.
+\end{rem}
+
+L'algorithme d'orthonormalisation  de ${\bf A}$ par matrices de Householder  opère alors colonne par colonne, et transforme itérativement ${\bf A}$ en une matrice triangulaire supérieure.
+
+
+On l'illustre dans la suite (algorithme \ref{A:HS}) dans le cas où ${\bf A}\in\mathcal{M}_n(\mbb R)$ est de rang plein.
+
+\begin{algorithm}[H]
+\Entree{${\bf A}\in\mathcal{M}_n(\mbb R)$}
+\Sortie{${\bf Q}\in\mathcal{M}_n(\mbb R)$ orthogonale, ${\bf R}\in\mathcal{M}_n(\mbb R)$ triangulaire supérieure}
+\Deb{
+${\bf A^{(1)}}={\bf A}$\\
+\Pour {$j$=1 à $n-1$}
+{
+(i) Soit ${\bf f_j}\in \mbb R^{n-j+1}$ le vecteur commençant à l'élément $(j,j)$ de ${\bf A^{(j)}}$\\
+(ii) On construit  (théorème \ref{T:householder}) ${\bf {\tilde H^{(j)}}}\in\mathcal{M}_{n-j+1}(\mbb R)$ telle que ${\bf \tilde{H^{(j)}}f_j} = \norme{{\bf f_j}} {\bf e^{(j)}_1}$, ${\bf e^{(j)}_1}$ premier vecteur de la base canonique de $\mbb R^{n-j+1}$\\
+(iii) On construit \[{\bf H^{(j)}} =
+\left (
+\begin{array}{lll|l}
+\bovermat{j-1}{1 &\cdots &0&}\\
+  \vdots&\ddots &\vdots &{\bf 0}\\
+0 & \cdots& 1& \\
+\hline
+ & {\bf 0}& & {\bf \tilde{H^{(j)}}}\\
+ 
+\end{array}
+\right )\in\mathcal{M}_n(\mbb R)
+\] 
+
+(iv) On calcule ${\bf A^{(j+1)}} = {{\bf H^{(j)}}\bf A^{(j)}}$
+}
+${\bf R}={\bf A^{(n-1)}}$ et ${\bf Q} =  {\bf {H^{(1)}}^T}{\bf {H^{(2)}}^T} \cdots  {\bf {H^{(n-1)}}^T}$
+}
+\caption{Factorisation {\bf QR} par matrices de Householder}
+\label{A:HS}
+\end{algorithm}
+
+A l'issue des $n-1$ itérations, on a effectué les produits ${\bf H^{(n-1)}} \cdots {\bf H^{(2)}} {\bf H^{(1)}}$ pour obtenir une matrice triangulaire supérieure ${\bf R}\in\mathcal{M}_n(\mbb R)$ à partir de ${\bf A}$. Donc :
+$${\bf H^{(n-1)}} \cdots {\bf H^{(2)}} {\bf H^{(1)}}{\bf A} = {\bf R}$$
+De plus les ${\bf H^{(j)}}, j\in[\![1, n-1]\!]$ sont orthogonales donc
+$${\bf A} ={\bf {H^{(1)}}^T}{\bf {H^{(2)}}^T} \cdots  {\bf {H^{(n-1)}}^T} {\bf R}$$
+Le produit des matrices ${\bf{ H^{(j)}}^T}$ est également une matrice orthogonale, et on pose 
+$${\bf Q} = {\bf {H^{(1)}}^T}{\bf {H^{(2)}}^T} \cdots  {\bf {H^{(n-1)}}^T}$$ 
+pour finalement obtenir 
+$${\bf A} = {\bf QR}$$
+
+On illustre cet algorithme sur les deux premières itérations :
+\begin{enumerate}
+\item $j$=1 : 
+\begin{maliste}
+\item On construit ${\bf H^{(1)}}$ telle que ${\bf H^{(1)}A^{(1)}_{\bullet,1}}$ =${\bf e_1}$, premier vecteur de la base canonique de $\mbb R^n$
+\item ${\bf A^{(2)}}={\bf H^{(1)}A^{(1)}} = \begin{pmatrix}{\norme{{\bf A^{(1)}_{\bullet,1}}}}&a^{(2)}_{12}&*&\cdots &*\\0&a^{(2)}_{22}&*&\cdots &*\\0&\vdots&\vdots&\vdots&\vdots\\0&a^{(2)}_{n2}&*&\cdots &*\end{pmatrix}$
+\end{maliste}
+\item$ j$=2 : 
+\begin{maliste}
+\item soit ${\bf f_2} = \begin{pmatrix}a^{(2)}_{22}\\\vdots\\a^{(2)}_{n2}\end{pmatrix}\in \mbb R^{n-1}$
+\item On construit ${\bf \tilde{H^{(2)}}}\in\mathcal{M}_{n-1}(\mbb R)$ telle que ${\bf \tilde{H^{(2)}}f_2} = \norme{{\bf f_2}} {\bf e^{(2)}_1}$, ${\bf e^{(2)}_1}$ premier vecteur de la base canonique de $\mbb R^{n-1}$
+\item On construit
+${\bf H^{(2)}} =\left (
+\begin{array}{l|l}
+1&{\bf 0}\\
+\hline
+ {\bf 0} & {\bf \tilde{H^{(2)}}}\\
+\end{array}
+\right )\in\mathcal{M}_n(\mbb R)
+$ telle que $${\bf A^{(3)}}={\bf H^{(2)}A^{(2)}}\begin{pmatrix}{\norme{{\bf A^{(1)}_{\bullet,1}}}}&\ast&\ast&\cdots &\ast\\0&\norme{{\bf f_2}}&a^{(3)}_{23}&\cdots &\ast\\0&0&a^{(3)}_{33}&\vdots&\vdots\\0&0&a^{(3)}_{n3}&\cdots &*\end{pmatrix}$$
+\end{maliste}
+\end{enumerate}
+
+\aretenir{
+  \begin{enumerate}
+  \item Projections : définitions, propriétés.
+  \item Moindres carrés : savoir résoudre un problème aux moindres carrés, en passant par le système aux équations normales
+  \item Savoir décomposer une matrice A sous la forme QR, par Gram Schmidt
+  \item Interpréter géométriquement cette décomposition.
+\end{enumerate}
+}
+%--------------------------------
+\section{Exercices}
+%--------------------------------
+
+\begin{exo}\rm
+Trouver la meilleure approximation, $\bar x$, au sens des moindres carrés, du
+système
+$$
+3x=10,\qquad 4x= 5.
+$$
+Déterminer le carré de l'erreur $e^2$ et montrer que le vecteur erreur
+$(10-3\bar x\;  5-4\bar x)^T $ est orthogonal à $(3\; 4)^T $
+\end{exo}
+
+
+\begin{exo}\rm
+Trouver la droite $f(t)=at+b$ qui approche le mieux (au sens des moindres
+carrés) les mesures : $$ f(0)=0,\quad f(1)=1,\quad f(3)=2,\quad f(4)=5. $$
+\end{exo}
+
+
+\begin{exo}\rm
+Soit $$P=\frac{1}{\parallel v\parallel^2}vv^T ,$$ la matrice de 
+projection sur la droite de direction $v$.
+
+Interpréter géométriquement la matrice $Q=I-2P$. Montrer que $Q^2=I$ et
+$Q^T =Q$ (\textit{i.e.} $Q$ est orthogonale). Soit $y=(y_1, y_2)\in\mbb R^2$.
+Déterminer $v$ pour que la seconde coordonnée de $z=Qy$ soit nulle.
+\end{exo}
+
+\begin{exo}\label{exo44}\rm
+Projeter le vecteur $b=(0\; 3\; 0)^T $ sur les droites de directions 
+respectives 
+$$
+a^1=\left(\begin{array}{r}2/3\\ 2/3\\ -1/3\end{array}\right),\quad
+a^2=\left(\begin{array}{r}-1/3\\ 2/3\\ 2/3\end{array}\right).
+$$
+
+Trouver la projection de $b$ sur le plan engendré par $a^1$ et $a^2$.
+\end{exo}
+
+\begin{exo}[Examen novembre 2005]\rm
+ On se donne
+$$
+A_1=\left[\begin{array}{cc}1 & -1\\ 1 & 0\\ 1 & 1\\ 1 & 2\end{array}
+  \right]\quad\mbox{et }\ 
+b=\left[\begin{array}{c}1 \\ 1\\ 0\\ 1 \end{array}
+  \right]
+$$
+
+a) Mettre $A_1$ sous la forme $Q_1R_1$ où $Q_1$ est une matrice $4\times 2$ de colonnes
+orthonormées $q_1$ et $q_2$, et $R_1$ une matrice $2\times 2$ triangulaire supérieure.
+
+b) Calculer la solution aux moindres carrés du système incompatible
+$$
+A_1x_1=b
+$$
+et l'erreur $e_1$ correspondante.
+
+c) On rajoute la colonne $a_3=[1\ 0\ 1\ 4]^T $ à la matrice $A_1$ pour avoir
+$A_2=[A_1\ a_3]$. Mettre $A_2$ sous la forme $Q_2R_2$ et calculer la solution aux moindres
+carrés du système
+$$
+A_2x_2=b
+$$ 
+Calculer l'erreur $e_2$ correspondante et montrer que $e_2=e_1^2-(q_3^T b)^2$,
+où $q_3$ est la troisième colonne de $Q_2$. Justifier cette diminution dans le cas général.
+\end{exo}
+
+\begin{exo}[Examen février 2001]\rm
+ On se propose de déterminer les coefficients du polynôme
+$$
+p(x)=\sum_{k=0}^na_kx^k
+$$
+qui approche <<au mieux>> une fonction $y=f(x)$, connue à travers $m+1$ 
+couples $(x_i,y_i)$, $i=0,\ldots,m$; avec $m\ge n$. On supposera que tous les
+points de mesure $x_i$, $i=0,\ldots,m$, sont {\it distincts}. 
+Pour la suite on pose
+${\bf x}=(x_0,\ldots,x_m)$ et ${\bf y}=(y_0,\ldots,y_m)$.
+
+Pour ${\bf a}=(a_0,a_1,\ldots,a_n)\in \mbb R^{n+1}$, on définit
+$$
+J({\bf a})=\sum_{i=0}^m\Bigl[y_i-p(x_i)\Bigr]^2.
+$$
+\begin{enumerate}
+\item Caractériser la solution ${\bf a}^\ast$ qui minimise $J({\bf a})$
+sur $\mbb R^{n+1}$. Quelle est l'interprétation du polynôme $p(x)$
+quand $m=n$. Quelle est alors la valeur de $J({\bf a}^\ast)$.
+
+\item Montrer qu'il existe une matrice $U$, rectangulaire à $(m+1)$ lignes
+et $(n+1)$ colonnes, telle que, si ${\bf a}^\ast$ est un point stationnaire de
+$J$, alors
+$$
+U^{T}U{\bf a}^\ast=U^{T}{\bf y}.
+$$
+\item On suppose que $n=1$, i.e. $p(x)=a_0+a_1x$. On pose
+\begin{eqnarray*}
+&&\bar{{\bf x}}=\frac{1}{m+1}\sum_{i=0}^mx_i,\qquad
+           \bar{{\bf y}}=\frac{1}{m+1}\sum_{i=0}^my_i,\\[3pt]
+&&\sigma({\bf x}^2)=\frac{1}{m+1}\sum_{i=0}^m(x_i-\bar{{\bf x}})^2,\qquad
+  \sigma({\bf x},{\bf y})=\frac{1}{m+1}\sum_{i=0}^m
+         \left(x_i-\bar{{\bf x}}\right)\left(y_i-\bar{{\bf y}}\right).
+\end{eqnarray*}
+Montrer que
+$$
+a_1=\frac{\sigma({\bf x},{\bf y})}{\sigma({\bf x}^2)},\qquad
+a_0=\bar{{\bf y}}-a_1\bar{{\bf x}} 
+$$
+et en déduire que le <<point moyen>> $(\bar{{\bf x}},\bar{{\bf y}})$ 
+appartient à la droite $y=a_0+a_1x$.
+\end{enumerate}
+\end{exo}
+
+\begin{exo}[Examen décembre 1996]\rm 
+ On se donne 
+$$
+A = \left[\begin{array}{ccc}1 & 2 & -1 \\ 2 & 1 &  4 \\ 1 & 1 &  1\end{array}\right]
+$$ 
+et 
+$$
+b = \left[\begin{array}{c}1 \\ 1 \\1 \end{array}\right].
+$$
+
+\begin{enumerate}
+\item Montrer que le système $Ax = b$ est incompatible.
+\item Donner une CNS pour que $x \in \mbb R^3$
+réalise le minimum de $E(x) = \| Ax - b \|_2^2$.
+\item En déduire que la solution des moindres carrés n'est pas unique.  
+\item Construire une base orthonormée de $ImA$ par le procédé
+d'orthonormalisation de Gram-Schmidt. En déduire l'existence
+d'une matrice $Q$, de format $3\times 2$, formée de vecteurs colonnes
+orthonormés, et d'une matrice $R$ triangulaire supérieure de format
+$2\times 3$, telles que $A = QR$.
+\item Montrer que $RR^T $ est une matrice inversible. En déduire
+une expression explicite pour l'ensemble des solutions des moindres
+carrés de la forme $x = x_0 + \alpha u$, où $\alpha \in \mbb R$, et
+tel que $x_0$ et $u$ soient des vecteurs orthogonaux.
+% \item Exprimer la solution des moindres carrés de norme minimale en fonction
+% de $Q$, $R$ et $b$. On ne demande pas de la calculer mais de raisonner avec les projecteurs.
+\item Exprimer $\min\| Ax - b \|_2^2$ en fonction de $b$ et d'un 
+vecteur orthogonal à $\mathrm{Im}Q$.  
+\item Application numérique : calculer la solution des moindres carrés de norme minimale, ainsi que l'erreur résiduelle $\min\| Ax - b \|_2^2$. 
+\end{enumerate} 
+\end{exo}
+
+
+\begin{exo}\rm
+Etant donn\'ee une matrice $A (m\times n)$, on veut construire une matrice $M (m \times m)$ telle que 
+\begin{itemize}
+ \item $MA=S$, o\`u $S$ est triangulaire sup\'erieure $(m \times n)$
+  \item $MM^T =\Delta^2$, o\`u $\Delta=\textrm{Diag}\{\delta_1,\ldots, \delta_m\}$ avec $\delta_i \neq 0, i=1,\ldots,m$
+\end{itemize}
+
+\begin{enumerate}
+ \item Montrer que le calcul de $M$ permet d'obtenir la factorisation $QR$ de $A$ et que $Q=M^T \Delta^{-1}$, $R=\Delta^{-1}S$
+ \item Analysons le cas $m=2$ : soient $x\in \mbb R^2$ et $\Delta={\textrm Diag}\{\delta_1, \delta_2\}$ ($\delta_i \neq 0$) donn\'es.
+  \begin{enumerate}
+   \item On d\'efinit
+   \[ M_1 = \left[ \begin{array}{lr}
+   \beta_1 & 1 \\ 1 & \alpha_1\end{array} \right] \]
+   Supposer $x_2 \neq 0$ et calculer $M_1 x$ et $M_1\Delta^2 M_1^T $.
+   
+   Comment choisir $\alpha_1$ et $\beta_1$ de fa\c{c}on \`a ce que la deuxi\`eme composante de $M_1x$ soit nulle et que $M_1\Delta^2 M_1^T $
+   soit diagonale ?
+   
+   Pour le choix pr\'ec\'edent, d\'eterminer $\gamma_1$ tel que 
+   \[ M_1x = \left[ \begin{array}{c} (1+ \gamma_1)x_2 \\ 0 \end{array} \right] \ \ \mbox{et} \ \  
+          M_1\Delta^2 M_1^T  = \left[ \begin{array}{lr} (1+ \gamma_1)\delta_2^2 & 0 \\ 
+                                               0  & (1+ \gamma_1)\delta_1^2 
+   \end{array} \right] \]
+   
+   \item Supposer $x_1 \neq 0$; on d\'efinit
+   \[ M_2 = \left[ \begin{array}{lr}
+   1 & \alpha_2 \\ \beta_2 & 1 \end{array} \right] \]
+   Choisir $\alpha_2$ et $\beta_2$ de fa\c{c}on \`a ce que
+    \[ M_2x = \left[ \begin{array}{c} (1+ \gamma_2)x_1 \\ 0 \end{array} \right] \ \ \mbox{et} \ \  
+     M_2\Delta^2 M_2^T  = \left[ \begin{array}{lr} (1+ \gamma_2)\delta_1^2 & 0 \\ 0  & (1+ \gamma_2)\delta_2^2 
+   \end{array} \right] \]
+  et d\'eterminer $\gamma_2$.
+  \end{enumerate}
+ \item Soit maintenant $m$ un entier quelconque; d\'efinir les matrices $M_1(p,q)$ et $M_2(p,q)$ telles que
+ \[ \left[ \begin{array}{lr} m_{pp} & m_{pq} \\ m_{qp} & m_{qq} \end{array} \right] = \left[ \begin{array}{lr} \beta_1 & 1 \\ 1 & \alpha_1  \end{array} \right]  \ \ \mbox{ou} \ \ 
+ = \left[ \begin{array}{lr} 1 & \alpha_2 \\ \beta_2 & 1  \end{array} \right]  \]
+ \[ \mbox{la composante q de} \ M_i(p,q)x\ \mbox{est nulle} \]
+ 
+ \[ M_i\Delta^2 M_i^T  \ \mbox{diagonale} \]
+ 
+%\newpage
+
+
+ Les matrices $M_i$ sont appel\'ees {\sl matrices de Givens rapide}. On r\'esume ci-dessous l'algorithme de Givens rapide :
+ 
+\begin{algorithm}
+  $\delta_i=1,i=1,\ldots m$\;
+  \Pour{$p=1,\ldots \min\{n,m-1\}$}{
+   \Pour{$q=p+1,\ldots m$}{
+   \Si{$a_{pq}\neq 0$} {
+     \[ \alpha = - a_{pp}/a_{qp},\quad \beta = - \alpha \delta_q/\delta_p,\quad \gamma= - \alpha \beta \]
+   }
+   \Si{$\gamma \leq 1$} {
+   \[ \left[ \begin{array}{lcr} a_{pp} & \cdots & a_{pn} \\
+   a_{qp} & \cdots & a_{qn} \end{array} \right] \ \leftarrow  \left[ \begin{array}{lr} \beta &1 \\ 1 & \alpha \end{array} \right] \left[ \begin{array}{lcr} a_{pp} & \cdots & a_{pn} \\
+   a_{qp} & \cdots & a_{qn} \end{array} \right] \]
+   $\delta_p \ \leftarrow (1+ \gamma \delta_p)$\\
+   $\delta_q \ \leftarrow (1+ \gamma \delta_q)$}
+   \Sinon{
+   \'echanger $\alpha$ et $\beta$\\
+   \[ \alpha = 1/\alpha,\quad \beta= 1/\beta,\quad \gamma=1/\gamma \]\\
+   \[ \left[ \begin{array}{lcr} a_{pp} & \cdots & a_{pn} \\
+   a_{qp} & \cdots & a_{qn} \end{array} \right] \ \leftarrow  \left[ \begin{array}{lr} 1 & \alpha \\ \beta & 1 \end{array} \right] \left[ \begin{array}{lcr} a_{pp} & \cdots & a_{pn} \\
+   a_{qp} & \cdots & a_{qn} \end{array} \right] \]\\
+   $\delta_p \ \leftarrow (1+ \gamma \delta_p)$\\
+    $\delta_q \ \leftarrow (1+ \gamma \delta_q)$\\
+   }
+   }
+   }
+\end{algorithm}
+
+ \item Justifier l'algorithme et donner son co\^{u}t en nombre de flops. Comparer avec la m\'ethode de Householder vue en cours.
+ 
+ \item Application num\'erique :
+ r\'esoudre au sens des moindres carr\'es par la m\'ethode de Givens rapide le syst \`eme incompatible $Ax=b$ avec 
+ \[ A= \left[ \begin{array}{lr} 1 & 4 \\ 2 & 5 \\ 3 & 6 \end{array} \right], b = \left[ \begin{array}{c} 7 \\ 8 \\ 9 \end{array} \right] \]
+ 
+ \end{enumerate}
+ 
+ \end{exo}
+ 
+
+
+
+
+

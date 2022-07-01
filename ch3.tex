@@ -1,0 +1,663 @@
+\chapter {Stabilité numérique}
+{\tiny \minitoc}
+
+
+\onenparle{holder}{Otto H\"older (1859-1937) est un mathématicien allemand. Il est notamment connu pour ses moyennes, d'où sont dérivées les moyennes arithmétiques, quadratique ou encore harmonique. L'inégalité qui porte son nom est une généralisation de l'inégalité de Cauchy-Schwarz. }
+%-----------------------------------
+\section{Introduction}
+%-----------------------------------
+
+Les algorithmes décrits dans ce cours et en particulier ceux du chapitre 2 font intervenir un certain nombre d'opérations élémentaires destinées à être traitées par un ordinateur. Chaque ordinateur a une manière propre de représenter les nombres réels et l'ensemble des réels qu'il peut représenter est fini, la clé pour comprendre la structure de ce sous-ensemble de la droite des réels étant la précision machine.
+
+%Une description détaille de ces représentations se trouve dans l'{\bf Annexe} 
+%de ce document.\\
+L'arithmétique en précision finie et la réalité des données inexactes nous obligent 
+à considérer les questions suivantes reliées à la résolution d'un système linéaire 
+${\bf Ax}={\bf b}$ :
+\begin{itemize}
+	\item si ${\bf A}$ et ${\bf b}$ sont perturbés par une \og petite quantité\fg{}, comment les solutions exactes ${\bf x}$ et calculées ${\bf x_c}$ sont elles affectées ?
+	\item que signifie numériquement le fait que ${\bf A}$ est presque singulière ?
+	\item si ${\bf b}\notin \Im({\bf A})$, comment déterminer ${\bf x}$ pour que ${\bf Ax}$ soit suffisamment \og proche\fg{} de ${\bf b}$ ?
+\end{itemize}
+On s'attardera ici à donner quelques éléments de réponse aux deux premières questions, la troisième étant plus particulièrement traitée dans le chapitre suivant.
+
+%---------------------------------------------------------------------
+\section{Normes matricielles et condition d'une matrice}  %-----------
+%---------------------------------------------------------------------
+\subsection{Rappels sur les normes vectorielles}
+Une norme vectorielle \index{norme!vectorielle}
+est une fonction notée $\|.\|$ définie sur un espace vectoriel $E$ et satisfaisant aux trois axiomes suivants : 
+\begin{enumerate}
+	\item $(\forall {\bf x}\in E)\ \norme{{\bf x}}\geq 0$ et $\norme{{\bf x}}= 0 \Leftrightarrow {\bf x}={\bf 0}$
+	\item $(\forall {\bf x}\in E)\ (\forall\lambda \in \mbb R)\ \norme{\lambda.{\bf x}}=|\lambda|\norme{{\bf x}}$ 
+	\item $(\forall {\bf x},{\bf y}\in E)\ \norme{{\bf x+y}}\leq \norme{{\bf x}}+\norme{{\bf y}}$ 
+\end{enumerate}
+
+\exemple{
+dans $E$=\R$^n$ muni du produit scalaire ${\bf x}^\top {\bf y}$ : 
+\begin{enumerate}
+\item $\norme{{\bf x}}_1=\dps\sum_{i=1}^n|x_i|$ est la norme $L_1$\index{norme!$L_1$  } (ou city block).
+\item $\norme{{\bf x}}_2=\left ( {\bf x}^\top {\bf x}\right )^\frac{1}{2}=\sqrt{\dps\sum_{i=1}^nx_i^2}$ est la norme $L_2$ (ou norme euclidienne\index{norme!euclidienne}).
+\item $\norme{{\bf x}}_\infty = \dps\max_{1\leq i\leq n}\{|x_i|\}$ est la norme du max \index{norme!$l_\infty$}(ou norme de Tchebychev, ou norme $L_\infty$)
+\end{enumerate}
+}
+Les trois normes de l'exemple sont des cas particuliers des normes 
+$L_p$ : $$\norme{{\bf x}}_p=\left (\dps\sum_{i=1}^n|x_i|^p\right ) ^\frac{1}{p}$$\index{norme!$L_p$}
+La figure \ref{F:boules} présente les boules unité (i.e. le lieu des vecteurs de norme 1) pour différentes valeurs de $p$.
+
+\begin{figure}[hbtp!]
+\centering
+\begin{tabular}{cccc}
+\begin{tikzpicture}[scale=0.3]
+\draw [->] (-4,0)--(4,0);
+\draw [->] (0,-4)--(0,4);
+\draw[blue] (-3,0) 
+            to[bend right] (0,3) 
+            to[bend right] (3,0) 
+            to[bend right] (0,-3) 
+            to[bend right] (-3,0);
+\node at (0,-4.5) {};
+\end{tikzpicture}&
+\begin{tikzpicture}[scale=0.3]
+\draw [->] (-4,0)--(4,0);
+\draw [->] (0,-4)--(0,4);
+\draw[blue] (-3,0) -- (0,3) -- (3,0) -- (0,-3) -- (-3,0);
+\end{tikzpicture}&
+\begin{tikzpicture}[scale=0.3]
+\draw [->] (-4,0)--(4,0);
+\draw [->] (0,-4)--(0,4);
+\draw[blue] (0,0) circle[x radius=3cm,y radius=3cm];
+\end{tikzpicture}&
+\begin{tikzpicture}[scale=0.3]
+\draw [->] (-4,0)--(4,0);
+\draw [->] (0,-4)--(0,4);
+\draw[blue] (-3,-3) rectangle (3,3);
+\end{tikzpicture}\\
+$p=\frac{1}{2}$&$p=1$&$p=2$&$p=\infty$
+\end{tabular}
+\caption{Boules unité dans $\mbb R^2$ pour différentes normes $L_p$}
+\label{F:boules}
+\end{figure}
+
+\begin{prop}{	Inégalité de Cauchy-Schwarz}{}
+$$(\forall {\bf x,y}\in\mbb R^n)\ {\bf x^T}{\bf y}\le \norme{{\bf x}}_2 \norme{{\bf y}}_2$$
+et l'égalité est vérifiée si et seulement si ${\bf x}$ et ${\bf y}$ sont colinéaires.
+\end{prop}
+
+L'inégalté triangulaire est un résultat important de l'analyse fonctionnelle 
+d\^u à Minkowski et sa démonstration découle de l'inégalité fondamentale suivante dite 
+inégalité de H\"older : \index{inégalité!de H\"older}
+\begin{prop}{	inégalité de H\"oder}{}
+
+$$
+(\forall {\bf x,y}\in\mbb R^n)\ (\forall p,q>1\ /\ \frac{1}{p}+\frac{1}{q}=1)\quad
+\displaystyle\sum_{i=1}^n|x_iy_i|\leq \norme{{\bf x}}_p\norme{{\bf y}}_q.
+$$
+\end{prop}
+
+On observera également que dans \R$^n$ (et plus généralement dans tout espace vectoriel de dimension finie), toutes les normes sont équivalentes
+\index{norme!équivalentes}  dans le sens où, 
+pour deux normes $\norme{.}_a$ et $\norme{.}_b$, il existe deux constantes positives $\alpha$ et $\beta$ satisfaisant 
+$$(\forall {\bf x}\in \mbb R^n)\ \alpha\norme{{\bf x}}_a\leq \norme{{\bf x}}_b\leq \beta\norme{{\bf x}}_a.$$
+
+Une des difficultés de la construction d'algorithmes itératifs est le contrôle de la convergence, c'est-à-dire pouvoir identifier si la suite 
+ des solutions calculées à chaque itération converge ou pas, et si oui, avec quelle vitesse elle s'approche de la solution du problème.\\
+ 
+ \begin{defin}{Convergence}{}
+ On dira qu'une suite $\{{\bf x_k}\}$ de \R$^n$ converge vers $\overline{{\bf x}}\in \mbb R^n$ si la suite de réels $r_k=\norme{{\bf x_k}-\overline{{\bf x}}}$ converge, dans \R, vers 0. 
+ \end{defin}
+
+ L'équivalence des normes montre que la notion de convergence est indépendante du choix de la norme dans \R$^n$.
+
+\begin{defin}{Ordre de convergence}{}
+Considérons une suite de réels $\{r_k\}$ qui converge vers une valeur $r^*$. On appelle {ordre} de convergence \index{ordre de convergence}
+de la suite $\{r_k\}$ le plus grand entier $p>0$ tel que : 
+$$\displaystyle\lim_{k\rightarrow \infty}\sup\frac{|r_{k+1}-r^*|}{|r_k-r^*|^p}=\beta<+\infty$$
+\end{defin}
+
+La situation de loin la plus courante est $p=1$, appelée convergence linéaire. 
+\index{convergence!linéaire}
+C'est le cas typiquement pour une suite géométrique $r_k=a^k,0<a<1$. La limite $\beta$ est le rayon de convergence, et dans le cas géométrique, on trouve justement $a$. 
+Donc, plus le rayon de convergence est proche de 0, plus la convergence est rapide (on parle de convergence superlinéaire\index{convergence!superlinéaire}
+quand $\beta=0$, ce qui est le cas par exemple pour la suite $r_k=(1/k)^k$). 
+D'autre part, plus le taux est proche de 1, plus la convergence est lente (par exemple $r_k=(1/k)$).\\
+Quand $p=2$, on parle de convergence quadratique \index{convergence!quadratique}
+(par exemple $r_k=a^{2^k}$).
+
+
+
+%--------------------------------------------
+\subsection{Normes matricielles}  %----------
+%--------------------------------------------
+On définit maintenant des normes sur l'espace des matrices carrées $\mathcal{M}_n(\mbb R)$. 
+En plus des trois axiomes des normes vectorielles, on exige  que ces normes vérifient une condition supplémentaire, dite condition 
+de norme {sous-multiplicative} :\index{norme matricielle!sous-multiplicative}
+$$(\forall{\bf A},{\bf B}\in\mathcal{M}_n(\mbb R))\quad \norme{{\bf AB}}\leq \norme{{\bf A}}\norme{{\bf B}}$$
+Pour évaluer les effets d'une transformation linéaire sur la norme d'un vecteur, 
+on s'arrangera pour utiliser des normes de matrices {subordonnées}
+aux normes vectorielles, dans le sens suivant :
+$$\norme{{\bf A}}=\dps\sup_{{\bf x}\neq {\bf 0}}\frac{\norme{{\bf Ax}}}{\norme{{\bf x}}}=\dps\sup_{\norme{{\bf x}}=1}\norme{{\bf Ax}}$$
+où $\norme{{\bf A}}$ définit une norme subordonnée \index{norme matricielle!subordonnée}
+à la norme vectorielle utilisée dans le calcul des normes vectorielles $\norme{{\bf x}}$ et 
+$\norme{{\bf Ax}}$. On retrouve la définition usuelle d'une norme d'application linéaire. 
+On a alors la relation $\norme{{\bf Ax}}\leq \norme{{\bf A}}\norme{{\bf x}}$ pour tout ${\bf x}$.
+
+{\rem :
+\begin{enumerate}
+	\item Le sup ci-dessus doit être pris dans $\mathbb{C}^n$, mais co\"incide avec le sup 
+dans \R$^n$ pour les normes $L_1,L_2$ et $L_\infty$.
+	\item Par compacité de la sphère unité, le sup est atteint  pour un ${\bf x}$ non nul.
+\end{enumerate}
+}
+
+\begin{prop}{Propriétés des normes subordonnées}{}
+\begin{enumerate}
+	\item $\norme{{\bf A}}=\inf\left \{\rho / \norme{{\bf Ax}}\leq\rho \norme{{\bf x}}\right \}$
+	\item $\norme{\mbb I}=1$
+\end{enumerate}
+\end{prop}
+\exemple{
+\begin{enumerate}
+	\item On vérifie que les normes matricielles subordonnées aux normes  
+\index{norme matricielle!subordonnée à la norme $L_1$}
+\index{norme matricielle!subordonnée à la norme $L_\infty$}
+$L_1$ et $L_\infty$ sont données par $\norme{{\bf A}}_1=\dps\max_j\dps\sum_i|a_{ij}|$ et
+$\norme{{\bf A}}_\infty=\dps\max_i\dps\sum_j|a_{ij}|$
+	\item La norme matricielle subordonnée à la norme euclidienne
+\index{norme matricielle!subordonnée à la norme euclidienne}
+est 
+$\norme{{\bf A}}_2=\left[\lambda_{max}\right]^\frac{1}{2}$, où $\lambda_{max}$ est la plus grande 
+valeur propre de ${\bf A^\top} {\bf A}$.
+	\item La norme euclidienne étant difficile à calculer, on lui préfère souvent 
+la norme de la trace ou norme de Frobenius\index{norme matricielle!de Frobenius} : 
+$$
+\norme{{\bf A}}_F=\left (Tr({\bf A^\top} {\bf A})\right)^\frac{1}{2}
+           =\left (\dps\sum_i\dps\sum_ja_{ij}^2\right )^\frac{1}{2}.
+$$ 
+Cette norme n'est subordonnée à aucune norme vectorielle sur \R$^n$.
+\end{enumerate}
+}
+
+\begin{prop}{Normes de matrices orthogonales}{}
+Si ${\bf H}$ est une matrice orthogonale  : 
+\begin{eqnarray*}
+\norme{{\bf H}}_2&=&1\\
+\norme{{\bf H}}_F&=&\sqrt{n}.
+\end{eqnarray*}
+\end{prop}
+
+Le résultat suivant montre l'utilité pratique des normes matricielles :
+\begin{theo}{}{}
+\label{Th1}
+Soit $\norme{.}$ une norme matricielle subordonnée et ${\bf E}$ une matrice telle que $\norme{{\bf E}}<1$. Alors :
+\begin{enumerate}
+\item la matrice ${\bf A}=\mbb I+{\bf E}$ est inversible et $\norme{{\bf A^{-1}}}\leq \frac{1}{1-\norme{{\bf E}}}$. 
+\item si $\mbb I+{\bf E}$ est singulière alors nécessairement $\norme{{\bf E}}\geq 1$
+\end{enumerate}
+\end{theo}
+
+\textsc{Démonstration:} considérons le système homogène ${\bf Ax}={\bf 0}$. Il s'écrit ${\bf x}+{\bf Ex}={\bf 0}$, et ainsi $\norme{{\bf x}}=\norme{{\bf Ex}}\leq\norme{{\bf E}}\norme{{\bf x}}$, car la norme est subordonnée. Comme $\norme{{\bf E}}<1$, on a nécessairement ${\bf x}={\bf 0}$ et ${\bf A}$ est donc non singulière
+$$
+{\bf A^{-1}}=(\mbb I+{\bf E}-{\bf E}){\bf A^{-1}}=\mbb I-{\bf EA^{-1}}\Longrightarrow \norme{{\bf A^{-1}}} \leq 1 + \norme{{\bf E}} \norme{{\bf A^{-1}}}
+$$
+d'o\`u on tire le résultat cherché.
+
+%---------------------------------------------
+\subsection{Condition d'une matrice} %--------
+%---------------------------------------------
+\'Etudions les variations de la solution d'un système d'équations linéaires quand le second membre subit une perturbation : 
+
+$$
+{\bf Ax}={\bf b} \Rightarrow {\bf A(x+\bm \delta x)}={\bm b+\bm \delta\bm b}
+$$
+On peut donc écrire $\bm \delta x={\bm A^{-1}\bm \delta \bm  b}$ d'où les relations écrites avec des normes subordonnées appropriées :\\
+$\norme{\bm\delta \bm x}\leq\norme{\bm A^{-1}}\norme{\bm \delta \bm b}$\\
+$\norme{\bm A}\norme{\bm x}\geq\norme{\bm b}$\\
+et on peut écrire l'estimation de l'erreur relative en norme sur $\bm x$ en fonction de la perturbation relative sur ${\bm b}$ :
+$$\frac{\norme{\bm\delta \bm x}}{\norme{\bm x}}\leq \norme{\bm A}\norme{\bm A^{-1}}\frac{\norme{\bm \delta \bm b}}{\norme{\bm b}}$$
+
+  \begin{defin}{Condition d'une matrice}{}
+La quantité $\norme{{\bf A}}\norme{{\bf A^{-1}}}$ est appelée la {condition} de la matrice
+\index{condition d'une matrice} est notée $\sigma({\bf A})$.
+\end{defin}
+On peut démontrer de même que si ${\bf A}$ est sujette à une erreur ${\bm \delta \bm A}$ alors 
+$$
+{\bf Ax}={\bf b} \Rightarrow ({\bf A + {\bm \delta {\bf A}})(x+\bm \delta x)}={\bf b}
+$$
+et 
+$$\frac{\norme{{\bm\delta \bf x}}}{\norme{{\bf x}+{\bm \delta \bf x}}}\leq \sigma({\bf A})\frac{\norme{{\bm \delta {\bf A}}}}{\norme{{\bf A}}}$$
+
+et on peut même majorer l'erreur relative dans le cas où l'on commet à la fois une erreur sur ${\bf A}$ et une erreur sur ${\bf b}$ : 
+\begin{theo}{Majoration de l'erreur dans le cas  $({\bf A + {\bm \delta {\bf A}})(\bf x+\bm \delta x)}={\bf b+\delta b}$}{}
+Soient ${\bf A}\in\mathcal{M}_n(\mbb R)$ inversible, ${\bf b}\in(\mbb R^n)^*$, ${\bm \delta \bf  A}\in\mathcal{M}_n(\mbb R)$ et ${\bm \delta \bf b}\in\mbb R^n$. On suppose que $\norme{{\bm \delta \bf A}}<\frac{1}{\norme{{\bf A^{-1}}}}$. \\
+Alors la matrice $(\bf A + {\bm \delta {\bf A}})$ est inversible et si ${\bf x}$ est solution de ${\bf Ax} = {\bf b}$ et $(\bf x+\bm \delta x)$ est solution de $({\bf A + {\bm \delta {\bf A}})(\bf x+\bm \delta x)}={\bf b+\bm \delta b}$, alors 
+$$\frac{\norme{{\bm \delta \bf x}}}{\norme{{\bf x}}}\leq\frac{\sigma(\bf A)}{1-\norme{{\bf A^{-1}}}\norme{{\bm \delta \bf A}}}\left (\frac{\norme{{\bm \delta \bf b}}}{\norme{{\bf b}}} +\frac{\norme{{\bm \delta {\bf A}}}}{\norme{{\bf A}}}\right )$$
+\end{theo}
+
+
+\begin{prop}{}{}
+Pour toutes matrices ${\bf A}$, ${\bf B}$ inversibles : 
+\begin{enumerate}
+	\item $\sigma(\mbb I)\geq 1$ et $\sigma(\mbb I)= 1$ si et seulement si la norme de calcul de la condition est subordonnée.
+	\item  $\sigma({\bf A})\geq 1$. Plus la condition est grande, plus la matrice est dite mal conditionnée, {\it i.e.} plus le système ${\bf Ax}={\bf b}$ est instable.
+	\item  $\sigma({\bf A})= \sigma({\bf A^{-1}})$.
+	\item $(\forall \lambda\in \mbb R^*)\ \sigma({\lambda.\bf A})= \sigma({\bf A})$.
+	\item $\sigma({\bf AB})\leq \sigma ({\bf A})\sigma( {\bf B})$.
+	\item  Si ${\bf H}$ est une matrice orthogonale $\sigma_2({\bf H})=1$.
+\end{enumerate}
+\end{prop}
+\textsc{Démonstration:} 
+\begin{enumerate}
+\item Immédiat puisque  pour ${\bf x}\neq {\bf 0}$ $\norme{\mbb I {\bf x}}\leq  \norme{\mbb I}  \norme{{\bf x}}$ et $\norme{\mbb I} = \dps\sup_{\norme{{\bf x}}=1}\norme{{\bf \mbb Ix}}=1$
+\item On a alors $1\leq \norme{\mbb I} = \norme{{\bf AA^{-1}}}\leq \norme{{\bf A}}\norme{{\bf A^{-1}}}$
+\item Immédiat par la définition de $\sigma({\bf A})$
+\item $\sigma({\lambda.\bf A}) = \norme{\lambda.{\bf A}}\norme{(\lambda.{\bf A)^{-1}}}=|\lambda|\frac{1}{|\lambda|}\sigma({\bf A}) = \sigma({\bf A})$
+\item  ${\bf AB}$ est inversible et 
+\begin{eqnarray*}
+\sigma({\bf AB}) &=& \norme{{\bf AB}}\norme{{\bf (AB)^{-1}}}\\&=& \norme{{\bf AB}}\norme{{\bf B^{-1}}{\bf A^{-1}}}\\&\leq& \norme{{\bf A}}\norme{{\bf B}}\norme{{\bf  A^{-1}}}\norme{{\bf  B^{-1}}} \\&=& \sigma({\bf A})\sigma({\bf B})
+\end{eqnarray*}
+\end{enumerate}
+
+%-------------------------------------------------------------------
+\subsection{Conditionnement pour la norme euclidienne} %------------
+%-------------------------------------------------------------------
+
+La condition est très liée aux valeurs propres extrêmes de ${\bf A}$,
+ et si la norme utilisée est la norme euclidienne, on vérifie que :
+$$
+\sigma_2({\bf A})=\left (\frac{\lambda_{\textrm{max}}({\bf A^\top} {\bf A})}
+            {\lambda_{\textrm{min}}({\bf A^\top}{\bf A})}\right )^\frac{1}{2}
+$$
+de sorte que si ${\bf A}$ est symétrique 
+$$
+\sigma_2({\bf A})=\frac{|\lambda_{\textrm{max}}({\bf A})|}{|\lambda_{\textrm{min}}({\bf A})|}
+$$
+Dans ces formules $\lambda_{\textrm{max}}({\bf A^\top} {\bf A})$ et $\lambda_{\textrm{min}}({\bf A^\top} {\bf A})$ sont les valeurs propres extrêmes (en module) de la matrice carrée ${\bf A^\top}{\bf A}$.
+
+\subsection{Calcul de $\sigma(\mathbf{A})$}
+Le calcul de la valeur exacte de $\sigma({\bf A})$ est coûteux. En effet, il est nécessaire de calculer $\mathbf A^{-1}$, soit un coût en $O(n^3)$ flops, trois fois plus coûteux qu'une résolution du système linéaire $\mathbf {Ax} = \mathbf b$ par LU.\\
+Souvent, il est seulement nécessaire de connaître l'ordre de grandeur de la condition. Puisque $\| \mathbf{A^{-1}}\| = \displaystyle\max_{\|\mathbf x\|=1} \|\mathbf{A^{-1}x}\|$, on peut choisir un vecteur unitaire $\mathbf x$ et obtenir une borne inférieure \mbox{$\|\mathbf A\|\geq  \| \mathbf{A^{-1}x}\|$}. Si $\mathbf u = \mathbf{A^{-1}x}$, alors $\mathbf u$ est solution de $\mathbf{Au} = \mathbf{x}$. Si on connait une factorisation LU de $\mathbf A$, $\mathbf{u}$ peut être facilement trouvé en $O(n^2)$ flops. L'astuce consiste alors à choisir $\mathbf x$ unitaire tel que $\| \mathbf{A^{-1}x}\|$ soit le plus grand possible, de sorte à ce que cette quantité soit proche de 
+$\| \mathbf{A^{-1}}\| $. \\
+
+
+
+\smallskip
+Il est également possible d'essayer {\it a priori} de réduire le risque d'erreur.
+
+%--------------------------------------------------
+\subsubsection{\'Equilibrage \textit{(scaling)}}
+%---------------------------------------------------
+
+C'est une méthode pragmatique qui n'est pas évidente à mettre en oeuvre. Son principe est d'essayer d'équilibrer le poids de tous les coefficients de la matrice. Il faut trouver des matrices diagonales ${\bf D^{(1)}}=(d^{(1)}_{ii})_{i\in[\![1,n]\!]}$ et ${\bf D^{(2)}}=(d^{(2)}_{ii})_{i\in[\![1,n]\!]}$ telles que $\sigma({\bf D^{(1)}A{D^{(2)}}}^{-1})<<\sigma({\bf A})$, la matrice ${\bf D^{(1)}A{D^{(2)}}}^{-1}$ s'écrivant :
+$${\bf D^{(1)}A{D^{(2)}}^{-1}}=\left ( a_{ij}\frac{d^{(1)}_{ii}}{d^{(2)}_{jj}}\right )$$
+On résout alors 
+$$
+\left \{
+\begin{array}{ll}
+{\bf D^{(1)}A{D^{(2)}}^{-1}y} &={\bf D^{(1)}b}\\
+{\bf D^{(2)}x}&={\bf y}\\
+\end{array}
+\right .
+$$
+En pratique, on normalise d'abord les lignes en divisant la ligne $i$ par
+$\max_j \{ |a_{ij}|\}$, et, si c'est nécessaire, on normalise alors les colonnes pour maintenir
+la norme $L_{\infty}$ de chaque ligne et colonne dans l'intervalle
+$[\beta^{-1},1]$ o\`u $\beta$ est la base de repr\'esentation des nombres du calculateur.
+
+\vskip 5pt
+\noindent
+Illustrons cette stratégie sur un exemple très simple. Soit le système $(S)$ : 
+
+$$(S) :
+\left \{
+\begin{array}{ccccc}
+10x_1 & + & 100000x_2  & = & 100000 \\
+x_1 & + & x_2 & = & 2 \\
+\end{array}
+\right.
+$$ 
+Une résolution directe du système en arithmétique tronquée à trois chiffres significatifs fournira une solution ${\bf x}$=$\begin{pmatrix} 0.00&1.00\end{pmatrix}^T$. Si on multiplie la première équation par un facteur d'échelle de $10^{-5}$ on obtient l'approximation ${\bf x'}$=$\begin{pmatrix} 1.00&1.00\end{pmatrix}^T$ beaucoup plus satisfaisante.
+
+%----------------------------------------------
+\subsubsection{Raffinement itératif}
+%----------------------------------------------
+
+\begin{theo}{}{}
+\label{Th2}
+Soit une matrice carrée ${\bf B}$ telle que  $\|{\bf B}\| < 1$, pour une norme subordonn\'ee. Alors :
+\begin{description}
+\item{(i)} $\displaystyle\lim_{k \rightarrow +\infty} {\bf B^k} = {\bf 0}$
+\item{(ii)} $\displaystyle\lim_{k \rightarrow +\infty} {\bf B^kx} = {\bf 0}$, pour tout ${\bf x}$.
+\end{description}
+\end{theo}
+
+\textsc{Démonstration:}  \\
+(i) vient de la majoration $\|{\bf B^k}\| \leq \|{\bf B}\|^k$\\
+(ii) vient de la majoration  $\|{\bf B^kv}\| \leq \|{\bf B^k}\| \|{\bf v}\|$\\
+Les affirmations r\'eciproques sont vraies, mais elles s'appuient sur la propri\'et\'e du rayon spectral qui permet d'approcher $\|{\bf B}\|$ pour une norme subordonn\'ee.
+
+\vskip 10pt
+On peut supposer que la perturbation due aux erreurs d'arrondis ne porte que sur le calcul de ${\bf L}$ et ${\bf U}$. 
+On a par exemple réalisé en machine une factorisation 
+$${\bf L_cU_c}={\bf A}+{\bf E}$$
+et on a résolu exactement le système 
+$$({\bf A}+{\bf E}){\bf x_c}={\bf b}$$
+On vérifie généralement dans ce cas que le résidu calculé ${\bf r_c}={\bf b}-{\bf Ax_c}$ n'est pas nul.\\
+Posons alors ${\bf x^{(0)}}={\bf x_c}$ et ${\bf r^{(0)}}={\bf r_c}$. Ces valeurs initialisent un processus récursif. On calcule pour tout $k\geq 0$
+$$
+\left \{
+\begin{array}{cc}
+({\bf A}+{\bf E}){\bf e^{(k+1)}} &={\bf r^{(k)}}\\
+{\bf x^{(k+1)}}&=\left ({\bf x^{(k)}}+{\bf e^{(k+1)}}\right )_c\\
+{\bf r^{(k+1)}}&=\left ({\bf b}-{\bf Ax^{(k+1)}}\right )_c\\
+\end{array}
+\right .
+$$ 
+En supposant que l'erreur d'arrondi porte essentiellement sur la résolution des systèmes linéaires, on pose 
+\begin{align*}
+{\bf x^{(k+1)}}-{\bf x^{(k)}}&=({\bf A}+{\bf E})^{(-1)}{\bf r^{(k)}}\\
+{\bf e^{(k+1)}}&=({\bf A}+{\bf E})^{(-1)}{\bf A}({\bf x}-{\bf x^{(k)}})
+\end{align*}
+d'où l'on tire
+$${\bf x}-{\bf x^{(k+1)}}={\bf x}-{\bf x^{(k)}}+{\bf x^{(k)}}-{\bf x^{(k+1)}}=(\mbb I-({\bf A}+{\bf E})^{(-1)}{\bf A})({\bf x}-{\bf x^{(k)}}).$$
+Sachant que 
+$$
+({\bf A}+{\bf E})^{-1}{\bf A}=\left({\bf A^{-1}}({\bf A}+{\bf E})\right)^{-1}=(\mbb I+{\bf A^{-1}E)^{-1}},
+$$
+on pose ${\bf G}=\mbb I-({\bf A}+{\bf E})^{-1}{\bf A}=\mbb I-(\mbb I+{\bf A^{-1}E)^{-1}}$. On a donc, pour tout $k\geq 1$
+$$
+{\bf x}-{\bf x^{(k+1)}}={\bf G}({\bf x}-{\bf x^{(k)}})={\bf G^{k+1}}({\bf x}-{\bf x^{(0)}}).
+$$
+Supposons alors que la matrice ${\bf B}={\bf A^{-1}E}$ soit telle que $\|{\bf B}\|=\alpha < 1/2$.
+Comme
+$$
+{\bf G}=\mbb I-(\mbb I+{\bf B})^{-1}=(\mbb I+{\bf B}-\mbb I)(\mbb I+{\bf B})^{-1}={\bf B}(\mbb I+{\bf B})^{-1},
+$$
+on a la majoration
+$$
+\norme{{\bf G}} \leq \alpha \norme{(\mbb I+{\bf B})^{-1}}
+$$ et donc, gr\^ace au théorème 3.1 : $\|{\bf G}\| \le \frac{\alpha}{1-\alpha}$.
+Le théorème~3.3 garantit alors que la procédure de raffinement converge et, de plus :
+$$
+ \norme{{\bf x}- {\bf x^{(k)}}} \leq \left(\frac{\alpha}{1-\alpha}\right)^k \norme{{\bf x}- {\bf x^{(0)}}}
+$$
+et la convergence est linéaire.
+
+ 
+
+
+
+%----------------------------------------------------
+\section{Stabilité de la méthode de Gauss}
+%-------------------------------------------------------
+
+
+On a vu précédemment l'influence du mauvais conditionnement sur la stabilité de la solution d'un système d'équations linéaires. Il faut observer qu'un mauvais conditionnement ne signifie pas nécessairement que la matrice est quasi singulière. C'est le déterminant qui mesure cette quasi singularité quand il s'approche de 0. Par exemple la matrice $a\mbb I\in\mathcal{M}_n(\mbb R)$, avec $a=10^{-1}$ voit son déterminant tendre vers 0 quand $n$ tend vers l'infini, alors que sa condition reste égale à 1. La situation inverse est encore plus flagrante avec une matrice non symétrique dans l'exemple ci-dessous :
+$${\bf A}=
+\left [
+\begin{array}{cc}
+1 & 100\\
+0 & 1\\
+\end{array}
+\right ]
+$$ 
+Si
+$${\bf b}=
+\left [
+\begin{array}{c}
+100\\
+1\\
+\end{array}
+\right ]
+,\qquad {\bf x}=
+\left [
+\begin{array}{c}
+0\\
+1\\
+\end{array}
+\right ]
+$$
+mais si 
+$${\bf b}=
+\left [
+\begin{array}{c}
+100\\
+0\\
+\end{array}
+\right ]
+,\qquad {\bf x}=
+\left [
+\begin{array}{c}
+100\\
+0\\
+\end{array}
+\right ]
+$$
+Le déterminant de ${\bf A}$ est bien sûr égal à 1, pourtant la condition de cette matrice est très mauvaise ($>10^4$).
+
+Un théorème permet cependant de relier la condition d'une matrice au fait qu'elle est "proche" d'une matrice singulière :
+
+\begin{theo}{}{}
+$$\displaystyle\min_{\mathbf B\in\mathcal{M}_n(\mathbb{R}), \mathbf{B}\textrm{ singulière}}\frac{\|\mathbf A-\mathbf B\|}{\|\mathbf A\|} = \frac{1}{\sigma(\mathbf A)}$$
+\end{theo}
+
+\exemple{
+La matrice $\mathbf A = \begin{pmatrix}
+1.01 & 0.99\\0.99 & 1.01
+\end{pmatrix}$ est proche de la matrice singulière $\mathbf B = \begin{pmatrix}
+1 & 1\\1 & 1
+\end{pmatrix}$ et  
+$$\frac{\|\mathbf A-\mathbf B\|_\infty}{\|\mathbf A\|_\infty} = \frac{0.02}{2}=0.01$$
+Par le théorème $\sigma(\mathbf{A})\geq 100$. Puisque (calculs...) $\sigma_\infty(\mathbf{A})= 100$,  $\mathbf B$ est la matrice singulière la plus proche de $\mathbf A$.
+}
+
+
+
+Il faut pour terminer mettre l'accent sur le fait que même une matrice bien conditionnée est de déterminant très supérieur à 0 peut provoquer des difficultés numériques si l'algorithme d'élimination est mal contrôlé. C'est le cas sur des pivots trop petits sont acceptés au cours des calculs.
+
+Prenons un exemple simple :
+$$(S) :
+\left \{
+\begin{array}{ccccc}
+0.0001x_1 & + & x_2  & = & 1 \\
+x_1 & + & x_2 & = & 2 \\
+\end{array}
+\right.
+$$
+ Si on maintient 0.0001 comme premier pivot et si les calculs sont effectués avec trois chiffres significatifs, on obtiendra $x_2$=1, et la substitution arrière donnera 0.0001$x_1+1=1$, soit $x_1=0$, et l'amplification de l'erreur d'arrondi est catastrophique.
+
+Le remède à cette difficulté est connu : c'est la stratégie du { pivot partiel} qui revient ici à permuter les deux lignes et commencer l'élimination par celle qui présente le plus grand pivot.
+
+
+\aretenir{
+  \begin{enumerate}
+  \item Notion de norme vectorielle, matricielle subordonnée
+\item Conditionnement : savoir interpréter une valeur de conditionnement, savoir calculer dans des cas simples
+\end{enumerate}
+}
+
+
+
+%-----------------------------
+\section{Exercices}
+%----------------------------
+
+\begin{exo}\rm
+Considérons le système linéaire
+\begin{align}
+2x&+6y=8 \label{eq1}\\
+2x&+6.00001y=8.00001\label{eq2}
+\end{align}
+Ce problème est-il bien conditionné ? Pourquoi ? Résoudre le système
+(\ref{eq1})-(\ref{eq2}).
+
+Considérons maintenant le système
+\begin{align}
+2x&+6y=8 \label{eq3}\\
+2x&+5.99999y=8.00002\label{eq4}
+\end{align}
+Résoudre le système (\ref{eq3})-(\ref{eq4}). Conclusion.
+\end{exo}
+
+
+ 
+\begin{exo}\rm
+Considérons les matrices
+$$
+A=\left(\begin{array}{rrrr}
+            4 &  1 &  1 &   1\\
+            1 &  3 &  0 &   0\\
+            1 &  0 &  2 &   0\\
+            1 &  0 &  0 &   1
+        \end{array}
+  \right),\quad
+B=\left(\begin{array}{rrrr}
+            1 &  0 &  0 &   1\\
+            0 &  2 &  0 &   1\\
+            0 &  0 &  3 &   1\\
+            1 &  1 &  1 &   4
+        \end{array}
+  \right)
+$$
+Appliquer la méthode d'élimination de Gauss avec une précision de $10^{-3}$.
+Vérifier que les facteurs $LU$ des deux matrices sont obtenus avec une bonne 
+précision et que le nombre de 0 de $B$ est maintenu.
+\end{exo}
+
+ 
+\begin{exo}\rm
+Soit 
+$$
+A=\left(\begin{array}{cc}1 &  100  \\ 0 &  1\end{array}
+  \right),\quad
+b=\left(\begin{array}{c}100  \\ 1 \end{array}\right),\quad
+b'=\left(\begin{array}{c}100  \\ 0 \end{array}\right)
+$$
+Calculer $\sigma_1(A)$.
+
+Considérons les systèmes suivants
+\begin{eqnarray*}
+Ax&=&b\\
+A(x+\delta x)&=&b'.
+\end{eqnarray*}
+Calculer  la variation relative $\norme{\delta x}_1/\norme{x}_1$ de la solution et
+celle du second membre. Quel est le facteur d'amplification de l'erreur?
+\end{exo}
+
+\begin{exo}\rm
+
+On considère le système suivant :
+$$(S) :
+\left \{
+\begin{array}{ccccccccc}
+10x & + & 7y & + & 8z & + & 7w & = & 32 \\
+7x & + & 5y & + & 6z & + & 5w & = & 23 \\
+8x & + & 6y & + & 10z & + & 9w & = & 33 \\
+7x & + & 5y & + & 9z & + & 10w & = & 31 
+\end{array}
+\right.
+$$ 
+dont la solution est apparente : $x=y=z=w=1$ et $\det(A)=1$.
+ Recalculer la solution avec un second membre perturbé $b=(32.1 22.9 33.1 30.9)^\top $.\\
+Que remarquez-vous ? Calculer la condition de la matrice du système (on utilisera la norme de Frobenius et on justifiera ce choix).
+\end{exo}
+
+ 
+\begin{exo}\rm
+Soit la matrice $A$ définie par
+$$
+A=\left(\begin{array}{ccccc}
+            1 &  -1 &  -1 & \cdots & -1\\
+            0 &   1 &  -1 & \cdots & -1\\
+            0 &   0 &   1 & \cdots & -1\\
+            \vdots&\vdots&\vdots&\ddots&\vdots\\
+            0 & 0 &  0 &   \cdots& 1
+        \end{array}
+   \right).
+$$
+Montrer que $\sigma_\infty(A)=n2^{n-1}$.
+\end{exo}
+
+ 
+\begin{exo}\rm
+Soit $A$ la matrice carrée d'ordre $n$ suivante
+$$
+A=\left(\begin{array}{ccccc}
+            1 &  2 &  0 & \cdots & 0\\
+            0 &  1 &  2 & \cdots & 0\\
+            0 &  0 &  1 & \cdots & 0\\
+            \vdots&\vdots&\vdots&\ddots&\vdots\\
+            0 & 0 &  0 &   \cdots& 1
+        \end{array}
+   \right)
+$$
+Calculer $\mathrm{det}A$, $\parallel A\parallel_1$ et
+$\parallel A\parallel_\infty$. Calculer $A^{-1}$ puis $\sigma(A)$. 
+\end{exo}
+
+% \begin{exo}[Examen d?cembre 2002]\rm
+% Soit $A$ une matrice $n\times n$ et $b$ un vecteur de $\mbb R^n$. On consid?re
+% le système 
+% \begin{equation}
+% Ax=b\label{SLMC}
+% \end{equation}
+% On suppose que le système (\ref{SLMC}) est mal conditionn?, i.e. $\sigma(A)>>1$.
+% 
+% 1.--- Soit $\tilde A$ une {\it approximation} de
+% $A^{-1}$. Considérons le système
+% \begin{equation}
+% \tilde AAx=\tilde Ab\label{SLPC}
+% \end{equation}
+% Comparer les solutions de (\ref{SLMC}) et (\ref{SLPC}). ?valuer $\sigma(\tilde AA)$.
+% Conclusion.
+% 
+% 
+% 2.--- On suppose maintenant que $A$ est sym?trique d?finie positive. On
+% consid?re la d?composition $A=M-N$, avec $M$ d?finie positive. On pose
+% $B=M^{-1}N$ et on suppose $\rho(B)<1$.
+% 
+% 2.a-- Montrer que 
+% $$
+% \sigma_2(M^{-1}A)\le \frac{1+\rho(B)}{1-\rho(B)}.
+% $$
+% Comment peut--on rem?dier au mauvais conditionnement de 
+% (\ref{SLMC}) dans le cas o\`u $A$ est d?finie positive ?
+% 
+% 2.b-- On suppose que $A$ est ? diagonale dominante, i.e.
+% $$
+% a_{ii}>\sum_{j\ne i}|a_{ij}|,\quad i=1,\ldots,n.
+% $$
+% Trouver deux matrices $M$ et $N$ ayant les propri?t?s requises.
+% \end{exo}
+
+\begin{exo}[Examen novembre 2005]\rm 
+Soit $\|.\|$ une norme matricielle, $A$ une matrice carrée inversible de rang $n$. 
+On cherche à évaluer la précision de calcul de $A^{-1}$.\\
+On suppose que l'on a calculé $B$, approximation (pour cause de troncature numérique par exemple) de $A^{-1}$. On pose :
+$$e_1 = \frac{\|B-A^{-1}\|}{\|A^{-1}\|}\quad e_2 =\frac{\|B^{-1}-A\|}{\|A\|}\quad e_3 = \|AB-I\| \quad e_4 = \|BA-I\| $$
+\begin{enumerate}
+	\item Expliquer en quoi les $e_i,1\leq i\leq 4$ mesurent la qualité de $B$.
+
+\medskip
+On suppose $B=A^{-1}+E$, avec $\|E\|\leq \epsilon\|A^{-1}\|$ et $\epsilon\sigma_A<1$
+	\item Montrer que $e_1\leq \epsilon$
+
+	\item Montrer que $(A^{-1}+E)^{-1}-A=-(I+AE)^{-1}AEA$. \\En déduire $e_2\leq \frac{\epsilon\sigma_A}{1-\epsilon\sigma_A}$ \\{
+\it Indication (Théorème 3.1) : Si $\|.\|$ est une norme matricielle subordonnée, $E$ une matrice telle que $\|E\|<1$ alors :
+\begin{itemize}
+	\item $I+E$ est inversible (déjà connu, théorème du cours)
+	\item $\|(I+E)^{-1}\|\leq \frac{1}{1-\|E\|}$
+\end{itemize}
+}
+
+	\item Montrer que $e_3\leq \epsilon\sigma_A$ et que $e_4\leq \epsilon\sigma_A$
+	\item On suppose maintenant que $A$ n'est connue qu'à une certaine matrice d'erreur près, notée $\delta A$.
+\begin{itemize}
+	\item a- Montrer que $A+\delta A$ est inversible si $\|\delta A\|<\frac{1}{\|A^{-1}\|}$
+	\item b- montrer que si $A+\delta A$ est inversible alors $$\frac{\|(A+\delta A)^{-1}-A^{-1}\|}{\|(A+\delta A)^{-1}\|}\leq \sigma_A\frac{\|\delta A\|}{\|A\|}$$
+\end{itemize}
+\end{enumerate}
+\end{exo}
+
+
+
