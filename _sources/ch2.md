@@ -575,7 +575,7 @@ ${\bf P}={\bf P_{n-1}P_{n-2}}\cdots {\bf P_1}$
 
 et on obtient la décomposition générale suivante :
 
-````{prf:theorem}Factorisation {\bf PA} = {\bf LU}}{}
+````{prf:theorem} Factorisation {\bf PA} = {\bf LU}
 Pour toute matrice ${\bf A}$ non singulière de taille $n$, il existe
 une matrice de permutation ${\bf P}$, une matrice triangulaire inférieure ${\bf L}$ telle
 que $l_{ii}=1$, pour tout $i$, et une matrice triangulaire supérieure ${\bf U}$, telles
