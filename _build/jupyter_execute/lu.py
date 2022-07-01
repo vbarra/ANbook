@@ -129,8 +129,9 @@
 #         2. $\sigma_{i_p} = k$
 #     5. Pour $i=k+1,\ldots, n$
 #         1. $a_{ik}\leftarrow \frac{a_{ik}}{a_{kk}}$
+#         `Modification des lignes qui n'ont pas encore été ligne-pivot`
 #         2. Pour $j=k+1,\ldots,n+1$
-#             1.$a_{ij} \leftarrow  a_{ij}- a_{ik}a_{kj}$
+#             1. $a_{ij} \leftarrow  a_{ij}- a_{ik}a_{kj}$
 # ```
 # 
 # 
