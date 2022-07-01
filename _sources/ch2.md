@@ -139,10 +139,8 @@ $
 
 # Elimination de Gauss
 ## Exemple introductif
-\exemple{
 
 
-\label{UnExemple}
  Soit le système de 3 équations à 3 inconnues
 \begin{eqnarray}
 2x_1-3x_2\phantom{-3x_3}&=& 3\label{SL1}\\ 
@@ -154,7 +152,8 @@ première équation pour calculer $x_1$ en fonction des autres variables puis de
 remplacer cette variable dans les équations suivantes. Cette élimination se
 poursuit avec $x_2$ dans les nouvelles équations (sauf la première) jusqu'à
 l'obtention d'une équation à une seule inconnue. On remonte alors en remplaçant
-les variables calculées dans les équations ayant servi à l'élimination :\\
+les variables calculées dans les équations ayant servi à l'élimination :
+
 Tirons $x_1$ de l'équation (\ref{SL1}):
 \begin{equation}x_1=\frac{3}{2}(1+x_2) \label{VarX}\end{equation}
 Remplaçons $x_1$ dans les deux dernières équations (\ref{SL2})-(\ref{SL3})
@@ -174,7 +173,7 @@ inverse des variables gr\^ace aux équations (\ref{VarZ}), (\ref{VarY}) et
 (\ref{VarZ}) &\Rightarrow& x_3=0\\ (\ref{VarY}) &\Rightarrow& x_2=1\\ (\ref{VarX})
 &\Rightarrow& x_1=3
 \end{eqnarray*}
-}
+
 On remarque qu'à une étape donnée, l'élimination d'une variable peut se faire
 dans n'importe quelle équation, à condition, bien sûr, que cette équation
 contienne la variable en question.
@@ -223,7 +222,7 @@ le même que celui de substitution inverse (\ref{BckSub1})-(\ref{BckSub2}).
 ## Méthode de Gauss (ou du pivot) pour les systèmes linéaires
 
 
-Montrons d'abord que la technique d'élimination décrite au paragraphe \ref{UnExemple}
+Montrons d'abord que la technique d'élimination 
 correspond à une opération de pivotage.
 
 Eliminer $x_1$ de l'équation (\ref{SL2}) revient à faire la somme de l'équation
