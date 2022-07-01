@@ -329,7 +329,7 @@ $
 Dans le cas général, on a donc à l'étape $k$ de l'algorithme une matrice
 ${\bf A^{(k)}}\in\mathcal{M}_{n,n+1}(\mathbb R)$ (la dernière colonne représente
 le second membre du système transformé, notée ${\bf b^{(k)}}$) dont les $k-1$ premières colonnes
-sont triangulaires supérieures (cf. figure \ref{Gaussétapek}).
+sont triangulaires supérieures.
 
 
 ![](./images/gaussk.png)
