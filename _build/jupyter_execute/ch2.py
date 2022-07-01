@@ -491,25 +491,8 @@ def SubstitutionInverse(A,b):
 # $
 # 
 # où ${\bf E_k}$ est la matrice élémentaire suivante
-# $
-#   \left(
-#     \begin{array}{r@{}c|c@{}c}
-#    &  \begin{smallmatrix}
-#       \bovermat{k-1}{1 & & 0}\\
-#        &\ddots&\\
-#       0 & & 1\rule[-1ex]{0pt}{2ex}
-#      \end{smallmatrix} & \mbox{\huge0} & \rlap{\kern5mm k}\\\hline
-#    &  \mbox{\huge0} & 
-#      \begin{smallmatrix}\rule{0pt}{2ex}
-#      \vertbar&&&0\\
-#       -{\Large \bm \eta_k}& &  \\
-#        \vertbar&\ddots&\\
-#      & & & 1
-#      \end{smallmatrix}  & \rlap{\kern5mm n-k}
-#     \end{array} 
-#     \right)
-# $
 # 
+# ![](./images/LU.png)
 # 
 # On a donc, après $n-1$ pivotages
 # 
