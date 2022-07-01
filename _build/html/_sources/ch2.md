@@ -441,8 +441,8 @@ le second membre du système)
     1. $c_p\leftarrow |a_{kk}|,\: i_p\leftarrow k$
     2. Pour $i=k+1,\ldots, n$
         1. Si $ |a_{ik}|> c_p$
-            1. $c_p\leftarrow |a_{ik}|
-            2.  i_p\leftarrow i$
+            1. $c_p\leftarrow |a_{ik}|$
+            2.  $i_p\leftarrow i$
     3. Si $i_p\ne k$
         1. Pour $i=k+1,\ldots, n$
             1. Pour $j=k+1,\ldots,n+1$
