@@ -350,39 +350,36 @@ def SubstitutionInverse(A,b):
 # et $\frac{1}{2}n(n+1)$ divisions.
 # 
 # On dira que la complexité de la méthode de Gauss est de 
-# $\displaystyle{\frac{1}{3}{n^3}}$ flops.\index{flops}
+# $\displaystyle{\frac{1}{3}{n^3}}$ flops.
 # 
-# L'algorithme d'élimination de Gauss est présenté dans l'algorithme~\ref{MGauss1}.
+# L'algorithme d'élimination de Gauss est présenté dans l'algorithme {prf:ref}`AlgoGauss`.
 # Le second membre est stocké dans la dernière colonne de ${\bf A}$. L'élimination
 # transforme la matrice ${\bf A}$ en une matrice triangulaire supérieure (\textit{étape 1.}).
 # Le système triangulaire supérieur est ensuite résolu par substitution inverse
 # (\textit{étape 2.}).
 # 
-# \begin{algorithm}
-# \caption{Méthode de Gauss}
-# %%-----------------------------------------------
-# \Entree{${\bf A}\in\mathcal{M}_{n,n+1}(\mathbb R)$ (la dernière colonne représente
-# le second membre du système)}
-# \Sortie{Solution ${\bf x}$ du syst\`eme ${\bf Ax}={\bf b}$}
-# \Deb{
-# \textit{étape 1. Elimination}\;
-# \Pour{$k=1,\ldots, n-1$}{
-#     \Pour{$i=k+1,\ldots, n$}{
-#     \Pour{$j=k+1,\ldots,n+1$}{
-#          $\dps{a_{ij} \leftarrow  a_{ij}-\frac{a_{ik}}{a_{kk}}a_{kj}}$\;
-#         }
-#     }
-# }
-# \textit{étape 2. Résolution du système triangulaire}\;
-# $\dps{x_n\leftarrow \frac{a_{n,n+1}}{a_{nn}}}$\;
-# \Pour{$k=n-1,\ldots,1$}{
+# 
+# ```{prf:algorithm} Méthode de Gauss
+# :label: AlgoGauss
+# 
+# **Entrée : ** ${\bf A}\in\mathcal{M}_{n,n+1}(\mathbb R)$ (la dernière colonne représente
+# le second membre du système)
+# 
+# **Sortie : ** Solution ${\bf x}$ du syst\`eme ${\bf Ax}={\bf b}$
+# 
+# 1. \textit{étape 1. Elimination}\;
+# Pour($k=1,\ldots, n-1$)
+#     1. Pour $i=k+1,\ldots, n$
+#         1. Pour$j=k+1,\ldots,n+1$
+#             $\dps{a_{ij} \leftarrow  a_{ij}-\frac{a_{ik}}{a_{kk}}a_{kj}}$\;
+# 
+# 2. \textit{étape 2. Résolution du système triangulaire}\;
+# $\displaystyle\sum{x_n\leftarrow \frac{a_{n,n+1}}{a_{nn}}}$\;
+# 3. Pour$k=n-1,\ldots,1$
 #     $\dps{x_k\leftarrow \frac{1}{a_{kk}}\left[
 #                                   a_{k,n+1}-\sum_{j=k+1}^na_{kj}x_j
 #                                                \right]}$\;
-# }}
-# \label{MGauss1}
-# \end{algorithm}
-# 
+# ```
 # 
 # ## Stratégies pour les pivots nuls
 # 

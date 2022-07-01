@@ -899,36 +899,39 @@ n(n-1)+(n-1)(n-2)+\cdots+2\cdot 1&amp;=&amp;n^2+(n-1)^2+\cdots+2^2+1^2
 \end{eqnarray*}\)</span></p>
 <p>et <span class="math notranslate nohighlight">\(\frac{1}{2}n(n+1)\)</span> divisions.</p>
 <p>On dira que la complexité de la méthode de Gauss est de
-<span class="math notranslate nohighlight">\(\displaystyle{\frac{1}{3}{n^3}}\)</span> flops.\index{flops}</p>
-<p>L’algorithme d’élimination de Gauss est présenté dans l’algorithme~\ref{MGauss1}.
+<span class="math notranslate nohighlight">\(\displaystyle{\frac{1}{3}{n^3}}\)</span> flops.</p>
+<p>L’algorithme d’élimination de Gauss est présenté dans l’algorithme <a class="reference internal" href="#AlgoGauss">Algorithm 2</a>.
 Le second membre est stocké dans la dernière colonne de <span class="math notranslate nohighlight">\({\bf A}\)</span>. L’élimination
 transforme la matrice <span class="math notranslate nohighlight">\({\bf A}\)</span> en une matrice triangulaire supérieure (\textit{étape 1.}).
 Le système triangulaire supérieur est ensuite résolu par substitution inverse
 (\textit{étape 2.}).</p>
-<p>\begin{algorithm}
-\caption{Méthode de Gauss}</p>
-<p>\Entree{<span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{n,n+1}(\mathbb R)\)</span> (la dernière colonne représente
-le second membre du système)}
-\Sortie{Solution <span class="math notranslate nohighlight">\({\bf x}\)</span> du syst`eme <span class="math notranslate nohighlight">\({\bf Ax}={\bf b}\)</span>}
-\Deb{
-\textit{étape 1. Elimination};
-\Pour{<span class="math notranslate nohighlight">\(k=1,\ldots, n-1\)</span>}{
-\Pour{<span class="math notranslate nohighlight">\(i=k+1,\ldots, n\)</span>}{
-\Pour{<span class="math notranslate nohighlight">\(j=k+1,\ldots,n+1\)</span>}{
-<span class="math notranslate nohighlight">\(\dps{a_{ij} \leftarrow  a_{ij}-\frac{a_{ik}}{a_{kk}}a_{kj}}\)</span>;
-}
-}
-}
-\textit{étape 2. Résolution du système triangulaire};
-<span class="math notranslate nohighlight">\(\dps{x_n\leftarrow \frac{a_{n,n+1}}{a_{nn}}}\)</span>;
-\Pour{<span class="math notranslate nohighlight">\(k=n-1,\ldots,1\)</span>}{
+<div class="proof algorithm admonition" id="AlgoGauss">
+<p class="admonition-title"><span class="caption-number">Algorithm 2 </span> (Méthode de Gauss)</p>
+<div class="algorithm-content section" id="proof-content">
+<p>**Entrée : ** <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{n,n+1}(\mathbb R)\)</span> (la dernière colonne représente
+le second membre du système)</p>
+<p>**Sortie : ** Solution <span class="math notranslate nohighlight">\({\bf x}\)</span> du syst`eme <span class="math notranslate nohighlight">\({\bf Ax}={\bf b}\)</span></p>
+<ol class="simple">
+<li><p>\textit{étape 1. Elimination};
+Pour(<span class="math notranslate nohighlight">\(k=1,\ldots, n-1\)</span>)</p>
+<ol class="simple">
+<li><p>Pour <span class="math notranslate nohighlight">\(i=k+1,\ldots, n\)</span></p>
+<ol class="simple">
+<li><p>Pour<span class="math notranslate nohighlight">\(j=k+1,\ldots,n+1\)</span>
+<span class="math notranslate nohighlight">\(\dps{a_{ij} \leftarrow  a_{ij}-\frac{a_{ik}}{a_{kk}}a_{kj}}\)</span>;</p></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>\textit{étape 2. Résolution du système triangulaire};
+<span class="math notranslate nohighlight">\(\displaystyle\sum{x_n\leftarrow \frac{a_{n,n+1}}{a_{nn}}}\)</span>;</p></li>
+<li><p>Pour<span class="math notranslate nohighlight">\(k=n-1,\ldots,1\)</span>
 <span class="math notranslate nohighlight">\(\dps{x_k\leftarrow \frac{1}{a_{kk}}\left[
-                                  a_{k,n+1}-\sum_{j=k+1}^na_{kj}x_j
-                                               \right]}\)</span>;
-}}
-\label{MGauss1}
-\end{algorithm}</p>
+                               a_{k,n+1}-\sum_{j=k+1}^na_{kj}x_j
+                                            \right]}\)</span>;</p></li>
+</ol>
 </div>
+</div></div>
 <div class="section" id="strategies-pour-les-pivots-nuls">
 <h2>Stratégies pour les pivots nuls<a class="headerlink" href="#strategies-pour-les-pivots-nuls" title="Lien permanent vers ce titre">#</a></h2>
 <p>Si le pivot est nul (en pratique, on évitera aussi les pivots de valeur
