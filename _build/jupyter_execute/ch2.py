@@ -433,7 +433,7 @@ def SubstitutionInverse(A,b):
 #     3. Si $i_p\ne k$
 #         1. Pour $i=k+1,\ldots, n$
 #             1. Pour $j=k+1,\ldots,n+1$
-#                 1. $a_{ij} \leftarrow  a_{ij}-\frac{a_{ik}}{a_{kk}}a_{kj}}$
+#                 1. $a_{ij} \leftarrow  a_{ij}-\frac{a_{ik}}{a_{kk}}a_{kj}$
 # 
 # `étape 2. Résolution du système triangulaire`
 # 
