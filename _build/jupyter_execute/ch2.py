@@ -197,18 +197,22 @@
 # On commence d'abord par calculer $x_n$ dans l'équation $n$. Puis à l'aide de
 # $x_n$, on peut calculer $x_{n-1}$ dans l'équation $n-1$ et ainsi de suite
 # jusqu'à $x_1$ : 
-# \begin{eqnarray}
+# 
+# $left \{\begin{eqnarray}
 # x_n    &=& \frac{b_n}{a_{nn}},\label{BckSub1}\\[.35pc]
 # x_{k}&=&\frac{1}{a_{kk}}\left[b_k-\sum_{j=k+1}^na_{kj}x_j\right],\quad
 # k\in[\![n-1, 1]\!]\label{BckSub2}
-# \end{eqnarray}
+# \end{eqnarray}\right .$
+# 
+# 
 # On remarque que le calcul de $x_k$ coûte $n-k$ flops et une division. Le
-# coût total de l'algorithme est donc de $$1+2+\cdots+n-1=\frac{n(n-1)}{2},$$
+# coût total de l'algorithme est donc de $1+2+\cdots+n-1=\frac{n(n-1)}{2}$
 # soit (on ne garde que les termes de plus haut degré)
-# $$
+# 
+# $
 # \frac{{n^2}}{ 2}\quad\mbox{ flops}\quad\mbox{ et}\quad 
 #  n\quad\mbox{ divisions.}
-# $$
+# $
 # 
 # Dans le cas d'un système triangulaire inférieur, on effectue des substitutions
 # directes \index{substitution!directe} : 
