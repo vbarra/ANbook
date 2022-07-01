@@ -632,59 +632,9 @@ et <span class="math notranslate nohighlight">\(\sigma\)</span> les permutations
 </li>
 </ol>
 </div>
-</div><p>\begin{algorithm}[H]</p>
-<p>\Entree{}
-\Sortie{}
-\Deb{
-<span class="math notranslate nohighlight">\(\sigma(i)=i\)</span>, <span class="math notranslate nohighlight">\(i\in[\![1,n]\!]\)</span> (initialisation du vecteur des permutations);
-\Pour{<span class="math notranslate nohighlight">\(k=1,\ldots, n-1\)</span>}{
-\textit{Recherche du pivot};
-<span class="math notranslate nohighlight">\(c_p\leftarrow |a_{kk}|,\: i_p\leftarrow k\)</span>;
-\Pour{<span class="math notranslate nohighlight">\(i=k+1,\ldots,n\)</span>}{
-\Si{<span class="math notranslate nohighlight">\( |a_{ik}|&gt; c_p\)</span>}{
-<span class="math notranslate nohighlight">\(c_p\leftarrow |a_{ik}|,\: i_p\leftarrow i\)</span>
-}
-}
-\textit{Permutation};
-\Si{<span class="math notranslate nohighlight">\(i_p\ne k\)</span>}{</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>     $\sigma(k)=i_p$, $\sigma(i_p)=k$
-     }
-     \textit{Pivotage}\;
-\Pour{$i=k+1,\ldots, n$}{
-    \textit{Remplissage de la colonne} $k$ 
-          \textit{par les coefficients} $\eta_{ik}$ \;
-    $\dps{a_{ik}\leftarrow \frac{a_{ik}}{a_{kk}}}$\;
-    \textit{Modification des lignes qui n&#39;ont pas encore été ligne-pivot}\;
-\Pour{$j=k+1,\ldots,n+1$}{
-     $\dps{a_{ij} \leftarrow  a_{ij}- a_{ik}a_{kj}}$\;
-    }
-}
-</pre></div>
-</div>
-<p>}}
-\caption{Factorisation <span class="math notranslate nohighlight">\(LU\)</span>}
-\label{FactLU}
-\end{algorithm}</p>
-<p>Si <span class="math notranslate nohighlight">\(\sigma_i=j\)</span> alors les lignes
+</div><p>Si <span class="math notranslate nohighlight">\(\sigma_i=j\)</span> alors les lignes
 <span class="math notranslate nohighlight">\(i\)</span> et <span class="math notranslate nohighlight">\(j\)</span> ont été permutées. Les permutations doivent être repercutées sur le second
-membre lors de la résolution de <span class="math notranslate nohighlight">\({\bf Ly}={\bf b}\)</span> (algorithme~\ref{SDI}).</p>
-<p>\begin{algorithm}
-\Deb{
-\textit{1. Substitutions directes} <span class="math notranslate nohighlight">\(Ly=b\)</span>;
-<span class="math notranslate nohighlight">\(\dps{x_1\leftarrow {b_{\sigma_1}}}\)</span>;
-\Pour{<span class="math notranslate nohighlight">\(k=2,\ldots,n\)</span>}{
-<span class="math notranslate nohighlight">\(\dps{x_k\leftarrow b_{\sigma_k}-\sum_{j=1}^{k-1}a_{kj}x_j}\)</span>;
-}
-\textit{2. Substitutions inverses} <span class="math notranslate nohighlight">\(Ux=y\)</span>;
-<span class="math notranslate nohighlight">\(\dps{x_n\leftarrow \frac{x_{n}}{a_{nn}}}\)</span>;
-\Pour{<span class="math notranslate nohighlight">\(k=n-1,\ldots,1\)</span>}{
-<span class="math notranslate nohighlight">\(\dps{x_k\leftarrow \frac{1}{a_{kk}}\left[
-                    x_{k}-\sum_{j=k+1}^na_{kj}x_j
-                                               \right]}\)</span>;
-}}
-\caption{Substitutions directes/inverses}
-\label{SDI}
-\end{algorithm}</p>
+membre lors de la résolution de <span class="math notranslate nohighlight">\({\bf Ly}={\bf b}\)</span>.</p>
 <div class="section" id="cas-particuliers">
 <h2>Cas particuliers<a class="headerlink" href="#cas-particuliers" title="Lien permanent vers ce titre">#</a></h2>
 <p>\subsubsection{Matrices symétriques} Dans ce cas, <span class="math notranslate nohighlight">\({\bf U}\)</span> peut s’écrire <span class="math notranslate nohighlight">\({\bf U}={\bf DL^\top} \)</span> où
