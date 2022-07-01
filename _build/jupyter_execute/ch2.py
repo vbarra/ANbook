@@ -567,9 +567,8 @@ def SubstitutionInverse(A,b):
 # une matrice de permutation ${\bf P}$, une matrice triangulaire inférieure ${\bf L}$ telle
 # que $l_{ii}=1$, pour tout $i$, et une matrice triangulaire supérieure ${\bf U}$, telles
 # que
-# $$
-# {\bf PA}={\bf LU}.
-# $$ 
+# 
+# ${\bf PA}={\bf LU}.$ 
 # ````
 # 
 # \medskip
