@@ -590,9 +590,9 @@ et <span class="math notranslate nohighlight">\(\sigma\)</span> les permutations
 <p>**Sortie : ** Les facteurs <span class="math notranslate nohighlight">\({\bf L}\)</span> et <span class="math notranslate nohighlight">\({\bf U}\)</span>, les permutations <span class="math notranslate nohighlight">\(\sigma\)</span></p>
 <ol>
 <li><p><span class="math notranslate nohighlight">\(\sigma(i)=i\)</span>, <span class="math notranslate nohighlight">\(i\in[\![1,n]\!]\)</span> (initialisation du vecteur des permutations)</p></li>
-<li><p>Pour <span class="math notranslate nohighlight">\(k=1,\ldots, n-1\)</span>
-<code class="docutils literal notranslate"><span class="pre">Recherche</span> <span class="pre">du</span> <span class="pre">pivot</span></code></p>
-<ol>
+<li><p>Pour <span class="math notranslate nohighlight">\(k=1,\ldots, n-1\)</span></p>
+<p><code class="docutils literal notranslate"><span class="pre">Recherche</span> <span class="pre">du</span> <span class="pre">pivot</span></code></p>
+<ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(c_p\leftarrow |a_{kk}|\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(i_p\leftarrow k\)</span></p></li>
 <li><p>Pour <span class="math notranslate nohighlight">\(i=k+1,\ldots, n\)</span></p>
@@ -600,28 +600,26 @@ et <span class="math notranslate nohighlight">\(\sigma\)</span> les permutations
 <li><p>Si <span class="math notranslate nohighlight">\( |a_{ik}|&gt; c_p\)</span></p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(c_p\leftarrow |a_{ik}|\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(i_p\leftarrow i\)</span>
-<code class="docutils literal notranslate"><span class="pre">Permutation</span></code></p></li>
+<li><p><span class="math notranslate nohighlight">\(i_p\leftarrow i\)</span></p></li>
 </ol>
 </li>
 </ol>
 </li>
-<li><p>Si <span class="math notranslate nohighlight">\(i_p\ne k\)</span></p>
-<ol class="simple">
-<li><p><span class="math notranslate nohighlight">\(\sigma(k)=i_p\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\sigma_{i_p} = k\)</span></p></li>
 </ol>
-</li>
-<li><p>Pour <span class="math notranslate nohighlight">\(i=k+1,\ldots, n\)</span></p>
-<p><code class="docutils literal notranslate"><span class="pre">Remplissage</span> <span class="pre">de</span> <span class="pre">la</span> <span class="pre">colonne</span> <span class="pre">$k$</span></code></p>
-<ol class="simple">
-<li><p><span class="math notranslate nohighlight">\(a_{ik}\leftarrow \frac{a_{ik}}{a_{kk}}\)</span></p></li>
-</ol>
-<p><code class="docutils literal notranslate"><span class="pre">Modification</span> <span class="pre">des</span> <span class="pre">lignes</span> <span class="pre">qui</span> <span class="pre">n'ont</span> <span class="pre">pas</span> <span class="pre">encore</span> <span class="pre">été</span> <span class="pre">ligne-pivot</span></code>
-2. Pour <span class="math notranslate nohighlight">\(j=k+1,\ldots,n+1\)</span>
-1. <span class="math notranslate nohighlight">\(a_{ij} \leftarrow  a_{ij}- a_{ik}a_{kj}\)</span></p>
-</li>
-</ol>
+<p><code class="docutils literal notranslate"><span class="pre">Permutation</span></code>
+4. Si <span class="math notranslate nohighlight">\(i_p\ne k\)</span>
+1. <span class="math notranslate nohighlight">\(\sigma(k)=i_p\)</span>
+2. <span class="math notranslate nohighlight">\(\sigma_{i_p} = k\)</span>
+5. Pour <span class="math notranslate nohighlight">\(i=k+1,\ldots, n\)</span></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> `Remplissage de la colonne $k$`
+
+ 1. $a_{ik}\leftarrow \frac{a_{ik}}{a_{kk}}$
+ 
+ `Modification des lignes qui n&#39;ont pas encore été ligne-pivot`
+ 2. Pour $j=k+1,\ldots,n+1$
+     1. $a_{ij} \leftarrow  a_{ij}- a_{ik}a_{kj}$
+</pre></div>
+</div>
 </li>
 </ol>
 </div>
