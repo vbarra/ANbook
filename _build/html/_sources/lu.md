@@ -124,12 +124,15 @@ et $\sigma$ les permutations de lignes éventuelles.
 
 1. $\sigma(i)=i$, $i\in[\![1,n]\!]$ (initialisation du vecteur des permutations)
 2. Pour $k=1,\ldots, n-1$
+    `Recherche du pivot`
+
     1. $c_p\leftarrow |a_{kk}|$
     2. $i_p\leftarrow k$
     3. Pour $i=k+1,\ldots, n$
         1. Si $ |a_{ik}|> c_p$
             1. $c_p\leftarrow |a_{ik}|$
             2.  $i_p\leftarrow i$
+    `Permutation`
     4. Si $i_p\ne k$
         1. $\sigma(k)=i_p$
         2. $\sigma_{i_p} = k$
