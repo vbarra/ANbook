@@ -144,19 +144,19 @@
 # remplacer cette variable dans les équations suivantes. Cette élimination se
 # poursuit avec $x_2$ dans les nouvelles équations (sauf la première) jusqu'à
 # l'obtention d'une équation à une seule inconnue. On remonte alors en remplaçant
-# les variables calculées dans les équations ayant servi à l'élimination :
+# les variables calculées dans les équations ayant servi à l'élimination.
 # 
-# Tirons $x_1$ de la première équation:
+# Tirons $x_1$ de la première équation :
 # 
 # $\begin{equation}x_1=\frac{3}{2}(1+x_2) \label{VarX}\end{equation}$
 # 
 # Remplaçons $x_1$ dans les deux dernières équations 
 # par son expression
 # 
-# $\begin{eqnarray}
+# $\\left \{begin{eqnarray}
 # x_2+x_3 &=& 1 \label{SLR1}\\ 
 # 2x_2-3x_3 &=& 2\label{SLR2}.
-# \end{eqnarray}$
+# \end{eqnarray}\right .$
 # 
 # Tirons $x_2$ de ce nouveau système 
 # 
@@ -169,10 +169,10 @@
 #  La phase d'élimination est terminée. On effectue alors la substitution en sens
 # inverse des variables :
 # 
-# \begin{eqnarray*}
+# $\left \{\begin{eqnarray*}
 # (\ref{VarZ}) &\Rightarrow& x_3=0\\ (\ref{VarY}) &\Rightarrow& x_2=1\\ (\ref{VarX})
 # &\Rightarrow& x_1=3
-# \end{eqnarray*}
+# \end{eqnarray*}\right .$
 # 
 # On remarque qu'à une étape donnée, l'élimination d'une variable peut se faire
 # dans n'importe quelle équation, à condition, bien sûr, que cette équation
