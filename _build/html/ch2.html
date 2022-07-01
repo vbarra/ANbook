@@ -818,27 +818,32 @@ le même que celui de substitution inverse.</p>
 <h2>Méthode de Gauss (ou du pivot) pour les systèmes linéaires<a class="headerlink" href="#methode-de-gauss-ou-du-pivot-pour-les-systemes-lineaires" title="Lien permanent vers ce titre">#</a></h2>
 <p>Montrons d’abord que la technique d’élimination
 correspond à une opération de pivotage.</p>
-<p>Eliminer <span class="math notranslate nohighlight">\(x_1\)</span> de l’équation (\ref{SL2}) revient à faire la somme de l’équation
-(\ref{SL1}) multipliée par -2 avec (\ref{SL2}). De même éliminer <span class="math notranslate nohighlight">\(x_1\)</span> de
-(\ref{SL3}) revient à faire la somme de l’équation (\ref{SL1}) multipliée par
--1 avec l’équation (\ref{SL3}). On a donc effectué un pivotage de la première
-colonne (celle de <span class="math notranslate nohighlight">\(x_1\)</span>) en utilisant la première ligne comme ligne du pivot.\index{pivot}</p>
-<p>\begin{rem}\rm Lors de l’exécution de l’algorithme :
-\begin{enumerate}
-\item A chaque itération, l’élément de la colonne dans la ligne du pivot
-doit être non nul.
-\item Les transformations élémentaires effectuées sur la matrice sont
+<p>Eliminer <span class="math notranslate nohighlight">\(x_1\)</span> de la seconde équation revient à faire la somme de la première équation
+multipliée par -2 avec la seconde. De même éliminer <span class="math notranslate nohighlight">\(x_1\)</span> de
+la troisième équation revient à faire la somme de la premièr multipliée par
+-1 avec la troisième. On a donc effectué un pivotage de la première
+colonne (celle de <span class="math notranslate nohighlight">\(x_1\)</span>) en utilisant la première ligne comme ligne du pivot.</p>
+<div class="proof remark dropdown admonition" id="remark-5">
+<span id="index-5"></span><p class="admonition-title"><span class="caption-number">Remark 4 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>Lors de l’exécution de l’algorithme :</p>
+<ol class="simple">
+<li><p>A chaque itération, l’élément de la colonne dans la ligne du pivot
+doit être non nul.</p></li>
+<li><p>Les transformations élémentaires effectuées sur la matrice sont
 effectuées en parallèle sur le second membre.
-\item A la fin de l’élimination (si tout se passe bien!), on obtient un système
-triangulaire avec les pivots sur la diagonale.
-\end{enumerate}
-\end{rem}</p>
-<p>\exemple{
-Les transformations successives sont décrites ci-dessous pour l’exemple
-du  paragraphe \ref{UnExemple}.
+3/ A la fin de l’élimination (si tout se passe bien!), on obtient un système
+triangulaire avec les pivots sur la diagonale.</p></li>
+</ol>
+</div>
+</div><div class="proof example admonition" id="example-6">
+<p class="admonition-title"><span class="caption-number">Example 3 </span></p>
+<div class="example-content section" id="proof-content">
+<p>Les transformations successives sont décrites ci-dessous pour l’exemple
+du  paragraphe précédent.
 \noindent
-Itération 1 :
-$<span class="math notranslate nohighlight">\(
+Itération 1 :</p>
+<p><span class="math notranslate nohighlight">\(
 \left(\begin{array}{rrr} 1 &amp; &amp; \\ -2&amp; 1&amp; \\ -1 &amp; &amp; 1 \end{array}\right)
 \left(\begin{array}{rrr|r}
        (2)&amp; -3 &amp; 0 &amp; 3\\ 4 &amp; -5 &amp; 1 &amp; 7\\ 2 &amp; -1 &amp; -3 &amp; 5\\
@@ -848,10 +853,10 @@ $<span class="math notranslate nohighlight">\(
        2&amp; -3 &amp; 0 &amp; 3\\ 0 &amp; 1 &amp; 1 &amp; 1\\ 0 &amp; 2 &amp; -3 &amp; 2\\
       \end{array} 
 \right)
-\)</span><span class="math notranslate nohighlight">\(
+\)</span>
 \noindent
-Itération 2 :
-\)</span><span class="math notranslate nohighlight">\(
+Itération 2 :</p>
+<p><span class="math notranslate nohighlight">\(
 \left(\begin{array}{rrr} 1 &amp; &amp; \\   &amp; 1&amp; \\  &amp;  -2 &amp; 1 \end{array}\right)
 \left(\begin{array}{rrr|r}
        2 &amp; -3 &amp; 0 &amp; 3\\ 0 &amp; (1) &amp; 1 &amp; 1\\ 0 &amp; 2 &amp; -3 &amp;  2\\
@@ -861,9 +866,9 @@ Itération 2 :
        2&amp; -3 &amp; 0 &amp; 3\\ 0 &amp; 1 &amp; 1 &amp; 1\\ 0 &amp; 0 &amp; -5 &amp; 0\\
       \end{array} 
 \right)
-\)</span>$
-}</p>
-<p>On pose alors
+\)</span></p>
+</div>
+</div><p>On pose alors
 \begin{eqnarray*}
 {\bf A^{(1)}}&amp;=&amp;{\bf A}\[.2pc]
 {\bf b^{(1)}}&amp;=&amp;{\bf b}.

@@ -249,29 +249,36 @@ def SubstitutionInverse(A,b):
 # Montrons d'abord que la technique d'élimination 
 # correspond à une opération de pivotage.
 # 
-# Eliminer $x_1$ de l'équation (\ref{SL2}) revient à faire la somme de l'équation
-# (\ref{SL1}) multipliée par -2 avec (\ref{SL2}). De même éliminer $x_1$ de
-# (\ref{SL3}) revient à faire la somme de l'équation (\ref{SL1}) multipliée par
-# -1 avec l'équation (\ref{SL3}). On a donc effectué un pivotage de la première
-# colonne (celle de $x_1$) en utilisant la première ligne comme ligne du pivot.\index{pivot}
+# Eliminer $x_1$ de la seconde équation revient à faire la somme de la première équation
+#  multipliée par -2 avec la seconde. De même éliminer $x_1$ de
+# la troisième équation revient à faire la somme de la premièr multipliée par
+# -1 avec la troisième. On a donc effectué un pivotage de la première
+# colonne (celle de $x_1$) en utilisant la première ligne comme ligne du pivot.
+# ```{index} Pivot
+# ``` 
 # 
-# \begin{rem}\rm Lors de l'exécution de l'algorithme : 
-# \begin{enumerate} 
-# \item A chaque itération, l'élément de la colonne dans la ligne du pivot
+# ```{prf:remark}
+# :class: dropdown
+#  Lors de l'exécution de l'algorithme : 
+# 
+# 1. A chaque itération, l'élément de la colonne dans la ligne du pivot
 # doit être non nul.
-# \item Les transformations élémentaires effectuées sur la matrice sont
+# 2. Les transformations élémentaires effectuées sur la matrice sont
 # effectuées en parallèle sur le second membre.
-# \item A la fin de l'élimination (si tout se passe bien!), on obtient un système
+# 3/ A la fin de l'élimination (si tout se passe bien!), on obtient un système
 # triangulaire avec les pivots sur la diagonale.
-# \end{enumerate}
-# \end{rem}
+# ```
 # 
-# \exemple{
+# 
+# 
+# ````{prf:example}
+# 
 # Les transformations successives sont décrites ci-dessous pour l'exemple
-# du  paragraphe \ref{UnExemple}.
+# du  paragraphe précédent.
 # \noindent
 # Itération 1 :
-# $$
+# 
+# $
 # \left(\begin{array}{rrr} 1 & & \\ -2& 1& \\ -1 & & 1 \end{array}\right)
 # \left(\begin{array}{rrr|r}
 #        (2)& -3 & 0 & 3\\ 4 & -5 & 1 & 7\\ 2 & -1 & -3 & 5\\
@@ -281,10 +288,11 @@ def SubstitutionInverse(A,b):
 #        2& -3 & 0 & 3\\ 0 & 1 & 1 & 1\\ 0 & 2 & -3 & 2\\
 #       \end{array} 
 # \right)
-# $$
+# $
 # \noindent
 # Itération 2 :
-# $$
+# 
+# $
 # \left(\begin{array}{rrr} 1 & & \\   & 1& \\  &  -2 & 1 \end{array}\right)
 # \left(\begin{array}{rrr|r}
 #        2 & -3 & 0 & 3\\ 0 & (1) & 1 & 1\\ 0 & 2 & -3 &  2\\
@@ -294,8 +302,8 @@ def SubstitutionInverse(A,b):
 #        2& -3 & 0 & 3\\ 0 & 1 & 1 & 1\\ 0 & 0 & -5 & 0\\
 #       \end{array} 
 # \right)
-# $$
-# }
+# $
+# ```` 
 # 
 # On pose alors 
 # \begin{eqnarray*}
