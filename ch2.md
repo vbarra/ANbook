@@ -382,14 +382,14 @@ le second membre du système)
 
 `étape 1. Elimination`
 
-1. Pour($k=1,\ldots, n-1$)
+1. Pour $k=1,\ldots, n-1$
     1. Pour $i=k+1,\ldots, n$
-        1. Pour$j=k+1,\ldots,n+1$
+        1. Pour $j=k+1,\ldots,n+1$
             1. $\displaystyle\sum{a_{ij} \leftarrow  a_{ij}-\frac{a_{ik}}{a_{kk}}a_{kj}}$\;
 
 `étape 2. Résolution du système triangulaire`
 
-1. \displaystyle\sum{x_n\leftarrow \frac{a_{n,n+1}}{a_{nn}}}$\;
+1. $\displaystyle\sum{x_n\leftarrow \frac{a_{n,n+1}}{a_{nn}}}$
 2. Pour $k=n-1,\ldots,1$
     1. $\displaystyle\sum{x_k\leftarrow \frac{1}{a_{kk}}\left[
                                   a_{k,n+1}-\sum_{j=k+1}^na_{kj}x_j

@@ -910,53 +910,36 @@ Le système triangulaire supérieur est ensuite résolu par substitution inverse
 <div class="algorithm-content section" id="proof-content">
 <p>**Entrée : ** <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{n,n+1}(\mathbb R)\)</span> (la dernière colonne représente
 le second membre du système)</p>
-<p>**Sortie : ** Solution <span class="math notranslate nohighlight">\({\bf x}\)</span> du syst`eme <span class="math notranslate nohighlight">\({\bf Ax}={\bf b}\)</span></p>
+<p>**Sortie : ** Solution <span class="math notranslate nohighlight">\({\bf x}\)</span> du système <span class="math notranslate nohighlight">\({\bf Ax}={\bf b}\)</span></p>
 <p><code class="docutils literal notranslate"><span class="pre">étape</span> <span class="pre">1.</span> <span class="pre">Elimination</span></code></p>
 <ol class="simple">
 <li><p>Pour(<span class="math notranslate nohighlight">\(k=1,\ldots, n-1\)</span>)</p>
 <ol class="simple">
 <li><p>Pour <span class="math notranslate nohighlight">\(i=k+1,\ldots, n\)</span></p>
 <ol class="simple">
-<li><p>Pour<span class="math notranslate nohighlight">\(j=k+1,\ldots,n+1\)</span>\
-<span class="math notranslate nohighlight">\(\displaystyle\sum{a_{ij} \leftarrow  a_{ij}-\frac{a_{ik}}{a_{kk}}a_{kj}}\)</span>;</p></li>
+<li><p>Pour<span class="math notranslate nohighlight">\(j=k+1,\ldots,n+1\)</span></p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(\displaystyle\sum{a_{ij} \leftarrow  a_{ij}-\frac{a_{ik}}{a_{kk}}a_{kj}}\)</span>;</p></li>
+</ol>
+</li>
 </ol>
 </li>
 </ol>
 </li>
 </ol>
 <p><code class="docutils literal notranslate"><span class="pre">étape</span> <span class="pre">2.</span> <span class="pre">Résolution</span> <span class="pre">du</span> <span class="pre">système</span> <span class="pre">triangulaire</span></code></p>
-<p><span class="math notranslate nohighlight">\(\displaystyle\sum{x_n\leftarrow \frac{a_{n,n+1}}{a_{nn}}}\)</span>;</p>
 <ol class="simple">
-<li><p>Pour<span class="math notranslate nohighlight">\(k=n-1,\ldots,1\)</span>
-<span class="math notranslate nohighlight">\(\displaystyle\sum{x_k\leftarrow \frac{1}{a_{kk}}\left[
-                               a_{k,n+1}-\sum_{j=k+1}^na_{kj}x_j
-                                            \right]}\)</span>;</p></li>
+<li><p>\displaystyle\sum{x_n\leftarrow \frac{a_{n,n+1}}{a_{nn}}}$;</p></li>
+<li><p>Pour <span class="math notranslate nohighlight">\(k=n-1,\ldots,1\)</span></p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(\displaystyle\sum{x_k\leftarrow \frac{1}{a_{kk}}\left[
+                           a_{k,n+1}-\sum_{j=k+1}^na_{kj}x_j
+                                        \right]}\)</span>;</p></li>
+</ol>
+</li>
 </ol>
 </div>
-</div><p>\begin{algorithm}
-\caption{Méthode de Gauss}</p>
-<p>\Entree{<span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{n,n+1}(\mbb R)\)</span> (la dernière colonne représente
-le second membre du système)}
-\Sortie{Solution <span class="math notranslate nohighlight">\({\bf x}\)</span> du syst`eme <span class="math notranslate nohighlight">\({\bf Ax}={\bf b}\)</span>}
-\Deb{
-\textit{Étape 1. Elimination};
-\Pour{<span class="math notranslate nohighlight">\(k=1,\ldots, n-1\)</span>}{
-\Pour{<span class="math notranslate nohighlight">\(i=k+1,\ldots, n\)</span>}{
-\Pour{<span class="math notranslate nohighlight">\(j=k+1,\ldots,n+1\)</span>}{
-<span class="math notranslate nohighlight">\(\dps{a_{ij} \leftarrow  a_{ij}-\frac{a_{ik}}{a_{kk}}a_{kj}}\)</span>;
-}
-}
-}
-\textit{Étape 2. Résolution du système triangulaire};
-<span class="math notranslate nohighlight">\(\dps{x_n\leftarrow \frac{a_{n,n+1}}{a_{nn}}}\)</span>;
-\Pour{<span class="math notranslate nohighlight">\(k=n-1,\ldots,1\)</span>}{
-<span class="math notranslate nohighlight">\(\dps{x_k\leftarrow \frac{1}{a_{kk}}\left[
-                                  a_{k,n+1}-\sum_{j=k+1}^na_{kj}x_j
-                                               \right]}\)</span>;
-}}
-\label{MGauss1}
-\end{algorithm}</p>
-</div>
+</div></div>
 <div class="section" id="strategies-pour-les-pivots-nuls">
 <h2>Stratégies pour les pivots nuls<a class="headerlink" href="#strategies-pour-les-pivots-nuls" title="Lien permanent vers ce titre">#</a></h2>
 <p>Si le pivot est nul (en pratique, on évitera aussi les pivots de valeur
