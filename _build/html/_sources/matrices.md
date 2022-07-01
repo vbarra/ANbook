@@ -27,7 +27,7 @@ La définition de matrice se fait simplement en Python à l'aide de la librairie
 
 import numpy as np
 import matplotlib.pyplot as plt
-A = np.array([[1, 3],[2,1]])
+A = np.array([[4, 3],[2,1]])
 B = np.array([[3, 0, 4],[-1, -2, 1]])
 C = np.array([[-2, 1],[4, 1]])
 D = np.array([[2],[6]])
@@ -92,6 +92,11 @@ Voici quelques exemples de transformations linéaires.
 
 from matplotlib.patches import Polygon
 
+def plot_vector2d(vector2d, origin=[0, 0], **options):
+    return plt.arrow(origin[0], origin[1], vector2d[0], vector2d[1],
+              head_width=0.2, head_length=0.3, length_includes_head=True,
+              **options)
+
 P = np.array([
         [3.0, 4.0, 1.0, 4.6],
         [0.2, 3.5, 2.0, 0.5]
@@ -100,6 +105,7 @@ H = np.array([
         [ 0.5, -0.2, 0.2, -0.1],
         [ 0.4,  0.4, 1.5, 0.6]
     ])
+    
 P_moved = P + H
 plt.figure(figsize=(5,5))
 

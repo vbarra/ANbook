@@ -35,13 +35,10 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
@@ -51,8 +48,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Systèmes d’équations linéaires" href="sl.html" />
@@ -116,7 +113,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
+        <p class="caption">
  <span class="caption-text">
   Tutoriels
  </span>
@@ -138,7 +135,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Introduction au calcul matriciel
  </span>
@@ -165,7 +162,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Elimination de Gauss
  </span>
@@ -608,7 +605,7 @@ scalaires rangés en <span class="math notranslate nohighlight">\(m\)</span> lig
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
 <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
 <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">],[</span><span class="mi">6</span><span class="p">]])</span>
@@ -653,11 +650,11 @@ vectoriel pour les lois “+” et “.” :</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[3 9]
- [6 3]] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[12  9]
+ [ 6  3]] 
 
-[[-1  4]
- [ 6  2]] 
+[[2 4]
+ [6 2]] 
 </pre></div>
 </div>
 </div>
@@ -672,6 +669,11 @@ taille <span class="math notranslate nohighlight">\(n\)</span>.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.patches</span> <span class="kn">import</span> <span class="n">Polygon</span>
 
+<span class="k">def</span> <span class="nf">plot_vector2d</span><span class="p">(</span><span class="n">vector2d</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="o">**</span><span class="n">options</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">plt</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="n">origin</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">origin</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">vector2d</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vector2d</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+              <span class="n">head_width</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">head_length</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">length_includes_head</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+              <span class="o">**</span><span class="n">options</span><span class="p">)</span>
+
 <span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
         <span class="p">[</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">4.6</span><span class="p">],</span>
         <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
@@ -680,6 +682,7 @@ taille <span class="math notranslate nohighlight">\(n\)</span>.</p>
         <span class="p">[</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">],</span>
         <span class="p">[</span> <span class="mf">0.4</span><span class="p">,</span>  <span class="mf">0.4</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">]</span>
     <span class="p">])</span>
+    
 <span class="n">P_moved</span> <span class="o">=</span> <span class="n">P</span> <span class="o">+</span> <span class="n">H</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 
@@ -702,19 +705,7 @@ taille <span class="math notranslate nohighlight">\(n\)</span>.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">Polygon</span><span class="p">(</span><span class="n">P_moved</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">))</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="k">for</span> <span class="n">vector</span><span class="p">,</span> <span class="n">origin</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">H</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="o">.</span><span class="n">T</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">17</span>     <span class="n">plot_vector2d</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="n">origin</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">2.2</span><span class="p">,</span> <span class="mf">1.8</span><span class="p">,</span> <span class="s2">&quot;$P$&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">,</span> <span class="s2">&quot;$P+H$&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;plot_vector2d&#39; is not defined
-</pre></div>
-</div>
-<img alt="_images/matrices_5_1.png" src="_images/matrices_5_1.png" />
+<img alt="_images/matrices_5_0.png" src="_images/matrices_5_0.png" />
 </div>
 </div>
 </div>
@@ -741,6 +732,9 @@ taille <span class="math notranslate nohighlight">\(n\)</span>.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/matrices_7_0.png" src="_images/matrices_7_0.png" />
+</div>
 </div>
 </div>
 <div class="section" id="rotation">
@@ -759,6 +753,9 @@ taille <span class="math notranslate nohighlight">\(n\)</span>.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/matrices_9_0.png" src="_images/matrices_9_0.png" />
+</div>
 </div>
 </div>
 <div class="section" id="transvection">
@@ -775,6 +772,9 @@ taille <span class="math notranslate nohighlight">\(n\)</span>.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/matrices_11_0.png" src="_images/matrices_11_0.png" />
 </div>
 </div>
 </div>
@@ -793,6 +793,9 @@ taille <span class="math notranslate nohighlight">\(n\)</span>.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/matrices_13_0.png" src="_images/matrices_13_0.png" />
+</div>
 </div>
 </div>
 <div class="section" id="reflexion">
@@ -809,6 +812,9 @@ taille <span class="math notranslate nohighlight">\(n\)</span>.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/matrices_15_0.png" src="_images/matrices_15_0.png" />
 </div>
 </div>
 </div>
@@ -843,6 +849,19 @@ scalaire.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A = 
+ [[5 4 0]
+ [1 8 3]
+ [6 7 2]] 
+
+A^T = 
+ [[5 1 6]
+ [4 8 7]
+ [0 3 2]]
+</pre></div>
+</div>
+</div>
 </div>
 <div class="proof remark dropdown admonition" id="remark-2">
 <p class="admonition-title"><span class="caption-number">Remark 1 </span></p>
@@ -862,6 +881,11 @@ notée <span class="math notranslate nohighlight">\(Tr({\bf A})\)</span>, est pa
 </div><div class="cell tag_trace docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Trace de A : &quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Trace de A :  15
 </pre></div>
 </div>
 </div>
@@ -894,6 +918,11 @@ matrices <span class="math notranslate nohighlight">\({\bf A}\)</span> et <span 
 </div><div class="cell tag_det docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Déterminant de A : &quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Déterminant de A :  39.000000000000014
 </pre></div>
 </div>
 </div>
@@ -947,6 +976,12 @@ de lignes de <span class="math notranslate nohighlight">\({\bf B}\)</span> pour 
 <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">]])</span>
 <span class="n">C</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@B</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0 -6 -8]
+ [ 5 -2  9]]
 </pre></div>
 </div>
 </div>
@@ -1031,6 +1066,9 @@ taille <span class="math notranslate nohighlight">\(n\)</span>, la seconde de ta
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/matrices_25_0.png" src="_images/matrices_25_0.png" />
+</div>
 </div>
 </div>
 <div class="section" id="produit-par-blocs">
@@ -1067,6 +1105,13 @@ assurer l’existence, il faut et il suffit que
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]])</span>
 <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.70588235  0.82352941  0.41176471]
+ [-0.20588235 -0.32352941  0.08823529]
+ [-0.05882353 -0.23529412 -0.11764706]]
 </pre></div>
 </div>
 </div>
@@ -1107,43 +1152,23 @@ taille <span class="math notranslate nohighlight">\(n\)</span>, on obtient une s
 des sous-matrices principales sont les mineurs de la matrice.</p></li>
 </ul>
 <div class="sd-tab-set docutils">
-<<<<<<< HEAD
-<input checked="checked" id="32ce9129-089f-4046-973c-c8772ffe8786" name="58dfd86e-33fa-4fd6-9012-f0691ec91111" type="radio">
-</input><label class="sd-tab-label" for="32ce9129-089f-4046-973c-c8772ffe8786">
+<input checked="checked" id="578afcb8-3829-414f-bde7-c84ba0ae353b" name="dccd361c-b82a-4e7d-8330-b25ff4323a4c" type="radio">
+</input><label class="sd-tab-label" for="578afcb8-3829-414f-bde7-c84ba0ae353b">
 Diagonale</label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;0&amp;0\\0&amp;-4&amp;0\\0&amp;0&amp;1\end{pmatrix}\)</span></p>
 </div>
-<input id="0f6f52a0-7f3f-4202-aa0c-37c52c17effd" name="58dfd86e-33fa-4fd6-9012-f0691ec91111" type="radio">
-</input><label class="sd-tab-label" for="0f6f52a0-7f3f-4202-aa0c-37c52c17effd">
+<input id="9112ac9a-6859-4678-9a53-8c8b15f486d9" name="dccd361c-b82a-4e7d-8330-b25ff4323a4c" type="radio">
+</input><label class="sd-tab-label" for="9112ac9a-6859-4678-9a53-8c8b15f486d9">
 Triang. sup. </label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix} 3&amp;2&amp;1\\0&amp;-4&amp;2\\0&amp;0&amp;1 \end{pmatrix}\)</span></p>
 </div>
-<input id="6ce04708-9406-4a9b-973d-c42d693cc469" name="58dfd86e-33fa-4fd6-9012-f0691ec91111" type="radio">
-</input><label class="sd-tab-label" for="6ce04708-9406-4a9b-973d-c42d693cc469">
+<input id="4f6e3985-d46c-46dc-9442-fade493cad4a" name="dccd361c-b82a-4e7d-8330-b25ff4323a4c" type="radio">
+</input><label class="sd-tab-label" for="4f6e3985-d46c-46dc-9442-fade493cad4a">
 Triang. inf.</label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;0&amp;0\\1&amp;-4&amp;0\\5&amp;8&amp;1 \end{pmatrix}\)</span></p>
 </div>
-<input id="f608709a-20f3-4bc5-90c2-aad863141d88" name="58dfd86e-33fa-4fd6-9012-f0691ec91111" type="radio">
-</input><label class="sd-tab-label" for="f608709a-20f3-4bc5-90c2-aad863141d88">
-=======
-<input checked="checked" id="2fe231df-44d7-479e-8ded-e2323e32b250" name="8fd29c5e-88cb-4d84-8a11-5d6554c12525" type="radio">
-</input><label class="sd-tab-label" for="2fe231df-44d7-479e-8ded-e2323e32b250">
-Diagonale</label><div class="sd-tab-content docutils">
-<p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;0&amp;0\\0&amp;-4&amp;0\\0&amp;0&amp;1\end{pmatrix}\)</span></p>
-</div>
-<input id="4475c6d6-5438-4403-811c-5c1a5ee1a8d1" name="8fd29c5e-88cb-4d84-8a11-5d6554c12525" type="radio">
-</input><label class="sd-tab-label" for="4475c6d6-5438-4403-811c-5c1a5ee1a8d1">
-Triang. sup. </label><div class="sd-tab-content docutils">
-<p><span class="math notranslate nohighlight">\(\begin{pmatrix} 3&amp;2&amp;1\\0&amp;-4&amp;2\\0&amp;0&amp;1 \end{pmatrix}\)</span></p>
-</div>
-<input id="293b78c5-fa40-4cde-9dfc-bca42abd44ea" name="8fd29c5e-88cb-4d84-8a11-5d6554c12525" type="radio">
-</input><label class="sd-tab-label" for="293b78c5-fa40-4cde-9dfc-bca42abd44ea">
-Triang. inf.</label><div class="sd-tab-content docutils">
-<p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;0&amp;0\\1&amp;-4&amp;0\\5&amp;8&amp;1 \end{pmatrix}\)</span></p>
-</div>
-<input id="30e2a99b-81b3-4be7-ae30-5c436a452ffb" name="8fd29c5e-88cb-4d84-8a11-5d6554c12525" type="radio">
-</input><label class="sd-tab-label" for="30e2a99b-81b3-4be7-ae30-5c436a452ffb">
->>>>>>> 467086c3d3ed2654ce463d958a8dae974f96b9a4
+<input id="6d115545-765f-40eb-bd91-fe8bddceb4a9" name="dccd361c-b82a-4e7d-8330-b25ff4323a4c" type="radio">
+</input><label class="sd-tab-label" for="6d115545-765f-40eb-bd91-fe8bddceb4a9">
 Vecteur ligne </label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;2&amp;1&amp;-4&amp;0&amp;3.5 \end{pmatrix}\)</span></p>
 </div>
@@ -1179,6 +1204,13 @@ forme <span class="math notranslate nohighlight">\({\bf A}{\bf x}\)</span> pour 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>L&#39;image de A est le sous-espace engendré par 
+</pre></div>
+</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[ \left[\begin{matrix}1\\1\\1\end{matrix}\right], \  \left[\begin{matrix}2\\1\\2\end{matrix}\right]\right]\end{split}\]</div>
+</div>
 </div>
 <div class="proof definition admonition" id="definition-14">
 <p class="admonition-title"><span class="caption-number">Definition 21 </span> (Rang d’une matrice )</p>
@@ -1193,6 +1225,11 @@ nombre maximal de lignes linéairement indépendantes. On a donc
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rang de A = &quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rang de A =  3
 </pre></div>
 </div>
 </div>

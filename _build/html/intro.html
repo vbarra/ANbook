@@ -35,13 +35,10 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
@@ -113,7 +110,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
+        <p class="caption">
  <span class="caption-text">
   Tutoriels
  </span>
@@ -135,7 +132,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Introduction au calcul matriciel
  </span>
@@ -162,7 +159,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Elimination de Gauss
  </span>
@@ -371,7 +368,7 @@ title="Print to PDF"
 <h1>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">#</a></h1>
 <p>L’objectif de ce cours est d’initier les étudiants aux méthodes d’Analyse Numérique et d’Optimisation en dimension finie nécessaires pour la résolution des systèmes d’équations linéaires.</p>
 <div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutoriels</span></p>
+<p class="caption"><span class="caption-text">Tutoriels</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Tutoriel-jupyter.html">Tutoriel Jupyter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tutoriel-numpy.html">Tutoriel Numpy</a></li>
@@ -379,7 +376,7 @@ title="Print to PDF"
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction au calcul matriciel</span></p>
+<p class="caption"><span class="caption-text">Introduction au calcul matriciel</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="ev.html">Espaces Vectoriels</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Matrices</a></li>
@@ -388,7 +385,7 @@ title="Print to PDF"
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Elimination de Gauss</span></p>
+<p class="caption"><span class="caption-text">Elimination de Gauss</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="ch2.html">Gauss et LU</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch2.html#preambule-transformations-elementaires">Préambule : transformations élémentaires</a></li>
@@ -396,11 +393,6 @@ title="Print to PDF"
 <li class="toctree-l1"><a class="reference internal" href="ch2.html#facteurs-lu-d-une-matrice-non-singuliere">Facteurs LU d’une matrice non singulière</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch2.html#autres-applications">Autres applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gauss.html">Elimination de Gauss</a></li>
-<<<<<<< HEAD
-=======
-<li class="toctree-l1"><a class="reference internal" href="gauss.html#facteurs-lu-d-une-matrice-non-singuliere">Facteurs LU d’une matrice non singulière</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gauss.html#autres-applications">Autres applications</a></li>
->>>>>>> 467086c3d3ed2654ce463d958a8dae974f96b9a4
 <li class="toctree-l1"><a class="reference internal" href="lu.html">Facteurs LU d’une matrice non singulière</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lu.html#autres-applications">Autres applications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>

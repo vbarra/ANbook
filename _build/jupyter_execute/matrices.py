@@ -19,7 +19,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-A = np.array([[1, 3],[2,1]])
+A = np.array([[4, 3],[2,1]])
 B = np.array([[3, 0, 4],[-1, -2, 1]])
 C = np.array([[-2, 1],[4, 1]])
 D = np.array([[2],[6]])
@@ -84,6 +84,11 @@ print(A+C,'\n')
 
 from matplotlib.patches import Polygon
 
+def plot_vector2d(vector2d, origin=[0, 0], **options):
+    return plt.arrow(origin[0], origin[1], vector2d[0], vector2d[1],
+              head_width=0.2, head_length=0.3, length_includes_head=True,
+              **options)
+
 P = np.array([
         [3.0, 4.0, 1.0, 4.6],
         [0.2, 3.5, 2.0, 0.5]
@@ -92,6 +97,7 @@ H = np.array([
         [ 0.5, -0.2, 0.2, -0.1],
         [ 0.4,  0.4, 1.5, 0.6]
     ])
+    
 P_moved = P + H
 plt.figure(figsize=(5,5))
 
@@ -114,7 +120,7 @@ plt.show()
 
 # ### Multiplication par un scalaire
 
-# In[ ]:
+# In[4]:
 
 
 def plot_transformation(P_before, P_after, text_before, text_after, axis = [0, 5, 0, 4], arrows=False):
@@ -137,7 +143,7 @@ plt.show()
 
 # ### Rotation
 
-# In[ ]:
+# In[5]:
 
 
 angle30 = 30 * np.pi / 180  
@@ -153,7 +159,7 @@ plt.show()
 
 # ### Transvection
 
-# In[ ]:
+# In[6]:
 
 
 F_transvection = np.array([
@@ -168,7 +174,7 @@ plt.show()
 
 # ### Compression
 
-# In[ ]:
+# In[7]:
 
 
 F_compression = np.array([
@@ -183,7 +189,7 @@ plt.show()
 
 # ### Réflexion
 
-# In[ ]:
+# In[8]:
 
 
 F_reflex = np.array([
@@ -222,7 +228,7 @@ plt.tight_layout()
 # 1&4&7\\2&5&8\\3&6&9
 # \end{pmatrix}$
 
-# In[ ]:
+# In[9]:
 
 
 A = np.array([[5, 4, 0],[1, 8, 3],[6, 7, 2]])
@@ -246,7 +252,7 @@ print('A^T = \n',A.transpose())
 # $Tr({\bf A}) = \displaystyle\sum_{i=1}^n a_{ii}$
 # ````
 
-# In[ ]:
+# In[10]:
 
 
 print("Trace de A : ", np.trace(A))
@@ -281,7 +287,7 @@ print("Trace de A : ", np.trace(A))
 # ${\bf A}$ en supprimant la première ligne et la $j^e$ colonne.
 # ````
 
-# In[ ]:
+# In[11]:
 
 
 print("Déterminant de A : ", np.linalg.det(A))
@@ -340,7 +346,7 @@ print("Déterminant de A : ", np.linalg.det(A))
 # On note que le nombre de colonnes de ${\bf A}$ doit être égal au nombre
 # de lignes de ${\bf B}$ pour que l'opération puisse être réalisée.
 
-# In[ ]:
+# In[12]:
 
 
 A = np.array([[1, 3],[2,1]])
@@ -399,7 +405,7 @@ print(C)
 # 
 # Le produit matriciel correspond à une composition de transformations linéaires.
 
-# In[ ]:
+# In[13]:
 
 
 A = np.array([[1, 3],[2,1]])
@@ -472,7 +478,7 @@ plt.tight_layout()
 # assurer l'existence, il faut et il suffit que
 # ${\bf A}{\bf x}={\bf 0}\quad\Leftrightarrow\quad {\bf x}={\bf 0}.$
 
-# In[ ]:
+# In[14]:
 
 
 A = np.array([[2, 0, 7],[-1, -2, -5],[1, 4, -2]])
@@ -562,7 +568,7 @@ print(B)
 # $\mathrm{Im}({\bf A})$ est clairement un sous-espace vectoriel de
 # $\mathbb R^m$.
 
-# In[ ]:
+# In[15]:
 
 
 from sympy import init_printing, Matrix, symbols
@@ -586,7 +592,7 @@ imA
 # $\mathrm{rang}({\bf A})\le \min\{m,n\}.$
 # ````
 
-# In[ ]:
+# In[16]:
 
 
 A = np.array([[2, 0, 7],[-1, -2, -5],[1, 4, -2]])
