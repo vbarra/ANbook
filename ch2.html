@@ -1081,25 +1081,8 @@ le vecteur de <span class="math notranslate nohighlight">\(\mathbb R^{n-k}\)</sp
 <p><span class="math notranslate nohighlight">\(
 {\bf A^{(k+1)}}={\bf E_kA^{(k)}}
 \)</span></p>
-<p>où <span class="math notranslate nohighlight">\({\bf E_k}\)</span> est la matrice élémentaire suivante
-<span class="math notranslate nohighlight">\(
-  \left(
-    \begin{array}{r&#64;{}c|c&#64;{}c}
-   &amp;  \begin{smallmatrix}
-      \bovermat{k-1}{1 &amp; &amp; 0}\\
-       &amp;\ddots&amp;\\
-      0 &amp; &amp; 1\rule[-1ex]{0pt}{2ex}
-     \end{smallmatrix} &amp; \mbox{\huge0} &amp; \rlap{\kern5mm k}\\\hline
-   &amp;  \mbox{\huge0} &amp; 
-     \begin{smallmatrix}\rule{0pt}{2ex}
-     \vertbar&amp;&amp;&amp;0\\
-      -{\Large \bm \eta_k}&amp; &amp;  \\
-       \vertbar&amp;\ddots&amp;\\
-     &amp; &amp; &amp; 1
-     \end{smallmatrix}  &amp; \rlap{\kern5mm n-k}
-    \end{array} 
-    \right)
-\)</span></p>
+<p>où <span class="math notranslate nohighlight">\({\bf E_k}\)</span> est la matrice élémentaire suivante</p>
+<p><img alt="" src="_images/LU.png" /></p>
 <p>On a donc, après <span class="math notranslate nohighlight">\(n-1\)</span> pivotages</p>
 <p><span class="math notranslate nohighlight">\(\begin{equation}
 {\bf A^{(n-1)}}={\bf E_{n-1}E_{n-2}}\cdots {\bf E_1 A}.\label{MatriceU}
