@@ -580,9 +580,8 @@ Pour toute matrice ${\bf A}$ non singulière de taille $n$, il existe
 une matrice de permutation ${\bf P}$, une matrice triangulaire inférieure ${\bf L}$ telle
 que $l_{ii}=1$, pour tout $i$, et une matrice triangulaire supérieure ${\bf U}$, telles
 que
-$$
-{\bf PA}={\bf LU}.
-$$ 
+
+${\bf PA}={\bf LU}.$ 
 ````
 
 \medskip
