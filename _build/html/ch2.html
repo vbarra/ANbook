@@ -702,24 +702,26 @@ algorithme a une complexité de <span class="math notranslate nohighlight">\(O(n
 cas général et nécessite le stockage de deux matrices <span class="math notranslate nohighlight">\(n\times n\)</span>. On lui
 préférera les méthodes étudiées dans la suite, basées elles aussi sur
 des pivotages successifs de la matrice, mais plus robustes et moins
-coûteuses.
-\exemple
-{Pivotons la première colonne de
+coûteuses.</p>
+<div class="proof example admonition" id="example-4">
+<p class="admonition-title"><span class="caption-number">Example 2 </span></p>
+<div class="example-content section" id="proof-content">
+<p>Pivotons la première colonne de
 <span class="math notranslate nohighlight">\(
 {\bf A}=
 \begin{pmatrix}1 &amp; 1 &amp; 1\\ 1 &amp; 0 &amp; -1\\ -2 &amp; 1 &amp; 3\end{pmatrix}
 \)</span>
 avec <span class="math notranslate nohighlight">\(a_{11}=1\)</span> comme pivot. On doit donc multiplier <span class="math notranslate nohighlight">\(A\)</span> à gauche par
 la matrice élémentaire
-$<span class="math notranslate nohighlight">\(
+<span class="math notranslate nohighlight">\(
 {\bf E}=
-\begin{pmatrix}1 &amp; 0 &amp; 0\\ -1 &amp; 1 &amp; 0\\ 2 &amp; 0 &amp; 1\end{pmatrix}
-\textrm{ et le résultat est }
-{\bf A'}={\bf E}{\bf A}=
+\begin{pmatrix}1 &amp; 0 &amp; 0\\ -1 &amp; 1 &amp; 0\\ 2 &amp; 0 &amp; 1\end{pmatrix}\)</span>
+et le résultat est
+<span class="math notranslate nohighlight">\({\bf A'}={\bf E}{\bf A}=
 \begin{pmatrix}1 &amp; 1 &amp; 1\\ 0 &amp; -1 &amp; -2\\ 0 &amp; 3 &amp; 5\end{pmatrix}
-\)</span>$
-}</p>
+\)</span></p>
 </div>
+</div></div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="elimination-de-gauss">
 <h1>Elimination de Gauss<a class="headerlink" href="#elimination-de-gauss" title="Lien permanent vers ce titre">#</a></h1>
