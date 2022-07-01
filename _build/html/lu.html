@@ -530,7 +530,7 @@ vecteurs <span class="math notranslate nohighlight">\({\bf \eta_k}\)</span> et <
 écrire <span class="math notranslate nohighlight">\({\bf A}={\bf LU}\)</span> où <span class="math notranslate nohighlight">\({\bf L}\)</span> est une matrice triangulaire inférieure dont les éléments
 diagonaux sont égaux à 1 et les éléments sous la diagonale sont <span class="math notranslate nohighlight">\(l_{ij}=\eta_{ij}.\)</span></p>
 <div class="proof example admonition" id="example-0">
-<p class="admonition-title"><span class="caption-number">Example 6 </span></p>
+<p class="admonition-title"><span class="caption-number">Example 4 </span></p>
 <div class="example-content section" id="proof-content">
 <p>Soit <span class="math notranslate nohighlight">\({\bf A} = \begin{pmatrix}1&amp;4&amp;7\\2&amp;5&amp;8\\3&amp;6&amp;10\end{pmatrix}\)</span>.</p>
 <ol class="simple">
@@ -551,7 +551,7 @@ triangularisation), tout nouveau système linéaire <span class="math notranslat
 résolu par la résolution de deux systèmes triangulaires (donc en <span class="math notranslate nohighlight">\(O(n^2)\)</span> flops).
 En effet, pour résoudre <span class="math notranslate nohighlight">\({\bf LUx}={\bf b'}\)</span>, on résout d’abord <span class="math notranslate nohighlight">\({\bf Ly}={\bf b'}\)</span> puis <span class="math notranslate nohighlight">\({\bf Ux}={\bf y}\)</span>.</p>
 <div class="proof example admonition" id="example-1">
-<p class="admonition-title"><span class="caption-number">Example 7 </span></p>
+<p class="admonition-title"><span class="caption-number">Example 5 </span></p>
 <div class="example-content section" id="proof-content">
 <p>Soit <span class="math notranslate nohighlight">\({\bf A} = \begin{pmatrix}1&amp;4&amp;7\\2&amp;5&amp;8\\3&amp;6&amp;10\end{pmatrix}\)</span>.</p>
 <p>En appliquant l’algorithme de factorisation <span class="math notranslate nohighlight">\({\bf LU}\)</span> (cf. ci-dessus), on obtient</p>
@@ -572,7 +572,7 @@ permutation des lignes à l’itération <span class="math notranslate nohighlig
 <p><span class="math notranslate nohighlight">\({\bf P}={\bf P_{n-1}P_{n-2}}\cdots {\bf P_1}\)</span></p>
 <p>et on obtient la décomposition générale suivante :</p>
 <div class="proof theorem admonition" id="theorem-2">
-<p class="admonition-title"><span class="caption-number">Theorem 5 </span> (Factorisation <span class="math notranslate nohighlight">\({\bf PA} = {\bf LU}\)</span>)</p>
+<p class="admonition-title"><span class="caption-number">Theorem 4 </span> (Factorisation <span class="math notranslate nohighlight">\({\bf PA} = {\bf LU}\)</span>)</p>
 <div class="theorem-content section" id="proof-content">
 <p>Pour toute matrice <span class="math notranslate nohighlight">\({\bf A}\)</span> non singulière de taille <span class="math notranslate nohighlight">\(n\)</span>, il existe
 une matrice de permutation <span class="math notranslate nohighlight">\({\bf P}\)</span>, une matrice triangulaire inférieure <span class="math notranslate nohighlight">\({\bf L}\)</span> telle
