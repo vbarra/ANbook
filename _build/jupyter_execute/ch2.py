@@ -187,9 +187,9 @@
 # Un système triangulaire supérieur se résout par substitution inverse
 # ```{index} Substitution ; inverse
 # ```
-# (on supposera tous les éléments diagonaux $a_{ii}$ non nuls).
+# On supposera pour l'instant tous les éléments diagonaux $a_{ii}$ non nuls.
 # 
-# $\begin{eqnarray*}\left \{
+# $\left \{\begin{eqnarray*}
 # a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n&=&b_1\\ a_{2n}x_2+\cdots+a_{2n}x_n &=&
 # b_2\\ \vdots & & \vdots\\ a_{nn}x_n&=&b_n
 # \end{eqnarray*}\right .$
