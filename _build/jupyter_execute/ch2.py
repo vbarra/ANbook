@@ -151,7 +151,7 @@
 # $\begin{equation}x_1=\frac{3}{2}(1+x_2) \label{VarX}\end{equation}$
 # 
 # Remplaçons $x_1$ dans les deux dernières équations 
-# par son expression
+# par son expressionffff
 # 
 # $\left \{begin{eqnarray}
 # x_2+x_3 &=& 1 \label{SLR1}\\ 
