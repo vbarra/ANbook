@@ -461,31 +461,31 @@ le second membre du système)
 
 ## Cas singulier et calcul du rang d'une matrice
 
-\subsubsection{Pivotage total} Si, à l'itération $k$ de la méthode de Gauss
+### Pivotage total
+Si, à l'itération $k$ de la méthode de Gauss
 avec pivot total,
-$$
+$
 \max\left\{\left|a^{(k)}_{ij}\right|\ ; \ i,j\in [\![k,n]\!]
     \right\}=0
-$$
+$
 (donc tous les éléments de la sous-matrice sont nuls), on peut affirmer que
 le rang de la matrice ${\bf A}$ est égal à $k-1$. S'il existe un élément 
 $b^{(k)}_i$, $k\le i\le n$, du second membre différent de zéro, alors le
 système n'a pas de solution.
 
-\subsubsection{Pivotage partiel} Si
-$$
-\max\left\{\left|a^{(k)}_{ik}\right|\ ; \ \ i\in [\![k,n]\!]
-    \right\}=0
-$$
+### Pivotage partiel
+Si $\max\left\{\left|a^{(k)}_{ik}\right|\ ; \ \ i\in [\![k,n]\!]\right\}=0$
 on peut seulement affirmer que la colonne $k$ est linéairement dépendante des
 $k-1$ premières. Cela implique que $\mathrm{rang}({\bf A})<n$ et que le système n'a
 probablement pas de solution. Toutefois, on ne peut en être sûr que sur
 le test du pivot total nul.
 
-\begin{rem}
+
+```{prf:remark}
+:class: dropdown
 La méthode de Gauss et le test du pivot total nul apparaissent donc comme 
 la meilleure stratégie pour calculer le rang d'une matrice.
-\end{rem}
+```
 
 
 # Facteurs LU d'une matrice non singulière
