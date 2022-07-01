@@ -417,11 +417,6 @@ title="Print to PDF"
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#principe">
-     Principe
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#cas-particuliers">
      Cas particuliers
     </a>
@@ -470,11 +465,6 @@ title="Print to PDF"
   </a>
   <ul class="visible nav section-nav flex-column">
    <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#principe">
-     Principe
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
     <a class="reference internal nav-link" href="#cas-particuliers">
      Cas particuliers
     </a>
@@ -510,8 +500,6 @@ title="Print to PDF"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="facteurs-lu-d-une-matrice-non-singuliere">
 <h1>Facteurs LU d’une matrice non singulière<a class="headerlink" href="#facteurs-lu-d-une-matrice-non-singuliere" title="Lien permanent vers ce titre">#</a></h1>
-<div class="section" id="principe">
-<h2>Principe<a class="headerlink" href="#principe" title="Lien permanent vers ce titre">#</a></h2>
 <p>Quand on a plusieurs systèmes linéaires à résoudre avec la même matrice
 et des seconds membres différents, on a intérêt lors de la première
 résolution à garder les coefficients des pivotages successifs en mémoire.
@@ -519,84 +507,58 @@ Cela correspond à garder la factorisation <span class="math notranslate nohighl
 de la matrice. En effet,
 chaque pivotage peut être représenté par une matrice élémentaire qui
 ne diffère de l’identité que par une sous-colonne.</p>
-<p>Reprenons le pivotage de la matrice <span class="math notranslate nohighlight">\({\bf A^{(k)}}\)</span> à l’étape <span class="math notranslate nohighlight">\(k\)</span>. Soit <span class="math notranslate nohighlight">\({\bm \eta_k}\)</span>
+<p>Reprenons le pivotage de la matrice <span class="math notranslate nohighlight">\({\bf A^{(k)}}\)</span> à l’étape <span class="math notranslate nohighlight">\(k\)</span>. Soit <span class="math notranslate nohighlight">\({\bf \eta_k}\)</span>
 le vecteur de <span class="math notranslate nohighlight">\(\mathbb R^{n-k}\)</span> dont les composantes sont
 <span class="math notranslate nohighlight">\(\eta_{ik}=a^{(k)}_{ik}/a^{(k)}_{kk}\)</span>. On a donc (en supposant
-<span class="math notranslate nohighlight">\(a^{(k)}_{kk}\ne 0\)</span>)
-$<span class="math notranslate nohighlight">\(
+<span class="math notranslate nohighlight">\(a^{(k)}_{kk}\ne 0\)</span>)</p>
+<p><span class="math notranslate nohighlight">\(
 {\bf A^{(k+1)}}={\bf E_kA^{(k)}}
-\)</span><span class="math notranslate nohighlight">\(
-o\`u \)</span>{\bf E_k}<span class="math notranslate nohighlight">\( est la matrice élémentaire suivante
-\vskip 5pt
-\)</span><span class="math notranslate nohighlight">\(
-  \left(
-    \begin{array}{r&#64;{}c|c&#64;{}c}
-   &amp;  \begin{smallmatrix}
-      \bovermat{k-1}{1 &amp; &amp; 0}\\
-       &amp;\ddots&amp;\\
-      0 &amp; &amp; 1\rule[-1ex]{0pt}{2ex}
-     \end{smallmatrix} &amp; \mbox{\huge0} &amp; \rlap{\kern5mm k}\\\hline
-   &amp;  \mbox{\huge0} &amp; 
-     \begin{smallmatrix}\rule{0pt}{2ex}
-     \vertbar&amp;&amp;&amp;0\\
-      -{\Large \bm \eta_k}&amp; &amp;  \\
-       \vertbar&amp;\ddots&amp;\\
-     &amp; &amp; &amp; 1
-     \end{smallmatrix}  &amp; \rlap{\kern5mm n-k}
-    \end{array} 
-    \right)
-\)</span>$</p>
-<p>On a donc, après <span class="math notranslate nohighlight">\(n-1\)</span> pivotages
-\begin{equation}
+\)</span></p>
+<p>où <span class="math notranslate nohighlight">\({\bf E_k}\)</span> est la matrice élémentaire suivante</p>
+<p><img alt="" src="_images/LU.png" /></p>
+<p>On a donc, après <span class="math notranslate nohighlight">\(n-1\)</span> pivotages</p>
+<p><span class="math notranslate nohighlight">\(\begin{equation}
 {\bf A^{(n-1)}}={\bf E_{n-1}E_{n-2}}\cdots {\bf E_1 A}.\label{MatriceU}
-\end{equation}
-Notons <span class="math notranslate nohighlight">\({\bf U}\)</span> la matrice triangulaire supérieure <span class="math notranslate nohighlight">\({\bf A^{(n-1)}}\)</span> et
-réécrivons la relation (\ref{MatriceU})
-$<span class="math notranslate nohighlight">\(
-{\bf A}={\bf E_1^{-1}}\cdots {\bf E_{n-1}^{-1} U}
-\)</span><span class="math notranslate nohighlight">\( 
-On vérifie que la matrice inverse \)</span>{\bf E_k^{-1}}<span class="math notranslate nohighlight">\( a la même forme que
-\)</span>{\bf E_k}<span class="math notranslate nohighlight">\( avec les éléments de la sous-colonne \)</span>k<span class="math notranslate nohighlight">\( changés de signe et que les 
-produits \)</span>{\bf E_k^{-1}E_{k+1}^{-1}}<span class="math notranslate nohighlight">\( s'effectuent sans calcul en accolant les
-vecteurs \)</span>{\bm\eta_k}<span class="math notranslate nohighlight">\( et \)</span>{\bm \eta_{k+1}}<span class="math notranslate nohighlight">\( dans les colonnes \)</span>k<span class="math notranslate nohighlight">\( et \)</span>k+1<span class="math notranslate nohighlight">\(. On peut donc
-écrire \)</span>{\bf A}={\bf LU}<span class="math notranslate nohighlight">\( o\`u \)</span>{\bf L}<span class="math notranslate nohighlight">\( est une matrice triangulaire inférieure dont les éléments
-diagonaux sont égaux à 1 et les éléments sous la diagonale sont
-\)</span><span class="math notranslate nohighlight">\(
-l_{ij}=\eta_{ij}.
-\)</span>$</p>
-<p>\exemple{
-Soit <span class="math notranslate nohighlight">\({\bf A} = \begin{pmatrix}1&amp;4&amp;7\\2&amp;5&amp;8\\3&amp;6&amp;10\end{pmatrix}\)</span>.
-\begin{enumerate}
-\item On pivote tout d’abord selon <span class="math notranslate nohighlight">\(a_{11}\)</span>. La matrice de transformation élémentaire est  \mbox{<span class="math notranslate nohighlight">\({\bf E_1} = \begin{pmatrix}1&amp;0&amp;0\\\textcolor{red}{-2}&amp;1&amp;0\\\textcolor{red}{-3}&amp;0&amp;1\end{pmatrix}\)</span>}, avec <span class="math notranslate nohighlight">\({\bm \eta_1} = \begin{pmatrix} \textcolor{red}{2}\\\textcolor{red}{3}\end{pmatrix}\)</span> et <span class="math notranslate nohighlight">\( {\bf E_1A} =\begin{pmatrix}1&amp;4&amp;7\\0&amp;-3&amp;-6\\0&amp;-6&amp;-11\end{pmatrix}\)</span>
-\item On pivote ensuite selon <span class="math notranslate nohighlight">\(a^{(2)}_{22}\)</span>. La matrice de transformation élémentaire est  \mbox{<span class="math notranslate nohighlight">\({\bf E_2} = \begin{pmatrix}1&amp;0&amp;0\\0&amp;1&amp;0\\0&amp;\textcolor{blue}{-2}&amp;1\end{pmatrix}\)</span>}, avec <span class="math notranslate nohighlight">\({\bm \eta_2} = \begin{pmatrix} \textcolor{blue}{2}\end{pmatrix}\)</span> et <span class="math notranslate nohighlight">\( {\bf E_2E_1A} =\begin{pmatrix}1&amp;4&amp;7\\0&amp;-3&amp;-6\\0&amp;0&amp;1\end{pmatrix}={\bf U}\)</span>
-\item Finalement <span class="math notranslate nohighlight">\({\bf L} = \begin{pmatrix}1&amp;0&amp;0\\\textcolor{red}{2}&amp;1&amp;0\\\textcolor{red}{3}&amp;\textcolor{blue}{2}&amp;1\end{pmatrix}\)</span>
-\end{enumerate}
-}</p>
-<p>Observons que les éléments non diagonaux de <span class="math notranslate nohighlight">\({\bf L}\)</span> peuvent être rangés
+\end{equation}\)</span></p>
+<p>Notons <span class="math notranslate nohighlight">\({\bf U}\)</span> la matrice triangulaire supérieure <span class="math notranslate nohighlight">\({\bf A^{(n-1)}}\)</span> et
+réécrivons la relation précédente</p>
+<p><span class="math notranslate nohighlight">\( {\bf A}={\bf E_1^{-1}}\cdots {\bf E_{n-1}^{-1} U}\)</span></p>
+<p>On vérifie que la matrice inverse <span class="math notranslate nohighlight">\({\bf E_k^{-1}}\)</span> a la même forme que
+<span class="math notranslate nohighlight">\({\bf E_k}\)</span> avec les éléments de la sous-colonne <span class="math notranslate nohighlight">\(k\)</span> changés de signe et que les
+produits <span class="math notranslate nohighlight">\({\bf E_k^{-1}E_{k+1}^{-1}}\)</span> s’effectuent sans calcul en accolant les
+vecteurs <span class="math notranslate nohighlight">\({\bf \eta_k}\)</span> et <span class="math notranslate nohighlight">\({\bf \eta_{k+1}}\)</span> dans les colonnes <span class="math notranslate nohighlight">\(k\)</span> et <span class="math notranslate nohighlight">\(k+1\)</span>. On peut donc
+écrire <span class="math notranslate nohighlight">\({\bf A}={\bf LU}\)</span> où <span class="math notranslate nohighlight">\({\bf L}\)</span> est une matrice triangulaire inférieure dont les éléments
+diagonaux sont égaux à 1 et les éléments sous la diagonale sont <span class="math notranslate nohighlight">\(l_{ij}=\eta_{ij}.\)</span></p>
+<div class="proof example admonition" id="example-0">
+<p class="admonition-title"><span class="caption-number">Example 6 </span></p>
+<div class="example-content section" id="proof-content">
+<p>Soit <span class="math notranslate nohighlight">\({\bf A} = \begin{pmatrix}1&amp;4&amp;7\\2&amp;5&amp;8\\3&amp;6&amp;10\end{pmatrix}\)</span>.</p>
+<ol class="simple">
+<li><p>On pivote tout d’abord selon <span class="math notranslate nohighlight">\(a_{11}\)</span>. La matrice de transformation élémentaire est
+<span class="math notranslate nohighlight">\({\bf E_1} = \begin{pmatrix}1&amp;0&amp;0\\\textcolor{red}{-2}&amp;1&amp;0\\\textcolor{red}{-3}&amp;0&amp;1\end{pmatrix}\)</span>
+avec <span class="math notranslate nohighlight">\({\bf \eta_1} = \begin{pmatrix} \textcolor{red}{2}\\\textcolor{red}{3}\end{pmatrix}\)</span> et <span class="math notranslate nohighlight">\( {\bf E_1A} =\begin{pmatrix}1&amp;4&amp;7\\0&amp;-3&amp;-6\\0&amp;-6&amp;-11\end{pmatrix}\)</span></p></li>
+<li><p>On pivote ensuite selon <span class="math notranslate nohighlight">\(a^{(2)}_{22}\)</span>. La matrice de transformation élémentaire est<br />
+<span class="math notranslate nohighlight">\({\bf E_2} = \begin{pmatrix}1&amp;0&amp;0\\0&amp;1&amp;0\\0&amp;\textcolor{blue}{-2}&amp;1\end{pmatrix}\)</span>, avec <span class="math notranslate nohighlight">\({\bf \eta_2} = \begin{pmatrix} \textcolor{blue}{2}\end{pmatrix}\)</span> et <span class="math notranslate nohighlight">\( {\bf E_2E_1A} =\begin{pmatrix}1&amp;4&amp;7\\0&amp;-3&amp;-6\\0&amp;0&amp;1\end{pmatrix}={\bf U}\)</span></p></li>
+<li><p>Finalement <span class="math notranslate nohighlight">\({\bf L} = \begin{pmatrix}1&amp;0&amp;0\\\textcolor{red}{2}&amp;1&amp;0\\\textcolor{red}{3}&amp;\textcolor{blue}{2}&amp;1\end{pmatrix}\)</span></p></li>
+</ol>
+</div>
+</div><p>Observons que les éléments non diagonaux de <span class="math notranslate nohighlight">\({\bf L}\)</span> peuvent être rangés
 directement à la place des éléments de <span class="math notranslate nohighlight">\({\bf A}\)</span> correspondants. La matrice <span class="math notranslate nohighlight">\({\bf A}\)</span>
-est donc recouverte par sa factorisation <span class="math notranslate nohighlight">\({\bf LU}\)</span> et le co^ut de stockage est
+est donc recouverte par sa factorisation <span class="math notranslate nohighlight">\({\bf LU}\)</span> et le coût de stockage est
 en <span class="math notranslate nohighlight">\(n^2\)</span>.</p>
-<p>Gr^ace à cette factorisation (qui ne co^ute donc pas plus cher que la
+<p>Grâce à cette factorisation (qui ne coûte donc pas plus cher que la
 triangularisation), tout nouveau système linéaire <span class="math notranslate nohighlight">\({\bf Ax}={\bf b'}\)</span> peut être
 résolu par la résolution de deux systèmes triangulaires (donc en <span class="math notranslate nohighlight">\(O(n^2)\)</span> flops).
-En effet, pour résoudre
-$<span class="math notranslate nohighlight">\(
-{\bf LUx}={\bf b'}
-\)</span><span class="math notranslate nohighlight">\(
-on résout d'abord 
-\)</span><span class="math notranslate nohighlight">\(
-{\bf Ly}={\bf b'}
-\)</span><span class="math notranslate nohighlight">\(
-puis 
-\)</span><span class="math notranslate nohighlight">\(
-{\bf Ux}={\bf y}.
-\)</span>$</p>
-<p>\exemple{
-Soit <span class="math notranslate nohighlight">\({\bf A} = \begin{pmatrix}1&amp;4&amp;7\\2&amp;5&amp;8\\3&amp;6&amp;10\end{pmatrix}\)</span>. En appliquant l’algorithme de factorisation <span class="math notranslate nohighlight">\({\bf LU}\)</span> (cf. ci-dessus), on obtient
-$<span class="math notranslate nohighlight">\({\bf L} = \begin{pmatrix}1&amp;0&amp;0\\2&amp;1&amp;0\\3&amp;2&amp;1\end{pmatrix}\quad {\bf U} = \begin{pmatrix}1&amp;4&amp;7\\0&amp;-3&amp;-6\\0&amp;0&amp;1\end{pmatrix}\)</span><span class="math notranslate nohighlight">\(
-Si \)</span>{\bf b} = \begin{pmatrix}1\1\1\end{pmatrix}<span class="math notranslate nohighlight">\(, \)</span>{\bf Ly}={\bf b}<span class="math notranslate nohighlight">\( donne \)</span>{\bf y} = \begin{pmatrix}1-1\0\end{pmatrix}<span class="math notranslate nohighlight">\( et \)</span>{\bf Ux}={\bf y}<span class="math notranslate nohighlight">\( donne \)</span>{\bf x} =\frac{1}{3} \begin{pmatrix}-1\1\0\end{pmatrix}$
-}</p>
-<p>Quand aucun pivot nul n’est rencontré, <span class="math notranslate nohighlight">\({\bf A}\)</span> peut se mettre sous la forme <span class="math notranslate nohighlight">\({\bf LU}\)</span>
+En effet, pour résoudre <span class="math notranslate nohighlight">\({\bf LUx}={\bf b'}\)</span>, on résout d’abord <span class="math notranslate nohighlight">\({\bf Ly}={\bf b'}\)</span> puis <span class="math notranslate nohighlight">\({\bf Ux}={\bf y}\)</span>.</p>
+<div class="proof example admonition" id="example-1">
+<p class="admonition-title"><span class="caption-number">Example 7 </span></p>
+<div class="example-content section" id="proof-content">
+<p>Soit <span class="math notranslate nohighlight">\({\bf A} = \begin{pmatrix}1&amp;4&amp;7\\2&amp;5&amp;8\\3&amp;6&amp;10\end{pmatrix}\)</span>.</p>
+<p>En appliquant l’algorithme de factorisation <span class="math notranslate nohighlight">\({\bf LU}\)</span> (cf. ci-dessus), on obtient</p>
+<p><span class="math notranslate nohighlight">\({\bf L} = \begin{pmatrix}1&amp;0&amp;0\\2&amp;1&amp;0\\3&amp;2&amp;1\end{pmatrix}\quad {\bf U} = \begin{pmatrix}1&amp;4&amp;7\\0&amp;-3&amp;-6\\0&amp;0&amp;1\end{pmatrix}\)</span></p>
+<p>Si <span class="math notranslate nohighlight">\({\bf b} = \begin{pmatrix}1\\1\\1\end{pmatrix}\)</span>, <span class="math notranslate nohighlight">\({\bf Ly}={\bf b}\)</span> donne <span class="math notranslate nohighlight">\({\bf y} = \begin{pmatrix}1\\-1\\0\end{pmatrix}\)</span> et <span class="math notranslate nohighlight">\({\bf Ux}={\bf y}\)</span> donne <span class="math notranslate nohighlight">\({\bf x} =\frac{1}{3} \begin{pmatrix}-1\\1\\0\end{pmatrix}\)</span></p>
+</div>
+</div><p>Quand aucun pivot nul n’est rencontré, <span class="math notranslate nohighlight">\({\bf A}\)</span> peut se mettre sous la forme <span class="math notranslate nohighlight">\({\bf LU}\)</span>
 et cette factorisation est unique. En effet, s’il existe deux factorisations
 <span class="math notranslate nohighlight">\({\bf L_1U_1}\)</span> et <span class="math notranslate nohighlight">\({\bf L_2U_2}\)</span> de <span class="math notranslate nohighlight">\({\bf A}\)</span>, on a alors
 <span class="math notranslate nohighlight">\({\bf L_1U_1}={\bf L_2U_2}\)</span>. Ce qui implique que <span class="math notranslate nohighlight">\({\bf L_2^{-1}L_1}={\bf U_2U_1^{-1}}\)</span> et le produit
@@ -604,26 +566,21 @@ de deux matrices inférieures (resp. supérieures) étant une matrice triangulai
 inférieure (resp. supérieure), ces produits sont nécessairement une matrice
 diagonale. C’est l’identité car <span class="math notranslate nohighlight">\((l_1)_{ii}=(l_2)_{ii}=1\)</span> pour tout <span class="math notranslate nohighlight">\(i\)</span>.</p>
 <p>Dans le cas d’une stratégie de pivot partiel, si <span class="math notranslate nohighlight">\({\bf P_k}\)</span> est la matrice de
-permutation des lignes à l’itération <span class="math notranslate nohighlight">\(k\)</span>, on peut écrire
-$<span class="math notranslate nohighlight">\(
-{\bf A^{(k+1)}}={\bf E_kP_kA^{(k)}}.
-\)</span><span class="math notranslate nohighlight">\(
-En fait, les différentes permutations peuvent être résumées dans la matrice
-\)</span><span class="math notranslate nohighlight">\(
-{\bf P}={\bf P_{n-1}P_{n-2}}\cdots {\bf P_1}
-\)</span>$
-et on obtient la décomposition générale suivante :</p>
-<p>\begin{theo} {Factorisation {\bf PA} = {\bf LU}}{}
-Pour toute matrice <span class="math notranslate nohighlight">\({\bf A}\)</span> non singulière de taille <span class="math notranslate nohighlight">\(n\)</span>, il existe
+permutation des lignes à l’itération <span class="math notranslate nohighlight">\(k\)</span>, on peut écrire</p>
+<p><span class="math notranslate nohighlight">\({\bf A^{(k+1)}}={\bf E_kP_kA^{(k)}}.\)</span></p>
+<p>En fait, les différentes permutations peuvent être résumées dans la matrice</p>
+<p><span class="math notranslate nohighlight">\({\bf P}={\bf P_{n-1}P_{n-2}}\cdots {\bf P_1}\)</span></p>
+<p>et on obtient la décomposition générale suivante :</p>
+<div class="proof theorem admonition" id="theorem-2">
+<p class="admonition-title"><span class="caption-number">Theorem 5 </span> (Factorisation <span class="math notranslate nohighlight">\({\bf PA} = {\bf LU}\)</span>)</p>
+<div class="theorem-content section" id="proof-content">
+<p>Pour toute matrice <span class="math notranslate nohighlight">\({\bf A}\)</span> non singulière de taille <span class="math notranslate nohighlight">\(n\)</span>, il existe
 une matrice de permutation <span class="math notranslate nohighlight">\({\bf P}\)</span>, une matrice triangulaire inférieure <span class="math notranslate nohighlight">\({\bf L}\)</span> telle
 que <span class="math notranslate nohighlight">\(l_{ii}=1\)</span>, pour tout <span class="math notranslate nohighlight">\(i\)</span>, et une matrice triangulaire supérieure <span class="math notranslate nohighlight">\({\bf U}\)</span>, telles
-que
-$<span class="math notranslate nohighlight">\(
-{\bf PA}={\bf LU}.
-\)</span>$
-\end{theo}</p>
-<p>\medskip
-L’algorithme~\ref{FactLU} montre les différentes étapes de la factorisation <span class="math notranslate nohighlight">\({\bf LU}\)</span>
+que</p>
+<p><span class="math notranslate nohighlight">\({\bf PA}={\bf LU}.\)</span></p>
+</div>
+</div><p>L’algorithme~\ref{FactLU} montre les différentes étapes de la factorisation <span class="math notranslate nohighlight">\({\bf LU}\)</span>
 avec recherche du pivot partiel. En sortie, <span class="math notranslate nohighlight">\({\bf A}\)</span> contient les facteurs <span class="math notranslate nohighlight">\({\bf L}\)</span> et <span class="math notranslate nohighlight">\({\bf U}\)</span> de la matrice
 et <span class="math notranslate nohighlight">\(\sigma\)</span> les permutations de lignes éventuelles.</p>
 <p>\begin{algorithm}[H]</p>
@@ -679,10 +636,9 @@ membre lors de la résolution de <span class="math notranslate nohighlight">\({\
 \caption{Substitutions directes/inverses}
 \label{SDI}
 \end{algorithm}</p>
-</div>
 <div class="section" id="cas-particuliers">
 <h2>Cas particuliers<a class="headerlink" href="#cas-particuliers" title="Lien permanent vers ce titre">#</a></h2>
-<p>\subsubsection{Matrices symétriques} Dans ce cas, <span class="math notranslate nohighlight">\({\bf U}\)</span> peut s’écrire <span class="math notranslate nohighlight">\({\bf U}={\bf DL^\top} \)</span> o`u
+<p>\subsubsection{Matrices symétriques} Dans ce cas, <span class="math notranslate nohighlight">\({\bf U}\)</span> peut s’écrire <span class="math notranslate nohighlight">\({\bf U}={\bf DL^\top} \)</span> où
 <span class="math notranslate nohighlight">\({\bf D}\)</span> est la matrice diagonale contenant les pivots successifs.  On a donc
 la factorisation <span class="math notranslate nohighlight">\({\bf A}={\bf LDL^\top }\)</span>.\index{factorisation!<span class="math notranslate nohighlight">\({\bf LDL^\top} \)</span>} La complexité de
 l’algorithme est alors de <span class="math notranslate nohighlight">\(n^3/6\)</span> flops (cf. exercice \ref{exo29}).</p>
@@ -708,13 +664,13 @@ calculer, on peut procéder de la manière suivante, basée sur la factorisation
 de la matrice:
 \begin{itemize}
 \item Calculer les facteurs <span class="math notranslate nohighlight">\({\bf LU}\)</span> de la matrice: <span class="math notranslate nohighlight">\({\bf PA}={\bf LU}\)</span>
-\item Résoudre les <span class="math notranslate nohighlight">\(n\)</span> systèmes linéaires <span class="math notranslate nohighlight">\({\bf LUx^i}={\bf Pe_i}\)</span>, o`u <span class="math notranslate nohighlight">\({\bf e_i}\)</span>, <span class="math notranslate nohighlight">\(i\in [\![1, n]\!]\)</span>,
+\item Résoudre les <span class="math notranslate nohighlight">\(n\)</span> systèmes linéaires <span class="math notranslate nohighlight">\({\bf LUx^i}={\bf Pe_i}\)</span>, où <span class="math notranslate nohighlight">\({\bf e_i}\)</span>, <span class="math notranslate nohighlight">\(i\in [\![1, n]\!]\)</span>,
 est le <span class="math notranslate nohighlight">\(i\)</span>-ème vecteur de la base canonique de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>. La solution <span class="math notranslate nohighlight">\({\bf x^i}\)</span> est la
 <span class="math notranslate nohighlight">\(i\)</span>-ème colonne de <span class="math notranslate nohighlight">\({\bf A^{-1}}\)</span>.
 \end{itemize}</p>
-<p>Le co^ut total apparent est de <span class="math notranslate nohighlight">\(n^3/3+n^3=4n^3/3\)</span> flops.
+<p>Le coût total apparent est de <span class="math notranslate nohighlight">\(n^3/3+n^3=4n^3/3\)</span> flops.
 Mais on peut montrer que, gr^ace à la structure particulière des seconds membres des
-systèmes linéaires successifs, le co^ut réel n’est que de <span class="math notranslate nohighlight">\(n^3\)</span> flops.</p>
+systèmes linéaires successifs, le coût réel n’est que de <span class="math notranslate nohighlight">\(n^3\)</span> flops.</p>
 <p>Une approche équivalente couramment utilisée, mais qui ne passe pas par le calcul
 des facteurs <span class="math notranslate nohighlight">\({\bf LU}\)</span>, est la méthode dite de Gauss-Jordan qui consiste à pivoter
 complètement le système paramétré
@@ -742,12 +698,12 @@ ce qui permet de déterminer explicitement l’inverse d’une matrice <span cla
 ici car elles ont une complexité exponentielle, ce qui les rend impraticables. A titre d’exemple, pour calculer le déterminant d’une matrice
 <span class="math notranslate nohighlight">\(20\times 20\)</span> par la formule de Cramer il faut à peu près 15400 ans de calcul sur une
 machine de 100 Mips (soit <span class="math notranslate nohighlight">\(10^8\)</span> instructions par seconde). Avec la méthode des pivots
-le co^ut n’est que de <span class="math notranslate nohighlight">\(3\cdot 10^{-5}\)</span> secondes!</p>
+le coût n’est que de <span class="math notranslate nohighlight">\(3\cdot 10^{-5}\)</span> secondes!</p>
 <p>En pratique on calculera le  déterminant après pivotage:
 $<span class="math notranslate nohighlight">\(
 \det({\bf A})=(-1)^p\prod_{i=1}^nu_{ii}
 \)</span><span class="math notranslate nohighlight">\(
-o\`u les \)</span>u_{ii}<span class="math notranslate nohighlight">\( (\)</span>1\le i\le n<span class="math notranslate nohighlight">\() sont les pivots et \)</span>p$ le nombre de permutations
+où les \)</span>u_{ii}<span class="math notranslate nohighlight">\( (\)</span>1\le i\le n<span class="math notranslate nohighlight">\() sont les pivots et \)</span>p$ le nombre de permutations
 effectuées au cours de la factorisation.</p>
 </div>
 </div>
