@@ -102,14 +102,45 @@
 # ````
 # 
 # 
-# L'algorithme~\ref{FactLU} montre les différentes étapes de la factorisation ${\bf LU}$
+# L'algorithme {prf:ref}`FactLU` montre les différentes étapes de la factorisation ${\bf LU}$
 # avec recherche du pivot partiel. En sortie, ${\bf A}$ contient les facteurs ${\bf L}$ et ${\bf U}$ de la matrice
 # et $\sigma$ les permutations de lignes éventuelles. 
 # 
+# 
+# ```{prf:algorithm} Méthode de Gauss
+# :label: FactLU
+# 
+# **Entrée : ** La matrice ${\bf A}$
+# 
+# **Sortie : ** Les facteurs ${\bf L}$ et ${\bf U}$, les permutations $\sigma$
+# 
+# `étape 1. Elimination`
+# 
+# 1. \sigma(i)=i$, $i\in[\![1,n]\!]$ (initialisation du vecteur des permutations)
+# 2. Pour $k=1,\ldots, n-1$
+#     1. $c_p\leftarrow |a_{kk}|$
+#     2. $i_p\leftarrow k$
+#     3. Pour $i=k+1,\ldots, n$
+#         1. Si $ |a_{ik}|> c_p$
+#             1. $c_p\leftarrow |a_{ik}|$
+#             2.  $i_p\leftarrow i$
+#     4. Si $i_p\ne k$
+#             1. $\sigma(k)=i_p$
+#             2. \sigma_{i_p} = k
+#         1. Pour $i=k+1,\ldots, n$
+#             1. $a_{ik}\leftarrow \frac{a_{ik}}{a_{kk}}$
+#             2. Pour $j=k+1,\ldots,n+1$
+#                  $a_{ij} \leftarrow  a_{ij}- a_{ik}a_{kj}$
+# ```
+# 
+# 
+# 
+# 
+# 
 # \begin{algorithm}[H]
 # 
-# \Entree{La matrice ${\bf A}$}
-# \Sortie{Les facteurs ${\bf L}$ et ${\bf U}$, les permutations $\sigma$}
+# \Entree{}
+# \Sortie{}
 # \Deb{
 # $\sigma(i)=i$, $i\in[\![1,n]\!]$ (initialisation du vecteur des permutations)\;
 # \Pour{$k=1,\ldots, n-1$}{

@@ -299,12 +299,13 @@ def SubstitutionInverse(A,b):
 # `étape 1. Elimination`
 # 
 # 1. Pour $k=1,\ldots, n-1$
-#     1. $c_p\leftarrow |a_{kk}|,\: i_p\leftarrow k$
-#     2. Pour $i=k+1,\ldots, n$
+#     1. $c_p\leftarrow |a_{kk}|$
+#     2. $i_p\leftarrow k$
+#     3. Pour $i=k+1,\ldots, n$
 #         1. Si $ |a_{ik}|> c_p$
 #             1. $c_p\leftarrow |a_{ik}|$
 #             2.  $i_p\leftarrow i$
-#     3. Si $i_p\ne k$
+#     4. Si $i_p\ne k$
 #         1. Pour $i=k+1,\ldots, n$
 #             1. Pour $j=k+1,\ldots,n+1$
 #                 1. $a_{ij} \leftarrow  a_{ij}-\frac{a_{ik}}{a_{kk}}a_{kj}$
