@@ -3,7 +3,6 @@
 
 # # Facteurs LU d'une matrice non singulière
 # 
-# ## Principe
 # Quand on a plusieurs systèmes linéaires à résoudre avec la même matrice 
 # et des seconds membres différents, on a intérêt lors de la première 
 # résolution à garder les coefficients des pivotages successifs en mémoire.
@@ -12,89 +11,67 @@
 # chaque pivotage peut être représenté par une matrice élémentaire qui
 # ne diffère de l'identité que par une sous-colonne.
 # 
-# Reprenons le pivotage de la matrice ${\bf A^{(k)}}$ à l'étape $k$. Soit ${\bm \eta_k}$
+# Reprenons le pivotage de la matrice ${\bf A^{(k)}}$ à l'étape $k$. Soit ${\bf \eta_k}$
 # le vecteur de $\mathbb R^{n-k}$ dont les composantes sont
 # $\eta_{ik}=a^{(k)}_{ik}/a^{(k)}_{kk}$. On a donc (en supposant 
 # $a^{(k)}_{kk}\ne 0$)
-# $$
-# {\bf A^{(k+1)}}={\bf E_kA^{(k)}}
-# $$
-# o\`u ${\bf E_k}$ est la matrice élémentaire suivante
-# \vskip 5pt
-# $$
-#   \left(
-#     \begin{array}{r@{}c|c@{}c}
-#    &  \begin{smallmatrix}
-#       \bovermat{k-1}{1 & & 0}\\
-#        &\ddots&\\
-#       0 & & 1\rule[-1ex]{0pt}{2ex}
-#      \end{smallmatrix} & \mbox{\huge0} & \rlap{\kern5mm k}\\\hline
-#    &  \mbox{\huge0} & 
-#      \begin{smallmatrix}\rule{0pt}{2ex}
-#      \vertbar&&&0\\
-#       -{\Large \bm \eta_k}& &  \\
-#        \vertbar&\ddots&\\
-#      & & & 1
-#      \end{smallmatrix}  & \rlap{\kern5mm n-k}
-#     \end{array} 
-#     \right)
-# $$
 # 
+# $
+# {\bf A^{(k+1)}}={\bf E_kA^{(k)}}
+# $
+# 
+# où ${\bf E_k}$ est la matrice élémentaire suivante
+# 
+# ![](./images/LU.png)
 # 
 # On a donc, après $n-1$ pivotages
-# \begin{equation}
+# 
+# $\begin{equation}
 # {\bf A^{(n-1)}}={\bf E_{n-1}E_{n-2}}\cdots {\bf E_1 A}.\label{MatriceU}
-# \end{equation}
+# \end{equation}$
+# 
 # Notons ${\bf U}$ la matrice triangulaire supérieure ${\bf A^{(n-1)}}$ et
-# réécrivons la relation (\ref{MatriceU})
-# $$
-# {\bf A}={\bf E_1^{-1}}\cdots {\bf E_{n-1}^{-1} U}
-# $$ 
+# réécrivons la relation précédente
+# 
+# $ {\bf A}={\bf E_1^{-1}}\cdots {\bf E_{n-1}^{-1} U}$ 
+# 
 # On vérifie que la matrice inverse ${\bf E_k^{-1}}$ a la même forme que
 # ${\bf E_k}$ avec les éléments de la sous-colonne $k$ changés de signe et que les 
 # produits ${\bf E_k^{-1}E_{k+1}^{-1}}$ s'effectuent sans calcul en accolant les
-# vecteurs ${\bm\eta_k}$ et ${\bm \eta_{k+1}}$ dans les colonnes $k$ et $k+1$. On peut donc
-# écrire ${\bf A}={\bf LU}$ o\`u ${\bf L}$ est une matrice triangulaire inférieure dont les éléments
-# diagonaux sont égaux à 1 et les éléments sous la diagonale sont
-# $$
-# l_{ij}=\eta_{ij}.
-# $$
+# vecteurs ${\bf \eta_k}$ et ${\bf \eta_{k+1}}$ dans les colonnes $k$ et $k+1$. On peut donc
+# écrire ${\bf A}={\bf LU}$ où ${\bf L}$ est une matrice triangulaire inférieure dont les éléments
+# diagonaux sont égaux à 1 et les éléments sous la diagonale sont $l_{ij}=\eta_{ij}.$
 # 
-# \exemple{
+# ````{prf:example}
 # Soit ${\bf A} = \begin{pmatrix}1&4&7\\2&5&8\\3&6&10\end{pmatrix}$. 
-# \begin{enumerate}
-# \item On pivote tout d'abord selon $a_{11}$. La matrice de transformation élémentaire est  \mbox{${\bf E_1} = \begin{pmatrix}1&0&0\\\textcolor{red}{-2}&1&0\\\textcolor{red}{-3}&0&1\end{pmatrix}$}, avec ${\bm \eta_1} = \begin{pmatrix} \textcolor{red}{2}\\\textcolor{red}{3}\end{pmatrix}$ et $ {\bf E_1A} =\begin{pmatrix}1&4&7\\0&-3&-6\\0&-6&-11\end{pmatrix}$
-# \item On pivote ensuite selon $a^{(2)}_{22}$. La matrice de transformation élémentaire est  \mbox{${\bf E_2} = \begin{pmatrix}1&0&0\\0&1&0\\0&\textcolor{blue}{-2}&1\end{pmatrix}$}, avec ${\bm \eta_2} = \begin{pmatrix} \textcolor{blue}{2}\end{pmatrix}$ et $ {\bf E_2E_1A} =\begin{pmatrix}1&4&7\\0&-3&-6\\0&0&1\end{pmatrix}={\bf U}$
-# \item Finalement ${\bf L} = \begin{pmatrix}1&0&0\\\textcolor{red}{2}&1&0\\\textcolor{red}{3}&\textcolor{blue}{2}&1\end{pmatrix}$
-# \end{enumerate}
-# }
+# 
+# 1. On pivote tout d'abord selon $a_{11}$. La matrice de transformation élémentaire est 
+# ${\bf E_1} = \begin{pmatrix}1&0&0\\\textcolor{red}{-2}&1&0\\\textcolor{red}{-3}&0&1\end{pmatrix}$
+# avec ${\bf \eta_1} = \begin{pmatrix} \textcolor{red}{2}\\\textcolor{red}{3}\end{pmatrix}$ et $ {\bf E_1A} =\begin{pmatrix}1&4&7\\0&-3&-6\\0&-6&-11\end{pmatrix}$
+# 2. On pivote ensuite selon $a^{(2)}_{22}$. La matrice de transformation élémentaire est  
+# ${\bf E_2} = \begin{pmatrix}1&0&0\\0&1&0\\0&\textcolor{blue}{-2}&1\end{pmatrix}$, avec ${\bf \eta_2} = \begin{pmatrix} \textcolor{blue}{2}\end{pmatrix}$ et $ {\bf E_2E_1A} =\begin{pmatrix}1&4&7\\0&-3&-6\\0&0&1\end{pmatrix}={\bf U}$
+# 3. Finalement ${\bf L} = \begin{pmatrix}1&0&0\\\textcolor{red}{2}&1&0\\\textcolor{red}{3}&\textcolor{blue}{2}&1\end{pmatrix}$
+# ````
 # 
 # Observons que les éléments non diagonaux de ${\bf L}$ peuvent être rangés
 # directement à la place des éléments de ${\bf A}$ correspondants. La matrice ${\bf A}$
-# est donc recouverte par sa factorisation ${\bf LU}$ et le co\^ut de stockage est
+# est donc recouverte par sa factorisation ${\bf LU}$ et le coût de stockage est
 # en $n^2$.
 # 
-# Gr\^ace à cette factorisation (qui ne co\^ute donc pas plus cher que la
+# Grâce à cette factorisation (qui ne coûte donc pas plus cher que la
 # triangularisation), tout nouveau système linéaire ${\bf Ax}={\bf b'}$ peut être
 # résolu par la résolution de deux systèmes triangulaires (donc en $O(n^2)$ flops).
-# En effet, pour résoudre 
-# $$
-# {\bf LUx}={\bf b'}
-# $$
-# on résout d'abord 
-# $$
-# {\bf Ly}={\bf b'}
-# $$
-# puis 
-# $$
-# {\bf Ux}={\bf y}.
-# $$
+# En effet, pour résoudre ${\bf LUx}={\bf b'}$, on résout d'abord ${\bf Ly}={\bf b'}$ puis ${\bf Ux}={\bf y}$.
 # 
-# \exemple{
-# Soit ${\bf A} = \begin{pmatrix}1&4&7\\2&5&8\\3&6&10\end{pmatrix}$. En appliquant l'algorithme de factorisation ${\bf LU}$ (cf. ci-dessus), on obtient 
-# $${\bf L} = \begin{pmatrix}1&0&0\\2&1&0\\3&2&1\end{pmatrix}\quad {\bf U} = \begin{pmatrix}1&4&7\\0&-3&-6\\0&0&1\end{pmatrix}$$
+# ````{prf:example}
+# Soit ${\bf A} = \begin{pmatrix}1&4&7\\2&5&8\\3&6&10\end{pmatrix}$. 
+# 
+# En appliquant l'algorithme de factorisation ${\bf LU}$ (cf. ci-dessus), on obtient 
+# 
+# ${\bf L} = \begin{pmatrix}1&0&0\\2&1&0\\3&2&1\end{pmatrix}\quad {\bf U} = \begin{pmatrix}1&4&7\\0&-3&-6\\0&0&1\end{pmatrix}$
+# 
 # Si ${\bf b} = \begin{pmatrix}1\\1\\1\end{pmatrix}$, ${\bf Ly}={\bf b}$ donne ${\bf y} = \begin{pmatrix}1\\-1\\0\end{pmatrix}$ et ${\bf Ux}={\bf y}$ donne ${\bf x} =\frac{1}{3} \begin{pmatrix}-1\\1\\0\end{pmatrix}$
-# }
+# ````
 # 
 # Quand aucun pivot nul n'est rencontré, ${\bf A}$ peut se mettre sous la forme ${\bf LU}$
 # et cette factorisation est unique. En effet, s'il existe deux factorisations
@@ -106,26 +83,25 @@
 # 
 # Dans le cas d'une stratégie de pivot partiel, si ${\bf P_k}$ est la matrice de 
 # permutation des lignes à l'itération $k$, on peut écrire
-# $$
-# {\bf A^{(k+1)}}={\bf E_kP_kA^{(k)}}.
-# $$
+# 
+# ${\bf A^{(k+1)}}={\bf E_kP_kA^{(k)}}.$
+# 
 # En fait, les différentes permutations peuvent être résumées dans la matrice
-# $$
-# {\bf P}={\bf P_{n-1}P_{n-2}}\cdots {\bf P_1}
-# $$
+# 
+# ${\bf P}={\bf P_{n-1}P_{n-2}}\cdots {\bf P_1}$
+# 
 # et on obtient la décomposition générale suivante :
 # 
-# \begin{theo} {Factorisation {\bf PA} = {\bf LU}}{}
+# ````{prf:theorem} Factorisation ${\bf PA} = {\bf LU}$
 # Pour toute matrice ${\bf A}$ non singulière de taille $n$, il existe
 # une matrice de permutation ${\bf P}$, une matrice triangulaire inférieure ${\bf L}$ telle
 # que $l_{ii}=1$, pour tout $i$, et une matrice triangulaire supérieure ${\bf U}$, telles
 # que
-# $$
-# {\bf PA}={\bf LU}.
-# $$ 
-# \end{theo}
 # 
-# \medskip
+# ${\bf PA}={\bf LU}.$ 
+# ````
+# 
+# 
 # L'algorithme~\ref{FactLU} montre les différentes étapes de la factorisation ${\bf LU}$
 # avec recherche du pivot partiel. En sortie, ${\bf A}$ contient les facteurs ${\bf L}$ et ${\bf U}$ de la matrice
 # et $\sigma$ les permutations de lignes éventuelles. 
@@ -191,10 +167,13 @@
 # 
 # 
 # 
+# 
+# 
+# 
 # ## Cas particuliers
 # 
 # 
-# \subsubsection{Matrices symétriques} Dans ce cas, ${\bf U}$ peut s'écrire ${\bf U}={\bf DL^\top} $ o\`u 
+# \subsubsection{Matrices symétriques} Dans ce cas, ${\bf U}$ peut s'écrire ${\bf U}={\bf DL^\top} $ où 
 # ${\bf D}$ est la matrice diagonale contenant les pivots successifs.  On a donc
 # la factorisation ${\bf A}={\bf LDL^\top }$.\index{factorisation!${\bf LDL^\top} $} La complexité de 
 # l'algorithme est alors de $n^3/6$ flops (cf. exercice \ref{exo29}).
@@ -211,6 +190,7 @@
 # successifs strictement positifs. La factorisation peut s'effectuer directement sans
 # pivotage par identification terme à terme en $n^3/6$ flops par l'algorithme de Cholesky. 
 # 
+# 
 # # Autres applications
 # 
 # ## Calcul de l'inverse d'une matrice
@@ -220,14 +200,14 @@
 # de la matrice:
 # \begin{itemize}
 # \item Calculer les facteurs ${\bf LU}$ de la matrice: ${\bf PA}={\bf LU}$
-# \item Résoudre les $n$ systèmes linéaires ${\bf LUx^i}={\bf Pe_i}$, o\`u ${\bf e_i}$, $i\in [\![1, n]\!]$,
+# \item Résoudre les $n$ systèmes linéaires ${\bf LUx^i}={\bf Pe_i}$, où ${\bf e_i}$, $i\in [\![1, n]\!]$,
 # est le $i$-ème vecteur de la base canonique de $\mathbb R^n$. La solution ${\bf x^i}$ est la
 # $i$-ème colonne de ${\bf A^{-1}}$. 
 # \end{itemize}
 # 
-# Le co\^ut total apparent est de $n^3/3+n^3=4n^3/3$ flops.
+# Le coût total apparent est de $n^3/3+n^3=4n^3/3$ flops.
 # Mais on peut montrer que, gr\^ace à la structure particulière des seconds membres des
-# systèmes linéaires successifs, le co\^ut réel n'est que de $n^3$ flops.
+# systèmes linéaires successifs, le coût réel n'est que de $n^3$ flops.
 # 
 # Une approche équivalente couramment utilisée, mais qui ne passe pas par le calcul 
 # des facteurs ${\bf LU}$, est la méthode dite de Gauss-Jordan qui consiste à pivoter
@@ -259,11 +239,11 @@
 # ici car elles ont une complexité exponentielle, ce qui les rend impraticables. A titre d'exemple, pour calculer le déterminant d'une matrice
 # $20\times 20$ par la formule de Cramer il faut à peu près 15400 ans de calcul sur une
 # machine de 100 Mips (soit $10^8$ instructions par seconde). Avec la méthode des pivots
-# le co\^ut n'est que de $3\cdot 10^{-5}$ secondes! 
+# le coût n'est que de $3\cdot 10^{-5}$ secondes! 
 # 
 # En pratique on calculera le  déterminant après pivotage:
 # $$
 # \det({\bf A})=(-1)^p\prod_{i=1}^nu_{ii}
 # $$
-# o\`u les $u_{ii}$ ($1\le i\le n$) sont les pivots et $p$ le nombre de permutations
+# où les $u_{ii}$ ($1\le i\le n$) sont les pivots et $p$ le nombre de permutations
 # effectuées au cours de la factorisation.
