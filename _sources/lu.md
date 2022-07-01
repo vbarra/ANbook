@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ---
 jupytext:
   formats: md:myst
@@ -10,8 +9,6 @@ kernelspec:
   language: python
   name: python3
 ---
-=======
->>>>>>> 467086c3d3ed2654ce463d958a8dae974f96b9a4
 # Facteurs LU d'une matrice non singulière
 
 ## Principe

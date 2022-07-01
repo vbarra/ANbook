@@ -1,0 +1,1335 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gauss et LU &#8212; Analyse numérique</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Elimination de Gauss" href="gauss.html" />
+    <link rel="prev" title="Exercices" href="ch1exos.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="fr">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/isimainp.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Analyse numérique</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p class="caption">
+ <span class="caption-text">
+  Tutoriels
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tutoriel-jupyter.html">
+   Tutoriel Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tutoriel-numpy.html">
+   Tutoriel Numpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tutoriel-matplotlib.html">
+   Tutoriel Matplotlib
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction au calcul matriciel
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ev.html">
+   Espaces Vectoriels
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matrices.html">
+   Matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sl.html">
+   Systèmes d’équations linéaires
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch1exos.html">
+   Exercices
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Elimination de Gauss
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Gauss et LU
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gauss.html">
+   Elimination de Gauss
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lu.html">
+   Facteurs LU d’une matrice non singulière
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="genindex.html">
+   Index
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/vbarra/anbook.git"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/vbarra/anbook.git/issues/new?title=Issue%20on%20page%20%2Fch2.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/ch2.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="_sources/ch2.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Gauss et LU
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preambule-transformations-elementaires">
+   Préambule : transformations élémentaires
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definition">
+     Définition
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pivotage-d-une-colonne">
+     Pivotage d’une colonne
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#elimination-de-gauss">
+   Elimination de Gauss
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exemple-introductif">
+     Exemple introductif
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#systemes-triangulaires">
+     Systèmes triangulaires
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#methode-de-gauss-ou-du-pivot-pour-les-systemes-lineaires">
+     Méthode de Gauss (ou du pivot) pour les systèmes linéaires
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#strategies-pour-les-pivots-nuls">
+     Stratégies pour les pivots nuls
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cas-singulier-et-calcul-du-rang-d-une-matrice">
+     Cas singulier et calcul du rang d’une matrice
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#facteurs-lu-d-une-matrice-non-singuliere">
+   Facteurs LU d’une matrice non singulière
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cas-particuliers">
+     Cas particuliers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#autres-applications">
+   Autres applications
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calcul-de-l-inverse-d-une-matrice">
+     Calcul de l’inverse d’une matrice
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calcul-du-determinant">
+     Calcul du déterminant
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Gauss et LU</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Gauss et LU
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preambule-transformations-elementaires">
+   Préambule : transformations élémentaires
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#definition">
+     Définition
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pivotage-d-une-colonne">
+     Pivotage d’une colonne
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#elimination-de-gauss">
+   Elimination de Gauss
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exemple-introductif">
+     Exemple introductif
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#systemes-triangulaires">
+     Systèmes triangulaires
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#methode-de-gauss-ou-du-pivot-pour-les-systemes-lineaires">
+     Méthode de Gauss (ou du pivot) pour les systèmes linéaires
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#strategies-pour-les-pivots-nuls">
+     Stratégies pour les pivots nuls
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cas-singulier-et-calcul-du-rang-d-une-matrice">
+     Cas singulier et calcul du rang d’une matrice
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#facteurs-lu-d-une-matrice-non-singuliere">
+   Facteurs LU d’une matrice non singulière
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cas-particuliers">
+     Cas particuliers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#autres-applications">
+   Autres applications
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calcul-de-l-inverse-d-une-matrice">
+     Calcul de l’inverse d’une matrice
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calcul-du-determinant">
+     Calcul du déterminant
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="gauss-et-lu">
+<h1>Gauss et LU<a class="headerlink" href="#gauss-et-lu" title="Lien permanent vers ce titre">#</a></h1>
+<p>Parmi toutes les méthodes de résolution de systèmes linéaires, nous étudions dans la suite deux algorithmes largement utilisés : l’élimination de Gauss et la méthode LU.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="preambule-transformations-elementaires">
+<h1>Préambule : transformations élémentaires<a class="headerlink" href="#preambule-transformations-elementaires" title="Lien permanent vers ce titre">#</a></h1>
+<div class="section" id="definition">
+<h2>Définition<a class="headerlink" href="#definition" title="Lien permanent vers ce titre">#</a></h2>
+<div class="proof definition admonition" id="definition-0">
+<p class="admonition-title"><span class="caption-number">Definition 25 </span> (Transformation élémentaire)</p>
+<div class="definition-content section" id="proof-content">
+<p id="index-0">Soit <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{mn}(\mathbb R)\)</span>. On appelle transformation élémentaire
+des lignes (respectivement des colonnes) de <span class="math notranslate nohighlight">\({\bf A}\)</span> une combinaison des trois transformations
+suivantes :</p>
+<ul class="simple">
+<li><p>multiplication d’une ligne (resp. colonne) par un scalaire non nul;</p></li>
+<li><p>remplacement d’une ligne(resp. colonne)  par la somme de cette ligne et d’une autre ligne
+(resp. colonne);</p></li>
+<li><p>permutation de deux lignes (resp. colonnes).</p></li>
+</ul>
+</div>
+</div><p>Une transformation élémentaire sur les lignes (resp. colonnes) de <span class="math notranslate nohighlight">\({\bf A}\)</span>
+équivaut à multiplier <span class="math notranslate nohighlight">\({\bf A}\)</span> à gauche (resp. à droite) par une matrice
+élémentaire obtenue en appliquant la même transformation à la matrice
+identité (de taille <span class="math notranslate nohighlight">\(m\)</span> pour les transformations sur les lignes, et de taille <span class="math notranslate nohighlight">\(n\)</span> pour les transformations sur les colonnes). C’est une transformation non singulière, elle ne change donc pas le rang de <span class="math notranslate nohighlight">\({\bf A}\)</span>.</p>
+<p>Si on note pour <span class="math notranslate nohighlight">\(\alpha\in\mathbb R^*\)</span>:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\({\bf M_i(\alpha)}\)</span> la matrice élémentaire qui réalise <span class="math notranslate nohighlight">\({\bf A_{i,\bullet}}\leftarrow \alpha {\bf A_{i,\bullet}}\)</span> (ou <span class="math notranslate nohighlight">\({\bf A_{\bullet,i}}\leftarrow \alpha {\bf A_{\bullet,i}}\)</span>)</p></li>
+<li><p><span class="math notranslate nohighlight">\({\bf C_{ij}(\alpha)}\)</span> la matrice élémentaire qui réalise <span class="math notranslate nohighlight">\({\bf A_{i,\bullet}}\leftarrow {\bf A_{i,\bullet}} + \alpha {\bf A_{j,\bullet}}\)</span> (ou <span class="math notranslate nohighlight">\({\bf A_{\bullet,i}}\leftarrow {\bf A_{\bullet,i}} + \alpha {\bf A_{\bullet,j}})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\({\bf P_{ij}}\)</span> la matrice élémentaire qui réalise <span class="math notranslate nohighlight">\({\bf A_{i,\bullet}}\leftrightarrow {\bf A_{j,\bullet}}\)</span>  (ou <span class="math notranslate nohighlight">\({\bf A_{\bullet,i}}\leftrightarrow {\bf A_{\bullet,j}}\)</span>)</p></li>
+</ul>
+<p>Alors on a le résultat :</p>
+<div class="proof theorem admonition" id="theorem-1">
+<p class="admonition-title"><span class="caption-number">Theorem 3 </span></p>
+<div class="theorem-content section" id="proof-content">
+<p>Les matrices <span class="math notranslate nohighlight">\({\bf M_i(\alpha)}\)</span>, <span class="math notranslate nohighlight">\({\bf C_{ij}(\alpha)}\)</span> et <span class="math notranslate nohighlight">\({\bf P_{ij}}\)</span> sont inversibles et :</p>
+<p><span class="math notranslate nohighlight">\(({\bf M_i(\alpha))^{-1}} = {\bf M_i(\alpha^{-1})}\quad ({\bf C_{ij}(\alpha))^{-1}} =  {\bf C_{ij}(-\alpha)} \quad {\bf P_{ij}^{-1}}=  {\bf P_{ij}}\)</span></p>
+</div>
+</div><div class="proof example admonition" id="example-2">
+<p class="admonition-title"><span class="caption-number">Example 1 </span></p>
+<div class="example-content section" id="proof-content">
+<p>Soit <span class="math notranslate nohighlight">\(
+{\bf A}=
+\begin{pmatrix}1 &amp; 0 &amp; 0 &amp; 2\\ 1 &amp; 2 &amp; 0 &amp; 1\\ 2 &amp; 1 &amp; 3 &amp; 4\end{pmatrix}
+\)</span></p>
+<p>Si on additionne les deux premières lignes et que l’on inscrive le résultat
+sur la première ligne sans changer les deux autres, on obtient
+<span class="math notranslate nohighlight">\(
+{\bf A'}=
+\begin{pmatrix}2 &amp; 2 &amp; 0 &amp; 3\\ 1 &amp; 2 &amp; 0 &amp; 1\\ 2 &amp; 1 &amp; 3 &amp; 4\end{pmatrix}
+\)</span></p>
+<p>On peut vérifier que <span class="math notranslate nohighlight">\({\bf A'}={\bf C_{12}(1)}{\bf A}\)</span>, avec
+<span class="math notranslate nohighlight">\(
+{\bf C_{12}(1)}=\begin{pmatrix}1 &amp; 1 &amp; 0 \\ 0 &amp; 1 &amp; 0\\ 0 &amp; 0 &amp; 1\end{pmatrix}
+\)</span></p>
+<p>De même la permutation des première et dernière colonnes de <span class="math notranslate nohighlight">\({\bf A}\)</span> s’effectue en multipliant à droite <span class="math notranslate nohighlight">\({\bf A}\)</span> par
+<span class="math notranslate nohighlight">\({\bf P_{14}}=
+\begin{pmatrix}0&amp;0&amp;0 &amp; 1  \\ 0 &amp; 1 &amp; 0&amp;0\\ 0 &amp; 0 &amp; 1&amp;0\\1&amp;0&amp;0&amp;0\end{pmatrix}
+\)</span></p>
+</div>
+</div></div>
+<div class="section" id="pivotage-d-une-colonne">
+<h2>Pivotage d’une colonne<a class="headerlink" href="#pivotage-d-une-colonne" title="Lien permanent vers ce titre">#</a></h2>
+<p id="index-1">C’est une séquence de transformations élémentaires qui transforme une colonne
+d’une matrice <span class="math notranslate nohighlight">\({\bf A}\)</span> en vecteur unitaire. L’élément qui doit se transformer en 1 est le <code class="docutils literal notranslate"><span class="pre">pivot</span></code>.</p>
+<p id="index-2">L’algorithme <a class="reference internal" href="#pivotage">Algorithm 1</a> décrit la transformation d’une colonne <span class="math notranslate nohighlight">\({\bf A_{\bullet s}}\)</span> en le <span class="math notranslate nohighlight">\(s^e\)</span> vecteur de la base canonique.</p>
+<div class="proof algorithm admonition" id="pivotage">
+<p class="admonition-title"><span class="caption-number">Algorithm 1 </span> (Pivotage d’une colonne <span class="math notranslate nohighlight">\({\bf A_{\bullet s}}\)</span> suivant le pivot <span class="math notranslate nohighlight">\(a_{rs}\ne 0\)</span>)</p>
+<div class="algorithm-content section" id="proof-content">
+<p><strong>Entrée</strong> <span class="math notranslate nohighlight">\({\bf A}\)</span>, <span class="math notranslate nohighlight">\(s\)</span> l’indice de la colonne à pivoter, <span class="math notranslate nohighlight">\(r\)</span> l’indice de ligne du pivot</p>
+<p><strong>Sortie</strong> La colonne transformée</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\({\bf A_{r \bullet}}\leftarrow \frac{1}{a_{rs}}\bf A_{r \bullet}\)</span></p></li>
+<li><p>Pour <span class="math notranslate nohighlight">\(i \ne r\)</span> : <span class="math notranslate nohighlight">\({\bf A_{i \bullet}}\leftarrow {\bf A_{i \bullet}} -a_{is}{\bf A_{r \bullet}}\)</span></p></li>
+</ol>
+</div>
+</div><p>Pour <span class="math notranslate nohighlight">\(m=n\)</span>, il est clair que, si tous les pivots successifs sont non nuls, une séquence de
+<span class="math notranslate nohighlight">\(n\)</span> pivotages effectués sur les <span class="math notranslate nohighlight">\(n\)</span> colonnes de la matrice avec le pivot
+sur la diagonale transformera la matrice en l’identité. Si <span class="math notranslate nohighlight">\({\bf E_i}\)</span> est la
+matrice élémentaire associée au pivotage de la <span class="math notranslate nohighlight">\(i\)</span>-ème colonne, on a
+<span class="math notranslate nohighlight">\(
+\mathbb I_n={\bf E_n}{\bf E_{n-1}}\cdots {\bf E_1}{\bf A}
+\)</span>
+d’o`u une première méthode pour calculer l’inverse d’une matrice :
+<span class="math notranslate nohighlight">\(
+{\bf A^{-1}}={\bf E_nE_{n-1}}\cdots {\bf E_1}.
+\)</span>
+Donc pour calculer l’inverse d’une matrice, il suffit d’effectuer les pivotages
+en parallèle sur la matrice identité. La matrice à inverser se transforme
+progressivement en la matrice identité alors que l’identité devient
+l’inverse. S’il est vrai que, quand aucun pivot nul n’est rencontré, cet
+algorithme a une complexité de <span class="math notranslate nohighlight">\(O(n^3)\)</span>, il peut atteindre <span class="math notranslate nohighlight">\(O(2n^3)\)</span> dans le
+cas général et nécessite le stockage de deux matrices <span class="math notranslate nohighlight">\(n\times n\)</span>. On lui
+préférera les méthodes étudiées dans la suite, basées elles aussi sur
+des pivotages successifs de la matrice, mais plus robustes et moins
+co^uteuses.
+\exemple
+{Pivotons la première colonne de
+<span class="math notranslate nohighlight">\(
+{\bf A}=
+\begin{pmatrix}1 &amp; 1 &amp; 1\\ 1 &amp; 0 &amp; -1\\ -2 &amp; 1 &amp; 3\end{pmatrix}
+\)</span>
+avec <span class="math notranslate nohighlight">\(a_{11}=1\)</span> comme pivot. On doit donc multiplier <span class="math notranslate nohighlight">\(A\)</span> à gauche par
+la matrice élémentaire
+$<span class="math notranslate nohighlight">\(
+{\bf E}=
+\begin{pmatrix}1 &amp; 0 &amp; 0\\ -1 &amp; 1 &amp; 0\\ 2 &amp; 0 &amp; 1\end{pmatrix}
+\textrm{ et le résultat est }
+{\bf A'}={\bf E}{\bf A}=
+\begin{pmatrix}1 &amp; 1 &amp; 1\\ 0 &amp; -1 &amp; -2\\ 0 &amp; 3 &amp; 5\end{pmatrix}
+\)</span>$
+}</p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="elimination-de-gauss">
+<h1>Elimination de Gauss<a class="headerlink" href="#elimination-de-gauss" title="Lien permanent vers ce titre">#</a></h1>
+<div class="section" id="exemple-introductif">
+<h2>Exemple introductif<a class="headerlink" href="#exemple-introductif" title="Lien permanent vers ce titre">#</a></h2>
+<p>\exemple{</p>
+<p>\label{UnExemple}
+Soit le système de 3 équations à 3 inconnues
+\begin{eqnarray}
+2x_1-3x_2\phantom{-3x_3}&amp;=&amp; 3\label{SL1}\
+4x_1-5x_2+x_3&amp; =&amp; 7\label{SL2}\
+2x_1-x_2-3x_3&amp; =&amp; 5\label{SL3}
+\end{eqnarray}
+La méthode d’élimination de Gauss (ou méthode du pivot) consiste à utiliser la
+première équation pour calculer <span class="math notranslate nohighlight">\(x_1\)</span> en fonction des autres variables puis de
+remplacer cette variable dans les équations suivantes. Cette élimination se
+poursuit avec <span class="math notranslate nohighlight">\(x_2\)</span> dans les nouvelles équations (sauf la première) jusqu’à
+l’obtention d’une équation à une seule inconnue. On remonte alors en remplaçant
+les variables calculées dans les équations ayant servi à l’élimination :\
+Tirons <span class="math notranslate nohighlight">\(x_1\)</span> de l’équation (\ref{SL1}):
+\begin{equation}x_1=\frac{3}{2}(1+x_2) \label{VarX}\end{equation}
+Remplaçons <span class="math notranslate nohighlight">\(x_1\)</span> dans les deux dernières équations (\ref{SL2})-(\ref{SL3})
+par son expression (\ref{VarX})
+\begin{eqnarray}
+x_2+x_3 &amp;=&amp; 1 \label{SLR1}\
+2x_2-3x_3 &amp;=&amp; 2\label{SLR2}.
+\end{eqnarray}
+Tirons <span class="math notranslate nohighlight">\(x_2\)</span> de l’équation (\ref{SLR1}) de ce nouveau système :
+\begin{equation}x_2=1-x_3. \label{VarY}\end{equation}
+Remplaçons <span class="math notranslate nohighlight">\(x_2\)</span> dans l’équation (\ref{SLR2}) :
+\begin{equation}-5x_3=0.\label{VarZ}\end{equation}
+La phase d’élimination est terminée. On effectue alors la substitution en sens
+inverse des variables gr^ace aux équations (\ref{VarZ}), (\ref{VarY}) et
+(\ref{VarX}):
+\begin{eqnarray*}
+(\ref{VarZ}) &amp;\Rightarrow&amp; x_3=0\ (\ref{VarY}) &amp;\Rightarrow&amp; x_2=1\ (\ref{VarX})
+&amp;\Rightarrow&amp; x_1=3
+\end{eqnarray*}
+}
+On remarque qu’à une étape donnée, l’élimination d’une variable peut se faire
+dans n’importe quelle équation, à condition, bien s^ur, que cette équation
+contienne la variable en question.</p>
+</div>
+<div class="section" id="systemes-triangulaires">
+<h2>Systèmes triangulaires<a class="headerlink" href="#systemes-triangulaires" title="Lien permanent vers ce titre">#</a></h2>
+<p>On constatera au paragraphe suivant que la phase d’élimination consiste à
+transformer le système original en un système triangulaire. Un système
+triangulaire est un système dont la matrice est triangulaire.</p>
+<p>Un système triangulaire supérieur se résout par substitution inverse
+\index{substitution!inverse}
+(on supposera tous les éléments diagonaux <span class="math notranslate nohighlight">\(a_{ii}\)</span> non nuls).
+\begin{eqnarray*}
+a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n&amp;=&amp;b_1\ a_{2n}x_2+\cdots+a_{2n}x_n &amp;=&amp;
+b_2\ \vdots &amp; &amp; \vdots\ a_{nn}x_n&amp;=&amp;b_n
+\end{eqnarray*}</p>
+<p>On commence d’abord par calculer <span class="math notranslate nohighlight">\(x_n\)</span> dans l’équation <span class="math notranslate nohighlight">\(n\)</span>. Puis à l’aide de
+<span class="math notranslate nohighlight">\(x_n\)</span>, on peut calculer <span class="math notranslate nohighlight">\(x_{n-1}\)</span> dans l’équation <span class="math notranslate nohighlight">\(n-1\)</span> et ainsi de suite
+jusqu’à <span class="math notranslate nohighlight">\(x_1\)</span> :
+\begin{eqnarray}
+x_n    &amp;=&amp; \frac{b_n}{a_{nn}},\label{BckSub1}\[.35pc]
+x_{k}&amp;=&amp;\frac{1}{a_{kk}}\left[b_k-\sum_{j=k+1}^na_{kj}x_j\right],\quad
+k\in[![n-1, 1]!]\label{BckSub2}
+\end{eqnarray}
+On remarque que le calcul de <span class="math notranslate nohighlight">\(x_k\)</span> co^ute <span class="math notranslate nohighlight">\(n-k\)</span> flops et une division. Le
+co^ut total de l’algorithme est donc de $<span class="math notranslate nohighlight">\(1+2+\cdots+n-1=\frac{n(n-1)}{2},\)</span><span class="math notranslate nohighlight">\(
+soit (on ne garde que les termes de plus haut degré)
+\)</span><span class="math notranslate nohighlight">\(
+\frac{{n^2}}{ 2}\quad\mbox{ flops}\quad\mbox{ et}\quad 
+ n\quad\mbox{ divisions.}
+\)</span>$</p>
+<p>Dans le cas d’un système triangulaire inférieur, on effectue des substitutions
+directes \index{substitution!directe} :
+\begin{eqnarray}
+x_1    &amp;=&amp; \frac{b_1}{a_{11}},\label{FwdSub1}\[.35pc]
+x_{k}&amp;=&amp;\frac{1}{a_{kk}}\left[b_k-\sum_{j=1}^{k-1}a_{kj}x_j\right],\quad
+k\in[![2, n]!].\label{FwdSub2}
+\end{eqnarray}
+Le co^ut de l’algorithme de substitution (\ref{FwdSub1})-(\ref{FwdSub2}) est
+le même que celui de substitution inverse (\ref{BckSub1})-(\ref{BckSub2}).</p>
+</div>
+<div class="section" id="methode-de-gauss-ou-du-pivot-pour-les-systemes-lineaires">
+<h2>Méthode de Gauss (ou du pivot) pour les systèmes linéaires<a class="headerlink" href="#methode-de-gauss-ou-du-pivot-pour-les-systemes-lineaires" title="Lien permanent vers ce titre">#</a></h2>
+<p>Montrons d’abord que la technique d’élimination décrite au paragraphe \ref{UnExemple}
+correspond à une opération de pivotage.</p>
+<p>Eliminer <span class="math notranslate nohighlight">\(x_1\)</span> de l’équation (\ref{SL2}) revient à faire la somme de l’équation
+(\ref{SL1}) multipliée par -2 avec (\ref{SL2}). De même éliminer <span class="math notranslate nohighlight">\(x_1\)</span> de
+(\ref{SL3}) revient à faire la somme de l’équation (\ref{SL1}) multipliée par
+-1 avec l’équation (\ref{SL3}). On a donc effectué un pivotage de la première
+colonne (celle de <span class="math notranslate nohighlight">\(x_1\)</span>) en utilisant la première ligne comme ligne du pivot.\index{pivot}</p>
+<p>\begin{rem}\rm Lors de l’exécution de l’algorithme :
+\begin{enumerate}
+\item A chaque itération, l’élément de la colonne dans la ligne du pivot
+doit être non nul.
+\item Les transformations élémentaires effectuées sur la matrice sont
+effectuées en parallèle sur le second membre.
+\item A la fin de l’élimination (si tout se passe bien!), on obtient un système
+triangulaire avec les pivots sur la diagonale.
+\end{enumerate}
+\end{rem}</p>
+<p>\exemple{
+Les transformations successives sont décrites ci-dessous pour l’exemple
+du  paragraphe \ref{UnExemple}.
+\noindent
+Itération 1 :
+$<span class="math notranslate nohighlight">\(
+\left(\begin{array}{rrr} 1 &amp; &amp; \\ -2&amp; 1&amp; \\ -1 &amp; &amp; 1 \end{array}\right)
+\left(\begin{array}{rrr|r}
+       (2)&amp; -3 &amp; 0 &amp; 3\\ 4 &amp; -5 &amp; 1 &amp; 7\\ 2 &amp; -1 &amp; -3 &amp; 5\\
+      \end{array} 
+\right)
+=\left(\begin{array}{rrr|r}
+       2&amp; -3 &amp; 0 &amp; 3\\ 0 &amp; 1 &amp; 1 &amp; 1\\ 0 &amp; 2 &amp; -3 &amp; 2\\
+      \end{array} 
+\right)
+\)</span><span class="math notranslate nohighlight">\(
+\noindent
+Itération 2 :
+\)</span><span class="math notranslate nohighlight">\(
+\left(\begin{array}{rrr} 1 &amp; &amp; \\   &amp; 1&amp; \\  &amp;  -2 &amp; 1 \end{array}\right)
+\left(\begin{array}{rrr|r}
+       2 &amp; -3 &amp; 0 &amp; 3\\ 0 &amp; (1) &amp; 1 &amp; 1\\ 0 &amp; 2 &amp; -3 &amp;  2\\
+      \end{array} 
+\right)
+=\left(\begin{array}{rrr|r}
+       2&amp; -3 &amp; 0 &amp; 3\\ 0 &amp; 1 &amp; 1 &amp; 1\\ 0 &amp; 0 &amp; -5 &amp; 0\\
+      \end{array} 
+\right)
+\)</span>$
+}</p>
+<p>On pose alors
+\begin{eqnarray*}
+{\bf A^{(1)}}&amp;=&amp;{\bf A}\[.2pc]
+{\bf b^{(1)}}&amp;=&amp;{\bf b}.
+\end{eqnarray*}
+Dans le cas général, on a donc à l’étape <span class="math notranslate nohighlight">\(k\)</span> de l’algorithme une matrice
+<span class="math notranslate nohighlight">\({\bf A^{(k)}}\in\mathcal{M}_{n,n+1}(\mathbb R)\)</span> (la dernière colonne représente
+le second membre du système transformé, notée <span class="math notranslate nohighlight">\({\bf b^{(k)}}\)</span>) dont les <span class="math notranslate nohighlight">\(k-1\)</span> premières colonnes
+sont triangulaires supérieures (cf. figure \ref{Gaussétapek}).
+\bigskip
+\begin{figure}[htp]
+\begin{center}
+\unitlength=1mm
+\begin{picture}(80,60)(0,0)
+\put(0,0){\line(1,0){70}}
+\put(70,0){\line(0,1){60}}
+\put(60,0){\line(0,1){60}}
+\put(0,60){\line(1,0){70}}
+\put(0,0){\line(0,1){60}}
+\put(25,0){\line(0,1){30}}
+\put(25,30){\line(1,0){45}}
+\put(25,30){\line(-5,6){25}}
+\put(25,25){\framebox(10,5){<span class="math notranslate nohighlight">\(a^{(k)}_{kk}\)</span>}}
+\put(8,20){\makebox(10,10){\Large (O)}}
+\put(30,35){\makebox(10,10){\Huge *}}
+\put(-20,25){\makebox(10,10){<span class="math notranslate nohighlight">\(\left[{\bf A^{(k)}}|{\bf b^{(k})}\right]=\)</span>}}
+\end{picture}
+\caption{Etape <span class="math notranslate nohighlight">\(k\)</span> de la méthode de Gauss}
+\label{Gaussétapek}
+\end{center}
+\end{figure}</p>
+<p>On met donc à zéro chaque élément de la colonne <span class="math notranslate nohighlight">\(k\)</span> sous le pivot\index{pivot}
+<span class="math notranslate nohighlight">\(a^{(k)}_{kk}\)</span> (supposé non nul) en remplaçant la ligne <span class="math notranslate nohighlight">\(i\)</span> (pour <span class="math notranslate nohighlight">\(i\in[\![k+1, n]\!]\)</span>) par</p>
+<div class="math notranslate nohighlight">
+\[
+{\bf A^{(k)}_{i \bullet}}\ \leftarrow\ 
+{\bf A^{(k)}_{i \bullet}}+\frac{-a^{(k)}_{ik}}{a^{(k)}_{kk}}\times {\bf A^{(k)}_{k \bullet}}
+\]</div>
+<p>L’élément <span class="math notranslate nohighlight">\(a^{(k)}_{ij}\)</span> pour <span class="math notranslate nohighlight">\(i\in [\![k+1,n]\!]\)</span> et <span class="math notranslate nohighlight">\(j\in [\![k+1,n+1]\!]\)</span> devient
+$<span class="math notranslate nohighlight">\(
+a^{(k+1)}_{ij}=a^{(k)}_{ij}-\frac{a^{(k)}_{ik}}{a^{(k)}_{kk}}a^{(k)}_{kj}
+\)</span><span class="math notranslate nohighlight">\(
+La mise à jour de la ligne \)</span>i<span class="math notranslate nohighlight">\( requiert donc \)</span>n-k+1<span class="math notranslate nohighlight">\( flops et 1 division. Donc
+l'étape \)</span>k<span class="math notranslate nohighlight">\( co\^ute \)</span>(n-k)(n-k+1)<span class="math notranslate nohighlight">\( flops et \)</span>n-k<span class="math notranslate nohighlight">\( divisions. On en déduit le 
+co\^ut total de l'algorithme de Gauss:
+\begin{eqnarray*}
+n(n-1)+(n-1)(n-2)+\cdots+2\cdot 1&amp;=&amp;n^2+(n-1)^2+\cdots+2^2+1^2
+                                     -(n+n-1+\cdots+2+1)\\
+ &amp;=&amp;\frac{1}{6}n(n+1)(2n+1)-\frac{1}{2}n(n+1)\ \mbox{flops}
+\end{eqnarray*}
+et 
+\)</span><span class="math notranslate nohighlight">\(
+\frac{1}{2}n(n+1)\ \mbox{divisions.}
+\)</span><span class="math notranslate nohighlight">\(
+On dira que la complexité de la méthode de Gauss est de 
+\)</span>\displaystyle{\frac{1}{3}{n^3}}$ flops.\index{flops}</p>
+<p>L’algorithme d’élimination de Gauss est présenté dans l’algorithme~\ref{MGauss1}.
+Le second membre est stocké dans la dernière colonne de <span class="math notranslate nohighlight">\({\bf A}\)</span>. L’élimination
+transforme la matrice <span class="math notranslate nohighlight">\({\bf A}\)</span> en une matrice triangulaire supérieure (\textit{étape 1.}).
+Le système triangulaire supérieur est ensuite résolu par substitution inverse
+(\textit{étape 2.}).</p>
+<p>\begin{algorithm}
+\caption{Méthode de Gauss}</p>
+<p>\Entree{<span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{n,n+1}(\mathbb R)\)</span> (la dernière colonne représente
+le second membre du système)}
+\Sortie{Solution <span class="math notranslate nohighlight">\({\bf x}\)</span> du syst`eme <span class="math notranslate nohighlight">\({\bf Ax}={\bf b}\)</span>}
+\Deb{
+\textit{étape 1. Elimination};
+\Pour{<span class="math notranslate nohighlight">\(k=1,\ldots, n-1\)</span>}{
+\Pour{<span class="math notranslate nohighlight">\(i=k+1,\ldots, n\)</span>}{
+\Pour{<span class="math notranslate nohighlight">\(j=k+1,\ldots,n+1\)</span>}{
+<span class="math notranslate nohighlight">\(\dps{a_{ij} \leftarrow  a_{ij}-\frac{a_{ik}}{a_{kk}}a_{kj}}\)</span>;
+}
+}
+}
+\textit{étape 2. Résolution du système triangulaire};
+<span class="math notranslate nohighlight">\(\dps{x_n\leftarrow \frac{a_{n,n+1}}{a_{nn}}}\)</span>;
+\Pour{<span class="math notranslate nohighlight">\(k=n-1,\ldots,1\)</span>}{
+<span class="math notranslate nohighlight">\(\dps{x_k\leftarrow \frac{1}{a_{kk}}\left[
+                                  a_{k,n+1}-\sum_{j=k+1}^na_{kj}x_j
+                                               \right]}\)</span>;
+}}
+\label{MGauss1}
+\end{algorithm}</p>
+</div>
+<div class="section" id="strategies-pour-les-pivots-nuls">
+<h2>Stratégies pour les pivots nuls<a class="headerlink" href="#strategies-pour-les-pivots-nuls" title="Lien permanent vers ce titre">#</a></h2>
+<p>Si le pivot est nul (en pratique, on évitera aussi les pivots de valeur
+absolue trop petite, cf. chapitre 3), on le remplace en effectuant une
+permutation avec un
+élément non nul parmi les éléments sous lui et/ou à sa droite. On distingue
+généralement deux stratégies :
+\begin{description}
+\item[Pivotage total] \index{pivot!total}On permute lignes et colonnes pour
+choisir le plus grand élément en valeur absolue dans la sous-matrice en bas à
+droite (voir
+Fig. \ref{Gaussétapek}) :
+$<span class="math notranslate nohighlight">\(
+\max\left\{\left|a^{(k)}_{ij}\right|\ ; \ i,j\in [\![k,n]\!]
+    \right\}
+\)</span><span class="math notranslate nohighlight">\(
+\item[Pivotage partiel] \index{pivot!partiel}On ne permute que les lignes sous le 
+pivot en  choisissant le plus grand élément en valeur absolue
+\)</span><span class="math notranslate nohighlight">\(
+\max\left\{\left|a^{(k)}_{ik}\right|\ ; \ i\in [\![k,n]\!]
+    \right\}
+\)</span>$
+\end{description}</p>
+<p>La stratégie du pivotage partiel est la plus utilisée car la plus économique
+(la recherche du plus grand élément sur une liste de <span class="math notranslate nohighlight">\(p\)</span> nombres co^ute
+<span class="math notranslate nohighlight">\(p\)</span> comparaisons numériques, ce qui donne <span class="math notranslate nohighlight">\(n^3/3\)</span> comparaisons pour le pivotage
+total). L’algorithme d’élimination de Gauss avec recherche du pivot partiel est
+décrit dans l’algorithme~\ref{MGauss2}. Le second membre est
+stocké dans la dernière colonne de <span class="math notranslate nohighlight">\({\bf A}\)</span>.</p>
+<p>\begin{algorithm}
+\caption{Méthode de Gauss avec pivot partiel}
+\label{MGauss2}
+\Entree{<span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{n,n+1}(\mathbb R)\)</span> (la dernière colonne représente
+le second membre du système)}
+\Sortie{Solution <span class="math notranslate nohighlight">\({\bf x}\)</span> du syst`eme <span class="math notranslate nohighlight">\({\bf Ax}={\bf b}\)</span>}
+\Deb{
+\textit{1. Elimination};
+\Pour{<span class="math notranslate nohighlight">\(k=1,\ldots, n-1\)</span>}{
+\textit{Recherche du pivot};
+<span class="math notranslate nohighlight">\(c_p\leftarrow |a_{kk}|,\: i_p\leftarrow k\)</span>;
+\Pour{<span class="math notranslate nohighlight">\(i=k+1,\ldots,n\)</span>}{
+\Si{<span class="math notranslate nohighlight">\( |a_{ik}|&gt; c_p\)</span>}{
+<span class="math notranslate nohighlight">\(c_p\leftarrow |a_{ik}|,\: i_p\leftarrow i\)</span>
+}
+}
+\textit{Permutation};
+\Si{<span class="math notranslate nohighlight">\(i_p\ne k\)</span>}{
+Permuter les lignes <span class="math notranslate nohighlight">\(i_p\)</span> et <span class="math notranslate nohighlight">\(k\)</span> de la matrice <span class="math notranslate nohighlight">\(A\)</span>
+}
+\textit{Pivotage};
+\Pour{<span class="math notranslate nohighlight">\(i=k+1,\ldots, n\)</span>}{
+\Pour{<span class="math notranslate nohighlight">\(j=k+1,\ldots,n+1\)</span>}{
+<span class="math notranslate nohighlight">\(\dps{a_{ij} \leftarrow  a_{ij}-\frac{a_{ik}}{a_{kk}}a_{kj}}\)</span>;
+}
+}
+}
+\textit{2. Résolution du système triangulaire};
+<span class="math notranslate nohighlight">\(\dps{x_n\leftarrow \frac{a_{n,n+1}}{a_{nn}}}\)</span>;
+\Pour{<span class="math notranslate nohighlight">\(k=n-1,\ldots,1\)</span>}{
+<span class="math notranslate nohighlight">\(\dps{x_k\leftarrow \frac{1}{a_{kk}}\left[
+                    a_{k,n+1}-\sum_{j=k+1}^na_{kj}x_j
+                                               \right]}\)</span>;
+}}
+\end{algorithm}</p>
+</div>
+<div class="section" id="cas-singulier-et-calcul-du-rang-d-une-matrice">
+<h2>Cas singulier et calcul du rang d’une matrice<a class="headerlink" href="#cas-singulier-et-calcul-du-rang-d-une-matrice" title="Lien permanent vers ce titre">#</a></h2>
+<p>\subsubsection{Pivotage total} Si, à l’itération <span class="math notranslate nohighlight">\(k\)</span> de la méthode de Gauss
+avec pivot total,
+$<span class="math notranslate nohighlight">\(
+\max\left\{\left|a^{(k)}_{ij}\right|\ ; \ i,j\in [\![k,n]\!]
+    \right\}=0
+\)</span><span class="math notranslate nohighlight">\(
+(donc tous les éléments de la sous-matrice sont nuls), on peut affirmer que
+le rang de la matrice \)</span>{\bf A}<span class="math notranslate nohighlight">\( est égal à \)</span>k-1<span class="math notranslate nohighlight">\(. S'il existe un élément 
+\)</span>b^{(k)}_i<span class="math notranslate nohighlight">\(, \)</span>k\le i\le n$, du second membre différent de zéro, alors le
+système n’a pas de solution.</p>
+<p>\subsubsection{Pivotage partiel} Si
+$<span class="math notranslate nohighlight">\(
+\max\left\{\left|a^{(k)}_{ik}\right|\ ; \ \ i\in [\![k,n]\!]
+    \right\}=0
+\)</span><span class="math notranslate nohighlight">\(
+on peut seulement affirmer que la colonne \)</span>k<span class="math notranslate nohighlight">\( est linéairement dépendante des
+\)</span>k-1<span class="math notranslate nohighlight">\( premières. Cela implique que \)</span>\mathrm{rang}({\bf A})&lt;n$ et que le système n’a
+probablement pas de solution. Toutefois, on ne peut en être s^ur que sur
+le test du pivot total nul.</p>
+<p>\begin{rem}
+La méthode de Gauss et le test du pivot total nul apparaissent donc comme
+la meilleure stratégie pour calculer le rang d’une matrice.
+\end{rem}</p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="facteurs-lu-d-une-matrice-non-singuliere">
+<h1>Facteurs LU d’une matrice non singulière<a class="headerlink" href="#facteurs-lu-d-une-matrice-non-singuliere" title="Lien permanent vers ce titre">#</a></h1>
+<p>Quand on a plusieurs systèmes linéaires à résoudre avec la même matrice
+et des seconds membres différents, on a intérêt lors de la première
+résolution à garder les coefficients des pivotages successifs en mémoire.
+Cela correspond à garder la factorisation <span class="math notranslate nohighlight">\(LU\)</span>\index{factorisation!LU}
+de la matrice. En effet,
+chaque pivotage peut être représenté par une matrice élémentaire qui
+ne diffère de l’identité que par une sous-colonne.</p>
+<p>Reprenons le pivotage de la matrice <span class="math notranslate nohighlight">\({\bf A^{(k)}}\)</span> à l’étape <span class="math notranslate nohighlight">\(k\)</span>. Soit <span class="math notranslate nohighlight">\({\bm \eta_k}\)</span>
+le vecteur de <span class="math notranslate nohighlight">\(\mathbb R^{n-k}\)</span> dont les composantes sont
+<span class="math notranslate nohighlight">\(\eta_{ik}=a^{(k)}_{ik}/a^{(k)}_{kk}\)</span>. On a donc (en supposant
+<span class="math notranslate nohighlight">\(a^{(k)}_{kk}\ne 0\)</span>)
+$<span class="math notranslate nohighlight">\(
+{\bf A^{(k+1)}}={\bf E_kA^{(k)}}
+\)</span><span class="math notranslate nohighlight">\(
+o\`u \)</span>{\bf E_k}<span class="math notranslate nohighlight">\( est la matrice élémentaire suivante
+\vskip 5pt
+\)</span><span class="math notranslate nohighlight">\(
+  \left(
+    \begin{array}{r&#64;{}c|c&#64;{}c}
+   &amp;  \begin{smallmatrix}
+      \bovermat{k-1}{1 &amp; &amp; 0}\\
+       &amp;\ddots&amp;\\
+      0 &amp; &amp; 1\rule[-1ex]{0pt}{2ex}
+     \end{smallmatrix} &amp; \mbox{\huge0} &amp; \rlap{\kern5mm k}\\\hline
+   &amp;  \mbox{\huge0} &amp; 
+     \begin{smallmatrix}\rule{0pt}{2ex}
+     \vertbar&amp;&amp;&amp;0\\
+      -{\Large \bm \eta_k}&amp; &amp;  \\
+       \vertbar&amp;\ddots&amp;\\
+     &amp; &amp; &amp; 1
+     \end{smallmatrix}  &amp; \rlap{\kern5mm n-k}
+    \end{array} 
+    \right)
+\)</span>$</p>
+<p>On a donc, après <span class="math notranslate nohighlight">\(n-1\)</span> pivotages
+\begin{equation}
+{\bf A^{(n-1)}}={\bf E_{n-1}E_{n-2}}\cdots {\bf E_1 A}.\label{MatriceU}
+\end{equation}
+Notons <span class="math notranslate nohighlight">\({\bf U}\)</span> la matrice triangulaire supérieure <span class="math notranslate nohighlight">\({\bf A^{(n-1)}}\)</span> et
+réécrivons la relation (\ref{MatriceU})
+$<span class="math notranslate nohighlight">\(
+{\bf A}={\bf E_1^{-1}}\cdots {\bf E_{n-1}^{-1} U}
+\)</span><span class="math notranslate nohighlight">\( 
+On vérifie que la matrice inverse \)</span>{\bf E_k^{-1}}<span class="math notranslate nohighlight">\( a la même forme que
+\)</span>{\bf E_k}<span class="math notranslate nohighlight">\( avec les éléments de la sous-colonne \)</span>k<span class="math notranslate nohighlight">\( changés de signe et que les 
+produits \)</span>{\bf E_k^{-1}E_{k+1}^{-1}}<span class="math notranslate nohighlight">\( s'effectuent sans calcul en accolant les
+vecteurs \)</span>{\bm\eta_k}<span class="math notranslate nohighlight">\( et \)</span>{\bm \eta_{k+1}}<span class="math notranslate nohighlight">\( dans les colonnes \)</span>k<span class="math notranslate nohighlight">\( et \)</span>k+1<span class="math notranslate nohighlight">\(. On peut donc
+écrire \)</span>{\bf A}={\bf LU}<span class="math notranslate nohighlight">\( o\`u \)</span>{\bf L}<span class="math notranslate nohighlight">\( est une matrice triangulaire inférieure dont les éléments
+diagonaux sont égaux à 1 et les éléments sous la diagonale sont
+\)</span><span class="math notranslate nohighlight">\(
+l_{ij}=\eta_{ij}.
+\)</span>$</p>
+<p>\exemple{
+Soit <span class="math notranslate nohighlight">\({\bf A} = \begin{pmatrix}1&amp;4&amp;7\\2&amp;5&amp;8\\3&amp;6&amp;10\end{pmatrix}\)</span>.
+\begin{enumerate}
+\item On pivote tout d’abord selon <span class="math notranslate nohighlight">\(a_{11}\)</span>. La matrice de transformation élémentaire est  \mbox{<span class="math notranslate nohighlight">\({\bf E_1} = \begin{pmatrix}1&amp;0&amp;0\\\textcolor{red}{-2}&amp;1&amp;0\\\textcolor{red}{-3}&amp;0&amp;1\end{pmatrix}\)</span>}, avec <span class="math notranslate nohighlight">\({\bm \eta_1} = \begin{pmatrix} \textcolor{red}{2}\\\textcolor{red}{3}\end{pmatrix}\)</span> et <span class="math notranslate nohighlight">\( {\bf E_1A} =\begin{pmatrix}1&amp;4&amp;7\\0&amp;-3&amp;-6\\0&amp;-6&amp;-11\end{pmatrix}\)</span>
+\item On pivote ensuite selon <span class="math notranslate nohighlight">\(a^{(2)}_{22}\)</span>. La matrice de transformation élémentaire est  \mbox{<span class="math notranslate nohighlight">\({\bf E_2} = \begin{pmatrix}1&amp;0&amp;0\\0&amp;1&amp;0\\0&amp;\textcolor{blue}{-2}&amp;1\end{pmatrix}\)</span>}, avec <span class="math notranslate nohighlight">\({\bm \eta_2} = \begin{pmatrix} \textcolor{blue}{2}\end{pmatrix}\)</span> et <span class="math notranslate nohighlight">\( {\bf E_2E_1A} =\begin{pmatrix}1&amp;4&amp;7\\0&amp;-3&amp;-6\\0&amp;0&amp;1\end{pmatrix}={\bf U}\)</span>
+\item Finalement <span class="math notranslate nohighlight">\({\bf L} = \begin{pmatrix}1&amp;0&amp;0\\\textcolor{red}{2}&amp;1&amp;0\\\textcolor{red}{3}&amp;\textcolor{blue}{2}&amp;1\end{pmatrix}\)</span>
+\end{enumerate}
+}</p>
+<p>Observons que les éléments non diagonaux de <span class="math notranslate nohighlight">\({\bf L}\)</span> peuvent être rangés
+directement à la place des éléments de <span class="math notranslate nohighlight">\({\bf A}\)</span> correspondants. La matrice <span class="math notranslate nohighlight">\({\bf A}\)</span>
+est donc recouverte par sa factorisation <span class="math notranslate nohighlight">\({\bf LU}\)</span> et le co^ut de stockage est
+en <span class="math notranslate nohighlight">\(n^2\)</span>.</p>
+<p>Gr^ace à cette factorisation (qui ne co^ute donc pas plus cher que la
+triangularisation), tout nouveau système linéaire <span class="math notranslate nohighlight">\({\bf Ax}={\bf b'}\)</span> peut être
+résolu par la résolution de deux systèmes triangulaires (donc en <span class="math notranslate nohighlight">\(O(n^2)\)</span> flops).
+En effet, pour résoudre
+$<span class="math notranslate nohighlight">\(
+{\bf LUx}={\bf b'}
+\)</span><span class="math notranslate nohighlight">\(
+on résout d'abord 
+\)</span><span class="math notranslate nohighlight">\(
+{\bf Ly}={\bf b'}
+\)</span><span class="math notranslate nohighlight">\(
+puis 
+\)</span><span class="math notranslate nohighlight">\(
+{\bf Ux}={\bf y}.
+\)</span>$</p>
+<p>\exemple{
+Soit <span class="math notranslate nohighlight">\({\bf A} = \begin{pmatrix}1&amp;4&amp;7\\2&amp;5&amp;8\\3&amp;6&amp;10\end{pmatrix}\)</span>. En appliquant l’algorithme de factorisation <span class="math notranslate nohighlight">\({\bf LU}\)</span> (cf. ci-dessus), on obtient
+$<span class="math notranslate nohighlight">\({\bf L} = \begin{pmatrix}1&amp;0&amp;0\\2&amp;1&amp;0\\3&amp;2&amp;1\end{pmatrix}\quad {\bf U} = \begin{pmatrix}1&amp;4&amp;7\\0&amp;-3&amp;-6\\0&amp;0&amp;1\end{pmatrix}\)</span><span class="math notranslate nohighlight">\(
+Si \)</span>{\bf b} = \begin{pmatrix}1\1\1\end{pmatrix}<span class="math notranslate nohighlight">\(, \)</span>{\bf Ly}={\bf b}<span class="math notranslate nohighlight">\( donne \)</span>{\bf y} = \begin{pmatrix}1-1\0\end{pmatrix}<span class="math notranslate nohighlight">\( et \)</span>{\bf Ux}={\bf y}<span class="math notranslate nohighlight">\( donne \)</span>{\bf x} =\frac{1}{3} \begin{pmatrix}-1\1\0\end{pmatrix}$
+}</p>
+<p>Quand aucun pivot nul n’est rencontré, <span class="math notranslate nohighlight">\({\bf A}\)</span> peut se mettre sous la forme <span class="math notranslate nohighlight">\({\bf LU}\)</span>
+et cette factorisation est unique. En effet, s’il existe deux factorisations
+<span class="math notranslate nohighlight">\({\bf L_1U_1}\)</span> et <span class="math notranslate nohighlight">\({\bf L_2U_2}\)</span> de <span class="math notranslate nohighlight">\({\bf A}\)</span>, on a alors
+<span class="math notranslate nohighlight">\({\bf L_1U_1}={\bf L_2U_2}\)</span>. Ce qui implique que <span class="math notranslate nohighlight">\({\bf L_2^{-1}L_1}={\bf U_2U_1^{-1}}\)</span> et le produit
+de deux matrices inférieures (resp. supérieures) étant une matrice triangulaire
+inférieure (resp. supérieure), ces produits sont nécessairement une matrice
+diagonale. C’est l’identité car <span class="math notranslate nohighlight">\((l_1)_{ii}=(l_2)_{ii}=1\)</span> pour tout <span class="math notranslate nohighlight">\(i\)</span>.</p>
+<p>Dans le cas d’une stratégie de pivot partiel, si <span class="math notranslate nohighlight">\({\bf P_k}\)</span> est la matrice de
+permutation des lignes à l’itération <span class="math notranslate nohighlight">\(k\)</span>, on peut écrire
+$<span class="math notranslate nohighlight">\(
+{\bf A^{(k+1)}}={\bf E_kP_kA^{(k)}}.
+\)</span><span class="math notranslate nohighlight">\(
+En fait, les différentes permutations peuvent être résumées dans la matrice
+\)</span><span class="math notranslate nohighlight">\(
+{\bf P}={\bf P_{n-1}P_{n-2}}\cdots {\bf P_1}
+\)</span>$
+et on obtient la décomposition générale suivante :</p>
+<p>\begin{theo} {Factorisation {\bf PA} = {\bf LU}}{}
+Pour toute matrice <span class="math notranslate nohighlight">\({\bf A}\)</span> non singulière de taille <span class="math notranslate nohighlight">\(n\)</span>, il existe
+une matrice de permutation <span class="math notranslate nohighlight">\({\bf P}\)</span>, une matrice triangulaire inférieure <span class="math notranslate nohighlight">\({\bf L}\)</span> telle
+que <span class="math notranslate nohighlight">\(l_{ii}=1\)</span>, pour tout <span class="math notranslate nohighlight">\(i\)</span>, et une matrice triangulaire supérieure <span class="math notranslate nohighlight">\({\bf U}\)</span>, telles
+que
+$<span class="math notranslate nohighlight">\(
+{\bf PA}={\bf LU}.
+\)</span>$
+\end{theo}</p>
+<p>\medskip
+L’algorithme~\ref{FactLU} montre les différentes étapes de la factorisation <span class="math notranslate nohighlight">\({\bf LU}\)</span>
+avec recherche du pivot partiel. En sortie, <span class="math notranslate nohighlight">\({\bf A}\)</span> contient les facteurs <span class="math notranslate nohighlight">\({\bf L}\)</span> et <span class="math notranslate nohighlight">\({\bf U}\)</span> de la matrice
+et <span class="math notranslate nohighlight">\(\sigma\)</span> les permutations de lignes éventuelles.</p>
+<p>\begin{algorithm}[H]</p>
+<p>\Entree{La matrice <span class="math notranslate nohighlight">\({\bf A}\)</span>}
+\Sortie{Les facteurs <span class="math notranslate nohighlight">\({\bf L}\)</span> et <span class="math notranslate nohighlight">\({\bf U}\)</span>, les permutations <span class="math notranslate nohighlight">\(\sigma\)</span>}
+\Deb{
+<span class="math notranslate nohighlight">\(\sigma(i)=i\)</span>, <span class="math notranslate nohighlight">\(i\in[\![1,n]\!]\)</span> (initialisation du vecteur des permutations);
+\Pour{<span class="math notranslate nohighlight">\(k=1,\ldots, n-1\)</span>}{
+\textit{Recherche du pivot};
+<span class="math notranslate nohighlight">\(c_p\leftarrow |a_{kk}|,\: i_p\leftarrow k\)</span>;
+\Pour{<span class="math notranslate nohighlight">\(i=k+1,\ldots,n\)</span>}{
+\Si{<span class="math notranslate nohighlight">\( |a_{ik}|&gt; c_p\)</span>}{
+<span class="math notranslate nohighlight">\(c_p\leftarrow |a_{ik}|,\: i_p\leftarrow i\)</span>
+}
+}
+\textit{Permutation};
+\Si{<span class="math notranslate nohighlight">\(i_p\ne k\)</span>}{</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>     $\sigma(k)=i_p$, $\sigma(i_p)=k$
+     }
+     \textit{Pivotage}\;
+\Pour{$i=k+1,\ldots, n$}{
+    \textit{Remplissage de la colonne} $k$ 
+          \textit{par les coefficients} $\eta_{ik}$ \;
+    $\dps{a_{ik}\leftarrow \frac{a_{ik}}{a_{kk}}}$\;
+    \textit{Modification des lignes qui n&#39;ont pas encore été ligne-pivot}\;
+\Pour{$j=k+1,\ldots,n+1$}{
+     $\dps{a_{ij} \leftarrow  a_{ij}- a_{ik}a_{kj}}$\;
+    }
+}
+</pre></div>
+</div>
+<p>}}
+\caption{Factorisation <span class="math notranslate nohighlight">\(LU\)</span>}
+\label{FactLU}
+\end{algorithm}</p>
+<p>Si <span class="math notranslate nohighlight">\(\sigma_i=j\)</span> alors les lignes
+<span class="math notranslate nohighlight">\(i\)</span> et <span class="math notranslate nohighlight">\(j\)</span> ont été permutées. Les permutations doivent être repercutées sur le second
+membre lors de la résolution de <span class="math notranslate nohighlight">\({\bf Ly}={\bf b}\)</span> (algorithme~\ref{SDI}).</p>
+<p>\begin{algorithm}
+\Deb{
+\textit{1. Substitutions directes} <span class="math notranslate nohighlight">\(Ly=b\)</span>;
+<span class="math notranslate nohighlight">\(\dps{x_1\leftarrow {b_{\sigma_1}}}\)</span>;
+\Pour{<span class="math notranslate nohighlight">\(k=2,\ldots,n\)</span>}{
+<span class="math notranslate nohighlight">\(\dps{x_k\leftarrow b_{\sigma_k}-\sum_{j=1}^{k-1}a_{kj}x_j}\)</span>;
+}
+\textit{2. Substitutions inverses} <span class="math notranslate nohighlight">\(Ux=y\)</span>;
+<span class="math notranslate nohighlight">\(\dps{x_n\leftarrow \frac{x_{n}}{a_{nn}}}\)</span>;
+\Pour{<span class="math notranslate nohighlight">\(k=n-1,\ldots,1\)</span>}{
+<span class="math notranslate nohighlight">\(\dps{x_k\leftarrow \frac{1}{a_{kk}}\left[
+                    x_{k}-\sum_{j=k+1}^na_{kj}x_j
+                                               \right]}\)</span>;
+}}
+\caption{Substitutions directes/inverses}
+\label{SDI}
+\end{algorithm}</p>
+<div class="section" id="cas-particuliers">
+<h2>Cas particuliers<a class="headerlink" href="#cas-particuliers" title="Lien permanent vers ce titre">#</a></h2>
+<p>\subsubsection{Matrices symétriques} Dans ce cas, <span class="math notranslate nohighlight">\({\bf U}\)</span> peut s’écrire <span class="math notranslate nohighlight">\({\bf U}={\bf DL^\top} \)</span> o`u
+<span class="math notranslate nohighlight">\({\bf D}\)</span> est la matrice diagonale contenant les pivots successifs.  On a donc
+la factorisation <span class="math notranslate nohighlight">\({\bf A}={\bf LDL^\top }\)</span>.\index{factorisation!<span class="math notranslate nohighlight">\({\bf LDL^\top} \)</span>} La complexité de
+l’algorithme est alors de <span class="math notranslate nohighlight">\(n^3/6\)</span> flops (cf. exercice \ref{exo29}).</p>
+<p>\subsubsection{Matrices bandes} Ce sont des matrices symétriques telles que
+<span class="math notranslate nohighlight">\(a_{ij}=0\)</span> pour <span class="math notranslate nohighlight">\(|i-j|&gt;p\)</span> (<span class="math notranslate nohighlight">\(p\)</span> est la largeur de bande de la matrice, <span class="math notranslate nohighlight">\(p&lt;n\)</span>).
+Ces matrices interviennent couramment dans la discrétisation d’équations
+différentielles.  Il est alors facile de montrer que les facteurs <span class="math notranslate nohighlight">\({\bf LU}\)</span> respectent
+la bande. On a alors intérêt de stocker la matrice (et ses facteurs <span class="math notranslate nohighlight">\({\bf LU}\)</span>) sous
+la forme de tableau à <span class="math notranslate nohighlight">\(n\)</span> lignes et <span class="math notranslate nohighlight">\(p\)</span> colonnes et la complexité est en <span class="math notranslate nohighlight">\(np^2/2\)</span>
+flops.</p>
+<p>\subsubsection{Matrices symétriques définies positives} Les matrices définies positives possèdent une factorisation unique <span class="math notranslate nohighlight">\({\bf LDL^\top} \)</span> avec des pivots
+successifs strictement positifs. La factorisation peut s’effectuer directement sans
+pivotage par identification terme à terme en <span class="math notranslate nohighlight">\(n^3/6\)</span> flops par l’algorithme de Cholesky.</p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="autres-applications">
+<h1>Autres applications<a class="headerlink" href="#autres-applications" title="Lien permanent vers ce titre">#</a></h1>
+<div class="section" id="calcul-de-l-inverse-d-une-matrice">
+<h2>Calcul de l’inverse d’une matrice<a class="headerlink" href="#calcul-de-l-inverse-d-une-matrice" title="Lien permanent vers ce titre">#</a></h2>
+<p>On a vu précédemment que la résolution d’un système linéaire ne nécessite pas le
+calcul explicite de l’inverse d’une matrice. Quand on a besoin néanmoins de la
+calculer, on peut procéder de la manière suivante, basée sur la factorisation <span class="math notranslate nohighlight">\({\bf LU}\)</span>
+de la matrice:
+\begin{itemize}
+\item Calculer les facteurs <span class="math notranslate nohighlight">\({\bf LU}\)</span> de la matrice: <span class="math notranslate nohighlight">\({\bf PA}={\bf LU}\)</span>
+\item Résoudre les <span class="math notranslate nohighlight">\(n\)</span> systèmes linéaires <span class="math notranslate nohighlight">\({\bf LUx^i}={\bf Pe_i}\)</span>, o`u <span class="math notranslate nohighlight">\({\bf e_i}\)</span>, <span class="math notranslate nohighlight">\(i\in [\![1, n]\!]\)</span>,
+est le <span class="math notranslate nohighlight">\(i\)</span>-ème vecteur de la base canonique de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>. La solution <span class="math notranslate nohighlight">\({\bf x^i}\)</span> est la
+<span class="math notranslate nohighlight">\(i\)</span>-ème colonne de <span class="math notranslate nohighlight">\({\bf A^{-1}}\)</span>.
+\end{itemize}</p>
+<p>Le co^ut total apparent est de <span class="math notranslate nohighlight">\(n^3/3+n^3=4n^3/3\)</span> flops.
+Mais on peut montrer que, gr^ace à la structure particulière des seconds membres des
+systèmes linéaires successifs, le co^ut réel n’est que de <span class="math notranslate nohighlight">\(n^3\)</span> flops.</p>
+<p>Une approche équivalente couramment utilisée, mais qui ne passe pas par le calcul
+des facteurs <span class="math notranslate nohighlight">\({\bf LU}\)</span>, est la méthode dite de Gauss-Jordan qui consiste à pivoter
+complètement le système paramétré
+$<span class="math notranslate nohighlight">\(
+{\bf Ax-y}={\bf 0}.
+\)</span><span class="math notranslate nohighlight">\(
+On pivote cette fois sur la colonne entière de façon à transformer le système
+en un système diagonal \)</span>{\bf x}-{\bf A^{-1}y}={\bf 0}<span class="math notranslate nohighlight">\(. On peut observer que cette technique consiste
+à effectuer en parallèle à partir de la matrice identité les pivotages nécessaires
+à la transformation de \)</span>{\bf A}$ en la matrice identité.</p>
+</div>
+<div class="section" id="calcul-du-determinant">
+<h2>Calcul du déterminant<a class="headerlink" href="#calcul-du-determinant" title="Lien permanent vers ce titre">#</a></h2>
+<p>Le calcul du déterminant d’une  matrice <span class="math notranslate nohighlight">\(2\times 2\)</span> est bien connu:
+\begin{equation}
+\det\left[\begin{array}{rr} a &amp; b \ c &amp; d\end{array}\right]=ad-bc \label{DetMat2x2}
+\end{equation}
+ce qui permet de déterminer explicitement l’inverse d’une matrice <span class="math notranslate nohighlight">\(2\times 2\)</span>:
+\begin{equation}
+\left[\begin{array}{rr} a &amp; b \ c &amp; d\end{array}\right]^{-1}=\frac{1}{ad-bc}
+\left[\begin{array}{rr} d &amp; -b \ -c &amp; a\end{array}\right]. \label{InvMat2x2}
+\end{equation}</p>
+<p>La généralisation des formules (\ref{DetMat2x2})-(\ref{InvMat2x2}) au cas des matrices
+<span class="math notranslate nohighlight">\(n\times n\)</span> conduit aux fameuses formules de Cramer que nous ne reproduirons pas
+ici car elles ont une complexité exponentielle, ce qui les rend impraticables. A titre d’exemple, pour calculer le déterminant d’une matrice
+<span class="math notranslate nohighlight">\(20\times 20\)</span> par la formule de Cramer il faut à peu près 15400 ans de calcul sur une
+machine de 100 Mips (soit <span class="math notranslate nohighlight">\(10^8\)</span> instructions par seconde). Avec la méthode des pivots
+le co^ut n’est que de <span class="math notranslate nohighlight">\(3\cdot 10^{-5}\)</span> secondes!</p>
+<p>En pratique on calculera le  déterminant après pivotage:
+$<span class="math notranslate nohighlight">\(
+\det({\bf A})=(-1)^p\prod_{i=1}^nu_{ii}
+\)</span><span class="math notranslate nohighlight">\(
+o\`u les \)</span>u_{ii}<span class="math notranslate nohighlight">\( (\)</span>1\le i\le n<span class="math notranslate nohighlight">\() sont les pivots et \)</span>p$ le nombre de permutations
+effectuées au cours de la factorisation.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "vbarra/anbook.git",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="ch1exos.html" title="précédent page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">précédent</p>
+            <p class="prev-next-title">Exercices</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="gauss.html" title="suivant page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title">Elimination de Gauss</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Vincent BARRA<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
