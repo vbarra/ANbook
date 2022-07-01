@@ -463,11 +463,7 @@ le second membre du système)
 
 ### Pivotage total
 Si, à l'itération $k$ de la méthode de Gauss
-avec pivot total,
-$
-\max\left\{\left|a^{(k)}_{ij}\right|\ ; \ i,j\in [\![k,n]\!]
-    \right\}=0
-$
+avec pivot total, $\max\left\{\left|a^{(k)}_{ij}\right|\ ; \ i,j\in [\![k,n]\!]\right\}=0$
 (donc tous les éléments de la sous-matrice sont nuls), on peut affirmer que
 le rang de la matrice ${\bf A}$ est égal à $k-1$. S'il existe un élément 
 $b^{(k)}_i$, $k\le i\le n$, du second membre différent de zéro, alors le
