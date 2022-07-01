@@ -613,9 +613,13 @@ et <span class="math notranslate nohighlight">\(\sigma\)</span> les permutations
 </li>
 <li><p>Pour <span class="math notranslate nohighlight">\(i=k+1,\ldots, n\)</span></p>
 <ol class="simple">
-<li><p><span class="math notranslate nohighlight">\(a_{ik}\leftarrow \frac{a_{ik}}{a_{kk}}\)</span></p></li>
-<li><p>Pour <span class="math notranslate nohighlight">\(j=k+1,\ldots,n+1\)</span>
-1.<span class="math notranslate nohighlight">\(a_{ij} \leftarrow  a_{ij}- a_{ik}a_{kj}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(a_{ik}\leftarrow \frac{a_{ik}}{a_{kk}}\)</span>
+<code class="docutils literal notranslate"><span class="pre">Modification</span> <span class="pre">des</span> <span class="pre">lignes</span> <span class="pre">qui</span> <span class="pre">n'ont</span> <span class="pre">pas</span> <span class="pre">encore</span> <span class="pre">été</span> <span class="pre">ligne-pivot</span></code></p></li>
+<li><p>Pour <span class="math notranslate nohighlight">\(j=k+1,\ldots,n+1\)</span></p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(a_{ij} \leftarrow  a_{ij}- a_{ik}a_{kj}\)</span></p></li>
+</ol>
+</li>
 </ol>
 </li>
 </ol>
