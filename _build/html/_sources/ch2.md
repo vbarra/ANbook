@@ -379,19 +379,18 @@ le second membre du système)
 
 **Sortie : ** Solution ${\bf x}$ du syst\`eme ${\bf Ax}={\bf b}$
 
-1. `étape 1. Elimination`
+`étape 1. Elimination`
 
-Pour($k=1,\ldots, n-1$)
+1. Pour($k=1,\ldots, n-1$)
     1. Pour $i=k+1,\ldots, n$
-    
         1. Pour$j=k+1,\ldots,n+1$
-        
             $\displaystyle\sum{a_{ij} \leftarrow  a_{ij}-\frac{a_{ik}}{a_{kk}}a_{kj}}$\;
 
-2. `étape 2. Résolution du système triangulaire`
+`étape 2. Résolution du système triangulaire`
+
 $\displaystyle\sum{x_n\leftarrow \frac{a_{n,n+1}}{a_{nn}}}$\;
-3. Pour$k=n-1,\ldots,1$
-    $\\displaystyle\sum{x_k\leftarrow \frac{1}{a_{kk}}\left[
+1. Pour$k=n-1,\ldots,1$
+    $\displaystyle\sum{x_k\leftarrow \frac{1}{a_{kk}}\left[
                                   a_{k,n+1}-\sum_{j=k+1}^na_{kj}x_j
                                                \right]}$\;
 ```

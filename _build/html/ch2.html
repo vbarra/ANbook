@@ -911,21 +911,24 @@ Le système triangulaire supérieur est ensuite résolu par substitution inverse
 <p>**Entrée : ** <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{n,n+1}(\mathbb R)\)</span> (la dernière colonne représente
 le second membre du système)</p>
 <p>**Sortie : ** Solution <span class="math notranslate nohighlight">\({\bf x}\)</span> du syst`eme <span class="math notranslate nohighlight">\({\bf Ax}={\bf b}\)</span></p>
+<p><code class="docutils literal notranslate"><span class="pre">étape</span> <span class="pre">1.</span> <span class="pre">Elimination</span></code></p>
 <ol class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">étape</span> <span class="pre">1.</span> <span class="pre">Elimination</span></code></p></li>
+<li><p>Pour(<span class="math notranslate nohighlight">\(k=1,\ldots, n-1\)</span>)</p>
+<ol class="simple">
+<li><p>Pour <span class="math notranslate nohighlight">\(i=k+1,\ldots, n\)</span></p>
+<ol class="simple">
+<li><p>Pour<span class="math notranslate nohighlight">\(j=k+1,\ldots,n+1\)</span>
+<span class="math notranslate nohighlight">\(\displaystyle\sum{a_{ij} \leftarrow  a_{ij}-\frac{a_{ik}}{a_{kk}}a_{kj}}\)</span>;</p></li>
 </ol>
-<p>Pour(<span class="math notranslate nohighlight">\(k=1,\ldots, n-1\)</span>)
-1. Pour <span class="math notranslate nohighlight">\(i=k+1,\ldots, n\)</span></p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    1. Pour$j=k+1,\ldots,n+1$
-    
-        $\displaystyle\sum{a_{ij} \leftarrow  a_{ij}-\frac{a_{ik}}{a_{kk}}a_{kj}}$\;
-</pre></div>
-</div>
+</li>
+</ol>
+</li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">étape</span> <span class="pre">2.</span> <span class="pre">Résolution</span> <span class="pre">du</span> <span class="pre">système</span> <span class="pre">triangulaire</span></code></p>
+<p><span class="math notranslate nohighlight">\(\displaystyle\sum{x_n\leftarrow \frac{a_{n,n+1}}{a_{nn}}}\)</span>;</p>
 <ol class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">étape</span> <span class="pre">2.</span> <span class="pre">Résolution</span> <span class="pre">du</span> <span class="pre">système</span> <span class="pre">triangulaire</span></code>
-<span class="math notranslate nohighlight">\(\displaystyle\sum{x_n\leftarrow \frac{a_{n,n+1}}{a_{nn}}}\)</span>;</p></li>
 <li><p>Pour<span class="math notranslate nohighlight">\(k=n-1,\ldots,1\)</span>
-<span class="math notranslate nohighlight">\(\\displaystyle\sum{x_k\leftarrow \frac{1}{a_{kk}}\left[
+<span class="math notranslate nohighlight">\(\displaystyle\sum{x_k\leftarrow \frac{1}{a_{kk}}\left[
                                a_{k,n+1}-\sum_{j=k+1}^na_{kj}x_j
                                             \right]}\)</span>;</p></li>
 </ol>
