@@ -1138,16 +1138,18 @@ permutation des lignes à l’itération <span class="math notranslate nohighlig
 <p>En fait, les différentes permutations peuvent être résumées dans la matrice</p>
 <p><span class="math notranslate nohighlight">\({\bf P}={\bf P_{n-1}P_{n-2}}\cdots {\bf P_1}\)</span></p>
 <p>et on obtient la décomposition générale suivante :</p>
-<div class="highlight-{prf:theorem}Factorisation notranslate"><div class="highlight"><pre><span></span>Pour toute matrice ${\bf A}$ non singulière de taille $n$, il existe
-une matrice de permutation ${\bf P}$, une matrice triangulaire inférieure ${\bf L}$ telle
-que $l_{ii}=1$, pour tout $i$, et une matrice triangulaire supérieure ${\bf U}$, telles
+<div class="proof theorem admonition" id="theorem-12">
+<p class="admonition-title"><span class="caption-number">Theorem 4 </span> (Factorisation {\bf PA} = {\bf LU}}{})</p>
+<div class="theorem-content section" id="proof-content">
+<p>Pour toute matrice <span class="math notranslate nohighlight">\({\bf A}\)</span> non singulière de taille <span class="math notranslate nohighlight">\(n\)</span>, il existe
+une matrice de permutation <span class="math notranslate nohighlight">\({\bf P}\)</span>, une matrice triangulaire inférieure <span class="math notranslate nohighlight">\({\bf L}\)</span> telle
+que <span class="math notranslate nohighlight">\(l_{ii}=1\)</span>, pour tout <span class="math notranslate nohighlight">\(i\)</span>, et une matrice triangulaire supérieure <span class="math notranslate nohighlight">\({\bf U}\)</span>, telles
 que
-$$
+$<span class="math notranslate nohighlight">\(
 {\bf PA}={\bf LU}.
-$$ 
-</pre></div>
+\)</span>$</p>
 </div>
-<p>\medskip
+</div><p>\medskip
 L’algorithme~\ref{FactLU} montre les différentes étapes de la factorisation <span class="math notranslate nohighlight">\({\bf LU}\)</span>
 avec recherche du pivot partiel. En sortie, <span class="math notranslate nohighlight">\({\bf A}\)</span> contient les facteurs <span class="math notranslate nohighlight">\({\bf L}\)</span> et <span class="math notranslate nohighlight">\({\bf U}\)</span> de la matrice
 et <span class="math notranslate nohighlight">\(\sigma\)</span> les permutations de lignes éventuelles.</p>
