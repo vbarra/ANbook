@@ -912,21 +912,17 @@ Le système triangulaire supérieur est ensuite résolu par substitution inverse
 le second membre du système)</p>
 <p>**Sortie : ** Solution <span class="math notranslate nohighlight">\({\bf x}\)</span> du syst`eme <span class="math notranslate nohighlight">\({\bf Ax}={\bf b}\)</span></p>
 <ol class="simple">
-<li><p>\textit{étape 1. Elimination};
-Pour(<span class="math notranslate nohighlight">\(k=1,\ldots, n-1\)</span>)</p>
-<ol class="simple">
-<li><p>Pour <span class="math notranslate nohighlight">\(i=k+1,\ldots, n\)</span></p>
-<ol class="simple">
-<li><p>Pour<span class="math notranslate nohighlight">\(j=k+1,\ldots,n+1\)</span>
-<span class="math notranslate nohighlight">\(\dps{a_{ij} \leftarrow  a_{ij}-\frac{a_{ik}}{a_{kk}}a_{kj}}\)</span>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">étape</span> <span class="pre">1.</span> <span class="pre">Elimination</span></code></p></li>
 </ol>
-</li>
-</ol>
-</li>
-<li><p>\textit{étape 2. Résolution du système triangulaire};
+<p>Pour(<span class="math notranslate nohighlight">\(k=1,\ldots, n-1\)</span>)
+1. Pour <span class="math notranslate nohighlight">\(i=k+1,\ldots, n\)</span>
+1. Pour<span class="math notranslate nohighlight">\(j=k+1,\ldots,n+1\)</span>
+<span class="math notranslate nohighlight">\(\displaystyle\sum{a_{ij} \leftarrow  a_{ij}-\frac{a_{ik}}{a_{kk}}a_{kj}}\)</span>;</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">étape</span> <span class="pre">2.</span> <span class="pre">Résolution</span> <span class="pre">du</span> <span class="pre">système</span> <span class="pre">triangulaire</span></code>
 <span class="math notranslate nohighlight">\(\displaystyle\sum{x_n\leftarrow \frac{a_{n,n+1}}{a_{nn}}}\)</span>;</p></li>
 <li><p>Pour<span class="math notranslate nohighlight">\(k=n-1,\ldots,1\)</span>
-<span class="math notranslate nohighlight">\(\dps{x_k\leftarrow \frac{1}{a_{kk}}\left[
+<span class="math notranslate nohighlight">\(\\displaystyle\sum{x_k\leftarrow \frac{1}{a_{kk}}\left[
                                a_{k,n+1}-\sum_{j=k+1}^na_{kj}x_j
                                             \right]}\)</span>;</p></li>
 </ol>
