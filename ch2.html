@@ -780,20 +780,19 @@ x_{k}&amp;=&amp;\frac{1}{a_{kk}}\left[b_k-\sum_{j=k+1}^na_{kj}x_j\right],\quad
 k\in[\![n-1, 1]\!]\label{BckSub2}
 \end{eqnarray}\right .\)</span></p>
 <p>On remarque que le calcul de <span class="math notranslate nohighlight">\(x_k\)</span> coûte <span class="math notranslate nohighlight">\(n-k\)</span> flops et une division. Le
-coût total de l’algorithme est donc de <span class="math notranslate nohighlight">\(1+2+\cdots+n-1=\frac{n(n-1)}{2}\)</span>
+coût total de l’algorithme est donc de <span class="math notranslate nohighlight">\(1+2+\cdots+n-1=\frac{n(n-1)}{2}\)</span>,
 soit (on ne garde que les termes de plus haut degré)</p>
 <p><span class="math notranslate nohighlight">\(
-\frac{{n^2}}{ 2}\quad\mbox{ flops}\quad\mbox{ et}\quad 
- n\quad\mbox{ divisions.}
-\)</span></p>
+\frac{{n^2}}{ 2}\)</span> et <span class="math notranslate nohighlight">\(n\)</span> divisions.
+$</p>
 <p>Dans le cas d’un système triangulaire inférieur, on effectue des substitutions
-directes \index{substitution!directe} :
-\begin{eqnarray}
-x_1    &amp;=&amp; \frac{b_1}{a_{11}},\label{FwdSub1}\[.35pc]
+directes :</p>
+<p id="index-4"><span class="math notranslate nohighlight">\(\left \{\begin{eqnarray}
+x_1    &amp;=&amp; \frac{b_1}{a_{11}},\label{FwdSub1}\\[.35pc]
 x_{k}&amp;=&amp;\frac{1}{a_{kk}}\left[b_k-\sum_{j=1}^{k-1}a_{kj}x_j\right],\quad
-k\in[![2, n]!].\label{FwdSub2}
-\end{eqnarray}
-Le coût de l’algorithme de substitution (\ref{FwdSub1})-(\ref{FwdSub2}) est
+k\in[\![2, n]\!].\label{FwdSub2}
+\end{eqnarray}\right .\)</span></p>
+<p>Le coût de l’algorithme de substitution (\ref{FwdSub1})-(\ref{FwdSub2}) est
 le même que celui de substitution inverse (\ref{BckSub1})-(\ref{BckSub2}).</p>
 </div>
 <div class="section" id="methode-de-gauss-ou-du-pivot-pour-les-systemes-lineaires">
