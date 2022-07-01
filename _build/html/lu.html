@@ -732,17 +732,17 @@ en un système diagonal <span class="math notranslate nohighlight">\({\bf x}-{\b
 \left[\begin{array}{rr} a &amp; b \\ c &amp; d\end{array}\right]^{-1}=\frac{1}{ad-bc}
 \left[\begin{array}{rr} d &amp; -b \\ -c &amp; a\end{array}\right]. \label{InvMat2x2}
 \end{equation}\)</span></p>
-<p>La généralisation des formules (\ref{DetMat2x2})-(\ref{InvMat2x2}) au cas des matrices
+<p>La généralisation des formules précédentes au cas des matrices
 <span class="math notranslate nohighlight">\(n\times n\)</span> conduit aux fameuses formules de Cramer que nous ne reproduirons pas
 ici car elles ont une complexité exponentielle, ce qui les rend impraticables. A titre d’exemple, pour calculer le déterminant d’une matrice
 <span class="math notranslate nohighlight">\(20\times 20\)</span> par la formule de Cramer il faut à peu près 15400 ans de calcul sur une
 machine de 100 Mips (soit <span class="math notranslate nohighlight">\(10^8\)</span> instructions par seconde). Avec la méthode des pivots
 le coût n’est que de <span class="math notranslate nohighlight">\(3\cdot 10^{-5}\)</span> secondes!</p>
-<p>En pratique on calculera le  déterminant après pivotage:
-$<span class="math notranslate nohighlight">\(
+<p>En pratique on calculera le  déterminant après pivotage:</p>
+<p><span class="math notranslate nohighlight">\(
 \det({\bf A})=(-1)^p\prod_{i=1}^nu_{ii}
-\)</span><span class="math notranslate nohighlight">\(
-où les \)</span>u_{ii}<span class="math notranslate nohighlight">\( (\)</span>1\le i\le n<span class="math notranslate nohighlight">\() sont les pivots et \)</span>p$ le nombre de permutations
+\)</span></p>
+<p>où les <span class="math notranslate nohighlight">\(u_{ii}\)</span> (<span class="math notranslate nohighlight">\(1\le i\le n\)</span>) sont les pivots et <span class="math notranslate nohighlight">\(p\)</span> le nombre de permutations
 effectuées au cours de la factorisation.</p>
 </div>
 </div>
