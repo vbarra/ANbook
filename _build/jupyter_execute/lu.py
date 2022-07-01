@@ -155,12 +155,15 @@
 # ## Cas particuliers
 # 
 # 
-# \subsubsection{Matrices symétriques} Dans ce cas, ${\bf U}$ peut s'écrire ${\bf U}={\bf DL^\top} $ où 
+# ### Matrices symétriques
+# Dans ce cas, ${\bf U}$ peut s'écrire ${\bf U}={\bf DL^\top} $ où 
 # ${\bf D}$ est la matrice diagonale contenant les pivots successifs.  On a donc
 # la factorisation ${\bf A}={\bf LDL^\top }$.\index{factorisation!${\bf LDL^\top} $} La complexité de 
-# l'algorithme est alors de $n^3/6$ flops (cf. exercice \ref{exo29}).
+# l'algorithme est alors de $n^3/6$ flops.
 # 
-# \subsubsection{Matrices bandes} Ce sont des matrices symétriques telles que 
+# 
+# ### Matrices bandes
+# Ce sont des matrices symétriques telles que 
 # $a_{ij}=0$ pour $|i-j|>p$ ($p$ est la largeur de bande de la matrice, $p<n$). 
 # Ces matrices interviennent couramment dans la discrétisation d'équations 
 # différentielles.  Il est alors facile de montrer que les facteurs ${\bf LU}$ respectent
@@ -168,7 +171,8 @@
 # la forme de tableau à $n$ lignes et $p$ colonnes et la complexité est en $np^2/2$
 # flops.
 # 
-# \subsubsection{Matrices symétriques définies positives} Les matrices définies positives possèdent une factorisation unique ${\bf LDL^\top} $ avec des pivots
+# ### Matrices symétriques définies positives
+# Les matrices définies positives possèdent une factorisation unique ${\bf LDL^\top} $ avec des pivots
 # successifs strictement positifs. La factorisation peut s'effectuer directement sans
 # pivotage par identification terme à terme en $n^3/6$ flops par l'algorithme de Cholesky. 
 # 
@@ -180,23 +184,22 @@
 # calcul explicite de l'inverse d'une matrice. Quand on a besoin néanmoins de la 
 # calculer, on peut procéder de la manière suivante, basée sur la factorisation ${\bf LU}$
 # de la matrice:
-# \begin{itemize}
-# \item Calculer les facteurs ${\bf LU}$ de la matrice: ${\bf PA}={\bf LU}$
-# \item Résoudre les $n$ systèmes linéaires ${\bf LUx^i}={\bf Pe_i}$, où ${\bf e_i}$, $i\in [\![1, n]\!]$,
+# 
+# - Calculer les facteurs ${\bf LU}$ de la matrice: ${\bf PA}={\bf LU}$
+# - Résoudre les $n$ systèmes linéaires ${\bf LUx^i}={\bf Pe_i}$, où ${\bf e_i}$, $i\in [\![1, n]\!]$,
 # est le $i$-ème vecteur de la base canonique de $\mathbb R^n$. La solution ${\bf x^i}$ est la
 # $i$-ème colonne de ${\bf A^{-1}}$. 
-# \end{itemize}
+# 
+# 
 # 
 # Le coût total apparent est de $n^3/3+n^3=4n^3/3$ flops.
-# Mais on peut montrer que, gr\^ace à la structure particulière des seconds membres des
+# Mais on peut montrer que, grâce à la structure particulière des seconds membres des
 # systèmes linéaires successifs, le coût réel n'est que de $n^3$ flops.
 # 
 # Une approche équivalente couramment utilisée, mais qui ne passe pas par le calcul 
 # des facteurs ${\bf LU}$, est la méthode dite de Gauss-Jordan qui consiste à pivoter
-# complètement le système paramétré
-# $$
-# {\bf Ax-y}={\bf 0}.
-# $$
+# complètement le système paramétré ${\bf Ax-y}={\bf 0}$.
+# 
 # On pivote cette fois sur la colonne entière de façon à transformer le système
 # en un système diagonal ${\bf x}-{\bf A^{-1}y}={\bf 0}$. On peut observer que cette technique consiste
 # à effectuer en parallèle à partir de la matrice identité les pivotages nécessaires
@@ -207,14 +210,16 @@
 # 
 # 
 # Le calcul du déterminant d'une  matrice $2\times 2$ est bien connu:
-# \begin{equation}
+# 
+# $\begin{equation}
 # \det\left[\begin{array}{rr} a & b \\ c & d\end{array}\right]=ad-bc \label{DetMat2x2}
-# \end{equation}
+# \end{equation}$
+# 
 # ce qui permet de déterminer explicitement l'inverse d'une matrice $2\times 2$:
-# \begin{equation}
+# $\begin{equation}
 # \left[\begin{array}{rr} a & b \\ c & d\end{array}\right]^{-1}=\frac{1}{ad-bc}
 # \left[\begin{array}{rr} d & -b \\ -c & a\end{array}\right]. \label{InvMat2x2}
-# \end{equation}
+# \end{equation}$
 # 
 # La généralisation des formules (\ref{DetMat2x2})-(\ref{InvMat2x2}) au cas des matrices
 # $n\times n$ conduit aux fameuses formules de Cramer que nous ne reproduirons pas

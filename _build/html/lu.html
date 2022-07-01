@@ -420,6 +420,23 @@ title="Print to PDF"
     <a class="reference internal nav-link" href="#cas-particuliers">
      Cas particuliers
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#matrices-symetriques">
+       Matrices symétriques
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#matrices-bandes">
+       Matrices bandes
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#matrices-symetriques-definies-positives">
+       Matrices symétriques définies positives
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -468,6 +485,23 @@ title="Print to PDF"
     <a class="reference internal nav-link" href="#cas-particuliers">
      Cas particuliers
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#matrices-symetriques">
+       Matrices symétriques
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#matrices-bandes">
+       Matrices bandes
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#matrices-symetriques-definies-positives">
+       Matrices symétriques définies positives
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -637,20 +671,29 @@ et <span class="math notranslate nohighlight">\(\sigma\)</span> les permutations
 membre lors de la résolution de <span class="math notranslate nohighlight">\({\bf Ly}={\bf b}\)</span>.</p>
 <div class="section" id="cas-particuliers">
 <h2>Cas particuliers<a class="headerlink" href="#cas-particuliers" title="Lien permanent vers ce titre">#</a></h2>
-<p>\subsubsection{Matrices symétriques} Dans ce cas, <span class="math notranslate nohighlight">\({\bf U}\)</span> peut s’écrire <span class="math notranslate nohighlight">\({\bf U}={\bf DL^\top} \)</span> où
+<div class="section" id="matrices-symetriques">
+<h3>Matrices symétriques<a class="headerlink" href="#matrices-symetriques" title="Lien permanent vers ce titre">#</a></h3>
+<p>Dans ce cas, <span class="math notranslate nohighlight">\({\bf U}\)</span> peut s’écrire <span class="math notranslate nohighlight">\({\bf U}={\bf DL^\top} \)</span> où
 <span class="math notranslate nohighlight">\({\bf D}\)</span> est la matrice diagonale contenant les pivots successifs.  On a donc
 la factorisation <span class="math notranslate nohighlight">\({\bf A}={\bf LDL^\top }\)</span>.\index{factorisation!<span class="math notranslate nohighlight">\({\bf LDL^\top} \)</span>} La complexité de
-l’algorithme est alors de <span class="math notranslate nohighlight">\(n^3/6\)</span> flops (cf. exercice \ref{exo29}).</p>
-<p>\subsubsection{Matrices bandes} Ce sont des matrices symétriques telles que
+l’algorithme est alors de <span class="math notranslate nohighlight">\(n^3/6\)</span> flops.</p>
+</div>
+<div class="section" id="matrices-bandes">
+<h3>Matrices bandes<a class="headerlink" href="#matrices-bandes" title="Lien permanent vers ce titre">#</a></h3>
+<p>Ce sont des matrices symétriques telles que
 <span class="math notranslate nohighlight">\(a_{ij}=0\)</span> pour <span class="math notranslate nohighlight">\(|i-j|&gt;p\)</span> (<span class="math notranslate nohighlight">\(p\)</span> est la largeur de bande de la matrice, <span class="math notranslate nohighlight">\(p&lt;n\)</span>).
 Ces matrices interviennent couramment dans la discrétisation d’équations
 différentielles.  Il est alors facile de montrer que les facteurs <span class="math notranslate nohighlight">\({\bf LU}\)</span> respectent
 la bande. On a alors intérêt de stocker la matrice (et ses facteurs <span class="math notranslate nohighlight">\({\bf LU}\)</span>) sous
 la forme de tableau à <span class="math notranslate nohighlight">\(n\)</span> lignes et <span class="math notranslate nohighlight">\(p\)</span> colonnes et la complexité est en <span class="math notranslate nohighlight">\(np^2/2\)</span>
 flops.</p>
-<p>\subsubsection{Matrices symétriques définies positives} Les matrices définies positives possèdent une factorisation unique <span class="math notranslate nohighlight">\({\bf LDL^\top} \)</span> avec des pivots
+</div>
+<div class="section" id="matrices-symetriques-definies-positives">
+<h3>Matrices symétriques définies positives<a class="headerlink" href="#matrices-symetriques-definies-positives" title="Lien permanent vers ce titre">#</a></h3>
+<p>Les matrices définies positives possèdent une factorisation unique <span class="math notranslate nohighlight">\({\bf LDL^\top} \)</span> avec des pivots
 successifs strictement positifs. La factorisation peut s’effectuer directement sans
 pivotage par identification terme à terme en <span class="math notranslate nohighlight">\(n^3/6\)</span> flops par l’algorithme de Cholesky.</p>
+</div>
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="autres-applications">
@@ -660,38 +703,35 @@ pivotage par identification terme à terme en <span class="math notranslate nohi
 <p>On a vu précédemment que la résolution d’un système linéaire ne nécessite pas le
 calcul explicite de l’inverse d’une matrice. Quand on a besoin néanmoins de la
 calculer, on peut procéder de la manière suivante, basée sur la factorisation <span class="math notranslate nohighlight">\({\bf LU}\)</span>
-de la matrice:
-\begin{itemize}
-\item Calculer les facteurs <span class="math notranslate nohighlight">\({\bf LU}\)</span> de la matrice: <span class="math notranslate nohighlight">\({\bf PA}={\bf LU}\)</span>
-\item Résoudre les <span class="math notranslate nohighlight">\(n\)</span> systèmes linéaires <span class="math notranslate nohighlight">\({\bf LUx^i}={\bf Pe_i}\)</span>, où <span class="math notranslate nohighlight">\({\bf e_i}\)</span>, <span class="math notranslate nohighlight">\(i\in [\![1, n]\!]\)</span>,
+de la matrice:</p>
+<ul class="simple">
+<li><p>Calculer les facteurs <span class="math notranslate nohighlight">\({\bf LU}\)</span> de la matrice: <span class="math notranslate nohighlight">\({\bf PA}={\bf LU}\)</span></p></li>
+<li><p>Résoudre les <span class="math notranslate nohighlight">\(n\)</span> systèmes linéaires <span class="math notranslate nohighlight">\({\bf LUx^i}={\bf Pe_i}\)</span>, où <span class="math notranslate nohighlight">\({\bf e_i}\)</span>, <span class="math notranslate nohighlight">\(i\in [\![1, n]\!]\)</span>,
 est le <span class="math notranslate nohighlight">\(i\)</span>-ème vecteur de la base canonique de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>. La solution <span class="math notranslate nohighlight">\({\bf x^i}\)</span> est la
-<span class="math notranslate nohighlight">\(i\)</span>-ème colonne de <span class="math notranslate nohighlight">\({\bf A^{-1}}\)</span>.
-\end{itemize}</p>
+<span class="math notranslate nohighlight">\(i\)</span>-ème colonne de <span class="math notranslate nohighlight">\({\bf A^{-1}}\)</span>.</p></li>
+</ul>
 <p>Le coût total apparent est de <span class="math notranslate nohighlight">\(n^3/3+n^3=4n^3/3\)</span> flops.
-Mais on peut montrer que, gr^ace à la structure particulière des seconds membres des
+Mais on peut montrer que, grâce à la structure particulière des seconds membres des
 systèmes linéaires successifs, le coût réel n’est que de <span class="math notranslate nohighlight">\(n^3\)</span> flops.</p>
 <p>Une approche équivalente couramment utilisée, mais qui ne passe pas par le calcul
 des facteurs <span class="math notranslate nohighlight">\({\bf LU}\)</span>, est la méthode dite de Gauss-Jordan qui consiste à pivoter
-complètement le système paramétré
-$<span class="math notranslate nohighlight">\(
-{\bf Ax-y}={\bf 0}.
-\)</span><span class="math notranslate nohighlight">\(
-On pivote cette fois sur la colonne entière de façon à transformer le système
-en un système diagonal \)</span>{\bf x}-{\bf A^{-1}y}={\bf 0}<span class="math notranslate nohighlight">\(. On peut observer que cette technique consiste
+complètement le système paramétré <span class="math notranslate nohighlight">\({\bf Ax-y}={\bf 0}\)</span>.</p>
+<p>On pivote cette fois sur la colonne entière de façon à transformer le système
+en un système diagonal <span class="math notranslate nohighlight">\({\bf x}-{\bf A^{-1}y}={\bf 0}\)</span>. On peut observer que cette technique consiste
 à effectuer en parallèle à partir de la matrice identité les pivotages nécessaires
-à la transformation de \)</span>{\bf A}$ en la matrice identité.</p>
+à la transformation de <span class="math notranslate nohighlight">\({\bf A}\)</span> en la matrice identité.</p>
 </div>
 <div class="section" id="calcul-du-determinant">
 <h2>Calcul du déterminant<a class="headerlink" href="#calcul-du-determinant" title="Lien permanent vers ce titre">#</a></h2>
-<p>Le calcul du déterminant d’une  matrice <span class="math notranslate nohighlight">\(2\times 2\)</span> est bien connu:
-\begin{equation}
-\det\left[\begin{array}{rr} a &amp; b \ c &amp; d\end{array}\right]=ad-bc \label{DetMat2x2}
-\end{equation}
-ce qui permet de déterminer explicitement l’inverse d’une matrice <span class="math notranslate nohighlight">\(2\times 2\)</span>:
-\begin{equation}
-\left[\begin{array}{rr} a &amp; b \ c &amp; d\end{array}\right]^{-1}=\frac{1}{ad-bc}
-\left[\begin{array}{rr} d &amp; -b \ -c &amp; a\end{array}\right]. \label{InvMat2x2}
-\end{equation}</p>
+<p>Le calcul du déterminant d’une  matrice <span class="math notranslate nohighlight">\(2\times 2\)</span> est bien connu:</p>
+<p><span class="math notranslate nohighlight">\(\begin{equation}
+\det\left[\begin{array}{rr} a &amp; b \\ c &amp; d\end{array}\right]=ad-bc \label{DetMat2x2}
+\end{equation}\)</span></p>
+<p>ce qui permet de déterminer explicitement l’inverse d’une matrice <span class="math notranslate nohighlight">\(2\times 2\)</span>:
+<span class="math notranslate nohighlight">\(\begin{equation}
+\left[\begin{array}{rr} a &amp; b \\ c &amp; d\end{array}\right]^{-1}=\frac{1}{ad-bc}
+\left[\begin{array}{rr} d &amp; -b \\ -c &amp; a\end{array}\right]. \label{InvMat2x2}
+\end{equation}\)</span></p>
 <p>La généralisation des formules (\ref{DetMat2x2})-(\ref{InvMat2x2}) au cas des matrices
 <span class="math notranslate nohighlight">\(n\times n\)</span> conduit aux fameuses formules de Cramer que nous ne reproduirons pas
 ici car elles ont une complexité exponentielle, ce qui les rend impraticables. A titre d’exemple, pour calculer le déterminant d’une matrice
