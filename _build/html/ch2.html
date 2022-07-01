@@ -1074,16 +1074,15 @@ Cela correspond à garder la factorisation <span class="math notranslate nohighl
 de la matrice. En effet,
 chaque pivotage peut être représenté par une matrice élémentaire qui
 ne diffère de l’identité que par une sous-colonne.</p>
-<p>Reprenons le pivotage de la matrice <span class="math notranslate nohighlight">\({\bf A^{(k)}}\)</span> à l’étape <span class="math notranslate nohighlight">\(k\)</span>. Soit <span class="math notranslate nohighlight">\({\bm \eta_k}\)</span>
+<p>Reprenons le pivotage de la matrice <span class="math notranslate nohighlight">\({\bf A^{(k)}}\)</span> à l’étape <span class="math notranslate nohighlight">\(k\)</span>. Soit <span class="math notranslate nohighlight">\({\bf \eta_k}\)</span>
 le vecteur de <span class="math notranslate nohighlight">\(\mathbb R^{n-k}\)</span> dont les composantes sont
 <span class="math notranslate nohighlight">\(\eta_{ik}=a^{(k)}_{ik}/a^{(k)}_{kk}\)</span>. On a donc (en supposant
-<span class="math notranslate nohighlight">\(a^{(k)}_{kk}\ne 0\)</span>)
-$<span class="math notranslate nohighlight">\(
+<span class="math notranslate nohighlight">\(a^{(k)}_{kk}\ne 0\)</span>)</p>
+<p><span class="math notranslate nohighlight">\(
 {\bf A^{(k+1)}}={\bf E_kA^{(k)}}
-\)</span><span class="math notranslate nohighlight">\(
-où \)</span>{\bf E_k}<span class="math notranslate nohighlight">\( est la matrice élémentaire suivante
-\vskip 5pt
-\)</span><span class="math notranslate nohighlight">\(
+\)</span></p>
+<p>où <span class="math notranslate nohighlight">\({\bf E_k}\)</span> est la matrice élémentaire suivante
+<span class="math notranslate nohighlight">\(
   \left(
     \begin{array}{r&#64;{}c|c&#64;{}c}
    &amp;  \begin{smallmatrix}
@@ -1100,12 +1099,12 @@ où \)</span>{\bf E_k}<span class="math notranslate nohighlight">\( est la matri
      \end{smallmatrix}  &amp; \rlap{\kern5mm n-k}
     \end{array} 
     \right)
-\)</span>$</p>
-<p>On a donc, après <span class="math notranslate nohighlight">\(n-1\)</span> pivotages
-\begin{equation}
+\)</span></p>
+<p>On a donc, après <span class="math notranslate nohighlight">\(n-1\)</span> pivotages</p>
+<p><span class="math notranslate nohighlight">\(\begin{equation}
 {\bf A^{(n-1)}}={\bf E_{n-1}E_{n-2}}\cdots {\bf E_1 A}.\label{MatriceU}
-\end{equation}
-Notons <span class="math notranslate nohighlight">\({\bf U}\)</span> la matrice triangulaire supérieure <span class="math notranslate nohighlight">\({\bf A^{(n-1)}}\)</span> et
+\end{equation}\)</span></p>
+<p>Notons <span class="math notranslate nohighlight">\({\bf U}\)</span> la matrice triangulaire supérieure <span class="math notranslate nohighlight">\({\bf A^{(n-1)}}\)</span> et
 réécrivons la relation (\ref{MatriceU})
 $<span class="math notranslate nohighlight">\(
 {\bf A}={\bf E_1^{-1}}\cdots {\bf E_{n-1}^{-1} U}

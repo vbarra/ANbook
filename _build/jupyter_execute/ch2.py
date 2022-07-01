@@ -481,16 +481,17 @@ def SubstitutionInverse(A,b):
 # chaque pivotage peut être représenté par une matrice élémentaire qui
 # ne diffère de l'identité que par une sous-colonne.
 # 
-# Reprenons le pivotage de la matrice ${\bf A^{(k)}}$ à l'étape $k$. Soit ${\bm \eta_k}$
+# Reprenons le pivotage de la matrice ${\bf A^{(k)}}$ à l'étape $k$. Soit ${\bf \eta_k}$
 # le vecteur de $\mathbb R^{n-k}$ dont les composantes sont
 # $\eta_{ik}=a^{(k)}_{ik}/a^{(k)}_{kk}$. On a donc (en supposant 
 # $a^{(k)}_{kk}\ne 0$)
-# $$
+# 
+# $
 # {\bf A^{(k+1)}}={\bf E_kA^{(k)}}
-# $$
+# $
+# 
 # où ${\bf E_k}$ est la matrice élémentaire suivante
-# \vskip 5pt
-# $$
+# $
 #   \left(
 #     \begin{array}{r@{}c|c@{}c}
 #    &  \begin{smallmatrix}
@@ -507,13 +508,15 @@ def SubstitutionInverse(A,b):
 #      \end{smallmatrix}  & \rlap{\kern5mm n-k}
 #     \end{array} 
 #     \right)
-# $$
+# $
 # 
 # 
 # On a donc, après $n-1$ pivotages
-# \begin{equation}
+# 
+# $\begin{equation}
 # {\bf A^{(n-1)}}={\bf E_{n-1}E_{n-2}}\cdots {\bf E_1 A}.\label{MatriceU}
-# \end{equation}
+# \end{equation}$
+# 
 # Notons ${\bf U}$ la matrice triangulaire supérieure ${\bf A^{(n-1)}}$ et
 # réécrivons la relation (\ref{MatriceU})
 # $$
