@@ -146,7 +146,7 @@ et $\sigma$ les permutations de lignes éventuelles.
         1. $a_{ik}\leftarrow \frac{a_{ik}}{a_{kk}}$
         
         `Modification des lignes qui n'ont pas encore été ligne-pivot`
-        
+
         2. Pour $j=k+1,\ldots,n+1$
             1. $a_{ij} \leftarrow  a_{ij}- a_{ik}a_{kj}$
 ```
@@ -154,68 +154,9 @@ et $\sigma$ les permutations de lignes éventuelles.
 
 
 
-
-\begin{algorithm}[H]
-
-\Entree{}
-\Sortie{}
-\Deb{
-$\sigma(i)=i$, $i\in[\![1,n]\!]$ (initialisation du vecteur des permutations)\;
-\Pour{$k=1,\ldots, n-1$}{
-         \textit{Recherche du pivot}\;
-         $c_p\leftarrow |a_{kk}|,\: i_p\leftarrow k$\;
-         \Pour{$i=k+1,\ldots,n$}{
-         \Si{$ |a_{ik}|> c_p$}{
-           $c_p\leftarrow |a_{ik}|,\: i_p\leftarrow i$
-         }
-         }
-         \textit{Permutation}\;
-         \Si{$i_p\ne k$}{
-     
-         $\sigma(k)=i_p$, $\sigma(i_p)=k$
-         }
-         \textit{Pivotage}\;
-    \Pour{$i=k+1,\ldots, n$}{
-        \textit{Remplissage de la colonne} $k$ 
-              \textit{par les coefficients} $\eta_{ik}$ \;
-        $\dps{a_{ik}\leftarrow \frac{a_{ik}}{a_{kk}}}$\;
-        \textit{Modification des lignes qui n'ont pas encore été ligne-pivot}\;
-    \Pour{$j=k+1,\ldots,n+1$}{
-         $\dps{a_{ij} \leftarrow  a_{ij}- a_{ik}a_{kj}}$\;
-        }
-    }
-}}
-\caption{Factorisation $LU$}
-\label{FactLU}
-\end{algorithm}
-
-
-
 Si $\sigma_i=j$ alors les lignes
 $i$ et $j$ ont été permutées. Les permutations doivent être repercutées sur le second
-membre lors de la résolution de ${\bf Ly}={\bf b}$ (algorithme~\ref{SDI}).
-
-\begin{algorithm}
-\Deb{
-\textit{1. Substitutions directes} $Ly=b$\;
-$\dps{x_1\leftarrow {b_{\sigma_1}}}$\;
-\Pour{$k=2,\ldots,n$}{
-$\dps{x_k\leftarrow b_{\sigma_k}-\sum_{j=1}^{k-1}a_{kj}x_j}$\;
-}
-\textit{2. Substitutions inverses} $Ux=y$\;
-$\dps{x_n\leftarrow \frac{x_{n}}{a_{nn}}}$\;
-\Pour{$k=n-1,\ldots,1$}{
-    $\dps{x_k\leftarrow \frac{1}{a_{kk}}\left[
-                    x_{k}-\sum_{j=k+1}^na_{kj}x_j
-                                               \right]}$\;
-}}
-\caption{Substitutions directes/inverses}
-\label{SDI}
-\end{algorithm}
-
-
-
-
+membre lors de la résolution de ${\bf Ly}={\bf b}$.
 
 
 
