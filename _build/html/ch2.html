@@ -743,7 +743,7 @@ les variables calculées dans les équations ayant servi à l’élimination.</p
 <p><span class="math notranslate nohighlight">\(\begin{equation}x_1=\frac{3}{2}(1+x_2) \label{VarX}\end{equation}\)</span></p>
 <p>Remplaçons <span class="math notranslate nohighlight">\(x_1\)</span> dans les deux dernières équations
 par son expression</p>
-<p><span class="math notranslate nohighlight">\(\\left \{begin{eqnarray}
+<p><span class="math notranslate nohighlight">\(\left \{begin{eqnarray}
 x_2+x_3 &amp;=&amp; 1 \label{SLR1}\\ 
 2x_2-3x_3 &amp;=&amp; 2\label{SLR2}.
 \end{eqnarray}\right .\)</span></p>
@@ -782,6 +782,28 @@ k\in[\![n-1, 1]\!]\label{BckSub2}
 <p>On remarque que le calcul de <span class="math notranslate nohighlight">\(x_k\)</span> coûte <span class="math notranslate nohighlight">\(n-k\)</span> flops et une division. Le
 coût total de l’algorithme est donc de <span class="math notranslate nohighlight">\(1+2+\cdots+n-1=\frac{n(n-1)}{2}\)</span>,
 soit (on ne garde que les termes de plus haut degré) <span class="math notranslate nohighlight">\(\frac{{n^2}}{ 2}\)</span> et <span class="math notranslate nohighlight">\(n\)</span> divisions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">SubstitutionInverse</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+
+    <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>  
+        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Le coefficient en position &quot;</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="s2">&quot; de A est nul.&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>Dans le cas d’un système triangulaire inférieur, on effectue des substitutions
 directes :</p>
 <p id="index-4"><span class="math notranslate nohighlight">\(\left \{\begin{eqnarray}

@@ -163,7 +163,7 @@ $\begin{equation}x_1=\frac{3}{2}(1+x_2) \label{VarX}\end{equation}$
 Remplaçons $x_1$ dans les deux dernières équations 
 par son expression
 
-$\\left \{begin{eqnarray}
+$\left \{begin{eqnarray}
 x_2+x_3 &=& 1 \label{SLR1}\\ 
 2x_2-3x_3 &=& 2\label{SLR2}.
 \end{eqnarray}\right .$
@@ -218,6 +218,29 @@ k\in[\![n-1, 1]\!]\label{BckSub2}
 On remarque que le calcul de $x_k$ coûte $n-k$ flops et une division. Le
 coût total de l'algorithme est donc de $1+2+\cdots+n-1=\frac{n(n-1)}{2}$,
 soit (on ne garde que les termes de plus haut degré) $\frac{{n^2}}{ 2}$ et $n$ divisions.
+
+
+
+```{code-cell} ipython3
+
+import numpy as np
+
+def SubstitutionInverse(A,b):
+
+    n = A.shape[0]  
+    x = np.zeros((n,1))
+    
+    for i in range(n-1,-1,-1):  
+        x[i] = b[i]
+        for j in range(i+1,n):
+            x[i] -= A[i][j]*x[j]
+        if (A[i][i] != 0):
+            x[i] /= A[i][i]
+        else:
+            print("Le coefficient en position ",i," de A est nul.")
+    return x
+```
+
 
 Dans le cas d'un système triangulaire inférieur, on effectue des substitutions
 directes :
