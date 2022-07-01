@@ -590,7 +590,8 @@ et <span class="math notranslate nohighlight">\(\sigma\)</span> les permutations
 <p>**Sortie : ** Les facteurs <span class="math notranslate nohighlight">\({\bf L}\)</span> et <span class="math notranslate nohighlight">\({\bf U}\)</span>, les permutations <span class="math notranslate nohighlight">\(\sigma\)</span></p>
 <ol>
 <li><p><span class="math notranslate nohighlight">\(\sigma(i)=i\)</span>, <span class="math notranslate nohighlight">\(i\in[\![1,n]\!]\)</span> (initialisation du vecteur des permutations)</p></li>
-<li><p>Pour <span class="math notranslate nohighlight">\(k=1,\ldots, n-1\)</span></p>
+<li><p>Pour <span class="math notranslate nohighlight">\(k=1,\ldots, n-1\)</span>
+<code class="docutils literal notranslate"><span class="pre">Recherche</span> <span class="pre">du</span> <span class="pre">pivot</span></code></p>
 <ol>
 <li><p><span class="math notranslate nohighlight">\(c_p\leftarrow |a_{kk}|\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(i_p\leftarrow k\)</span></p></li>
@@ -599,7 +600,8 @@ et <span class="math notranslate nohighlight">\(\sigma\)</span> les permutations
 <li><p>Si <span class="math notranslate nohighlight">\( |a_{ik}|&gt; c_p\)</span></p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(c_p\leftarrow |a_{ik}|\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(i_p\leftarrow i\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(i_p\leftarrow i\)</span>
+<code class="docutils literal notranslate"><span class="pre">Permutation</span></code></p></li>
 </ol>
 </li>
 </ol>
