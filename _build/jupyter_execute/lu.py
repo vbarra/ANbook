@@ -114,8 +114,6 @@
 # 
 # **Sortie : ** Les facteurs ${\bf L}$ et ${\bf U}$, les permutations $\sigma$
 # 
-# `étape 1. Elimination`
-# 
 # 1. $\sigma(i)=i$, $i\in[\![1,n]\!]$ (initialisation du vecteur des permutations)
 # 2. Pour $k=1,\ldots, n-1$
 #     1. $c_p\leftarrow |a_{kk}|$
@@ -128,6 +126,8 @@
 #         1. $\sigma(k)=i_p$
 #         2. $\sigma_{i_p} = k$
 #     5. Pour $i=k+1,\ldots, n$
+#         `Remplissage de la colonne $k$`
+# 
 #         1. $a_{ik}\leftarrow \frac{a_{ik}}{a_{kk}}$
 #         
 #         `Modification des lignes qui n'ont pas encore été ligne-pivot`
