@@ -367,9 +367,9 @@ $\displaystyle{\frac{1}{3}{n^3}}$ flops.
 
 L'algorithme d'élimination de Gauss est présenté dans l'algorithme {prf:ref}`AlgoGauss`.
 Le second membre est stocké dans la dernière colonne de ${\bf A}$. L'élimination
-transforme la matrice ${\bf A}$ en une matrice triangulaire supérieure (\textit{étape 1.}).
+transforme la matrice ${\bf A}$ en une matrice triangulaire supérieure (étape 1).
 Le système triangulaire supérieur est ensuite résolu par substitution inverse
-(\textit{étape 2.}).
+(étape 2).
 
 
 ```{prf:algorithm} Méthode de Gauss
@@ -393,7 +393,7 @@ le second membre du système)
 2. Pour $k=n-1,\ldots,1$
     1. $\displaystyle\sum{x_k\leftarrow \frac{1}{a_{kk}}\left[
                                   a_{k,n+1}-\sum_{j=k+1}^na_{kj}x_j
-                                               \right]}$\;
+                                               \right]}$
 ```
 
 

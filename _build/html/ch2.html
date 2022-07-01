@@ -913,11 +913,11 @@ le second membre du système)</p>
 <p>**Sortie : ** Solution <span class="math notranslate nohighlight">\({\bf x}\)</span> du système <span class="math notranslate nohighlight">\({\bf Ax}={\bf b}\)</span></p>
 <p><code class="docutils literal notranslate"><span class="pre">étape</span> <span class="pre">1.</span> <span class="pre">Elimination</span></code></p>
 <ol class="simple">
-<li><p>Pour(<span class="math notranslate nohighlight">\(k=1,\ldots, n-1\)</span>)</p>
+<li><p>Pour <span class="math notranslate nohighlight">\(k=1,\ldots, n-1\)</span></p>
 <ol class="simple">
 <li><p>Pour <span class="math notranslate nohighlight">\(i=k+1,\ldots, n\)</span></p>
 <ol class="simple">
-<li><p>Pour<span class="math notranslate nohighlight">\(j=k+1,\ldots,n+1\)</span></p>
+<li><p>Pour <span class="math notranslate nohighlight">\(j=k+1,\ldots,n+1\)</span></p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(\displaystyle\sum{a_{ij} \leftarrow  a_{ij}-\frac{a_{ik}}{a_{kk}}a_{kj}}\)</span>;</p></li>
 </ol>
@@ -929,7 +929,7 @@ le second membre du système)</p>
 </ol>
 <p><code class="docutils literal notranslate"><span class="pre">étape</span> <span class="pre">2.</span> <span class="pre">Résolution</span> <span class="pre">du</span> <span class="pre">système</span> <span class="pre">triangulaire</span></code></p>
 <ol class="simple">
-<li><p>\displaystyle\sum{x_n\leftarrow \frac{a_{n,n+1}}{a_{nn}}}$;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\displaystyle\sum{x_n\leftarrow \frac{a_{n,n+1}}{a_{nn}}}\)</span></p></li>
 <li><p>Pour <span class="math notranslate nohighlight">\(k=n-1,\ldots,1\)</span></p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(\displaystyle\sum{x_k\leftarrow \frac{1}{a_{kk}}\left[
