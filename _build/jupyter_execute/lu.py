@@ -107,7 +107,7 @@
 # et $\sigma$ les permutations de lignes éventuelles. 
 # 
 # 
-# ```{prf:algorithm} Méthode de Gauss
+# ```{prf:algorithm} Factorisation LU
 # :label: FactLU
 # 
 # **Entrée : ** La matrice ${\bf A}$
@@ -116,7 +116,7 @@
 # 
 # `étape 1. Elimination`
 # 
-# 1. \sigma(i)=i$, $i\in[\![1,n]\!]$ (initialisation du vecteur des permutations)
+# 1. $\sigma(i)=i$, $i\in[\![1,n]\!]$ (initialisation du vecteur des permutations)
 # 2. Pour $k=1,\ldots, n-1$
 #     1. $c_p\leftarrow |a_{kk}|$
 #     2. $i_p\leftarrow k$

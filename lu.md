@@ -134,7 +134,7 @@ et $\sigma$ les permutations de lignes éventuelles.
             2.  $i_p\leftarrow i$
     4. Si $i_p\ne k$
             1. $\sigma(k)=i_p$
-            2. \sigma_{i_p} = k
+            2. $\sigma_{i_p} = k$
         1. Pour $i=k+1,\ldots, n$
             1. $a_{ik}\leftarrow \frac{a_{ik}}{a_{kk}}$
             2. Pour $j=k+1,\ldots,n+1$
