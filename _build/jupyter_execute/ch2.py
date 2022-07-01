@@ -371,7 +371,9 @@ def SubstitutionInverse(A,b):
 # 
 # Pour($k=1,\ldots, n-1$)
 #     1. Pour $i=k+1,\ldots, n$
+#     
 #         1. Pour$j=k+1,\ldots,n+1$
+#         
 #             $\displaystyle\sum{a_{ij} \leftarrow  a_{ij}-\frac{a_{ik}}{a_{kk}}a_{kj}}$\;
 # 
 # 2. `étape 2. Résolution du système triangulaire`
