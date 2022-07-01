@@ -891,18 +891,15 @@ a^{(k+1)}_{ij}=a^{(k)}_{ij}-\frac{a^{(k)}_{ik}}{a^{(k)}_{kk}}a^{(k)}_{kj}
 \]</div>
 <p>La mise à jour de la ligne <span class="math notranslate nohighlight">\(i\)</span> requiert donc <span class="math notranslate nohighlight">\(n-k+1\)</span> flops et 1 division. Donc
 l’étape <span class="math notranslate nohighlight">\(k\)</span> coûte <span class="math notranslate nohighlight">\((n-k)(n-k+1)\)</span> flops et <span class="math notranslate nohighlight">\(n-k\)</span> divisions. On en déduit le
-coût total de l’algorithme de Gauss:
-\begin{eqnarray*}
+coût total de l’algorithme de Gauss:</p>
+<p><span class="math notranslate nohighlight">\(\begin{eqnarray*}
 n(n-1)+(n-1)(n-2)+\cdots+2\cdot 1&amp;=&amp;n^2+(n-1)^2+\cdots+2^2+1^2
--(n+n-1+\cdots+2+1)\
-&amp;=&amp;\frac{1}{6}n(n+1)(2n+1)-\frac{1}{2}n(n+1)\ \mbox{flops}
-\end{eqnarray*}
-et
-$<span class="math notranslate nohighlight">\(
-\frac{1}{2}n(n+1)\ \mbox{divisions.}
-\)</span><span class="math notranslate nohighlight">\(
-On dira que la complexité de la méthode de Gauss est de 
-\)</span>\displaystyle{\frac{1}{3}{n^3}}$ flops.\index{flops}</p>
+                                     -(n+n-1+\cdots+2+1)\\
+ &amp;=&amp;\frac{1}{6}n(n+1)(2n+1)-\frac{1}{2}n(n+1)\ \mbox{flops}
+\end{eqnarray*}\)</span></p>
+<p>et <span class="math notranslate nohighlight">\(\frac{1}{2}n(n+1)\)</span> divisions.</p>
+<p>On dira que la complexité de la méthode de Gauss est de
+<span class="math notranslate nohighlight">\(\displaystyle{\frac{1}{3}{n^3}}\)</span> flops.\index{flops}</p>
 <p>L’algorithme d’élimination de Gauss est présenté dans l’algorithme~\ref{MGauss1}.
 Le second membre est stocké dans la dernière colonne de <span class="math notranslate nohighlight">\({\bf A}\)</span>. L’élimination
 transforme la matrice <span class="math notranslate nohighlight">\({\bf A}\)</span> en une matrice triangulaire supérieure (\textit{étape 1.}).

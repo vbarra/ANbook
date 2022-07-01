@@ -340,15 +340,15 @@ def SubstitutionInverse(A,b):
 # La mise à jour de la ligne $i$ requiert donc $n-k+1$ flops et 1 division. Donc
 # l'étape $k$ coûte $(n-k)(n-k+1)$ flops et $n-k$ divisions. On en déduit le 
 # coût total de l'algorithme de Gauss:
-# \begin{eqnarray*}
+# 
+# $\begin{eqnarray*}
 # n(n-1)+(n-1)(n-2)+\cdots+2\cdot 1&=&n^2+(n-1)^2+\cdots+2^2+1^2
 #                                      -(n+n-1+\cdots+2+1)\\
 #  &=&\frac{1}{6}n(n+1)(2n+1)-\frac{1}{2}n(n+1)\ \mbox{flops}
-# \end{eqnarray*}
-# et 
-# $$
-# \frac{1}{2}n(n+1)\ \mbox{divisions.}
-# $$
+# \end{eqnarray*}$
+# 
+# et $\frac{1}{2}n(n+1)$ divisions.
+# 
 # On dira que la complexité de la méthode de Gauss est de 
 # $\displaystyle{\frac{1}{3}{n^3}}$ flops.\index{flops}
 # 
