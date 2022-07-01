@@ -1113,21 +1113,10 @@ avec <span class="math notranslate nohighlight">\({\bf \eta_1} = \begin{pmatrix}
 directement à la place des éléments de <span class="math notranslate nohighlight">\({\bf A}\)</span> correspondants. La matrice <span class="math notranslate nohighlight">\({\bf A}\)</span>
 est donc recouverte par sa factorisation <span class="math notranslate nohighlight">\({\bf LU}\)</span> et le coût de stockage est
 en <span class="math notranslate nohighlight">\(n^2\)</span>.</p>
-<p>Gr^ace à cette factorisation (qui ne coûte donc pas plus cher que la
+<p>Grâce à cette factorisation (qui ne coûte donc pas plus cher que la
 triangularisation), tout nouveau système linéaire <span class="math notranslate nohighlight">\({\bf Ax}={\bf b'}\)</span> peut être
 résolu par la résolution de deux systèmes triangulaires (donc en <span class="math notranslate nohighlight">\(O(n^2)\)</span> flops).
-En effet, pour résoudre
-$<span class="math notranslate nohighlight">\(
-{\bf LUx}={\bf b'}
-\)</span><span class="math notranslate nohighlight">\(
-on résout d'abord 
-\)</span><span class="math notranslate nohighlight">\(
-{\bf Ly}={\bf b'}
-\)</span><span class="math notranslate nohighlight">\(
-puis 
-\)</span><span class="math notranslate nohighlight">\(
-{\bf Ux}={\bf y}.
-\)</span>$</p>
+En effet, pour résoudre <span class="math notranslate nohighlight">\({\bf LUx}={\bf b'}\)</span>, on résout d’abord <span class="math notranslate nohighlight">\({\bf Ly}={\bf b'}\)</span> puis <span class="math notranslate nohighlight">\({\bf Ux}={\bf y}\)</span>.</p>
 <p>\exemple{
 Soit <span class="math notranslate nohighlight">\({\bf A} = \begin{pmatrix}1&amp;4&amp;7\\2&amp;5&amp;8\\3&amp;6&amp;10\end{pmatrix}\)</span>. En appliquant l’algorithme de factorisation <span class="math notranslate nohighlight">\({\bf LU}\)</span> (cf. ci-dessus), on obtient
 $<span class="math notranslate nohighlight">\({\bf L} = \begin{pmatrix}1&amp;0&amp;0\\2&amp;1&amp;0\\3&amp;2&amp;1\end{pmatrix}\quad {\bf U} = \begin{pmatrix}1&amp;4&amp;7\\0&amp;-3&amp;-6\\0&amp;0&amp;1\end{pmatrix}\)</span><span class="math notranslate nohighlight">\(
