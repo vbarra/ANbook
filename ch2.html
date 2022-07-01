@@ -884,7 +884,10 @@ sont triangulaires supérieures.</p>
 {\bf A^{(k)}_{i \bullet}}\ \leftarrow\ 
 {\bf A^{(k)}_{i \bullet}}+\frac{-a^{(k)}_{ik}}{a^{(k)}_{kk}}\times {\bf A^{(k)}_{k \bullet}}
 \]</div>
-<p>L’élément <span class="math notranslate nohighlight">\(a^{(k)}_{ij}\)</span> pour <span class="math notranslate nohighlight">\(i\in [\![k+1,n]\!]\)</span> et <span class="math notranslate nohighlight">\(j\in [\![k+1,n+1]\!]\)</span> devient</p>
+<p>L’élément <span class="math notranslate nohighlight">\(a^{(k)}_{ij}\)</span> pour <span class="math notranslate nohighlight">\(i\in [\![k+1,n]\!]\)</span> et <span class="math notranslate nohighlight">\(j\in [\![k+1,n+1]\!]\)</span> devient
+$<span class="math notranslate nohighlight">\(
+a^{(k+1)}_{ij}=a^{(k)}_{ij}-\frac{a^{(k)}_{ik}}{a^{(k)}_{kk}}a^{(k)}_{kj}
+\)</span>$</p>
 <p>La mise à jour de la ligne <span class="math notranslate nohighlight">\(i\)</span> requiert donc <span class="math notranslate nohighlight">\(n-k+1\)</span> flops et 1 division. Donc
 l’étape <span class="math notranslate nohighlight">\(k\)</span> coûte <span class="math notranslate nohighlight">\((n-k)(n-k+1)\)</span> flops et <span class="math notranslate nohighlight">\(n-k\)</span> divisions. On en déduit le
 coût total de l’algorithme de Gauss:
