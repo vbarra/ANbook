@@ -399,12 +399,12 @@ def SubstitutionInverse(A,b):
 # ``` 
 # On permute lignes et colonnes pour 
 # choisir le plus grand élément en valeur absolue dans la sous-matrice en bas à 
-# droite (voir
-# Fig. \ref{Gaussétapek}) :
-# $$
+# droite :
+# 
+# $
 # \max\left\{\left|a^{(k)}_{ij}\right|\ ; \ i,j\in [\![k,n]\!]
 #     \right\}
-# $$
+# $
 # - Pivotage partiel 
 # ```{index} Pivot ; partiel
 # ``` 
@@ -415,7 +415,7 @@ def SubstitutionInverse(A,b):
 # \max\left\{\left|a^{(k)}_{ik}\right|\ ; \ i\in [\![k,n]\!]
 #     \right\}
 # $
-# \end{description}
+# 
 # 
 # La stratégie du pivotage partiel est la plus utilisée car la plus économique
 # (la recherche du plus grand élément sur une liste de $p$ nombres coûte
