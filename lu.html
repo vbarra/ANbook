@@ -712,17 +712,14 @@ L’idée de la décomposition LU est d’appliquer une suite de transformations
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.</span><span class="p">],</span> <span class="p">[</span><span class="mf">6.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">]])</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Première transformation élémentaire&#39;</span><span class="p">)</span> 
 <span class="n">E21</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
-<span class="n">E21</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Résultat de la première transformation élémentaire&#39;</span><span class="p">)</span> 
 <span class="n">E21</span> <span class="o">*</span> <span class="n">A</span> 
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Première transformation élémentaire
-Résultat de la première transformation élémentaire
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Résultat de la première transformation élémentaire
 </pre></div>
 </div>
 <div class="output text_latex math notranslate nohighlight">
@@ -732,17 +729,14 @@ Résultat de la première transformation élémentaire
 <p>On met ensuite un 0 en position (3,1). La transformation élémentaire est  <span class="math notranslate nohighlight">\(E_{31}\)</span> et le résultat <span class="math notranslate nohighlight">\(E_{31}.E_{21}.A\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Deuxième transformation élémentaire&#39;</span><span class="p">)</span> 
-<span class="n">E31</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
-<span class="n">E31</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">E31</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Résultat de la deuxième transformation élémentaire&#39;</span><span class="p">)</span> 
 <span class="n">E31</span> <span class="o">*</span> <span class="n">E21</span> <span class="o">*</span> <span class="n">A</span> 
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Deuxième transformation élémentaire
-Résultat de la deuxième transformation élémentaire
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Résultat de la deuxième transformation élémentaire
 </pre></div>
 </div>
 <div class="output text_latex math notranslate nohighlight">
@@ -752,9 +746,7 @@ Résultat de la deuxième transformation élémentaire
 <p>On procède de même sur la deuxième colonne, en position (3,2)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Troisième transformation élémentaire&#39;</span><span class="p">)</span> 
-<span class="n">E32</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">Fraction</span><span class="p">(</span><span class="o">-</span><span class="mf">11.</span><span class="o">/</span><span class="mf">8.</span><span class="p">)),</span> <span class="mi">1</span><span class="p">]])</span>
-<span class="n">E32</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">E32</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span> <span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">Fraction</span><span class="p">(</span><span class="o">-</span><span class="mf">11.</span><span class="o">/</span><span class="mf">8.</span><span class="p">)),</span> <span class="mi">1</span><span class="p">]])</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Résultat de la troisième transformation élémentaire&#39;</span><span class="p">)</span> 
 <span class="n">U</span> <span class="o">=</span> <span class="n">E32</span> <span class="o">*</span> <span class="n">E31</span> <span class="o">*</span> <span class="n">E21</span> <span class="o">*</span> <span class="n">A</span>
 <span class="n">U</span>
@@ -762,8 +754,7 @@ Résultat de la deuxième transformation élémentaire
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Troisième transformation élémentaire
-Résultat de la troisième transformation élémentaire
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Résultat de la troisième transformation élémentaire
 </pre></div>
 </div>
 <div class="output text_latex math notranslate nohighlight">
