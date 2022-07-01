@@ -332,6 +332,7 @@ def SubstitutionInverse(A,b):
 # $$
 # 
 # L'élément $a^{(k)}_{ij}$ pour $i\in [\![k+1,n]\!]$ et $j\in [\![k+1,n+1]\!]$ devient
+# 
 # $$
 # a^{(k+1)}_{ij}=a^{(k)}_{ij}-\frac{a^{(k)}_{ik}}{a^{(k)}_{kk}}a^{(k)}_{kj}
 # $$
