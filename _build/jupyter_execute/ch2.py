@@ -151,11 +151,11 @@
 # $\begin{equation}x_1=\frac{3}{2}(1+x_2) \label{VarX}\end{equation}$
 # 
 # Remplaçons $x_1$ dans les deux dernières équations 
-# par son expressionffff
+# par son expression
 # 
 # $\left \{begin{eqnarray}
-# x_2+x_3 &=& 1 \label{SLR1}\\ 
-# 2x_2-3x_3 &=& 2\label{SLR2}.
+# x_2+x_3 = 1 \label{SLR1}\\ 
+# 2x_2-3x_3 =2\label{SLR2}.
 # \end{eqnarray}\right .$
 # 
 # Tirons $x_2$ de ce nouveau système 
