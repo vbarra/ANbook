@@ -170,8 +170,7 @@
 # inverse des variables :
 # 
 # $\left \{\begin{eqnarray*}
-# (\ref{VarZ}) &\Rightarrow& x_3=0\\ (\ref{VarY}) &\Rightarrow& x_2=1\\ (\ref{VarX})
-# &\Rightarrow& x_1=3
+# (x_3=0\\ x_2=1\\ x_1=3
 # \end{eqnarray*}\right .$
 # 
 # On remarque qu'à une étape donnée, l'élimination d'une variable peut se faire
