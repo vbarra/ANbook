@@ -462,6 +462,18 @@ title="Print to PDF"
     <a class="reference internal nav-link" href="#cas-singulier-et-calcul-du-rang-d-une-matrice">
      Cas singulier et calcul du rang d’une matrice
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pivotage-total">
+       Pivotage total
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pivotage-partiel">
+       Pivotage partiel
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -564,6 +576,18 @@ title="Print to PDF"
     <a class="reference internal nav-link" href="#cas-singulier-et-calcul-du-rang-d-une-matrice">
      Cas singulier et calcul du rang d’une matrice
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pivotage-total">
+       Pivotage total
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pivotage-partiel">
+       Pivotage partiel
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -1016,29 +1040,33 @@ le second membre du système)</p>
 </div></div>
 <div class="section" id="cas-singulier-et-calcul-du-rang-d-une-matrice">
 <h2>Cas singulier et calcul du rang d’une matrice<a class="headerlink" href="#cas-singulier-et-calcul-du-rang-d-une-matrice" title="Lien permanent vers ce titre">#</a></h2>
-<p>\subsubsection{Pivotage total} Si, à l’itération <span class="math notranslate nohighlight">\(k\)</span> de la méthode de Gauss
+<div class="section" id="pivotage-total">
+<h3>Pivotage total<a class="headerlink" href="#pivotage-total" title="Lien permanent vers ce titre">#</a></h3>
+<p>Si, à l’itération <span class="math notranslate nohighlight">\(k\)</span> de la méthode de Gauss
 avec pivot total,
-$<span class="math notranslate nohighlight">\(
+<span class="math notranslate nohighlight">\(
 \max\left\{\left|a^{(k)}_{ij}\right|\ ; \ i,j\in [\![k,n]\!]
     \right\}=0
-\)</span><span class="math notranslate nohighlight">\(
+\)</span>
 (donc tous les éléments de la sous-matrice sont nuls), on peut affirmer que
-le rang de la matrice \)</span>{\bf A}<span class="math notranslate nohighlight">\( est égal à \)</span>k-1<span class="math notranslate nohighlight">\(. S'il existe un élément 
-\)</span>b^{(k)}_i<span class="math notranslate nohighlight">\(, \)</span>k\le i\le n$, du second membre différent de zéro, alors le
+le rang de la matrice <span class="math notranslate nohighlight">\({\bf A}\)</span> est égal à <span class="math notranslate nohighlight">\(k-1\)</span>. S’il existe un élément
+<span class="math notranslate nohighlight">\(b^{(k)}_i\)</span>, <span class="math notranslate nohighlight">\(k\le i\le n\)</span>, du second membre différent de zéro, alors le
 système n’a pas de solution.</p>
-<p>\subsubsection{Pivotage partiel} Si
-$<span class="math notranslate nohighlight">\(
-\max\left\{\left|a^{(k)}_{ik}\right|\ ; \ \ i\in [\![k,n]\!]
-    \right\}=0
-\)</span><span class="math notranslate nohighlight">\(
-on peut seulement affirmer que la colonne \)</span>k<span class="math notranslate nohighlight">\( est linéairement dépendante des
-\)</span>k-1<span class="math notranslate nohighlight">\( premières. Cela implique que \)</span>\mathrm{rang}({\bf A})&lt;n$ et que le système n’a
+</div>
+<div class="section" id="pivotage-partiel">
+<h3>Pivotage partiel<a class="headerlink" href="#pivotage-partiel" title="Lien permanent vers ce titre">#</a></h3>
+<p>Si <span class="math notranslate nohighlight">\(\max\left\{\left|a^{(k)}_{ik}\right|\ ; \ \ i\in [\![k,n]\!]\right\}=0\)</span>
+on peut seulement affirmer que la colonne <span class="math notranslate nohighlight">\(k\)</span> est linéairement dépendante des
+<span class="math notranslate nohighlight">\(k-1\)</span> premières. Cela implique que <span class="math notranslate nohighlight">\(\mathrm{rang}({\bf A})&lt;n\)</span> et que le système n’a
 probablement pas de solution. Toutefois, on ne peut en être sûr que sur
 le test du pivot total nul.</p>
-<p>\begin{rem}
-La méthode de Gauss et le test du pivot total nul apparaissent donc comme
-la meilleure stratégie pour calculer le rang d’une matrice.
-\end{rem}</p>
+<div class="proof remark dropdown admonition" id="remark-9">
+<p class="admonition-title"><span class="caption-number">Remark 5 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>La méthode de Gauss et le test du pivot total nul apparaissent donc comme
+la meilleure stratégie pour calculer le rang d’une matrice.</p>
+</div>
+</div></div>
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="facteurs-lu-d-une-matrice-non-singuliere">
