@@ -325,19 +325,16 @@ def SubstitutionInverse(A,b):
 # 
 # On met donc à zéro chaque élément de la colonne $k$ sous le pivot\index{pivot}
 # $a^{(k)}_{kk}$ (supposé non nul) en remplaçant la ligne $i$ (pour $i\in[\![k+1, n]\!]$) par
-# %$$
-# %\mbox{ligne}\,i\ \leftarrow\ 
-# %\mbox{ligne}\,i+\frac{-a^{(k)}_{ik}}{a^{(k)}_{kk}}\times\mbox{ligne}\,k.
-# %$$
+# 
 # $$
 # {\bf A^{(k)}_{i \bullet}}\ \leftarrow\ 
 # {\bf A^{(k)}_{i \bullet}}+\frac{-a^{(k)}_{ik}}{a^{(k)}_{kk}}\times {\bf A^{(k)}_{k \bullet}}
 # $$
 # 
 # L'élément $a^{(k)}_{ij}$ pour $i\in [\![k+1,n]\!]$ et $j\in [\![k+1,n+1]\!]$ devient
-# %$$
-# %a^{(k+1)}_{ij}=a^{(k)}_{ij}-\frac{a^{(k)}_{ik}}{a^{(k)}_{kk}}a^{(k)}_{kj}
-# %$$
+# $$
+# a^{(k+1)}_{ij}=a^{(k)}_{ij}-\frac{a^{(k)}_{ik}}{a^{(k)}_{kk}}a^{(k)}_{kj}
+# $$
 # 
 # La mise à jour de la ligne $i$ requiert donc $n-k+1$ flops et 1 division. Donc
 # l'étape $k$ coûte $(n-k)(n-k+1)$ flops et $n-k$ divisions. On en déduit le 
