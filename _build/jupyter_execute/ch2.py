@@ -534,7 +534,8 @@ def SubstitutionInverse(A,b):
 # En effet, pour résoudre ${\bf LUx}={\bf b'}$, on résout d'abord ${\bf Ly}={\bf b'}$ puis ${\bf Ux}={\bf y}$.
 # 
 # ````{prf:example}
-# Soit ${\bf A} = \begin{pmatrix}1&4&7\\2&5&8\\3&6&10\end{pmatrix}$. En appliquant l'algorithme de factorisation ${\bf LU}$ (cf. ci-dessus), on obtient 
+# Soit ${\bf A} = \begin{pmatrix}1&4&7\\2&5&8\\3&6&10\end{pmatrix}$. 
+# En appliquant l'algorithme de factorisation ${\bf LU}$ (cf. ci-dessus), on obtient 
 # 
 # ${\bf L} = \begin{pmatrix}1&0&0\\2&1&0\\3&2&1\end{pmatrix}\quad {\bf U} = \begin{pmatrix}1&4&7\\0&-3&-6\\0&0&1\end{pmatrix}$
 # 
