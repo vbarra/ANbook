@@ -17,4 +17,5 @@ parts:
     - file: ch2    
     - file: gauss    
     - file: lu  
+  - caption: Index
     - file: genindex

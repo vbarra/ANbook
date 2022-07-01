@@ -175,9 +175,7 @@ init_printing(use_latex = 'mathjax')
 
 
 A = Matrix([[1., -1., 1.], [3., 2., -2.], [6., -1., -1.]])
-print ('Première transformation élémentaire') 
 E21 = Matrix([[1, 0, 0], [-3, 1, 0], [0, 0, 1]])
-E21
 print ('Résultat de la première transformation élémentaire') 
 E21 * A 
 
@@ -187,9 +185,7 @@ E21 * A
 # In[3]:
 
 
-print ('Deuxième transformation élémentaire') 
 E31 = Matrix([[1, 0, 0], [0, 1, 0], [-6, 0, 1]])
-E31
 print ('Résultat de la deuxième transformation élémentaire') 
 E31 * E21 * A 
 
@@ -199,9 +195,7 @@ E31 * E21 * A
 # In[4]:
 
 
-print ('Troisième transformation élémentaire') 
 E32 = Matrix([[1, 0 , 0], [0, 1, 0], [0, str(Fraction(-11./8.)), 1]])
-E32
 print ('Résultat de la troisième transformation élémentaire') 
 U = E32 * E31 * E21 * A
 U
