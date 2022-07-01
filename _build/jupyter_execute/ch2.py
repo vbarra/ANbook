@@ -553,16 +553,16 @@ def SubstitutionInverse(A,b):
 # 
 # Dans le cas d'une stratégie de pivot partiel, si ${\bf P_k}$ est la matrice de 
 # permutation des lignes à l'itération $k$, on peut écrire
-# $$
-# {\bf A^{(k+1)}}={\bf E_kP_kA^{(k)}}.
-# $$
+# 
+# ${\bf A^{(k+1)}}={\bf E_kP_kA^{(k)}}.$
+# 
 # En fait, les différentes permutations peuvent être résumées dans la matrice
-# $$
-# {\bf P}={\bf P_{n-1}P_{n-2}}\cdots {\bf P_1}
-# $$
+# 
+# ${\bf P}={\bf P_{n-1}P_{n-2}}\cdots {\bf P_1}$
+# 
 # et on obtient la décomposition générale suivante :
 # 
-# \begin{theo} {Factorisation {\bf PA} = {\bf LU}}{}
+# ````{prf:theorem}Factorisation {\bf PA} = {\bf LU}}{}
 # Pour toute matrice ${\bf A}$ non singulière de taille $n$, il existe
 # une matrice de permutation ${\bf P}$, une matrice triangulaire inférieure ${\bf L}$ telle
 # que $l_{ii}=1$, pour tout $i$, et une matrice triangulaire supérieure ${\bf U}$, telles
@@ -570,7 +570,7 @@ def SubstitutionInverse(A,b):
 # $$
 # {\bf PA}={\bf LU}.
 # $$ 
-# \end{theo}
+# ````
 # 
 # \medskip
 # L'algorithme~\ref{FactLU} montre les différentes étapes de la factorisation ${\bf LU}$
