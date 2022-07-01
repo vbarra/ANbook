@@ -142,11 +142,12 @@ $
 
 
  Soit le système de 3 équations à 3 inconnues
-\begin{eqnarray}
+$\begin{eqnarray}
 2x_1-3x_2\phantom{-3x_3}&=& 3\label{SL1}\\ 
 4x_1-5x_2+x_3& =& 7\label{SL2}\\ 
 2x_1-x_2-3x_3& =& 5\label{SL3}
-\end{eqnarray}
+\end{eqnarray}$
+
 La méthode d'élimination de Gauss (ou méthode du pivot) consiste à utiliser la
 première équation pour calculer $x_1$ en fonction des autres variables puis de
 remplacer cette variable dans les équations suivantes. Cette élimination se
@@ -154,21 +155,29 @@ poursuit avec $x_2$ dans les nouvelles équations (sauf la première) jusqu'à
 l'obtention d'une équation à une seule inconnue. On remonte alors en remplaçant
 les variables calculées dans les équations ayant servi à l'élimination :
 
-Tirons $x_1$ de l'équation (\ref{SL1}):
-\begin{equation}x_1=\frac{3}{2}(1+x_2) \label{VarX}\end{equation}
-Remplaçons $x_1$ dans les deux dernières équations (\ref{SL2})-(\ref{SL3})
-par son expression (\ref{VarX})
-\begin{eqnarray}
+Tirons $x_1$ de la première équation:
+
+$\begin{equation}x_1=\frac{3}{2}(1+x_2) \label{VarX}\end{equation}$
+
+Remplaçons $x_1$ dans les deux dernières équations 
+par son expression
+
+$\begin{eqnarray}
 x_2+x_3 &=& 1 \label{SLR1}\\ 
 2x_2-3x_3 &=& 2\label{SLR2}.
-\end{eqnarray}
-Tirons $x_2$ de l'équation (\ref{SLR1}) de ce nouveau système :
-\begin{equation}x_2=1-x_3. \label{VarY}\end{equation}
- Remplaçons $x_2$ dans l'équation (\ref{SLR2}) :
- \begin{equation}-5x_3=0.\label{VarZ}\end{equation}
+\end{eqnarray}$
+
+Tirons $x_2$ de ce nouveau système 
+
+$\begin{equation}x_2=1-x_3. \label{VarY}\end{equation}$
+
+ Remplaçons $x_2$ dans la seconde équation:
+
+ $\begin{equation}-5x_3=0.\label{VarZ}\end{equation}$
+
  La phase d'élimination est terminée. On effectue alors la substitution en sens
-inverse des variables gr\^ace aux équations (\ref{VarZ}), (\ref{VarY}) et
-(\ref{VarX}):
+inverse des variables :
+
 \begin{eqnarray*}
 (\ref{VarZ}) &\Rightarrow& x_3=0\\ (\ref{VarY}) &\Rightarrow& x_2=1\\ (\ref{VarX})
 &\Rightarrow& x_1=3
