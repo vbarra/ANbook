@@ -86,9 +86,9 @@ L'algorithme {prf:ref}`pivotage` décrit la transformation d'une colonne ${\bf A
 ```{prf:algorithm} Pivotage d'une colonne ${\bf A_{\bullet s}}$ suivant le pivot $a_{rs}\ne 0$
 :label: pivotage
 
-**Entrée** ${\bf A}$, $s$ l'indice de la colonne à pivoter, $r$ l'indice de ligne du pivot
+**Entrée : ** ${\bf A}$, $s$ l'indice de la colonne à pivoter, $r$ l'indice de ligne du pivot
 
-**Sortie** La colonne transformée
+**Sortie : ** La colonne transformée
 
 1. ${\bf A_{r \bullet}}\leftarrow \frac{1}{a_{rs}}\bf A_{r \bullet}$
 2. Pour $i \ne r$ : ${\bf A_{i \bullet}}\leftarrow {\bf A_{i \bullet}} -a_{is}{\bf A_{r \bullet}}$
@@ -99,23 +99,26 @@ L'algorithme {prf:ref}`pivotage` décrit la transformation d'une colonne ${\bf A
 Pour $m=n$, il est clair que, si tous les pivots successifs sont non nuls, une séquence de
 $n$ pivotages effectués sur les $n$ colonnes de la matrice avec le pivot
 sur la diagonale transformera la matrice en l'identité. Si ${\bf E_i}$ est la 
-matrice élémentaire associée au pivotage de la $i$-ème colonne, on a
+matrice élémentaire associée au pivotage de la $i^e$ colonne, on a
 $
 \mathbb I_n={\bf E_n}{\bf E_{n-1}}\cdots {\bf E_1}{\bf A}
 $
-d'o\`u une première méthode pour calculer l'inverse d'une matrice : 
+d'où une première méthode pour calculer l'inverse d'une matrice : 
 $
 {\bf A^{-1}}={\bf E_nE_{n-1}}\cdots {\bf E_1}.
 $
+
 Donc pour calculer l'inverse d'une matrice, il suffit d'effectuer les pivotages
 en parallèle sur la matrice identité. La matrice à inverser se transforme
 progressivement en la matrice identité alors que l'identité devient 
-l'inverse. S'il est vrai que, quand aucun pivot nul n'est rencontré, cet
+l'inverse. 
+
+S'il est vrai que, quand aucun pivot nul n'est rencontré, cet
 algorithme a une complexité de $O(n^3)$, il peut atteindre $O(2n^3)$ dans le
 cas général et nécessite le stockage de deux matrices $n\times n$. On lui
 préférera les méthodes étudiées dans la suite, basées elles aussi sur
 des pivotages successifs de la matrice, mais plus robustes et moins 
-co\^uteuses.
+coûteuses.
 \exemple
 {Pivotons la première colonne de 
 $
@@ -172,7 +175,7 @@ inverse des variables gr\^ace aux équations (\ref{VarZ}), (\ref{VarY}) et
 \end{eqnarray*}
 }
 On remarque qu'à une étape donnée, l'élimination d'une variable peut se faire
-dans n'importe quelle équation, à condition, bien s\^ur, que cette équation
+dans n'importe quelle équation, à condition, bien sûr, que cette équation
 contienne la variable en question.
 
 
@@ -198,8 +201,8 @@ x_n    &=& \frac{b_n}{a_{nn}},\label{BckSub1}\\[.35pc]
 x_{k}&=&\frac{1}{a_{kk}}\left[b_k-\sum_{j=k+1}^na_{kj}x_j\right],\quad
 k\in[\![n-1, 1]\!]\label{BckSub2}
 \end{eqnarray}
-On remarque que le calcul de $x_k$ co\^ute $n-k$ flops et une division. Le
-co\^ut total de l'algorithme est donc de $$1+2+\cdots+n-1=\frac{n(n-1)}{2},$$
+On remarque que le calcul de $x_k$ coûte $n-k$ flops et une division. Le
+coût total de l'algorithme est donc de $$1+2+\cdots+n-1=\frac{n(n-1)}{2},$$
 soit (on ne garde que les termes de plus haut degré)
 $$
 \frac{{n^2}}{ 2}\quad\mbox{ flops}\quad\mbox{ et}\quad 
@@ -213,7 +216,7 @@ x_1    &=& \frac{b_1}{a_{11}},\label{FwdSub1}\\[.35pc]
 x_{k}&=&\frac{1}{a_{kk}}\left[b_k-\sum_{j=1}^{k-1}a_{kj}x_j\right],\quad
 k\in[\![2, n]\!].\label{FwdSub2}
 \end{eqnarray}
-Le co\^ut de l'algorithme de substitution (\ref{FwdSub1})-(\ref{FwdSub2}) est
+Le coût de l'algorithme de substitution (\ref{FwdSub1})-(\ref{FwdSub2}) est
 le même que celui de substitution inverse (\ref{BckSub1})-(\ref{BckSub2}).
 
 ## Méthode de Gauss (ou du pivot) pour les systèmes linéaires
@@ -318,8 +321,8 @@ $$
 a^{(k+1)}_{ij}=a^{(k)}_{ij}-\frac{a^{(k)}_{ik}}{a^{(k)}_{kk}}a^{(k)}_{kj}
 $$
 La mise à jour de la ligne $i$ requiert donc $n-k+1$ flops et 1 division. Donc
-l'étape $k$ co\^ute $(n-k)(n-k+1)$ flops et $n-k$ divisions. On en déduit le 
-co\^ut total de l'algorithme de Gauss:
+l'étape $k$ coûte $(n-k)(n-k+1)$ flops et $n-k$ divisions. On en déduit le 
+coût total de l'algorithme de Gauss:
 \begin{eqnarray*}
 n(n-1)+(n-1)(n-2)+\cdots+2\cdot 1&=&n^2+(n-1)^2+\cdots+2^2+1^2
                                      -(n+n-1+\cdots+2+1)\\
@@ -390,7 +393,7 @@ $$
 \end{description}
 
 La stratégie du pivotage partiel est la plus utilisée car la plus économique
-(la recherche du plus grand élément sur une liste de $p$ nombres co\^ute
+(la recherche du plus grand élément sur une liste de $p$ nombres coûte
 $p$ comparaisons numériques, ce qui donne $n^3/3$ comparaisons pour le pivotage
 total). L'algorithme d'élimination de Gauss avec recherche du pivot partiel est 
 décrit dans l'algorithme~\ref{MGauss2}. Le second membre est
@@ -454,7 +457,7 @@ $$
 $$
 on peut seulement affirmer que la colonne $k$ est linéairement dépendante des
 $k-1$ premières. Cela implique que $\mathrm{rang}({\bf A})<n$ et que le système n'a
-probablement pas de solution. Toutefois, on ne peut en être s\^ur que sur
+probablement pas de solution. Toutefois, on ne peut en être sûr que sur
 le test du pivot total nul.
 
 \begin{rem}
@@ -480,7 +483,7 @@ $a^{(k)}_{kk}\ne 0$)
 $$
 {\bf A^{(k+1)}}={\bf E_kA^{(k)}}
 $$
-o\`u ${\bf E_k}$ est la matrice élémentaire suivante
+où ${\bf E_k}$ est la matrice élémentaire suivante
 \vskip 5pt
 $$
   \left(
@@ -515,7 +518,7 @@ On vérifie que la matrice inverse ${\bf E_k^{-1}}$ a la même forme que
 ${\bf E_k}$ avec les éléments de la sous-colonne $k$ changés de signe et que les 
 produits ${\bf E_k^{-1}E_{k+1}^{-1}}$ s'effectuent sans calcul en accolant les
 vecteurs ${\bm\eta_k}$ et ${\bm \eta_{k+1}}$ dans les colonnes $k$ et $k+1$. On peut donc
-écrire ${\bf A}={\bf LU}$ o\`u ${\bf L}$ est une matrice triangulaire inférieure dont les éléments
+écrire ${\bf A}={\bf LU}$ où ${\bf L}$ est une matrice triangulaire inférieure dont les éléments
 diagonaux sont égaux à 1 et les éléments sous la diagonale sont
 $$
 l_{ij}=\eta_{ij}.
@@ -532,10 +535,10 @@ Soit ${\bf A} = \begin{pmatrix}1&4&7\\2&5&8\\3&6&10\end{pmatrix}$.
 
 Observons que les éléments non diagonaux de ${\bf L}$ peuvent être rangés
 directement à la place des éléments de ${\bf A}$ correspondants. La matrice ${\bf A}$
-est donc recouverte par sa factorisation ${\bf LU}$ et le co\^ut de stockage est
+est donc recouverte par sa factorisation ${\bf LU}$ et le coût de stockage est
 en $n^2$.
 
-Gr\^ace à cette factorisation (qui ne co\^ute donc pas plus cher que la
+Gr\^ace à cette factorisation (qui ne coûte donc pas plus cher que la
 triangularisation), tout nouveau système linéaire ${\bf Ax}={\bf b'}$ peut être
 résolu par la résolution de deux systèmes triangulaires (donc en $O(n^2)$ flops).
 En effet, pour résoudre 
@@ -658,7 +661,7 @@ $\dps{x_n\leftarrow \frac{x_{n}}{a_{nn}}}$\;
 ## Cas particuliers
 
 
-\subsubsection{Matrices symétriques} Dans ce cas, ${\bf U}$ peut s'écrire ${\bf U}={\bf DL^\top} $ o\`u 
+\subsubsection{Matrices symétriques} Dans ce cas, ${\bf U}$ peut s'écrire ${\bf U}={\bf DL^\top} $ où 
 ${\bf D}$ est la matrice diagonale contenant les pivots successifs.  On a donc
 la factorisation ${\bf A}={\bf LDL^\top }$.\index{factorisation!${\bf LDL^\top} $} La complexité de 
 l'algorithme est alors de $n^3/6$ flops (cf. exercice \ref{exo29}).
@@ -685,14 +688,14 @@ calculer, on peut procéder de la manière suivante, basée sur la factorisation
 de la matrice:
 \begin{itemize}
 \item Calculer les facteurs ${\bf LU}$ de la matrice: ${\bf PA}={\bf LU}$
-\item Résoudre les $n$ systèmes linéaires ${\bf LUx^i}={\bf Pe_i}$, o\`u ${\bf e_i}$, $i\in [\![1, n]\!]$,
+\item Résoudre les $n$ systèmes linéaires ${\bf LUx^i}={\bf Pe_i}$, où ${\bf e_i}$, $i\in [\![1, n]\!]$,
 est le $i$-ème vecteur de la base canonique de $\mathbb R^n$. La solution ${\bf x^i}$ est la
 $i$-ème colonne de ${\bf A^{-1}}$. 
 \end{itemize}
 
-Le co\^ut total apparent est de $n^3/3+n^3=4n^3/3$ flops.
+Le coût total apparent est de $n^3/3+n^3=4n^3/3$ flops.
 Mais on peut montrer que, gr\^ace à la structure particulière des seconds membres des
-systèmes linéaires successifs, le co\^ut réel n'est que de $n^3$ flops.
+systèmes linéaires successifs, le coût réel n'est que de $n^3$ flops.
 
 Une approche équivalente couramment utilisée, mais qui ne passe pas par le calcul 
 des facteurs ${\bf LU}$, est la méthode dite de Gauss-Jordan qui consiste à pivoter
@@ -724,13 +727,13 @@ $n\times n$ conduit aux fameuses formules de Cramer que nous ne reproduirons pas
 ici car elles ont une complexité exponentielle, ce qui les rend impraticables. A titre d'exemple, pour calculer le déterminant d'une matrice
 $20\times 20$ par la formule de Cramer il faut à peu près 15400 ans de calcul sur une
 machine de 100 Mips (soit $10^8$ instructions par seconde). Avec la méthode des pivots
-le co\^ut n'est que de $3\cdot 10^{-5}$ secondes! 
+le coût n'est que de $3\cdot 10^{-5}$ secondes! 
 
 En pratique on calculera le  déterminant après pivotage:
 $$
 \det({\bf A})=(-1)^p\prod_{i=1}^nu_{ii}
 $$
-o\`u les $u_{ii}$ ($1\le i\le n$) sont les pivots et $p$ le nombre de permutations
+où les $u_{ii}$ ($1\le i\le n$) sont les pivots et $p$ le nombre de permutations
 effectuées au cours de la factorisation.
 
 

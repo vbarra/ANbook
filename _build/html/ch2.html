@@ -675,8 +675,8 @@ d’une matrice <span class="math notranslate nohighlight">\({\bf A}\)</span> en
 <div class="proof algorithm admonition" id="pivotage">
 <p class="admonition-title"><span class="caption-number">Algorithm 1 </span> (Pivotage d’une colonne <span class="math notranslate nohighlight">\({\bf A_{\bullet s}}\)</span> suivant le pivot <span class="math notranslate nohighlight">\(a_{rs}\ne 0\)</span>)</p>
 <div class="algorithm-content section" id="proof-content">
-<p><strong>Entrée</strong> <span class="math notranslate nohighlight">\({\bf A}\)</span>, <span class="math notranslate nohighlight">\(s\)</span> l’indice de la colonne à pivoter, <span class="math notranslate nohighlight">\(r\)</span> l’indice de ligne du pivot</p>
-<p><strong>Sortie</strong> La colonne transformée</p>
+<p>**Entrée : ** <span class="math notranslate nohighlight">\({\bf A}\)</span>, <span class="math notranslate nohighlight">\(s\)</span> l’indice de la colonne à pivoter, <span class="math notranslate nohighlight">\(r\)</span> l’indice de ligne du pivot</p>
+<p>**Sortie : ** La colonne transformée</p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\({\bf A_{r \bullet}}\leftarrow \frac{1}{a_{rs}}\bf A_{r \bullet}\)</span></p></li>
 <li><p>Pour <span class="math notranslate nohighlight">\(i \ne r\)</span> : <span class="math notranslate nohighlight">\({\bf A_{i \bullet}}\leftarrow {\bf A_{i \bullet}} -a_{is}{\bf A_{r \bullet}}\)</span></p></li>
@@ -685,23 +685,24 @@ d’une matrice <span class="math notranslate nohighlight">\({\bf A}\)</span> en
 </div><p>Pour <span class="math notranslate nohighlight">\(m=n\)</span>, il est clair que, si tous les pivots successifs sont non nuls, une séquence de
 <span class="math notranslate nohighlight">\(n\)</span> pivotages effectués sur les <span class="math notranslate nohighlight">\(n\)</span> colonnes de la matrice avec le pivot
 sur la diagonale transformera la matrice en l’identité. Si <span class="math notranslate nohighlight">\({\bf E_i}\)</span> est la
-matrice élémentaire associée au pivotage de la <span class="math notranslate nohighlight">\(i\)</span>-ème colonne, on a
+matrice élémentaire associée au pivotage de la <span class="math notranslate nohighlight">\(i^e\)</span> colonne, on a
 <span class="math notranslate nohighlight">\(
 \mathbb I_n={\bf E_n}{\bf E_{n-1}}\cdots {\bf E_1}{\bf A}
 \)</span>
-d’o`u une première méthode pour calculer l’inverse d’une matrice :
+d’où une première méthode pour calculer l’inverse d’une matrice :
 <span class="math notranslate nohighlight">\(
 {\bf A^{-1}}={\bf E_nE_{n-1}}\cdots {\bf E_1}.
-\)</span>
-Donc pour calculer l’inverse d’une matrice, il suffit d’effectuer les pivotages
+\)</span></p>
+<p>Donc pour calculer l’inverse d’une matrice, il suffit d’effectuer les pivotages
 en parallèle sur la matrice identité. La matrice à inverser se transforme
 progressivement en la matrice identité alors que l’identité devient
-l’inverse. S’il est vrai que, quand aucun pivot nul n’est rencontré, cet
+l’inverse.</p>
+<p>S’il est vrai que, quand aucun pivot nul n’est rencontré, cet
 algorithme a une complexité de <span class="math notranslate nohighlight">\(O(n^3)\)</span>, il peut atteindre <span class="math notranslate nohighlight">\(O(2n^3)\)</span> dans le
 cas général et nécessite le stockage de deux matrices <span class="math notranslate nohighlight">\(n\times n\)</span>. On lui
 préférera les méthodes étudiées dans la suite, basées elles aussi sur
 des pivotages successifs de la matrice, mais plus robustes et moins
-co^uteuses.
+coûteuses.
 \exemple
 {Pivotons la première colonne de
 <span class="math notranslate nohighlight">\(
@@ -759,7 +760,7 @@ inverse des variables gr^ace aux équations (\ref{VarZ}), (\ref{VarY}) et
 \end{eqnarray*}
 }
 On remarque qu’à une étape donnée, l’élimination d’une variable peut se faire
-dans n’importe quelle équation, à condition, bien s^ur, que cette équation
+dans n’importe quelle équation, à condition, bien sûr, que cette équation
 contienne la variable en question.</p>
 </div>
 <div class="section" id="systemes-triangulaires">
@@ -782,8 +783,8 @@ x_n    &amp;=&amp; \frac{b_n}{a_{nn}},\label{BckSub1}\[.35pc]
 x_{k}&amp;=&amp;\frac{1}{a_{kk}}\left[b_k-\sum_{j=k+1}^na_{kj}x_j\right],\quad
 k\in[![n-1, 1]!]\label{BckSub2}
 \end{eqnarray}
-On remarque que le calcul de <span class="math notranslate nohighlight">\(x_k\)</span> co^ute <span class="math notranslate nohighlight">\(n-k\)</span> flops et une division. Le
-co^ut total de l’algorithme est donc de $<span class="math notranslate nohighlight">\(1+2+\cdots+n-1=\frac{n(n-1)}{2},\)</span><span class="math notranslate nohighlight">\(
+On remarque que le calcul de <span class="math notranslate nohighlight">\(x_k\)</span> coûte <span class="math notranslate nohighlight">\(n-k\)</span> flops et une division. Le
+coût total de l’algorithme est donc de $<span class="math notranslate nohighlight">\(1+2+\cdots+n-1=\frac{n(n-1)}{2},\)</span><span class="math notranslate nohighlight">\(
 soit (on ne garde que les termes de plus haut degré)
 \)</span><span class="math notranslate nohighlight">\(
 \frac{{n^2}}{ 2}\quad\mbox{ flops}\quad\mbox{ et}\quad 
@@ -796,7 +797,7 @@ x_1    &amp;=&amp; \frac{b_1}{a_{11}},\label{FwdSub1}\[.35pc]
 x_{k}&amp;=&amp;\frac{1}{a_{kk}}\left[b_k-\sum_{j=1}^{k-1}a_{kj}x_j\right],\quad
 k\in[![2, n]!].\label{FwdSub2}
 \end{eqnarray}
-Le co^ut de l’algorithme de substitution (\ref{FwdSub1})-(\ref{FwdSub2}) est
+Le coût de l’algorithme de substitution (\ref{FwdSub1})-(\ref{FwdSub2}) est
 le même que celui de substitution inverse (\ref{BckSub1})-(\ref{BckSub2}).</p>
 </div>
 <div class="section" id="methode-de-gauss-ou-du-pivot-pour-les-systemes-lineaires">
@@ -891,8 +892,8 @@ $<span class="math notranslate nohighlight">\(
 a^{(k+1)}_{ij}=a^{(k)}_{ij}-\frac{a^{(k)}_{ik}}{a^{(k)}_{kk}}a^{(k)}_{kj}
 \)</span><span class="math notranslate nohighlight">\(
 La mise à jour de la ligne \)</span>i<span class="math notranslate nohighlight">\( requiert donc \)</span>n-k+1<span class="math notranslate nohighlight">\( flops et 1 division. Donc
-l'étape \)</span>k<span class="math notranslate nohighlight">\( co\^ute \)</span>(n-k)(n-k+1)<span class="math notranslate nohighlight">\( flops et \)</span>n-k<span class="math notranslate nohighlight">\( divisions. On en déduit le 
-co\^ut total de l'algorithme de Gauss:
+l'étape \)</span>k<span class="math notranslate nohighlight">\( coûte \)</span>(n-k)(n-k+1)<span class="math notranslate nohighlight">\( flops et \)</span>n-k<span class="math notranslate nohighlight">\( divisions. On en déduit le 
+coût total de l'algorithme de Gauss:
 \begin{eqnarray*}
 n(n-1)+(n-1)(n-2)+\cdots+2\cdot 1&amp;=&amp;n^2+(n-1)^2+\cdots+2^2+1^2
                                      -(n+n-1+\cdots+2+1)\\
@@ -957,7 +958,7 @@ pivot en  choisissant le plus grand élément en valeur absolue
 \)</span>$
 \end{description}</p>
 <p>La stratégie du pivotage partiel est la plus utilisée car la plus économique
-(la recherche du plus grand élément sur une liste de <span class="math notranslate nohighlight">\(p\)</span> nombres co^ute
+(la recherche du plus grand élément sur une liste de <span class="math notranslate nohighlight">\(p\)</span> nombres coûte
 <span class="math notranslate nohighlight">\(p\)</span> comparaisons numériques, ce qui donne <span class="math notranslate nohighlight">\(n^3/3\)</span> comparaisons pour le pivotage
 total). L’algorithme d’élimination de Gauss avec recherche du pivot partiel est
 décrit dans l’algorithme~\ref{MGauss2}. Le second membre est
@@ -1017,7 +1018,7 @@ $<span class="math notranslate nohighlight">\(
 \)</span><span class="math notranslate nohighlight">\(
 on peut seulement affirmer que la colonne \)</span>k<span class="math notranslate nohighlight">\( est linéairement dépendante des
 \)</span>k-1<span class="math notranslate nohighlight">\( premières. Cela implique que \)</span>\mathrm{rang}({\bf A})&lt;n$ et que le système n’a
-probablement pas de solution. Toutefois, on ne peut en être s^ur que sur
+probablement pas de solution. Toutefois, on ne peut en être sûr que sur
 le test du pivot total nul.</p>
 <p>\begin{rem}
 La méthode de Gauss et le test du pivot total nul apparaissent donc comme
@@ -1041,7 +1042,7 @@ le vecteur de <span class="math notranslate nohighlight">\(\mathbb R^{n-k}\)</sp
 $<span class="math notranslate nohighlight">\(
 {\bf A^{(k+1)}}={\bf E_kA^{(k)}}
 \)</span><span class="math notranslate nohighlight">\(
-o\`u \)</span>{\bf E_k}<span class="math notranslate nohighlight">\( est la matrice élémentaire suivante
+où \)</span>{\bf E_k}<span class="math notranslate nohighlight">\( est la matrice élémentaire suivante
 \vskip 5pt
 \)</span><span class="math notranslate nohighlight">\(
   \left(
@@ -1074,7 +1075,7 @@ On vérifie que la matrice inverse \)</span>{\bf E_k^{-1}}<span class="math notr
 \)</span>{\bf E_k}<span class="math notranslate nohighlight">\( avec les éléments de la sous-colonne \)</span>k<span class="math notranslate nohighlight">\( changés de signe et que les 
 produits \)</span>{\bf E_k^{-1}E_{k+1}^{-1}}<span class="math notranslate nohighlight">\( s'effectuent sans calcul en accolant les
 vecteurs \)</span>{\bm\eta_k}<span class="math notranslate nohighlight">\( et \)</span>{\bm \eta_{k+1}}<span class="math notranslate nohighlight">\( dans les colonnes \)</span>k<span class="math notranslate nohighlight">\( et \)</span>k+1<span class="math notranslate nohighlight">\(. On peut donc
-écrire \)</span>{\bf A}={\bf LU}<span class="math notranslate nohighlight">\( o\`u \)</span>{\bf L}<span class="math notranslate nohighlight">\( est une matrice triangulaire inférieure dont les éléments
+écrire \)</span>{\bf A}={\bf LU}<span class="math notranslate nohighlight">\( où \)</span>{\bf L}<span class="math notranslate nohighlight">\( est une matrice triangulaire inférieure dont les éléments
 diagonaux sont égaux à 1 et les éléments sous la diagonale sont
 \)</span><span class="math notranslate nohighlight">\(
 l_{ij}=\eta_{ij}.
@@ -1089,9 +1090,9 @@ Soit <span class="math notranslate nohighlight">\({\bf A} = \begin{pmatrix}1&amp
 }</p>
 <p>Observons que les éléments non diagonaux de <span class="math notranslate nohighlight">\({\bf L}\)</span> peuvent être rangés
 directement à la place des éléments de <span class="math notranslate nohighlight">\({\bf A}\)</span> correspondants. La matrice <span class="math notranslate nohighlight">\({\bf A}\)</span>
-est donc recouverte par sa factorisation <span class="math notranslate nohighlight">\({\bf LU}\)</span> et le co^ut de stockage est
+est donc recouverte par sa factorisation <span class="math notranslate nohighlight">\({\bf LU}\)</span> et le coût de stockage est
 en <span class="math notranslate nohighlight">\(n^2\)</span>.</p>
-<p>Gr^ace à cette factorisation (qui ne co^ute donc pas plus cher que la
+<p>Gr^ace à cette factorisation (qui ne coûte donc pas plus cher que la
 triangularisation), tout nouveau système linéaire <span class="math notranslate nohighlight">\({\bf Ax}={\bf b'}\)</span> peut être
 résolu par la résolution de deux systèmes triangulaires (donc en <span class="math notranslate nohighlight">\(O(n^2)\)</span> flops).
 En effet, pour résoudre
@@ -1196,7 +1197,7 @@ membre lors de la résolution de <span class="math notranslate nohighlight">\({\
 \end{algorithm}</p>
 <div class="section" id="cas-particuliers">
 <h2>Cas particuliers<a class="headerlink" href="#cas-particuliers" title="Lien permanent vers ce titre">#</a></h2>
-<p>\subsubsection{Matrices symétriques} Dans ce cas, <span class="math notranslate nohighlight">\({\bf U}\)</span> peut s’écrire <span class="math notranslate nohighlight">\({\bf U}={\bf DL^\top} \)</span> o`u
+<p>\subsubsection{Matrices symétriques} Dans ce cas, <span class="math notranslate nohighlight">\({\bf U}\)</span> peut s’écrire <span class="math notranslate nohighlight">\({\bf U}={\bf DL^\top} \)</span> où
 <span class="math notranslate nohighlight">\({\bf D}\)</span> est la matrice diagonale contenant les pivots successifs.  On a donc
 la factorisation <span class="math notranslate nohighlight">\({\bf A}={\bf LDL^\top }\)</span>.\index{factorisation!<span class="math notranslate nohighlight">\({\bf LDL^\top} \)</span>} La complexité de
 l’algorithme est alors de <span class="math notranslate nohighlight">\(n^3/6\)</span> flops (cf. exercice \ref{exo29}).</p>
@@ -1222,13 +1223,13 @@ calculer, on peut procéder de la manière suivante, basée sur la factorisation
 de la matrice:
 \begin{itemize}
 \item Calculer les facteurs <span class="math notranslate nohighlight">\({\bf LU}\)</span> de la matrice: <span class="math notranslate nohighlight">\({\bf PA}={\bf LU}\)</span>
-\item Résoudre les <span class="math notranslate nohighlight">\(n\)</span> systèmes linéaires <span class="math notranslate nohighlight">\({\bf LUx^i}={\bf Pe_i}\)</span>, o`u <span class="math notranslate nohighlight">\({\bf e_i}\)</span>, <span class="math notranslate nohighlight">\(i\in [\![1, n]\!]\)</span>,
+\item Résoudre les <span class="math notranslate nohighlight">\(n\)</span> systèmes linéaires <span class="math notranslate nohighlight">\({\bf LUx^i}={\bf Pe_i}\)</span>, où <span class="math notranslate nohighlight">\({\bf e_i}\)</span>, <span class="math notranslate nohighlight">\(i\in [\![1, n]\!]\)</span>,
 est le <span class="math notranslate nohighlight">\(i\)</span>-ème vecteur de la base canonique de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>. La solution <span class="math notranslate nohighlight">\({\bf x^i}\)</span> est la
 <span class="math notranslate nohighlight">\(i\)</span>-ème colonne de <span class="math notranslate nohighlight">\({\bf A^{-1}}\)</span>.
 \end{itemize}</p>
-<p>Le co^ut total apparent est de <span class="math notranslate nohighlight">\(n^3/3+n^3=4n^3/3\)</span> flops.
+<p>Le coût total apparent est de <span class="math notranslate nohighlight">\(n^3/3+n^3=4n^3/3\)</span> flops.
 Mais on peut montrer que, gr^ace à la structure particulière des seconds membres des
-systèmes linéaires successifs, le co^ut réel n’est que de <span class="math notranslate nohighlight">\(n^3\)</span> flops.</p>
+systèmes linéaires successifs, le coût réel n’est que de <span class="math notranslate nohighlight">\(n^3\)</span> flops.</p>
 <p>Une approche équivalente couramment utilisée, mais qui ne passe pas par le calcul
 des facteurs <span class="math notranslate nohighlight">\({\bf LU}\)</span>, est la méthode dite de Gauss-Jordan qui consiste à pivoter
 complètement le système paramétré
@@ -1256,12 +1257,12 @@ ce qui permet de déterminer explicitement l’inverse d’une matrice <span cla
 ici car elles ont une complexité exponentielle, ce qui les rend impraticables. A titre d’exemple, pour calculer le déterminant d’une matrice
 <span class="math notranslate nohighlight">\(20\times 20\)</span> par la formule de Cramer il faut à peu près 15400 ans de calcul sur une
 machine de 100 Mips (soit <span class="math notranslate nohighlight">\(10^8\)</span> instructions par seconde). Avec la méthode des pivots
-le co^ut n’est que de <span class="math notranslate nohighlight">\(3\cdot 10^{-5}\)</span> secondes!</p>
+le coût n’est que de <span class="math notranslate nohighlight">\(3\cdot 10^{-5}\)</span> secondes!</p>
 <p>En pratique on calculera le  déterminant après pivotage:
 $<span class="math notranslate nohighlight">\(
 \det({\bf A})=(-1)^p\prod_{i=1}^nu_{ii}
 \)</span><span class="math notranslate nohighlight">\(
-o\`u les \)</span>u_{ii}<span class="math notranslate nohighlight">\( (\)</span>1\le i\le n<span class="math notranslate nohighlight">\() sont les pivots et \)</span>p$ le nombre de permutations
+où les \)</span>u_{ii}<span class="math notranslate nohighlight">\( (\)</span>1\le i\le n<span class="math notranslate nohighlight">\() sont les pivots et \)</span>p$ le nombre de permutations
 effectuées au cours de la factorisation.</p>
 </div>
 </div>
