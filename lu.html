@@ -584,13 +584,13 @@ que</p>
 avec recherche du pivot partiel. En sortie, <span class="math notranslate nohighlight">\({\bf A}\)</span> contient les facteurs <span class="math notranslate nohighlight">\({\bf L}\)</span> et <span class="math notranslate nohighlight">\({\bf U}\)</span> de la matrice
 et <span class="math notranslate nohighlight">\(\sigma\)</span> les permutations de lignes éventuelles.</p>
 <div class="proof algorithm admonition" id="FactLU">
-<p class="admonition-title"><span class="caption-number">Algorithm 4 </span> (Méthode de Gauss)</p>
+<p class="admonition-title"><span class="caption-number">Algorithm 4 </span> (Factorisation LU)</p>
 <div class="algorithm-content section" id="proof-content">
 <p>**Entrée : ** La matrice <span class="math notranslate nohighlight">\({\bf A}\)</span></p>
 <p>**Sortie : ** Les facteurs <span class="math notranslate nohighlight">\({\bf L}\)</span> et <span class="math notranslate nohighlight">\({\bf U}\)</span>, les permutations <span class="math notranslate nohighlight">\(\sigma\)</span></p>
 <p><code class="docutils literal notranslate"><span class="pre">étape</span> <span class="pre">1.</span> <span class="pre">Elimination</span></code></p>
 <ol class="simple">
-<li><p>\sigma(i)=i<span class="math notranslate nohighlight">\(, \)</span>i\in[![1,n]!]$ (initialisation du vecteur des permutations)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\sigma(i)=i\)</span>, <span class="math notranslate nohighlight">\(i\in[\![1,n]\!]\)</span> (initialisation du vecteur des permutations)</p></li>
 <li><p>Pour <span class="math notranslate nohighlight">\(k=1,\ldots, n-1\)</span></p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(c_p\leftarrow |a_{kk}|\)</span></p></li>
