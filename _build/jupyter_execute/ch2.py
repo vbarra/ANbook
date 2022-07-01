@@ -528,21 +528,10 @@ def SubstitutionInverse(A,b):
 # est donc recouverte par sa factorisation ${\bf LU}$ et le coût de stockage est
 # en $n^2$.
 # 
-# Gr\^ace à cette factorisation (qui ne coûte donc pas plus cher que la
+# Grâce à cette factorisation (qui ne coûte donc pas plus cher que la
 # triangularisation), tout nouveau système linéaire ${\bf Ax}={\bf b'}$ peut être
 # résolu par la résolution de deux systèmes triangulaires (donc en $O(n^2)$ flops).
-# En effet, pour résoudre 
-# $$
-# {\bf LUx}={\bf b'}
-# $$
-# on résout d'abord 
-# $$
-# {\bf Ly}={\bf b'}
-# $$
-# puis 
-# $$
-# {\bf Ux}={\bf y}.
-# $$
+# En effet, pour résoudre ${\bf LUx}={\bf b'}$, on résout d'abord ${\bf Ly}={\bf b'}$ puis ${\bf Ux}={\bf y}$.
 # 
 # \exemple{
 # Soit ${\bf A} = \begin{pmatrix}1&4&7\\2&5&8\\3&6&10\end{pmatrix}$. En appliquant l'algorithme de factorisation ${\bf LU}$ (cf. ci-dessus), on obtient 
