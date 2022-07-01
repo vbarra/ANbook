@@ -132,11 +132,12 @@
 # 
 # 
 #  Soit le système de 3 équations à 3 inconnues
-# $\begin{eqnarray}
+# 
+# $\left \{\begin{eqnarray}
 # 2x_1-3x_2\phantom{-3x_3}&=& 3\label{SL1}\\ 
 # 4x_1-5x_2+x_3& =& 7\label{SL2}\\ 
 # 2x_1-x_2-3x_3& =& 5\label{SL3}
-# \end{eqnarray}$
+# \end{eqnarray}\right .$
 # 
 # La méthode d'élimination de Gauss (ou méthode du pivot) consiste à utiliser la
 # première équation pour calculer $x_1$ en fonction des autres variables puis de
