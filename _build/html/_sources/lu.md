@@ -11,6 +11,7 @@ kernelspec:
 ---
 # Facteurs LU d'une matrice non singulière
 
+## Méthode
 Quand on a plusieurs systèmes linéaires à résoudre avec la même matrice 
 et des seconds membres différents, on a intérêt lors de la première 
 résolution à garder les coefficients des pivotages successifs en mémoire.
@@ -158,6 +159,91 @@ Si $\sigma_i=j$ alors les lignes
 $i$ et $j$ ont été permutées. Les permutations doivent être repercutées sur le second
 membre lors de la résolution de ${\bf Ly}={\bf b}$.
 
+
+## Exemple numérique
+
+
+```{code-cell} ipython3
+from fractions import Fraction
+from sympy import *
+from warnings import filterwarnings
+filterwarnings('ignore')
+init_printing(use_latex = 'mathjax')
+```
+
+Soit 
+ A = $\begin{bmatrix} 1 & -2 & 1 \\ 3 & 2 & -2 \\ 6 & -1 & -1 \end{bmatrix} $. 
+L'idée de la décomposition LU est d'appliquer une suite de transformations élémentaires E pour transformer $A$ en $U$. Les matrices $E$ sont calculées en faisant subir à l'identité les mêmes opérations de pivotage qu'à la matrice traitée.
+
+
+La première étape consiste à mettre un 0 en position (2,1). La transformation élémentaire correspondante $E_{21}$ est donc 
+
+```{code-cell} ipython3
+A = Matrix([[1., -1., 1.], [3., 2., -2.], [6., -1., -1.]])
+print ('Première transformation élémentaire') 
+E21 = Matrix([[1, 0, 0], [-3, 1, 0], [0, 0, 1]])
+E21
+print ('Résultat de la première transformation élémentaire') 
+E21 * A 
+```
+
+On met ensuite un 0 en position (3,1). La transformation élémentaire est  $E_{31}$ et le résultat $E_{31}.E_{21}.A$
+
+
+```{code-cell} ipython3
+print ('Deuxième transformation élémentaire') 
+E31 = Matrix([[1, 0, 0], [0, 1, 0], [-6, 0, 1]])
+E31
+print ('Résultat de la deuxième transformation élémentaire') 
+E31 * E21 * A 
+```
+
+On procède de même sur la deuxième colonne, en position (3,2)
+```{code-cell} ipython3
+print ('Troisième transformation élémentaire') 
+E32 = Matrix([[1, 0 , 0], [0, 1, 0], [0, str(Fraction(-11./8.)), 1]])
+E32
+print ('Résultat de la troisième transformation élémentaire') 
+U = E32 * E31 * E21 * A
+U
+```
+
+On a alors
+
+$  E ^{ -1 }_{ 21 }E^{ -1 }_{ 31 } E^{ -1 }_{ 32 }E_{ 32 }E_{ 31 }E_{ 21 }A=A $
+- Les inverses des transformations élémentaires sont calculées simplement en changeant de signe sous la diagonale
+- les produits de matrices élémentaires sont simplement obtenus en concaténant les colonnes successives des matrices élémentaires 
+
+Ainsi
+
+
+```{code-cell} ipython3
+E21, E21.inv()
+```
+et par exemple
+
+```{code-cell} ipython3
+E31,E32,E31*E32
+```
+
+Alors 
+
+$A = E ^{ -1 }_{ 21 }E^{ -1 }_{ 31 } E^{ -1 }_{ 32 }E_{ 32 }E_{ 31 }E_{ 21 }A=E ^{ -1 }_{ 21 }E^{ -1 }_{ 31 } E^{ -1 }_{ 32 }U$
+
+On pose $L=E ^{ -1 }_{ 21 }E^{ -1 }_{ 31 } E^{ -1 }_{ 32 }$
+de sorte que $A=LU$
+
+
+```{code-cell} ipython3
+L = E21.inv() * E31.inv() * E32.inv()
+L
+```
+
+On vérifie le résultat
+
+```{code-cell} ipython3
+A, L * U 
+```
 
 
 ## Cas particuliers
