@@ -229,7 +229,7 @@ $\begin{equation}
 \left[\begin{array}{rr} d & -b \\ -c & a\end{array}\right]. \label{InvMat2x2}
 \end{equation}$
 
-La généralisation des formules (\ref{DetMat2x2})-(\ref{InvMat2x2}) au cas des matrices
+La généralisation des formules précédentes au cas des matrices
 $n\times n$ conduit aux fameuses formules de Cramer que nous ne reproduirons pas
 ici car elles ont une complexité exponentielle, ce qui les rend impraticables. A titre d'exemple, pour calculer le déterminant d'une matrice
 $20\times 20$ par la formule de Cramer il faut à peu près 15400 ans de calcul sur une
@@ -237,9 +237,11 @@ machine de 100 Mips (soit $10^8$ instructions par seconde). Avec la méthode des
 le coût n'est que de $3\cdot 10^{-5}$ secondes! 
 
 En pratique on calculera le  déterminant après pivotage:
-$$
+
+$
 \det({\bf A})=(-1)^p\prod_{i=1}^nu_{ii}
-$$
+$
+
 où les $u_{ii}$ ($1\le i\le n$) sont les pivots et $p$ le nombre de permutations
 effectuées au cours de la factorisation.
 
