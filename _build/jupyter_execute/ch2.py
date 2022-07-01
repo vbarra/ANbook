@@ -508,21 +508,17 @@ def SubstitutionInverse(A,b):
 # On vérifie que la matrice inverse ${\bf E_k^{-1}}$ a la même forme que
 # ${\bf E_k}$ avec les éléments de la sous-colonne $k$ changés de signe et que les 
 # produits ${\bf E_k^{-1}E_{k+1}^{-1}}$ s'effectuent sans calcul en accolant les
-# vecteurs ${\bm\eta_k}$ et ${\bm \eta_{k+1}}$ dans les colonnes $k$ et $k+1$. On peut donc
+# vecteurs ${\bf \eta_k}$ et ${\bf \eta_{k+1}}$ dans les colonnes $k$ et $k+1$. On peut donc
 # écrire ${\bf A}={\bf LU}$ où ${\bf L}$ est une matrice triangulaire inférieure dont les éléments
-# diagonaux sont égaux à 1 et les éléments sous la diagonale sont
-# $$
-# l_{ij}=\eta_{ij}.
-# $$
+# diagonaux sont égaux à 1 et les éléments sous la diagonale sont $l_{ij}=\eta_{ij}.$
 # 
-# \exemple{
+# ````{prf:example}
 # Soit ${\bf A} = \begin{pmatrix}1&4&7\\2&5&8\\3&6&10\end{pmatrix}$. 
-# \begin{enumerate}
-# \item On pivote tout d'abord selon $a_{11}$. La matrice de transformation élémentaire est  \mbox{${\bf E_1} = \begin{pmatrix}1&0&0\\\textcolor{red}{-2}&1&0\\\textcolor{red}{-3}&0&1\end{pmatrix}$}, avec ${\bm \eta_1} = \begin{pmatrix} \textcolor{red}{2}\\\textcolor{red}{3}\end{pmatrix}$ et $ {\bf E_1A} =\begin{pmatrix}1&4&7\\0&-3&-6\\0&-6&-11\end{pmatrix}$
-# \item On pivote ensuite selon $a^{(2)}_{22}$. La matrice de transformation élémentaire est  \mbox{${\bf E_2} = \begin{pmatrix}1&0&0\\0&1&0\\0&\textcolor{blue}{-2}&1\end{pmatrix}$}, avec ${\bm \eta_2} = \begin{pmatrix} \textcolor{blue}{2}\end{pmatrix}$ et $ {\bf E_2E_1A} =\begin{pmatrix}1&4&7\\0&-3&-6\\0&0&1\end{pmatrix}={\bf U}$
-# \item Finalement ${\bf L} = \begin{pmatrix}1&0&0\\\textcolor{red}{2}&1&0\\\textcolor{red}{3}&\textcolor{blue}{2}&1\end{pmatrix}$
-# \end{enumerate}
-# }
+# 
+# 1. On pivote tout d'abord selon $a_{11}$. La matrice de transformation élémentaire est  \mbox{${\bf E_1} = \begin{pmatrix}1&0&0\\\textcolor{red}{-2}&1&0\\\textcolor{red}{-3}&0&1\end{pmatrix}$}, avec ${\bm \eta_1} = \begin{pmatrix} \textcolor{red}{2}\\\textcolor{red}{3}\end{pmatrix}$ et $ {\bf E_1A} =\begin{pmatrix}1&4&7\\0&-3&-6\\0&-6&-11\end{pmatrix}$
+# 2. On pivote ensuite selon $a^{(2)}_{22}$. La matrice de transformation élémentaire est  \mbox{${\bf E_2} = \begin{pmatrix}1&0&0\\0&1&0\\0&\textcolor{blue}{-2}&1\end{pmatrix}$}, avec ${\bm \eta_2} = \begin{pmatrix} \textcolor{blue}{2}\end{pmatrix}$ et $ {\bf E_2E_1A} =\begin{pmatrix}1&4&7\\0&-3&-6\\0&0&1\end{pmatrix}={\bf U}$
+# 3. Finalement ${\bf L} = \begin{pmatrix}1&0&0\\\textcolor{red}{2}&1&0\\\textcolor{red}{3}&\textcolor{blue}{2}&1\end{pmatrix}$
+# ````
 # 
 # Observons que les éléments non diagonaux de ${\bf L}$ peuvent être rangés
 # directement à la place des éléments de ${\bf A}$ correspondants. La matrice ${\bf A}$

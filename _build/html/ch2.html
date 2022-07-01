@@ -1093,21 +1093,20 @@ réécrivons la relation précédente</p>
 <p>On vérifie que la matrice inverse <span class="math notranslate nohighlight">\({\bf E_k^{-1}}\)</span> a la même forme que
 <span class="math notranslate nohighlight">\({\bf E_k}\)</span> avec les éléments de la sous-colonne <span class="math notranslate nohighlight">\(k\)</span> changés de signe et que les
 produits <span class="math notranslate nohighlight">\({\bf E_k^{-1}E_{k+1}^{-1}}\)</span> s’effectuent sans calcul en accolant les
-vecteurs <span class="math notranslate nohighlight">\({\bm\eta_k}\)</span> et <span class="math notranslate nohighlight">\({\bm \eta_{k+1}}\)</span> dans les colonnes <span class="math notranslate nohighlight">\(k\)</span> et <span class="math notranslate nohighlight">\(k+1\)</span>. On peut donc
+vecteurs <span class="math notranslate nohighlight">\({\bf \eta_k}\)</span> et <span class="math notranslate nohighlight">\({\bf \eta_{k+1}}\)</span> dans les colonnes <span class="math notranslate nohighlight">\(k\)</span> et <span class="math notranslate nohighlight">\(k+1\)</span>. On peut donc
 écrire <span class="math notranslate nohighlight">\({\bf A}={\bf LU}\)</span> où <span class="math notranslate nohighlight">\({\bf L}\)</span> est une matrice triangulaire inférieure dont les éléments
-diagonaux sont égaux à 1 et les éléments sous la diagonale sont
-$<span class="math notranslate nohighlight">\(
-l_{ij}=\eta_{ij}.
-\)</span>$</p>
-<p>\exemple{
-Soit <span class="math notranslate nohighlight">\({\bf A} = \begin{pmatrix}1&amp;4&amp;7\\2&amp;5&amp;8\\3&amp;6&amp;10\end{pmatrix}\)</span>.
-\begin{enumerate}
-\item On pivote tout d’abord selon <span class="math notranslate nohighlight">\(a_{11}\)</span>. La matrice de transformation élémentaire est  \mbox{<span class="math notranslate nohighlight">\({\bf E_1} = \begin{pmatrix}1&amp;0&amp;0\\\textcolor{red}{-2}&amp;1&amp;0\\\textcolor{red}{-3}&amp;0&amp;1\end{pmatrix}\)</span>}, avec <span class="math notranslate nohighlight">\({\bm \eta_1} = \begin{pmatrix} \textcolor{red}{2}\\\textcolor{red}{3}\end{pmatrix}\)</span> et <span class="math notranslate nohighlight">\( {\bf E_1A} =\begin{pmatrix}1&amp;4&amp;7\\0&amp;-3&amp;-6\\0&amp;-6&amp;-11\end{pmatrix}\)</span>
-\item On pivote ensuite selon <span class="math notranslate nohighlight">\(a^{(2)}_{22}\)</span>. La matrice de transformation élémentaire est  \mbox{<span class="math notranslate nohighlight">\({\bf E_2} = \begin{pmatrix}1&amp;0&amp;0\\0&amp;1&amp;0\\0&amp;\textcolor{blue}{-2}&amp;1\end{pmatrix}\)</span>}, avec <span class="math notranslate nohighlight">\({\bm \eta_2} = \begin{pmatrix} \textcolor{blue}{2}\end{pmatrix}\)</span> et <span class="math notranslate nohighlight">\( {\bf E_2E_1A} =\begin{pmatrix}1&amp;4&amp;7\\0&amp;-3&amp;-6\\0&amp;0&amp;1\end{pmatrix}={\bf U}\)</span>
-\item Finalement <span class="math notranslate nohighlight">\({\bf L} = \begin{pmatrix}1&amp;0&amp;0\\\textcolor{red}{2}&amp;1&amp;0\\\textcolor{red}{3}&amp;\textcolor{blue}{2}&amp;1\end{pmatrix}\)</span>
-\end{enumerate}
-}</p>
-<p>Observons que les éléments non diagonaux de <span class="math notranslate nohighlight">\({\bf L}\)</span> peuvent être rangés
+diagonaux sont égaux à 1 et les éléments sous la diagonale sont <span class="math notranslate nohighlight">\(l_{ij}=\eta_{ij}.\)</span></p>
+<div class="proof example admonition" id="example-10">
+<p class="admonition-title"><span class="caption-number">Example 4 </span></p>
+<div class="example-content section" id="proof-content">
+<p>Soit <span class="math notranslate nohighlight">\({\bf A} = \begin{pmatrix}1&amp;4&amp;7\\2&amp;5&amp;8\\3&amp;6&amp;10\end{pmatrix}\)</span>.</p>
+<ol class="simple">
+<li><p>On pivote tout d’abord selon <span class="math notranslate nohighlight">\(a_{11}\)</span>. La matrice de transformation élémentaire est  \mbox{<span class="math notranslate nohighlight">\({\bf E_1} = \begin{pmatrix}1&amp;0&amp;0\\\textcolor{red}{-2}&amp;1&amp;0\\\textcolor{red}{-3}&amp;0&amp;1\end{pmatrix}\)</span>}, avec <span class="math notranslate nohighlight">\({\bm \eta_1} = \begin{pmatrix} \textcolor{red}{2}\\\textcolor{red}{3}\end{pmatrix}\)</span> et <span class="math notranslate nohighlight">\( {\bf E_1A} =\begin{pmatrix}1&amp;4&amp;7\\0&amp;-3&amp;-6\\0&amp;-6&amp;-11\end{pmatrix}\)</span></p></li>
+<li><p>On pivote ensuite selon <span class="math notranslate nohighlight">\(a^{(2)}_{22}\)</span>. La matrice de transformation élémentaire est  \mbox{<span class="math notranslate nohighlight">\({\bf E_2} = \begin{pmatrix}1&amp;0&amp;0\\0&amp;1&amp;0\\0&amp;\textcolor{blue}{-2}&amp;1\end{pmatrix}\)</span>}, avec <span class="math notranslate nohighlight">\({\bm \eta_2} = \begin{pmatrix} \textcolor{blue}{2}\end{pmatrix}\)</span> et <span class="math notranslate nohighlight">\( {\bf E_2E_1A} =\begin{pmatrix}1&amp;4&amp;7\\0&amp;-3&amp;-6\\0&amp;0&amp;1\end{pmatrix}={\bf U}\)</span></p></li>
+<li><p>Finalement <span class="math notranslate nohighlight">\({\bf L} = \begin{pmatrix}1&amp;0&amp;0\\\textcolor{red}{2}&amp;1&amp;0\\\textcolor{red}{3}&amp;\textcolor{blue}{2}&amp;1\end{pmatrix}\)</span></p></li>
+</ol>
+</div>
+</div><p>Observons que les éléments non diagonaux de <span class="math notranslate nohighlight">\({\bf L}\)</span> peuvent être rangés
 directement à la place des éléments de <span class="math notranslate nohighlight">\({\bf A}\)</span> correspondants. La matrice <span class="math notranslate nohighlight">\({\bf A}\)</span>
 est donc recouverte par sa factorisation <span class="math notranslate nohighlight">\({\bf LU}\)</span> et le coût de stockage est
 en <span class="math notranslate nohighlight">\(n^2\)</span>.</p>
