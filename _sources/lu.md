@@ -282,8 +282,8 @@ de la matrice:
 
 - Calculer les facteurs ${\bf LU}$ de la matrice: ${\bf PA}={\bf LU}$
 - Résoudre les $n$ systèmes linéaires ${\bf LUx^i}={\bf Pe_i}$, où ${\bf e_i}$, $i\in [\![1, n]\!]$,
-est le $i$-ème vecteur de la base canonique de $\mathbb R^n$. La solution ${\bf x^i}$ est la
-$i$-ème colonne de ${\bf A^{-1}}$. 
+est le $i^e$ vecteur de la base canonique de $\mathbb R^n$. La solution ${\bf x^i}$ est la
+$i^e$ colonne de ${\bf A^{-1}}$. 
 
 
 
