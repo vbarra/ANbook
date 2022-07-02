@@ -437,11 +437,6 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#strategies-pour-les-pivots-nuls">
    Stratégies pour les pivots nuls
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#cas-singulier-et-calcul-du-rang-d-une-matrice">
-   Cas singulier et calcul du rang d’une matrice
-  </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#pivotage-total">
@@ -450,6 +445,23 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#pivotage-partiel">
+     Pivotage partiel
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cas-singulier-et-calcul-du-rang-d-une-matrice">
+   Cas singulier et calcul du rang d’une matrice
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Pivotage total
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
      Pivotage partiel
     </a>
    </li>
@@ -493,11 +505,6 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#strategies-pour-les-pivots-nuls">
    Stratégies pour les pivots nuls
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#cas-singulier-et-calcul-du-rang-d-une-matrice">
-   Cas singulier et calcul du rang d’une matrice
-  </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#pivotage-total">
@@ -506,6 +513,23 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#pivotage-partiel">
+     Pivotage partiel
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cas-singulier-et-calcul-du-rang-d-une-matrice">
+   Cas singulier et calcul du rang d’une matrice
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Pivotage total
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
      Pivotage partiel
     </a>
    </li>
@@ -618,7 +642,7 @@ le même que celui de substitution inverse.</p>
 correspond à une opération de pivotage.</p>
 <p>Eliminer <span class="math notranslate nohighlight">\(x_1\)</span> de la seconde équation revient à faire la somme de la première équation
 multipliée par -2 avec la seconde. De même éliminer <span class="math notranslate nohighlight">\(x_1\)</span> de
-la troisième équation revient à faire la somme de la premièr multipliée par
+la troisième équation revient à faire la somme de la première multipliée par
 -1 avec la troisième. On a donc effectué un pivotage de la première
 colonne (celle de <span class="math notranslate nohighlight">\(x_1\)</span>) en utilisant la première ligne comme ligne du pivot.</p>
 <div class="proof remark dropdown admonition" id="remark-0">
@@ -741,19 +765,18 @@ le second membre du système)</p>
 <div class="section" id="strategies-pour-les-pivots-nuls">
 <h2>Stratégies pour les pivots nuls<a class="headerlink" href="#strategies-pour-les-pivots-nuls" title="Lien permanent vers ce titre">#</a></h2>
 <p>Si le pivot est nul (en pratique, on évitera aussi les pivots de valeur
-absolue trop petite-), on le remplace en effectuant une
+absolue trop petite), on le remplace en effectuant une
 permutation avec un
 élément non nul parmi les éléments sous lui et/ou à sa droite. On distingue
 généralement deux stratégies :</p>
-<ul class="simple">
-<li><p>Pivotage total</p></li>
-</ul>
+<div class="section" id="pivotage-total">
+<h3>Pivotage total<a class="headerlink" href="#pivotage-total" title="Lien permanent vers ce titre">#</a></h3>
 <p id="index-3">On permute lignes et colonnes pour
 choisir le plus grand élément en valeur absolue dans la sous-matrice en bas à
 droite : <span class="math notranslate nohighlight">\(\max\left\{\left|a^{(k)}_{ij}\right|\ ; \ i,j\in [\![k,n]\!]\right\}\)</span></p>
-<ul class="simple">
-<li><p>Pivotage partiel</p></li>
-</ul>
+</div>
+<div class="section" id="pivotage-partiel">
+<h3>Pivotage partiel<a class="headerlink" href="#pivotage-partiel" title="Lien permanent vers ce titre">#</a></h3>
 <p id="index-4">On ne permute que les lignes sous le
 pivot en  choisissant le plus grand élément en valeur absolue : <span class="math notranslate nohighlight">\(\max\left\{\left|a^{(k)}_{ik}\right|\ ; \ i\in [\![k,n]\!]\right\}\)</span></p>
 <p>La stratégie du pivotage partiel est la plus utilisée car la plus économique
@@ -813,10 +836,11 @@ le second membre du système)</p>
 </ol>
 </div>
 </div></div>
+</div>
 <div class="section" id="cas-singulier-et-calcul-du-rang-d-une-matrice">
 <h2>Cas singulier et calcul du rang d’une matrice<a class="headerlink" href="#cas-singulier-et-calcul-du-rang-d-une-matrice" title="Lien permanent vers ce titre">#</a></h2>
-<div class="section" id="pivotage-total">
-<h3>Pivotage total<a class="headerlink" href="#pivotage-total" title="Lien permanent vers ce titre">#</a></h3>
+<div class="section" id="id1">
+<h3>Pivotage total<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">#</a></h3>
 <p>Si, à l’itération <span class="math notranslate nohighlight">\(k\)</span> de la méthode de Gauss
 avec pivot total, <span class="math notranslate nohighlight">\(\max\left\{\left|a^{(k)}_{ij}\right|\ ; \ i,j\in [\![k,n]\!]\right\}=0\)</span>
 (donc tous les éléments de la sous-matrice sont nuls), on peut affirmer que
@@ -824,8 +848,8 @@ le rang de la matrice <span class="math notranslate nohighlight">\({\bf A}\)</sp
 <span class="math notranslate nohighlight">\(b^{(k)}_i\)</span>, <span class="math notranslate nohighlight">\(k\le i\le n\)</span>, du second membre différent de zéro, alors le
 système n’a pas de solution.</p>
 </div>
-<div class="section" id="pivotage-partiel">
-<h3>Pivotage partiel<a class="headerlink" href="#pivotage-partiel" title="Lien permanent vers ce titre">#</a></h3>
+<div class="section" id="id2">
+<h3>Pivotage partiel<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">#</a></h3>
 <p>Si <span class="math notranslate nohighlight">\(\max\left\{\left|a^{(k)}_{ik}\right|\ ; \ \ i\in [\![k,n]\!]\right\}=0\)</span>
 on peut seulement affirmer que la colonne <span class="math notranslate nohighlight">\(k\)</span> est linéairement dépendante des
 <span class="math notranslate nohighlight">\(k-1\)</span> premières. Cela implique que <span class="math notranslate nohighlight">\(\mathrm{rang}({\bf A})&lt;n\)</span> et que le système n’a

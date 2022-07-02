@@ -135,7 +135,7 @@ correspond à une opération de pivotage.
 
 Eliminer $x_1$ de la seconde équation revient à faire la somme de la première équation
  multipliée par -2 avec la seconde. De même éliminer $x_1$ de
-la troisième équation revient à faire la somme de la premièr multipliée par
+la troisième équation revient à faire la somme de la première multipliée par
 -1 avec la troisième. On a donc effectué un pivotage de la première
 colonne (celle de $x_1$) en utilisant la première ligne comme ligne du pivot.
 ```{index} Pivot
@@ -274,17 +274,17 @@ le second membre du système)
 
 
 Si le pivot est nul (en pratique, on évitera aussi les pivots de valeur
-absolue trop petite-), on le remplace en effectuant une 
+absolue trop petite), on le remplace en effectuant une 
 permutation avec un 
 élément non nul parmi les éléments sous lui et/ou à sa droite. On distingue
 généralement deux stratégies :
-- Pivotage total
+### Pivotage total
 ```{index} Pivot ; total
 ``` 
 On permute lignes et colonnes pour 
 choisir le plus grand élément en valeur absolue dans la sous-matrice en bas à 
 droite : $\max\left\{\left|a^{(k)}_{ij}\right|\ ; \ i,j\in [\![k,n]\!]\right\}$
-- Pivotage partiel 
+### Pivotage partiel
 ```{index} Pivot ; partiel
 ``` 
 On ne permute que les lignes sous le 
