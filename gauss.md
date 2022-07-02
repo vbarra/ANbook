@@ -149,7 +149,7 @@ colonne (celle de $x_1$) en utilisant la première ligne comme ligne du pivot.
 doit être non nul.
 2. Les transformations élémentaires effectuées sur la matrice sont
 effectuées en parallèle sur le second membre.
-3/ A la fin de l'élimination (si tout se passe bien!), on obtient un système
+3. A la fin de l'élimination (si tout se passe bien!), on obtient un système
 triangulaire avec les pivots sur la diagonale.
 ```
 
