@@ -7,7 +7,11 @@
 # Quand on a plusieurs systèmes linéaires à résoudre avec la même matrice 
 # et des seconds membres différents, on a intérêt lors de la première 
 # résolution à garder les coefficients des pivotages successifs en mémoire.
-# Cela correspond à garder la factorisation $LU$\index{factorisation!LU}
+# Cela correspond à garder la factorisation $LU$
+# ```{index} factorisation;LU
+# ```
+# ```{index} LU
+# ``` 
 # de la matrice. En effet,
 # chaque pivotage peut être représenté par une matrice élémentaire qui
 # ne diffère de l'identité que par une sous-colonne.
