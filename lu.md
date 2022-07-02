@@ -250,7 +250,10 @@ A, L * U
 ### Matrices symétriques
 Dans ce cas, ${\bf U}$ peut s'écrire ${\bf U}={\bf DL^\top} $ où 
 ${\bf D}$ est la matrice diagonale contenant les pivots successifs.  On a donc
-la factorisation ${\bf A}={\bf LDL^\top }$.\index{factorisation!${\bf LDL^\top} $} La complexité de 
+la factorisation ${\bf A}={\bf LDL^\top }$.
+```index factorisation! ; ${\bf LDL^\top} $
+```
+La complexité de 
 l'algorithme est alors de $n^3/6$ flops.
 
 
