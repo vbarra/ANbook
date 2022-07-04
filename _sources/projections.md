@@ -58,7 +58,8 @@ ce qui permet de majorer
 
 $
 \|{\bf p_j}-{\bf p_i}\|^2\le 2\|{\bf p_j}-{\bf y}\|^2+2\|{\bf y}-{\bf p_i}\|^2-4\varepsilon^2.
-$$
+$
+
 Par passage à la limite, on déduit que $\|{\bf p_j}-{\bf p_i}\|\rightarrow 0$. Ce qui prouve que la suite des 
 ${\bf p_i}$ est une suite de Cauchy\footnote{Une suite de Cauchy est une suite de vecteurs $\{{\bf x_k}\}$
 qui satisfait $\lim_{k,\ell\rightarrow+\infty}\|{\bf x_k}-{\bf x_\ell}\|=0$. Toute suite convergente est bien sûr de Cauchy
