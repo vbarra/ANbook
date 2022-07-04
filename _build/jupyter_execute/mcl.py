@@ -221,6 +221,8 @@ for ind,d in enumerate(degre):
 
 
 # ## Un exemple de régression linéaire
+# 
+# On construit un nuage de points dans $\mathbb R^3$, initialement sur un plan, et bruité par un bruit suivant une loi centré d'écart-type $\sigma$.
 
 # In[6]:
 
@@ -258,7 +260,7 @@ plt.ylabel("Erreur")
 plt.tight_layout()
 
 
-# # On affiche e modèle pour un niveau de bruit $s\sigma$=0.7
+# On affiche e modèle pour un niveau de bruit $s\sigma$=0.7
 
 # In[8]:
 

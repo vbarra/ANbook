@@ -233,7 +233,7 @@ A = np.random.rand(nb_data, dim_i)
 Y = np.dot(A,A0) + np.random.normal(scale = 7e-1, size=(nb_data, dim_o))
 ```
 
-On résout le systèmes aux équations normales
+On résout le systèmes aux équations normales et on regarde l'erreur  du modèle en fonction du bruit 
 
 ```{code-cell} ipython3
 X = dot(inv(dot(A.T,A)),dot(A.T, Y)) 
@@ -247,6 +247,7 @@ for s in sigma:
     X = dot(inv(dot(A.T,A)),dot(A.T, Y)) 
     err.append(np.linalg.norm(np.dot(A,X)-Y,2))
 
+plt.figure(figsize=(8,4))
 plt.plot(sigma,err)
 plt.title("Erreur en fonction du bruit introduit $\mathcal{N}(0,\sigma)$")
 plt.xlabel("$\sigma$")

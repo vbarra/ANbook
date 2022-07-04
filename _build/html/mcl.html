@@ -445,40 +445,24 @@ title="Print to PDF"
     </div>
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Moindres carrés linéaires
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelisation">
+   Modélisation
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#modelisation">
-     Modélisation
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#systemes-incompatibles">
-     Systèmes incompatibles
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#un-exemple-de-regression-polynomiale-par-moindres-carres">
-     Un exemple de régression polynomiale par moindres carrés
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#un-exemple-de-regression-lineaire">
-     Un exemple de régression linéaire
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#on-affiche-e-modele-pour-un-niveau-de-bruit-s-sigma-0-7">
-   On affiche e modèle pour un niveau de bruit
-   <span class="math notranslate nohighlight">
-    \(s\sigma\)
-   </span>
-   =0.7
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#systemes-incompatibles">
+   Systèmes incompatibles
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#un-exemple-de-regression-polynomiale-par-moindres-carres">
+   Un exemple de régression polynomiale par moindres carrés
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#un-exemple-de-regression-lineaire">
+   Un exemple de régression linéaire
   </a>
  </li>
 </ul>
@@ -500,40 +484,24 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Moindres carrés linéaires
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelisation">
+   Modélisation
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#modelisation">
-     Modélisation
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#systemes-incompatibles">
-     Systèmes incompatibles
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#un-exemple-de-regression-polynomiale-par-moindres-carres">
-     Un exemple de régression polynomiale par moindres carrés
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#un-exemple-de-regression-lineaire">
-     Un exemple de régression linéaire
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#on-affiche-e-modele-pour-un-niveau-de-bruit-s-sigma-0-7">
-   On affiche e modèle pour un niveau de bruit
-   <span class="math notranslate nohighlight">
-    \(s\sigma\)
-   </span>
-   =0.7
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#systemes-incompatibles">
+   Systèmes incompatibles
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#un-exemple-de-regression-polynomiale-par-moindres-carres">
+   Un exemple de régression polynomiale par moindres carrés
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#un-exemple-de-regression-lineaire">
+   Un exemple de régression linéaire
   </a>
  </li>
 </ul>
@@ -800,6 +768,7 @@ On a alors</p>
 </div>
 <div class="section" id="un-exemple-de-regression-lineaire">
 <h2>Un exemple de régression linéaire<a class="headerlink" href="#un-exemple-de-regression-lineaire" title="Lien permanent vers ce titre">#</a></h2>
+<p>On construit un nuage de points dans <span class="math notranslate nohighlight">\(\mathbb R^3\)</span>, initialement sur un plan, et bruité par un bruit suivant une loi centré d’écart-type <span class="math notranslate nohighlight">\(\sigma\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dim_i</span> <span class="o">=</span> <span class="mi">2</span> 
@@ -837,16 +806,13 @@ On a alors</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Erreur :  5.0159471493776175
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Erreur :  4.012646523390043
 </pre></div>
 </div>
 <img alt="_images/mcl_12_1.png" src="_images/mcl_12_1.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="on-affiche-e-modele-pour-un-niveau-de-bruit-s-sigma-0-7">
-<h1>On affiche e modèle pour un niveau de bruit <span class="math notranslate nohighlight">\(s\sigma\)</span>=0.7<a class="headerlink" href="#on-affiche-e-modele-pour-un-niveau-de-bruit-s-sigma-0-7" title="Lien permanent vers ce titre">#</a></h1>
+<p>On affiche e modèle pour un niveau de bruit <span class="math notranslate nohighlight">\(s\sigma\)</span>=0.7</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">A0</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">scale</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">nb_data</span><span class="p">,</span> <span class="n">dim_o</span><span class="p">))</span>
@@ -886,6 +852,7 @@ On a alors</p>
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/mcl_14_0.png" src="_images/mcl_14_0.png" />
+</div>
 </div>
 </div>
 </div>
