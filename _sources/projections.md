@@ -165,8 +165,8 @@ Si $r=1$ on retrouve la formule trouvée dans le cas de la projection sur une dr
 Les matrices de projection sont des matrices
 qui possèdent les deux propriétés suivantes : 
 
-- ${\bf P}={\bf P^T} $ \rm [symétrie]
-- ${\bf P}^2={\bf P}$\rm  [idempotence]
+- ${\bf P}={\bf P^T} $ [symétrie]
+- ${\bf P}^2={\bf P}$ [idempotence]
 
 
 Les matrices de projection sont en général singulières, puisqu'elles ramènent l'espace à un sous-espace de dimension plus petite. De plus, elles contractent les normes : $\|{\bf Py}\|\leq \|{\bf y}\|$.
