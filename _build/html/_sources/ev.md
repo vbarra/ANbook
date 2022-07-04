@@ -91,6 +91,32 @@ Une norme vectorielle est une fonction notée $\|.\|$ définie sur un espace vec
 3. $(\forall {\bf x},{\bf y}\in E)\ \|{\bf x+y}\|\leq \|{\bf x}\|+\|{\bf y}\|$ 
 ````
 
+```` {prf:property}Inégalité de Cauchy-Schwarz}
+$(\forall {\bf x,y}\in\mathbb R^n)\ {\bf x^T}{\bf y}\le \|{\bf x}\|_2 \|{\bf y}\|_2$
+
+et l'égalité est vérifiée si et seulement si ${\bf x}$ et ${\bf y}$ sont colinéaires.
+````
+
+L'inégalté triangulaire est un résultat important de l'analyse fonctionnelle 
+dû à Minkowski et sa démonstration découle de l'inégalité fondamentale suivante dite 
+inégalité de Hölder : 
+```{index} inégalité!de Hölder
+
+```` {prf:property} Inégalité de Hölder
+
+$
+(\forall {\bf x,y}\in\mathbb R^n)\ (\forall p,q>1\ /\ \frac{1}{p}+\frac{1}{q}=1)\quad
+\displaystyle\sum_{i=1}^n|x_iy_i|\leq \|{\bf x}\|_p\|{\bf y}\|_q.
+$
+```
+
+On observera également que dans \mathbb R$^n$ (et plus généralement dans tout espace vectoriel de dimension finie), toutes les normes sont équivalente dans le sens où, 
+pour deux normes $\|.\|_a$ et $\|.\|_b$, il existe deux constantes positives $\alpha$ et $\beta$ satisfaisant 
+$$(\forall {\bf x}\in \mathbb R^n)\ \alpha\|{\bf x}\|_a\leq \|{\bf x}\|_b\leq \beta\|{\bf x}\|_a.$$
+
+```{index}
+Norme;équivalentes
+```
 
 ## Sous-espace vectoriel
 ```{index} Espace vectoriel ; sous-
@@ -158,7 +184,7 @@ En utilisant ce produit scalaire, on définit alors par exemple les normes suiva
 2.  $\|{\bf x}\|_2=\left ( {\bf x}^\top {\bf x}\right )^\frac{1}{2}=\sqrt{\displaystyle\sum_{i=1}^nx_i^2}$ est la norme $L_2$ (ou norme euclidienne).
 ```{index} Norme;euclidienne
 ```
-3. $\|{\bf x}\|_\infty = \displaystyle\max_{1\leq i\leq n}\{|x_i|\}$ est la norme du max \index{norme!$l_\infty$}(ou norme de Tchebychev, ou norme $L_\infty$)
+3. $\|{\bf x}\|_\infty = \displaystyle\max_{1\leq i\leq n}\{|x_i|\}$ est la norme du max (ou norme de Tchebychev, ou norme $L_\infty$)
 ```{index} Norme;Tchebychev
 ```
 
