@@ -101,14 +101,14 @@ L'inégalté triangulaire est un résultat important de l'analyse fonctionnelle
 dû à Minkowski et sa démonstration découle de l'inégalité fondamentale suivante dite 
 inégalité de Hölder : 
 ```{index} Inégalité;de Hölder
-```
+``
 ```` {prf:property} Inégalité de Hölder
 
 $
 (\forall {\bf x,y}\in\mathbb R^n)\ (\forall p,q>1\ /\ \frac{1}{p}+\frac{1}{q}=1)\quad
 \displaystyle\sum_{i=1}^n|x_iy_i|\leq \|{\bf x}\|_p\|{\bf y}\|_q.
 $
-```
+````
 
 On observera également que dans \mathbb R$^n$ (et plus généralement dans tout espace vectoriel de dimension finie), toutes les normes sont équivalente dans le sens où, 
 pour deux normes $\|.\|_a$ et $\|.\|_b$, il existe deux constantes positives $\alpha$ et $\beta$ satisfaisant 

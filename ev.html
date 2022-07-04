@@ -610,21 +610,21 @@ de dimension finie, c’est même un espace euclidien.</p>
 </div><p>L’inégalté triangulaire est un résultat important de l’analyse fonctionnelle
 dû à Minkowski et sa démonstration découle de l’inégalité fondamentale suivante dite
 inégalité de Hölder :</p>
-<div class="proof property admonition" id="property-4">
-<span id="index-5"></span><p class="admonition-title"><span class="caption-number">Property 2 </span> (Inégalité de Hölder)</p>
-<div class="property-content section" id="proof-content">
-<p><span class="math notranslate nohighlight">\(
-(\forall {\bf x,y}\in\mathbb R^n)\ (\forall p,q&gt;1\ /\ \frac{1}{p}+\frac{1}{q}=1)\quad
-\displaystyle\sum_{i=1}^n|x_iy_i|\leq \|{\bf x}\|_p\|{\bf y}\|_q.
-\)</span></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-On observera également que dans \mathbb R$^n$ (et plus généralement dans tout espace vectoriel de dimension finie), toutes les normes sont équivalente dans le sens où, 
-pour deux normes $\|.\|_a$ et $\|.\|_b$, il existe deux constantes positives $\alpha$ et $\beta$ satisfaisant 
-$$(\forall {\bf x}\in \mathbb R^n)\ \alpha\|{\bf x}\|_a\leq \|{\bf x}\|_b\leq \beta\|{\bf x}\|_a.$$
-
-```{index} Norme;équivalentes
-</pre></div>
+<p>On observera également que dans \mathbb R<span class="math notranslate nohighlight">\(^n\)</span> (et plus généralement dans tout espace vectoriel de dimension finie), toutes les normes sont équivalente dans le sens où,
+pour deux normes <span class="math notranslate nohighlight">\(\|.\|_a\)</span> et <span class="math notranslate nohighlight">\(\|.\|_b\)</span>, il existe deux constantes positives <span class="math notranslate nohighlight">\(\alpha\)</span> et <span class="math notranslate nohighlight">\(\beta\)</span> satisfaisant
+$<span class="math notranslate nohighlight">\((\forall {\bf x}\in \mathbb R^n)\ \alpha\|{\bf x}\|_a\leq \|{\bf x}\|_b\leq \beta\|{\bf x}\|_a.\)</span>$</p>
 </div>
+<div class="section" id="sous-espace-vectoriel">
+<span id="index-5"></span><h2>Sous-espace vectoriel<a class="headerlink" href="#sous-espace-vectoriel" title="Lien permanent vers ce titre">#</a></h2>
+<span class="target" id="index-6"></span><div class="proof definition admonition" id="definition-4">
+<span id="index-7"></span><p class="admonition-title"><span class="caption-number">Definition 4 </span> (Sous-espace vectoriel )</p>
+<div class="definition-content section" id="proof-content">
+<p>Soit <span class="math notranslate nohighlight">\(E\)</span> un espace vectoriel. Une partie <span class="math notranslate nohighlight">\(F\)</span> de
+<span class="math notranslate nohighlight">\(E\)</span> est un sous-espace vectoriel si :</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\({\bf 0}\in F\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\((\forall {\bf x},{\bf y}\in F)(\forall \lambda\in\mathbb R)\quad ({\bf x}+\lambda.{\bf y})\in F\)</span></p></li>
+</ul>
 </div>
 </div><p>Tout sous-espace vectoriel d’un -espace vectoriel <span class="math notranslate nohighlight">\(E\)</span> est un espace
 vectoriel pour les lois “+” et “.” induites par <span class="math notranslate nohighlight">\(E\)</span> . Soient maintenant
@@ -636,19 +636,6 @@ est un sous-espace vectoriel de <span class="math notranslate nohighlight">\(E\)
 <li><p>si <span class="math notranslate nohighlight">\(F\cap G=\emptyset\)</span> et <span class="math notranslate nohighlight">\(F+G=E\)</span>, alors <span class="math notranslate nohighlight">\(F\)</span> et <span class="math notranslate nohighlight">\(G\)</span> sont dits supplémentaires.</p></li>
 </ol>
 </div>
-<div class="section" id="sous-espace-vectoriel">
-<h2>Sous-espace vectoriel<a class="headerlink" href="#sous-espace-vectoriel" title="Lien permanent vers ce titre">#</a></h2>
-<span class="target" id="index-6"></span><div class="proof definition admonition" id="definition-5">
-<span id="index-7"></span><p class="admonition-title"><span class="caption-number">Definition 4 </span> (Sous-espace vectoriel )</p>
-<div class="definition-content section" id="proof-content">
-<p>Soit <span class="math notranslate nohighlight">\(E\)</span> un espace vectoriel. Une partie <span class="math notranslate nohighlight">\(F\)</span> de
-<span class="math notranslate nohighlight">\(E\)</span> est un sous-espace vectoriel si :</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\({\bf 0}\in F\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\((\forall {\bf x},{\bf y}\in F)(\forall \lambda\in\mathbb R)\quad ({\bf x}+\lambda.{\bf y})\in F\)</span></p></li>
-</ul>
-</div>
-</div></div>
 <div class="section" id="exemples-fondamentaux">
 <h2>Exemples fondamentaux<a class="headerlink" href="#exemples-fondamentaux" title="Lien permanent vers ce titre">#</a></h2>
 <p>Nous utiliserons dans ce cours deux espaces vectoriels fondamentaux.</p>
@@ -730,13 +717,13 @@ définies par :</p>
 <img alt="_images/ev_1_0.png" src="_images/ev_1_0.png" />
 </div>
 </div>
-<div class="proof definition admonition" id="definition-6">
+<div class="proof definition admonition" id="definition-5">
 <p class="admonition-title"><span class="caption-number">Definition 5 </span> (Orthogonalité)</p>
 <div class="definition-content section" id="proof-content">
 <p>On dit que deux vecteurs <span class="math notranslate nohighlight">\({\bf x}\)</span> et <span class="math notranslate nohighlight">\({\bf y}\)</span> de
 <span class="math notranslate nohighlight">\(\mathbb R^n\)</span> sont orthogonaux si <span class="math notranslate nohighlight">\({\bf x}^\top  {\bf y}=0\)</span>.</p>
 </div>
-</div><div class="proof definition admonition" id="definition-7">
+</div><div class="proof definition admonition" id="definition-6">
 <p class="admonition-title"><span class="caption-number">Definition 6 </span> (Orthogonal d’un ensemble de vecteurs )</p>
 <div class="definition-content section" id="proof-content">
 <p id="index-12">Soit <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> un sous-ensemble
@@ -763,7 +750,7 @@ vectoriel pour les lois “+” et “.” définies par :</p>
 </div>
 <div class="section" id="famille-libre-generatrice-base">
 <h2>Famille libre, génératrice, base<a class="headerlink" href="#famille-libre-generatrice-base" title="Lien permanent vers ce titre">#</a></h2>
-<div class="proof definition admonition" id="definition-8">
+<div class="proof definition admonition" id="definition-7">
 <p class="admonition-title"><span class="caption-number">Definition 7 </span> (Combinaison linéaire )</p>
 <div class="definition-content section" id="proof-content">
 <p id="index-13">Soient <span class="math notranslate nohighlight">\(\bf{x_1}\cdots  {\bf x_p}\)</span> <span class="math notranslate nohighlight">\(p\)</span> vecteurs de
@@ -772,7 +759,7 @@ vectoriel pour les lois “+” et “.” définies par :</p>
 <span class="math notranslate nohighlight">\({\bf y} = \displaystyle\sum_{i=1}^p \lambda_i {\bf x_i},\quad \lambda_1\cdots \lambda_p \in \mathbb R\)</span>
 est appelé combinaison linéaire des vecteurs <span class="math notranslate nohighlight">\(\bf{x_i}\)</span></p>
 </div>
-</div><div class="proof definition admonition" id="definition-9">
+</div><div class="proof definition admonition" id="definition-8">
 <p class="admonition-title"><span class="caption-number">Definition 8 </span> (Famille libre )</p>
 <div class="definition-content section" id="proof-content">
 <p id="index-14">Une famille <span class="math notranslate nohighlight">\(\mathcal{F} = (\bf{x_1}\cdots  {\bf x_p})\)</span> de
@@ -783,7 +770,7 @@ est appelé combinaison linéaire des vecteurs <span class="math notranslate noh
 coefficients non nuls, la famille est liée. Une famille est donc liée si
 et seulement si au moins un des vecteurs de la famille est combinaison
 linéaire des autres.</p>
-<div class="proof definition admonition" id="definition-10">
+<div class="proof definition admonition" id="definition-9">
 <p class="admonition-title"><span class="caption-number">Definition 9 </span> (Famille génératrice )</p>
 <div class="definition-content section" id="proof-content">
 <p id="index-15">Soit une famille
@@ -792,7 +779,7 @@ linéaire des autres.</p>
 <span class="math notranslate nohighlight">\((\forall  {\bf x}\in E) (\exists \lambda_1\cdots \lambda_p\in \mathbb R) \quad {\bf x} = \displaystyle\sum_{i=1}^p \lambda_i {\bf x_i}\)</span></p>
 </div>
 </div><p>Cette notion est liée à la notion de sous-espace vectoriel engendré.</p>
-<div class="proof definition admonition" id="definition-11">
+<div class="proof definition admonition" id="definition-10">
 <p class="admonition-title"><span class="caption-number">Definition 10 </span> (Sous-espace engendré )</p>
 <div class="definition-content section" id="proof-content">
 <p id="index-16">L’ensemble de toutes les combinaisons linéaires
@@ -804,7 +791,7 @@ engendré par <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>,
 </div>
 </div><p>On vérifie facilement que <span class="math notranslate nohighlight">\(\mathrm{lin}\{\mathcal{F}\}\)</span> est bien un
 sous-espace vectoriel de <span class="math notranslate nohighlight">\(E\)</span>.</p>
-<div class="proof definition admonition" id="definition-12">
+<div class="proof definition admonition" id="definition-11">
 <p class="admonition-title"><span class="caption-number">Definition 11 </span> (Base)</p>
 <div class="definition-content section" id="proof-content">
 <p id="index-17">Une famille <span class="math notranslate nohighlight">\(\mathcal{B} = (\bf{x_1}\cdots  {\bf x_p})\)</span> de <span class="math notranslate nohighlight">\(p\)</span>
@@ -812,7 +799,7 @@ vecteurs de <span class="math notranslate nohighlight">\(E\)</span> est une base
 </div>
 </div><p>Dans le cas où <span class="math notranslate nohighlight">\(E=\mathbb R^n\)</span>, un exemple important de base est la base
 dite canonique.</p>
-<div class="proof definition admonition" id="definition-13">
+<div class="proof definition admonition" id="definition-12">
 <p class="admonition-title"><span class="caption-number">Definition 12 </span> (Base canonique )</p>
 <div class="definition-content section" id="proof-content">
 <p id="index-18">On appelle base canonique de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span> l’ensemble des
@@ -826,7 +813,7 @@ une combinaison linéaire des vecteurs de la base canonique, <em>i.e.</em>
 les <span class="math notranslate nohighlight">\(x_i\)</span> sont les coordonnées de <span class="math notranslate nohighlight">\({\bf x}\)</span> dans la base. On peut
 montrer que tout espace vectoriel admettant une famille finie
 génératrice admet une base et que, plus généralement :</p>
-<div class="proof theorem admonition" id="theorem-14">
+<div class="proof theorem admonition" id="theorem-13">
 <p class="admonition-title"><span class="caption-number">Theorem 1 </span> (Théorème de la base incomplète )</p>
 <div class="theorem-content section" id="proof-content">
 <p>Soit <span class="math notranslate nohighlight">\(E\)</span> un espace vectoriel admettant
@@ -838,7 +825,7 @@ une famille génératrice. Alors :</p>
 </div>
 </div><p>De la notion de base on en déduit la définition de la dimension d’un
 espace vectoriel.</p>
-<div class="proof definition admonition" id="definition-15">
+<div class="proof definition admonition" id="definition-14">
 <p class="admonition-title"><span class="caption-number">Definition 13 </span> (Dimension)</p>
 <div class="definition-content section" id="proof-content">
 <span class="target" id="index-19"></span><p id="index-20">La dimension d’un espace vectoriel <span class="math notranslate nohighlight">\(E\)</span>, notée <span class="math notranslate nohighlight">\(dim(E)\)</span>, est le
@@ -848,8 +835,8 @@ nombre d’éléments d’une base de <span class="math notranslate nohighlight"
 génératrice de <span class="math notranslate nohighlight">\(E\)</span> a un nombre de vecteurs supérieur ou égal à la
 dimension de <span class="math notranslate nohighlight">\(E\)</span>, tandis qu’une famille libre a un nombre de vecteurs
 inférieur ou égal à la dimension de <span class="math notranslate nohighlight">\(E\)</span>. On en déduit également :</p>
-<div class="proof property admonition" id="property-16">
-<p class="admonition-title"><span class="caption-number">Property 3 </span></p>
+<div class="proof property admonition" id="property-15">
+<p class="admonition-title"><span class="caption-number">Property 2 </span></p>
 <div class="property-content section" id="proof-content">
 <p>Soit <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> une famille de <span class="math notranslate nohighlight">\(p\)</span> vecteurs dans un espace vectoriel
 <span class="math notranslate nohighlight">\(E\)</span> de dimension <span class="math notranslate nohighlight">\(dim(E)&gt;p\)</span>. Alors <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> est liée.</p>
