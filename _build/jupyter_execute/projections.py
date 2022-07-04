@@ -24,6 +24,7 @@
 # ```
 # 
 # ````{prf:proof}
+# 
 # ``Existence``: On peut supposer que ${\bf y}\notin L$ et on introduit 
 # 
 # $\varepsilon=\inf_{{\bf x}\in L}\|{\bf y}-{\bf x}\|>0.$ 
@@ -69,7 +70,9 @@
 # 
 # ``Unicité`` : Supposons qu'il existe un ${\bf x}\ne {\bf p}$ qui réalise le minimum.
 # On applique le théorème de Pythagore :
-# \[ (\forall {\bf x} \in L)\ \|{\bf y}-{\bf x}\|^2=\|{\bf y}-{\bf p}+{\bf p}-{\bf x}\|^2  = \|{\bf y}-{\bf p}\|^2 + \|{\bf p}-{\bf x}\|^2  > \| {\bf y}-{\bf p}\|^2 \]
+# 
+# $ (\forall {\bf x} \in L)\ \|{\bf y}-{\bf x}\|^2=\|{\bf y}-{\bf p}+{\bf p}-{\bf x}\|^2  = \|{\bf y}-{\bf p}\|^2 + \|{\bf p}-{\bf x}\|^2  > \| {\bf y}-{\bf p}\|^2 $
+# 
 # d'où la contradiction. 
 # ````
 # 
