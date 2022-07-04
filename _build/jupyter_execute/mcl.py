@@ -12,21 +12,26 @@
 # 
 # L'erreur entre le modèle théorique et la sortie mesurée pour l'entrée $t_i$ est $e_i=y_i-Y_i$ et la solution aux moindres carrés 
 # consiste à choisir  ${\bf x}$ qui minimise la somme des carrés des erreurs. On pose donc le problème :
-# ``
+# 
+# 
 # Trouver ${\bf x}\in \mathbb R^n$ tel que $\dps\sum_{i=1}^me_i^2$ soit minimale.
-# ``
+# 
+# 
 # Si la fonction $f_{\bf x}$ est  linéaire par rapport aux paramètres ${\bf x}$, alors le modèle s'écrit 
 # $f_{\bf x}(t_i) = {\bf a_i}^T{\bf x}$ et on parle de problème au moindres carrés linéaires.
 # 
 # Soient ${\bf Y}\in \mathbb R^m$ le vecteur des valeurs $Y_i$ mesurées sur $\mathcal{S}$, ${\bf e}\in \mathbb R^m$ le vecteur dont les composantes sont les erreurs $e_i$ et  ${\bf A}\in\mathcal{M}_{mn}(\mathbb R)$ la matrice dont les lignes sont les ${\bf a_i^T} $. Le problème consiste alors à :
-# ``
-# Trouver ${\bf x}\in \mathbb R^n$ qui  minimise $\norme{{\bf Ax}-{\bf Y}}^2$.
-# ``
 # 
-# Dans $\mathbb R^m$, il s'agit donc de trouver le point de l'image de ${\bf A}$ le plus proche au sens de la norme euclidienne du vecteur ${\bf Y}$ (qui a peu de chances d'appartenir à $Im({\bf A})$, car $m>>n$). L'unique solution (cf.  théorème \ref{T:proj}) est  la  projection orthogonale du vecteur ${\bf Y}$ sur le sous-espace $Im({\bf A})$. La solution a déjà été calculée au paragraphe \ref{ssev}, c'est la solution du système linéaire suivant, dit système aux équations normales : 
-# $${\bf A^T Ax}={\bf A^T Y}$$
+# 
+# Trouver ${\bf x}\in \mathbb R^n$ qui  minimise $\norme{{\bf Ax}-{\bf Y}}^2$.
+# 
+# 
+# Dans $\mathbb R^m$, il s'agit donc de trouver le point de l'image de ${\bf A}$ le plus proche au sens de la norme euclidienne du vecteur ${\bf Y}$ (qui a peu de chances d'appartenir à $Im({\bf A})$, car $m>>n$). L'unique solution (cf.  théorème \ref{T:proj}) est  la  projection orthogonale du vecteur ${\bf Y}$ sur le sous-espace $Im({\bf A})$. La solution a déjà été calculée au paragraphe \ref{ssev}, c'est la solution du système linéaire suivant, dit système aux équations normales : ${\bf A^T Ax}={\bf A^T Y}$
+# 
 # Si $\rang({\bf A})=n$ (hypothèse raisonnable car $m>>n$ et les ${\bf a_i}$ dépendent des entrées $t_i$), ce système a une solution unique 
-# $${\bf x}={\bf (A^T A)^{-1}A^T Y}$$ 
+# 
+# ${\bf x}={\bf (A^T A)^{-1}A^T Y}$
+# 
 # dite solution aux moindres carrés. La matrice ${\bf A^+}={\bf (A^T A)^{-1}A^T}$ (Attention !! ce n'est pas la matrice de projection) est la pseudo inverse de la matrice rectangulaire ${\bf A}$. Elle satisfait ${\bf A^+A}=\mathbb I$ et ${\bf AA^+}={\bf P}$.
 # 
 # 
