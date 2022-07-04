@@ -107,9 +107,11 @@ ${\bf p}=\frac{ {\bf v^T}  {\bf y}}{ {\bf v^T}  {\bf v}}.{\bf v}$
 
 Ainsi, cette expression qui exprime le fait que ${\bf p}$ a la même direction que ${\bf v}$ peut s'écrire différemment pour représenter la transformation qui transforme ${\bf y}$ en ${\bf p}$.
 
-On vérifie que $({\bf v^T}  {\bf y}){\bf v} = ({\bf v} {\bf v^T}){\bf y}$ où l'on observe que $ {\bf v^T}  {\bf y}\in \mathbb R$ alors que ${\bf v} {\bf v^T}\in\mathcal{M}_n(\mathbb R)$  de rang 1 (toutes les colonnes sont des multiples de ${\bf v}$) qui { projette} l'espace $\mathbb R^n$ sur la droite $D$. La projection orthogonale sur une droite qui passe par l'origine est donc une transformation linéaire, de matrice :\index{matrice!de projection}
-$${\bf P}=\frac{1}{\|{\bf v}\|^2}{\bf v}{\bf v^T} $$
+On vérifie que $({\bf v^T}  {\bf y}){\bf v} = ({\bf v} {\bf v^T}){\bf y}$ où l'on observe que $ {\bf v^T}  {\bf y}\in \mathbb R$ alors que ${\bf v} {\bf v^T}\in\mathcal{M}_n(\mathbb R)$  de rang 1 (toutes les colonnes sont des multiples de ${\bf v}$) qui { projette} l'espace $\mathbb R^n$ sur la droite $D$. La projection orthogonale sur une droite qui passe par l'origine est donc une transformation linéaire, de matrice :
+${\bf P}=\frac{1}{\|{\bf v}\|^2}{\bf v}{\bf v^T} $
 
+```{index} Matrice;projection
+```
 
 
 ```{prf:remark}

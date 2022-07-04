@@ -107,10 +107,7 @@
 # ```{prf:remark}
 # 
 # 1. Comme ${\bf p}={\bf Py}$, la projection orthogonale sur le sous-espace orthogonal $D^\bot$ est \\${\bf u}={\bf y}-{\bf p}=(\mathbb I-{\bf P}){\bf y}$, donc $\mathbb I-{\bf P}$ est la matrice de projection orthogonale sur $D^\bot$.
-# 2. Soit $\theta$ l'angle entre les directions des vecteurs ${\bf v}$ et ${\bf y}$. On a alors :
-# 
-#   $cos(\theta)=\frac{{\bf v^T}{\bf  y}}{\|{\bf v}\|\|{\bf y}\|}$
-#   et on en déduit l'inégalité de Schwarz : 
+# 2. Soit $\theta$ l'angle entre les directions des vecteurs ${\bf v}$ et ${\bf y}$. On a alors : $cos(\theta)=\frac{{\bf v^T}{\bf  y}}{\|{\bf v}\|\|{\bf y}\|}$ et on en déduit l'inégalité de Schwarz : 
 # 
 #   $(\forall {\bf x},{\bf y}\in \mathbb R^n)\quad  |{\bf x^T}  {\bf y}|\leq \|{\bf x}\|\|{\bf y}\|$
 # ```
@@ -118,10 +115,11 @@
 # ````{prf:example}
 # 
 # 
-# Dans $\mathbb R^2$, la projection sur l'axe des abscisses, dirigé par ${\bf v}=\begin{pmatrix}1 \\0\\\end{pmatrix}$, est effectuée par \mbox{${\bf P}= \begin{pmatrix}1&0\\0&0\end{pmatrix}$} et on a bien ${\bf p}={\bf Py}=\begin{pmatrix}y_1 \\0\\\end{pmatrix}$}
+# Dans $\mathbb R^2$, la projection sur l'axe des abscisses, dirigé par ${\bf v}=\begin{pmatrix}1 \\0\\\end{pmatrix}$, est effectuée par \mbox{${\bf P}= \begin{pmatrix}1&0\\0&0\end{pmatrix}$} et on a bien ${\bf p}={\bf Py}=\begin{pmatrix}y_1 \\0\\\end{pmatrix}$
 # ````
 # 
-# \subsection{Projection sur une droite ne passant pas par l'origine}
+# ## Projection sur une droite ne passant pas par l'origine
+# 
 # On utilise la représentation d'une droite comme un sous-espace affine parallèle à un sous-espace : 
 # $$D=\{{\bf z}\in \mathbb R^n / {\bf z}={\bf z_0}+\lambda {\bf v},\lambda \in \mathbb R\}$$
 # Soit ${\bf y}\in \mathbb R^n$ et ${\bf p}$ sa projection orthogonale sur la droite $D$. Alors :\\
