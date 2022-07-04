@@ -412,6 +412,6 @@ plt.tight_layout()
 La condition de la matrice est 
 
 ```{code-cell} ipython3
-print('Condition de la seconde matrice :', np.linalg.cond(np.matrix(A, dtype='float'),p=2))
+print('Condition de la matrice :', np.linalg.cond(np.matrix(A, dtype='float'),p=2))
 ```
 
