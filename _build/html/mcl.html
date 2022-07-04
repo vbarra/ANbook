@@ -512,6 +512,10 @@ consiste à choisir  <span class="math notranslate nohighlight">\({\bf x}\)</spa
 <p>Si <span class="math notranslate nohighlight">\(rang({\bf A})=n\)</span> (hypothèse raisonnable car <span class="math notranslate nohighlight">\(m&gt;&gt;n\)</span> et les <span class="math notranslate nohighlight">\({\bf a_i}\)</span> dépendent des entrées <span class="math notranslate nohighlight">\(t_i\)</span>), ce système a une solution unique</p>
 <p><span class="math notranslate nohighlight">\({\bf x}={\bf (A^T A)^{-1}A^T Y}\)</span></p>
 <p>dite solution aux moindres carrés. La matrice <span class="math notranslate nohighlight">\({\bf A^+}={\bf (A^T A)^{-1}A^T}\)</span> (Attention !! ce n’est pas la matrice de projection) est la pseudo inverse de la matrice rectangulaire <span class="math notranslate nohighlight">\({\bf A}\)</span>. Elle satisfait <span class="math notranslate nohighlight">\({\bf A^+A}=\mathbb I\)</span> et <span class="math notranslate nohighlight">\({\bf AA^+}={\bf P}\)</span>.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><img alt="" src="_images/mcl1.png" /></p>
+</div>
 <div class="proof example admonition" id="example-0">
 <p class="admonition-title"><span class="caption-number">Example 11 </span></p>
 <div class="example-content section" id="proof-content">
@@ -565,11 +569,7 @@ le système par
 la solution aux moindres carrés est donc <span class="math notranslate nohighlight">\(\alpha=6\)</span> et <span class="math notranslate nohighlight">\(\beta=5/2\)</span>.
 Le vecteur des erreurs <span class="math notranslate nohighlight">\({\bf Y}-{\bf Ax}=(1/2\)</span> <span class="math notranslate nohighlight">\(-1\)</span> <span class="math notranslate nohighlight">\(1/2)^T \)</span> est bien orthogonal dans <span class="math notranslate nohighlight">\(R^3\)</span> aux colonnes de <span class="math notranslate nohighlight">\({\bf A}\)</span>. Chaque erreur peut être également représentée par la distance verticale entre la mesure <span class="math notranslate nohighlight">\({ Y_i}\)</span> et la droite <span class="math notranslate nohighlight">\(f(t)=6+\frac{5}{2}t\)</span> pour <span class="math notranslate nohighlight">\(t=t_i\)</span> (segments rouges).</p>
 </div>
-</div><div class="margin sidebar">
-<p class="sidebar-title"></p>
-<p><img alt="" src="_images/mcl1.png" /></p>
-</div>
-<div class="proof example admonition" id="example-1">
+</div><div class="proof example admonition" id="example-1">
 <p class="admonition-title"><span class="caption-number">Example 12 </span></p>
 <div class="example-content section" id="proof-content">
 <p>Le système <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> produit pour les entrées <span class="math notranslate nohighlight">\(t_i =\{-2,-1,0,1,2\}\)</span> les sorties \<span class="math notranslate nohighlight">\(Y_i=\{3,1,-0.5,1.5,4\}\)</span>.
