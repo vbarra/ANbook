@@ -221,7 +221,7 @@ for ind,d in enumerate(degre):
 
 ## Un exemple de régression linéaire
 
-
+On construit un nuage de points dans $\mathbb R^3$, initialement sur un plan, et bruité par un bruit suivant une loi centré d'écart-type $\sigma$.
 ```{code-cell} ipython3
 dim_i = 2 
 dim_o = 1 
@@ -254,7 +254,7 @@ plt.ylabel("Erreur")
 plt.tight_layout()
 ```
 
-# On affiche e modèle pour un niveau de bruit $s\sigma$=0.7
+On affiche e modèle pour un niveau de bruit $s\sigma$=0.7
 ```{code-cell} ipython3
 Y = np.dot(A,A0) + np.random.normal(scale = 0.7, size=(nb_data, dim_o))
 X = dot(inv(dot(A.T,A)),dot(A.T, Y)) 
