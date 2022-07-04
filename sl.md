@@ -265,7 +265,7 @@ $\frac{\|{\bf\delta \bf x}\|}{\|{\bf x}+{\bf \delta \bf x}\|}\leq \sigma({\bf A}
 
 et on peut même majorer l'erreur relative dans le cas où l'on commet à la fois une erreur sur ${\bf A}$ et une erreur sur ${\bf b}$ : 
 
-````{prf:theorem} Majoration de l'erreur dans le cas  ({ A + { \delta { A}})( x+\delta x)}={ b+\delta b}$
+````{prf:theorem} Majoration de l'erreur dans le cas  $({ A + { \delta { A}})( x+\delta x)}={ b+\delta b}$
 
 Soient ${\bf A}\in\mathcal{M}_n(\mathbb R)$ inversible, ${\bf b}\in(\mathbb R^n)^*$, ${\bf \delta \bf  A}\in\mathcal{M}_n(\mathbb R)$ et ${\bf \delta \bf b}\in\mathbb R^n$. On suppose que $\|\bf \delta \bf A\|<\frac{1}{\|{\bf A^{-1}}\|}$. 
 
