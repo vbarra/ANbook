@@ -455,6 +455,11 @@ title="Print to PDF"
    Projection sur une droite passant par l’origine
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#projection-sur-une-droite-ne-passant-pas-par-l-origine">
+   Projection sur une droite ne passant pas par l’origine
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -482,6 +487,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#projection-sur-une-droite-passant-par-l-origine">
    Projection sur une droite passant par l’origine
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#projection-sur-une-droite-ne-passant-pas-par-l-origine">
+   Projection sur une droite ne passant pas par l’origine
   </a>
  </li>
 </ul>
@@ -568,19 +578,19 @@ $<span class="math notranslate nohighlight">\({\bf P}=\frac{1}{\|{\bf v}\|^2}{\b
 <div class="remark-content section" id="proof-content">
 <ol class="simple">
 <li><p>Comme <span class="math notranslate nohighlight">\({\bf p}={\bf Py}\)</span>, la projection orthogonale sur le sous-espace orthogonal <span class="math notranslate nohighlight">\(D^\bot\)</span> est \<span class="math notranslate nohighlight">\({\bf u}={\bf y}-{\bf p}=(\mathbb I-{\bf P}){\bf y}\)</span>, donc <span class="math notranslate nohighlight">\(\mathbb I-{\bf P}\)</span> est la matrice de projection orthogonale sur <span class="math notranslate nohighlight">\(D^\bot\)</span>.</p></li>
-<li><p>Soit <span class="math notranslate nohighlight">\(\theta\)</span> l’angle entre les directions des vecteurs <span class="math notranslate nohighlight">\({\bf v}\)</span> et <span class="math notranslate nohighlight">\({\bf y}\)</span>. On a alors :</p></li>
+<li><p>Soit <span class="math notranslate nohighlight">\(\theta\)</span> l’angle entre les directions des vecteurs <span class="math notranslate nohighlight">\({\bf v}\)</span> et <span class="math notranslate nohighlight">\({\bf y}\)</span>. On a alors : <span class="math notranslate nohighlight">\(cos(\theta)=\frac{{\bf v^T}{\bf  y}}{\|{\bf v}\|\|{\bf y}\|}\)</span> et on en déduit l’inégalité de Schwarz :</p></li>
 </ol>
-<p><span class="math notranslate nohighlight">\(cos(\theta)=\frac{{\bf v^T}{\bf  y}}{\|{\bf v}\|\|{\bf y}\|}\)</span>
-et on en déduit l’inégalité de Schwarz :</p>
 <p><span class="math notranslate nohighlight">\((\forall {\bf x},{\bf y}\in \mathbb R^n)\quad  |{\bf x^T}  {\bf y}|\leq \|{\bf x}\|\|{\bf y}\|\)</span></p>
 </div>
 </div><div class="proof example admonition" id="example-2">
 <p class="admonition-title"><span class="caption-number">Example 10 </span></p>
 <div class="example-content section" id="proof-content">
-<p>Dans <span class="math notranslate nohighlight">\(\mathbb R^2\)</span>, la projection sur l’axe des abscisses, dirigé par <span class="math notranslate nohighlight">\({\bf v}=\begin{pmatrix}1 \\0\\\end{pmatrix}\)</span>, est effectuée par \mbox{<span class="math notranslate nohighlight">\({\bf P}= \begin{pmatrix}1&amp;0\\0&amp;0\end{pmatrix}\)</span>} et on a bien <span class="math notranslate nohighlight">\({\bf p}={\bf Py}=\begin{pmatrix}y_1 \\0\\\end{pmatrix}\)</span>}</p>
+<p>Dans <span class="math notranslate nohighlight">\(\mathbb R^2\)</span>, la projection sur l’axe des abscisses, dirigé par <span class="math notranslate nohighlight">\({\bf v}=\begin{pmatrix}1 \\0\\\end{pmatrix}\)</span>, est effectuée par \mbox{<span class="math notranslate nohighlight">\({\bf P}= \begin{pmatrix}1&amp;0\\0&amp;0\end{pmatrix}\)</span>} et on a bien <span class="math notranslate nohighlight">\({\bf p}={\bf Py}=\begin{pmatrix}y_1 \\0\\\end{pmatrix}\)</span></p>
 </div>
-</div><p>\subsection{Projection sur une droite ne passant pas par l’origine}
-On utilise la représentation d’une droite comme un sous-espace affine parallèle à un sous-espace :
+</div></div>
+<div class="section" id="projection-sur-une-droite-ne-passant-pas-par-l-origine">
+<h2>Projection sur une droite ne passant pas par l’origine<a class="headerlink" href="#projection-sur-une-droite-ne-passant-pas-par-l-origine" title="Lien permanent vers ce titre">#</a></h2>
+<p>On utilise la représentation d’une droite comme un sous-espace affine parallèle à un sous-espace :
 $<span class="math notranslate nohighlight">\(D=\{{\bf z}\in \mathbb R^n / {\bf z}={\bf z_0}+\lambda {\bf v},\lambda \in \mathbb R\}\)</span><span class="math notranslate nohighlight">\(
 Soit \)</span>{\bf y}\in \mathbb R^n<span class="math notranslate nohighlight">\( et \)</span>{\bf p}<span class="math notranslate nohighlight">\( sa projection orthogonale sur la droite \)</span>D<span class="math notranslate nohighlight">\(. Alors :\\
 \)</span>{\bf y}={\bf p}+{\bf u}<span class="math notranslate nohighlight">\( avec \)</span>{\bf p}={\bf z_0}+\lambda {\bf v}<span class="math notranslate nohighlight">\( et \)</span>{\bf u^T}  {\bf v}=0<span class="math notranslate nohighlight">\(, d'où \)</span>{\bf p}={\bf z_0}+{\bf P}({\bf y}-{\bf z_0})=(\mathbb I-{\bf P}){\bf z_0}+{\bf P}{\bf y}<span class="math notranslate nohighlight">\(,\\
