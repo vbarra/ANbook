@@ -298,7 +298,7 @@
 #     $
 # 
 # avec 
-#     ${\bf b}=\begin{pmatrix} 32\\23\\33\\31\end{pmatrix} \quad \textcolor{red}{{\bf \delta b}=\begin{pmatrix} 0.01\\-0.01\\0.01\\-0.01\end{pmatrix}}$
+#     ${\bf b}=\begin{pmatrix} 32\\23\\33\\31\end{pmatrix} \text{ et } \textcolor{red}{{\bf \delta b}=\begin{pmatrix} 0.01\\-0.01\\0.01\\-0.01\end{pmatrix}}$
 # 
 # Alors 
 # 
