@@ -115,8 +115,11 @@ ${\bf A^T A}=\begin{pmatrix}5&0&10\\0&10&0\\10&0&34\end{pmatrix}\quad{\bf A^T Y}
 ## Systèmes incompatibles
 ```{index} Système ; incompatible
 ```
-Soit un système linéaire incompatible ${\bf Ax}={\bf b}$, où ${\bf A}\in\mathcal{M}_{mn}(\mathbb R)$ est telle que $\rang({\bf A})<m$ et ${\bf b}\notin Im({\bf A})$. On supposera par exemple (comme dans le cas des moindres carrés) que $m>n$ et $\rang({\bf A})=n$. Le système n'a donc pas de solution, et on le remplace par le système aux équations normales obtenu en le multipliant par ${\bf A^T} $ : 
-$${\bf A^T Ax}={\bf A^T b}$$
-Ce système est en général mal conditionné car $\sigma({\bf A^T A}) = \sigma^2({\bf A})$ dans le cas d'une matrice carrée ${\bf A}$. La méthode de Gauss risque d'être inefficace et on lui préférera des méthodes basées sur des transformations orthogonales qui ont l'avantage d'être numériquement stables.\\\\
+Soit un système linéaire incompatible ${\bf Ax}={\bf b}$, où ${\bf A}\in\mathcal{M}_{mn}(\mathbb R)$ est telle que $rang({\bf A})<m$ et ${\bf b}\notin Im({\bf A})$. On supposera par exemple (comme dans le cas des moindres carrés) que $m>n$ et $\rang({\bf A})=n$. Le système n'a donc pas de solution, et on le remplace par le système aux équations normales obtenu en le multipliant par ${\bf A^T} $ : 
+
+${\bf A^T Ax}={\bf A^T b}$
+
+Ce système est en général mal conditionné car $\sigma({\bf A^T A}) = \sigma^2({\bf A})$ dans le cas d'une matrice carrée ${\bf A}$. La méthode de Gauss risque d'être inefficace et on lui préférera des méthodes basées sur des transformations orthogonales qui ont l'avantage d'être numériquement stables.
+
 Finalement, si les colonnes de ${\bf A}$ sont orthonormées ({\it i.e.} orthogonales deux à deux et de norme 1) ${\bf A^T A}=\mathbb I$ (l'identité dans la \og petite\fg{} dimension $n$) et la solution des équations normales est simplement ${\bf x^*}={\bf A^T b}$. La  \og bonne\fg{} stratégie pour résoudre le problème des moindres carrés est donc de construire une base orthonormée de $Im({\bf A})$ pour calculer explicitement la projection. On verra au paragraphe \ref{trortho} que cette construction revient à triangulariser la matrice par des transformations orthogonales.
 
