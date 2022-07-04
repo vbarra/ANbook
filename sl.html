@@ -763,7 +763,73 @@ et
 <p><span class="math notranslate nohighlight">\(\Rightarrow {\bf x'''}=\begin{pmatrix} 2.40\\-1.32\\-0.61\\3.08\end{pmatrix}\)</span></p>
 <p><span class="math notranslate nohighlight">\(\Rightarrow\)</span> Une petite variation de <span class="math notranslate nohighlight">\({\bf b}\)</span> et/ou <span class="math notranslate nohighlight">\({\bf A}\)</span>  entraîne une grande variation de <span class="math notranslate nohighlight">\({\bf x}\)</span>.</p>
 </div>
-</div><div class="proof example admonition" id="example-10">
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">init_printing</span><span class="p">,</span> <span class="n">Matrix</span>
+<span class="kn">from</span> <span class="nn">sympy.solvers.solveset</span> <span class="kn">import</span> <span class="n">linsolve</span>
+<span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">filterwarnings</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]])</span>
+<span class="n">deltaA</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="o">/</span><span class="mf">25.</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mf">25.</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mf">50.</span><span class="p">,</span> <span class="o">-</span><span class="mi">11</span><span class="o">/</span><span class="mf">100.</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.01</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mf">50.</span><span class="p">]])</span>
+<span class="n">b_1</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([</span><span class="mi">32</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">31</span><span class="p">])</span>
+<span class="n">b_2</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([</span><span class="mf">32.01</span><span class="p">,</span> <span class="mf">22.99</span><span class="p">,</span> <span class="mf">33.01</span><span class="p">,</span> <span class="mf">30.99</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_1</span> <span class="o">=</span> <span class="n">linsolve</span><span class="p">([</span><span class="n">A</span><span class="p">,</span><span class="n">b_1</span><span class="p">])</span>
+<span class="n">x_1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left\{\left( 1, \  1, \  1, \  1\right)\right\}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_2</span> <span class="o">=</span> <span class="n">linsolve</span><span class="p">([</span><span class="n">A</span><span class="p">,</span><span class="n">b_2</span><span class="p">])</span>
+<span class="n">x_2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left\{\left( 1.82000000000001, \  -0.360000000000021, \  1.35, \  0.789999999999998\right)\right\}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_3</span> <span class="o">=</span> <span class="n">linsolve</span><span class="p">([</span><span class="n">A</span><span class="o">+</span><span class="n">deltaA</span><span class="p">,</span><span class="n">b_1</span><span class="p">])</span>
+<span class="n">x_3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left\{\left( -1.91734708097775, \  5.63520081425947, \  0.0789600378770681, \  1.53992900043846\right)\right\}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_4</span> <span class="o">=</span> <span class="n">linsolve</span><span class="p">([</span><span class="n">A</span><span class="o">+</span><span class="n">deltaA</span><span class="p">,</span><span class="n">b_2</span><span class="p">])</span>
+<span class="n">x_4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left\{\left( -1.83740079314526, \  5.5073371018571, \  0.0658714766362358, \  1.56931795245825\right)\right\}\]</div>
+</div>
+</div>
+<div class="proof example admonition" id="example-10">
 <p class="admonition-title"><span class="caption-number">Example 3 </span> (Deuxième exemple)</p>
 <div class="example-content section" id="proof-content">
 <p>Soient
@@ -874,7 +940,7 @@ et
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/sl_8_0.png" src="_images/sl_8_0.png" />
+<img alt="_images/sl_14_0.png" src="_images/sl_14_0.png" />
 </div>
 </div>
 <p>La condition de la matrice est</p>
