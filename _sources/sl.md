@@ -290,13 +290,15 @@ Pour toutes matrices ${\bf A}$, ${\bf B}$ inversibles :
 ```{prf:example}  
 
 Premier exemple
+
+Soit 
     ${\bf A}=\begin{pmatrix}
     10 &7& 8& 7\\
     7& 5& 6 & 5\\
     8 & 6 & 10 & 9 \\
     7& 5 & 9 & 10
     \end{pmatrix}$
-
+et 
     $\textcolor{red}{{\bf \delta A} = \begin{pmatrix}
         0 &0& \frac{1}{10}& \frac{1}{5}\\
         \frac{2}{25}& \frac{1}{25}& 0 & 0\\
