@@ -299,7 +299,10 @@
 #         \end{pmatrix}}
 #     $
 # 
+# avec 
 #     ${\bf b}=\begin{pmatrix} 32\\23\\33\\31\end{pmatrix} \quad \textcolor{red}{{\bf \delta b}=\begin{pmatrix} 0.01\\-0.01\\0.01\\-0.01\end{pmatrix}}$
+# 
+# Alors 
 # 
 # - ${\bf Ax}={\bf b}  \Rightarrow {\bf x}=\begin{pmatrix} 1\\1\\1\\1\end{pmatrix}$\\
 # - ${\bf Ax'}={\bf b +\textcolor{red}{{\bf \delta b}}} \Rightarrow {\bf x'}=\begin{pmatrix} 41.11\\-70.56\\19.35\\-10.01\end{pmatrix}={\bf x}+\textcolor{red}{\begin{pmatrix} 40.11\\-71.56\\18.35\\-11.01\end{pmatrix}}$\\
