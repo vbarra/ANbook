@@ -653,6 +653,8 @@ print("Rang de A = ",np.linalg.matrix_rank(A))
 De la définition précédente, on tire le résultat fondamental suivant
 $\dim\left(\mathrm{Im}({\bf A})\right)=\mathrm{rang}({\bf A}).$
 
+````{prf:example} 
+
 Soit ${\bf A}=\begin{pmatrix} 1&0&-2\\0&1&0\\-1&0&2\end{pmatrix}$.\
 Manifestement, la première et la troisième colonne sont liées, tandis que
 les deux premières sont linéairement indépendantes. ${\bf A}$, qui
@@ -660,4 +662,4 @@ réalise une transformation linéaire de $\mathbb R^3$ dans $\mathbb R^3$, a
 donc pour image le plan
 $lin\left (\begin{pmatrix}1\\0\\-1 \end{pmatrix},\begin{pmatrix} 0\\1\\0 \end{pmatrix}  \right )$.\
 ${\bf A}$ est donc de rang 2.
-
+````
