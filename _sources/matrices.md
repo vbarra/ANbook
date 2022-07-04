@@ -200,7 +200,7 @@ plt.tight_layout()
 
 
 Pour évaluer les effets d'une transformation linéaire sur la norme d'un vecteur, 
-on s'arrange pour utiliser des normes de matrices {subordonnées}
+on s'arrange pour utiliser des normes de matrices subordonnées
 aux normes vectorielles, dans le sens suivant :
 
 $\|{\bf A}\|=\displaystyle\sup_{{\bf x}\neq {\bf 0}}\frac{\|{{\bf Ax}\|}{\|{{\bf x}\|}=\displaystyle\sup_{\|{\bf x}\|=1}\|{\bf Ax}\|$
