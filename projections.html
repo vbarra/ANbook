@@ -465,6 +465,11 @@ title="Print to PDF"
    Projection sur un sous-espace
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matrices-de-projection">
+   Matrices de projection
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -502,6 +507,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#projection-sur-un-sous-espace">
    Projection sur un sous-espace
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matrices-de-projection">
+   Matrices de projection
   </a>
  </li>
 </ul>
@@ -614,11 +624,17 @@ soit</p>
 <p><img alt="" src="_images/projespace.png" /></p>
 </div>
 <p>Alors <span class="math notranslate nohighlight">\({\bf y}={\bf p}+{\bf u}\)</span> avec <span class="math notranslate nohighlight">\({\bf p}={\bf Ax},{\bf x}\in \mathbb R^r\)</span> et <span class="math notranslate nohighlight">\({\bf A^T}{\bf u}=0\)</span> car <span class="math notranslate nohighlight">\({\bf u}\in (Im({\bf A}))^\perp = Ker({\bf A^T})\)</span>.\
-On obtient alors : <span class="math notranslate nohighlight">\({\bf A^T} {\bf y}={\bf A^T}{\bf Ax}\)</span>, et comme <span class="math notranslate nohighlight">\({\bf A}\)</span> est de rang plein, la matrice (<span class="math notranslate nohighlight">\(r\times r\)</span>) <span class="math notranslate nohighlight">\({\bf A^T A}\in\mathcal{M}_{r}(\mathbb R)\)</span> est inversible et :\
-<span class="math notranslate nohighlight">\({\bf p}={\bf Py}\)</span> avec <span class="math notranslate nohighlight">\({\bf P}={\bf A(A^T A)^{-1}A^T }\)</span>.\
-De plus, on retrouve la matrice de projection orthogonale <span class="math notranslate nohighlight">\(\mathbb I -{\bf P}\)</span> sur le noyau de <span class="math notranslate nohighlight">\({\bf A^T }\)</span>.</p>
-<p>{\rem Si <span class="math notranslate nohighlight">\(r=1\)</span> on retrouve la formule trouvée dans le paragraphe \ref{drt}.}</p>
-<p>\subsection{Matrices de projection}</p>
+On obtient alors : <span class="math notranslate nohighlight">\({\bf A^T} {\bf y}={\bf A^T}{\bf Ax}\)</span>, et comme <span class="math notranslate nohighlight">\({\bf A}\)</span> est de rang plein, la matrice (<span class="math notranslate nohighlight">\(r\times r\)</span>) <span class="math notranslate nohighlight">\({\bf A^T A}\in\mathcal{M}_{r}(\mathbb R)\)</span> est inversible et :</p>
+<p><span class="math notranslate nohighlight">\({\bf p}={\bf Py}\)</span> avec <span class="math notranslate nohighlight">\({\bf P}={\bf A(A^T A)^{-1}A^T }\)</span>.</p>
+<p>De plus, on retrouve la matrice de projection orthogonale <span class="math notranslate nohighlight">\(\mathbb I -{\bf P}\)</span> sur le noyau de <span class="math notranslate nohighlight">\({\bf A^T }\)</span>.</p>
+<div class="proof remark admonition" id="remark-3">
+<p class="admonition-title"><span class="caption-number">Remark 8 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>Si <span class="math notranslate nohighlight">\(r=1\)</span> on retrouve la formule trouvée dans le cas de la projection sur une droite vectorielle.}</p>
+</div>
+</div></div>
+<div class="section" id="matrices-de-projection">
+<h2>Matrices de projection<a class="headerlink" href="#matrices-de-projection" title="Lien permanent vers ce titre">#</a></h2>
 <p>Les matrices de projection\index{matrice!de projection} sont des matrices
 qui possèdent les deux propriétés suivantes :
 \begin{itemize}

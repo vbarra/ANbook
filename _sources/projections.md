@@ -149,14 +149,17 @@ Soit ${\bf A}\in\mathcal{M}_{n,r}(\mathbb R)$  de rang $r$ (donc $r\leq n$). Con
 ```
 
 Alors ${\bf y}={\bf p}+{\bf u}$ avec ${\bf p}={\bf Ax},{\bf x}\in \mathbb R^r$ et ${\bf A^T}{\bf u}=0$ car ${\bf u}\in (Im({\bf A}))^\perp = Ker({\bf A^T})$.\\
-On obtient alors : ${\bf A^T} {\bf y}={\bf A^T}{\bf Ax}$, et comme ${\bf A}$ est de rang plein, la matrice ($r\times r$) ${\bf A^T A}\in\mathcal{M}_{r}(\mathbb R)$ est inversible et :\\
-${\bf p}={\bf Py}$ avec ${\bf P}={\bf A(A^T A)^{-1}A^T }$.\\
+On obtient alors : ${\bf A^T} {\bf y}={\bf A^T}{\bf Ax}$, et comme ${\bf A}$ est de rang plein, la matrice ($r\times r$) ${\bf A^T A}\in\mathcal{M}_{r}(\mathbb R)$ est inversible et :
+
+${\bf p}={\bf Py}$ avec ${\bf P}={\bf A(A^T A)^{-1}A^T }$.
+
 De plus, on retrouve la matrice de projection orthogonale $\mathbb I -{\bf P}$ sur le noyau de ${\bf A^T }$.
 
-{\rem Si $r=1$ on retrouve la formule trouvée dans le paragraphe \ref{drt}.}
-%-----------------------------------
-\subsection{Matrices de projection}
-%-----------------------------------
+```{prf:remark}
+Si $r=1$ on retrouve la formule trouvée dans le cas de la projection sur une droite vectorielle.}
+```
+
+## Matrices de projection
 
 Les matrices de projection\index{matrice!de projection} sont des matrices
 qui possèdent les deux propriétés suivantes : 
