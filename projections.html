@@ -48,6 +48,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Moindres carrés linéaires" href="mcl.html" />
@@ -201,6 +203,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="mcl.html">
    Moindres carrés linéaires
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="transfoortho.html">
+   Transformations orthogonales
   </a>
  </li>
 </ul>
@@ -442,6 +449,142 @@ title="Print to PDF"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="projections-orthogonales">
 <h1>Projections orthogonales<a class="headerlink" href="#projections-orthogonales" title="Lien permanent vers ce titre">#</a></h1>
+<p>On s’intéresse ici aux mécanismes de calcul de la projection orthogonale d’un vecteur de \mathbb R<span class="math notranslate nohighlight">\(^n\)</span> sur un sous-espace. Les résultats fondamentaux d’existence, d’unicité et de caractérisation de la projection orthogonale d’un point sur un sous-espace, valables dans des espaces plus généraux que \R<span class="math notranslate nohighlight">\(^n\)</span>, sont rappelés ci-après. Dans tout le chapitre,
+la norme vectorielle utilisée, et notée <span class="math notranslate nohighlight">\(\|\cdot\|\)</span>, est la norme euclidienne.</p>
+<div class="proof theorem admonition" id="theorem-0">
+<p class="admonition-title"><span class="caption-number">Theorem 6 </span> (Théorème de projection)</p>
+<div class="theorem-content section" id="proof-content">
+<p>Soit <span class="math notranslate nohighlight">\(L\)</span> un sous-espace vectoriel de \mathbb R<span class="math notranslate nohighlight">\(^n\)</span>. Étant donné un vecteur <span class="math notranslate nohighlight">\({\bf y}\in\mathbb R^n\)</span>, il existe un unique vecteur <span class="math notranslate nohighlight">\({\bf p}\in L\)</span>, appelé projection orthogonale
+de <span class="math notranslate nohighlight">\({\bf y}\)</span> sur <span class="math notranslate nohighlight">\(L\)</span>, tel que :</p>
+<p><span class="math notranslate nohighlight">\((\forall {\bf x}\in L)\ \|{\bf y}-{\bf p}\|\leq \\{\bf y}-{\bf x}\|\)</span>
+Une condition nécessaire et suffisante pour que <span class="math notranslate nohighlight">\({\bf p}\in L\)</span> soit la projection orthogonale de <span class="math notranslate nohighlight">\({\bf y}\)</span> sur <span class="math notranslate nohighlight">\(L\)</span> est <span class="math notranslate nohighlight">\({\bf y}-{\bf p}\in L^\bot\)</span></p>
+</div>
+</div><div class="margin sidebar" id="index-0">
+<p class="sidebar-title"></p>
+<p><img alt="" src="_images/projection.png" /></p>
+</div>
+<p>\textsc{Démonstration.} \
+\textit{1) Existence:} On peut supposer que <span class="math notranslate nohighlight">\({\bf y}\notin L\)</span> et on introduit
+$<span class="math notranslate nohighlight">\(\varepsilon=\inf_{{\bf x}\in L}\|{\bf y}-{\bf x}\|&gt;0.\)</span><span class="math notranslate nohighlight">\( On veut trouver \)</span>{\bf p}\in L<span class="math notranslate nohighlight">\( tel que \)</span>|{\bf p}-{\bf y}|=\varepsilon<span class="math notranslate nohighlight">\(. Soit une suite
+\)</span>{{\bf p_i}}<span class="math notranslate nohighlight">\( de vecteurs de \)</span>L<span class="math notranslate nohighlight">\( tels que \)</span>|{\bf y}-{\bf p_i}|\rightarrow\varepsilon<span class="math notranslate nohighlight">\(. On a alors (loi du parallélogramme)
+\)</span><span class="math notranslate nohighlight">\(
+\|({\bf p_j}-{\bf y})+({\bf y}-{\bf p_i})\|^2+\|({\bf p_j}-{\bf y})-({\bf y}-{\bf p_i})\|^2=2\|{\bf p_j}-{\bf y}\|^2+2\|{\bf y}-{\bf p_i}\|^2.
+\)</span><span class="math notranslate nohighlight">\(
+Soit
+\)</span><span class="math notranslate nohighlight">\(
+\|{\bf p_j}-{\bf p_i}\|^2=2\|{\bf p_j}-{\bf y}\|^2+2\|{\bf y}-{\bf p_i}\|^2-4\|{\bf y}-({\bf p_i}+{\bf p_j})/2\|^2.
+\)</span><span class="math notranslate nohighlight">\(
+Comme \)</span>({\bf p_i}+{\bf p_j})/2\in L<span class="math notranslate nohighlight">\(, on a 
+\)</span><span class="math notranslate nohighlight">\(
+\|{\bf y}-({\bf p_i}+{\bf p_j})/2\|^2\ge \varepsilon^2,
+\)</span><span class="math notranslate nohighlight">\(
+ce qui permet de majorer
+\)</span><span class="math notranslate nohighlight">\(
+\|{\bf p_j}-{\bf p_i}\|^2\le 2\|{\bf p_j}-{\bf y}\|^2+2\|{\bf y}-{\bf p_i}\|^2-4\varepsilon^2.
+\)</span><span class="math notranslate nohighlight">\(
+Par passage à la limite, on déduit que \)</span>|{\bf p_j}-{\bf p_i}|\rightarrow 0<span class="math notranslate nohighlight">\(. Ce qui prouve que la suite des 
+\)</span>{\bf p_i}<span class="math notranslate nohighlight">\( est une suite de Cauchy\footnote{Une suite de Cauchy est une suite de vecteurs \)</span>{{\bf x_k}}<span class="math notranslate nohighlight">\(
+qui satisfait \)</span>\lim_{k,\ell\rightarrow+\infty}|{\bf x_k}-{\bf x_\ell}|=0<span class="math notranslate nohighlight">\(. Toute suite convergente est bien sûr de Cauchy
+mais l'inverse n'est pas toujours vrai dans les espaces vectoriels normés généraux. C'est toujours vrai dans 
+les espaces de Hilbert (donc dans \)</span>\mathbb R^n$).}</p>
+<p>\textit{2) Orthogonalité:} Supposons qu’il existe <span class="math notranslate nohighlight">\({\bf x}\in L\)</span> tel que <span class="math notranslate nohighlight">\({\bf x^T} ({\bf y}-{\bf p})=\delta \neq 0\)</span>. On peut supposer que <span class="math notranslate nohighlight">\(\|{\bf x}\|=1\)</span>. On prend <span class="math notranslate nohighlight">\({\bf p_1}={\bf p}+\delta {\bf x}\)</span> et on écrit : [  |{\bf y}-{\bf p_1}|^2=|{\bf y}-{\bf p}|^2-2 ({\bf y}-{\bf p})^T (\delta {\bf x}) + \delta^2 = |{\bf y}-{\bf p}|^2- \delta^2 &lt; |{\bf y}-{\bf p}|^2 ]
+d’où la contradiction.\
+\textit{3) Unicité:} Supposons qu’il existe un <span class="math notranslate nohighlight">\({\bf x}\ne {\bf p}\)</span> qui réalise le minimum.
+On applique le théorème de Pythagore :
+[ (\forall {\bf x} \in L)\ |{\bf y}-{\bf x}|^2=|{\bf y}-{\bf p}+{\bf p}-{\bf x}|^2  = |{\bf y}-{\bf p}|^2 + |{\bf p}-{\bf x}|^2  &gt; | {\bf y}-{\bf p}|^2 ]
+d’où la contradiction.</p>
+<p>\subsection{Projection sur une droite passant par l’origine}
+\label{drt}
+Une droite qui passe par l’origine est un sous-espace de dimension 1. Soit <span class="math notranslate nohighlight">\({\bf y}\in \mathbb R^n\)</span> et <span class="math notranslate nohighlight">\(D\)</span> le sous-espace de vecteurs engendrés par un vecteur <span class="math notranslate nohighlight">\({\bf v}\)</span> non nul : $<span class="math notranslate nohighlight">\(D=\{{\bf z}\in \mathbb R^n /{\bf z}=\lambda {\bf v},\lambda\in \mathbb R\}\)</span><span class="math notranslate nohighlight">\(
+Si \)</span>{\bf p}\in D<span class="math notranslate nohighlight">\( est la projection orthogonale de \)</span>{\bf y}<span class="math notranslate nohighlight">\( sur la droite, on peut écrire  : \)</span>{\bf y}={\bf p}+{\bf u}<span class="math notranslate nohighlight">\(, avec \)</span>{\bf p}=\lambda {\bf v}<span class="math notranslate nohighlight">\( et \)</span>{\bf u^T}{\bf v}=0$. (figure \ref{F:projD})\</p>
+<p>On remarque que la dernière relation signifie que <span class="math notranslate nohighlight">\({\bf u}\in D^\bot\)</span> et donc que <span class="math notranslate nohighlight">\({\bf u}\)</span> est la projection orthogonale de <span class="math notranslate nohighlight">\({\bf y}\)</span> sur <span class="math notranslate nohighlight">\(D^\bot\)</span>.
+Alors :
+$<span class="math notranslate nohighlight">\({\bf v^T}  {\bf y}=\lambda {\bf v^T}  {\bf v} \Rightarrow \lambda=\frac{1}{{\bf v^T}{\bf v} }. {\bf v^T}  {\bf y}\)</span><span class="math notranslate nohighlight">\(
+soit
+\)</span><span class="math notranslate nohighlight">\({\bf p}=\frac{ {\bf v^T}  {\bf y}}{ {\bf v^T}  {\bf v}}.{\bf v}\)</span>$</p>
+<p>Ainsi, cette expression qui exprime le fait que <span class="math notranslate nohighlight">\({\bf p}\)</span> a la même direction que <span class="math notranslate nohighlight">\({\bf v}\)</span> peut s’écrire différemment pour représenter la transformation qui transforme <span class="math notranslate nohighlight">\({\bf y}\)</span> en <span class="math notranslate nohighlight">\({\bf p}\)</span>.\
+On vérifie que <span class="math notranslate nohighlight">\(({\bf v^T}  {\bf y}){\bf v} = ({\bf v} {\bf v^T}){\bf y}\)</span> où l’on observe que <span class="math notranslate nohighlight">\( {\bf v^T}  {\bf y}\in \mathbb R\)</span> alors que <span class="math notranslate nohighlight">\({\bf v} {\bf v^T}\in\mathcal{M}_n(\mathbb R)\)</span>  de rang 1 (toutes les colonnes sont des multiples de <span class="math notranslate nohighlight">\({\bf v}\)</span>) qui { projette} l’espace <span class="math notranslate nohighlight">\(\mathbb R^n\)</span> sur la droite <span class="math notranslate nohighlight">\(D\)</span>. La projection orthogonale sur une droite qui passe par l’origine est donc une transformation linéaire, de matrice :\index{matrice!de projection}
+$<span class="math notranslate nohighlight">\({\bf P}=\frac{1}{\norme{{\bf v}}^2}{\bf v}{\bf v^T} \)</span><span class="math notranslate nohighlight">\(
+\begin{figure}[hbtp!]
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round,&gt;=triangle 45,x=1.0cm,y=1.0cm,scale=0.65]
+\clip(-3.52,-2.76) rectangle (7.36,5.76);
+\draw [-&gt;] (0.,0.) -- (0.,4.);
+\draw [-&gt;] (0.,0.) -- (-2.84,-2.02);
+\draw[-](0,0) -- (7.68,-3.28);
+\draw [-&gt;,line width=1.6pt,blue] (0.,0.) -- (3.84,3.62);
+\draw [-&gt;,line width=1.2pt,cyan] (0.,0.) -- (3.84,-1.64);
+\draw [-&gt;,line width=1.6pt,red] (0.,0.) -- (1.536,-0.656);
+\draw [-&gt;,line width=1.6pt,orange] (0.,0.) -- (1.54,3.62);
+\draw [dash pattern=on 4pt off 4pt] (3.84,3.62)-- (3.84,-1.64);
+\draw [dash pattern=on 4pt off 4pt] (3.84,3.62)-- (1.54,3.62);
+\draw [-&gt;] (0.,0.) -- (5.34,-1.3);
+\draw (-0.54,4.74) node[anchor=north west] { \)</span>x_3<span class="math notranslate nohighlight">\( };
+\draw (-3.2,-1.4) node[anchor=north west] { \)</span>x_1<span class="math notranslate nohighlight">\( };
+\draw (5.48,-0.96) node[anchor=north west] { \)</span>x_2<span class="math notranslate nohighlight">\( };
+\draw (3.84,3.62) node[anchor=north west] { \)</span>\textcolor{blue}<span class="math notranslate nohighlight">\( };
+\draw (3.84,-1.64) node[anchor=north west] { \)</span>\textcolor{cyan}<span class="math notranslate nohighlight">\( };
+\draw (1.536,-0.656) node[anchor=north west] { \)</span>\textcolor{red}<span class="math notranslate nohighlight">\( };
+\draw (1.54,3.62) node[anchor=north west] { \)</span>\textcolor{red}<span class="math notranslate nohighlight">\( };
+\draw (5.76,-2.1) node[anchor=north west] { \)</span>D$ };
+\end{tikzpicture}</p>
+<p>\end{center}
+\caption{Projection sur une droite : exemple dans <span class="math notranslate nohighlight">\(\mathbb R^3\)</span>}
+\label{F:projD}
+\end{figure}</p>
+<p>{\rem :
+\begin{enumerate}
+\item Comme <span class="math notranslate nohighlight">\({\bf p}={\bf Py}\)</span>, la projection orthogonale sur le sous-espace orthogonal <span class="math notranslate nohighlight">\(D^\bot\)</span> est \<span class="math notranslate nohighlight">\({\bf u}={\bf y}-{\bf p}=(\mathbb I-{\bf P}){\bf y}\)</span>, donc <span class="math notranslate nohighlight">\(\mathbb I-{\bf P}\)</span> est la matrice de projection orthogonale sur <span class="math notranslate nohighlight">\(D^\bot\)</span>.
+\item Soit <span class="math notranslate nohighlight">\(\theta\)</span> l’angle entre les directions des vecteurs <span class="math notranslate nohighlight">\({\bf v}\)</span> et <span class="math notranslate nohighlight">\({\bf y}\)</span>. On a alors :
+$<span class="math notranslate nohighlight">\(cos(\theta)=\frac{{\bf v^T}{\bf  y}}{\norme{{\bf v}}\norme{{\bf y}}}\)</span><span class="math notranslate nohighlight">\(
+  et on en déduit l'inégalité de Schwarz : 
+  \)</span><span class="math notranslate nohighlight">\((\forall {\bf x},{\bf y}\in \mathbb R^n)\quad  |{\bf x^T}  {\bf y}|\leq \norme{{\bf x}}\norme{{\bf y}}\)</span><span class="math notranslate nohighlight">\(
+\end{enumerate}
+}
+\exemple{
+Dans \)</span>\mathbb R^2<span class="math notranslate nohighlight">\(, la projection sur l'axe des abscisses, dirigé par \)</span>{\bf v}=\begin{pmatrix}1 \0\end{pmatrix}<span class="math notranslate nohighlight">\(, est effectuée par \mbox{\)</span>{\bf P}= \begin{pmatrix}1&amp;0\0&amp;0\end{pmatrix}<span class="math notranslate nohighlight">\(} et on a bien \)</span>{\bf p}={\bf Py}=\begin{pmatrix}y_1 \0\end{pmatrix}$}</p>
+<p>\subsection{Projection sur une droite ne passant pas par l’origine}
+On utilise la représentation d’une droite comme un sous-espace affine parallèle à un sous-espace :
+$<span class="math notranslate nohighlight">\(D=\{{\bf z}\in \mathbb R^n / {\bf z}={\bf z_0}+\lambda {\bf v},\lambda \in \mathbb R\}\)</span><span class="math notranslate nohighlight">\(
+Soit \)</span>{\bf y}\in \mathbb R^n<span class="math notranslate nohighlight">\( et \)</span>{\bf p}<span class="math notranslate nohighlight">\( sa projection orthogonale sur la droite \)</span>D<span class="math notranslate nohighlight">\(. Alors :\\
+\)</span>{\bf y}={\bf p}+{\bf u}<span class="math notranslate nohighlight">\( avec \)</span>{\bf p}={\bf z_0}+\lambda {\bf v}<span class="math notranslate nohighlight">\( et \)</span>{\bf u^T}  {\bf v}=0<span class="math notranslate nohighlight">\(, d'où \)</span>{\bf p}={\bf z_0}+{\bf P}({\bf y}-{\bf z_0})=(\mathbb I-{\bf P}){\bf z_0}+{\bf P}{\bf y}<span class="math notranslate nohighlight">\(,\\
+ où \)</span>{\bf P}<span class="math notranslate nohighlight">\( est la matrice de projection sur le sous-espace engendré par \)</span>{\bf v}$ obtenu dans le paragraphe \ref{drt}.</p>
+<p>\subsection{Projection sur un sous-espace}\label{ssev}
+Soit <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{n,r}(\mathbb R)\)</span>  de rang <span class="math notranslate nohighlight">\(r\)</span> (donc <span class="math notranslate nohighlight">\(r\leq n\)</span>). Considérons la projection <span class="math notranslate nohighlight">\({\bf p}\)</span> d’un vecteur  <span class="math notranslate nohighlight">\({\bf y}\in\mathbb R^n\)</span> sur le sous-espace image de <span class="math notranslate nohighlight">\({\bf A}\)</span> (figure \ref{F:projImA}).
+\begin{figure}[hbtp!]
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round,&gt;=triangle 45,x=1.0cm,y=1.0cm,scale=0.5]
+\clip(-3.52,-2.76) rectangle (7.36,5.76);
+\filldraw[fill=blue!20!] (-3.5,-2) – (3.5,-2) –  (5.5,1) – (-0.5,1) – (-3.5,-2);
+\draw<span class="xref myst">-</span> – (0,4);</p>
+<p>\draw [-&gt;,line width=1.6pt,blue] (0.,0.) – (3.84,3.62);
+\draw [-&gt;,line width=1.2pt,cyan] (0.,0.) – (3.84,-1.64);
+\draw [-&gt;,line width=1.6pt,orange] (0.,0.) – (0,3.62);
+\draw [dash pattern=on 4pt off 4pt] (3.84,3.62)– (3.84,-1.64);
+\draw [dash pattern=on 4pt off 4pt] (3.84,3.62)– (0,3.62);
+\draw (-0.54,4.74) node[anchor=north west] { <span class="math notranslate nohighlight">\(Ker({\bf A^T})\)</span> };</p>
+<p>\draw (3.84,3.62) node[anchor=north west] { <span class="math notranslate nohighlight">\(\textcolor{blue}{{\bf y}}\)</span> };
+\draw (3.84,-1.64) node[anchor=north west] { <span class="math notranslate nohighlight">\(\textcolor{cyan}{{\bf p}}\)</span> };
+\draw (1.54,3.62) node[anchor=north west] { <span class="math notranslate nohighlight">\(\textcolor{red}{{\bf u}}\)</span> };
+\draw (-3.5,-2) node[anchor=north west] { <span class="math notranslate nohighlight">\( Im({\bf A})\)</span> };
+\end{tikzpicture}</p>
+<p>\end{center}
+\caption{Projection sur un sous-espace}
+\label{F:projImA}
+\end{figure}</p>
+<p>Alors <span class="math notranslate nohighlight">\({\bf y}={\bf p}+{\bf u}\)</span> avec <span class="math notranslate nohighlight">\({\bf p}={\bf Ax},{\bf x}\in \mathbb R^r\)</span> et <span class="math notranslate nohighlight">\({\bf A^T}{\bf u}=0\)</span> car <span class="math notranslate nohighlight">\({\bf u}\in (Im({\bf A}))^\perp = Ker({\bf A^T})\)</span>.\
+On obtient alors : <span class="math notranslate nohighlight">\({\bf A^T} {\bf y}={\bf A^T}{\bf Ax}\)</span>, et comme <span class="math notranslate nohighlight">\({\bf A}\)</span> est de rang plein, la matrice (<span class="math notranslate nohighlight">\(r\times r\)</span>) <span class="math notranslate nohighlight">\({\bf A^T A}\in\mathcal{M}_{r}(\mathbb R)\)</span> est inversible et :\
+<span class="math notranslate nohighlight">\({\bf p}={\bf Py}\)</span> avec <span class="math notranslate nohighlight">\({\bf P}={\bf A(A^T A)^{-1}A^T }\)</span>.\
+De plus, on retrouve la matrice de projection orthogonale <span class="math notranslate nohighlight">\(\mathbb I -{\bf P}\)</span> sur le noyau de <span class="math notranslate nohighlight">\({\bf A^T }\)</span>.</p>
+<p>{\rem Si <span class="math notranslate nohighlight">\(r=1\)</span> on retrouve la formule trouvée dans le paragraphe \ref{drt}.}</p>
+<p>\subsection{Matrices de projection}</p>
+<p>Les matrices de projection\index{matrice!de projection} sont des matrices
+qui possèdent les deux propriétés suivantes :
+\begin{itemize}
+\item <span class="math notranslate nohighlight">\({\bf P}={\bf P^T} \)</span> \rm [symétrie]
+\item <span class="math notranslate nohighlight">\({\bf P}^2={\bf P}\)</span>\rm  [idempotence]
+\end{itemize}
+Les matrices de projection sont en général singulières, puisqu’elles ramènent l’espace à un sous-espace de dimension plus petite. De plus, elles contractent les normes : <span class="math notranslate nohighlight">\(\norme{{\bf Py}}\leq \norme{{\bf y}}\)</span>.</p>
 </div>
 
     <script type="text/x-thebe-config">
