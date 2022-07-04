@@ -513,7 +513,7 @@ Une condition nécessaire et suffisante pour que <span class="math notranslate n
 <p><img alt="" src="_images/projection.png" /></p>
 </div>
 <div class="proof admonition" id="proof">
-<p>Proof. \textit{1) Existence:} On peut supposer que <span class="math notranslate nohighlight">\({\bf y}\notin L\)</span> et on introduit</p>
+<p>Proof. <code class="docutils literal notranslate"><span class="pre">Existence</span></code>: On peut supposer que <span class="math notranslate nohighlight">\({\bf y}\notin L\)</span> et on introduit</p>
 <p><span class="math notranslate nohighlight">\(\varepsilon=\inf_{{\bf x}\in L}\|{\bf y}-{\bf x}\|&gt;0.\)</span></p>
 <p>On veut trouver <span class="math notranslate nohighlight">\({\bf p}\in L\)</span> tel que <span class="math notranslate nohighlight">\(\|{\bf p}-{\bf y}\|=\varepsilon\)</span>. Soit une suite
 <span class="math notranslate nohighlight">\(\{{\bf p_i}\}\)</span> de vecteurs de <span class="math notranslate nohighlight">\(L\)</span> tels que <span class="math notranslate nohighlight">\(\|{\bf y}-{\bf p_i}\|\rightarrow\varepsilon\)</span>. On a alors (loi du parallélogramme)</p>
@@ -525,9 +525,9 @@ Une condition nécessaire et suffisante pour que <span class="math notranslate n
 \|{\bf p_j}-{\bf p_i}\|^2=2\|{\bf p_j}-{\bf y}\|^2+2\|{\bf y}-{\bf p_i}\|^2-4\|{\bf y}-({\bf p_i}+{\bf p_j})/2\|^2.
 \)</span></p>
 <p>Comme <span class="math notranslate nohighlight">\(({\bf p_i}+{\bf p_j})/2\in L\)</span>, on a
-$</p>
-<p>|{\bf y}-({\bf p_i}+{\bf p_j})/2|^2\ge \varepsilon^2,
-$</p>
+<span class="math notranslate nohighlight">\(
+\|{\bf y}-({\bf p_i}+{\bf p_j})/2\|^2\ge \varepsilon^2,
+\)</span></p>
 <p>ce qui permet de majorer</p>
 <p><span class="math notranslate nohighlight">\(
 \|{\bf p_j}-{\bf p_i}\|^2\le 2\|{\bf p_j}-{\bf y}\|^2+2\|{\bf y}-{\bf p_i}\|^2-4\varepsilon^2.
@@ -537,9 +537,9 @@ $</p>
 qui satisfait <span class="math notranslate nohighlight">\(\lim_{k,\ell\rightarrow+\infty}\|{\bf x_k}-{\bf x_\ell}\|=0\)</span>. Toute suite convergente est bien sûr de Cauchy
 mais l’inverse n’est pas toujours vrai dans les espaces vectoriels normés généraux. C’est toujours vrai dans
 les espaces de Hilbert (donc dans <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>).}</p>
-<p>\textit{2) Orthogonalité:} Supposons qu’il existe <span class="math notranslate nohighlight">\({\bf x}\in L\)</span> tel que <span class="math notranslate nohighlight">\({\bf x^T} ({\bf y}-{\bf p})=\delta \neq 0\)</span>. On peut supposer que <span class="math notranslate nohighlight">\(\|{\bf x}\|=1\)</span>. On prend <span class="math notranslate nohighlight">\({\bf p_1}={\bf p}+\delta {\bf x}\)</span> et on écrit : [  |{\bf y}-{\bf p_1}|^2=|{\bf y}-{\bf p}|^2-2 ({\bf y}-{\bf p})^T (\delta {\bf x}) + \delta^2 = |{\bf y}-{\bf p}|^2- \delta^2 &lt; |{\bf y}-{\bf p}|^2 ]
-d’où la contradiction.\
-\textit{3) Unicité:} Supposons qu’il existe un <span class="math notranslate nohighlight">\({\bf x}\ne {\bf p}\)</span> qui réalise le minimum.
+<p><code class="docutils literal notranslate"><span class="pre">Orthogonalité</span></code> : Supposons qu’il existe <span class="math notranslate nohighlight">\({\bf x}\in L\)</span> tel que <span class="math notranslate nohighlight">\({\bf x^T} ({\bf y}-{\bf p})=\delta \neq 0\)</span>. On peut supposer que <span class="math notranslate nohighlight">\(\|{\bf x}\|=1\)</span>. On prend <span class="math notranslate nohighlight">\({\bf p_1}={\bf p}+\delta {\bf x}\)</span> et on écrit : [  |{\bf y}-{\bf p_1}|^2=|{\bf y}-{\bf p}|^2-2 ({\bf y}-{\bf p})^T (\delta {\bf x}) + \delta^2 = |{\bf y}-{\bf p}|^2- \delta^2 &lt; |{\bf y}-{\bf p}|^2 ]
+d’où la contradiction.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Unicité</span></code> : Supposons qu’il existe un <span class="math notranslate nohighlight">\({\bf x}\ne {\bf p}\)</span> qui réalise le minimum.
 On applique le théorème de Pythagore :
 [ (\forall {\bf x} \in L)\ |{\bf y}-{\bf x}|^2=|{\bf y}-{\bf p}+{\bf p}-{\bf x}|^2  = |{\bf y}-{\bf p}|^2 + |{\bf p}-{\bf x}|^2  &gt; | {\bf y}-{\bf p}|^2 ]
 d’où la contradiction.</p>

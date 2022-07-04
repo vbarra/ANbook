@@ -32,7 +32,7 @@ Une condition nécessaire et suffisante pour que ${\bf p}\in L$ soit la projecti
 ```
 
 ````{prf:proof}
-\textit{1) Existence:} On peut supposer que ${\bf y}\notin L$ et on introduit 
+``Existence``: On peut supposer que ${\bf y}\notin L$ et on introduit 
 
 $\varepsilon=\inf_{{\bf x}\in L}\|{\bf y}-{\bf x}\|>0.$ 
 
@@ -50,7 +50,6 @@ $
 
 Comme $({\bf p_i}+{\bf p_j})/2\in L$, on a 
 $
-
 \|{\bf y}-({\bf p_i}+{\bf p_j})/2\|^2\ge \varepsilon^2,
 $
 
@@ -73,9 +72,10 @@ les espaces de Hilbert (donc dans $\mathbb R^n$).}
 % sur le compact  $L \cap B(y, \|y-l\|)$ pour la fonction continue et bornée inférieurement $\|x-y\|$.\\
 
 
-\textit{2) Orthogonalité:} Supposons qu'il existe ${\bf x}\in L$ tel que ${\bf x^T} ({\bf y}-{\bf p})=\delta \neq 0$. On peut supposer que $\|{\bf x}\|=1$. On prend ${\bf p_1}={\bf p}+\delta {\bf x}$ et on écrit : \[  \|{\bf y}-{\bf p_1}\|^2=\|{\bf y}-{\bf p}\|^2-2 ({\bf y}-{\bf p})^T (\delta {\bf x}) + \delta^2 = \|{\bf y}-{\bf p}\|^2- \delta^2 < \|{\bf y}-{\bf p}\|^2 \]
-d'où la contradiction.\\
-\textit{3) Unicité:} Supposons qu'il existe un ${\bf x}\ne {\bf p}$ qui réalise le minimum.
+``Orthogonalité`` : Supposons qu'il existe ${\bf x}\in L$ tel que ${\bf x^T} ({\bf y}-{\bf p})=\delta \neq 0$. On peut supposer que $\|{\bf x}\|=1$. On prend ${\bf p_1}={\bf p}+\delta {\bf x}$ et on écrit : \[  \|{\bf y}-{\bf p_1}\|^2=\|{\bf y}-{\bf p}\|^2-2 ({\bf y}-{\bf p})^T (\delta {\bf x}) + \delta^2 = \|{\bf y}-{\bf p}\|^2- \delta^2 < \|{\bf y}-{\bf p}\|^2 \]
+d'où la contradiction.
+
+``Unicité`` : Supposons qu'il existe un ${\bf x}\ne {\bf p}$ qui réalise le minimum.
 On applique le théorème de Pythagore :
 \[ (\forall {\bf x} \in L)\ \|{\bf y}-{\bf x}\|^2=\|{\bf y}-{\bf p}+{\bf p}-{\bf x}\|^2  = \|{\bf y}-{\bf p}\|^2 + \|{\bf p}-{\bf x}\|^2  > \| {\bf y}-{\bf p}\|^2 \]
 d'où la contradiction. 
