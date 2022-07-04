@@ -255,7 +255,7 @@ plt.ylabel("Erreur")
 plt.tight_layout()
 ```
 
-On affiche e modèle pour un niveau de bruit $s\sigma$=0.7
+On affiche le modèle pour un niveau de bruit $s\sigma$=0.7
 ```{code-cell} ipython3
 Y = np.dot(A,A0) + np.random.normal(scale = 0.7, size=(nb_data, dim_o))
 X = dot(inv(dot(A.T,A)),dot(A.T, Y)) 
