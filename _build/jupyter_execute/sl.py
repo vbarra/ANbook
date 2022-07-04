@@ -420,5 +420,5 @@ plt.tight_layout()
 # In[7]:
 
 
-print('Condition de la seconde matrice :', np.linalg.cond(np.matrix(A, dtype='float'),p=2))
+print('Condition de la matrice :', np.linalg.cond(np.matrix(A, dtype='float'),p=2))
 
