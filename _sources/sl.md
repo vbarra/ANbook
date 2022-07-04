@@ -348,22 +348,22 @@ b_2 = Matrix([32.01, 22.99, 33.01, 30.99])
 
 ```{code-cell} ipython3
 x_1 = linsolve([A,b_1])
-x_1.evalf(4)
+x_1
 ```
 
 ```{code-cell} ipython3
 x_2 = linsolve([A,b_2])
-x_2.evalf(4)
+x_2
 ```
 
 ```{code-cell} ipython3
 x_3 = linsolve([A+deltaA,b_1])
-x_3.evalf(4)
+x_3
 ```
 
 ```{code-cell} ipython3
 x_4 = linsolve([A+deltaA,b_2])
-x_4.evalf(4)
+x_4
 ```
 
 
