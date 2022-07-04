@@ -319,12 +319,12 @@
 # 
 # ```{prf:example} Deuxième exemple
 # 
-# Soit 
+# Soient 
 #     ${\bf A}=\begin{pmatrix}
 #         0.780 &0.563\\
 #         0.913& 0.659
 #         \end{pmatrix}
-#         \quad {\bf b} = \begin{pmatrix} 0.217\\0.254\end{pmatrix}
+#         \text{ et } {\bf b} = \begin{pmatrix} 0.217\\0.254\end{pmatrix}
 #         $ 
 # 
 # 
