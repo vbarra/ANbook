@@ -108,11 +108,12 @@ $
 (\forall {\bf x,y}\in\mathbb R^n)\ (\forall p,q>1\ /\ \frac{1}{p}+\frac{1}{q}=1)\quad
 \displaystyle\sum_{i=1}^n|x_iy_i|\leq \|{\bf x}\|_p\|{\bf y}\|_q.
 $
-````
+```
 
-On observera également que dans \mathbb R$^n$ (et plus généralement dans tout espace vectoriel de dimension finie), toutes les normes sont équivalente dans le sens où, 
+On observera également que dans $\mathbb R^n$ (et plus généralement dans tout espace vectoriel de dimension finie), toutes les normes sont équivalente dans le sens où, 
 pour deux normes $\|.\|_a$ et $\|.\|_b$, il existe deux constantes positives $\alpha$ et $\beta$ satisfaisant 
-$$(\forall {\bf x}\in \mathbb R^n)\ \alpha\|{\bf x}\|_a\leq \|{\bf x}\|_b\leq \beta\|{\bf x}\|_a.$$
+
+$(\forall {\bf x}\in \mathbb R^n)\ \alpha\|{\bf x}\|_a\leq \|{\bf x}\|_b\leq \beta\|{\bf x}\|_a.$
 
 ```{index} Norme;équivalentes
 ```
