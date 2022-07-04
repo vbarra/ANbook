@@ -783,7 +783,7 @@ On a alors</p>
 </div>
 </div>
 </div>
-<p>On résout le systèmes aux équations normales</p>
+<p>On résout le systèmes aux équations normales et on regarde l’erreur  du modèle en fonction du bruit</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">dot</span><span class="p">(</span><span class="n">inv</span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">A</span><span class="p">)),</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span><span class="p">))</span> 
@@ -797,6 +797,7 @@ On a alors</p>
     <span class="n">X</span> <span class="o">=</span> <span class="n">dot</span><span class="p">(</span><span class="n">inv</span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">A</span><span class="p">)),</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span><span class="p">))</span> 
     <span class="n">err</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">X</span><span class="p">)</span><span class="o">-</span><span class="n">Y</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sigma</span><span class="p">,</span><span class="n">err</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Erreur en fonction du bruit introduit $\mathcal</span><span class="si">{N}</span><span class="s2">(0,\sigma)$&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$\sigma$&quot;</span><span class="p">)</span>
@@ -806,7 +807,7 @@ On a alors</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Erreur :  4.012646523390043
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Erreur :  4.609576630791923
 </pre></div>
 </div>
 <img alt="_images/mcl_12_1.png" src="_images/mcl_12_1.png" />
