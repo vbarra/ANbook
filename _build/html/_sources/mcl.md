@@ -123,3 +123,98 @@ Ce système est en général mal conditionné car $\sigma({\bf A^T A}) = \sigma^
 
 Finalement, si les colonnes de ${\bf A}$ sont orthonormées i.e. orthogonales deux à deux et de norme 1) ${\bf A^T A}=\mathbb I$ (l'identité dans la "petite" dimension $n$) et la solution des équations normales est simplement ${\bf x^*}={\bf A^T b}$. La  "bonne" stratégie pour résoudre le problème des moindres carrés est donc de construire une base orthonormée de $Im({\bf A})$ pour calculer explicitement la projection. On verra que cette construction revient à triangulariser la matrice par des transformations orthogonales.
 
+
+## Un exemple en Python
+
+```{code-cell} ipython3
+import warnings
+warnings.filterwarnings('ignore')
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d.art3d import Poly3DCollection
+from mpl_toolkits.mplot3d import Axes3D
+from numpy.linalg import inv
+from numpy import dot,power
+
+%matplotlib inline
+```
+
+```{code-cell} ipython3
+dim_i = 1 
+dim_o = 1 
+nb_data = 40  
+
+def f(x):
+    return np.sin(5*x)[:,None]
+
+
+x = np.linspace(-1,1,nb_data)
+Y = f(x) + np.random.normal(size=(nb_data, dim_o))*2e-1 
+
+plt.plot(x,Y, '.b')
+plt.xlabel('x')
+plt.ylabel('y')
+```
+On fait passer un polynome de degré $d$ par moindres carrés.
+
+```{code-cell} ipython3
+d = 5
+A = power(x,0)
+for i in range(1,d+1):
+    A = np.vstack([A, power(x,i)])
+A = A.T
+
+X = dot(inv(dot(A.T,A)),dot(A.T, Y)) 
+e = np.linalg.norm(dot(A,X)-Y)
+
+```
+
+On calcule le modèle et les erreurs
+
+```{code-cell} ipython3
+Y_pred = np.dot(A,X)
+
+def plot_data_2D(x, y_true, y_pred, title):
+    colors = ['r', 'k', 'b']
+    alphas = np.ones(len(x))
+ 
+    plt.plot(x,y_pred, '-' + colors[0])
+    
+    for i in range(len(x)):
+        plt.plot(x[i],y_true[i], '.' + colors[1])
+        plt.plot([x[i],x[i]], [y_true[i], y_pred[i]], '-'+colors[2], alpha = alphas[i])
+    plt.xlabel('x')
+    plt.ylabel('y')
+    
+    xp = np.linspace(-1,1,300)
+    plt.plot(xp,f(xp),'g')
+    plt.title(title)
+    
+    return
+
+fig = plt.figure()
+ax = fig.add_subplot(1, 1, 1)
+plot_title = 'Degré ' + str(d) + ' (erreur ={0:0.2f})'.format(e)
+plot_data_2D(x,Y,Y_pred, title=plot_title)
+```
+et on teste la précision du modèle en fonction du degré du polynôme
+
+
+
+```{code-cell} ipython3
+fig = plt.figure(figsize=(25,8))
+
+degre = [1,3,5,10,20,35,50]
+for ind,d in enumerate(degre):
+    A = power(x,0)
+    for i in range(1,d+1):
+        A = np.vstack([A, power(x,i)])
+    A = A.T 
+    X = dot(inv(dot(A.T,A)),dot(A.T, Y)) 
+    e = np.linalg.norm(dot(A,X)-Y)
+    Y_pred = np.dot(A,X)
+
+    plot_title = 'Degré ' + str(d) + ' (erreur ={0:0.2f})'.format(e)
+    plt.subplot(1, len(degre), ind+1)
+    plot_data_2D(x,Y,Y_pred,title=plot_title)
+```

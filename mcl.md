@@ -124,7 +124,7 @@ Ce système est en général mal conditionné car $\sigma({\bf A^T A}) = \sigma^
 Finalement, si les colonnes de ${\bf A}$ sont orthonormées i.e. orthogonales deux à deux et de norme 1) ${\bf A^T A}=\mathbb I$ (l'identité dans la "petite" dimension $n$) et la solution des équations normales est simplement ${\bf x^*}={\bf A^T b}$. La  "bonne" stratégie pour résoudre le problème des moindres carrés est donc de construire une base orthonormée de $Im({\bf A})$ pour calculer explicitement la projection. On verra que cette construction revient à triangulariser la matrice par des transformations orthogonales.
 
 
-## Un exemple en Python
+## Un exemple de régression polynomiale par moindres carrés
 
 ```{code-cell} ipython3
 import warnings
@@ -217,4 +217,75 @@ for ind,d in enumerate(degre):
     plot_title = 'Degré ' + str(d) + ' (erreur ={0:0.2f})'.format(e)
     plt.subplot(1, len(degre), ind+1)
     plot_data_2D(x,Y,Y_pred,title=plot_title)
+```
+
+## Un exemple de régression linéaire
+
+
+```{code-cell} ipython3
+dim_i = 2 
+dim_o = 1 
+nb_data = 50  
+
+# Construction d'un modèle linéaire bruité
+A0 = np.array([[3], [1]])
+A = np.random.rand(nb_data, dim_i)
+Y = np.dot(A,A0) + np.random.normal(scale = 7e-1, size=(nb_data, dim_o))
+```
+
+On résout le systèmes aux équations normales
+
+```{code-cell} ipython3
+X = dot(inv(dot(A.T,A)),dot(A.T, Y)) 
+
+# Erreur 
+print("Erreur : ",np.linalg.norm(np.dot(A,X)-Y,2))
+err = []
+sigma = [i/50 for i in range(0,50)]
+for s in sigma:
+    Y = np.dot(A,A0) + np.random.normal(scale = s, size=(nb_data, dim_o))
+    X = dot(inv(dot(A.T,A)),dot(A.T, Y)) 
+    err.append(np.linalg.norm(np.dot(A,X)-Y,2))
+
+plt.plot(sigma,err)
+plt.title("Erreur en fonction du bruit introduit $\mathcal{N}(0,\sigma)$")
+plt.xlabel("$\sigma$")
+plt.ylabel("Erreur")
+plt.tight_layout()
+```
+
+# On affiche e modèle pour un niveau de bruit $s\sigma$=0.7
+```{code-cell} ipython3
+Y = np.dot(A,A0) + np.random.normal(scale = 0.7, size=(nb_data, dim_o))
+X = dot(inv(dot(A.T,A)),dot(A.T, Y)) 
+err.append(np.linalg.norm(np.dot(A,X)-Y,2))
+fig = plt.figure(figsize=(10,20))
+
+ax1 = fig.add_subplot(1, 2, 1, projection='3d')
+ax1.scatter(A[:,0],A[:,1],Y.flatten())
+ax1.set_xlabel('x')
+ax1.set_ylabel('y')
+ax1.set_zlabel('z')
+ax1.set_title("Nuage de points")
+
+ax2 = fig.add_subplot(1, 2, 2, projection='3d')
+
+x = [0,1,1,0]
+y = [0,0,1,1]
+z = [0,dot(np.array([1,0]),X),dot(np.array([1,1]),X),dot(np.array([0,1]),X)]
+verts = [list(zip(x,y,z))]
+predicted_plane = Poly3DCollection(verts,alpha=0.2)
+predicted_plane.set_facecolor([1.,0.1,0.])
+ax2.add_collection3d(predicted_plane)
+
+for t in range(nb_data):
+    ax2.plot3D([A[t,0], A[t,0]], [A[t,1], A[t,1]], [Y[t,0], dot(A[t,:],X)], '-b', linewidth=2)
+    ax2.plot3D(A[t,0:1], A[t,1:2], Y[t,0:1], '.k', markersize=14)
+    
+ax2.set_xlabel('x')
+ax2.set_ylabel('y')
+ax2.set_zlabel('z')
+ax2.set_title("Moindres carrés linéaires")
+
+plt.tight_layout()
 ```
