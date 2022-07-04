@@ -215,6 +215,41 @@ plt.tight_layout()
 # ```{index} Norme matricielle;subordonnée
 # ```
 # 
+# ```{prf:remark}
+# 1. Le sup ci-dessus doit être pris dans $\mathbb{C}^n$, mais coïncide avec le sup 
+# dans $\mathbb R^n$ pour les normes $L_1,L_2$ et $L_\infty$.
+# 2. Par compacité de la sphère unité, le sup est atteint  pour un ${\bf x}$ non nul.
+# ```
+# 
+# ```{prf:property} Propriétés des normes subordonnées
+# 1. $\|{\bf A}\|=\inf\left \{\rho / \|{\bf Ax}\|\leq\rho \|{\bf x}\|\right \}$
+# 2. $\|\mathbb I\|=1$
+# ```` 
+# 
+# 
+# 
+# ```{prf:example}
+# 1. On vérifie que les normes matricielles subordonnées aux normes 
+# $L_1$ et $L_\infty$ sont données par $\|{\bf A}\|_1=\displaystyle\max_j\displaystyle\sum_i|a_{ij}|$ et
+# $\|{\bf A}\|_\infty=\displaystyle\max_i\displaystyle\sum_j|a_{ij}|$
+#  2. La norme matricielle subordonnée à la norme euclidienne est 
+# $\|{\bf A}\|_2=\left[\lambda_{max}\right]^\frac{1}{2}$, où $\lambda_{max}$ est la plus grande 
+# valeur propre de ${\bf A^\top} {\bf A}$.
+# 3. La norme euclidienne étant difficile à calculer, on lui préfère souvent 
+# la norme de la trace ou norme de Frobenius : 
+# 
+# $
+# \|{\bf A}\|_F=\left (Tr({\bf A^\top} {\bf A})\right)^\frac{1}{2}
+#            =\left (\displaystyle\sum_i\displaystyle\sum_ja_{ij}^2\right )^\frac{1}{2}.
+# $ 
+# 
+# Cette norme n'est subordonnée à aucune norme vectorielle sur $\mathbb R^n$.
+# ```
+# ```{index} Norme matricielle;de Frobenius
+# ```
+# 
+# 
+# 
 # ## Matrice transposée
 # 
 # ````{prf:definition} Transposée 
