@@ -784,49 +784,77 @@ et
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_1</span> <span class="o">=</span> <span class="n">linsolve</span><span class="p">([</span><span class="n">A</span><span class="p">,</span><span class="n">b_1</span><span class="p">])</span>
-<span class="n">x_1</span>
+<span class="n">x_1</span><span class="o">.</span><span class="n">evalf</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \left\{\left( 1, \  1, \  1, \  1\right)\right\}\]</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="nn">File /usr/local/lib/python3.9/site-packages/sympy/core/evalf.py:1365,</span> in <span class="ni">evalf</span><span class="nt">(x, prec, options)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1364</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1365</span>     <span class="n">rf</span> <span class="o">=</span> <span class="n">evalf_table</span><span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">func</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1366</span>     <span class="n">r</span> <span class="o">=</span> <span class="n">rf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">prec</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+
+<span class="ne">KeyError</span>: &lt;class &#39;sympy.sets.sets.FiniteSet&#39;&gt;
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">x_1</span> <span class="o">=</span> <span class="n">linsolve</span><span class="p">([</span><span class="n">A</span><span class="p">,</span><span class="n">b_1</span><span class="p">])</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">x_1</span><span class="o">.</span><span class="n">evalf</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="nn">File /usr/local/lib/python3.9/site-packages/sympy/core/evalf.py:1514,</span> in <span class="ni">EvalfMixin.evalf</span><span class="nt">(self, n, subs, maxn, chop, strict, quad, verbose)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1512</span>     <span class="n">options</span><span class="p">[</span><span class="s1">&#39;quad&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">quad</span>
+<span class="g g-Whitespace">   </span><span class="mi">1513</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1514</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">evalf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prec</span> <span class="o">+</span> <span class="mi">4</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1515</span> <span class="k">except</span> <span class="ne">NotImplementedError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1516</span>     <span class="c1"># Fall back to the ordinary evalf</span>
+<span class="g g-Whitespace">   </span><span class="mi">1517</span>     <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;subs&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">subs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># issue 20291</span>
+
+<span class="nn">File /usr/local/lib/python3.9/site-packages/sympy/core/evalf.py:1371,</span> in <span class="ni">evalf</span><span class="nt">(x, prec, options)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1369</span> <span class="k">if</span> <span class="s1">&#39;subs&#39;</span> <span class="ow">in</span> <span class="n">options</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1370</span>     <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">subs</span><span class="p">(</span><span class="n">evalf_subs</span><span class="p">(</span><span class="n">prec</span><span class="p">,</span> <span class="n">options</span><span class="p">[</span><span class="s1">&#39;subs&#39;</span><span class="p">]))</span>
+<span class="ne">-&gt; </span><span class="mi">1371</span> <span class="n">xe</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">_eval_evalf</span><span class="p">(</span><span class="n">prec</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1372</span> <span class="k">if</span> <span class="n">xe</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1373</span>     <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
+<span class="nn">File /usr/local/lib/python3.9/site-packages/sympy/sets/sets.py:1904,</span> in <span class="ni">FiniteSet._eval_evalf</span><span class="nt">(self, prec)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1903</span> <span class="k">def</span> <span class="nf">_eval_evalf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prec</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1904</span>     <span class="k">return</span> <span class="n">FiniteSet</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">elem</span><span class="o">.</span><span class="n">evalf</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">prec_to_dps</span><span class="p">(</span><span class="n">prec</span><span class="p">))</span> <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">])</span>
+
+<span class="nn">File /usr/local/lib/python3.9/site-packages/sympy/sets/sets.py:1904,</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1903</span> <span class="k">def</span> <span class="nf">_eval_evalf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prec</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1904</span>     <span class="k">return</span> <span class="n">FiniteSet</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">elem</span><span class="o">.</span><span class="n">evalf</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">prec_to_dps</span><span class="p">(</span><span class="n">prec</span><span class="p">))</span> <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">])</span>
+
+<span class="ne">AttributeError</span>: &#39;Tuple&#39; object has no attribute &#39;evalf&#39;
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_2</span> <span class="o">=</span> <span class="n">linsolve</span><span class="p">([</span><span class="n">A</span><span class="p">,</span><span class="n">b_2</span><span class="p">])</span>
-<span class="n">x_2</span>
+<span class="n">x_2</span><span class="o">.</span><span class="n">evalf</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \left\{\left( 1.82000000000001, \  -0.360000000000021, \  1.35, \  0.789999999999998\right)\right\}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_3</span> <span class="o">=</span> <span class="n">linsolve</span><span class="p">([</span><span class="n">A</span><span class="o">+</span><span class="n">deltaA</span><span class="p">,</span><span class="n">b_1</span><span class="p">])</span>
-<span class="n">x_3</span>
+<span class="n">x_3</span><span class="o">.</span><span class="n">evalf</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \left\{\left( -1.91734708097775, \  5.63520081425947, \  0.0789600378770681, \  1.53992900043846\right)\right\}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_4</span> <span class="o">=</span> <span class="n">linsolve</span><span class="p">([</span><span class="n">A</span><span class="o">+</span><span class="n">deltaA</span><span class="p">,</span><span class="n">b_2</span><span class="p">])</span>
-<span class="n">x_4</span>
+<span class="n">x_4</span><span class="o">.</span><span class="n">evalf</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \left\{\left( -1.83740079314526, \  5.5073371018571, \  0.0658714766362358, \  1.56931795245825\right)\right\}\]</div>
 </div>
 </div>
 <div class="proof example admonition" id="example-10">
@@ -873,19 +901,10 @@ et
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}-0.00078\\-0.000913\end{matrix}\right]\end{split}\]</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;norme : &#39;</span><span class="p">,</span><span class="n">r</span><span class="o">.</span><span class="n">norm</span><span class="p">()</span><span class="o">.</span><span class="n">evalf</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>norme :  0.001201
 </pre></div>
 </div>
 </div>
@@ -899,19 +918,10 @@ et
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}-1.0 \cdot 10^{-6}\\0\end{matrix}\right]\end{split}\]</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;norme : &#39;</span><span class="p">,</span><span class="n">r2</span><span class="o">.</span><span class="n">norm</span><span class="p">()</span><span class="o">.</span><span class="n">evalf</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>norme :  1.000e-6
 </pre></div>
 </div>
 </div>
@@ -939,19 +949,11 @@ et
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/sl_14_0.png" src="_images/sl_14_0.png" />
-</div>
 </div>
 <p>La condition de la matrice est</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Condition de la matrice :&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cond</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float&#39;</span><span class="p">),</span><span class="n">p</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Condition de la matrice : 2193218.99965077
 </pre></div>
 </div>
 </div>
