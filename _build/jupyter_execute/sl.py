@@ -343,28 +343,28 @@ b_2 = Matrix([32.01, 22.99, 33.01, 30.99])
 
 
 x_1 = linsolve([A,b_1])
-x_1.evalf(4)
+x_1
 
 
-# In[ ]:
+# In[3]:
 
 
 x_2 = linsolve([A,b_2])
-x_2.evalf(4)
+x_2
 
 
-# In[ ]:
+# In[4]:
 
 
 x_3 = linsolve([A+deltaA,b_1])
-x_3.evalf(4)
+x_3
 
 
-# In[ ]:
+# In[5]:
 
 
 x_4 = linsolve([A+deltaA,b_2])
-x_4.evalf(4)
+x_4
 
 
 # ```{prf:example} Deuxième exemple
@@ -390,7 +390,7 @@ x_4.evalf(4)
 # 
 # ```
 
-# In[ ]:
+# In[6]:
 
 
 from sympy import init_printing, Matrix
@@ -412,7 +412,7 @@ b = Matrix([0.217,0.254])
 # 
 # La solution approchée $(0.999,-1)^T$ fournit un résidu
 
-# In[ ]:
+# In[7]:
 
 
 x_app = Matrix([0.999,-1])
@@ -420,7 +420,7 @@ r = A*x_app -b
 r.evalf(4)
 
 
-# In[ ]:
+# In[8]:
 
 
 print('norme : ',r.norm().evalf(4))
@@ -428,7 +428,7 @@ print('norme : ',r.norm().evalf(4))
 
 # Le vecteur $(0.341,-0.087)^T$, éloigné de la solution théorique, fournit lui un résidu
 
-# In[ ]:
+# In[9]:
 
 
 x_app2 = Matrix([0.341,-0.087])
@@ -436,13 +436,13 @@ r2 = A*x_app2 -b
 r2.evalf(4)
 
 
-# In[ ]:
+# In[10]:
 
 
 print('norme : ',r2.norm().evalf(4))
 
 
-# In[ ]:
+# In[11]:
 
 
 def plot_vector2d(vector2d, origin=[0, 0], **options):
@@ -467,7 +467,7 @@ plt.tight_layout()
 
 # La condition de la matrice est
 
-# In[ ]:
+# In[12]:
 
 
 print('Condition de la matrice :', np.linalg.cond(np.matrix(A, dtype='float'),p=2))
