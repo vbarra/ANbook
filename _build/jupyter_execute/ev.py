@@ -81,7 +81,7 @@
 # 3. $(\forall {\bf x},{\bf y}\in E)\ \|{\bf x+y}\|\leq \|{\bf x}\|+\|{\bf y}\|$ 
 # ````
 # 
-# ```` {prf:property}Inégalité de Cauchy-Schwarz}
+# ```` {prf:property}Inégalité de Cauchy-Schwarz 
 # $(\forall {\bf x,y}\in\mathbb R^n)\ {\bf x^T}{\bf y}\le \|{\bf x}\|_2 \|{\bf y}\|_2$
 # 
 # et l'égalité est vérifiée si et seulement si ${\bf x}$ et ${\bf y}$ sont colinéaires.
