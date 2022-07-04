@@ -89,26 +89,24 @@ Le vecteur des erreurs ${\bf Y}-{\bf Ax}=(1/2$ $-1$ $1/2)^T $ est bien orthogona
 
 ````{prf:example}
  Le système $\mathcal{S}$ produit pour les entrées $t_i =\{-2,-1,0,1,2\}$ les sorties \\$Y_i=\{3,1,-0.5,1.5,4\}$.
-\\On modélise $\mathcal{S}$ par un polynôme $P(t)=\alpha+\beta t+\gamma t^2 = {\bf a^T}{\bf x}$, où ${\bf x}=\begin{pmatrix}\alpha\\\beta\\\gamma\end{pmatrix} $et ${\bf a}=\begin{pmatrix}1\\t\\t^2\end{pmatrix}$. On recherche les valeurs de $\alpha,\beta,\gamma$ qui minimisent la somme des carrés des erreurs entre les valeurs théoriques et les valeurs mesurées.
-\begin{center}
-\begin{tabular}{|c|c|c|c|}
-\hline
-Point&$t_i$&$Y_i$&$y_i$\\
-\hline
-$P_1$&-2&3&$\alpha-2\beta+4\gamma$\\
-$P_2$&-1&1&$\alpha-\beta+\gamma$\\
-$P_3$&0&-0.5&$\alpha$\\
-$P_4$&1&1.5&$\alpha+\beta+\gamma$\\
-$P_5$&2&4&$\alpha+2\beta+4\gamma$\\
-\hline
-\end{tabular}
-\end{center}
+
+On modélise $\mathcal{S}$ par un polynôme $P(t)=\alpha+\beta t+\gamma t^2 = {\bf a^T}{\bf x}$, où ${\bf x}=\begin{pmatrix}\alpha\\\beta\\\gamma\end{pmatrix} $et ${\bf a}=\begin{pmatrix}1\\t\\t^2\end{pmatrix}$. On recherche les valeurs de $\alpha,\beta,\gamma$ qui minimisent la somme des carrés des erreurs entre les valeurs théoriques et les valeurs mesurées.
+
+| Point | $t_i$ | $Y_i$ | $y_i$          |
+|-------|-------|-------|----------------|
+| $P_1$ | -2    | 3     | $\alpha-2\beta+4\gamma$ |
+| $P_2$ | 1     | 1     | $\alpha-\beta+\gamma$      |
+| $P_3$ | 0     | -0.5     | $\alpha$  |
+| $P_4$ | 1     | 1.5     | $\alpha+\beta+\gamma$ |
+| $P_5$ | 2     | 4     | $\alpha+2\beta+4\gamma$ |
+
+
 En posant ${\bf A}=\begin{pmatrix}
 1&-2&4\\1&-1&1\\1&0&0\\1&1&1\\1&2&4
 \end{pmatrix}$ et ${\bf Y}\begin{pmatrix}
 3\\1\\-0.5\\1.5\\4
 \end{pmatrix}
-$, on cherche ${\bf x}$ qui minimise $\norme{{\bf Ax}-{\bf Y}}^2$, soit encore ${\bf x}$ solution du système aux équations normales ${\bf A^T Ax}={\bf A^T Y}$\\
+$, on cherche ${\bf x}$ qui minimise $\|{\bf Ax}-{\bf Y}\|^2$, soit encore ${\bf x}$ solution du système aux équations normales ${\bf A^T Ax}={\bf A^T Y}$\\
 On a alors $${\bf A^T A}=\begin{pmatrix}5&0&10\\0&10&0\\10&0&34\end{pmatrix}\quad{\bf A^T Y}=\begin{pmatrix}9\\2.5\\30.5\end{pmatrix}\textrm{ d'où } P(t)=\frac{1}{70}+\frac{1}{4}t+\frac{25}{28}t^2$$
 ````
 
