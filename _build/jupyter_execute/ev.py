@@ -90,7 +90,7 @@
 # L'inégalté triangulaire est un résultat important de l'analyse fonctionnelle 
 # dû à Minkowski et sa démonstration découle de l'inégalité fondamentale suivante dite 
 # inégalité de Hölder : 
-# ```{index} inégalité!de Hölder
+# ```{index} Inégalité;de Hölder
 # 
 # ```` {prf:property} Inégalité de Hölder
 # 
