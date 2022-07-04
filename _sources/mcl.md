@@ -78,12 +78,12 @@ $
 $
 la solution aux moindres carrés est donc $\alpha=6$ et $\beta=5/2$.
 Le vecteur des erreurs ${\bf Y}-{\bf Ax}=(1/2$ $-1$ $1/2)^T $ est bien orthogonal dans $R^3$ aux colonnes de ${\bf A}$. Chaque erreur peut être également représentée par la distance verticale entre la mesure ${ Y_i}$ et la droite $f(t)=6+\frac{5}{2}t$ pour $t=t_i$ (segments rouges).
-
+````
 ```{margin} 
 ![](./images/mcl1.png)
 ```
 
-````
+
 
 
 
