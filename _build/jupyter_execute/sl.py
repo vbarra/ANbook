@@ -240,7 +240,7 @@
 # 
 # $\frac{\|\bf\delta \bf x\|}{\|\bf x}\|\leq \|\bf A\|\|\bf A^{-1}\|\frac{\|\bf \delta \bf b\|}{\|\bf b\|}$
 # 
-# ````{prf:definition}Condition d'une matrice
+# ````{prf:definition} Condition d'une matrice
 # La quantité $\|{\bf A}\|\|{\bf A^{-1}}\|$ est appelée la condition de la matrice est notée $\sigma({\bf A})$.
 # ````
 # ```{index} Condition
