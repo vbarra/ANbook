@@ -77,7 +77,7 @@
 # 
 # Une norme vectorielle est une fonction notée $\|.\|$ définie sur un espace vectoriel $E$ et satisfaisant aux trois axiomes suivants : 
 # 1. $(\forall {\bf x}\in E)\ \|{\bf x}\|\geq 0$ et $\|{\bf x}\|= 0 \Leftrightarrow {\bf x}={\bf 0}$
-# 2. $(\forall {\bf x}\in E)\ (\forall\lambda \in \mbb R)\ \|\lambda.{\bf x}\|=|\lambda|\|{\bf x}\|$ 
+# 2. $(\forall {\bf x}\in E)\ (\forall\lambda \in \mathbb R)\ \|\lambda.{\bf x}\|=|\lambda|\|{\bf x}\|$ 
 # 3. $(\forall {\bf x},{\bf y}\in E)\ \|{\bf x+y}\|\leq \|{\bf x}\|+\|{\bf y}\|$ 
 # ````
 # 

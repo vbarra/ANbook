@@ -91,6 +91,7 @@ Une norme vectorielle est une fonction notée $\|.\|$ définie sur un espace vec
 3. $(\forall {\bf x},{\bf y}\in E)\ \|{\bf x+y}\|\leq \|{\bf x}\|+\|{\bf y}\|$ 
 ````
 
+
 ## Sous-espace vectoriel
 ```{index} Espace vectoriel ; sous-
 ```
@@ -149,7 +150,20 @@ $\alpha\in\mathbb R$ on a de plus les propriétés suivantes :
 
 3.  $(\alpha  {\bf x})^\top  {\bf y}=\alpha ( {\bf x}^\top  {\bf y})$
 
+En utilisant ce produit scalaire, on définit alors par exemple les normes suivantes :
+1. $\|{\bf x}\|_1=\displaystyle\sum_{i=1}^n|x_i|$ est la norme $L_1$ (ou city block).```{index}Norme;L1```
+2.  $\|{\bf x}\|_2=\left ( {\bf x}^\top {\bf x}\right )^\frac{1}{2}=\sqrt{\displaystyle\sum_{i=1}^nx_i^2}$ est la norme $L_2$ (ou norme euclidienne ```{index}Norme;euclidienne```).
+3. $\|{\bf x}\|_\infty = \displaystyle\max_{1\leq i\leq n}\{|x_i|\}$ est la norme du max \index{norme!$l_\infty$}(ou norme de Tchebychev, ou norme $L_\infty$)```{index}Norme;Tchebychev```
 
+Les trois normes de l'exemple sont des cas particuliers des normes 
+$L_p$ : $\|{\bf x}\|_p=\left (\displaystyle\sum_{i=1}^n|x_i|^p\right ) ^\frac{1}{p}$
+```{index}Norme;Lp```
+
+La figure suivante présente les boules unité (i.e. le lieu des vecteurs de norme 1) pour différentes valeurs de $p$.
+
+```{image} ./images/norme.png
+:align: center
+```
 
 En Python
 
