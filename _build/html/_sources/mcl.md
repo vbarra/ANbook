@@ -65,9 +65,11 @@ ${\bf Ax} = {\bf Y} :
 \end{array}
 \right.
 $
+
 n'a bien sûr pas de solution. On construit les équations normales en multipliant 
 le système par 
-$${\bf A^T} =\left [\begin{array}{ccc}1 & 1 & 1\\-1 & 0 & 1\\\end{array}\right]$$
+${\bf A^T} =\left [\begin{array}{ccc}1 & 1 & 1\\-1 & 0 & 1\\\end{array}\right]$.
+
 Comme
 $
 {\bf A^T A}=\left[\begin{array}{cc}3 & 0\\0 & 2\end{array}\right] 
