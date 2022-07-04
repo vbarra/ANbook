@@ -279,9 +279,7 @@
 # 
 # ````
 # 
-# ```{prf:example}  
-# 
-# Premier exemple
+# ```{prf:example} Premier exemple
 # 
 # Soit 
 #     ${\bf A}=\begin{pmatrix}
@@ -301,7 +299,7 @@
 # 
 # avec 
 #     ${\bf b}=\begin{pmatrix} 32\\23\\33\\31\end{pmatrix} \quad \textcolor{red}{{\bf \delta b}=\begin{pmatrix} 0.01\\-0.01\\0.01\\-0.01\end{pmatrix}}$
-# ```
+# 
 # Alors 
 # 
 # - ${\bf Ax}={\bf b}  \Rightarrow {\bf x}=\begin{pmatrix} 1\\1\\1\\1\end{pmatrix}$
@@ -310,3 +308,5 @@
 # 
 # 
 # $\Rightarrow$ Une petite variation de ${\bf b}$ et/ou ${\bf A}$  entraîne une grande variation de ${\bf x}$.
+# 
+# ```
