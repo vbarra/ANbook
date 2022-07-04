@@ -367,6 +367,14 @@ x_4 = linsolve([A+deltaA,b_2])
 x_4
 
 
+# La condition de la matrice peut être facilement calculée
+
+# In[6]:
+
+
+print('Condition de la  matrice :', np.linalg.cond(np.matrix(A, dtype='float'),p=2))
+
+
 # ```{prf:example} Deuxième exemple
 # 
 # Soient 
@@ -390,7 +398,7 @@ x_4
 # 
 # ```
 
-# In[6]:
+# In[7]:
 
 
 from sympy import init_printing, Matrix
@@ -412,7 +420,7 @@ b = Matrix([0.217,0.254])
 # 
 # La solution approchée $(0.999,-1)^T$ fournit un résidu
 
-# In[7]:
+# In[8]:
 
 
 x_app = Matrix([0.999,-1])
@@ -420,7 +428,7 @@ r = A*x_app -b
 r.evalf(4)
 
 
-# In[8]:
+# In[9]:
 
 
 print('norme : ',r.norm().evalf(4))
@@ -428,7 +436,7 @@ print('norme : ',r.norm().evalf(4))
 
 # Le vecteur $(0.341,-0.087)^T$, éloigné de la solution théorique, fournit lui un résidu
 
-# In[9]:
+# In[10]:
 
 
 x_app2 = Matrix([0.341,-0.087])
@@ -436,13 +444,13 @@ r2 = A*x_app2 -b
 r2.evalf(4)
 
 
-# In[10]:
+# In[11]:
 
 
 print('norme : ',r2.norm().evalf(4))
 
 
-# In[11]:
+# In[12]:
 
 
 def plot_vector2d(vector2d, origin=[0, 0], **options):
@@ -467,7 +475,7 @@ plt.tight_layout()
 
 # La condition de la matrice est
 
-# In[12]:
+# In[13]:
 
 
 print('Condition de la matrice :', np.linalg.cond(np.matrix(A, dtype='float'),p=2))

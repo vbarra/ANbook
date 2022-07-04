@@ -366,6 +366,13 @@ x_4 = linsolve([A+deltaA,b_2])
 x_4
 ```
 
+La condition de la matrice peut être facilement calculée
+
+```{code-cell} ipython3
+print('Condition de la  matrice :', np.linalg.cond(np.matrix(A, dtype='float'),p=2))
+```
+
+
 
 ```{prf:example} Deuxième exemple
 
