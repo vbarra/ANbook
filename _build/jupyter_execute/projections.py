@@ -123,12 +123,17 @@
 # ## Projection sur une droite ne passant pas par l'origine
 # 
 # On utilise la représentation d'une droite comme un sous-espace affine parallèle à un sous-espace : 
-# $$D=\{{\bf z}\in \mathbb R^n / {\bf z}={\bf z_0}+\lambda {\bf v},\lambda \in \mathbb R\}$$
-# Soit ${\bf y}\in \mathbb R^n$ et ${\bf p}$ sa projection orthogonale sur la droite $D$. Alors :\\
-# ${\bf y}={\bf p}+{\bf u}$ avec ${\bf p}={\bf z_0}+\lambda {\bf v}$ et ${\bf u^T}  {\bf v}=0$, d'où ${\bf p}={\bf z_0}+{\bf P}({\bf y}-{\bf z_0})=(\mathbb I-{\bf P}){\bf z_0}+{\bf P}{\bf y}$,\\
-#  où ${\bf P}$ est la matrice de projection sur le sous-espace engendré par ${\bf v}$ obtenu dans le paragraphe \ref{drt}.
+# 
+# $D=\{{\bf z}\in \mathbb R^n / {\bf z}={\bf z_0}+\lambda {\bf v},\lambda \in \mathbb R\}$
+# 
+# Soit ${\bf y}\in \mathbb R^n$ et ${\bf p}$ sa projection orthogonale sur la droite $D$. Alors :
+# 
+# ${\bf y}={\bf p}+{\bf u}$ avec ${\bf p}={\bf z_0}+\lambda {\bf v}$ et ${\bf u^T}  {\bf v}=0$, d'où ${\bf p}={\bf z_0}+{\bf P}({\bf y}-{\bf z_0})=(\mathbb I-{\bf P}){\bf z_0}+{\bf P}{\bf y}$,
+# 
+#  où ${\bf P}$ est la matrice de projection sur le sous-espace engendré par ${\bf v}$ obtenu dans le paragraphe précédent.
 #  
-# \subsection{Projection sur un sous-espace}\label{ssev}
+# ## Projection sur un sous-espace}
+# 
 # Soit ${\bf A}\in\mathcal{M}_{n,r}(\mathbb R)$  de rang $r$ (donc $r\leq n$). Considérons la projection ${\bf p}$ d'un vecteur  ${\bf y}\in\mathbb R^n$ sur le sous-espace image de ${\bf A}$ (figure \ref{F:projImA}).
 # \begin{figure}[hbtp!]
 # \begin{center}
