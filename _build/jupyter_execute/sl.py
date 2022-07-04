@@ -339,3 +339,64 @@
 # 
 # 
 # ```
+
+# In[1]:
+
+
+from sympy import init_printing, Matrix
+from sympy.solvers.solveset import linsolve
+from warnings import filterwarnings
+import numpy as np
+
+get_ipython().run_line_magic('matplotlib', 'inline')
+import matplotlib.pyplot as plt
+init_printing(use_latex = 'mathjax')
+get_ipython().run_line_magic('matplotlib', 'inline')
+filterwarnings('ignore')
+
+A = Matrix([[0.78,0.563], [0.913,0.659]])
+b = Matrix([0.217,0.254])
+
+
+# La solution exacte est $(1,-1)^T$.
+# 
+# La solution approchée $(0.999,-1)^T$ fournit un résidu
+
+# In[2]:
+
+
+x_app = Matrix([0.999,-1])
+r = A*x_app -b
+r.evalf(4)
+print('norme : ',r.norm().evalf(4))
+
+
+# Le vecteur $(0.341,-0.087)^T$, éloigné de la solution théorique, fournit lui un résidu
+
+# In[3]:
+
+
+x_app2 = Matrix([0.341,-0.087])
+r2 = A*x_app2 -b
+r2.evalf(4)
+print('norme : ',r2.norm().evalf(4))
+
+
+# In[4]:
+
+
+def plot_vector2d(vector2d, origin=[0, 0], **options):
+    return plt.arrow(origin[0], origin[1], vector2d[0], vector2d[1],head_width=0.2, head_length=0.1, length_includes_head=True,**options)
+
+x = np.array([1,-1])
+x_app1 = np.array([0.999, -1])
+x_app2 = np.array([0.341, -0.087])
+b = np.array([0.217, 0.254])
+plot_vector2d(x, color="r")
+plot_vector2d(x_app1, color="b")
+plot_vector2d(x_app2, color="g")
+plot_vector2d(b, color="m")
+plt.axis([-1, 1, -1, 1])
+plt.grid()
+plt.show()
+
