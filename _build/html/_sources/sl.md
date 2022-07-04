@@ -308,15 +308,15 @@ et
 avec 
     ${\bf b}=\begin{pmatrix} 32\\23\\33\\31\end{pmatrix} \text{ et } \textcolor{red}{{\bf \delta b}=\begin{pmatrix} 0.01\\-0.01\\0.01\\-0.01\end{pmatrix}}$
 
-Alors 
+Alors :
 
-- ${\bf Ax}={\bf b}$
+- ${\bf Ax}={\bf b}$ amène à la solution
 
 $\Rightarrow {\bf x}=\begin{pmatrix} 1\\1\\1\\1\end{pmatrix}$
-- ${\bf Ax'}={\bf b +\textcolor{red}{{\bf \delta b}}}$
+- ${\bf Ax'}={\bf b +\textcolor{red}{{\bf \delta b}}}$ amène à la solution
 
 $\Rightarrow {\bf x'}=\begin{pmatrix} 41.11\\-70.56\\19.35\\-10.01\end{pmatrix}={\bf x}+\textcolor{red}{\begin{pmatrix} 40.11\\-71.56\\18.35\\-11.01\end{pmatrix}}$
-- ${\bf (A+\textcolor{red}{{\bf \delta A})}x''}={\bf b +\textcolor{red}{{\bf \delta b}}} $
+- ${\bf (A+\textcolor{red}{{\bf \delta A})}x''}={\bf b +\textcolor{red}{{\bf \delta b}}} $ donne la solution 
 
 $\Rightarrow {\bf x''}=\begin{pmatrix} 2.40\\-1.32\\-0.61\\3.08\end{pmatrix}={\bf x}+\textcolor{red}{\begin{pmatrix} -1.4\\2.32\\1.61\\2.08\end{pmatrix}}$ 
 
