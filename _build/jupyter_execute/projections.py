@@ -61,8 +61,8 @@
 # 
 # % On prend un $l \in L$ et on applique 
 # % le théorème de Weierstrass\footnote{Si $K$ est un compact non vide et $f$ est
-# % continue, alors le problème $\min_{x\in K} f(x)$ admet une solution} \index{théorème!de Weierstrass} 
-# % sur le compact  $L \cap B(y, \|y-l\|)$ pour la fonction continue et bornée inférieurement $\|x-y\|$.\\
+# % continue, alors le problème $\min_{x\in K} f(x)$ admet une solution} 
+# % sur le compact  $L \cap B(y, \|y-l\|)$ pour la fonction continue et bornée inférieurement $\|x-y\|$.
 # 
 # 
 # ``Orthogonalité`` : Supposons qu'il existe ${\bf x}\in L$ tel que ${\bf x^T} ({\bf y}-{\bf p})=\delta \neq 0$. On peut supposer que $\|{\bf x}\|=1$. On prend ${\bf p_1}={\bf p}+\delta {\bf x}$ et on écrit : 
@@ -148,15 +148,17 @@
 # De plus, on retrouve la matrice de projection orthogonale $\mathbb I -{\bf P}$ sur le noyau de ${\bf A^T }$.
 # 
 # ```{prf:remark}
-# Si $r=1$ on retrouve la formule trouvée dans le cas de la projection sur une droite vectorielle.}
+# Si $r=1$ on retrouve la formule trouvée dans le cas de la projection sur une droite vectorielle.
 # ```
 # 
 # ## Matrices de projection
-# 
-# Les matrices de projection\index{matrice!de projection} sont des matrices
+# ```{index} Matrice;projection
+# ```
+# Les matrices de projection sont des matrices
 # qui possèdent les deux propriétés suivantes : 
-# \begin{itemize}
-#   \item ${\bf P}={\bf P^T} $ \rm [symétrie]
-#   \item ${\bf P}^2={\bf P}$\rm  [idempotence]
-# \end{itemize}
-# Les matrices de projection sont en général singulières, puisqu'elles ramènent l'espace à un sous-espace de dimension plus petite. De plus, elles contractent les normes : $\norme{{\bf Py}}\leq \norme{{\bf y}}$.
+# 
+# - ${\bf P}={\bf P^T} $ \rm [symétrie]
+# - ${\bf P}^2={\bf P}$\rm  [idempotence]
+# 
+# 
+# Les matrices de projection sont en général singulières, puisqu'elles ramènent l'espace à un sous-espace de dimension plus petite. De plus, elles contractent les normes : $\|{\bf Py}\|\leq \|{\bf y}\|$.
