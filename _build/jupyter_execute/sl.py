@@ -304,8 +304,8 @@
 # ```
 # Alors 
 # 
-# - ${\bf Ax}={\bf b}  \Rightarrow {\bf x}=\begin{pmatrix} 1\\1\\1\\1\end{pmatrix}$\\
-# - ${\bf Ax'}={\bf b +\textcolor{red}{{\bf \delta b}}} \Rightarrow {\bf x'}=\begin{pmatrix} 41.11\\-70.56\\19.35\\-10.01\end{pmatrix}={\bf x}+\textcolor{red}{\begin{pmatrix} 40.11\\-71.56\\18.35\\-11.01\end{pmatrix}}$\\
+# - ${\bf Ax}={\bf b}  \Rightarrow {\bf x}=\begin{pmatrix} 1\\1\\1\\1\end{pmatrix}$
+# - ${\bf Ax'}={\bf b +\textcolor{red}{{\bf \delta b}}} \Rightarrow {\bf x'}=\begin{pmatrix} 41.11\\-70.56\\19.35\\-10.01\end{pmatrix}={\bf x}+\textcolor{red}{\begin{pmatrix} 40.11\\-71.56\\18.35\\-11.01\end{pmatrix}}$
 # - ${\bf (A+\textcolor{red}{{\bf \delta A})}x''}={\bf b +\textcolor{red}{{\bf \delta b}}} \Rightarrow {\bf x''}=\begin{pmatrix} 2.40\\-1.32\\-0.61\\3.08\end{pmatrix}={\bf x}+\textcolor{red}{\begin{pmatrix} -1.4\\2.32\\1.61\\2.08\end{pmatrix}}$ 
 # 
 # 
