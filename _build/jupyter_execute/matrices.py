@@ -206,9 +206,7 @@ plt.tight_layout()
 # on s'arrange pour utiliser des normes de matrices subordonnées
 # aux normes vectorielles, dans le sens suivant :
 # 
-# $\|{\bf A}\|=\displaystyle\sup_{{\bf x}\neq {\bf 0}}$
-# 
-# $\frac{\|{{\bf Ax}\|}{\|{{\bf x}\|}=\displaystyle\sup_{\|{\bf x}\|=1}\|{\bf Ax}\|$
+# $\|{\bf A}\|=\displaystyle\sup_{{\bf x}\neq {\bf 0}}\frac{\|{{\bf Ax}\|}{\|{\bf x}\|}=\displaystyle\sup_{\|{\bf x}\|=1}\|{\bf Ax}\|$
 # 
 # où $\|{\bf A}\|$ définit une norme subordonnée à la norme vectorielle utilisée dans le calcul des normes vectorielles $\|{\bf x}\|$ et 
 # $\|{\bf Ax}\|$. On retrouve la définition usuelle d'une norme d'application linéaire. 
