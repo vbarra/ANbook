@@ -137,6 +137,7 @@ définies par :
 
 On munit $\mathbb R^n$ du produit scalaire canonique, noté
 ${\bf x}^\top  {\bf y}$ et défini par : 
+
 $\begin{aligned}
 \cdot^\top\cdot : \mathbb R^n\times \mathbb R^n &\rightarrow& \mathbb R\\
 {\bf x},{\bf y} &\mapsto&{\bf x}^\top  {\bf y}=x_1y_1+\cdots+x_ny_n = \displaystyle\sum_{i=1}^n x_iy_i\end{aligned}$
