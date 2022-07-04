@@ -279,7 +279,9 @@
 # 
 # ````
 # 
-# ```{prf:example}  Premier exemple
+# ```{prf:example}  
+# 
+# Premier exemple
 #     ${\bf A}=\begin{pmatrix}
 #     10 &7& 8& 7\\
 #     7& 5& 6 & 5\\
@@ -292,13 +294,14 @@
 #         -\frac{1}{100}& -\frac{1}{100} & 0 & -\frac{1}{50} 
 #         \end{pmatrix}}
 #     $
-#     
+# 
 #     ${\bf b}=\begin{pmatrix} 32\\23\\33\\31\end{pmatrix} \quad \textcolor{red}{{\bf \delta b}=\begin{pmatrix} 0.01\\-0.01\\0.01\\-0.01\end{pmatrix}}$
-# \begin{itemize}
-# \item ${\bf Ax}={\bf b}  \Rightarrow {\bf x}=\begin{pmatrix} 1\\1\\1\\1\end{pmatrix}$\\
-# \item ${\bf Ax'}={\bf b +\textcolor{red}{{\bf \delta b}}} \Rightarrow {\bf x'}=\begin{pmatrix} 41.11\\-70.56\\19.35\\-10.01\end{pmatrix}={\bf x}+\textcolor{red}{\begin{pmatrix} 40.11\\-71.56\\18.35\\-11.01\end{pmatrix}}$\\
-# \item ${\bf (A+\textcolor{red}{{\bf \delta A})}x''}={\bf b +\textcolor{red}{{\bf \delta b}}} \Rightarrow {\bf x''}=\begin{pmatrix} 2.40\\-1.32\\-0.61\\3.08\end{pmatrix}={\bf x}+\textcolor{red}{\begin{pmatrix} -1.4\\2.32\\1.61\\2.08\end{pmatrix}}$ 
-# \end{itemize}
+# 
+# - ${\bf Ax}={\bf b}  \Rightarrow {\bf x}=\begin{pmatrix} 1\\1\\1\\1\end{pmatrix}$\\
+# - ${\bf Ax'}={\bf b +\textcolor{red}{{\bf \delta b}}} \Rightarrow {\bf x'}=\begin{pmatrix} 41.11\\-70.56\\19.35\\-10.01\end{pmatrix}={\bf x}+\textcolor{red}{\begin{pmatrix} 40.11\\-71.56\\18.35\\-11.01\end{pmatrix}}$\\
+# - ${\bf (A+\textcolor{red}{{\bf \delta A})}x''}={\bf b +\textcolor{red}{{\bf \delta b}}} \Rightarrow {\bf x''}=\begin{pmatrix} 2.40\\-1.32\\-0.61\\3.08\end{pmatrix}={\bf x}+\textcolor{red}{\begin{pmatrix} -1.4\\2.32\\1.61\\2.08\end{pmatrix}}$ 
+# 
+# 
 # $\Rightarrow$ Une petite variation de ${\bf b}$ et/ou ${\bf A}$  entraîne une grande variation de ${\bf x}$.
 # 
 # ```
