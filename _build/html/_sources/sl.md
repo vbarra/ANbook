@@ -231,5 +231,50 @@ précédente
 comme elle permet de calculer le rang de ${\bf A}$.
 ```
 
+## Condition d'une matrice
+Etudions les variations de la solution d'un système d'équations linéaires quand le second membre subit une perturbation : 
+
+
+${\bf Ax}={\bf b} \Rightarrow {\bf A(x+\bf \delta x)}={\bf b+\bf \delta\bf b}
+$
+
+On peut donc écrire $\bf \delta x={\bf A^{-1}\bf \delta \bf  b}$ d'où les relations écrites avec des normes subordonnées appropriées :\\
+
+$\|\bf\delta \bf x\|\leq\|\bf A^{-1}\|\|\bf \delta \bf b\|$
+
+$\|\bf A\|\|\bf x\|\geq\|\bm b\|$
+
+et on peut écrire l'estimation de l'erreur relative en norme sur $\bf x$ en fonction de la perturbation relative sur ${\bf b}$ :
+
+$\frac{\|\bf\delta \bf x\|}{\|\bm x}\|\leq \|\bm A\|\|\bm A^{-1}\|\frac{\|\bf \delta \bf b\|}{\|\bm b\|}$
+
+````{prf:definition}Condition d'une matrice
+La quantité $\|{\bf A}\|\|{\bf A^{-1}}\|$ est appelée la condition de la matrice est notée $\sigma({\bf A})$.
+````
+```{index} Condition
+```
+
+On peut démontrer de même que si ${\bf A}$ est sujette à une erreur ${\bf \delta \bf A}$ alors 
+
+$
+{\bf Ax}={\bf b} \Rightarrow ({\bf A + {\bf \delta {\bf A}})(x+\bf \delta x)}={\bf b}
+$
+et 
+
+$\frac{\|{\bm\delta \bf x}\|}{\|{\bf x}+{\bf \delta \bf x}\|}\leq \sigma({\bf A})\frac{\|{\bf \delta {\bf A}}\|}{\|{\bf A}\|}$
+
+et on peut même majorer l'erreur relative dans le cas où l'on commet à la fois une erreur sur ${\bf A}$ et une erreur sur ${\bf b}$ : 
+
+````{prf:definition}Majoration de l'erreur dans le cas  ({\bf A + {\bf \delta {\bf A}})(\bf x+\bf \delta x)}={\bf b+\delta b}$
+
+Soient ${\bf A}\in\mathcal{M}_n(\mbb R)$ inversible, ${\bf b}\in(\mathbb R^n)^*$, ${\bf \delta \bf  A}\in\mathcal{M}_n(\mathbb R)$ et ${\bf \delta \bf b}\in\mathbb R^n$. On suppose que $\\\bm \delta \bf A\|<\frac{1}{\|{\bf A^{-1}}\|}$. 
+
+Alors la matrice $(\bf A + {\bf \delta {\bf A}})$ est inversible et si ${\bf x}$ est solution de ${\bf Ax} = {\bf b}$ et $(\bf x+\bf \delta x)$ est solution de $({\bf A + {\bf \delta {\bf A}})(\bf x+\bf \delta x)}={\bf b+\bf \delta b}$, alors 
+
+$\frac{\|{\bm \delta \bf x}\|}{\|{\bf x}\|}\leq\frac{\sigma(\bf A)}{1-\|{\bf A^{-1}}\|\|{\bm \delta \bf A}}\|\left (\frac{\|{\bf \delta \bf b}\|}{\|{\bf b}\|} +\frac{\|{\bf \delta {\bf A}}\|}{\|{\bf A}\|}\right )$
+````
+
+
+
 
 
