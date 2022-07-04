@@ -71,6 +71,17 @@
 # $E$ muni du produit scalaire définit un espace préhilbertien. Si $E$ est
 # de dimension finie, c'est même un espace euclidien.
 # 
+# ````{prf:definition} Norme vectorielle 
+# ```{index} Norme ; vectorielle
+# ```
+# 
+# Une norme vectorielle est une fonction notée $\|.\|$ définie sur un espace vectoriel $E$ et satisfaisant aux trois axiomes suivants : 
+# 1. $(\forall {\bf x}\in E)\ \norme{{\bf x}}\geq 0$ et $\norme{{\bf x}}= 0 \Leftrightarrow {\bf x}={\bf 0}$
+# 2. $(\forall {\bf x}\in E)\ (\forall\lambda \in \mbb R)\ \norme{\lambda.{\bf x}}=|\lambda|\norme{{\bf x}}$ 
+# 3. $(\forall {\bf x},{\bf y}\in E)\ \norme{{\bf x+y}}\leq \norme{{\bf x}}+\norme{{\bf y}}$ 
+# \end{enumerate}
+# ````
+# 
 # ## Sous-espace vectoriel
 # ```{index} Espace vectoriel ; sous-
 # ```
