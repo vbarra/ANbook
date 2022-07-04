@@ -18,6 +18,11 @@ parts:
     - file: ch2    
     - file: gauss    
     - file: lu  
+  - caption: Moindres carrés linéaires
+    chapters:
+    - file: projections    
+    - file: mcl    
+    - file: transfo 
   - caption: Index
     chapters:
     - file: genindex

@@ -262,7 +262,7 @@ plt.show()
 # -   $(\forall \lambda\in\mathbb R)(\forall {\bf A}\in \mathcal{M}_{m,n}(\mathbb{R}))(\forall i\in  [\![ 1, m]\!])(\forall j\in  [\![ 1, n]\!])\quad  \left ( {\bf \lambda.A}\right )_{i,j} =\lambda\left ( {\bf A}\right )_{i,j}$
 # 
 # 
-# Sur l'espace des matrices carrées $\mathcal{M}_n(\mbb R)$, on définit des normes matricielles.
+# Sur l'espace des matrices carrées $\mathcal{M}_n(\mathbb R)$, on définit des normes matricielles.
 # En plus des trois axiomes des normes vectorielles, on exige  que ces normes vérifient une condition supplémentaire, dite condition 
 # de norme {sous-multiplicative} :
 # 
