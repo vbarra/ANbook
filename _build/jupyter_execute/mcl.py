@@ -14,7 +14,7 @@
 # consiste à choisir  ${\bf x}$ qui minimise la somme des carrés des erreurs. On pose donc le problème :
 # 
 # 
-# Trouver ${\bf x}\in \mathbb R^n$ tel que $\dps\sum_{i=1}^me_i^2$ soit minimale.
+# Trouver ${\bf x}\in \mathbb R^n$ tel que $\displaystyle\sum_{i=1}^me_i^2$ soit minimale.
 # 
 # 
 # Si la fonction $f_{\bf x}$ est  linéaire par rapport aux paramètres ${\bf x}$, alors le modèle s'écrit 
@@ -23,12 +23,12 @@
 # Soient ${\bf Y}\in \mathbb R^m$ le vecteur des valeurs $Y_i$ mesurées sur $\mathcal{S}$, ${\bf e}\in \mathbb R^m$ le vecteur dont les composantes sont les erreurs $e_i$ et  ${\bf A}\in\mathcal{M}_{mn}(\mathbb R)$ la matrice dont les lignes sont les ${\bf a_i^T} $. Le problème consiste alors à :
 # 
 # 
-# Trouver ${\bf x}\in \mathbb R^n$ qui  minimise $\norme{{\bf Ax}-{\bf Y}}^2$.
+# Trouver ${\bf x}\in \mathbb R^n$ qui  minimise $\|{\bf Ax}-{\bf Y}\|^2$.
 # 
 # 
 # Dans $\mathbb R^m$, il s'agit donc de trouver le point de l'image de ${\bf A}$ le plus proche au sens de la norme euclidienne du vecteur ${\bf Y}$ (qui a peu de chances d'appartenir à $Im({\bf A})$, car $m>>n$). L'unique solution (cf.  théorème \ref{T:proj}) est  la  projection orthogonale du vecteur ${\bf Y}$ sur le sous-espace $Im({\bf A})$. La solution a déjà été calculée au paragraphe \ref{ssev}, c'est la solution du système linéaire suivant, dit système aux équations normales : ${\bf A^T Ax}={\bf A^T Y}$
 # 
-# Si $\rang({\bf A})=n$ (hypothèse raisonnable car $m>>n$ et les ${\bf a_i}$ dépendent des entrées $t_i$), ce système a une solution unique 
+# Si $rang({\bf A})=n$ (hypothèse raisonnable car $m>>n$ et les ${\bf a_i}$ dépendent des entrées $t_i$), ce système a une solution unique 
 # 
 # ${\bf x}={\bf (A^T A)^{-1}A^T Y}$
 # 
@@ -36,19 +36,17 @@
 # 
 # 
 # ````{prf:example} 
-# Le système $\mathcal{S}$ produit pour les entrées $t_i =\{-1,0,1\}$ les sorties $Y_i=\{4,5,9\}$\\
-# On modélise $\mathcal{S}$ à l'aide d'un modèle affine $y=\alpha+\beta t$, où $\alpha$ et $\beta$ sont deux paramètres à déterminer pour minimiser au sens des moindres carrés l'erreur des trois mesures.\\
-# \begin{center}
-# \begin{tabular}{|c|c|c|c|}
-# \hline
-# Point&$t_i$&$Y_i$&$y_i$\\
-# \hline
-# $P_1$&-1&4&$\alpha-\beta$\\
-# $P_2$&0&5&$\alpha$\\
-# $P_3$&1&9&$\alpha+\beta$\\
-# \hline
-# \end{tabular}
-# \end{center}
+# Le système $\mathcal{S}$ produit pour les entrées $t_i =\{-1,0,1\}$ les sorties $Y_i=\{4,5,9\}$
+# 
+# On modélise $\mathcal{S}$ à l'aide d'un modèle affine $y=\alpha+\beta t$, où $\alpha$ et $\beta$ sont deux paramètres à déterminer pour minimiser au sens des moindres carrés l'erreur des trois mesures.
+# 
+# | Point | $t_i$ | $Y_i$ | $y_i$          |
+# |-------|-------|-------|----------------|
+# | $P_1$ | -1    | 4     | $\alpha-\beta$ |
+# | $P_2$ | 0     | 5     | $\alpha$       |
+# | $P_3$ | 1     | 9     | \alpha+\beta$  |
+# 
+# 
 # Le système 
 # \[{\bf Ax} = {\bf Y} :
 # \left \{

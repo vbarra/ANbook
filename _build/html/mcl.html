@@ -503,32 +503,47 @@ title="Print to PDF"
 <p>Pour <span class="math notranslate nohighlight">\(m\)</span> entrées <span class="math notranslate nohighlight">\(t_i, 1\leq i\leq m\)</span>, on souhaite donc que les valeurs <span class="math notranslate nohighlight">\(y_i=f_{\bf x}(t_i)\)</span> calculées par le modèle soient les plus proches possibles des valeurs théoriques <span class="math notranslate nohighlight">\(Y_i\)</span> mesurées sur <span class="math notranslate nohighlight">\(\mathcal S\)</span>. L’ajustement du modèle se fait à l’aide du vecteur de paramètres <span class="math notranslate nohighlight">\({\bf x}\)</span>.</p>
 <p>L’erreur entre le modèle théorique et la sortie mesurée pour l’entrée <span class="math notranslate nohighlight">\(t_i\)</span> est <span class="math notranslate nohighlight">\(e_i=y_i-Y_i\)</span> et la solution aux moindres carrés
 consiste à choisir  <span class="math notranslate nohighlight">\({\bf x}\)</span> qui minimise la somme des carrés des erreurs. On pose donc le problème :</p>
-<p>Trouver <span class="math notranslate nohighlight">\({\bf x}\in \mathbb R^n\)</span> tel que <span class="math notranslate nohighlight">\(\dps\sum_{i=1}^me_i^2\)</span> soit minimale.</p>
+<p>Trouver <span class="math notranslate nohighlight">\({\bf x}\in \mathbb R^n\)</span> tel que <span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1}^me_i^2\)</span> soit minimale.</p>
 <p>Si la fonction <span class="math notranslate nohighlight">\(f_{\bf x}\)</span> est  linéaire par rapport aux paramètres <span class="math notranslate nohighlight">\({\bf x}\)</span>, alors le modèle s’écrit
 <span class="math notranslate nohighlight">\(f_{\bf x}(t_i) = {\bf a_i}^T{\bf x}\)</span> et on parle de problème au moindres carrés linéaires.</p>
 <p>Soient <span class="math notranslate nohighlight">\({\bf Y}\in \mathbb R^m\)</span> le vecteur des valeurs <span class="math notranslate nohighlight">\(Y_i\)</span> mesurées sur <span class="math notranslate nohighlight">\(\mathcal{S}\)</span>, <span class="math notranslate nohighlight">\({\bf e}\in \mathbb R^m\)</span> le vecteur dont les composantes sont les erreurs <span class="math notranslate nohighlight">\(e_i\)</span> et  <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{mn}(\mathbb R)\)</span> la matrice dont les lignes sont les <span class="math notranslate nohighlight">\({\bf a_i^T} \)</span>. Le problème consiste alors à :</p>
-<p>Trouver <span class="math notranslate nohighlight">\({\bf x}\in \mathbb R^n\)</span> qui  minimise <span class="math notranslate nohighlight">\(\norme{{\bf Ax}-{\bf Y}}^2\)</span>.</p>
+<p>Trouver <span class="math notranslate nohighlight">\({\bf x}\in \mathbb R^n\)</span> qui  minimise <span class="math notranslate nohighlight">\(\|{\bf Ax}-{\bf Y}\|^2\)</span>.</p>
 <p>Dans <span class="math notranslate nohighlight">\(\mathbb R^m\)</span>, il s’agit donc de trouver le point de l’image de <span class="math notranslate nohighlight">\({\bf A}\)</span> le plus proche au sens de la norme euclidienne du vecteur <span class="math notranslate nohighlight">\({\bf Y}\)</span> (qui a peu de chances d’appartenir à <span class="math notranslate nohighlight">\(Im({\bf A})\)</span>, car <span class="math notranslate nohighlight">\(m&gt;&gt;n\)</span>). L’unique solution (cf.  théorème \ref{T:proj}) est  la  projection orthogonale du vecteur <span class="math notranslate nohighlight">\({\bf Y}\)</span> sur le sous-espace <span class="math notranslate nohighlight">\(Im({\bf A})\)</span>. La solution a déjà été calculée au paragraphe \ref{ssev}, c’est la solution du système linéaire suivant, dit système aux équations normales : <span class="math notranslate nohighlight">\({\bf A^T Ax}={\bf A^T Y}\)</span></p>
-<p>Si <span class="math notranslate nohighlight">\(\rang({\bf A})=n\)</span> (hypothèse raisonnable car <span class="math notranslate nohighlight">\(m&gt;&gt;n\)</span> et les <span class="math notranslate nohighlight">\({\bf a_i}\)</span> dépendent des entrées <span class="math notranslate nohighlight">\(t_i\)</span>), ce système a une solution unique</p>
+<p>Si <span class="math notranslate nohighlight">\(rang({\bf A})=n\)</span> (hypothèse raisonnable car <span class="math notranslate nohighlight">\(m&gt;&gt;n\)</span> et les <span class="math notranslate nohighlight">\({\bf a_i}\)</span> dépendent des entrées <span class="math notranslate nohighlight">\(t_i\)</span>), ce système a une solution unique</p>
 <p><span class="math notranslate nohighlight">\({\bf x}={\bf (A^T A)^{-1}A^T Y}\)</span></p>
 <p>dite solution aux moindres carrés. La matrice <span class="math notranslate nohighlight">\({\bf A^+}={\bf (A^T A)^{-1}A^T}\)</span> (Attention !! ce n’est pas la matrice de projection) est la pseudo inverse de la matrice rectangulaire <span class="math notranslate nohighlight">\({\bf A}\)</span>. Elle satisfait <span class="math notranslate nohighlight">\({\bf A^+A}=\mathbb I\)</span> et <span class="math notranslate nohighlight">\({\bf AA^+}={\bf P}\)</span>.</p>
 <div class="proof example admonition" id="example-0">
 <p class="admonition-title"><span class="caption-number">Example 11 </span></p>
 <div class="example-content section" id="proof-content">
-<p>Le système <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> produit pour les entrées <span class="math notranslate nohighlight">\(t_i =\{-1,0,1\}\)</span> les sorties <span class="math notranslate nohighlight">\(Y_i=\{4,5,9\}\)</span>\
-On modélise <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> à l’aide d’un modèle affine <span class="math notranslate nohighlight">\(y=\alpha+\beta t\)</span>, où <span class="math notranslate nohighlight">\(\alpha\)</span> et <span class="math notranslate nohighlight">\(\beta\)</span> sont deux paramètres à déterminer pour minimiser au sens des moindres carrés l’erreur des trois mesures.\
-\begin{center}
-\begin{tabular}{|c|c|c|c|}
-\hline
-Point&amp;<span class="math notranslate nohighlight">\(t_i\)</span>&amp;<span class="math notranslate nohighlight">\(Y_i\)</span>&amp;<span class="math notranslate nohighlight">\(y_i\)</span>\
-\hline
-<span class="math notranslate nohighlight">\(P_1\)</span>&amp;-1&amp;4&amp;<span class="math notranslate nohighlight">\(\alpha-\beta\)</span>\
-<span class="math notranslate nohighlight">\(P_2\)</span>&amp;0&amp;5&amp;<span class="math notranslate nohighlight">\(\alpha\)</span>\
-<span class="math notranslate nohighlight">\(P_3\)</span>&amp;1&amp;9&amp;<span class="math notranslate nohighlight">\(\alpha+\beta\)</span>\
-\hline
-\end{tabular}
-\end{center}
-Le système
+<p>Le système <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> produit pour les entrées <span class="math notranslate nohighlight">\(t_i =\{-1,0,1\}\)</span> les sorties <span class="math notranslate nohighlight">\(Y_i=\{4,5,9\}\)</span></p>
+<p>On modélise <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> à l’aide d’un modèle affine <span class="math notranslate nohighlight">\(y=\alpha+\beta t\)</span>, où <span class="math notranslate nohighlight">\(\alpha\)</span> et <span class="math notranslate nohighlight">\(\beta\)</span> sont deux paramètres à déterminer pour minimiser au sens des moindres carrés l’erreur des trois mesures.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Point</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(t_i\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(Y_i\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(y_i\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(P_1\)</span></p></td>
+<td><p>-1</p></td>
+<td><p>4</p></td>
+<td><p><span class="math notranslate nohighlight">\(\alpha-\beta\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(P_2\)</span></p></td>
+<td><p>0</p></td>
+<td><p>5</p></td>
+<td><p><span class="math notranslate nohighlight">\(\alpha\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(P_3\)</span></p></td>
+<td><p>1</p></td>
+<td><p>9</p></td>
+<td><p>\alpha+\beta$</p></td>
+</tr>
+</tbody>
+</table>
+<p>Le système
 [{\bf Ax} = {\bf Y} :
 \left {
 \begin{array}{ccccc}
