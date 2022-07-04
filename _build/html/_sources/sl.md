@@ -330,6 +330,43 @@ $\Rightarrow$ Une petite variation de ${\bf b}$ et/ou ${\bf A}$  entraîne une g
 
 ```
 
+```{code-cell} ipython3
+from sympy import init_printing, Matrix
+from sympy.solvers.solveset import linsolve
+from warnings import filterwarnings
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+filterwarnings('ignore')
+
+A = Matrix([[10, 7, 8, 7], [7, 5, 6, 5], [8, 6, 10, 9], [7, 5, 9, 10]])
+deltaA = Matrix([[0, 0, 0.1, 0.2], [2/25., 1/25., 0, 0], [0, -1/50., -11/100., 0], [-0.01, -0.1, 9, -1/50.]])
+b_1 = Matrix([32, 23, 33, 31])
+b_2 = Matrix([32.01, 22.99, 33.01, 30.99])
+```
+
+
+```{code-cell} ipython3
+x_1 = linsolve([A,b_1])
+x_1
+```
+
+```{code-cell} ipython3
+x_2 = linsolve([A,b_2])
+x_2
+```
+
+```{code-cell} ipython3
+x_3 = linsolve([A+deltaA,b_1])
+x_3
+```
+
+```{code-cell} ipython3
+x_4 = linsolve([A+deltaA,b_2])
+x_4
+```
+
+
 ```{prf:example} Deuxième exemple
 
 Soient 

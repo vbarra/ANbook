@@ -321,7 +321,52 @@
 # $\Rightarrow$ Une petite variation de ${\bf b}$ et/ou ${\bf A}$  entraîne une grande variation de ${\bf x}$.
 # 
 # ```
-# 
+
+# In[1]:
+
+
+from sympy import init_printing, Matrix
+from sympy.solvers.solveset import linsolve
+from warnings import filterwarnings
+import numpy as np
+import matplotlib.pyplot as plt
+get_ipython().run_line_magic('matplotlib', 'inline')
+filterwarnings('ignore')
+
+A = Matrix([[10, 7, 8, 7], [7, 5, 6, 5], [8, 6, 10, 9], [7, 5, 9, 10]])
+deltaA = Matrix([[0, 0, 0.1, 0.2], [2/25., 1/25., 0, 0], [0, -1/50., -11/100., 0], [-0.01, -0.1, 9, -1/50.]])
+b_1 = Matrix([32, 23, 33, 31])
+b_2 = Matrix([32.01, 22.99, 33.01, 30.99])
+
+
+# In[2]:
+
+
+x_1 = linsolve([A,b_1])
+x_1
+
+
+# In[3]:
+
+
+x_2 = linsolve([A,b_2])
+x_2
+
+
+# In[4]:
+
+
+x_3 = linsolve([A+deltaA,b_1])
+x_3
+
+
+# In[5]:
+
+
+x_4 = linsolve([A+deltaA,b_2])
+x_4
+
+
 # ```{prf:example} Deuxième exemple
 # 
 # Soient 
@@ -345,7 +390,7 @@
 # 
 # ```
 
-# In[1]:
+# In[6]:
 
 
 from sympy import init_printing, Matrix
@@ -367,7 +412,7 @@ b = Matrix([0.217,0.254])
 # 
 # La solution approchée $(0.999,-1)^T$ fournit un résidu
 
-# In[2]:
+# In[7]:
 
 
 x_app = Matrix([0.999,-1])
@@ -375,7 +420,7 @@ r = A*x_app -b
 r.evalf(4)
 
 
-# In[3]:
+# In[8]:
 
 
 print('norme : ',r.norm().evalf(4))
@@ -383,7 +428,7 @@ print('norme : ',r.norm().evalf(4))
 
 # Le vecteur $(0.341,-0.087)^T$, éloigné de la solution théorique, fournit lui un résidu
 
-# In[4]:
+# In[9]:
 
 
 x_app2 = Matrix([0.341,-0.087])
@@ -391,13 +436,13 @@ r2 = A*x_app2 -b
 r2.evalf(4)
 
 
-# In[5]:
+# In[10]:
 
 
 print('norme : ',r2.norm().evalf(4))
 
 
-# In[6]:
+# In[11]:
 
 
 def plot_vector2d(vector2d, origin=[0, 0], **options):
@@ -422,7 +467,7 @@ plt.tight_layout()
 
 # La condition de la matrice est
 
-# In[7]:
+# In[12]:
 
 
 print('Condition de la matrice :', np.linalg.cond(np.matrix(A, dtype='float'),p=2))
