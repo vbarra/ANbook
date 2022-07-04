@@ -42,7 +42,9 @@ ${\bf x}={\bf (A^T A)^{-1}A^T Y}$
 
 dite solution aux moindres carrés. La matrice ${\bf A^+}={\bf (A^T A)^{-1}A^T}$ (Attention !! ce n'est pas la matrice de projection) est la pseudo inverse de la matrice rectangulaire ${\bf A}$. Elle satisfait ${\bf A^+A}=\mathbb I$ et ${\bf AA^+}={\bf P}$.
 
-
+```{margin} 
+![](./images/mcl1.png)
+```
 ````{prf:example} 
 Le système $\mathcal{S}$ produit pour les entrées $t_i =\{-1,0,1\}$ les sorties $Y_i=\{4,5,9\}$
 
@@ -79,9 +81,7 @@ $
 la solution aux moindres carrés est donc $\alpha=6$ et $\beta=5/2$.
 Le vecteur des erreurs ${\bf Y}-{\bf Ax}=(1/2$ $-1$ $1/2)^T $ est bien orthogonal dans $R^3$ aux colonnes de ${\bf A}$. Chaque erreur peut être également représentée par la distance verticale entre la mesure ${ Y_i}$ et la droite $f(t)=6+\frac{5}{2}t$ pour $t=t_i$ (segments rouges).
 ````
-```{margin} 
-![](./images/mcl1.png)
-```
+
 
 
 
