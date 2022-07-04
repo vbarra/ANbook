@@ -323,7 +323,7 @@ $\Rightarrow {\bf x''}=\begin{pmatrix} -1.91\\5.63\\0.078\\1.54\end{pmatrix}$
 
 - ${\bf (A+\textcolor{red}{{\bf \delta A})}x'''}={\bf b +\textcolor{red}{{\bf \delta b}}} $ donne la solution 
 
-$\Rightarrow {\bf x'''}=\begin{pmatrix} 2.40\\-1.32\\-0.61\\3.08\end{pmatrix}$ 
+$\Rightarrow {\bf x'''}=\begin{pmatrix} -1.83\\5.50\\0.065\\1.57\end{pmatrix}$ 
 
 
 $\Rightarrow$ Une petite variation de ${\bf b}$ et/ou ${\bf A}$  entraîne une grande variation de ${\bf x}$.
@@ -382,7 +382,7 @@ La solution exacte du système ${\bf Ax}={\bf b}$ est ${\bf x}=\begin{pmatrix} 1
 
 La solution approchée ${\bf x_1}=\begin{pmatrix} 0.999\\-1\end{pmatrix}$ fournit le résidu ${\bf Ax_1-b}=\begin{pmatrix} -7.8.10^{-4}\\-9.1.10^{-4}\end{pmatrix}$
 
-Le vecteur ${\bf x_2}=\begin{pmatrix} 0.341\\-0.087\end{pmatrix}$ fournit le résidu ${\bf Ax_2-b}=\begin{pmatrix} -10^{-6}\\0\end{pmatrix}$\\
+Le vecteur ${\bf x_2}=\begin{pmatrix} 0.341\\-0.087\end{pmatrix}$ fournit le résidu ${\bf Ax_2-b}=\begin{pmatrix} -10^{-6}\\0\end{pmatrix}$
 
 
 $\Rightarrow$ Un vecteur ${\bf x_2}$ "loin" de la solution théorique fournit un résidu plus faible.
