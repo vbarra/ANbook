@@ -99,7 +99,9 @@
 # 3\\1\\-0.5\\1.5\\4
 # \end{pmatrix}
 # $, on cherche ${\bf x}$ qui minimise $\|{\bf Ax}-{\bf Y}\|^2$, soit encore ${\bf x}$ solution du système aux équations normales ${\bf A^T Ax}={\bf A^T Y}$\\
-# On a alors $${\bf A^T A}=\begin{pmatrix}5&0&10\\0&10&0\\10&0&34\end{pmatrix}\quad{\bf A^T Y}=\begin{pmatrix}9\\2.5\\30.5\end{pmatrix}\textrm{ d'où } P(t)=\frac{1}{70}+\frac{1}{4}t+\frac{25}{28}t^2$$
+# On a alors 
+# 
+# ${\bf A^T A}=\begin{pmatrix}5&0&10\\0&10&0\\10&0&34\end{pmatrix}\quad{\bf A^T Y}=\begin{pmatrix}9\\2.5\\30.5\end{pmatrix}\textrm{ d'où } P(t)=\frac{1}{70}+\frac{1}{4}t+\frac{25}{28}t^2$
 # ````
 # 
 # ## Systèmes incompatibles
