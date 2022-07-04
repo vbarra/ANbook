@@ -91,7 +91,7 @@
 # dû à Minkowski et sa démonstration découle de l'inégalité fondamentale suivante dite 
 # inégalité de Hölder : 
 # ```{index} Inégalité;de Hölder
-# 
+# ```
 # ```` {prf:property} Inégalité de Hölder
 # 
 # $
