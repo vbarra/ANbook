@@ -265,3 +265,16 @@
 # 
 # $\frac{\|{\bf \delta \bf x}\|}{\|{\bf x}\|}\leq\frac{\sigma(\bf A)}{1-\|{\bf A^{-1}}\|\|{\bf \delta \bf A}}\|\left (\frac{\|{\bf \delta \bf b}\|}{\|{\bf b}\|} +\frac{\|{\bf \delta {\bf A}}\|}{\|{\bf A}\|}\right )$
 # ````
+# 
+# 
+# ````{prf:property} 
+# Pour toutes matrices ${\bf A}$, ${\bf B}$ inversibles : 
+# 
+# 1. $\sigma(\mathbb I)\geq 1$ et $\sigma(\mathbb I)= 1$ si et seulement si la norme de calcul de la condition est subordonnée.
+# 2. $\sigma({\bf A})\geq 1$. Plus la condition est grande, plus la matrice est dite mal conditionnée, i.e. plus le système ${\bf Ax}={\bf b}$ est instable.
+# 3. $\sigma({\bf A})= \sigma({\bf A^{-1}})$.
+# 4. $(\forall \lambda\in \mathbb R^*)\ \sigma({\lambda.\bf A})= \sigma({\bf A})$.
+# 5. $\sigma({\bf AB})\leq \sigma ({\bf A})\sigma( {\bf B})$.
+# 6. Si ${\bf H}$ est une matrice orthogonale $\sigma_2({\bf H})=1$.
+# 
+# ````
