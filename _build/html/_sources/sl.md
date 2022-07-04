@@ -261,11 +261,11 @@ $
 $
 et 
 
-$\frac{\|{\bm\delta \bf x}\|}{\|{\bf x}+{\bf \delta \bf x}\|}\leq \sigma({\bf A})\frac{\|{\bf \delta {\bf A}}\|}{\|{\bf A}\|}$
+$\frac{\|{\bf\delta \bf x}\|}{\|{\bf x}+{\bf \delta \bf x}\|}\leq \sigma({\bf A})\frac{\|{\bf \delta {\bf A}}\|}{\|{\bf A}\|}$
 
 et on peut même majorer l'erreur relative dans le cas où l'on commet à la fois une erreur sur ${\bf A}$ et une erreur sur ${\bf b}$ : 
 
-````{prf:definition}Majoration de l'erreur dans le cas  ({\bf A + {\bf \delta {\bf A}})(\bf x+\bf \delta x)}={\bf b+\delta b}$
+````{prf:definition} Majoration de l'erreur dans le cas  ({\bf A + {\bf \delta {\bf A}})(\bf x+\bf \delta x)}={\bf b+\delta b}$
 
 Soient ${\bf A}\in\mathcal{M}_n(\mbb R)$ inversible, ${\bf b}\in(\mathbb R^n)^*$, ${\bf \delta \bf  A}\in\mathcal{M}_n(\mathbb R)$ et ${\bf \delta \bf b}\in\mathbb R^n$. On suppose que $\\\bm \delta \bf A\|<\frac{1}{\|{\bf A^{-1}}\|}$. 
 

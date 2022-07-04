@@ -265,13 +265,13 @@ $\frac{\|{\bf\delta \bf x}\|}{\|{\bf x}+{\bf \delta \bf x}\|}\leq \sigma({\bf A}
 
 et on peut même majorer l'erreur relative dans le cas où l'on commet à la fois une erreur sur ${\bf A}$ et une erreur sur ${\bf b}$ : 
 
-````{prf:definition} Majoration de l'erreur dans le cas  ({\bf A + {\bf \delta {\bf A}})(\bf x+\bf \delta x)}={\bf b+\delta b}$
+````{prf:theorem} Majoration de l'erreur dans le cas  ({ A + { \delta { A}})( x+\delta x)}={ b+\delta b}$
 
-Soient ${\bf A}\in\mathcal{M}_n(\mbb R)$ inversible, ${\bf b}\in(\mathbb R^n)^*$, ${\bf \delta \bf  A}\in\mathcal{M}_n(\mathbb R)$ et ${\bf \delta \bf b}\in\mathbb R^n$. On suppose que $\\\bm \delta \bf A\|<\frac{1}{\|{\bf A^{-1}}\|}$. 
+Soient ${\bf A}\in\mathcal{M}_n(\mathbb R)$ inversible, ${\bf b}\in(\mathbb R^n)^*$, ${\bf \delta \bf  A}\in\mathcal{M}_n(\mathbb R)$ et ${\bf \delta \bf b}\in\mathbb R^n$. On suppose que $\|\bf \delta \bf A\|<\frac{1}{\|{\bf A^{-1}}\|}$. 
 
 Alors la matrice $(\bf A + {\bf \delta {\bf A}})$ est inversible et si ${\bf x}$ est solution de ${\bf Ax} = {\bf b}$ et $(\bf x+\bf \delta x)$ est solution de $({\bf A + {\bf \delta {\bf A}})(\bf x+\bf \delta x)}={\bf b+\bf \delta b}$, alors 
 
-$\frac{\|{\bm \delta \bf x}\|}{\|{\bf x}\|}\leq\frac{\sigma(\bf A)}{1-\|{\bf A^{-1}}\|\|{\bm \delta \bf A}}\|\left (\frac{\|{\bf \delta \bf b}\|}{\|{\bf b}\|} +\frac{\|{\bf \delta {\bf A}}\|}{\|{\bf A}\|}\right )$
+$\frac{\|{\bf \delta \bf x}\|}{\|{\bf x}\|}\leq\frac{\sigma(\bf A)}{1-\|{\bf A^{-1}}\|\|{\bf \delta \bf A}}\|\left (\frac{\|{\bf \delta \bf b}\|}{\|{\bf b}\|} +\frac{\|{\bf \delta {\bf A}}\|}{\|{\bf A}\|}\right )$
 ````
 
 
