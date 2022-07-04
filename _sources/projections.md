@@ -125,7 +125,7 @@ ${\bf P}=\frac{1}{\|{\bf v}\|^2}{\bf v}{\bf v^T} $
 ````{prf:example}
 
 
-Dans $\mathbb R^2$, la projection sur l'axe des abscisses, dirigé par ${\bf v}=\begin{pmatrix}1 \\0\\\end{pmatrix}$, est effectuée par \mbox{${\bf P}= \begin{pmatrix}1&0\\0&0\end{pmatrix}$} et on a bien ${\bf p}={\bf Py}=\begin{pmatrix}y_1 \\0\\\end{pmatrix}$
+Dans $\mathbb R^2$, la projection sur l'axe des abscisses, dirigé par ${\bf v}=\begin{pmatrix}1 \\0\\\end{pmatrix}$, est effectuée par ${\bf P}= \begin{pmatrix}1&0\\0&0\end{pmatrix}$ et on a bien ${\bf p}={\bf Py}=\begin{pmatrix}y_1 \\0\\\end{pmatrix}$
 ````
 
 ## Projection sur une droite ne passant pas par l'origine
