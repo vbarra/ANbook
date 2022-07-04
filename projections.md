@@ -11,6 +11,8 @@ kernelspec:
 ---
 # Projections orthogonales
 
+
+## Théorème de projection
 On s'intéresse ici aux mécanismes de calcul de la projection orthogonale d'un vecteur de \mathbb R$^n$ sur un sous-espace. Les résultats fondamentaux d'existence, d'unicité et de caractérisation de la projection orthogonale d'un point sur un sous-espace, valables dans des espaces plus généraux que \R$^n$, sont rappelés ci-après. Dans tout le chapitre,
 la norme vectorielle utilisée, et notée $\|\cdot\|$, est la norme euclidienne.
 
@@ -29,23 +31,32 @@ Une condition nécessaire et suffisante pour que ${\bf p}\in L$ soit la projecti
 ![](./images/projection.png)
 ```
 
-\textsc{Démonstration.} \\
+````{prf:proof}
 \textit{1) Existence:} On peut supposer que ${\bf y}\notin L$ et on introduit 
-$$\varepsilon=\inf_{{\bf x}\in L}\|{\bf y}-{\bf x}\|>0.$$ On veut trouver ${\bf p}\in L$ tel que $\|{\bf p}-{\bf y}\|=\varepsilon$. Soit une suite
+
+$\varepsilon=\inf_{{\bf x}\in L}\|{\bf y}-{\bf x}\|>0.$ 
+
+On veut trouver ${\bf p}\in L$ tel que $\|{\bf p}-{\bf y}\|=\varepsilon$. Soit une suite
 $\{{\bf p_i}\}$ de vecteurs de $L$ tels que $\|{\bf y}-{\bf p_i}\|\rightarrow\varepsilon$. On a alors (loi du parallélogramme)
-$$
+
+$
 \|({\bf p_j}-{\bf y})+({\bf y}-{\bf p_i})\|^2+\|({\bf p_j}-{\bf y})-({\bf y}-{\bf p_i})\|^2=2\|{\bf p_j}-{\bf y}\|^2+2\|{\bf y}-{\bf p_i}\|^2.
-$$
+$
+
 Soit
-$$
+$
 \|{\bf p_j}-{\bf p_i}\|^2=2\|{\bf p_j}-{\bf y}\|^2+2\|{\bf y}-{\bf p_i}\|^2-4\|{\bf y}-({\bf p_i}+{\bf p_j})/2\|^2.
-$$
+$
+
 Comme $({\bf p_i}+{\bf p_j})/2\in L$, on a 
-$$
+$
+
 \|{\bf y}-({\bf p_i}+{\bf p_j})/2\|^2\ge \varepsilon^2,
-$$
+$
+
 ce qui permet de majorer
-$$
+
+$
 \|{\bf p_j}-{\bf p_i}\|^2\le 2\|{\bf p_j}-{\bf y}\|^2+2\|{\bf y}-{\bf p_i}\|^2-4\varepsilon^2.
 $$
 Par passage à la limite, on déduit que $\|{\bf p_j}-{\bf p_i}\|\rightarrow 0$. Ce qui prouve que la suite des 
@@ -67,50 +78,34 @@ d'où la contradiction.\\
 On applique le théorème de Pythagore :
 \[ (\forall {\bf x} \in L)\ \|{\bf y}-{\bf x}\|^2=\|{\bf y}-{\bf p}+{\bf p}-{\bf x}\|^2  = \|{\bf y}-{\bf p}\|^2 + \|{\bf p}-{\bf x}\|^2  > \| {\bf y}-{\bf p}\|^2 \]
 d'où la contradiction. 
+````
 
-%--------------------------------------------------------------------------
-\subsection{Projection sur une droite passant par l'origine}
-\label{drt}
-Une droite qui passe par l'origine est un sous-espace de dimension 1. Soit ${\bf y}\in \mathbb R^n$ et $D$ le sous-espace de vecteurs engendrés par un vecteur ${\bf v}$ non nul : $$D=\{{\bf z}\in \mathbb R^n /{\bf z}=\lambda {\bf v},\lambda\in \mathbb R\}$$
-Si ${\bf p}\in D$ est la projection orthogonale de ${\bf y}$ sur la droite, on peut écrire  : ${\bf y}={\bf p}+{\bf u}$, avec ${\bf p}=\lambda {\bf v}$ et ${\bf u^T}{\bf v}=0$. (figure \ref{F:projD})\\
+## Projection sur une droite passant par l'origine
+
+Une droite qui passe par l'origine est un sous-espace de dimension 1. Soit ${\bf y}\in \mathbb R^n$ et $D$ le sous-espace de vecteurs engendrés par un vecteur ${\bf v}$ non nul : 
+
+$D=\{{\bf z}\in \mathbb R^n /{\bf z}=\lambda {\bf v},\lambda\in \mathbb R\}$
+
+Si ${\bf p}\in D$ est la projection orthogonale de ${\bf y}$ sur la droite, on peut écrire  : ${\bf y}={\bf p}+{\bf u}$, avec ${\bf p}=\lambda {\bf v}$ et ${\bf u^T}{\bf v}=0$. 
+
+```{margin} 
+![](./images/projdroite.png)
+```
 
 On remarque que la dernière relation signifie que ${\bf u}\in D^\bot$ et donc que ${\bf u}$ est la projection orthogonale de ${\bf y}$ sur $D^\bot$.
 Alors :
-$${\bf v^T}  {\bf y}=\lambda {\bf v^T}  {\bf v} \Rightarrow \lambda=\frac{1}{{\bf v^T}{\bf v} }. {\bf v^T}  {\bf y}$$
-soit
-$${\bf p}=\frac{ {\bf v^T}  {\bf y}}{ {\bf v^T}  {\bf v}}.{\bf v}$$
 
-Ainsi, cette expression qui exprime le fait que ${\bf p}$ a la même direction que ${\bf v}$ peut s'écrire différemment pour représenter la transformation qui transforme ${\bf y}$ en ${\bf p}$.\\
+${\bf v^T}  {\bf y}=\lambda {\bf v^T}  {\bf v} \Rightarrow \lambda=\frac{1}{{\bf v^T}{\bf v} }. {\bf v^T}  {\bf y}$
+soit
+
+${\bf p}=\frac{ {\bf v^T}  {\bf y}}{ {\bf v^T}  {\bf v}}.{\bf v}$
+
+Ainsi, cette expression qui exprime le fait que ${\bf p}$ a la même direction que ${\bf v}$ peut s'écrire différemment pour représenter la transformation qui transforme ${\bf y}$ en ${\bf p}$.
+
 On vérifie que $({\bf v^T}  {\bf y}){\bf v} = ({\bf v} {\bf v^T}){\bf y}$ où l'on observe que $ {\bf v^T}  {\bf y}\in \mathbb R$ alors que ${\bf v} {\bf v^T}\in\mathcal{M}_n(\mathbb R)$  de rang 1 (toutes les colonnes sont des multiples de ${\bf v}$) qui { projette} l'espace $\mathbb R^n$ sur la droite $D$. La projection orthogonale sur une droite qui passe par l'origine est donc une transformation linéaire, de matrice :\index{matrice!de projection}
 $${\bf P}=\frac{1}{\norme{{\bf v}}^2}{\bf v}{\bf v^T} $$
-\begin{figure}[hbtp!]
-\begin{center}
-\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=0.65]
-\clip(-3.52,-2.76) rectangle (7.36,5.76);
-\draw [->] (0.,0.) -- (0.,4.);
-\draw [->] (0.,0.) -- (-2.84,-2.02);
-\draw[-](0,0) -- (7.68,-3.28);
-\draw [->,line width=1.6pt,blue] (0.,0.) -- (3.84,3.62);
-\draw [->,line width=1.2pt,cyan] (0.,0.) -- (3.84,-1.64);
-\draw [->,line width=1.6pt,red] (0.,0.) -- (1.536,-0.656);
-\draw [->,line width=1.6pt,orange] (0.,0.) -- (1.54,3.62);
-\draw [dash pattern=on 4pt off 4pt] (3.84,3.62)-- (3.84,-1.64);
-\draw [dash pattern=on 4pt off 4pt] (3.84,3.62)-- (1.54,3.62);
-\draw [->] (0.,0.) -- (5.34,-1.3);
-\draw (-0.54,4.74) node[anchor=north west] { $x_3$ };
-\draw (-3.2,-1.4) node[anchor=north west] { $x_1$ };
-\draw (5.48,-0.96) node[anchor=north west] { $x_2$ };
-\draw (3.84,3.62) node[anchor=north west] { $\textcolor{blue}{{\bf y}}$ };
-\draw (3.84,-1.64) node[anchor=north west] { $\textcolor{cyan}{{\bf p}}$ };
-\draw (1.536,-0.656) node[anchor=north west] { $\textcolor{red}{{\bf v}}$ };
-\draw (1.54,3.62) node[anchor=north west] { $\textcolor{red}{{\bf u}}$ };
-\draw (5.76,-2.1) node[anchor=north west] { $D$ };
-\end{tikzpicture}
 
-\end{center}
-\caption{Projection sur une droite : exemple dans $\mathbb R^3$}
-\label{F:projD}
-\end{figure}
+
 
 {\rem :
 \begin{enumerate}
