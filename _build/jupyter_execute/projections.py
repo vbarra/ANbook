@@ -132,33 +132,13 @@
 # 
 #  où ${\bf P}$ est la matrice de projection sur le sous-espace engendré par ${\bf v}$ obtenu dans le paragraphe précédent.
 #  
-# ## Projection sur un sous-espace}
+# ## Projection sur un sous-espace
 # 
-# Soit ${\bf A}\in\mathcal{M}_{n,r}(\mathbb R)$  de rang $r$ (donc $r\leq n$). Considérons la projection ${\bf p}$ d'un vecteur  ${\bf y}\in\mathbb R^n$ sur le sous-espace image de ${\bf A}$ (figure \ref{F:projImA}).
-# \begin{figure}[hbtp!]
-# \begin{center}
-# \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=0.5]
-# \clip(-3.52,-2.76) rectangle (7.36,5.76);
-# \filldraw[fill=blue!20!] (-3.5,-2) -- (3.5,-2) --  (5.5,1) -- (-0.5,1) -- (-3.5,-2);
-# \draw[-](0,0) -- (0,4);
+# Soit ${\bf A}\in\mathcal{M}_{n,r}(\mathbb R)$  de rang $r$ (donc $r\leq n$). Considérons la projection ${\bf p}$ d'un vecteur  ${\bf y}\in\mathbb R^n$ sur le sous-espace image de ${\bf A}$ 
 # 
-# \draw [->,line width=1.6pt,blue] (0.,0.) -- (3.84,3.62);
-# \draw [->,line width=1.2pt,cyan] (0.,0.) -- (3.84,-1.64);
-# \draw [->,line width=1.6pt,orange] (0.,0.) -- (0,3.62);
-# \draw [dash pattern=on 4pt off 4pt] (3.84,3.62)-- (3.84,-1.64);
-# \draw [dash pattern=on 4pt off 4pt] (3.84,3.62)-- (0,3.62);
-# \draw (-0.54,4.74) node[anchor=north west] { $Ker({\bf A^T})$ };
-# 
-# \draw (3.84,3.62) node[anchor=north west] { $\textcolor{blue}{{\bf y}}$ };
-# \draw (3.84,-1.64) node[anchor=north west] { $\textcolor{cyan}{{\bf p}}$ };
-# \draw (1.54,3.62) node[anchor=north west] { $\textcolor{red}{{\bf u}}$ };
-# \draw (-3.5,-2) node[anchor=north west] { $ Im({\bf A})$ };
-# \end{tikzpicture}
-# 
-# \end{center}
-# \caption{Projection sur un sous-espace}
-# \label{F:projImA}
-# \end{figure}
+# ```{margin} 
+# ![](./images/projespace.png)
+# ```
 # 
 # Alors ${\bf y}={\bf p}+{\bf u}$ avec ${\bf p}={\bf Ax},{\bf x}\in \mathbb R^r$ et ${\bf A^T}{\bf u}=0$ car ${\bf u}\in (Im({\bf A}))^\perp = Ker({\bf A^T})$.\\
 # On obtient alors : ${\bf A^T} {\bf y}={\bf A^T}{\bf Ax}$, et comme ${\bf A}$ est de rang plein, la matrice ($r\times r$) ${\bf A^T A}\in\mathcal{M}_{r}(\mathbb R)$ est inversible et :\\
