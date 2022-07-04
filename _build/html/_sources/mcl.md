@@ -34,7 +34,7 @@ Soient ${\bf Y}\in \mathbb R^m$ le vecteur des valeurs $Y_i$ mesurées sur $\mat
 Trouver ${\bf x}\in \mathbb R^n$ qui  minimise $\|{\bf Ax}-{\bf Y}\|^2$.
 
 
-Dans $\mathbb R^m$, il s'agit donc de trouver le point de l'image de ${\bf A}$ le plus proche au sens de la norme euclidienne du vecteur ${\bf Y}$ (qui a peu de chances d'appartenir à $Im({\bf A})$, car $m>>n$). L'unique solution (cf.  théorème \ref{T:proj}) est  la  projection orthogonale du vecteur ${\bf Y}$ sur le sous-espace $Im({\bf A})$. La solution a déjà été calculée au paragraphe \ref{ssev}, c'est la solution du système linéaire suivant, dit système aux équations normales : ${\bf A^T Ax}={\bf A^T Y}$
+Dans $\mathbb R^m$, il s'agit donc de trouver le point de l'image de ${\bf A}$ le plus proche au sens de la norme euclidienne du vecteur ${\bf Y}$ (qui a peu de chances d'appartenir à $Im({\bf A})$, car $m>>n$). L'unique solution  est  la  projection orthogonale du vecteur ${\bf Y}$ sur le sous-espace $Im({\bf A})$. La solution a déjà été calculée, c'est la solution du système linéaire suivant, dit système aux équations normales : ${\bf A^T Ax}={\bf A^T Y}$
 
 Si $rang({\bf A})=n$ (hypothèse raisonnable car $m>>n$ et les ${\bf a_i}$ dépendent des entrées $t_i$), ce système a une solution unique 
 
@@ -121,5 +121,5 @@ ${\bf A^T Ax}={\bf A^T b}$
 
 Ce système est en général mal conditionné car $\sigma({\bf A^T A}) = \sigma^2({\bf A})$ dans le cas d'une matrice carrée ${\bf A}$. La méthode de Gauss risque d'être inefficace et on lui préférera des méthodes basées sur des transformations orthogonales qui ont l'avantage d'être numériquement stables.
 
-Finalement, si les colonnes de ${\bf A}$ sont orthonormées i.e. orthogonales deux à deux et de norme 1) ${\bf A^T A}=\mathbb I$ (l'identité dans la "petite" dimension $n$) et la solution des équations normales est simplement ${\bf x^*}={\bf A^T b}$. La  "bonne" stratégie pour résoudre le problème des moindres carrés est donc de construire une base orthonormée de $Im({\bf A})$ pour calculer explicitement la projection. On verra au paragraphe \ref{trortho} que cette construction revient à triangulariser la matrice par des transformations orthogonales.
+Finalement, si les colonnes de ${\bf A}$ sont orthonormées i.e. orthogonales deux à deux et de norme 1) ${\bf A^T A}=\mathbb I$ (l'identité dans la "petite" dimension $n$) et la solution des équations normales est simplement ${\bf x^*}={\bf A^T b}$. La  "bonne" stratégie pour résoudre le problème des moindres carrés est donc de construire une base orthonormée de $Im({\bf A})$ pour calculer explicitement la projection. On verra que cette construction revient à triangulariser la matrice par des transformations orthogonales.
 
