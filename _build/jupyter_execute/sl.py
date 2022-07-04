@@ -230,15 +230,15 @@
 # ${\bf Ax}={\bf b} \Rightarrow {\bf A(x+\bf \delta x)}={\bf b+\bf \delta\bf b}
 # $
 # 
-# On peut donc écrire $\bf \delta x={\bf A^{-1}\bf \delta \bf  b}$ d'où les relations écrites avec des normes subordonnées appropriées :\\
+# On peut donc écrire $\bf \delta x={\bf A^{-1}\bf \delta \bf  b}$ d'où les relations écrites avec des normes subordonnées appropriées :
 # 
 # $\|\bf\delta \bf x\|\leq\|\bf A^{-1}\|\|\bf \delta \bf b\|$
 # 
-# $\|\bf A\|\|\bf x\|\geq\|\bm b\|$
+# $\|\bf A\|\|\bf x\|\geq\|\bf b\|$
 # 
 # et on peut écrire l'estimation de l'erreur relative en norme sur $\bf x$ en fonction de la perturbation relative sur ${\bf b}$ :
 # 
-# $\frac{\|\bf\delta \bf x\|}{\|\bm x}\|\leq \|\bm A\|\|\bm A^{-1}\|\frac{\|\bf \delta \bf b\|}{\|\bm b\|}$
+# $\frac{\|\bf\delta \bf x\|}{\|\bf x}\|\leq \|\bf A\|\|\bf A^{-1}\|\frac{\|\bf \delta \bf b\|}{\|\bf b\|}$
 # 
 # ````{prf:definition}Condition d'une matrice
 # La quantité $\|{\bf A}\|\|{\bf A^{-1}}\|$ est appelée la condition de la matrice est notée $\sigma({\bf A})$.
