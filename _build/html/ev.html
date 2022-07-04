@@ -651,6 +651,17 @@ définies par :</p>
 <li><p><span class="math notranslate nohighlight">\({\bf x}^\top ( {\bf y}+ {\bf z})= {\bf x}^\top  {\bf y}+ {\bf x}^\top  {\bf z}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\((\alpha  {\bf x})^\top  {\bf y}=\alpha ( {\bf x}^\top  {\bf y})\)</span></p></li>
 </ol>
+<p>En utilisant ce produit scalaire, on définit alors par exemple les normes suivantes :</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(\|{\bf x}\|_1=\displaystyle\sum_{i=1}^n|x_i|\)</span> est la norme <span class="math notranslate nohighlight">\(L_1\)</span> (ou city block).<code class="docutils literal notranslate"><span class="pre">{index}Norme;L1</span></code></p></li>
+<li><p><span class="math notranslate nohighlight">\(\|{\bf x}\|_2=\left ( {\bf x}^\top {\bf x}\right )^\frac{1}{2}=\sqrt{\displaystyle\sum_{i=1}^nx_i^2}\)</span> est la norme <span class="math notranslate nohighlight">\(L_2\)</span> (ou norme euclidienne <code class="docutils literal notranslate"><span class="pre">{index}Norme;euclidienne</span></code>).</p></li>
+<li><p><span class="math notranslate nohighlight">\(\|{\bf x}\|_\infty = \displaystyle\max_{1\leq i\leq n}\{|x_i|\}\)</span> est la norme du max \index{norme!<span class="math notranslate nohighlight">\(l_\infty\)</span>}(ou norme de Tchebychev, ou norme <span class="math notranslate nohighlight">\(L_\infty\)</span>)<code class="docutils literal notranslate"><span class="pre">{index}Norme;Tchebychev</span></code></p></li>
+</ol>
+<p>Les trois normes de l’exemple sont des cas particuliers des normes
+<span class="math notranslate nohighlight">\(L_p\)</span> : <span class="math notranslate nohighlight">\(\|{\bf x}\|_p=\left (\displaystyle\sum_{i=1}^n|x_i|^p\right ) ^\frac{1}{p}\)</span>
+<code class="docutils literal notranslate"><span class="pre">{index}Norme;Lp</span></code></p>
+<p>La figure suivante présente les boules unité (i.e. le lieu des vecteurs de norme 1) pour différentes valeurs de <span class="math notranslate nohighlight">\(p\)</span>.</p>
+<img alt="_images/norme.png" class="align-center" src="_images/norme.png" />
 <p>En Python</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
