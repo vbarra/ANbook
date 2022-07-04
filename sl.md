@@ -326,6 +326,8 @@ $\Rightarrow$ Une petite variation de ${\bf b}$ et/ou ${\bf A}$  entraîne une g
 ```
 
 ```{prf:example} Deuxième exemple
+
+Soit 
     ${\bf A}=\begin{pmatrix}
         0.780 &0.563\\
         0.913& 0.659
@@ -340,7 +342,7 @@ La solution approchée ${\bf x_1}=\begin{pmatrix} 0.999\\-1\end{pmatrix}$ fourni
 
 Le vecteur ${\bf x_2}=\begin{pmatrix} 0.341\\-0.087\end{pmatrix}$ fournit le résidu ${\bf Ax_2-b}=\begin{pmatrix} -10^{-6}\\0\end{pmatrix}$\\
 
-\vskip 10pt
+
 $\Rightarrow$ Un vecteur ${\bf x_2}$ "loin" de la solution théorique fournit un résidu plus faible.
 
 

@@ -316,3 +316,24 @@
 # $\Rightarrow$ Une petite variation de ${\bf b}$ et/ou ${\bf A}$  entraîne une grande variation de ${\bf x}$.
 # 
 # ```
+# 
+# ```{prf:example} Deuxième exemple
+#     ${\bf A}=\begin{pmatrix}
+#         0.780 &0.563\\
+#         0.913& 0.659
+#         \end{pmatrix}
+#         \quad {\bf b} = \begin{pmatrix} 0.217\\0.254\end{pmatrix}
+#         $ 
+# 
+# 
+# La solution exacte du système ${\bf Ax}={\bf b}$ est ${\bf x}=\begin{pmatrix} 1\\-1\end{pmatrix}$
+# 
+# La solution approchée ${\bf x_1}=\begin{pmatrix} 0.999\\-1\end{pmatrix}$ fournit le résidu ${\bf Ax_1-b}=\begin{pmatrix} -7.8.10^{-4}\\-9.1.10^{-4}\end{pmatrix}$
+# 
+# Le vecteur ${\bf x_2}=\begin{pmatrix} 0.341\\-0.087\end{pmatrix}$ fournit le résidu ${\bf Ax_2-b}=\begin{pmatrix} -10^{-6}\\0\end{pmatrix}$\\
+# 
+# \vskip 10pt
+# $\Rightarrow$ Un vecteur ${\bf x_2}$ "loin" de la solution théorique fournit un résidu plus faible.
+# 
+# 
+# ```
