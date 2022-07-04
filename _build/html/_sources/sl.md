@@ -372,6 +372,8 @@ La solution approchée $(0.999,-1)^T$ fournit un résidu
 x_app = Matrix([0.999,-1])
 r = A*x_app -b
 r.evalf(4)
+```
+```{code-cell} ipython3
 print('norme : ',r.norm().evalf(4))
 ```
 
@@ -381,6 +383,8 @@ Le vecteur $(0.341,-0.087)^T$, éloigné de la solution théorique, fournit lui 
 x_app2 = Matrix([0.341,-0.087])
 r2 = A*x_app2 -b
 r2.evalf(4)
+```
+```{code-cell} ipython3
 print('norme : ',r2.norm().evalf(4))
 ```
 

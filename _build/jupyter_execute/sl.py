@@ -368,21 +368,31 @@ b = Matrix([0.217,0.254])
 x_app = Matrix([0.999,-1])
 r = A*x_app -b
 r.evalf(4)
+
+
+# In[3]:
+
+
 print('norme : ',r.norm().evalf(4))
 
 
 # Le vecteur $(0.341,-0.087)^T$, éloigné de la solution théorique, fournit lui un résidu
 
-# In[3]:
+# In[4]:
 
 
 x_app2 = Matrix([0.341,-0.087])
 r2 = A*x_app2 -b
 r2.evalf(4)
+
+
+# In[5]:
+
+
 print('norme : ',r2.norm().evalf(4))
 
 
-# In[4]:
+# In[6]:
 
 
 def plot_vector2d(vector2d, origin=[0, 0], **options):

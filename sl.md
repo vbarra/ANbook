@@ -397,11 +397,21 @@ x_app1 = np.array([0.999, -1])
 x_app2 = np.array([0.341, -0.087])
 b = np.array([0.217, 0.254])
 plot_vector2d(x, color="r")
+plt.text(1.1, -1.1, "$x$", color="r", fontsize=18)
 plot_vector2d(x_app1, color="b")
+plt.text(1.1, -0.9, "$x_{app1}$", color="b", fontsize=18)
 plot_vector2d(x_app2, color="g")
+plt.text(0.35, -0.1, "$x_{app2}$", color="g", fontsize=18)
 plot_vector2d(b, color="m")
-plt.axis([-1, 1, -1, 1])
+plt.text(0.2, 0.3, "$b$", color="m", fontsize=18)
+plt.axis([-1.2, 1.2, -1.2, 1.2])
 plt.grid()
-plt.show()
+plt.tight_layout()
+```
+
+La condition de la matrice est 
+
+```{code-cell} ipython3
+print('Condition de la seconde matrice :', np.linalg.cond(np.matrix(A, dtype='float'),p=2))
 ```
 
