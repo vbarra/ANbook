@@ -3,6 +3,7 @@ root: intro
 parts:
   - caption: Tutoriels
     chapters:
+    - file: installation
     - file: Tutoriel-jupyter
     - file: Tutoriel-numpy
     - file: Tutoriel-matplotlib

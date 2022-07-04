@@ -238,7 +238,7 @@ Etudions les variations de la solution d'un système d'équations linéaires qua
 ${\bf Ax}={\bf b} \Rightarrow {\bf A(x+\bf \delta x)}={\bf b+\bf \delta\bf b}
 $
 
-On peut donc écrire $\bf \delta x={\bf A^{-1}\bf \delta \bf  b}$ d'où les relations écrites avec des normes subordonnées appropriées :
+Si $\bf A$ est inversble, on peut donc écrire $\bf \delta x={\bf A^{-1}\bf \delta \bf  b}$ d'où les relations écrites avec des normes subordonnées appropriées :
 
 $\|\bf\delta \bf x\|\leq\|\bf A^{-1}\|\|\bf \delta \bf b\|$
 
