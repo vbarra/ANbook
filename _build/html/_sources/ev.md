@@ -114,8 +114,7 @@ On observera également que dans \mathbb R$^n$ (et plus généralement dans tout
 pour deux normes $\|.\|_a$ et $\|.\|_b$, il existe deux constantes positives $\alpha$ et $\beta$ satisfaisant 
 $$(\forall {\bf x}\in \mathbb R^n)\ \alpha\|{\bf x}\|_a\leq \|{\bf x}\|_b\leq \beta\|{\bf x}\|_a.$$
 
-```{index}
-Norme;équivalentes
+```{index} Norme;équivalentes
 ```
 
 ## Sous-espace vectoriel
