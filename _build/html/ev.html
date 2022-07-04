@@ -754,6 +754,18 @@ vectoriel pour les lois “+” et “.” définies par :</p>
 <li><p><span class="math notranslate nohighlight">\((\forall  {\bf A}, {\bf B}\in \mathcal{M}_{m,n}(\mathbb{R}))(\forall i\in  [\![ 1, m]\!])(\forall j\in  [\![ 1, n]\!])\quad \left ( {\bf A}+ {\bf B}\right )_{i,j} =\left ( {\bf A}\right )_{i,j} + \left ( {\bf B}\right )_{i,j}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\((\forall \lambda\in\mathbb R)(\forall {\bf A}\in \mathcal{M}_{m,n}(\mathbb{R}))(\forall i\in  [\![ 1, m]\!])(\forall j\in  [\![ 1, n]\!])\quad  \left ( {\bf \lambda.A}\right )_{i,j} =\lambda\left ( {\bf A}\right )_{i,j}\)</span></p></li>
 </ul>
+<p>Sur l’espace des matrices carrées <span class="math notranslate nohighlight">\(\mathcal{M}_n(\mbb R)\)</span>, on définit des normes matricielles.
+En plus des trois axiomes des normes vectorielles, on exige  que ces normes vérifient une condition supplémentaire, dite condition
+de norme {sous-multiplicative} :</p>
+<p id="index-14"><span class="math notranslate nohighlight">\((\forall{\bf A},{\bf B}\in\mathcal{M}_n(\mathbb R))\quad \|{\bf AB}\|\leq \|{\bf A}\|\|{\bf B}\|\)</span></p>
+<p>Pour évaluer les effets d’une transformation linéaire sur la norme d’un vecteur,
+on s’arrangera pour utiliser des normes de matrices {subordonnées}
+aux normes vectorielles, dans le sens suivant :
+$<span class="math notranslate nohighlight">\(\norme{{\bf A}}=\dps\sup_{{\bf x}\neq {\bf 0}}\frac{\norme{{\bf Ax}}}{\norme{{\bf x}}}=\dps\sup_{\norme{{\bf x}}=1}\norme{{\bf Ax}}\)</span><span class="math notranslate nohighlight">\(
+où \)</span>\norme<span class="math notranslate nohighlight">\( définit une norme subordonnée \index{norme matricielle!subordonnée}
+à la norme vectorielle utilisée dans le calcul des normes vectorielles \)</span>\norme<span class="math notranslate nohighlight">\( et 
+\)</span>\norme<span class="math notranslate nohighlight">\(. On retrouve la définition usuelle d'une norme d'application linéaire. 
+On a alors la relation \)</span>\norme\leq \norme\norme<span class="math notranslate nohighlight">\( pour tout \)</span>{\bf x}$.</p>
 </div>
 </div>
 <div class="section" id="famille-libre-generatrice-base">
@@ -761,7 +773,7 @@ vectoriel pour les lois “+” et “.” définies par :</p>
 <div class="proof definition admonition" id="definition-8">
 <p class="admonition-title"><span class="caption-number">Definition 7 </span> (Combinaison linéaire )</p>
 <div class="definition-content section" id="proof-content">
-<p id="index-14">Soient <span class="math notranslate nohighlight">\(\bf{x_1}\cdots  {\bf x_p}\)</span> <span class="math notranslate nohighlight">\(p\)</span> vecteurs de
+<p id="index-15">Soient <span class="math notranslate nohighlight">\(\bf{x_1}\cdots  {\bf x_p}\)</span> <span class="math notranslate nohighlight">\(p\)</span> vecteurs de
 <span class="math notranslate nohighlight">\(E\)</span>.</p>
 <p>Tout vecteur de la forme
 <span class="math notranslate nohighlight">\({\bf y} = \displaystyle\sum_{i=1}^p \lambda_i {\bf x_i},\quad \lambda_1\cdots \lambda_p \in \mathbb R\)</span>
@@ -770,7 +782,7 @@ est appelé combinaison linéaire des vecteurs <span class="math notranslate noh
 </div><div class="proof definition admonition" id="definition-9">
 <p class="admonition-title"><span class="caption-number">Definition 8 </span> (Famille libre )</p>
 <div class="definition-content section" id="proof-content">
-<p id="index-15">Une famille <span class="math notranslate nohighlight">\(\mathcal{F} = (\bf{x_1}\cdots  {\bf x_p})\)</span> de
+<p id="index-16">Une famille <span class="math notranslate nohighlight">\(\mathcal{F} = (\bf{x_1}\cdots  {\bf x_p})\)</span> de
 <span class="math notranslate nohighlight">\(p\)</span> vecteurs de <span class="math notranslate nohighlight">\(E\)</span> est libre (ou indépendante) si et seulement si
 <span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1}^p \lambda_i {\bf x_i} = 0 \Leftrightarrow (\forall i\in \ [\![ 1, p]\!])   \textrm{  }\lambda_i=0\)</span></p>
 </div>
@@ -781,7 +793,7 @@ linéaire des autres.</p>
 <div class="proof definition admonition" id="definition-10">
 <p class="admonition-title"><span class="caption-number">Definition 9 </span> (Famille génératrice )</p>
 <div class="definition-content section" id="proof-content">
-<p id="index-16">Soit une famille
+<p id="index-17">Soit une famille
 <span class="math notranslate nohighlight">\(\mathcal{F} = (\bf{x_1}\cdots  {\bf x_p})\)</span> de <span class="math notranslate nohighlight">\(p\)</span> vecteurs de <span class="math notranslate nohighlight">\(E\)</span>.
 <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> est génératrice de <span class="math notranslate nohighlight">\(E\)</span> si :
 <span class="math notranslate nohighlight">\((\forall  {\bf x}\in E) (\exists \lambda_1\cdots \lambda_p\in \mathbb R) \quad {\bf x} = \displaystyle\sum_{i=1}^p \lambda_i {\bf x_i}\)</span></p>
@@ -790,7 +802,7 @@ linéaire des autres.</p>
 <div class="proof definition admonition" id="definition-11">
 <p class="admonition-title"><span class="caption-number">Definition 10 </span> (Sous-espace engendré )</p>
 <div class="definition-content section" id="proof-content">
-<p id="index-17">L’ensemble de toutes les combinaisons linéaires
+<p id="index-18">L’ensemble de toutes les combinaisons linéaires
 d’un ensemble <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> de vecteurs de <span class="math notranslate nohighlight">\(E\)</span> est le sous-espace
 engendré par <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>, noté <span class="math notranslate nohighlight">\(\mathrm{lin}\{\mathcal{F}\}\)</span> :
 <span class="math notranslate nohighlight">\(\mathrm{lin}\{\mathcal{F}\}=\left\{{\bf x}\in E \mid {\bf x}=\alpha_1{\bf x_1}+\cdots+\alpha_p {\bf x_p},\ 
@@ -802,7 +814,7 @@ sous-espace vectoriel de <span class="math notranslate nohighlight">\(E\)</span>
 <div class="proof definition admonition" id="definition-12">
 <p class="admonition-title"><span class="caption-number">Definition 11 </span> (Base)</p>
 <div class="definition-content section" id="proof-content">
-<p id="index-18">Une famille <span class="math notranslate nohighlight">\(\mathcal{B} = (\bf{x_1}\cdots  {\bf x_p})\)</span> de <span class="math notranslate nohighlight">\(p\)</span>
+<p id="index-19">Une famille <span class="math notranslate nohighlight">\(\mathcal{B} = (\bf{x_1}\cdots  {\bf x_p})\)</span> de <span class="math notranslate nohighlight">\(p\)</span>
 vecteurs de <span class="math notranslate nohighlight">\(E\)</span> est une base de <span class="math notranslate nohighlight">\(E\)</span> si elle est libre et génératrice.</p>
 </div>
 </div><p>Dans le cas où <span class="math notranslate nohighlight">\(E=\mathbb R^n\)</span>, un exemple important de base est la base
@@ -810,7 +822,7 @@ dite canonique.</p>
 <div class="proof definition admonition" id="definition-13">
 <p class="admonition-title"><span class="caption-number">Definition 12 </span> (Base canonique )</p>
 <div class="definition-content section" id="proof-content">
-<p id="index-19">On appelle base canonique de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span> l’ensemble des
+<p id="index-20">On appelle base canonique de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span> l’ensemble des
 vecteurs <span class="math notranslate nohighlight">\({\bf e_i}\)</span>, <span class="math notranslate nohighlight">\(i\in[\![1,n]\!]\)</span>, dont les composantes sont
 toutes nulles sauf la <span class="math notranslate nohighlight">\(i\)</span>–ème qui vaut 1.</p>
 </div>
@@ -836,7 +848,7 @@ espace vectoriel.</p>
 <div class="proof definition admonition" id="definition-15">
 <p class="admonition-title"><span class="caption-number">Definition 13 </span> (Dimension)</p>
 <div class="definition-content section" id="proof-content">
-<span class="target" id="index-20"></span><p id="index-21">La dimension d’un espace vectoriel <span class="math notranslate nohighlight">\(E\)</span>, notée <span class="math notranslate nohighlight">\(dim(E)\)</span>, est le
+<span class="target" id="index-21"></span><p id="index-22">La dimension d’un espace vectoriel <span class="math notranslate nohighlight">\(E\)</span>, notée <span class="math notranslate nohighlight">\(dim(E)\)</span>, est le
 nombre d’éléments d’une base de <span class="math notranslate nohighlight">\(E\)</span>.</p>
 </div>
 </div><p>Du théorème de la base incomplète, on en déduit qu’une famille

@@ -108,6 +108,7 @@
 # ```{index} Norme;équivalentes
 # ```
 # 
+# 
 # ## Sous-espace vectoriel
 # ```{index} Espace vectoriel ; sous-
 # ```
@@ -259,6 +260,26 @@ plt.show()
 # -   $(\forall  {\bf A}, {\bf B}\in \mathcal{M}_{m,n}(\mathbb{R}))(\forall i\in  [\![ 1, m]\!])(\forall j\in  [\![ 1, n]\!])\quad \left ( {\bf A}+ {\bf B}\right )_{i,j} =\left ( {\bf A}\right )_{i,j} + \left ( {\bf B}\right )_{i,j}$
 # 
 # -   $(\forall \lambda\in\mathbb R)(\forall {\bf A}\in \mathcal{M}_{m,n}(\mathbb{R}))(\forall i\in  [\![ 1, m]\!])(\forall j\in  [\![ 1, n]\!])\quad  \left ( {\bf \lambda.A}\right )_{i,j} =\lambda\left ( {\bf A}\right )_{i,j}$
+# 
+# 
+# Sur l'espace des matrices carrées $\mathcal{M}_n(\mbb R)$, on définit des normes matricielles.
+# En plus des trois axiomes des normes vectorielles, on exige  que ces normes vérifient une condition supplémentaire, dite condition 
+# de norme {sous-multiplicative} :
+# 
+# ```{index} Norme matricielle ; sous-multiplicative
+# ```
+# 
+# $(\forall{\bf A},{\bf B}\in\mathcal{M}_n(\mathbb R))\quad \|{\bf AB}\|\leq \|{\bf A}\|\|{\bf B}\|$
+# 
+# Pour évaluer les effets d'une transformation linéaire sur la norme d'un vecteur, 
+# on s'arrangera pour utiliser des normes de matrices {subordonnées}
+# aux normes vectorielles, dans le sens suivant :
+# $$\norme{{\bf A}}=\dps\sup_{{\bf x}\neq {\bf 0}}\frac{\norme{{\bf Ax}}}{\norme{{\bf x}}}=\dps\sup_{\norme{{\bf x}}=1}\norme{{\bf Ax}}$$
+# où $\norme{{\bf A}}$ définit une norme subordonnée \index{norme matricielle!subordonnée}
+# à la norme vectorielle utilisée dans le calcul des normes vectorielles $\norme{{\bf x}}$ et 
+# $\norme{{\bf Ax}}$. On retrouve la définition usuelle d'une norme d'application linéaire. 
+# On a alors la relation $\norme{{\bf Ax}}\leq \norme{{\bf A}}\norme{{\bf x}}$ pour tout ${\bf x}$.
+# 
 # 
 # ## Famille libre, génératrice, base
 # 
