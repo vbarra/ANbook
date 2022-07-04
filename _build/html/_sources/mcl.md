@@ -52,11 +52,11 @@ On modélise $\mathcal{S}$ à l'aide d'un modèle affine $y=\alpha+\beta t$, où
 |-------|-------|-------|----------------|
 | $P_1$ | -1    | 4     | $\alpha-\beta$ |
 | $P_2$ | 0     | 5     | $\alpha$       |
-| $P_3$ | 1     | 9     | \alpha+\beta$  |
+| $P_3$ | 1     | 9     | $\alpha+\beta$  |
 
 
 Le système 
-\[{\bf Ax} = {\bf Y} :
+${\bf Ax} = {\bf Y} :
 \left \{
 \begin{array}{ccccc}
 \alpha & - & \beta& = & 4 \\
@@ -64,7 +64,7 @@ Le système
 \alpha & + & \beta& = & 9 \\
 \end{array}
 \right.
-\] 
+$
 n'a bien sûr pas de solution. On construit les équations normales en multipliant 
 le système par 
 $${\bf A^T} =\left [\begin{array}{ccc}1 & 1 & 1\\-1 & 0 & 1\\\end{array}\right]$$
