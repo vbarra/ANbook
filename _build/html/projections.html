@@ -593,11 +593,11 @@ soit</p>
 <p>Ainsi, cette expression qui exprime le fait que <span class="math notranslate nohighlight">\({\bf p}\)</span> a la même direction que <span class="math notranslate nohighlight">\({\bf v}\)</span> peut s’écrire différemment pour représenter la transformation qui transforme <span class="math notranslate nohighlight">\({\bf y}\)</span> en <span class="math notranslate nohighlight">\({\bf p}\)</span>.</p>
 <p>On vérifie que <span class="math notranslate nohighlight">\(({\bf v^T}  {\bf y}){\bf v} = ({\bf v} {\bf v^T}){\bf y}\)</span> où l’on observe que <span class="math notranslate nohighlight">\( {\bf v^T}  {\bf y}\in \mathbb R\)</span> alors que <span class="math notranslate nohighlight">\({\bf v} {\bf v^T}\in\mathcal{M}_n(\mathbb R)\)</span>  de rang 1 (toutes les colonnes sont des multiples de <span class="math notranslate nohighlight">\({\bf v}\)</span>) qui { projette} l’espace <span class="math notranslate nohighlight">\(\mathbb R^n\)</span> sur la droite <span class="math notranslate nohighlight">\(D\)</span>. La projection orthogonale sur une droite qui passe par l’origine est donc une transformation linéaire, de matrice :
 <span class="math notranslate nohighlight">\({\bf P}=\frac{1}{\|{\bf v}\|^2}{\bf v}{\bf v^T} \)</span></p>
-<div class="proof remark admonition" id="remark-1">
+<div class="proof remark dropdown admonition" id="remark-1">
 <span id="index-1"></span><p class="admonition-title"><span class="caption-number">Remark 7 </span></p>
 <div class="remark-content section" id="proof-content">
 <ol class="simple">
-<li><p>Comme <span class="math notranslate nohighlight">\({\bf p}={\bf Py}\)</span>, la projection orthogonale sur le sous-espace orthogonal <span class="math notranslate nohighlight">\(D^\bot\)</span> est \<span class="math notranslate nohighlight">\({\bf u}={\bf y}-{\bf p}=(\mathbb I-{\bf P}){\bf y}\)</span>, donc <span class="math notranslate nohighlight">\(\mathbb I-{\bf P}\)</span> est la matrice de projection orthogonale sur <span class="math notranslate nohighlight">\(D^\bot\)</span>.</p></li>
+<li><p>Comme <span class="math notranslate nohighlight">\({\bf p}={\bf Py}\)</span>, la projection orthogonale sur le sous-espace orthogonal <span class="math notranslate nohighlight">\(D^\bot\)</span> est <span class="math notranslate nohighlight">\({\bf u}={\bf y}-{\bf p}=(\mathbb I-{\bf P}){\bf y}\)</span>, donc <span class="math notranslate nohighlight">\(\mathbb I-{\bf P}\)</span> est la matrice de projection orthogonale sur <span class="math notranslate nohighlight">\(D^\bot\)</span>.</p></li>
 <li><p>Soit <span class="math notranslate nohighlight">\(\theta\)</span> l’angle entre les directions des vecteurs <span class="math notranslate nohighlight">\({\bf v}\)</span> et <span class="math notranslate nohighlight">\({\bf y}\)</span>. On a alors : <span class="math notranslate nohighlight">\(cos(\theta)=\frac{{\bf v^T}{\bf  y}}{\|{\bf v}\|\|{\bf y}\|}\)</span> et on en déduit l’inégalité de Schwarz :</p></li>
 </ol>
 <p><span class="math notranslate nohighlight">\((\forall {\bf x},{\bf y}\in \mathbb R^n)\quad  |{\bf x^T}  {\bf y}|\leq \|{\bf x}\|\|{\bf y}\|\)</span></p>
@@ -627,7 +627,7 @@ soit</p>
 On obtient alors : <span class="math notranslate nohighlight">\({\bf A^T} {\bf y}={\bf A^T}{\bf Ax}\)</span>, et comme <span class="math notranslate nohighlight">\({\bf A}\)</span> est de rang plein, la matrice (<span class="math notranslate nohighlight">\(r\times r\)</span>) <span class="math notranslate nohighlight">\({\bf A^T A}\in\mathcal{M}_{r}(\mathbb R)\)</span> est inversible et :</p>
 <p><span class="math notranslate nohighlight">\({\bf p}={\bf Py}\)</span> avec <span class="math notranslate nohighlight">\({\bf P}={\bf A(A^T A)^{-1}A^T }\)</span>.</p>
 <p>De plus, on retrouve la matrice de projection orthogonale <span class="math notranslate nohighlight">\(\mathbb I -{\bf P}\)</span> sur le noyau de <span class="math notranslate nohighlight">\({\bf A^T }\)</span>.</p>
-<div class="proof remark admonition" id="remark-3">
+<div class="proof remark dropdown admonition" id="remark-3">
 <p class="admonition-title"><span class="caption-number">Remark 8 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Si <span class="math notranslate nohighlight">\(r=1\)</span> on retrouve la formule trouvée dans le cas de la projection sur une droite vectorielle.</p>

@@ -115,8 +115,8 @@ ${\bf P}=\frac{1}{\|{\bf v}\|^2}{\bf v}{\bf v^T} $
 
 
 ```{prf:remark}
-
-1. Comme ${\bf p}={\bf Py}$, la projection orthogonale sur le sous-espace orthogonal $D^\bot$ est \\${\bf u}={\bf y}-{\bf p}=(\mathbb I-{\bf P}){\bf y}$, donc $\mathbb I-{\bf P}$ est la matrice de projection orthogonale sur $D^\bot$.
+:class: dropdown
+1. Comme ${\bf p}={\bf Py}$, la projection orthogonale sur le sous-espace orthogonal $D^\bot$ est ${\bf u}={\bf y}-{\bf p}=(\mathbb I-{\bf P}){\bf y}$, donc $\mathbb I-{\bf P}$ est la matrice de projection orthogonale sur $D^\bot$.
 2. Soit $\theta$ l'angle entre les directions des vecteurs ${\bf v}$ et ${\bf y}$. On a alors : $cos(\theta)=\frac{{\bf v^T}{\bf  y}}{\|{\bf v}\|\|{\bf y}\|}$ et on en déduit l'inégalité de Schwarz : 
 
   $(\forall {\bf x},{\bf y}\in \mathbb R^n)\quad  |{\bf x^T}  {\bf y}|\leq \|{\bf x}\|\|{\bf y}\|$
@@ -156,6 +156,7 @@ ${\bf p}={\bf Py}$ avec ${\bf P}={\bf A(A^T A)^{-1}A^T }$.
 De plus, on retrouve la matrice de projection orthogonale $\mathbb I -{\bf P}$ sur le noyau de ${\bf A^T }$.
 
 ```{prf:remark}
+:class: dropdown
 Si $r=1$ on retrouve la formule trouvée dans le cas de la projection sur une droite vectorielle.
 ```
 

@@ -216,6 +216,7 @@ plt.tight_layout()
 # ```
 # 
 # ```{prf:remark}
+# :class: dropdown
 # 1. Le sup ci-dessus doit être pris dans $\mathbb{C}^n$, mais coïncide avec le sup 
 # dans $\mathbb R^n$ pour les normes $L_1,L_2$ et $L_\infty$.
 # 2. Par compacité de la sphère unité, le sup est atteint  pour un ${\bf x}$ non nul.
