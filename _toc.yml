@@ -22,7 +22,7 @@ parts:
     chapters:
     - file: projections    
     - file: mcl    
-    - file: transfo 
+    - file: transfoortho 
   - caption: Index
     chapters:
     - file: genindex
