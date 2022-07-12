@@ -173,7 +173,7 @@ print("Norme de I-Q^TQ = ", np.max(np.abs(np.dot(Q.T,Q)-np.eye(n))))
 print("Norme infinie de QR-A = ", np.max(np.abs(np.dot(Q,R)-A)))
 ```
 
-Suivant la matrice $\bf A$, la méthode de Grm-Schmidt classique précédent peut être instable.
+Suivant la matrice $\bf A$, la méthode de Gram-Schmidt classique précédente peut être instable.
 
 Considérons par exemple la matrice suivante, dite matrice de Hilbert
 
@@ -192,13 +192,13 @@ On applique la méthode de Gram-Schmidt, et on vérifie à quel point $\bf QR$ e
 A = Hilbert(10)
 Q, R = GramSchmidt(A)
 print('Norme de QR-A = ',np.max(np.abs(np.dot(Q,R)-A)),"\n")
-print("Norme de Q^T*Q-I = ",np.max(np.abs(np.dot(Q.T,Q)-np.eye(n))))
+print("Norme de Q^T*Q-I = ",np.max(np.abs(np.dot(Q.T,Q)-np.eye(10))))
 ```
 
 La factorisation est précise, mais $\bf Q$ est loin d'être orthogonale.
 
 ```{code-cell} ipython3
-print(np.dot(Q.T,Q)-np.eye(n))
+print(np.dot(Q.T,Q)-np.eye(10))
 ```
 
 
