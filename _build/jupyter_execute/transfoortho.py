@@ -143,7 +143,7 @@ import numpy as np
 def GramSchmidt(A):
     n = A.shape[1] 
     R = np.zeros([n,n])
-    V = np.zeros(A.shape)
+    p = np.zeros(A.shape)
     Q = np.zeros(A.shape)
     
     for j in range(n):     
@@ -177,7 +177,7 @@ print("Q^TQ=",Q.transpose()@Q,"\n")
 # une base orthonormée de $Ker({\bf A^\top})$.
 # ```
 
-# In[ ]:
+# In[6]:
 
 
 Q = Rational(1, 3) * Matrix([[1, -2], [2, -1], [2, 2]])
@@ -186,7 +186,7 @@ Q
 
 # Les colonnes de $Q$ forment une base de $\mathbb{R}^2$ (dans $\mathbb{R}^3$). Pour obtenir une matrice orthogonale, il faut compléter par un vecteur normal au plan défini par ces deux colonnes, et unitaire.
 
-# In[ ]:
+# In[7]:
 
 
 Q = Rational(1, 3) * Matrix([[1, -2, 2], [2, -1, -2], [2, 2, 1]])

@@ -162,6 +162,13 @@ print("A=",A,"\n")
 print("Q=",Q,"\n")
 print("R=",R,"\n")
 print("Q^TQ=",Q.transpose()@Q,"\n")
+
+# On vérifie à quel point Q est orthogonale
+print("Q^TQ=",Q.transpose()@Q,"\n")
+print("Norme de I-Q^TQ = ", np.max(np.abs(np.dot(Q.T,Q)-np.eye(n))))
+
+#On vérifie à quel point A=QR
+print("Norme infinie de QR-A = ", np.max(np.abs(np.dot(Q,R)-A)))
 ```
 
 Il est possible de compléter ${\bf q_1}\cdots {\bf q_p}$ en une base orthonormée de $\mathbb R^n$, en continuant la procédure de Gram-Schmidt avec $n-p$ vecteurs arbitraires, mais tels que les $n$ colonnes formées avec les ${\bf A_{\bullet,j}}$ soient linéairement indépendantes. Soit ${\bf Q_2}$ la matrice des $n-p$ derniers vecteurs orthonormés. On a alors bien :
