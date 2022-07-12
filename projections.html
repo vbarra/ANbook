@@ -572,8 +572,8 @@ Une condition nécessaire et suffisante pour que <span class="math notranslate n
 qui satisfait <span class="math notranslate nohighlight">\(\lim_{k,\ell\rightarrow+\infty}\|{\bf x_k}-{\bf x_\ell}\|=0\)</span>. Toute suite convergente est bien sûr de Cauchy
 mais l’inverse n’est pas toujours vrai dans les espaces vectoriels normés généraux. C’est toujours vrai dans
 les espaces de Hilbert (donc dans <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>).}</p>
-<p><code class="docutils literal notranslate"><span class="pre">Orthogonalité</span></code> : Supposons qu’il existe <span class="math notranslate nohighlight">\({\bf x}\in L\)</span> tel que <span class="math notranslate nohighlight">\({\bf x^T} ({\bf y}-{\bf p})=\delta \neq 0\)</span>. On peut supposer que <span class="math notranslate nohighlight">\(\|{\bf x}\|=1\)</span>. On prend <span class="math notranslate nohighlight">\({\bf p_1}={\bf p}+\delta {\bf x}\)</span> et on écrit :
-<span class="math notranslate nohighlight">\(  \|{\bf y}-{\bf p_1}\|^2=\|{\bf y}-{\bf p}\|^2-2 ({\bf y}-{\bf p})^T (\delta {\bf x}) + \delta^2 = \|{\bf y}-{\bf p}\|^2- \delta^2 &lt; \|{\bf y}-{\bf p}\|^2 \)</span>
+<p><code class="docutils literal notranslate"><span class="pre">Orthogonalité</span></code> : Supposons qu’il existe <span class="math notranslate nohighlight">\({\bf x}\in L\)</span> tel que <span class="math notranslate nohighlight">\({\bf x^\top} ({\bf y}-{\bf p})=\delta \neq 0\)</span>. On peut supposer que <span class="math notranslate nohighlight">\(\|{\bf x}\|=1\)</span>. On prend <span class="math notranslate nohighlight">\({\bf p_1}={\bf p}+\delta {\bf x}\)</span> et on écrit :
+<span class="math notranslate nohighlight">\(  \|{\bf y}-{\bf p_1}\|^2=\|{\bf y}-{\bf p}\|^2-2 ({\bf y}-{\bf p})^\top (\delta {\bf x}) + \delta^2 = \|{\bf y}-{\bf p}\|^2- \delta^2 &lt; \|{\bf y}-{\bf p}\|^2 \)</span>
 d’où la contradiction.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Unicité</span></code> : Supposons qu’il existe un <span class="math notranslate nohighlight">\({\bf x}\ne {\bf p}\)</span> qui réalise le minimum.
 On applique le théorème de Pythagore :</p>
@@ -585,27 +585,27 @@ On applique le théorème de Pythagore :</p>
 <h2>Projection sur une droite passant par l’origine<a class="headerlink" href="#projection-sur-une-droite-passant-par-l-origine" title="Lien permanent vers ce titre">#</a></h2>
 <p>Une droite qui passe par l’origine est un sous-espace de dimension 1. Soit <span class="math notranslate nohighlight">\({\bf y}\in \mathbb R^n\)</span> et <span class="math notranslate nohighlight">\(D\)</span> le sous-espace de vecteurs engendrés par un vecteur <span class="math notranslate nohighlight">\({\bf v}\)</span> non nul :</p>
 <p><span class="math notranslate nohighlight">\(D=\{{\bf z}\in \mathbb R^n /{\bf z}=\lambda {\bf v},\lambda\in \mathbb R\}\)</span></p>
-<p>Si <span class="math notranslate nohighlight">\({\bf p}\in D\)</span> est la projection orthogonale de <span class="math notranslate nohighlight">\({\bf y}\)</span> sur la droite, on peut écrire  : <span class="math notranslate nohighlight">\({\bf y}={\bf p}+{\bf u}\)</span>, avec <span class="math notranslate nohighlight">\({\bf p}=\lambda {\bf v}\)</span> et <span class="math notranslate nohighlight">\({\bf u^T}{\bf v}=0\)</span>.</p>
+<p>Si <span class="math notranslate nohighlight">\({\bf p}\in D\)</span> est la projection orthogonale de <span class="math notranslate nohighlight">\({\bf y}\)</span> sur la droite, on peut écrire  : <span class="math notranslate nohighlight">\({\bf y}={\bf p}+{\bf u}\)</span>, avec <span class="math notranslate nohighlight">\({\bf p}=\lambda {\bf v}\)</span> et <span class="math notranslate nohighlight">\({\bf u^\top}{\bf v}=0\)</span>.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <p><img alt="" src="_images/projdroite.png" /></p>
 </div>
 <p>On remarque que la dernière relation signifie que <span class="math notranslate nohighlight">\({\bf u}\in D^\bot\)</span> et donc que <span class="math notranslate nohighlight">\({\bf u}\)</span> est la projection orthogonale de <span class="math notranslate nohighlight">\({\bf y}\)</span> sur <span class="math notranslate nohighlight">\(D^\bot\)</span>.
 Alors :</p>
-<p><span class="math notranslate nohighlight">\({\bf v^T}  {\bf y}=\lambda {\bf v^T}  {\bf v} \Rightarrow \lambda=\frac{1}{{\bf v^T}{\bf v} }. {\bf v^T}  {\bf y}\)</span>
+<p><span class="math notranslate nohighlight">\({\bf v^\top}  {\bf y}=\lambda {\bf v^\top}  {\bf v} \Rightarrow \lambda=\frac{1}{{\bf v^\top}{\bf v} }. {\bf v^\top}  {\bf y}\)</span>
 soit</p>
-<p><span class="math notranslate nohighlight">\({\bf p}=\frac{ {\bf v^T}  {\bf y}}{ {\bf v^T}  {\bf v}}.{\bf v}\)</span></p>
+<p><span class="math notranslate nohighlight">\({\bf p}=\frac{ {\bf v^\top}  {\bf y}}{ {\bf v^\top}  {\bf v}}.{\bf v}\)</span></p>
 <p>Ainsi, cette expression qui exprime le fait que <span class="math notranslate nohighlight">\({\bf p}\)</span> a la même direction que <span class="math notranslate nohighlight">\({\bf v}\)</span> peut s’écrire différemment pour représenter la transformation qui transforme <span class="math notranslate nohighlight">\({\bf y}\)</span> en <span class="math notranslate nohighlight">\({\bf p}\)</span>.</p>
-<p>On vérifie que <span class="math notranslate nohighlight">\(({\bf v^T}  {\bf y}){\bf v} = ({\bf v} {\bf v^T}){\bf y}\)</span> où l’on observe que <span class="math notranslate nohighlight">\( {\bf v^T}  {\bf y}\in \mathbb R\)</span> alors que <span class="math notranslate nohighlight">\({\bf v} {\bf v^T}\in\mathcal{M}_n(\mathbb R)\)</span>  de rang 1 (toutes les colonnes sont des multiples de <span class="math notranslate nohighlight">\({\bf v}\)</span>) qui { projette} l’espace <span class="math notranslate nohighlight">\(\mathbb R^n\)</span> sur la droite <span class="math notranslate nohighlight">\(D\)</span>. La projection orthogonale sur une droite qui passe par l’origine est donc une transformation linéaire, de matrice :
-<span class="math notranslate nohighlight">\({\bf P}=\frac{1}{\|{\bf v}\|^2}{\bf v}{\bf v^T} \)</span></p>
+<p>On vérifie que <span class="math notranslate nohighlight">\(({\bf v^\top}  {\bf y}){\bf v} = ({\bf v} {\bf v^\top}){\bf y}\)</span> où l’on observe que <span class="math notranslate nohighlight">\( {\bf v^\top}  {\bf y}\in \mathbb R\)</span> alors que <span class="math notranslate nohighlight">\({\bf v} {\bf v^\top}\in\mathcal{M}_n(\mathbb R)\)</span>  de rang 1 (toutes les colonnes sont des multiples de <span class="math notranslate nohighlight">\({\bf v}\)</span>) qui { projette} l’espace <span class="math notranslate nohighlight">\(\mathbb R^n\)</span> sur la droite <span class="math notranslate nohighlight">\(D\)</span>. La projection orthogonale sur une droite qui passe par l’origine est donc une transformation linéaire, de matrice :
+<span class="math notranslate nohighlight">\({\bf P}=\frac{1}{\|{\bf v}\|^2}{\bf v}{\bf v^\top} \)</span></p>
 <div class="proof remark dropdown admonition" id="remark-1">
 <span id="index-1"></span><p class="admonition-title"><span class="caption-number">Remark 7 </span></p>
 <div class="remark-content section" id="proof-content">
 <ol class="simple">
 <li><p>Comme <span class="math notranslate nohighlight">\({\bf p}={\bf Py}\)</span>, la projection orthogonale sur le sous-espace orthogonal <span class="math notranslate nohighlight">\(D^\bot\)</span> est <span class="math notranslate nohighlight">\({\bf u}={\bf y}-{\bf p}=(\mathbb I-{\bf P}){\bf y}\)</span>, donc <span class="math notranslate nohighlight">\(\mathbb I-{\bf P}\)</span> est la matrice de projection orthogonale sur <span class="math notranslate nohighlight">\(D^\bot\)</span>.</p></li>
-<li><p>Soit <span class="math notranslate nohighlight">\(\theta\)</span> l’angle entre les directions des vecteurs <span class="math notranslate nohighlight">\({\bf v}\)</span> et <span class="math notranslate nohighlight">\({\bf y}\)</span>. On a alors : <span class="math notranslate nohighlight">\(cos(\theta)=\frac{{\bf v^T}{\bf  y}}{\|{\bf v}\|\|{\bf y}\|}\)</span> et on en déduit l’inégalité de Schwarz :</p></li>
+<li><p>Soit <span class="math notranslate nohighlight">\(\theta\)</span> l’angle entre les directions des vecteurs <span class="math notranslate nohighlight">\({\bf v}\)</span> et <span class="math notranslate nohighlight">\({\bf y}\)</span>. On a alors : <span class="math notranslate nohighlight">\(cos(\theta)=\frac{{\bf v^\top}{\bf  y}}{\|{\bf v}\|\|{\bf y}\|}\)</span> et on en déduit l’inégalité de Schwarz :</p></li>
 </ol>
-<p><span class="math notranslate nohighlight">\((\forall {\bf x},{\bf y}\in \mathbb R^n)\quad  |{\bf x^T}  {\bf y}|\leq \|{\bf x}\|\|{\bf y}\|\)</span></p>
+<p><span class="math notranslate nohighlight">\((\forall {\bf x},{\bf y}\in \mathbb R^n)\quad  |{\bf x^\top}  {\bf y}|\leq \|{\bf x}\|\|{\bf y}\|\)</span></p>
 </div>
 </div><div class="proof example admonition" id="example-2">
 <p class="admonition-title"><span class="caption-number">Example 10 </span></p>
@@ -618,7 +618,7 @@ soit</p>
 <p>On utilise la représentation d’une droite comme un sous-espace affine parallèle à un sous-espace :</p>
 <p><span class="math notranslate nohighlight">\(D=\{{\bf z}\in \mathbb R^n / {\bf z}={\bf z_0}+\lambda {\bf v},\lambda \in \mathbb R\}\)</span></p>
 <p>Soit <span class="math notranslate nohighlight">\({\bf y}\in \mathbb R^n\)</span> et <span class="math notranslate nohighlight">\({\bf p}\)</span> sa projection orthogonale sur la droite <span class="math notranslate nohighlight">\(D\)</span>. Alors :</p>
-<p><span class="math notranslate nohighlight">\({\bf y}={\bf p}+{\bf u}\)</span> avec <span class="math notranslate nohighlight">\({\bf p}={\bf z_0}+\lambda {\bf v}\)</span> et <span class="math notranslate nohighlight">\({\bf u^T}  {\bf v}=0\)</span>, d’où <span class="math notranslate nohighlight">\({\bf p}={\bf z_0}+{\bf P}({\bf y}-{\bf z_0})=(\mathbb I-{\bf P}){\bf z_0}+{\bf P}{\bf y}\)</span>,</p>
+<p><span class="math notranslate nohighlight">\({\bf y}={\bf p}+{\bf u}\)</span> avec <span class="math notranslate nohighlight">\({\bf p}={\bf z_0}+\lambda {\bf v}\)</span> et <span class="math notranslate nohighlight">\({\bf u^\top}  {\bf v}=0\)</span>, d’où <span class="math notranslate nohighlight">\({\bf p}={\bf z_0}+{\bf P}({\bf y}-{\bf z_0})=(\mathbb I-{\bf P}){\bf z_0}+{\bf P}{\bf y}\)</span>,</p>
 <p>où <span class="math notranslate nohighlight">\({\bf P}\)</span> est la matrice de projection sur le sous-espace engendré par <span class="math notranslate nohighlight">\({\bf v}\)</span> obtenu dans le paragraphe précédent.</p>
 </div>
 <div class="section" id="projection-sur-un-sous-espace">
@@ -628,10 +628,10 @@ soit</p>
 <p class="sidebar-title"></p>
 <p><img alt="" src="_images/projespace.png" /></p>
 </div>
-<p>Alors <span class="math notranslate nohighlight">\({\bf y}={\bf p}+{\bf u}\)</span> avec <span class="math notranslate nohighlight">\({\bf p}={\bf Ax},{\bf x}\in \mathbb R^r\)</span> et <span class="math notranslate nohighlight">\({\bf A^T}{\bf u}=0\)</span> car <span class="math notranslate nohighlight">\({\bf u}\in (Im({\bf A}))^\perp = Ker({\bf A^T})\)</span>.\
-On obtient alors : <span class="math notranslate nohighlight">\({\bf A^T} {\bf y}={\bf A^T}{\bf Ax}\)</span>, et comme <span class="math notranslate nohighlight">\({\bf A}\)</span> est de rang plein, la matrice (<span class="math notranslate nohighlight">\(r\times r\)</span>) <span class="math notranslate nohighlight">\({\bf A^T A}\in\mathcal{M}_{r}(\mathbb R)\)</span> est inversible et :</p>
-<p><span class="math notranslate nohighlight">\({\bf p}={\bf Py}\)</span> avec <span class="math notranslate nohighlight">\({\bf P}={\bf A(A^T A)^{-1}A^T }\)</span>.</p>
-<p>De plus, on retrouve la matrice de projection orthogonale <span class="math notranslate nohighlight">\(\mathbb I -{\bf P}\)</span> sur le noyau de <span class="math notranslate nohighlight">\({\bf A^T }\)</span>.</p>
+<p>Alors <span class="math notranslate nohighlight">\({\bf y}={\bf p}+{\bf u}\)</span> avec <span class="math notranslate nohighlight">\({\bf p}={\bf Ax},{\bf x}\in \mathbb R^r\)</span> et <span class="math notranslate nohighlight">\({\bf A^\top}{\bf u}=0\)</span> car <span class="math notranslate nohighlight">\({\bf u}\in (Im({\bf A}))^\perp = Ker({\bf A^\top})\)</span>.</p>
+<p>On obtient alors : <span class="math notranslate nohighlight">\({\bf A^\top} {\bf y}={\bf A^\top}{\bf Ax}\)</span>, et comme <span class="math notranslate nohighlight">\({\bf A}\)</span> est de rang plein, la matrice (<span class="math notranslate nohighlight">\(r\times r\)</span>) <span class="math notranslate nohighlight">\({\bf A^\top A}\in\mathcal{M}_{r}(\mathbb R)\)</span> est inversible et :</p>
+<p><span class="math notranslate nohighlight">\({\bf p}={\bf Py}\)</span> avec <span class="math notranslate nohighlight">\({\bf P}={\bf A(A^\top A)^{-1}A^\top }\)</span>.</p>
+<p>De plus, on retrouve la matrice de projection orthogonale <span class="math notranslate nohighlight">\(\mathbb I -{\bf P}\)</span> sur le noyau de <span class="math notranslate nohighlight">\({\bf A^\top }\)</span>.</p>
 <div class="proof remark dropdown admonition" id="remark-3">
 <p class="admonition-title"><span class="caption-number">Remark 8 </span></p>
 <div class="remark-content section" id="proof-content">
@@ -643,7 +643,7 @@ On obtient alors : <span class="math notranslate nohighlight">\({\bf A^T} {\bf y
 <p id="index-2">Les matrices de projection sont des matrices
 qui possèdent les deux propriétés suivantes :</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\({\bf P}={\bf P^T} \)</span> [symétrie]</p></li>
+<li><p><span class="math notranslate nohighlight">\({\bf P}={\bf P^\top} \)</span> [symétrie]</p></li>
 <li><p><span class="math notranslate nohighlight">\({\bf P}^2={\bf P}\)</span> [idempotence]</p></li>
 </ul>
 <p>Les matrices de projection sont en général singulières, puisqu’elles ramènent l’espace à un sous-espace de dimension plus petite. De plus, elles contractent les normes : <span class="math notranslate nohighlight">\(\|{\bf Py}\|\leq \|{\bf y}\|\)</span>.</p>
