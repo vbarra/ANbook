@@ -87,13 +87,10 @@ appartient à la droite $y=a_0+a_1x$.
 
 ## Exercice 7
  On se donne 
-$$
+$
 A = \left[\begin{array}{ccc}1 & 2 & -1 \\ 2 & 1 &  4 \\ 1 & 1 &  1\end{array}\right]
-$$ 
-et 
-$$
-b = \left[\begin{array}{c}1 \\ 1 \\1 \end{array}\right].
-$$
+$
+et $b = \left[\begin{array}{c}1 \\ 1 \\1 \end{array}\right]$.
 
 
 1. Montrer que le système $Ax = b$ est incompatible.
