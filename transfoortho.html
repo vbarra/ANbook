@@ -672,44 +672,37 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 }</p></li>
 </ol>
 </div>
-</div><p>A l’issue des <span class="math notranslate nohighlight">\(n-1\)</span> itérations, on a effectué les produits <span class="math notranslate nohighlight">\({\bf H^{(n-1)}} \cdots {\bf H^{(2)}} {\bf H^{(1)}}\)</span> pour obtenir une matrice triangulaire supérieure <span class="math notranslate nohighlight">\({\bf R}\in\mathcal{M}_n(\mathbb R)\)</span> à partir de <span class="math notranslate nohighlight">\({\bf A}\)</span>. Donc :
-$<span class="math notranslate nohighlight">\({\bf H^{(n-1)}} \cdots {\bf H^{(2)}} {\bf H^{(1)}}{\bf A} = {\bf R}\)</span><span class="math notranslate nohighlight">\(
-De plus les \)</span>{\bf H^{(j)}}, j\in[![1, n-1]!]<span class="math notranslate nohighlight">\( sont orthogonales donc
-\)</span><span class="math notranslate nohighlight">\({\bf A} ={\bf {H^{(1)}}^T}{\bf {H^{(2)}}^T} \cdots  {\bf {H^{(n-1)}}^T} {\bf R}\)</span><span class="math notranslate nohighlight">\(
-Le produit des matrices \)</span>{\bf{ H^{(j)}}^T}<span class="math notranslate nohighlight">\( est également une matrice orthogonale, et on pose 
-\)</span><span class="math notranslate nohighlight">\({\bf Q} = {\bf {H^{(1)}}^T}{\bf {H^{(2)}}^T} \cdots  {\bf {H^{(n-1)}}^T}\)</span><span class="math notranslate nohighlight">\( 
-pour finalement obtenir 
-\)</span><span class="math notranslate nohighlight">\({\bf A} = {\bf QR}\)</span>$</p>
-<p>On illustre cet algorithme sur les deux premières itérations :
-\begin{enumerate}
-\item <span class="math notranslate nohighlight">\(j\)</span>=1 :
-\begin{maliste}
-\item On construit <span class="math notranslate nohighlight">\({\bf H^{(1)}}\)</span> telle que <span class="math notranslate nohighlight">\({\bf H^{(1)}A^{(1)}_{\bullet,1}}\)</span> =<span class="math notranslate nohighlight">\({\bf e_1}\)</span>, premier vecteur de la base canonique de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>
-\item <span class="math notranslate nohighlight">\({\bf A^{(2)}}={\bf H^{(1)}A^{(1)}} = \begin{pmatrix}{\norme{{\bf A^{(1)}_{\bullet,1}}}}&amp;a^{(2)}_{12}&amp;*&amp;\cdots &amp;*\\0&amp;a^{(2)}_{22}&amp;*&amp;\cdots &amp;*\\0&amp;\vdots&amp;\vdots&amp;\vdots&amp;\vdots\\0&amp;a^{(2)}_{n2}&amp;*&amp;\cdots &amp;*\end{pmatrix}\)</span>
-\end{maliste}
-\item<span class="math notranslate nohighlight">\( j\)</span>=2 :
-\begin{maliste}
-\item soit <span class="math notranslate nohighlight">\({\bf f_2} = \begin{pmatrix}a^{(2)}_{22}\\\vdots\\a^{(2)}_{n2}\end{pmatrix}\in \mathbb R^{n-1}\)</span>
-\item On construit <span class="math notranslate nohighlight">\({\bf \tilde{H^{(2)}}}\in\mathcal{M}_{n-1}(\mathbb R)\)</span> telle que <span class="math notranslate nohighlight">\({\bf \tilde{H^{(2)}}f_2} = \norme{{\bf f_2}} {\bf e^{(2)}_1}\)</span>, <span class="math notranslate nohighlight">\({\bf e^{(2)}_1}\)</span> premier vecteur de la base canonique de <span class="math notranslate nohighlight">\(\mathbb R^{n-1}\)</span>
-\item On construit
+</div><p>A l’issue des <span class="math notranslate nohighlight">\(n-1\)</span> itérations, on a effectué les produits <span class="math notranslate nohighlight">\({\bf H^{(n-1)}} \cdots {\bf H^{(2)}} {\bf H^{(1)}}\)</span> pour obtenir une matrice triangulaire supérieure <span class="math notranslate nohighlight">\({\bf R}\in\mathcal{M}_n(\mathbb R)\)</span> à partir de <span class="math notranslate nohighlight">\({\bf A}\)</span>. Donc :</p>
+<p><span class="math notranslate nohighlight">\({\bf H^{(n-1)}} \cdots {\bf H^{(2)}} {\bf H^{(1)}}{\bf A} = {\bf R}\)</span></p>
+<p>De plus les <span class="math notranslate nohighlight">\({\bf H^{(j)}}, j\in[\![1, n-1]\!]\)</span> sont orthogonales donc</p>
+<p><span class="math notranslate nohighlight">\({\bf A} ={\bf {H^{(1)}}^T}{\bf {H^{(2)}}^T} \cdots  {\bf {H^{(n-1)}}^T} {\bf R}\)</span></p>
+<p>Le produit des matrices <span class="math notranslate nohighlight">\({\bf{ H^{(j)}}^T}\)</span> est également une matrice orthogonale, et on pose</p>
+<p><span class="math notranslate nohighlight">\({\bf Q} = {\bf {H^{(1)}}^T}{\bf {H^{(2)}}^T} \cdots  {\bf {H^{(n-1)}}^T}\)</span></p>
+<p>pour finalement obtenir  <span class="math notranslate nohighlight">\({\bf A} = {\bf QR}\)</span></p>
+<p>On illustre cet algorithme sur les deux premières itérations :</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(j\)</span>=1 :</p></li>
+</ol>
+<ul class="simple">
+<li><p>On construit <span class="math notranslate nohighlight">\({\bf H^{(1)}}\)</span> telle que <span class="math notranslate nohighlight">\({\bf H^{(1)}A^{(1)}_{\bullet,1}}\)</span> =<span class="math notranslate nohighlight">\({\bf e_1}\)</span>, premier vecteur de la base canonique de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\({\bf A^{(2)}}={\bf H^{(1)}A^{(1)}} = \begin{pmatrix}{\norme{{\bf A^{(1)}_{\bullet,1}}}}&amp;a^{(2)}_{12}&amp;*&amp;\cdots &amp;*\\0&amp;a^{(2)}_{22}&amp;*&amp;\cdots &amp;*\\0&amp;\vdots&amp;\vdots&amp;\vdots&amp;\vdots\\0&amp;a^{(2)}_{n2}&amp;*&amp;\cdots &amp;*\end{pmatrix}\)</span></p></li>
+</ul>
+<ol class="simple">
+<li><p>j$=2 :</p></li>
+</ol>
+<ul class="simple">
+<li><p>Soit <span class="math notranslate nohighlight">\({\bf f_2} = \begin{pmatrix}a^{(2)}_{22}\\\vdots\\a^{(2)}_{n2}\end{pmatrix}\in \mathbb R^{n-1}\)</span></p></li>
+<li><p>On construit <span class="math notranslate nohighlight">\({\bf \tilde{H^{(2)}}}\in\mathcal{M}_{n-1}(\mathbb R)\)</span> telle que <span class="math notranslate nohighlight">\({\bf \tilde{H^{(2)}}f_2} = \norme{{\bf f_2}} {\bf e^{(2)}_1}\)</span>, <span class="math notranslate nohighlight">\({\bf e^{(2)}_1}\)</span> premier vecteur de la base canonique de <span class="math notranslate nohighlight">\(\mathbb R^{n-1}\)</span></p></li>
+<li><p>On construit
 <span class="math notranslate nohighlight">\({\bf H^{(2)}} =\left (
 \begin{array}{l|l}
 1&amp;{\bf 0}\\
 \hline
- {\bf 0} &amp; {\bf \tilde{H^{(2)}}}\\
+{\bf 0} &amp; {\bf \tilde{H^{(2)}}}\\
 \end{array}
 \right )\in\mathcal{M}_n(\mathbb R)
-\)</span> telle que $<span class="math notranslate nohighlight">\({\bf A^{(3)}}={\bf H^{(2)}A^{(2)}}\begin{pmatrix}{\norme{{\bf A^{(1)}_{\bullet,1}}}}&amp;\ast&amp;\ast&amp;\cdots &amp;\ast\\0&amp;\norme{{\bf f_2}}&amp;a^{(3)}_{23}&amp;\cdots &amp;\ast\\0&amp;0&amp;a^{(3)}_{33}&amp;\vdots&amp;\vdots\\0&amp;0&amp;a^{(3)}_{n3}&amp;\cdots &amp;*\end{pmatrix}\)</span>$
-\end{maliste}
-\end{enumerate}</p>
-<p>\aretenir{
-\begin{enumerate}
-\item Projections : définitions, propriétés.
-\item Moindres carrés : savoir résoudre un problème aux moindres carrés, en passant par le système aux équations normales
-\item Savoir décomposer une matrice A sous la forme QR, par Gram Schmidt
-\item Interpréter géométriquement cette décomposition.
-\end{enumerate}
-}</p>
+\)</span> telle que $<span class="math notranslate nohighlight">\({\bf A^{(3)}}={\bf H^{(2)}A^{(2)}}\begin{pmatrix}{\|{\bf A^{(1)\|_{\bullet,1}}}}&amp;\ast&amp;\ast&amp;\cdots &amp;\ast\\0&amp;\|{\bf f_2}\|&amp;a^{(3)}_{23}&amp;\cdots &amp;\ast\\0&amp;0&amp;a^{(3)}_{33}&amp;\vdots&amp;\vdots\\0&amp;0&amp;a^{(3)}_{n3}&amp;\cdots &amp;*\end{pmatrix}\)</span>$</p></li>
+</ul>
 </div>
 </div>
 
