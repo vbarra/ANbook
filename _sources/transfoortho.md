@@ -107,15 +107,15 @@ Alors ${\bf A} ={\bf QR}$ avec ${\bf Q} = \begin{pmatrix} \textcolor{blue}{\frac
 ````
 
 
-Il est possible de compléter ${\bf q_1}\cdots {\bf q_p}$ en une base orthonormée de $\mathbb R^n$, en continuant la procédure de Gram-Schmidt avec $n-p$ vecteurs arbitraires, mais tels que les $n$ colonnes formées avec les ${\bf A_{\bullet,j}}$ soient linéairement indépendantes. Soit ${\bf Q_2}$ la matrice des $n-p$ derniers vecteurs orthonormés. On a alors bien :\\
+Il est possible de compléter ${\bf q_1}\cdots {\bf q_p}$ en une base orthonormée de $\mathbb R^n$, en continuant la procédure de Gram-Schmidt avec $n-p$ vecteurs arbitraires, mais tels que les $n$ colonnes formées avec les ${\bf A_{\bullet,j}}$ soient linéairement indépendantes. Soit ${\bf Q_2}$ la matrice des $n-p$ derniers vecteurs orthonormés. On a alors bien :
+
 ${\bf A^T} {\bf Q_2}={\bf R_1^T} {\bf Q_1^T} {\bf Q_2}=0$ ce qui montre que :
+
 ${\bf A}={\bf QR}=[{\bf Q_1}\ {\bf Q_2}]\cdot\left [\begin{array}{c}{\bf R_1} \\{\bf 0} \\\end{array}\right]={\bf Q_1R_1}$.\\
-\vskip 20pt
-\begin{center}
-{\bfseries Les colonnes de ${\bf Q_1}$ forment une base orthonormée de $Im({\bf A})$, et les colonnes de ${\bf Q_2}$ forment 
-une base orthonormée de $Ker({\bf A^T})$}.
-\end{center}
-\vskip 20pt
+
+`Les colonnes de ${\bf Q_1}$ forment une base orthonormée de $Im({\bf A})$, et les colonnes de ${\bf Q_2}$ forment 
+une base orthonormée de $Ker({\bf A^T})$.
+`
 
 Appliqué au problème des moindres carrés, le système aux équations normales s'écrit donc 
 \begin{eqnarray*}
