@@ -86,10 +86,7 @@ quand $m=n$. Quelle est alors la valeur de $J({\bf a}^\ast)$.
 
 2. Montrer qu'il existe une matrice $U$, rectangulaire à $(m+1)$ lignes
 et $(n+1)$ colonnes, telle que, si ${\bf a}^\ast$ est un point stationnaire de
-$J$, alors
-$$
-U^{T}U{\bf a}^\ast=U^{T}{\bf y}.
-$$
+$J$, alors $U^{T}U{\bf a}^\ast=U^{T}{\bf y}.$
 3. On suppose que $n=1$, i.e. $p(x)=a_0+a_1x$. On pose
 $\begin{eqnarray*}
 &&\bar{{\bf x}}=\frac{1}{m+1}\sum_{i=0}^mx_i,\qquad
