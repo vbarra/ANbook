@@ -59,7 +59,7 @@ généralise aisement à une base orthonormée quelconque ${\bf q_1},{\bf q_2},\
 ```
 ```{index} Gram-Schmidt;orthogonalisation
 ```
-A partir d'une famille de $p$ vecteurs linéairement indépendants de $\mathbb R^n$, représentés par une matrice \mbox{${\bf A}\in\mathcal{M}_{n,p}(\mathbb R)$} de rang $p$, on peut construire une famille $\{{\bf q_1}\cdots {\bf q_p}\}$, base orthonormée de $Im({\bf A})$. C'est un outil fondamental pour la résolution de systèmes surdéterminés.
+A partir d'une famille de $p$ vecteurs linéairement indépendants de $\mathbb R^n$, représentés par une matrice ${\bf A}\in\mathcal{M}_{n,p}(\mathbb R)$ de rang $p$, on peut construire une famille $\{{\bf q_1}\cdots {\bf q_p}\}$, base orthonormée de $Im({\bf A})$. C'est un outil fondamental pour la résolution de systèmes surdéterminés.
 
 L'idée générale est donc de construire une base orthonormée du sous-espace image d'un ensemble de vecteurs. L'intérêt numérique est que cette construction équivaut à triangulariser la matrice formée par ces vecteurs. L'algorithme {prf:ref}`GS` et la figure suivante présentent le procédé d'orthonormalisation de Gram-Schmidt qui, s'il est simple à comprendre, ne présente qu'un intérêt académique puisqu'il est très coûteux. En pratique, on utilise la méthode de factorisation QR qui permet d'atteindre le même objectif grâce à des transformations orthogonales élémentaires (rotations de Givens ou transformations de  Householder) numériquement stables et seulement deux fois plus chères que la méthode de Gauss.
 
@@ -111,7 +111,7 @@ Il est possible de compléter ${\bf q_1}\cdots {\bf q_p}$ en une base orthonorm�
 
 ${\bf A^T} {\bf Q_2}={\bf R_1^T} {\bf Q_1^T} {\bf Q_2}=0$ ce qui montre que :
 
-${\bf A}={\bf QR}=[{\bf Q_1}\ {\bf Q_2}]\cdot\left [\begin{array}{c}{\bf R_1} \\{\bf 0} \\\end{array}\right]={\bf Q_1R_1}$.\\
+${\bf A}={\bf QR}=[{\bf Q_1}\ {\bf Q_2}]\cdot\left [\begin{array}{c}{\bf R_1} \\{\bf 0} \\\end{array}\right]={\bf Q_1R_1}$.
 
 **Les colonnes de ${\bf Q_1}$ forment une base orthonormée de $Im({\bf A})$, et les colonnes de ${\bf Q_2}$ forment 
 une base orthonormée de $Ker({\bf A^T})$.** 
@@ -237,7 +237,7 @@ On illustre cet algorithme sur les deux premières itérations :
 - ${\bf A^{(2)}}={\bf H^{(1)}A^{(1)}} = \begin{pmatrix}{\|{\bf A^{(1)}_{\bullet,1}}\|}&a^{(2)}_{12}&*&\cdots &*\\0&a^{(2)}_{22}&*&\cdots &*\\0&\vdots&\vdots&\vdots&\vdots\\0&a^{(2)}_{n2}&*&\cdots &*\end{pmatrix}$
 2. $j$=2 : 
 - Soit ${\bf f_2} = \begin{pmatrix}a^{(2)}_{22}\\\vdots\\a^{(2)}_{n2}\end{pmatrix}\in \mathbb R^{n-1}$
-- On construit ${\bf \tilde{H^{(2)}}}\in\mathcal{M}_{n-1}(\mathbb R)$ telle que ${\bf \tilde{H^{(2)}}f_2} = \|{\bf f_2}\| {\bf e^{(2)}_1}$, ${\bf e^{(2)}_1}$ premier vecteur de la base canonique de $\mathbb R^{n-1}$
+- On construit ${\bf \tilde{H^{(2)}}}\in\mathcal{M}_{n-1}(\mathbb R)$ telle que ${\bf \tilde{H^{(2)}}f_2} = \|{\bf f_2}\| {\bf e^{(2)}_1}$ avec ${\bf e^{(2)}_1}$ premier vecteur de la base canonique de $\mathbb R^{n-1}$
 - On construit
 ${\bf H^{(2)}} =\left (
 \begin{array}{l|l}
