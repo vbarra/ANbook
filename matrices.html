@@ -210,6 +210,11 @@ const thebe_selector_output = ".output, .cell_output"
    Transformations orthogonales
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exomcl.html">
+   Exercices
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -914,7 +919,7 @@ les colonnes de <span class="math notranslate nohighlight">\({\bf A}\)</span> (e
 scalaire.</p>
 <p><span class="math notranslate nohighlight">\({\bf A} = \begin{pmatrix}
 1&amp;2&amp;3\\4&amp;5&amp;6\\7&amp;8&amp;9
-\end{pmatrix}\)</span> <span class="math notranslate nohighlight">\({\bf A^T} = \begin{pmatrix}
+\end{pmatrix}\)</span> <span class="math notranslate nohighlight">\({\bf A^\top} = \begin{pmatrix}
 1&amp;4&amp;7\\2&amp;5&amp;8\\3&amp;6&amp;9
 \end{pmatrix}\)</span></p>
 <div class="cell tag_transpose docutils container">
@@ -922,7 +927,7 @@ scalaire.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">],[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> 
 <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A^T = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">A</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A^</span><span class="se">\t</span><span class="s1">op = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">A</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -932,7 +937,7 @@ scalaire.</p>
  [1 8 3]
  [6 7 2]] 
 
-A^T = 
+A^	op = 
  [[5 1 6]
  [4 8 7]
  [0 3 2]]
@@ -973,10 +978,10 @@ matrices <span class="math notranslate nohighlight">\({\bf A}\)</span> et <span 
 <p class="admonition-title"><span class="caption-number">Property 5 </span> (Propriétés de la trace)</p>
 <div class="property-content section" id="proof-content">
 <ol class="simple">
-<li><p><span class="math notranslate nohighlight">\(Tr({\bf A})\)</span>=<span class="math notranslate nohighlight">\(Tr({\bf A^T})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Tr({\bf A})\)</span>=<span class="math notranslate nohighlight">\(Tr({\bf A^\top})\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(Tr({\bf AB})\)</span>=<span class="math notranslate nohighlight">\(Tr({\bf BA})\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(Tr({\bf A+B})\)</span>=<span class="math notranslate nohighlight">\(Tr({\bf A}) + Tr({\bf B})\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\((\forall {\bf x}\in \mathbb R^n)\ {\bf x^Tx} = Tr({\bf xx^T})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\((\forall {\bf x}\in \mathbb R^n)\ {\bf x^\topx} = Tr({\bf xx^\top})\)</span></p></li>
 </ol>
 </div>
 </div><div class="proof definition admonition" id="definition-8">
@@ -1042,7 +1047,7 @@ linéaires.</p>
 <span class="target" id="index-7"></span><p id="index-8">Soient <span class="math notranslate nohighlight">\({\bf A}\in \mathcal{M}_{m,n}(\mathbb{R})\)</span> et
 <span class="math notranslate nohighlight">\({\bf B}\in \mathcal{M}_{n,p}(\mathbb{R})\)</span>. Le produit <span class="math notranslate nohighlight">\({\bf C = AB}\)</span>
 est une matrice de <span class="math notranslate nohighlight">\(\mathcal{M}_{m,p}(\mathbb{R})\)</span> avec
-<span class="math notranslate nohighlight">\((\forall i\in  [\![ 1, m]\!])(\forall j\in [\![ 1, p]\!])\quad c_{ij}=\sum_{k=1}^n a_{ik}b_{kj} = {\bf A_{i,\bullet}^T B_{\bullet,j}}
+<span class="math notranslate nohighlight">\((\forall i\in  [\![ 1, m]\!])(\forall j\in [\![ 1, p]\!])\quad c_{ij}=\sum_{k=1}^n a_{ik}b_{kj} = {\bf A_{i,\bullet}^\top B_{\bullet,j}}
 \label{ProduitMatriciel}\)</span></p>
 </div>
 </div><p>On note que le nombre de colonnes de <span class="math notranslate nohighlight">\({\bf A}\)</span> doit être égal au nombre
@@ -1216,7 +1221,7 @@ assurer l’existence, il faut et il suffit que
 triangulaire supérieure (resp. inférieure).</p></li>
 <li><p>Si <span class="math notranslate nohighlight">\(m=n\)</span> et <span class="math notranslate nohighlight">\((\forall i,j\in  [\![ 1, m]\!]) a_{ij} = a_{ji}\)</span>, la
 matrice <span class="math notranslate nohighlight">\({\bf A}\)</span> est dite symétrique.</p></li>
-<li><p>Si <span class="math notranslate nohighlight">\(m=n\)</span> et <span class="math notranslate nohighlight">\({\bf A^T}{\bf A} = {\bf A}{\bf A^T} = \mathbb I\)</span>,
+<li><p>Si <span class="math notranslate nohighlight">\(m=n\)</span> et <span class="math notranslate nohighlight">\({\bf A^\top}{\bf A} = {\bf A}{\bf A^\top} = \mathbb I\)</span>,
 <span class="math notranslate nohighlight">\({\bf A}\)</span> est une matrice orthogonale</p></li>
 <li><p>si <span class="math notranslate nohighlight">\(m=1\)</span>, la matrice est un vecteur ligne. C’est la transposée d’un
 vecteur de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>.</p></li>
@@ -1229,23 +1234,23 @@ taille <span class="math notranslate nohighlight">\(n\)</span>, on obtient une s
 des sous-matrices principales sont les mineurs de la matrice.</p></li>
 </ul>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="79297e42-9cfc-4647-b6b2-209663cb38ac" name="14d52173-917e-4d8b-beeb-f385231bebb7" type="radio">
-</input><label class="sd-tab-label" for="79297e42-9cfc-4647-b6b2-209663cb38ac">
+<input checked="checked" id="0b62cb16-c790-4484-bb29-375af82eb166" name="e0cc6f6f-35ff-478b-92ba-e4847044789e" type="radio">
+</input><label class="sd-tab-label" for="0b62cb16-c790-4484-bb29-375af82eb166">
 Diagonale</label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;0&amp;0\\0&amp;-4&amp;0\\0&amp;0&amp;1\end{pmatrix}\)</span></p>
 </div>
-<input id="e71db137-9cce-413d-aa98-c6e796e893ad" name="14d52173-917e-4d8b-beeb-f385231bebb7" type="radio">
-</input><label class="sd-tab-label" for="e71db137-9cce-413d-aa98-c6e796e893ad">
+<input id="d3e18f1e-b0dd-4e7e-9259-9b8f26bd8a03" name="e0cc6f6f-35ff-478b-92ba-e4847044789e" type="radio">
+</input><label class="sd-tab-label" for="d3e18f1e-b0dd-4e7e-9259-9b8f26bd8a03">
 Triang. sup. </label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix} 3&amp;2&amp;1\\0&amp;-4&amp;2\\0&amp;0&amp;1 \end{pmatrix}\)</span></p>
 </div>
-<input id="900c3e23-9bf8-4ec7-9da1-495f125f66b6" name="14d52173-917e-4d8b-beeb-f385231bebb7" type="radio">
-</input><label class="sd-tab-label" for="900c3e23-9bf8-4ec7-9da1-495f125f66b6">
+<input id="992d896a-5f49-4876-8352-8ee13e9162e1" name="e0cc6f6f-35ff-478b-92ba-e4847044789e" type="radio">
+</input><label class="sd-tab-label" for="992d896a-5f49-4876-8352-8ee13e9162e1">
 Triang. inf.</label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;0&amp;0\\1&amp;-4&amp;0\\5&amp;8&amp;1 \end{pmatrix}\)</span></p>
 </div>
-<input id="4b28eac7-9f67-4ab4-93a6-a7abe6506bc3" name="14d52173-917e-4d8b-beeb-f385231bebb7" type="radio">
-</input><label class="sd-tab-label" for="4b28eac7-9f67-4ab4-93a6-a7abe6506bc3">
+<input id="da310cb6-3739-4d3c-b1a0-378932c6222d" name="e0cc6f6f-35ff-478b-92ba-e4847044789e" type="radio">
+</input><label class="sd-tab-label" for="da310cb6-3739-4d3c-b1a0-378932c6222d">
 Vecteur ligne </label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;2&amp;1&amp;-4&amp;0&amp;3.5 \end{pmatrix}\)</span></p>
 </div>

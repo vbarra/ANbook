@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="exomcl.html" />
+    <link rel="next" title="Exercices" href="exomcl.html" />
     <link rel="prev" title="Moindres carrés linéaires" href="mcl.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="fr">
@@ -208,6 +208,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Transformations orthogonales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exomcl.html">
+   Exercices
   </a>
  </li>
 </ul>
@@ -512,10 +517,10 @@ title="Print to PDF"
 <p class="admonition-title"><span class="caption-number">Definition 28 </span> (Matrice orthogonale)</p>
 <div class="definition-content section" id="proof-content">
 <p>Une matrice carrée <span class="math notranslate nohighlight">\({\bf H}\)</span> est dite {orthogonale}
-si et seulement si <span class="math notranslate nohighlight">\({\bf H^T}{\bf H}={\bf H}{\bf H^T} = \mathbb I\)</span></p>
+si et seulement si <span class="math notranslate nohighlight">\({\bf H^\top}{\bf H}={\bf H}{\bf H^\top} = \mathbb I\)</span></p>
 </div>
 </div><span class="target" id="index-0"></span><p id="index-1">Une matrice orthogonale est donc une matrice carrée dont les colonnes sont orthonormées. Les matrices de rotation, de symétrie, de permutation et l’identité sont des exemples de matrices orthogonales.</p>
-<p>Une matrice orthogonale <span class="math notranslate nohighlight">\({\bf H}\)</span> est naturellement inversible par définition, et l’inverse est <span class="math notranslate nohighlight">\({\bf H^{-1}}={\bf H^T} \)</span>.</p>
+<p>Une matrice orthogonale <span class="math notranslate nohighlight">\({\bf H}\)</span> est naturellement inversible par définition, et l’inverse est <span class="math notranslate nohighlight">\({\bf H^{-1}}={\bf H^\top} \)</span>.</p>
 <div class="proof property admonition" id="property-1">
 <p class="admonition-title"><span class="caption-number">Property 11 </span> (Propriété fondamentale})</p>
 <div class="property-content section" id="proof-content">
@@ -523,7 +528,7 @@ si et seulement si <span class="math notranslate nohighlight">\({\bf H^T}{\bf H}
 sont des isométries, les normes (euclidiennes), les produits scalaires et les angles sont conservés :</p>
 <p><span class="math notranslate nohighlight">\(({\bf H} \textrm{ orthogonale}) \Leftrightarrow (\forall {\bf x}\in \mathbb R^n)\\|{\bf Hx}\|=\|{\bf x}\|\)</span></p>
 </div>
-</div><span class="target" id="index-2"></span><p id="index-3">En effet, <span class="math notranslate nohighlight">\(\|{\bf Hx}\|^2=({\bf Hx)^T} ({\bf Hx})={\bf x^T H^T Hx}={\bf x^T x}=\|{\bf x}\|^2\)</span>.</p>
+</div><span class="target" id="index-2"></span><p id="index-3">En effet, <span class="math notranslate nohighlight">\(\|{\bf Hx}\|^2=({\bf Hx)^\top} ({\bf Hx})={\bf x^\top H^\top Hx}={\bf x^\top x}=\|{\bf x}\|^2\)</span>.</p>
 <p>Cette propriété entraîne une stabilité numérique des méthodes utilisant ces transformations. On les utilise principalement pour :</p>
 <ul class="simple">
 <li><p>orthonormaliser un système de générateurs,</p></li>
@@ -534,8 +539,8 @@ sont des isométries, les normes (euclidiennes), les produits scalaires et les a
 <p>Soit <span class="math notranslate nohighlight">\({\bf Q}\in\mathcal{M}_n(\mathbb R)\)</span> orthogonale, de colonnes
 <span class="math notranslate nohighlight">\({\bf q_1},{\bf q_2},\ldots,{\bf q_n}\)</span>. On a alors, pour tout <span class="math notranslate nohighlight">\({\bf x}\in\mathbb R^n\)</span>, une représentation unique sur la base
 orthonormée telle que</p>
-<p><span class="math notranslate nohighlight">\({\bf x}=\displaystyle\sum_{i=1}^n ({\bf q_i^T} {\bf x}){\bf q_i}\)</span></p>
-<p><span class="math notranslate nohighlight">\(({\bf q_i^T} {\bf x}){\bf q_i}\)</span> est la projection orthogonale de <span class="math notranslate nohighlight">\({\bf x}\)</span> sur l’axe <span class="math notranslate nohighlight">\({\bf q_i}\)</span>. Cette représentation se
+<p><span class="math notranslate nohighlight">\({\bf x}=\displaystyle\sum_{i=1}^n ({\bf q_i^\top} {\bf x}){\bf q_i}\)</span></p>
+<p><span class="math notranslate nohighlight">\(({\bf q_i^\top} {\bf x}){\bf q_i}\)</span> est la projection orthogonale de <span class="math notranslate nohighlight">\({\bf x}\)</span> sur l’axe <span class="math notranslate nohighlight">\({\bf q_i}\)</span>. Cette représentation se
 généralise aisement à une base orthonormée quelconque <span class="math notranslate nohighlight">\({\bf q_1},{\bf q_2},\ldots,{\bf q_r}\)</span> d’un sous-espace de dimension <span class="math notranslate nohighlight">\(r\)</span>.</p>
 </div>
 <div class="section" id="orthogonalisation-de-gram-schmidt">
@@ -557,7 +562,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 <li><p><span class="math notranslate nohighlight">\({\bf p_j}={\bf A_{\bullet,j}}\)</span></p></li>
 <li><p>Pour <span class="math notranslate nohighlight">\(i\)</span>=1 à <span class="math notranslate nohighlight">\(j-1\)</span></p>
 <ol class="simple">
-<li><p><span class="math notranslate nohighlight">\(r_{ij}={\bf A_{\bullet,j}^T}{\bf q_{{i}}}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(r_{ij}={\bf A_{\bullet,j}^\top}{\bf q_{{i}}}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\({\bf p_j}={\bf p_j}- r_{ij}{\bf q_{{i}}}\)</span></p></li>
 </ol>
 </li>
@@ -569,7 +574,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 </div><p><img alt="" src="_images/gs.png" /></p>
 <p>On remarque (voir boucles de l’algorithme) que la matrice <span class="math notranslate nohighlight">\({\bf R_1}\)</span> est triangulaire supérieure.</p>
-<p>Gram-Schmidt construit donc une matrice <span class="math notranslate nohighlight">\({\bf Q_1}\in\mathcal{M}_{n,p}(\mathbb R)\)</span> à colonnes orthormées et une matrice <span class="math notranslate nohighlight">\({\bf R_1}\in\mathcal{M}_{p}(\mathbb R)\)</span> telles que <span class="math notranslate nohighlight">\({\bf Q_1^T}{\bf A} = {\bf R_1}\)</span> soit <span class="math notranslate nohighlight">\({\bf A}\)</span>=<span class="math notranslate nohighlight">\({\bf Q_1R_1}\)</span>.</p>
+<p>Gram-Schmidt construit donc une matrice <span class="math notranslate nohighlight">\({\bf Q_1}\in\mathcal{M}_{n,p}(\mathbb R)\)</span> à colonnes orthormées et une matrice <span class="math notranslate nohighlight">\({\bf R_1}\in\mathcal{M}_{p}(\mathbb R)\)</span> telles que <span class="math notranslate nohighlight">\({\bf Q_1^\top}{\bf A} = {\bf R_1}\)</span> soit <span class="math notranslate nohighlight">\({\bf A}\)</span>=<span class="math notranslate nohighlight">\({\bf Q_1R_1}\)</span>.</p>
 <div class="proof example admonition" id="example-3">
 <p class="admonition-title"><span class="caption-number">Example 13 </span></p>
 <div class="example-content section" id="proof-content">
@@ -578,33 +583,33 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(\textcolor{red}{r_{11}} = \|{\bf A_{\bullet,1}}\| = \textcolor{red}{\sqrt{3}}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\textcolor{blue}{{\bf q_{1}}}= \frac{1}{\sqrt{3}}{\bf A_{\bullet,1}}= \textcolor{blue}{\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}}\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\textcolor{orange}{r_{12}}={\bf A_{\bullet,2}^Tq_1}=\begin{pmatrix}1&amp;0&amp;1\end{pmatrix}.\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix} =  \textcolor{orange}{\frac{2}{\sqrt{3}}}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\textcolor{orange}{r_{12}}={\bf A_{\bullet,2}^\topq_1}=\begin{pmatrix}1&amp;0&amp;1\end{pmatrix}.\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix} =  \textcolor{orange}{\frac{2}{\sqrt{3}}}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\({\bf p_2}={\bf A_{\bullet,2}}- r_{12}{\bf q_{{1}}}=\begin{pmatrix}1\\0\\1\end{pmatrix}-\frac{2}{\sqrt{3}}.\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}=\begin{pmatrix}\frac{1}{3}\\-\frac{2}{3}\\\frac{1}{3}\end{pmatrix}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\textcolor{cyan}{r_{22}} = \|{\bf p_2}\|= \textcolor{cyan}{\sqrt{\frac{2}{3}}}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\textcolor{magenta}{{\bf q_{2}}} = \frac{{\bf p_2}}{r_{22}} = \textcolor{magenta}{\begin{pmatrix}\frac{1}{\sqrt{6}}\\-\frac{\sqrt 2}{\sqrt 3}\\\frac{1}{\sqrt{6}}\end{pmatrix}}\)</span></p></li>
 </ol>
 </div>
 </div><p>Il est possible de compléter <span class="math notranslate nohighlight">\({\bf q_1}\cdots {\bf q_p}\)</span> en une base orthonormée de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>, en continuant la procédure de Gram-Schmidt avec <span class="math notranslate nohighlight">\(n-p\)</span> vecteurs arbitraires, mais tels que les <span class="math notranslate nohighlight">\(n\)</span> colonnes formées avec les <span class="math notranslate nohighlight">\({\bf A_{\bullet,j}}\)</span> soient linéairement indépendantes. Soit <span class="math notranslate nohighlight">\({\bf Q_2}\)</span> la matrice des <span class="math notranslate nohighlight">\(n-p\)</span> derniers vecteurs orthonormés. On a alors bien :</p>
-<p><span class="math notranslate nohighlight">\({\bf A^T} {\bf Q_2}={\bf R_1^T} {\bf Q_1^T} {\bf Q_2}=0\)</span> ce qui montre que :</p>
+<p><span class="math notranslate nohighlight">\({\bf A^\top} {\bf Q_2}={\bf R_1^\top} {\bf Q_1^\top} {\bf Q_2}=0\)</span> ce qui montre que :</p>
 <p><span class="math notranslate nohighlight">\({\bf A}={\bf QR}=[{\bf Q_1}\ {\bf Q_2}]\cdot\left [\begin{array}{c}{\bf R_1} \\{\bf 0} \\\end{array}\right]={\bf Q_1R_1}\)</span>.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Les colonnes de <span class="math notranslate nohighlight">\({\bf Q_1}\)</span> forment une base orthonormée de <span class="math notranslate nohighlight">\(Im({\bf A})\)</span>, et les colonnes de <span class="math notranslate nohighlight">\({\bf Q_2}\)</span> forment
-une base orthonormée de <span class="math notranslate nohighlight">\(Ker({\bf A^T})\)</span>.</p>
+une base orthonormée de <span class="math notranslate nohighlight">\(Ker({\bf A^\top})\)</span>.</p>
 </div>
 <p>Appliqué au problème des moindres carrés, le système aux équations normales s’écrit donc</p>
 <p><span class="math notranslate nohighlight">\(\begin{eqnarray*}
-{\bf A^TAx}&amp;=&amp; {\bf A^Tb}\\
-{\bf (Q_1R_1)^T(Q_1R_1)x}&amp;=&amp; {\bf (Q_1R_1)^Tb}\\
-{\bf R_1^TQ_1^TQ_1R_1x}&amp;=&amp; {\bf R_1^TQ_1^Tb}\\
-{\bf R_1^TR_1x}&amp;=&amp; {\bf R_1^TQ_1^Tb}\\
-{\bf R_1x}&amp;=&amp; {\bf Q_1^Tb}
+{\bf A^\topAx}&amp;=&amp; {\bf A^\topb}\\
+{\bf (Q_1R_1)^\top(Q_1R_1)x}&amp;=&amp; {\bf (Q_1R_1)^\topb}\\
+{\bf R_1^\topQ_1^\topQ_1R_1x}&amp;=&amp; {\bf R_1^\topQ_1^\topb}\\
+{\bf R_1^\topR_1x}&amp;=&amp; {\bf R_1^\topQ_1^\topb}\\
+{\bf R_1x}&amp;=&amp; {\bf Q_1^\topb}
 \end{eqnarray*}\)</span></p>
 <p>La dernière simplification étant possible car <span class="math notranslate nohighlight">\({\bf R_1}\)</span> est inversible (trangulaire supérieure, les éléments de la diagonale étant des normes, donc strictement positifs). La solution du
 problème des moindres carrés est solution du système triangulaire</p>
-<p><span class="math notranslate nohighlight">\({\bf R_1x}= {\bf Q_1^Tb}\)</span>
+<p><span class="math notranslate nohighlight">\({\bf R_1x}= {\bf Q_1^\topb}\)</span>
 et le calcul de l’erreur donne</p>
-<p><span class="math notranslate nohighlight">\(\|{\bf e}\|^2=\|{\bf b}\|^2-\displaystyle\sum_{i=1}^p  ({\bf b^T} {\bf q_i})^2\)</span></p>
+<p><span class="math notranslate nohighlight">\(\|{\bf e}\|^2=\|{\bf b}\|^2-\displaystyle\sum_{i=1}^p  ({\bf b^\top} {\bf q_i})^2\)</span></p>
 </div>
 <div class="section" id="transformations-de-householder">
 <h2>Transformations de Householder<a class="headerlink" href="#transformations-de-householder" title="Lien permanent vers ce titre">#</a></h2>
@@ -637,23 +642,23 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 </ol>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Remarquons tout d’abord que si <span class="math notranslate nohighlight">\({\bf H(u)}\)</span> est une matrice de Householder, alors <span class="math notranslate nohighlight">\({\bf H(u)f}={\bf f-2u(u^T f)}\)</span> et <span class="math notranslate nohighlight">\(\|{\bf H(u)f}\|_2=\|{\bf f}\|_2\)</span>.</p>
+<p>Proof. Remarquons tout d’abord que si <span class="math notranslate nohighlight">\({\bf H(u)}\)</span> est une matrice de Householder, alors <span class="math notranslate nohighlight">\({\bf H(u)f}={\bf f-2u(u^\top f)}\)</span> et <span class="math notranslate nohighlight">\(\|{\bf H(u)f}\|_2=\|{\bf f}\|_2\)</span>.</p>
 <p>Posons alors <span class="math notranslate nohighlight">\(\mid\alpha\mid=\|{\bf f}\|_2\)</span>. On cherche alors <span class="math notranslate nohighlight">\({\bf u}\)</span> tel que <span class="math notranslate nohighlight">\({\bf H(u)f}=\alpha {\bf e}\)</span>, soit</p>
 <p><span class="math notranslate nohighlight">\(\begin{align*}
-{\bf f-2u(u^T f)}&amp;=\alpha {\bf e}\\
-{\bf u}&amp;=\frac{1}{2{\bf u^T f}}({\bf f-}\alpha {\bf e})
+{\bf f-2u(u^\top f)}&amp;=\alpha {\bf e}\\
+{\bf u}&amp;=\frac{1}{2{\bf u^\top f}}({\bf f-}\alpha {\bf e})
 \end{align*}\)</span></p>
-<p>Si <span class="math notranslate nohighlight">\(\beta={\bf u^T f}\)</span>, en multipliant à gauche par <span class="math notranslate nohighlight">\({\bf f^T} \)</span> :
-<span class="math notranslate nohighlight">\(2\beta^2=\alpha^2-\alpha {\bf f^T e}\)</span></p>
-<p>et <span class="math notranslate nohighlight">\(\beta\)</span> existe si <span class="math notranslate nohighlight">\(\alpha^2-\alpha {\bf f^T e}&gt;0\)</span>. Or l’inégalité de Cauchy-Schwarz donne</p>
-<p><span class="math notranslate nohighlight">\(\mid {\bf f^T e}\mid\leq\|{\bf f}\|_2\|{\bf e}\|_2=\|\alpha\|\)</span></p>
+<p>Si <span class="math notranslate nohighlight">\(\beta={\bf u^\top f}\)</span>, en multipliant à gauche par <span class="math notranslate nohighlight">\({\bf f^\top} \)</span> :
+<span class="math notranslate nohighlight">\(2\beta^2=\alpha^2-\alpha {\bf f^\top e}\)</span></p>
+<p>et <span class="math notranslate nohighlight">\(\beta\)</span> existe si <span class="math notranslate nohighlight">\(\alpha^2-\alpha {\bf f^\top e}&gt;0\)</span>. Or l’inégalité de Cauchy-Schwarz donne</p>
+<p><span class="math notranslate nohighlight">\(\mid {\bf f^\top e}\mid\leq\|{\bf f}\|_2\|{\bf e}\|_2=\|\alpha\|\)</span></p>
 <p>et l’inégalité est de plus stricte par hypothèse (<span class="math notranslate nohighlight">\({\bf f}\)</span> et <span class="math notranslate nohighlight">\({\bf e}\)</span> non colinéaires). Ainsi :</p>
 <p><span class="math notranslate nohighlight">\({\bf u}=\frac{1}{2\beta}({\bf f}-\alpha {\bf e)}\)</span> répond à la question.</p>
 </div>
 <div class="proof remark dropdown admonition" id="remark-6">
 <p class="admonition-title"><span class="caption-number">Remark 9 </span></p>
 <div class="remark-content section" id="proof-content">
-<p>Si <span class="math notranslate nohighlight">\({\bf f}\)</span> et <span class="math notranslate nohighlight">\({\bf  e}\)</span> sont colinéaires, <span class="math notranslate nohighlight">\({\bf H}=\mathbb I\)</span> ou <span class="math notranslate nohighlight">\({\bf H}=\mathbb I-2{\bf ee^T }\)</span> répondent à la question.</p>
+<p>Si <span class="math notranslate nohighlight">\({\bf f}\)</span> et <span class="math notranslate nohighlight">\({\bf  e}\)</span> sont colinéaires, <span class="math notranslate nohighlight">\({\bf H}=\mathbb I\)</span> ou <span class="math notranslate nohighlight">\({\bf H}=\mathbb I-2{\bf ee^\top }\)</span> répondent à la question.</p>
 </div>
 </div><p>L’algorithme d’orthonormalisation  de <span class="math notranslate nohighlight">\({\bf A}\)</span> par matrices de Householder  opère alors colonne par colonne, et transforme itérativement <span class="math notranslate nohighlight">\({\bf A}\)</span> en une matrice triangulaire supérieure.</p>
 <p>On l’illustre dans la suite (algorithme \ref{A:HS}) dans le cas où <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_n(\mathbb R)\)</span> est de rang plein.</p>
@@ -673,16 +678,16 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 <li><p>On calcule <span class="math notranslate nohighlight">\({\bf A^{(j+1)}} = {{\bf H^{(j)}}\bf A^{(j)}}\)</span></p></li>
 </ol>
 </li>
-<li><p><span class="math notranslate nohighlight">\({\bf R}={\bf A^{(n-1)}}\)</span> et <span class="math notranslate nohighlight">\({\bf Q} =  {\bf {H^{(1)}}^T}{\bf {H^{(2)}}^T} \cdots  {\bf {H^{(n-1)}}^T}\)</span>
+<li><p><span class="math notranslate nohighlight">\({\bf R}={\bf A^{(n-1)}}\)</span> et <span class="math notranslate nohighlight">\({\bf Q} =  {\bf {H^{(1)}}^\top}{\bf {H^{(2)}}^\top} \cdots  {\bf {H^{(n-1)}}^\top}\)</span>
 }</p></li>
 </ol>
 </div>
 </div><p>A l’issue des <span class="math notranslate nohighlight">\(n-1\)</span> itérations, on a effectué les produits <span class="math notranslate nohighlight">\({\bf H^{(n-1)}} \cdots {\bf H^{(2)}} {\bf H^{(1)}}\)</span> pour obtenir une matrice triangulaire supérieure <span class="math notranslate nohighlight">\({\bf R}\in\mathcal{M}_n(\mathbb R)\)</span> à partir de <span class="math notranslate nohighlight">\({\bf A}\)</span>. Donc :</p>
 <p><span class="math notranslate nohighlight">\({\bf H^{(n-1)}} \cdots {\bf H^{(2)}} {\bf H^{(1)}}{\bf A} = {\bf R}\)</span></p>
 <p>De plus les <span class="math notranslate nohighlight">\({\bf H^{(j)}}, j\in[\![1, n-1]\!]\)</span> sont orthogonales donc</p>
-<p><span class="math notranslate nohighlight">\({\bf A} ={\bf {H^{(1)}}^T}{\bf {H^{(2)}}^T} \cdots  {\bf {H^{(n-1)}}^T} {\bf R}\)</span></p>
-<p>Le produit des matrices <span class="math notranslate nohighlight">\({\bf{ H^{(j)}}^T}\)</span> est également une matrice orthogonale, et on pose</p>
-<p><span class="math notranslate nohighlight">\({\bf Q} = {\bf {H^{(1)}}^T}{\bf {H^{(2)}}^T} \cdots  {\bf {H^{(n-1)}}^T}\)</span></p>
+<p><span class="math notranslate nohighlight">\({\bf A} ={\bf {H^{(1)}}^\top}{\bf {H^{(2)}}^\top} \cdots  {\bf {H^{(n-1)}}^\top} {\bf R}\)</span></p>
+<p>Le produit des matrices <span class="math notranslate nohighlight">\({\bf{ H^{(j)}}^\top}\)</span> est également une matrice orthogonale, et on pose</p>
+<p><span class="math notranslate nohighlight">\({\bf Q} = {\bf {H^{(1)}}^\top}{\bf {H^{(2)}}^\top} \cdots  {\bf {H^{(n-1)}}^\top}\)</span></p>
 <p>pour finalement obtenir  <span class="math notranslate nohighlight">\({\bf A} = {\bf QR}\)</span></p>
 <p>On illustre cet algorithme sur les deux premières itérations :</p>
 <ol class="simple">
@@ -749,7 +754,7 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
     <a class='right-next' id="next-link" href="exomcl.html" title="suivant page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">Exercices</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

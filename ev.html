@@ -191,6 +191,33 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p class="caption">
  <span class="caption-text">
+  Moindres carrés linéaires
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="projections.html">
+   Projections orthogonales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mcl.html">
+   Moindres carrés linéaires
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="transfoortho.html">
+   Transformations orthogonales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exomcl.html">
+   Exercices
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
   Index
  </span>
 </p>
@@ -609,7 +636,7 @@ de dimension finie, c’est même un espace euclidien.</p>
 </div><div class="proof property admonition" id="property-3">
 <p class="admonition-title"><span class="caption-number">Property 1 </span> (Inégalité de Cauchy-Schwarz )</p>
 <div class="property-content section" id="proof-content">
-<p><span class="math notranslate nohighlight">\((\forall {\bf x,y}\in\mathbb R^n)\ {\bf x^T}{\bf y}\le \|{\bf x}\|_2 \|{\bf y}\|_2\)</span></p>
+<p><span class="math notranslate nohighlight">\((\forall {\bf x,y}\in\mathbb R^n)\ {\bf x^\top}{\bf y}\le \|{\bf x}\|_2 \|{\bf y}\|_2\)</span></p>
 <p>et l’égalité est vérifiée si et seulement si <span class="math notranslate nohighlight">\({\bf x}\)</span> et <span class="math notranslate nohighlight">\({\bf y}\)</span> sont colinéaires.</p>
 </div>
 </div><p>L’inégalté triangulaire est un résultat important de l’analyse fonctionnelle
@@ -826,7 +853,7 @@ toutes nulles sauf la <span class="math notranslate nohighlight">\(i\)</span>–
 </div><p>Les éléments de la base canonique sont aussi appelés vecteurs unitaires.
 Tout vecteur de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span> peut donc s’écrire de manière unique comme
 une combinaison linéaire des vecteurs de la base canonique, <em>i.e.</em>
-<span class="math notranslate nohighlight">\({\bf x}=x_1{\bf e_1}+\cdots+x_n{\bf e_n} = \displaystyle\sum_{i=1}^n x_i {\bf e_i} =\displaystyle\sum_{i=1}^n ({\bf x^T e_i} ){\bf e_i}\)</span>
+<span class="math notranslate nohighlight">\({\bf x}=x_1{\bf e_1}+\cdots+x_n{\bf e_n} = \displaystyle\sum_{i=1}^n x_i {\bf e_i} =\displaystyle\sum_{i=1}^n ({\bf x^\top e_i} ){\bf e_i}\)</span>
 les <span class="math notranslate nohighlight">\(x_i\)</span> sont les coordonnées de <span class="math notranslate nohighlight">\({\bf x}\)</span> dans la base. On peut
 montrer que tout espace vectoriel admettant une famille finie
 génératrice admet une base et que, plus généralement :</p>
