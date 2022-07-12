@@ -3,9 +3,8 @@
 ## Exercice 1
 Trouver la meilleure approximation, $\bar x$, au sens des moindres carrés, du
 système
-$$
-3x=10,\qquad 4x= 5.
-$$
+$3x=10,\qquad 4x= 5.$
+
 Déterminer le carré de l'erreur $e^2$ et montrer que le vecteur erreur
 $(10-3\bar x\;  5-4\bar x)^T $ est orthogonal à $(3\; 4)^T $
 
@@ -13,12 +12,12 @@ $(10-3\bar x\;  5-4\bar x)^T $ est orthogonal à $(3\; 4)^T $
 
 ## Exercice 2
 Trouver la droite $f(t)=at+b$ qui approche le mieux (au sens des moindres
-carrés) les mesures : $$ f(0)=0,\quad f(1)=1,\quad f(3)=2,\quad f(4)=5. $$
+carrés) les mesures : $f(0)=0,\quad f(1)=1,\quad f(3)=2,\quad f(4)=5$.
 
 
 
 ## Exercice 3
-Soit $$P=\frac{1}{\parallel v\parallel^2}vv^T ,$$ la matrice de 
+Soit $P=\frac{1}{\parallel v\parallel^2}vv^\top$ la matrice de 
 projection sur la droite de direction $v$.
 
 Interpréter géométriquement la matrice $Q=I-2P$. Montrer que $Q^2=I$ et
@@ -29,22 +28,18 @@ Déterminer $v$ pour que la seconde coordonnée de $z=Qy$ soit nulle.
 ## Exercice 4
 Projeter le vecteur $b=(0\; 3\; 0)^T $ sur les droites de directions 
 respectives 
-$$
-a^1=\left(\begin{array}{r}2/3\\ 2/3\\ -1/3\end{array}\right),\quad
-a^2=\left(\begin{array}{r}-1/3\\ 2/3\\ 2/3\end{array}\right).
-$$
+$a^1=\left(\begin{array}{r}2/3\\ 2/3\\ -1/3\end{array}\right),\quad
+a^2=\left(\begin{array}{r}-1/3\\ 2/3\\ 2/3\end{array}\right)$
 
 Trouver la projection de $b$ sur le plan engendré par $a^1$ et $a^2$.
 
 
 ## Exercice 5
  On se donne
-$$
-A_1=\left[\begin{array}{cc}1 & -1\\ 1 & 0\\ 1 & 1\\ 1 & 2\end{array}
+$A_1=\left[\begin{array}{cc}1 & -1\\ 1 & 0\\ 1 & 1\\ 1 & 2\end{array}
   \right]\quad\mbox{et }\ 
 b=\left[\begin{array}{c}1 \\ 1\\ 0\\ 1 \end{array}
-  \right]
-$$
+  \right]$
 
 1. Mettre $A_1$ sous la forme $Q_1R_1$ où $Q_1$ est une matrice $4\times 2$ de colonnes
 orthonormées $q_1$ et $q_2$, et $R_1$ une matrice $2\times 2$ triangulaire supérieure.
@@ -86,7 +81,7 @@ quand $m=n$. Quelle est alors la valeur de $J({\bf a}^\ast)$.
 
 2. Montrer qu'il existe une matrice $U$, rectangulaire à $(m+1)$ lignes
 et $(n+1)$ colonnes, telle que, si ${\bf a}^\ast$ est un point stationnaire de
-$J$, alors $U^{T}U{\bf a}^\ast=U^{T}{\bf y}.$
+$J$, alors $U^{T}U{\bf a}^\ast=U^{T}{\bf y}$.
 3. On suppose que $n=1$, i.e. $p(x)=a_0+a_1x$. On pose
 $\begin{eqnarray*}
 &&\bar{{\bf x}}=\frac{1}{m+1}\sum_{i=0}^mx_i,\qquad
