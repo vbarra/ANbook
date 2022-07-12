@@ -153,7 +153,7 @@
 # ```
 # 
 # 
-# Le théorème suivant montre qu'il est toujours possible de trouver une matrice de Householder\index{matrice!de Householder}
+# Le théorème suivant montre qu'il est toujours possible de trouver une matrice de Householder
 # permettant de transformer un vecteur quelconque en un vecteur colinéaire à un vecteur donné.
 # 
 # ````{prf:theorem} 
