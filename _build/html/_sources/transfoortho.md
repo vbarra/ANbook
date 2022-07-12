@@ -13,7 +13,7 @@ kernelspec:
 ## Matrices orthogonales
 ````{prf:definition} Matrice orthogonale
 Une matrice carrée ${\bf H}$ est dite {orthogonale}
-si et seulement si ${\bf H^T}{\bf H}={\bf H}{\bf H^T} = \mathbb I$
+si et seulement si ${\bf H^\top}{\bf H}={\bf H}{\bf H^\top} = \mathbb I$
 ````
 ```{index} Matrice;orthogonale
 ```
@@ -22,7 +22,7 @@ si et seulement si ${\bf H^T}{\bf H}={\bf H}{\bf H^T} = \mathbb I$
 
 Une matrice orthogonale est donc une matrice carrée dont les colonnes sont orthonormées. Les matrices de rotation, de symétrie, de permutation et l'identité sont des exemples de matrices orthogonales.
 
-Une matrice orthogonale ${\bf H}$ est naturellement inversible par définition, et l'inverse est ${\bf H^{-1}}={\bf H^T} $.
+Une matrice orthogonale ${\bf H}$ est naturellement inversible par définition, et l'inverse est ${\bf H^{-1}}={\bf H^\top} $.
 
 ````{prf:property} Propriété fondamentale}
 Les transformations orthogonales
@@ -35,7 +35,7 @@ $({\bf H} \textrm{ orthogonale}) \Leftrightarrow (\forall {\bf x}\in \mathbb R^n
 ```{index} Orthogonale;transformation
 ```
 
-En effet, $\|{\bf Hx}\|^2=({\bf Hx)^T} ({\bf Hx})={\bf x^T H^T Hx}={\bf x^T x}=\|{\bf x}\|^2$.
+En effet, $\|{\bf Hx}\|^2=({\bf Hx)^\top} ({\bf Hx})={\bf x^\top H^\top Hx}={\bf x^\top x}=\|{\bf x}\|^2$.
 
 Cette propriété entraîne une stabilité numérique des méthodes utilisant ces transformations. On les utilise principalement pour :
 - orthonormaliser un système de générateurs,
@@ -49,9 +49,9 @@ Soit ${\bf Q}\in\mathcal{M}_n(\mathbb R)$ orthogonale, de colonnes
 ${\bf q_1},{\bf q_2},\ldots,{\bf q_n}$. On a alors, pour tout ${\bf x}\in\mathbb R^n$, une représentation unique sur la base 
 orthonormée telle que
 
-${\bf x}=\displaystyle\sum_{i=1}^n ({\bf q_i^T} {\bf x}){\bf q_i}$
+${\bf x}=\displaystyle\sum_{i=1}^n ({\bf q_i^\top} {\bf x}){\bf q_i}$
 
- $({\bf q_i^T} {\bf x}){\bf q_i}$ est la projection orthogonale de ${\bf x}$ sur l'axe ${\bf q_i}$. Cette représentation se
+ $({\bf q_i^\top} {\bf x}){\bf q_i}$ est la projection orthogonale de ${\bf x}$ sur l'axe ${\bf q_i}$. Cette représentation se
 généralise aisement à une base orthonormée quelconque ${\bf q_1},{\bf q_2},\ldots,{\bf q_r}$ d'un sous-espace de dimension $r$. 
 
 ## Orthogonalisation de Gram-Schmidt
@@ -78,7 +78,7 @@ Le principe de Gram-Schmidt est de calculer, pour $j\in[\![2,p]\!]$,  chaque vec
 3. Pour $j$=2 à $p$
     1. ${\bf p_j}={\bf A_{\bullet,j}}$
     2. Pour $i$=1 à $j-1$
-        1. $r_{ij}={\bf A_{\bullet,j}^T}{\bf q_{{i}}}$
+        1. $r_{ij}={\bf A_{\bullet,j}^\top}{\bf q_{{i}}}$
         2. ${\bf p_j}={\bf p_j}- r_{ij}{\bf q_{{i}}}$
     3. $r_{jj} = \|{\bf p_j}\|$
     4. ${\bf q_{{j}}} = \frac{{\bf p_j}}{r_{jj}}$
@@ -91,7 +91,7 @@ Le principe de Gram-Schmidt est de calculer, pour $j\in[\![2,p]\!]$,  chaque vec
 
 On remarque (voir boucles de l'algorithme) que la matrice ${\bf R_1}$ est triangulaire supérieure. 
 
-Gram-Schmidt construit donc une matrice ${\bf Q_1}\in\mathcal{M}_{n,p}(\mathbb R)$ à colonnes orthormées et une matrice ${\bf R_1}\in\mathcal{M}_{p}(\mathbb R)$ telles que ${\bf Q_1^T}{\bf A} = {\bf R_1}$ soit ${\bf A}$=${\bf Q_1R_1}$.
+Gram-Schmidt construit donc une matrice ${\bf Q_1}\in\mathcal{M}_{n,p}(\mathbb R)$ à colonnes orthormées et une matrice ${\bf R_1}\in\mathcal{M}_{p}(\mathbb R)$ telles que ${\bf Q_1^\top}{\bf A} = {\bf R_1}$ soit ${\bf A}$=${\bf Q_1R_1}$.
 
 ````{prf:example}
 Soit ${\bf A} = \begin{pmatrix} 1&1\\1&0\\1&1\end{pmatrix}$. 
@@ -100,7 +100,7 @@ Alors ${\bf A} ={\bf QR}$ avec ${\bf Q} = \begin{pmatrix} \textcolor{blue}{\frac
 
 1. $\textcolor{red}{r_{11}} = \|{\bf A_{\bullet,1}}\| = \textcolor{red}{\sqrt{3}}$
 2. $\textcolor{blue}{{\bf q_{1}}}= \frac{1}{\sqrt{3}}{\bf A_{\bullet,1}}= \textcolor{blue}{\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}}$
-3. $\textcolor{orange}{r_{12}}={\bf A_{\bullet,2}^Tq_1}=\begin{pmatrix}1&0&1\end{pmatrix}.\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix} =  \textcolor{orange}{\frac{2}{\sqrt{3}}}$
+3. $\textcolor{orange}{r_{12}}={\bf A_{\bullet,2}^\topq_1}=\begin{pmatrix}1&0&1\end{pmatrix}.\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix} =  \textcolor{orange}{\frac{2}{\sqrt{3}}}$
 4. ${\bf p_2}={\bf A_{\bullet,2}}- r_{12}{\bf q_{{1}}}=\begin{pmatrix}1\\0\\1\end{pmatrix}-\frac{2}{\sqrt{3}}.\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}=\begin{pmatrix}\frac{1}{3}\\-\frac{2}{3}\\\frac{1}{3}\end{pmatrix}$
 5. $\textcolor{cyan}{r_{22}} = \|{\bf p_2}\|= \textcolor{cyan}{\sqrt{\frac{2}{3}}}$
 6. $\textcolor{magenta}{{\bf q_{2}}} = \frac{{\bf p_2}}{r_{22}} = \textcolor{magenta}{\begin{pmatrix}\frac{1}{\sqrt{6}}\\-\frac{\sqrt 2}{\sqrt 3}\\\frac{1}{\sqrt{6}}\end{pmatrix}}$ 
@@ -109,32 +109,32 @@ Alors ${\bf A} ={\bf QR}$ avec ${\bf Q} = \begin{pmatrix} \textcolor{blue}{\frac
 
 Il est possible de compléter ${\bf q_1}\cdots {\bf q_p}$ en une base orthonormée de $\mathbb R^n$, en continuant la procédure de Gram-Schmidt avec $n-p$ vecteurs arbitraires, mais tels que les $n$ colonnes formées avec les ${\bf A_{\bullet,j}}$ soient linéairement indépendantes. Soit ${\bf Q_2}$ la matrice des $n-p$ derniers vecteurs orthonormés. On a alors bien :
 
-${\bf A^T} {\bf Q_2}={\bf R_1^T} {\bf Q_1^T} {\bf Q_2}=0$ ce qui montre que :
+${\bf A^\top} {\bf Q_2}={\bf R_1^\top} {\bf Q_1^\top} {\bf Q_2}=0$ ce qui montre que :
 
 ${\bf A}={\bf QR}=[{\bf Q_1}\ {\bf Q_2}]\cdot\left [\begin{array}{c}{\bf R_1} \\{\bf 0} \\\end{array}\right]={\bf Q_1R_1}$.
 
 ```{important}
 Les colonnes de ${\bf Q_1}$ forment une base orthonormée de $Im({\bf A})$, et les colonnes de ${\bf Q_2}$ forment 
-une base orthonormée de $Ker({\bf A^T})$.
+une base orthonormée de $Ker({\bf A^\top})$.
 ```
 
 Appliqué au problème des moindres carrés, le système aux équations normales s'écrit donc 
 
 $\begin{eqnarray*}
-{\bf A^TAx}&=& {\bf A^Tb}\\
-{\bf (Q_1R_1)^T(Q_1R_1)x}&=& {\bf (Q_1R_1)^Tb}\\
-{\bf R_1^TQ_1^TQ_1R_1x}&=& {\bf R_1^TQ_1^Tb}\\
-{\bf R_1^TR_1x}&=& {\bf R_1^TQ_1^Tb}\\
-{\bf R_1x}&=& {\bf Q_1^Tb}
+{\bf A^\topAx}&=& {\bf A^\topb}\\
+{\bf (Q_1R_1)^\top(Q_1R_1)x}&=& {\bf (Q_1R_1)^\topb}\\
+{\bf R_1^\topQ_1^\topQ_1R_1x}&=& {\bf R_1^\topQ_1^\topb}\\
+{\bf R_1^\topR_1x}&=& {\bf R_1^\topQ_1^\topb}\\
+{\bf R_1x}&=& {\bf Q_1^\topb}
 \end{eqnarray*}$
 
 La dernière simplification étant possible car ${\bf R_1}$ est inversible (trangulaire supérieure, les éléments de la diagonale étant des normes, donc strictement positifs). La solution du 
 problème des moindres carrés est solution du système triangulaire 
 
-${\bf R_1x}= {\bf Q_1^Tb}$
+${\bf R_1x}= {\bf Q_1^\topb}$
 et le calcul de l'erreur donne
 
-$\|{\bf e}\|^2=\|{\bf b}\|^2-\displaystyle\sum_{i=1}^p  ({\bf b^T} {\bf q_i})^2$
+$\|{\bf e}\|^2=\|{\bf b}\|^2-\displaystyle\sum_{i=1}^p  ({\bf b^\top} {\bf q_i})^2$
 
 ## Transformations de Householder
 ```{index} Transformation;de Householder
@@ -172,21 +172,21 @@ Soient ${\bf f}$ et ${\bf e}$ deux vecteurs non colinéaires de $\mathbb{R}^n$; 
 ````
 
 ````{prf:proof}
-Remarquons tout d'abord que si ${\bf H(u)}$ est une matrice de Householder, alors ${\bf H(u)f}={\bf f-2u(u^T f)}$ et $\|{\bf H(u)f}\|_2=\|{\bf f}\|_2$.
+Remarquons tout d'abord que si ${\bf H(u)}$ est une matrice de Householder, alors ${\bf H(u)f}={\bf f-2u(u^\top f)}$ et $\|{\bf H(u)f}\|_2=\|{\bf f}\|_2$.
 
 Posons alors $\mid\alpha\mid=\|{\bf f}\|_2$. On cherche alors ${\bf u}$ tel que ${\bf H(u)f}=\alpha {\bf e}$, soit 
 
 $\begin{align*}
-{\bf f-2u(u^T f)}&=\alpha {\bf e}\\
-{\bf u}&=\frac{1}{2{\bf u^T f}}({\bf f-}\alpha {\bf e})
+{\bf f-2u(u^\top f)}&=\alpha {\bf e}\\
+{\bf u}&=\frac{1}{2{\bf u^\top f}}({\bf f-}\alpha {\bf e})
 \end{align*}$
 
-Si $\beta={\bf u^T f}$, en multipliant à gauche par ${\bf f^T} $ :
-$2\beta^2=\alpha^2-\alpha {\bf f^T e}$
+Si $\beta={\bf u^\top f}$, en multipliant à gauche par ${\bf f^\top} $ :
+$2\beta^2=\alpha^2-\alpha {\bf f^\top e}$
 
-et $\beta$ existe si $\alpha^2-\alpha {\bf f^T e}>0$. Or l'inégalité de Cauchy-Schwarz donne
+et $\beta$ existe si $\alpha^2-\alpha {\bf f^\top e}>0$. Or l'inégalité de Cauchy-Schwarz donne
 
-$\mid {\bf f^T e}\mid\leq\|{\bf f}\|_2\|{\bf e}\|_2=\|\alpha\|$
+$\mid {\bf f^\top e}\mid\leq\|{\bf f}\|_2\|{\bf e}\|_2=\|\alpha\|$
 
 et l'inégalité est de plus stricte par hypothèse (${\bf f}$ et ${\bf e}$ non colinéaires). Ainsi :
 
@@ -195,7 +195,7 @@ ${\bf u}=\frac{1}{2\beta}({\bf f}-\alpha {\bf e)}$ répond à la question.
  
 ```{prf:remark}
 :class: dropdown
-Si ${\bf f}$ et ${\bf  e}$ sont colinéaires, ${\bf H}=\mathbb I$ ou ${\bf H}=\mathbb I-2{\bf ee^T }$ répondent à la question.
+Si ${\bf f}$ et ${\bf  e}$ sont colinéaires, ${\bf H}=\mathbb I$ ou ${\bf H}=\mathbb I-2{\bf ee^\top }$ répondent à la question.
 ``` 
 
 L'algorithme d'orthonormalisation  de ${\bf A}$ par matrices de Householder  opère alors colonne par colonne, et transforme itérativement ${\bf A}$ en une matrice triangulaire supérieure.
@@ -217,7 +217,7 @@ On l'illustre dans la suite (algorithme \ref{A:HS}) dans le cas où ${\bf A}\in\
     ![](./images/h.png)
     4. On calcule ${\bf A^{(j+1)}} = {{\bf H^{(j)}}\bf A^{(j)}}$
 
-3. ${\bf R}={\bf A^{(n-1)}}$ et ${\bf Q} =  {\bf {H^{(1)}}^T}{\bf {H^{(2)}}^T} \cdots  {\bf {H^{(n-1)}}^T}$
+3. ${\bf R}={\bf A^{(n-1)}}$ et ${\bf Q} =  {\bf {H^{(1)}}^\top}{\bf {H^{(2)}}^\top} \cdots  {\bf {H^{(n-1)}}^\top}$
 }
 ```
 
@@ -227,11 +227,11 @@ ${\bf H^{(n-1)}} \cdots {\bf H^{(2)}} {\bf H^{(1)}}{\bf A} = {\bf R}$
 
 De plus les ${\bf H^{(j)}}, j\in[\![1, n-1]\!]$ sont orthogonales donc
 
-${\bf A} ={\bf {H^{(1)}}^T}{\bf {H^{(2)}}^T} \cdots  {\bf {H^{(n-1)}}^T} {\bf R}$
+${\bf A} ={\bf {H^{(1)}}^\top}{\bf {H^{(2)}}^\top} \cdots  {\bf {H^{(n-1)}}^\top} {\bf R}$
 
-Le produit des matrices ${\bf{ H^{(j)}}^T}$ est également une matrice orthogonale, et on pose 
+Le produit des matrices ${\bf{ H^{(j)}}^\top}$ est également une matrice orthogonale, et on pose 
 
-${\bf Q} = {\bf {H^{(1)}}^T}{\bf {H^{(2)}}^T} \cdots  {\bf {H^{(n-1)}}^T}$
+${\bf Q} = {\bf {H^{(1)}}^\top}{\bf {H^{(2)}}^\top} \cdots  {\bf {H^{(n-1)}}^\top}$
 
 pour finalement obtenir  ${\bf A} = {\bf QR}$
 

@@ -82,7 +82,7 @@
 # ````
 # 
 # ```` {prf:property} Inégalité de Cauchy-Schwarz 
-# $(\forall {\bf x,y}\in\mathbb R^n)\ {\bf x^T}{\bf y}\le \|{\bf x}\|_2 \|{\bf y}\|_2$
+# $(\forall {\bf x,y}\in\mathbb R^n)\ {\bf x^\top}{\bf y}\le \|{\bf x}\|_2 \|{\bf y}\|_2$
 # 
 # et l'égalité est vérifiée si et seulement si ${\bf x}$ et ${\bf y}$ sont colinéaires.
 # ````
@@ -346,7 +346,7 @@ plt.show()
 # Les éléments de la base canonique sont aussi appelés vecteurs unitaires.
 # Tout vecteur de $\mathbb R^n$ peut donc s'écrire de manière unique comme
 # une combinaison linéaire des vecteurs de la base canonique, *i.e.*
-# ${\bf x}=x_1{\bf e_1}+\cdots+x_n{\bf e_n} = \displaystyle\sum_{i=1}^n x_i {\bf e_i} =\displaystyle\sum_{i=1}^n ({\bf x^T e_i} ){\bf e_i}$
+# ${\bf x}=x_1{\bf e_1}+\cdots+x_n{\bf e_n} = \displaystyle\sum_{i=1}^n x_i {\bf e_i} =\displaystyle\sum_{i=1}^n ({\bf x^\top e_i} ){\bf e_i}$
 # les $x_i$ sont les coordonnées de ${\bf x}$ dans la base. On peut
 # montrer que tout espace vectoriel admettant une famille finie
 # génératrice admet une base et que, plus généralement :

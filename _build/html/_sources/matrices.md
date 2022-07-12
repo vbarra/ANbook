@@ -270,7 +270,7 @@ scalaire.
 
 ${\bf A} = \begin{pmatrix}
 1&2&3\\4&5&6\\7&8&9
-\end{pmatrix}$ ${\bf A^T} = \begin{pmatrix}
+\end{pmatrix}$ ${\bf A^\top} = \begin{pmatrix}
 1&4&7\\2&5&8\\3&6&9
 \end{pmatrix}$
 
@@ -281,7 +281,7 @@ ${\bf A} = \begin{pmatrix}
 A = np.array([[5, 4, 0],[1, 8, 3],[6, 7, 2]])
 print('A = \n',A,'\n' 
 )
-print('A^T = \n',A.transpose())
+print('A^\top = \n',A.transpose())
 ```
 
 ```{prf:remark}
@@ -310,13 +310,13 @@ matrices ${\bf A}$ et ${\bf B}$ avec les bonnes dimensions :
 
 ````{prf:property} Propriétés de la trace
 
-1.  $Tr({\bf A})$=$Tr({\bf A^T})$
+1.  $Tr({\bf A})$=$Tr({\bf A^\top})$
 
 2.  $Tr({\bf AB})$=$Tr({\bf BA})$
 
 3.  $Tr({\bf A+B})$=$Tr({\bf A}) + Tr({\bf B})$
 
-4.  $(\forall {\bf x}\in \mathbb R^n)\ {\bf x^Tx} = Tr({\bf xx^T})$
+4.  $(\forall {\bf x}\in \mathbb R^n)\ {\bf x^\topx} = Tr({\bf xx^\top})$
 ````
 
 ````{prf:definition} Déterminant 
@@ -389,7 +389,7 @@ linéaires.
 Soient ${\bf A}\in \mathcal{M}_{m,n}(\mathbb{R})$ et
 ${\bf B}\in \mathcal{M}_{n,p}(\mathbb{R})$. Le produit ${\bf C = AB}$
 est une matrice de $\mathcal{M}_{m,p}(\mathbb{R})$ avec
-$(\forall i\in  [\![ 1, m]\!])(\forall j\in [\![ 1, p]\!])\quad c_{ij}=\sum_{k=1}^n a_{ik}b_{kj} = {\bf A_{i,\bullet}^T B_{\bullet,j}}
+$(\forall i\in  [\![ 1, m]\!])(\forall j\in [\![ 1, p]\!])\quad c_{ij}=\sum_{k=1}^n a_{ik}b_{kj} = {\bf A_{i,\bullet}^\top B_{\bullet,j}}
 \label{ProduitMatriciel}$
 ````
 
@@ -563,7 +563,7 @@ print(B)
 -   Si $m=n$ et $(\forall i,j\in  [\![ 1, m]\!]) a_{ij} = a_{ji}$, la
     matrice ${\bf A}$ est dite symétrique.
 
--   Si $m=n$ et ${\bf A^T}{\bf A} = {\bf A}{\bf A^T} = \mathbb I$,
+-   Si $m=n$ et ${\bf A^\top}{\bf A} = {\bf A}{\bf A^\top} = \mathbb I$,
     ${\bf A}$ est une matrice orthogonale
 
 -   si $m=1$, la matrice est un vecteur ligne. C'est la transposée d'un

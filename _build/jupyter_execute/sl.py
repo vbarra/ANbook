@@ -417,9 +417,9 @@ A = Matrix([[0.78,0.563], [0.913,0.659]])
 b = Matrix([0.217,0.254])
 
 
-# La solution exacte est $(1,-1)^T$.
+# La solution exacte est $(1,-1)^\top$.
 # 
-# La solution approchée $(0.999,-1)^T$ fournit un résidu
+# La solution approchée $(0.999,-1)^\top$ fournit un résidu
 
 # In[8]:
 
@@ -435,7 +435,7 @@ r.evalf(4)
 print('norme : ',r.norm().evalf(4))
 
 
-# Le vecteur $(0.341,-0.087)^T$, éloigné de la solution théorique, fournit lui un résidu
+# Le vecteur $(0.341,-0.087)^\top$, éloigné de la solution théorique, fournit lui un résidu
 
 # In[10]:
 
