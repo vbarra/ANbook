@@ -55,7 +55,21 @@ R = Matrix([[cos(theta), -sin(theta)], [sin(theta), cos(theta)]])
 R.transpose() * R
 ``` 
 
+Si les colonnes sont orthogonales mais pas normées, la matrice n'est pas orthogonale
+```{code-cell} ipython3
+Q = Matrix([[1, 1], [1, -1]])
+Q.transpose() * Q
+``` 
 
+ Il est cependant facile de les normer pour obtenir une base orthonormée de $\mathbb{R}^2$
+
+$\sqrt { { \left( 1 \right)  }^{ 2 }+{ \left( 1 \right)  }^{ 2 } } =\sqrt { 2 } \\ \sqrt { { \left( 1 \right)  }^{ 2 }+{ \left( -1 \right)  }^{ 2 } } =\sqrt { 2 }$
+$Q=\frac { 1 }{ \sqrt { 2 }  } \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}$
+
+```{code-cell} ipython3
+Q = (1 / sqrt(2)) * Matrix([[1, 1], [1, -1]])
+Q 
+```
 
 Soit ${\bf Q}\in\mathcal{M}_n(\mathbb R)$ orthogonale, de colonnes 
 ${\bf q_1},{\bf q_2},\ldots,{\bf q_n}$. On a alors, pour tout ${\bf x}\in\mathbb R^n$, une représentation unique sur la base 
