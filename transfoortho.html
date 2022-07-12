@@ -697,29 +697,44 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Q=&quot;</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R=&quot;</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Q^TQ=&quot;</span><span class="p">,</span><span class="n">Q</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="nd">@Q</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># On vérifie à quel point Q est orthogonale</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Q^TQ=&quot;</span><span class="p">,</span><span class="n">Q</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="nd">@Q</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Norme de I-Q^TQ = &quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Q</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">Q</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">n</span><span class="p">))))</span>
+
+<span class="c1">#On vérifie à quel point A=QR</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Norme infinie de QR-A = &quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">R</span><span class="p">)</span><span class="o">-</span><span class="n">A</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.37684691 0.32351199 0.55352295 0.46820769]
- [0.14100769 0.05718401 0.61200736 0.31841855]
- [0.06305779 0.48428962 0.53500464 0.69511462]
- [0.57016288 0.67045071 0.16698971 0.2384174 ]] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.12552788 0.91700601 0.23185674 0.83574895]
+ [0.05240419 0.5913724  0.65119912 0.55870361]
+ [0.37603581 0.06550631 0.45885957 0.50852772]
+ [0.12625633 0.94243259 0.60274239 0.97638305]] 
 
-Q= [[ 0.53782682 -0.21255923  0.3810626   0.72135441]
- [ 0.20124278 -0.22533061  0.73633952 -0.60541851]
- [ 0.08999456  0.94639495  0.30615915  0.05004155]
- [ 0.8137227   0.09154939 -0.46782688 -0.33258395]] 
+Q= [[ 0.29934546  0.56044714 -0.63975986 -0.43243338]
+ [ 0.1249679   0.39854725  0.75214795 -0.50972205]
+ [ 0.89672995 -0.4372219   0.05959448 -0.03407203]
+ [ 0.30108258  0.57956544  0.14638742  0.74298311]] 
 
-R= [[0.70068449 0.77464569 0.60489237 0.57245627]
- [0.         0.43805783 0.26605308 0.50840862]
- [0.         0.         0.74724639 0.51415823]
- [0.         0.         0.         0.10045801]] 
+R= [[0.4193412  0.69089565 0.7437326  1.06998163]
+ [0.         1.26718381 0.53818227 1.03460131]
+ [0.         0.         0.45704485 0.05878479]
+ [0.         0.         0.         0.06192025]] 
 
-Q^TQ= [[ 1.00000000e+00 -4.11136886e-16  1.29269160e-16  4.24276421e-16]
- [-4.11136886e-16  1.00000000e+00  3.65846919e-16  1.64286385e-15]
- [ 1.29269160e-16  3.65846919e-16  1.00000000e+00 -1.69929858e-15]
- [ 4.24276421e-16  1.64286385e-15 -1.69929858e-15  1.00000000e+00]] 
+Q^TQ= [[ 1.00000000e+00 -1.05546327e-17  1.19547667e-16  3.39564245e-15]
+ [-1.05546327e-17  1.00000000e+00  1.74772158e-16  2.00726832e-15]
+ [ 1.19547667e-16  1.74772158e-16  1.00000000e+00 -4.71500727e-15]
+ [ 3.39564245e-15  2.00726832e-15 -4.71500727e-15  1.00000000e+00]] 
+
+Q^TQ= [[ 1.00000000e+00 -1.05546327e-17  1.19547667e-16  3.39564245e-15]
+ [-1.05546327e-17  1.00000000e+00  1.74772158e-16  2.00726832e-15]
+ [ 1.19547667e-16  1.74772158e-16  1.00000000e+00 -4.71500727e-15]
+ [ 3.39564245e-15  2.00726832e-15 -4.71500727e-15  1.00000000e+00]] 
+
+Norme de I-Q^TQ =  4.7150072700247684e-15
+Norme infinie de QR-A =  1.1102230246251565e-16
 </pre></div>
 </div>
 </div>
