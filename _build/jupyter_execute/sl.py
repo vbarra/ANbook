@@ -92,14 +92,14 @@
 # On s'aperçoit alors que tout  peut être représenté de deux manières
 # distinctes :
 # 
-# -   `comme ensemble de combinaisons linéaires d'un nombre fini de
+# -   comme ensemble de combinaisons linéaires d'un nombre fini de
 #     vecteurs (espace des vecteurs colonnes ou image de la matrice formée
-#     par ces colonnes)` :
+#     par ces colonnes) :
 #     ${\bf y}=\displaystyle\sum_{j=1}^nx_jA_{\bullet j}$
 # 
-# -   `comme ensemble des solutions d'un système linéaire homogène (noyau
+# -   comme ensemble des solutions d'un système linéaire homogène (noyau
 #     de la matrice dont les lignes contiennent les coefficients des
-#     équations)` :
+#     équations) :
 #     $(\forall i\in [\![ 1,m]\!])A_{i\bullet}^\top x = 0$
 # ```
 # 
