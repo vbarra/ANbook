@@ -155,9 +155,8 @@ def clgs(A):
     
     return Q, R
 
-n = 4
-A = np.random.rand(n,n)
-
+n = 4 
+A = Matrix(np.random.rand(n,n))
 Q, R = clgs(A)
 Q,R
 ```

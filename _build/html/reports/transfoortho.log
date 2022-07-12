@@ -17,6 +17,7 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
+import numpy as np
 def clgs(A):
     n = A.shape[1] 
     R = np.zeros([n,n])
@@ -34,22 +35,27 @@ def clgs(A):
     
     return Q, R
 
-n = 4
-A = np.random.rand(n,n)
-
+n = 4 
+A = Matrix(np.random.rand(n,n))
 Q, R = clgs(A)
 Q,R
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;31mValueError[0m                                Traceback (most recent call last)
 Input [0;32mIn [5][0m, in [0;36m<module>[0;34m[0m
-[1;32m     16[0m     [38;5;28;01mreturn[39;00m Q, R
-[1;32m     18[0m n [38;5;241m=[39m [38;5;241m4[39m
-[0;32m---> 19[0m A [38;5;241m=[39m [43mnp[49m[38;5;241m.[39mrandom[38;5;241m.[39mrand(n,n)
-[1;32m     21[0m Q, R [38;5;241m=[39m clgs(A)
+[1;32m     19[0m n [38;5;241m=[39m [38;5;241m4[39m 
+[1;32m     20[0m A [38;5;241m=[39m Matrix(np[38;5;241m.[39mrandom[38;5;241m.[39mrand(n,n))
+[0;32m---> 21[0m Q, R [38;5;241m=[39m [43mclgs[49m[43m([49m[43mA[49m[43m)[49m
 [1;32m     22[0m Q,R
 
-[0;31mNameError[0m: name 'np' is not defined
-NameError: name 'np' is not defined
+Input [0;32mIn [5][0m, in [0;36mclgs[0;34m(A)[0m
+[1;32m      6[0m Q [38;5;241m=[39m np[38;5;241m.[39mzeros(A[38;5;241m.[39mshape)
+[1;32m      8[0m [38;5;28;01mfor[39;00m j [38;5;129;01min[39;00m [38;5;28mrange[39m(n):     
+[0;32m----> 9[0m     V[:,j] [38;5;241m=[39m A[:,j]
+[1;32m     10[0m     [38;5;28;01mfor[39;00m i [38;5;129;01min[39;00m [38;5;28mrange[39m(j):  
+[1;32m     11[0m         R[i,j] [38;5;241m=[39m np[38;5;241m.[39mdot(Q[:,i][38;5;241m.[39mT,A[:,j])
+
+[0;31mValueError[0m: could not broadcast input array from shape (4,1) into shape (4,)
+ValueError: could not broadcast input array from shape (4,1) into shape (4,)
 
