@@ -261,7 +261,7 @@ plt.ylabel("Erreur")
 plt.tight_layout()
 
 
-# On affiche e modèle pour un niveau de bruit $s\sigma$=0.7
+# On affiche le modèle pour un niveau de bruit $s\sigma$=0.7
 
 # In[8]:
 
