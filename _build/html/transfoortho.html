@@ -580,13 +580,13 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 <p><strong>Les colonnes de <span class="math notranslate nohighlight">\({\bf Q_1}\)</span> forment une base orthonormée de <span class="math notranslate nohighlight">\(Im({\bf A})\)</span>, et les colonnes de <span class="math notranslate nohighlight">\({\bf Q_2}\)</span> forment
 une base orthonormée de <span class="math notranslate nohighlight">\(Ker({\bf A^T})\)</span>.</strong></p>
 <p>Appliqué au problème des moindres carrés, le système aux équations normales s’écrit donc
-\begin{eqnarray*}
-{\bf A^TAx}&amp;=&amp; {\bf A^Tb}\
-{\bf (Q_1R_1)^T(Q_1R_1)x}&amp;=&amp; {\bf (Q_1R_1)^Tb}\
-{\bf R_1^TQ_1^TQ_1R_1x}&amp;=&amp; {\bf R_1^TQ_1^Tb}\
-{\bf R_1^TR_1x}&amp;=&amp; {\bf R_1^TQ_1^Tb}\
+<span class="math notranslate nohighlight">\(\begin{eqnarray*}
+{\bf A^TAx}&amp;=&amp; {\bf A^Tb}\\
+{\bf (Q_1R_1)^T(Q_1R_1)x}&amp;=&amp; {\bf (Q_1R_1)^Tb}\\
+{\bf R_1^TQ_1^TQ_1R_1x}&amp;=&amp; {\bf R_1^TQ_1^Tb}\\
+{\bf R_1^TR_1x}&amp;=&amp; {\bf R_1^TQ_1^Tb}\\
 {\bf R_1x}&amp;=&amp; {\bf Q_1^Tb}
-\end{eqnarray*}
+\end{eqnarray*}\)</span>
 La dernière simplification étant possible car <span class="math notranslate nohighlight">\({\bf R_1}\)</span> est inversible (trangulaire supérieure, les éléments de la diagonale étant des normes, donc strictement positifs). La solution du
 problème des moindres carrés est solution du système triangulaire
 $<span class="math notranslate nohighlight">\(

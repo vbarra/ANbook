@@ -109,13 +109,13 @@
 # une base orthonormée de $Ker({\bf A^T})$.** 
 # 
 # Appliqué au problème des moindres carrés, le système aux équations normales s'écrit donc 
-# \begin{eqnarray*}
+# $\begin{eqnarray*}
 # {\bf A^TAx}&=& {\bf A^Tb}\\
 # {\bf (Q_1R_1)^T(Q_1R_1)x}&=& {\bf (Q_1R_1)^Tb}\\
 # {\bf R_1^TQ_1^TQ_1R_1x}&=& {\bf R_1^TQ_1^Tb}\\
 # {\bf R_1^TR_1x}&=& {\bf R_1^TQ_1^Tb}\\
 # {\bf R_1x}&=& {\bf Q_1^Tb}
-# \end{eqnarray*}
+# \end{eqnarray*}$
 # La dernière simplification étant possible car ${\bf R_1}$ est inversible (trangulaire supérieure, les éléments de la diagonale étant des normes, donc strictement positifs). La solution du 
 # problème des moindres carrés est solution du système triangulaire 
 # $$
