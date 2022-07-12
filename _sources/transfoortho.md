@@ -208,8 +208,8 @@ On l'illustre dans la suite (algorithme \ref{A:HS}) dans le cas où ${\bf A}\in\
 1. ${\bf A^{(1)}}={\bf A}$
 2. Pour $j$=1 à $n-1$
     1. Soit ${\bf f_j}\in \mathbb R^{n-j+1}$ le vecteur commençant à l'élément $(j,j)$ de ${\bf A^{(j)}}$\\
-    2. On construit ${\bf {\tilde H^{(j)}}}\in\mathcal{M}_{n-j+1}(\mathbb R)$ telle que ${\bf \tilde{H^{(j)}}f_j} = \norme{{\bf f_j}} {\bf e^{(j)}_1}$, ${\bf e^{(j)}_1}$ premier vecteur de la base canonique de $\mathbb R^{n-j+1}$
-    3. On construit \[{\bf H^{(j)}} =
+    2. On construit ${\bf {\tilde H^{(j)}}}\in\mathcal{M}_{n-j+1}(\mathbb R)$ telle que ${\bf \tilde{H^{(j)}}f_j} = \|{\bf f_j}\ {\bf e^{(j)}_1}$, ${\bf e^{(j)}_1}$ premier vecteur de la base canonique de $\mathbb R^{n-j+1}$
+    3. On construit ${\bf H^{(j)}} =
 \left (
 \begin{array}{lll|l}
 \bovermat{j-1}{1 &\cdots &0&}\\
@@ -220,7 +220,7 @@ On l'illustre dans la suite (algorithme \ref{A:HS}) dans le cas où ${\bf A}\in\
  
 \end{array}
 \right )\in\mathcal{M}_n(\mathbb R)
-\] 
+$
 
     4. On calcule ${\bf A^{(j+1)}} = {{\bf H^{(j)}}\bf A^{(j)}}$
 
