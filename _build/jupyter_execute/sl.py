@@ -88,8 +88,9 @@
 # ${\bf A}{\bf x}={\bf 0}$, ${\bf x}+{\bf y}$ est aussi solution, ainsi
 # que $\lambda {\bf x}$, $\lambda\in\mathbb R$.
 # 
-# `On s'aperçoit alors que tout  peut être représenté de deux manières
-# distinctes` :
+# ```{important}
+# On s'aperçoit alors que tout  peut être représenté de deux manières
+# distinctes :
 # 
 # -   `comme ensemble de combinaisons linéaires d'un nombre fini de
 #     vecteurs (espace des vecteurs colonnes ou image de la matrice formée
@@ -100,7 +101,7 @@
 #     de la matrice dont les lignes contiennent les coefficients des
 #     équations)` :
 #     $(\forall i\in [\![ 1,m]\!])A_{i\bullet}^\top x = 0$
-# 
+# ```
 # 
 # ```{margin} 
 # ![](./images/ssesp.png)

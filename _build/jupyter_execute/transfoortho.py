@@ -46,7 +46,7 @@
 #  $({\bf q_i^T} {\bf x}){\bf q_i}$ est la projection orthogonale de ${\bf x}$ sur l'axe ${\bf q_i}$. Cette représentation se
 # généralise aisement à une base orthonormée quelconque ${\bf q_1},{\bf q_2},\ldots,{\bf q_r}$ d'un sous-espace de dimension $r$. 
 # 
-# ## Orthogonalisation de Gram-Schmidt}
+# ## Orthogonalisation de Gram-Schmidt
 # ```{index} orthogonalisation de Gram-Schmidt
 # ```
 # ```{index} Gram-Schmidt;orthogonalisation
@@ -105,8 +105,10 @@
 # 
 # ${\bf A}={\bf QR}=[{\bf Q_1}\ {\bf Q_2}]\cdot\left [\begin{array}{c}{\bf R_1} \\{\bf 0} \\\end{array}\right]={\bf Q_1R_1}$.
 # 
-# **Les colonnes de ${\bf Q_1}$ forment une base orthonormée de $Im({\bf A})$, et les colonnes de ${\bf Q_2}$ forment 
-# une base orthonormée de $Ker({\bf A^T})$.** 
+# ```{important}
+# Les colonnes de ${\bf Q_1}$ forment une base orthonormée de $Im({\bf A})$, et les colonnes de ${\bf Q_2}$ forment 
+# une base orthonormée de $Ker({\bf A^T})$.
+# ```
 # 
 # Appliqué au problème des moindres carrés, le système aux équations normales s'écrit donc 
 # 

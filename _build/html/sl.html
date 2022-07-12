@@ -191,6 +191,28 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p class="caption">
  <span class="caption-text">
+  Moindres carrés linéaires
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="projections.html">
+   Projections orthogonales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mcl.html">
+   Moindres carrés linéaires
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="transfoortho.html">
+   Transformations orthogonales
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
   Index
  </span>
 </p>
@@ -569,13 +591,17 @@ sous-espace est appelé noyau de <span class="math notranslate nohighlight">\({\
 </div><p>En effet, si <span class="math notranslate nohighlight">\({\bf x}\)</span> et <span class="math notranslate nohighlight">\({\bf y}\)</span> sont solutions de
 <span class="math notranslate nohighlight">\({\bf A}{\bf x}={\bf 0}\)</span>, <span class="math notranslate nohighlight">\({\bf x}+{\bf y}\)</span> est aussi solution, ainsi
 que <span class="math notranslate nohighlight">\(\lambda {\bf x}\)</span>, <span class="math notranslate nohighlight">\(\lambda\in\mathbb R\)</span>.</p>
-<p><code class="docutils literal notranslate"><span class="pre">On</span> <span class="pre">s'aperçoit</span> <span class="pre">alors</span> <span class="pre">que</span> <span class="pre">tout</span> <span class="pre"> peut</span> <span class="pre">être</span> <span class="pre">représenté</span> <span class="pre">de</span> <span class="pre">deux</span> <span class="pre">manières</span> <span class="pre">distinctes</span></code> :</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>On s’aperçoit alors que tout  peut être représenté de deux manières
+distinctes :</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">comme</span> <span class="pre">ensemble</span> <span class="pre">de</span> <span class="pre">combinaisons</span> <span class="pre">linéaires</span> <span class="pre">d'un</span> <span class="pre">nombre</span> <span class="pre">fini</span> <span class="pre">de</span> <span class="pre">vecteurs</span> <span class="pre">(espace</span> <span class="pre">des</span> <span class="pre">vecteurs</span> <span class="pre">colonnes</span> <span class="pre">ou</span> <span class="pre">image</span> <span class="pre">de</span> <span class="pre">la</span> <span class="pre">matrice</span> <span class="pre">formée</span> <span class="pre">par</span> <span class="pre">ces</span> <span class="pre">colonnes)</span></code> :
 <span class="math notranslate nohighlight">\({\bf y}=\displaystyle\sum_{j=1}^nx_jA_{\bullet j}\)</span></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">comme</span> <span class="pre">ensemble</span> <span class="pre">des</span> <span class="pre">solutions</span> <span class="pre">d'un</span> <span class="pre">système</span> <span class="pre">linéaire</span> <span class="pre">homogène</span> <span class="pre">(noyau</span> <span class="pre">de</span> <span class="pre">la</span> <span class="pre">matrice</span> <span class="pre">dont</span> <span class="pre">les</span> <span class="pre">lignes</span> <span class="pre">contiennent</span> <span class="pre">les</span> <span class="pre">coefficients</span> <span class="pre">des</span> <span class="pre">équations)</span></code> :
 <span class="math notranslate nohighlight">\((\forall i\in [\![ 1,m]\!])A_{i\bullet}^\top x = 0\)</span></p></li>
 </ul>
+</div>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <p><img alt="" src="_images/ssesp.png" /></p>
