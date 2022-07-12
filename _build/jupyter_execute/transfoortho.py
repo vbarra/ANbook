@@ -175,6 +175,40 @@ print("Norme de I-Q^TQ = ", np.max(np.abs(np.dot(Q.T,Q)-np.eye(n))))
 print("Norme infinie de QR-A = ", np.max(np.abs(np.dot(Q,R)-A)))
 
 
+# Suivant la matrice $\bf A$, la méthode de Grm-Schmidt classique précédent peut être instable.
+# 
+# Considérons par exemple la matrice suivante, dite matrice de Hilbert
+
+# In[6]:
+
+
+def Hilbert(n):
+    A = np.zeros([n,n])
+    for i in range(n):
+        for j in range(n):
+            A[i,j] = 1./(i+j+1)
+    return A
+
+
+# On applique la méthode de Gram-Schmidt, et on vérifie à quel point $\bf QR$ est proche de $\bf A$, et $\bf Q$ est orthogonale.
+
+# In[7]:
+
+
+A = Hilbert(10)
+Q, R = GramSchmidt(A)
+print('Norme de QR-A = ',np.max(np.abs(np.dot(Q,R)-A)),"\n")
+print("Norme de Q^T*Q-I = ",np.max(np.abs(np.dot(Q.T,Q)-np.eye(n))))
+
+
+# La factorisation est précise, mais $\bf Q$ est loin d'être orthogonale.
+
+# In[ ]:
+
+
+print(np.dot(Q.T,Q)-np.eye(n))
+
+
 # Il est possible de compléter ${\bf q_1}\cdots {\bf q_p}$ en une base orthonormée de $\mathbb R^n$, en continuant la procédure de Gram-Schmidt avec $n-p$ vecteurs arbitraires, mais tels que les $n$ colonnes formées avec les ${\bf A_{\bullet,j}}$ soient linéairement indépendantes. Soit ${\bf Q_2}$ la matrice des $n-p$ derniers vecteurs orthonormés. On a alors bien :
 # 
 # ${\bf A^\top} {\bf Q_2}={\bf R_1^\top} {\bf Q_1^\top} {\bf Q_2}=0$ ce qui montre que :
@@ -186,7 +220,7 @@ print("Norme infinie de QR-A = ", np.max(np.abs(np.dot(Q,R)-A)))
 # une base orthonormée de $Ker({\bf A^\top})$.
 # ```
 
-# In[6]:
+# In[ ]:
 
 
 Q = Rational(1, 3) * Matrix([[1, -2], [2, -1], [2, 2]])
@@ -195,7 +229,7 @@ Q
 
 # Les colonnes de $Q$ forment une base de $\mathbb{R}^2$ (dans $\mathbb{R}^3$). Pour obtenir une matrice orthogonale, il faut compléter par un vecteur normal au plan défini par ces deux colonnes, et unitaire.
 
-# In[7]:
+# In[ ]:
 
 
 Q = Rational(1, 3) * Matrix([[1, -2, 2], [2, -1, -2], [2, 2, 1]])
@@ -302,7 +336,6 @@ Q
 #     4. On calcule ${\bf A^{(j+1)}} = {{\bf H^{(j)}}\bf A^{(j)}}$
 # 
 # 3. ${\bf R}={\bf A^{(n-1)}}$ et ${\bf Q} =  {\bf {H^{(1)}}^\top}{\bf {H^{(2)}}^\top} \cdots  {\bf {H^{(n-1)}}^\top}$
-# }
 # ```
 # 
 # A l'issue des $n-1$ itérations, on a effectué les produits ${\bf H^{(n-1)}} \cdots {\bf H^{(2)}} {\bf H^{(1)}}$ pour obtenir une matrice triangulaire supérieure ${\bf R}\in\mathcal{M}_n(\mathbb R)$ à partir de ${\bf A}$. Donc :
