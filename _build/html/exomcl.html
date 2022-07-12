@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; Analyse numérique</title>
+    <title>Exercices &#8212; Analyse numérique</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -194,7 +194,7 @@ const thebe_selector_output = ".output, .cell_output"
   Moindres carrés linéaires
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="projections.html">
    Projections orthogonales
@@ -208,6 +208,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="transfoortho.html">
    Transformations orthogonales
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Exercices
   </a>
  </li>
 </ul>
@@ -398,7 +403,42 @@ title="Print to PDF"
         <i class="fas fa-list"></i> Contents
     </div>
     <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="simple visible nav section-nav flex-column">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-1">
+   Exercice 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-2">
+   Exercice 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-3">
+   Exercice 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-4">
+   Exercice 4
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-5">
+   Exercice 5
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-6">
+   Exercice 6
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-7">
+   Exercice 7
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -408,7 +448,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1><no title></h1>
+                <h1>Exercices</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -417,7 +457,42 @@ title="Print to PDF"
                             <h2> Contents </h2>
                         </div>
                         <nav aria-label="Page">
-                            <ul class="simple visible nav section-nav flex-column">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-1">
+   Exercice 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-2">
+   Exercice 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-3">
+   Exercice 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-4">
+   Exercice 4
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-5">
+   Exercice 5
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-6">
+   Exercice 6
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-7">
+   Exercice 7
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -428,61 +503,71 @@ title="Print to PDF"
                 
               <div>
                 
-  <p>\begin{exo}\rm
-Trouver la meilleure approximation, <span class="math notranslate nohighlight">\(\bar x\)</span>, au sens des moindres carrés, du
+  <div class="tex2jax_ignore mathjax_ignore section" id="exercices">
+<h1>Exercices<a class="headerlink" href="#exercices" title="Lien permanent vers ce titre">#</a></h1>
+<div class="section" id="exercice-1">
+<h2>Exercice 1<a class="headerlink" href="#exercice-1" title="Lien permanent vers ce titre">#</a></h2>
+<p>Trouver la meilleure approximation, <span class="math notranslate nohighlight">\(\bar x\)</span>, au sens des moindres carrés, du
 système
 $<span class="math notranslate nohighlight">\(
 3x=10,\qquad 4x= 5.
 \)</span><span class="math notranslate nohighlight">\(
 Déterminer le carré de l'erreur \)</span>e^2<span class="math notranslate nohighlight">\( et montrer que le vecteur erreur
-\)</span>(10-3\bar x;  5-4\bar x)^T <span class="math notranslate nohighlight">\( est orthogonal à \)</span>(3; 4)^T $
-\end{exo}</p>
-<p>\begin{exo}\rm
-Trouver la droite <span class="math notranslate nohighlight">\(f(t)=at+b\)</span> qui approche le mieux (au sens des moindres
-carrés) les mesures : $<span class="math notranslate nohighlight">\( f(0)=0,\quad f(1)=1,\quad f(3)=2,\quad f(4)=5. \)</span>$
-\end{exo}</p>
-<p>\begin{exo}\rm
-Soit $<span class="math notranslate nohighlight">\(P=\frac{1}{\parallel v\parallel^2}vv^T ,\)</span><span class="math notranslate nohighlight">\( la matrice de 
+\)</span>(10-3\bar x;  5-4\bar x)^T <span class="math notranslate nohighlight">\( est orthogonal à \)</span>(3; 4)^T $</p>
+</div>
+<div class="section" id="exercice-2">
+<h2>Exercice 2<a class="headerlink" href="#exercice-2" title="Lien permanent vers ce titre">#</a></h2>
+<p>Trouver la droite <span class="math notranslate nohighlight">\(f(t)=at+b\)</span> qui approche le mieux (au sens des moindres
+carrés) les mesures : $<span class="math notranslate nohighlight">\( f(0)=0,\quad f(1)=1,\quad f(3)=2,\quad f(4)=5. \)</span>$</p>
+</div>
+<div class="section" id="exercice-3">
+<h2>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien permanent vers ce titre">#</a></h2>
+<p>Soit $<span class="math notranslate nohighlight">\(P=\frac{1}{\parallel v\parallel^2}vv^T ,\)</span><span class="math notranslate nohighlight">\( la matrice de 
 projection sur la droite de direction \)</span>v$.</p>
 <p>Interpréter géométriquement la matrice <span class="math notranslate nohighlight">\(Q=I-2P\)</span>. Montrer que <span class="math notranslate nohighlight">\(Q^2=I\)</span> et
 <span class="math notranslate nohighlight">\(Q^T =Q\)</span> (\textit{i.e.} <span class="math notranslate nohighlight">\(Q\)</span> est orthogonale). Soit <span class="math notranslate nohighlight">\(y=(y_1, y_2)\in\mbb R^2\)</span>.
-Déterminer <span class="math notranslate nohighlight">\(v\)</span> pour que la seconde coordonnée de <span class="math notranslate nohighlight">\(z=Qy\)</span> soit nulle.
-\end{exo}</p>
-<p>\begin{exo}\label{exo44}\rm
-Projeter le vecteur <span class="math notranslate nohighlight">\(b=(0\; 3\; 0)^T \)</span> sur les droites de directions
+Déterminer <span class="math notranslate nohighlight">\(v\)</span> pour que la seconde coordonnée de <span class="math notranslate nohighlight">\(z=Qy\)</span> soit nulle.</p>
+</div>
+<div class="section" id="exercice-4">
+<h2>Exercice 4<a class="headerlink" href="#exercice-4" title="Lien permanent vers ce titre">#</a></h2>
+<p>Projeter le vecteur <span class="math notranslate nohighlight">\(b=(0\; 3\; 0)^T \)</span> sur les droites de directions
 respectives
 $<span class="math notranslate nohighlight">\(
 a^1=\left(\begin{array}{r}2/3\\ 2/3\\ -1/3\end{array}\right),\quad
 a^2=\left(\begin{array}{r}-1/3\\ 2/3\\ 2/3\end{array}\right).
 \)</span>$</p>
-<p>Trouver la projection de <span class="math notranslate nohighlight">\(b\)</span> sur le plan engendré par <span class="math notranslate nohighlight">\(a^1\)</span> et <span class="math notranslate nohighlight">\(a^2\)</span>.
-\end{exo}</p>
-<p>\begin{exo}[Examen novembre 2005]\rm
-On se donne
+<p>Trouver la projection de <span class="math notranslate nohighlight">\(b\)</span> sur le plan engendré par <span class="math notranslate nohighlight">\(a^1\)</span> et <span class="math notranslate nohighlight">\(a^2\)</span>.</p>
+</div>
+<div class="section" id="exercice-5">
+<h2>Exercice 5<a class="headerlink" href="#exercice-5" title="Lien permanent vers ce titre">#</a></h2>
+<p>On se donne
 $<span class="math notranslate nohighlight">\(
 A_1=\left[\begin{array}{cc}1 &amp; -1\\ 1 &amp; 0\\ 1 &amp; 1\\ 1 &amp; 2\end{array}
   \right]\quad\mbox{et }\ 
 b=\left[\begin{array}{c}1 \\ 1\\ 0\\ 1 \end{array}
   \right]
 \)</span>$</p>
-<p>a) Mettre <span class="math notranslate nohighlight">\(A_1\)</span> sous la forme <span class="math notranslate nohighlight">\(Q_1R_1\)</span> où <span class="math notranslate nohighlight">\(Q_1\)</span> est une matrice <span class="math notranslate nohighlight">\(4\times 2\)</span> de colonnes
-orthonormées <span class="math notranslate nohighlight">\(q_1\)</span> et <span class="math notranslate nohighlight">\(q_2\)</span>, et <span class="math notranslate nohighlight">\(R_1\)</span> une matrice <span class="math notranslate nohighlight">\(2\times 2\)</span> triangulaire supérieure.</p>
-<p>b) Calculer la solution aux moindres carrés du système incompatible
+<ol class="simple">
+<li><p>Mettre <span class="math notranslate nohighlight">\(A_1\)</span> sous la forme <span class="math notranslate nohighlight">\(Q_1R_1\)</span> où <span class="math notranslate nohighlight">\(Q_1\)</span> est une matrice <span class="math notranslate nohighlight">\(4\times 2\)</span> de colonnes
+orthonormées <span class="math notranslate nohighlight">\(q_1\)</span> et <span class="math notranslate nohighlight">\(q_2\)</span>, et <span class="math notranslate nohighlight">\(R_1\)</span> une matrice <span class="math notranslate nohighlight">\(2\times 2\)</span> triangulaire supérieure.</p></li>
+<li><p>Calculer la solution aux moindres carrés du système incompatible
 $<span class="math notranslate nohighlight">\(
 A_1x_1=b
 \)</span><span class="math notranslate nohighlight">\(
-et l'erreur \)</span>e_1$ correspondante.</p>
-<p>c) On rajoute la colonne <span class="math notranslate nohighlight">\(a_3=[1\ 0\ 1\ 4]^T \)</span> à la matrice <span class="math notranslate nohighlight">\(A_1\)</span> pour avoir
+et l'erreur \)</span>e_1$ correspondante.</p></li>
+<li><p>On rajoute la colonne <span class="math notranslate nohighlight">\(a_3=[1\ 0\ 1\ 4]^T \)</span> à la matrice <span class="math notranslate nohighlight">\(A_1\)</span> pour avoir
 <span class="math notranslate nohighlight">\(A_2=[A_1\ a_3]\)</span>. Mettre <span class="math notranslate nohighlight">\(A_2\)</span> sous la forme <span class="math notranslate nohighlight">\(Q_2R_2\)</span> et calculer la solution aux moindres
 carrés du système
 $<span class="math notranslate nohighlight">\(
 A_2x_2=b
 \)</span><span class="math notranslate nohighlight">\( 
 Calculer l'erreur \)</span>e_2<span class="math notranslate nohighlight">\( correspondante et montrer que \)</span>e_2=e_1^2-(q_3^T b)^2<span class="math notranslate nohighlight">\(,
-où \)</span>q_3<span class="math notranslate nohighlight">\( est la troisième colonne de \)</span>Q_2$. Justifier cette diminution dans le cas général.
-\end{exo}</p>
-<p>\begin{exo}[Examen février 2001]\rm
-On se propose de déterminer les coefficients du polynôme
+où \)</span>q_3<span class="math notranslate nohighlight">\( est la troisième colonne de \)</span>Q_2$. Justifier cette diminution dans le cas général.</p></li>
+</ol>
+</div>
+<div class="section" id="exercice-6">
+<h2>Exercice 6<a class="headerlink" href="#exercice-6" title="Lien permanent vers ce titre">#</a></h2>
+<p>On se propose de déterminer les coefficients du polynôme
 $<span class="math notranslate nohighlight">\(
 p(x)=\sum_{k=0}^na_kx^k
 \)</span><span class="math notranslate nohighlight">\(
@@ -494,36 +579,37 @@ Pour la suite on pose
 <p>Pour <span class="math notranslate nohighlight">\({\bf a}=(a_0,a_1,\ldots,a_n)\in \mbb R^{n+1}\)</span>, on définit
 $<span class="math notranslate nohighlight">\(
 J({\bf a})=\sum_{i=0}^m\Bigl[y_i-p(x_i)\Bigr]^2.
-\)</span><span class="math notranslate nohighlight">\(
-\begin{enumerate}
-\item Caractériser la solution \)</span>{\bf a}^\ast<span class="math notranslate nohighlight">\( qui minimise \)</span>J({\bf a})<span class="math notranslate nohighlight">\(
-sur \)</span>\mbb R^{n+1}<span class="math notranslate nohighlight">\(. Quelle est l'interprétation du polynôme \)</span>p(x)<span class="math notranslate nohighlight">\(
-quand \)</span>m=n<span class="math notranslate nohighlight">\(. Quelle est alors la valeur de \)</span>J({\bf a}^\ast)$.</p>
-<p>\item Montrer qu’il existe une matrice <span class="math notranslate nohighlight">\(U\)</span>, rectangulaire à <span class="math notranslate nohighlight">\((m+1)\)</span> lignes
+\)</span>$</p>
+<ol class="simple">
+<li><p>Caractériser la solution <span class="math notranslate nohighlight">\({\bf a}^\ast\)</span> qui minimise <span class="math notranslate nohighlight">\(J({\bf a})\)</span>
+sur <span class="math notranslate nohighlight">\(\mbb R^{n+1}\)</span>. Quelle est l’interprétation du polynôme <span class="math notranslate nohighlight">\(p(x)\)</span>
+quand <span class="math notranslate nohighlight">\(m=n\)</span>. Quelle est alors la valeur de <span class="math notranslate nohighlight">\(J({\bf a}^\ast)\)</span>.</p></li>
+<li><p>Montrer qu’il existe une matrice <span class="math notranslate nohighlight">\(U\)</span>, rectangulaire à <span class="math notranslate nohighlight">\((m+1)\)</span> lignes
 et <span class="math notranslate nohighlight">\((n+1)\)</span> colonnes, telle que, si <span class="math notranslate nohighlight">\({\bf a}^\ast\)</span> est un point stationnaire de
 <span class="math notranslate nohighlight">\(J\)</span>, alors
 $<span class="math notranslate nohighlight">\(
 U^{T}U{\bf a}^\ast=U^{T}{\bf y}.
-\)</span><span class="math notranslate nohighlight">\(
-\item On suppose que \)</span>n=1<span class="math notranslate nohighlight">\(, i.e. \)</span>p(x)=a_0+a_1x<span class="math notranslate nohighlight">\(. On pose
-\begin{eqnarray*}
+\)</span>$</p></li>
+<li><p>On suppose que <span class="math notranslate nohighlight">\(n=1\)</span>, i.e. <span class="math notranslate nohighlight">\(p(x)=a_0+a_1x\)</span>. On pose
+<span class="math notranslate nohighlight">\(\begin{eqnarray*}
 &amp;&amp;\bar{{\bf x}}=\frac{1}{m+1}\sum_{i=0}^mx_i,\qquad
-           \bar{{\bf y}}=\frac{1}{m+1}\sum_{i=0}^my_i,\\[3pt]
+        \bar{{\bf y}}=\frac{1}{m+1}\sum_{i=0}^my_i,\\[3pt]
 &amp;&amp;\sigma({\bf x}^2)=\frac{1}{m+1}\sum_{i=0}^m(x_i-\bar{{\bf x}})^2,\qquad
-  \sigma({\bf x},{\bf y})=\frac{1}{m+1}\sum_{i=0}^m
-         \left(x_i-\bar{{\bf x}}\right)\left(y_i-\bar{{\bf y}}\right).
-\end{eqnarray*}
+\sigma({\bf x},{\bf y})=\frac{1}{m+1}\sum_{i=0}^m
+      \left(x_i-\bar{{\bf x}}\right)\left(y_i-\bar{{\bf y}}\right).
+\end{eqnarray*}\)</span>
 Montrer que
-\)</span><span class="math notranslate nohighlight">\(
+$<span class="math notranslate nohighlight">\(
 a_1=\frac{\sigma({\bf x},{\bf y})}{\sigma({\bf x}^2)},\qquad
 a_0=\bar{{\bf y}}-a_1\bar{{\bf x}} 
 \)</span><span class="math notranslate nohighlight">\(
 et en déduire que le &lt;&lt;point moyen&gt;&gt; \)</span>(\bar,\bar)<span class="math notranslate nohighlight">\( 
-appartient à la droite \)</span>y=a_0+a_1x$.
-\end{enumerate}
-\end{exo}</p>
-<p>\begin{exo}[Examen décembre 1996]\rm
-On se donne
+appartient à la droite \)</span>y=a_0+a_1x$.</p></li>
+</ol>
+</div>
+<div class="section" id="exercice-7">
+<h2>Exercice 7<a class="headerlink" href="#exercice-7" title="Lien permanent vers ce titre">#</a></h2>
+<p>On se donne
 $<span class="math notranslate nohighlight">\(
 A = \left[\begin{array}{ccc}1 &amp; 2 &amp; -1 \\ 2 &amp; 1 &amp;  4 \\ 1 &amp; 1 &amp;  1\end{array}\right]
 \)</span><span class="math notranslate nohighlight">\( 
@@ -531,92 +617,28 @@ et
 \)</span><span class="math notranslate nohighlight">\(
 b = \left[\begin{array}{c}1 \\ 1 \\1 \end{array}\right].
 \)</span>$</p>
-<p>\begin{enumerate}
-\item Montrer que le système <span class="math notranslate nohighlight">\(Ax = b\)</span> est incompatible.
-\item Donner une CNS pour que <span class="math notranslate nohighlight">\(x \in \mbb R^3\)</span>
-réalise le minimum de <span class="math notranslate nohighlight">\(E(x) = \| Ax - b \|_2^2\)</span>.
-\item En déduire que la solution des moindres carrés n’est pas unique.<br />
-\item Construire une base orthonormée de <span class="math notranslate nohighlight">\(ImA\)</span> par le procédé
+<ol class="simple">
+<li><p>Montrer que le système <span class="math notranslate nohighlight">\(Ax = b\)</span> est incompatible.</p></li>
+<li><p>Donner une CNS pour que <span class="math notranslate nohighlight">\(x \in \mbb R^3\)</span>
+réalise le minimum de <span class="math notranslate nohighlight">\(E(x) = \| Ax - b \|_2^2\)</span>.</p></li>
+<li><p>En déduire que la solution des moindres carrés n’est pas unique.</p></li>
+<li><p>Construire une base orthonormée de <span class="math notranslate nohighlight">\(ImA\)</span> par le procédé
 d’orthonormalisation de Gram-Schmidt. En déduire l’existence
 d’une matrice <span class="math notranslate nohighlight">\(Q\)</span>, de format <span class="math notranslate nohighlight">\(3\times 2\)</span>, formée de vecteurs colonnes
 orthonormés, et d’une matrice <span class="math notranslate nohighlight">\(R\)</span> triangulaire supérieure de format
-<span class="math notranslate nohighlight">\(2\times 3\)</span>, telles que <span class="math notranslate nohighlight">\(A = QR\)</span>.
-\item Montrer que <span class="math notranslate nohighlight">\(RR^T \)</span> est une matrice inversible. En déduire
+<span class="math notranslate nohighlight">\(2\times 3\)</span>, telles que <span class="math notranslate nohighlight">\(A = QR\)</span>.</p></li>
+<li><p>Montrer que <span class="math notranslate nohighlight">\(RR^T \)</span> est une matrice inversible. En déduire
 une expression explicite pour l’ensemble des solutions des moindres
 carrés de la forme <span class="math notranslate nohighlight">\(x = x_0 + \alpha u\)</span>, où <span class="math notranslate nohighlight">\(\alpha \in \mbb R\)</span>, et
-tel que <span class="math notranslate nohighlight">\(x_0\)</span> et <span class="math notranslate nohighlight">\(u\)</span> soient des vecteurs orthogonaux.</p>
-<p>\item Exprimer <span class="math notranslate nohighlight">\(\min\| Ax - b \|_2^2\)</span> en fonction de <span class="math notranslate nohighlight">\(b\)</span> et d’un
-vecteur orthogonal à <span class="math notranslate nohighlight">\(\mathrm{Im}Q\)</span>.<br />
-\item Application numérique : calculer la solution des moindres carrés de norme minimale, ainsi que l’erreur résiduelle <span class="math notranslate nohighlight">\(\min\| Ax - b \|_2^2\)</span>.
-\end{enumerate}
-\end{exo}</p>
-<p>\begin{exo}\rm
-Etant donn’ee une matrice <span class="math notranslate nohighlight">\(A (m\times n)\)</span>, on veut construire une matrice <span class="math notranslate nohighlight">\(M (m \times m)\)</span> telle que
-\begin{itemize}
-\item <span class="math notranslate nohighlight">\(MA=S\)</span>, o`u <span class="math notranslate nohighlight">\(S\)</span> est triangulaire sup’erieure <span class="math notranslate nohighlight">\((m \times n)\)</span>
-\item <span class="math notranslate nohighlight">\(MM^T =\Delta^2\)</span>, o`u <span class="math notranslate nohighlight">\(\Delta=\textrm{Diag}\{\delta_1,\ldots, \delta_m\}\)</span> avec <span class="math notranslate nohighlight">\(\delta_i \neq 0, i=1,\ldots,m\)</span>
-\end{itemize}</p>
-<p>\begin{enumerate}
-\item Montrer que le calcul de <span class="math notranslate nohighlight">\(M\)</span> permet d’obtenir la factorisation <span class="math notranslate nohighlight">\(QR\)</span> de <span class="math notranslate nohighlight">\(A\)</span> et que <span class="math notranslate nohighlight">\(Q=M^T \Delta^{-1}\)</span>, <span class="math notranslate nohighlight">\(R=\Delta^{-1}S\)</span>
-\item Analysons le cas <span class="math notranslate nohighlight">\(m=2\)</span> : soient <span class="math notranslate nohighlight">\(x\in \mbb R^2\)</span> et <span class="math notranslate nohighlight">\(\Delta={\textrm Diag}\{\delta_1, \delta_2\}\)</span> (<span class="math notranslate nohighlight">\(\delta_i \neq 0\)</span>) donn’es.
-\begin{enumerate}
-\item On d’efinit
-[ M_1 = \left[ \begin{array}{lr}
-\beta_1 &amp; 1 \ 1 &amp; \alpha_1\end{array} \right] ]
-Supposer <span class="math notranslate nohighlight">\(x_2 \neq 0\)</span> et calculer <span class="math notranslate nohighlight">\(M_1 x\)</span> et <span class="math notranslate nohighlight">\(M_1\Delta^2 M_1^T \)</span>.</p>
-<p>Comment choisir <span class="math notranslate nohighlight">\(\alpha_1\)</span> et <span class="math notranslate nohighlight">\(\beta_1\)</span> de fa\c{c}on `a ce que la deuxi`eme composante de <span class="math notranslate nohighlight">\(M_1x\)</span> soit nulle et que <span class="math notranslate nohighlight">\(M_1\Delta^2 M_1^T \)</span>
-soit diagonale ?</p>
-<p>Pour le choix pr’ec’edent, d’eterminer <span class="math notranslate nohighlight">\(\gamma_1\)</span> tel que
-[ M_1x = \left[ \begin{array}{c} (1+ \gamma_1)x_2 \ 0 \end{array} \right] \ \ \mbox{et} \ \<br />
-M_1\Delta^2 M_1^T  = \left[ \begin{array}{lr} (1+ \gamma_1)\delta_2^2 &amp; 0 \
-0  &amp; (1+ \gamma_1)\delta_1^2
-\end{array} \right] ]</p>
-<p>\item Supposer <span class="math notranslate nohighlight">\(x_1 \neq 0\)</span>; on d’efinit
-[ M_2 = \left[ \begin{array}{lr}
-1 &amp; \alpha_2 \ \beta_2 &amp; 1 \end{array} \right] ]
-Choisir <span class="math notranslate nohighlight">\(\alpha_2\)</span> et <span class="math notranslate nohighlight">\(\beta_2\)</span> de fa\c{c}on `a ce que
-[ M_2x = \left[ \begin{array}{c} (1+ \gamma_2)x_1 \ 0 \end{array} \right] \ \ \mbox{et} \ \<br />
-M_2\Delta^2 M_2^T  = \left[ \begin{array}{lr} (1+ \gamma_2)\delta_1^2 &amp; 0 \ 0  &amp; (1+ \gamma_2)\delta_2^2
-\end{array} \right] ]
-et d’eterminer <span class="math notranslate nohighlight">\(\gamma_2\)</span>.
-\end{enumerate}
-\item Soit maintenant <span class="math notranslate nohighlight">\(m\)</span> un entier quelconque; d’efinir les matrices <span class="math notranslate nohighlight">\(M_1(p,q)\)</span> et <span class="math notranslate nohighlight">\(M_2(p,q)\)</span> telles que
-[ \left[ \begin{array}{lr} m_{pp} &amp; m_{pq} \ m_{qp} &amp; m_{qq} \end{array} \right] = \left[ \begin{array}{lr} \beta_1 &amp; 1 \ 1 &amp; \alpha_1  \end{array} \right]  \ \ \mbox{ou} \ \
-= \left[ \begin{array}{lr} 1 &amp; \alpha_2 \ \beta_2 &amp; 1  \end{array} \right]  ]
-[ \mbox{la composante q de} \ M_i(p,q)x\ \mbox{est nulle} ]</p>
-<p>[ M_i\Delta^2 M_i^T  \ \mbox{diagonale} ]</p>
-<p>Les matrices <span class="math notranslate nohighlight">\(M_i\)</span> sont appel’ees {\sl matrices de Givens rapide}. On r’esume ci-dessous l’algorithme de Givens rapide :</p>
-<p>\begin{algorithm}
-<span class="math notranslate nohighlight">\(\delta_i=1,i=1,\ldots m\)</span>;
-\Pour{<span class="math notranslate nohighlight">\(p=1,\ldots \min\{n,m-1\}\)</span>}{
-\Pour{<span class="math notranslate nohighlight">\(q=p+1,\ldots m\)</span>}{
-\Si{<span class="math notranslate nohighlight">\(a_{pq}\neq 0\)</span>} {
-[ \alpha = - a_{pp}/a_{qp},\quad \beta = - \alpha \delta_q/\delta_p,\quad \gamma= - \alpha \beta ]
-}
-\Si{<span class="math notranslate nohighlight">\(\gamma \leq 1\)</span>} {
-[ \left[ \begin{array}{lcr} a_{pp} &amp; \cdots &amp; a_{pn} \
-a_{qp} &amp; \cdots &amp; a_{qn} \end{array} \right] \ \leftarrow  \left[ \begin{array}{lr} \beta &amp;1 \ 1 &amp; \alpha \end{array} \right] \left[ \begin{array}{lcr} a_{pp} &amp; \cdots &amp; a_{pn} \
-a_{qp} &amp; \cdots &amp; a_{qn} \end{array} \right] ]
-<span class="math notranslate nohighlight">\(\delta_p \ \leftarrow (1+ \gamma \delta_p)\)</span>\
-<span class="math notranslate nohighlight">\(\delta_q \ \leftarrow (1+ \gamma \delta_q)\)</span>}
-\Sinon{
-“echanger <span class="math notranslate nohighlight">\(\alpha\)</span> et <span class="math notranslate nohighlight">\(\beta\)</span>\
-[ \alpha = 1/\alpha,\quad \beta= 1/\beta,\quad \gamma=1/\gamma ]\
-[ \left[ \begin{array}{lcr} a_{pp} &amp; \cdots &amp; a_{pn} \
-a_{qp} &amp; \cdots &amp; a_{qn} \end{array} \right] \ \leftarrow  \left[ \begin{array}{lr} 1 &amp; \alpha \ \beta &amp; 1 \end{array} \right] \left[ \begin{array}{lcr} a_{pp} &amp; \cdots &amp; a_{pn} \
-a_{qp} &amp; \cdots &amp; a_{qn} \end{array} \right] ]\
-<span class="math notranslate nohighlight">\(\delta_p \ \leftarrow (1+ \gamma \delta_p)\)</span>\
-<span class="math notranslate nohighlight">\(\delta_q \ \leftarrow (1+ \gamma \delta_q)\)</span>\
-}
-}
-}
-\end{algorithm}</p>
-<p>\item Justifier l’algorithme et donner son co^{u}t en nombre de flops. Comparer avec la m’ethode de Householder vue en cours.</p>
-<p>\item Application num’erique :
-r’esoudre au sens des moindres carr’es par la m’ethode de Givens rapide le syst `eme incompatible <span class="math notranslate nohighlight">\(Ax=b\)</span> avec
-[ A= \left[ \begin{array}{lr} 1 &amp; 4 \ 2 &amp; 5 \ 3 &amp; 6 \end{array} \right], b = \left[ \begin{array}{c} 7 \ 8 \ 9 \end{array} \right] ]</p>
-<p>\end{enumerate}</p>
-<p>\end{exo}</p>
+tel que <span class="math notranslate nohighlight">\(x_0\)</span> et <span class="math notranslate nohighlight">\(u\)</span> soient des vecteurs orthogonaux.</p></li>
+</ol>
+<ol class="simple">
+<li><p>Exprimer <span class="math notranslate nohighlight">\(\min\| Ax - b \|_2^2\)</span> en fonction de <span class="math notranslate nohighlight">\(b\)</span> et d’un
+vecteur orthogonal à <span class="math notranslate nohighlight">\(\mathrm{Im}Q\)</span>.</p></li>
+<li><p>Application numérique : calculer la solution des moindres carrés de norme minimale, ainsi que l’erreur résiduelle <span class="math notranslate nohighlight">\(\min\| Ax - b \|_2^2\)</span>.</p></li>
+</ol>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
