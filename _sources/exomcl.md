@@ -82,6 +82,7 @@ $\begin{eqnarray*}
   \sigma({\bf x},{\bf y})=\frac{1}{m+1}\sum_{i=0}^m
          \left(x_i-\bar{{\bf x}}\right)\left(y_i-\bar{{\bf y}}\right).
 \end{eqnarray*}$
+
 Montrer que
 $a_1=\frac{\sigma({\bf x},{\bf y})}{\sigma({\bf x}^2)},\qquad a_0=\bar{{\bf y}}-a_1\bar{{\bf x}}$
 et en déduire que le <<point moyen>> $(\bar{{\bf x}},\bar{{\bf y}})$ 
