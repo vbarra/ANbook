@@ -145,7 +145,14 @@ Q
 # Les colonnes de ${\bf Q_1}$ forment une base orthonormée de $Im({\bf A})$, et les colonnes de ${\bf Q_2}$ forment 
 # une base orthonormée de $Ker({\bf A^\top})$.
 # ```
-# 
+
+# In[5]:
+
+
+Q = Rational(1, 3) * Matrix([[1, -2], [2, -1], [2, 2]])
+Q
+
+
 # Appliqué au problème des moindres carrés, le système aux équations normales s'écrit donc 
 # 
 # $\begin{eqnarray*}
