@@ -656,12 +656,12 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 <p class="admonition-title"><span class="caption-number">Algorithm 6 </span> (Factorisation {\bf QR} par matrices de Householder)</p>
 <div class="algorithm-content section" id="proof-content">
 <p>**Entrée : **  <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_n(\mathbb R)\)</span></p>
-<p>**Entrée : **  <span class="math notranslate nohighlight">\({\bf Q}\in\mathcal{M}_n(\mathbb R)\)</span> orthogonale, <span class="math notranslate nohighlight">\({\bf R}\in\mathcal{M}_n(\mathbb R)\)</span> triangulaire supérieure</p>
+<p>**Sortie : **  <span class="math notranslate nohighlight">\({\bf Q}\in\mathcal{M}_n(\mathbb R)\)</span> orthogonale, <span class="math notranslate nohighlight">\({\bf R}\in\mathcal{M}_n(\mathbb R)\)</span> triangulaire supérieure</p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\({\bf A^{(1)}}={\bf A}\)</span></p></li>
 <li><p>Pour <span class="math notranslate nohighlight">\(j\)</span>=1 à <span class="math notranslate nohighlight">\(n-1\)</span></p>
 <ol class="simple">
-<li><p>Soit <span class="math notranslate nohighlight">\({\bf f_j}\in \mathbb R^{n-j+1}\)</span> le vecteur commençant à l’élément <span class="math notranslate nohighlight">\((j,j)\)</span> de <span class="math notranslate nohighlight">\({\bf A^{(j)}}\)</span>\</p></li>
+<li><p>Soit <span class="math notranslate nohighlight">\({\bf f_j}\in \mathbb R^{n-j+1}\)</span> le vecteur commençant à l’élément <span class="math notranslate nohighlight">\((j,j)\)</span> de <span class="math notranslate nohighlight">\({\bf A^{(j)}}\)</span></p></li>
 <li><p>On construit <span class="math notranslate nohighlight">\({\bf {\tilde H^{(j)}}}\in\mathcal{M}_{n-j+1}(\mathbb R)\)</span> telle que <span class="math notranslate nohighlight">\({\bf \tilde{H^{(j)}}f_j} = \|{\bf f_j}\ {\bf e^{(j)}_1}\)</span>, <span class="math notranslate nohighlight">\({\bf e^{(j)}_1}\)</span> premier vecteur de la base canonique de <span class="math notranslate nohighlight">\(\mathbb R^{n-j+1}\)</span></p></li>
 <li><p>On construit
 <img alt="" src="_images/h.png" /></p></li>
