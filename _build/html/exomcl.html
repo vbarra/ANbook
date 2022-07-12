@@ -523,7 +523,7 @@ carrés) les mesures : <span class="math notranslate nohighlight">\(f(0)=0,\quad
 <p>Soit <span class="math notranslate nohighlight">\(P=\frac{1}{\parallel v\parallel^2}vv^\top\)</span> la matrice de
 projection sur la droite de direction <span class="math notranslate nohighlight">\(v\)</span>.</p>
 <p>Interpréter géométriquement la matrice <span class="math notranslate nohighlight">\(Q=I-2P\)</span>. Montrer que <span class="math notranslate nohighlight">\(Q^2=I\)</span> et
-<span class="math notranslate nohighlight">\(Q^T =Q\)</span> (\textit{i.e.} <span class="math notranslate nohighlight">\(Q\)</span> est orthogonale). Soit <span class="math notranslate nohighlight">\(y=(y_1, y_2)\in\mathbb R^2\)</span>.
+<span class="math notranslate nohighlight">\(Q^T =Q\)</span> (\textit{i.e.} <span class="math notranslate nohighlight">\(Q\)</span> est orthogonale). Soit <span class="math notranslate nohighlight">\(y=(y_1, y_2)^\top \in\mathbb R^2\)</span>.
 Déterminer <span class="math notranslate nohighlight">\(v\)</span> pour que la seconde coordonnée de <span class="math notranslate nohighlight">\(z=Qy\)</span> soit nulle.</p>
 </div>
 <div class="section" id="exercice-4">
@@ -564,11 +564,11 @@ couples <span class="math notranslate nohighlight">\((x_i,y_i)\)</span>, <span c
 points de mesure <span class="math notranslate nohighlight">\(x_i\)</span>, <span class="math notranslate nohighlight">\(i=0,\ldots,m\)</span>, sont {\it distincts}.
 Pour la suite on pose
 <span class="math notranslate nohighlight">\({\bf x}=(x_0,\ldots,x_m)\)</span> et <span class="math notranslate nohighlight">\({\bf y}=(y_0,\ldots,y_m)\)</span>.</p>
-<p>Pour <span class="math notranslate nohighlight">\({\bf a}=(a_0,a_1,\ldots,a_n)\in \mbb R^{n+1}\)</span>, on définit
+<p>Pour <span class="math notranslate nohighlight">\({\bf a}=(a_0,a_1,\ldots,a_n)\in \mathbb R^{n+1}\)</span>, on définit
 <span class="math notranslate nohighlight">\(J({\bf a})=\sum_{i=0}^m\Bigl[y_i-p(x_i)\Bigr]^2.\)</span></p>
 <ol class="simple">
 <li><p>Caractériser la solution <span class="math notranslate nohighlight">\({\bf a}^\ast\)</span> qui minimise <span class="math notranslate nohighlight">\(J({\bf a})\)</span>
-sur <span class="math notranslate nohighlight">\(\mbb R^{n+1}\)</span>. Quelle est l’interprétation du polynôme <span class="math notranslate nohighlight">\(p(x)\)</span>
+sur <span class="math notranslate nohighlight">\(\mathbb R^{n+1}\)</span>. Quelle est l’interprétation du polynôme <span class="math notranslate nohighlight">\(p(x)\)</span>
 quand <span class="math notranslate nohighlight">\(m=n\)</span>. Quelle est alors la valeur de <span class="math notranslate nohighlight">\(J({\bf a}^\ast)\)</span>.</p></li>
 <li><p>Montrer qu’il existe une matrice <span class="math notranslate nohighlight">\(U\)</span>, rectangulaire à <span class="math notranslate nohighlight">\((m+1)\)</span> lignes
 et <span class="math notranslate nohighlight">\((n+1)\)</span> colonnes, telle que, si <span class="math notranslate nohighlight">\({\bf a}^\ast\)</span> est un point stationnaire de
@@ -582,12 +582,9 @@ et <span class="math notranslate nohighlight">\((n+1)\)</span> colonnes, telle q
       \left(x_i-\bar{{\bf x}}\right)\left(y_i-\bar{{\bf y}}\right).
 \end{eqnarray*}\)</span>
 Montrer que
-$<span class="math notranslate nohighlight">\(
-a_1=\frac{\sigma({\bf x},{\bf y})}{\sigma({\bf x}^2)},\qquad
-a_0=\bar{{\bf y}}-a_1\bar{{\bf x}} 
-\)</span><span class="math notranslate nohighlight">\(
-et en déduire que le &lt;&lt;point moyen&gt;&gt; \)</span>(\bar,\bar)<span class="math notranslate nohighlight">\( 
-appartient à la droite \)</span>y=a_0+a_1x$.</p></li>
+<span class="math notranslate nohighlight">\(a_1=\frac{\sigma({\bf x},{\bf y})}{\sigma({\bf x}^2)},\qquad a_0=\bar{{\bf y}}-a_1\bar{{\bf x}}\)</span>
+et en déduire que le &lt;<point moyen>&gt; <span class="math notranslate nohighlight">\((\bar{{\bf x}},\bar{{\bf y}})\)</span>
+appartient à la droite <span class="math notranslate nohighlight">\(y=a_0+a_1x\)</span>.</p></li>
 </ol>
 </div>
 <div class="section" id="exercice-7">
@@ -602,7 +599,7 @@ b = \left[\begin{array}{c}1 \\ 1 \\1 \end{array}\right].
 \)</span>$</p>
 <ol class="simple">
 <li><p>Montrer que le système <span class="math notranslate nohighlight">\(Ax = b\)</span> est incompatible.</p></li>
-<li><p>Donner une CNS pour que <span class="math notranslate nohighlight">\(x \in \mbb R^3\)</span>
+<li><p>Donner une CNS pour que <span class="math notranslate nohighlight">\(x \in \mathbb R^3\)</span>
 réalise le minimum de <span class="math notranslate nohighlight">\(E(x) = \| Ax - b \|_2^2\)</span>.</p></li>
 <li><p>En déduire que la solution des moindres carrés n’est pas unique.</p></li>
 <li><p>Construire une base orthonormée de <span class="math notranslate nohighlight">\(ImA\)</span> par le procédé
@@ -612,7 +609,7 @@ orthonormés, et d’une matrice <span class="math notranslate nohighlight">\(R\
 <span class="math notranslate nohighlight">\(2\times 3\)</span>, telles que <span class="math notranslate nohighlight">\(A = QR\)</span>.</p></li>
 <li><p>Montrer que <span class="math notranslate nohighlight">\(RR^T \)</span> est une matrice inversible. En déduire
 une expression explicite pour l’ensemble des solutions des moindres
-carrés de la forme <span class="math notranslate nohighlight">\(x = x_0 + \alpha u\)</span>, où <span class="math notranslate nohighlight">\(\alpha \in \mbb R\)</span>, et
+carrés de la forme <span class="math notranslate nohighlight">\(x = x_0 + \alpha u\)</span>, où <span class="math notranslate nohighlight">\(\alpha \in \mathbb R\)</span>, et
 tel que <span class="math notranslate nohighlight">\(x_0\)</span> et <span class="math notranslate nohighlight">\(u\)</span> soient des vecteurs orthogonaux.</p></li>
 </ol>
 <ol class="simple">
