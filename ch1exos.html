@@ -120,6 +120,11 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="Installation.html">
+   Requirement
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="Tutoriel-jupyter.html">
    Tutoriel Jupyter
   </a>
@@ -181,6 +186,33 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="lu.html">
    Facteurs LU d’une matrice non singulière
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Moindres carrés linéaires
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="projections.html">
+   Projections orthogonales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mcl.html">
+   Moindres carrés linéaires
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="transfoortho.html">
+   Transformations orthogonales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exomcl.html">
+   Exercices
   </a>
  </li>
 </ul>
@@ -350,12 +382,46 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-1">
+   Exercice 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-2">
+   Exercice 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-3">
+   Exercice 3
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -367,6 +433,29 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-1">
+   Exercice 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-2">
+   Exercice 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-3">
+   Exercice 3
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -376,6 +465,8 @@ title="Print to PDF"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="exercices">
 <h1>Exercices<a class="headerlink" href="#exercices" title="Lien permanent vers ce titre">#</a></h1>
+<div class="section" id="exercice-1">
+<h2>Exercice 1<a class="headerlink" href="#exercice-1" title="Lien permanent vers ce titre">#</a></h2>
 <p>Soit <span class="math notranslate nohighlight">\(A\)</span>, une matrice <span class="math notranslate nohighlight">\(m\times n\)</span>.
 Montrer que</p>
 <p><span class="math notranslate nohighlight">\(\begin{aligned}
@@ -390,15 +481,22 @@ les espaces contenant ces ensembles.</p>
         \end{array}
   \right).\)</span> Quel est le rang de <span class="math notranslate nohighlight">\(A\)</span>. Donner les sous–espaces
 <span class="math notranslate nohighlight">\(\mathrm{Im}A\)</span>, <span class="math notranslate nohighlight">\(Ker A^\top\)</span>, <span class="math notranslate nohighlight">\(\mathrm{Im}A^\top\)</span> et <span class="math notranslate nohighlight">\(Ker A\)</span>.</p>
+</div>
+<div class="section" id="exercice-2">
+<h2>Exercice 2<a class="headerlink" href="#exercice-2" title="Lien permanent vers ce titre">#</a></h2>
 <p>Soit <span class="math notranslate nohighlight">\(V\)</span> et <span class="math notranslate nohighlight">\(W\)</span> deux sous-espaces vectoriels de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>. Montrer que
 <span class="math notranslate nohighlight">\(\dim
 (V+W)=\dim V+\dim W-\dim V\cap W.\)</span></p>
 <p>Illustrer ce résultat avec <span class="math notranslate nohighlight">\(V\)</span> et <span class="math notranslate nohighlight">\(W\)</span> respectivement ensembles des
 matrices triangulaires inférieures et supérieures.</p>
+</div>
+<div class="section" id="exercice-3">
+<h2>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien permanent vers ce titre">#</a></h2>
 <p>Montrer que pour toute matrice <span class="math notranslate nohighlight">\(A\)</span> (non nécessairement carrée), les
 produits <span class="math notranslate nohighlight">\(A^\top A\)</span> et <span class="math notranslate nohighlight">\(AA^\top\)</span> sont des matrices symétriques. Montrer
 que
 <span class="math notranslate nohighlight">\(\mathrm{rang}(A)=\mathrm{rang}(A^\top A)=\mathrm{rang}(AA^\top ).\)</span></p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
