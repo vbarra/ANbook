@@ -632,19 +632,18 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 </ol>
 </div>
 </div><div class="proof admonition" id="proof">
-<p>Proof. Remarquons tout d’abord que si <span class="math notranslate nohighlight">\({\bf H(u)}\)</span> est une matrice de Householder, alors <span class="math notranslate nohighlight">\({\bf H(u)f}={\bf f-2u(u^T f)}\)</span> et <span class="math notranslate nohighlight">\(\|{\bf H(u)f}\|_2=\|{\bf f}\|_2\)</span>.\
-Posons alors <span class="math notranslate nohighlight">\(\mid\alpha\mid=\|{\bf f}\|_2\)</span>. On cherche alors <span class="math notranslate nohighlight">\({\bf u}\)</span> tel que <span class="math notranslate nohighlight">\({\bf H(u)f}=\alpha {\bf e}\)</span>, soit
-\begin{align*}
-{\bf f-2u(u^T f)}&amp;=\alpha {\bf e}\
+<p>Proof. Remarquons tout d’abord que si <span class="math notranslate nohighlight">\({\bf H(u)}\)</span> est une matrice de Householder, alors <span class="math notranslate nohighlight">\({\bf H(u)f}={\bf f-2u(u^T f)}\)</span> et <span class="math notranslate nohighlight">\(\|{\bf H(u)f}\|_2=\|{\bf f}\|_2\)</span>.</p>
+<p>Posons alors <span class="math notranslate nohighlight">\(\mid\alpha\mid=\|{\bf f}\|_2\)</span>. On cherche alors <span class="math notranslate nohighlight">\({\bf u}\)</span> tel que <span class="math notranslate nohighlight">\({\bf H(u)f}=\alpha {\bf e}\)</span>, soit</p>
+<p><span class="math notranslate nohighlight">\(\begin{align*}
+{\bf f-2u(u^T f)}&amp;=\alpha {\bf e}\\
 {\bf u}&amp;=\frac{1}{2{\bf u^T f}}({\bf f-}\alpha {\bf e})
-\end{align*}
-Si <span class="math notranslate nohighlight">\(\beta={\bf u^T f}\)</span>, en multipliant à gauche par <span class="math notranslate nohighlight">\({\bf f^T} \)</span> :
-$<span class="math notranslate nohighlight">\(2\beta^2=\alpha^2-\alpha {\bf f^T e}\)</span><span class="math notranslate nohighlight">\(
-et \)</span>\beta<span class="math notranslate nohighlight">\( existe si \)</span>\alpha^2-\alpha {\bf f^T e}&gt;0<span class="math notranslate nohighlight">\(. Or l'inégalité de Cauchy-Schwarz
-\index{inégalité!de Cauchy-Schwarz} nous donne
-\)</span><span class="math notranslate nohighlight">\(\mid {\bf f^T e}\mid\leq\|{\bf f}\|_2\|{\bf e}\|_2=\|\alpha\|\)</span><span class="math notranslate nohighlight">\(
-et l'inégalité est de plus stricte par hypothèse (\)</span>{\bf f}<span class="math notranslate nohighlight">\( et \)</span>{\bf e}<span class="math notranslate nohighlight">\( non colinéaires). Ainsi :
-\)</span><span class="math notranslate nohighlight">\({\bf u}=\frac{1}{2\beta}({\bf f}-\alpha {\bf e)}\)</span>$ répond à la question.</p>
+\end{align*}\)</span></p>
+<p>Si <span class="math notranslate nohighlight">\(\beta={\bf u^T f}\)</span>, en multipliant à gauche par <span class="math notranslate nohighlight">\({\bf f^T} \)</span> :
+<span class="math notranslate nohighlight">\(2\beta^2=\alpha^2-\alpha {\bf f^T e}\)</span></p>
+<p>et <span class="math notranslate nohighlight">\(\beta\)</span> existe si <span class="math notranslate nohighlight">\(\alpha^2-\alpha {\bf f^T e}&gt;0\)</span>. Or l’inégalité de Cauchy-Schwarz donne</p>
+<p><span class="math notranslate nohighlight">\(\mid {\bf f^T e}\mid\leq\|{\bf f}\|_2\|{\bf e}\|_2=\|\alpha\|\)</span></p>
+<p>et l’inégalité est de plus stricte par hypothèse (<span class="math notranslate nohighlight">\({\bf f}\)</span> et <span class="math notranslate nohighlight">\({\bf e}\)</span> non colinéaires). Ainsi :</p>
+<p><span class="math notranslate nohighlight">\({\bf u}=\frac{1}{2\beta}({\bf f}-\alpha {\bf e)}\)</span> répond à la question.</p>
 </div>
 <div class="proof remark dropdown admonition" id="remark-6">
 <p class="admonition-title"><span class="caption-number">Remark 9 </span></p>

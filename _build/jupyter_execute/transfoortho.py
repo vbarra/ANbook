@@ -160,19 +160,25 @@
 # ````
 # 
 # ````{prf:proof}
-# Remarquons tout d'abord que si ${\bf H(u)}$ est une matrice de Householder, alors ${\bf H(u)f}={\bf f-2u(u^T f)}$ et $\|{\bf H(u)f}\|_2=\|{\bf f}\|_2$.\\
+# Remarquons tout d'abord que si ${\bf H(u)}$ est une matrice de Householder, alors ${\bf H(u)f}={\bf f-2u(u^T f)}$ et $\|{\bf H(u)f}\|_2=\|{\bf f}\|_2$.
+# 
 # Posons alors $\mid\alpha\mid=\|{\bf f}\|_2$. On cherche alors ${\bf u}$ tel que ${\bf H(u)f}=\alpha {\bf e}$, soit 
-# \begin{align*}
+# 
+# $\begin{align*}
 # {\bf f-2u(u^T f)}&=\alpha {\bf e}\\
 # {\bf u}&=\frac{1}{2{\bf u^T f}}({\bf f-}\alpha {\bf e})
-# \end{align*}
+# \end{align*}$
+# 
 # Si $\beta={\bf u^T f}$, en multipliant à gauche par ${\bf f^T} $ :
-# $$2\beta^2=\alpha^2-\alpha {\bf f^T e}$$
-# et $\beta$ existe si $\alpha^2-\alpha {\bf f^T e}>0$. Or l'inégalité de Cauchy-Schwarz
-# \index{inégalité!de Cauchy-Schwarz} nous donne
-# $$\mid {\bf f^T e}\mid\leq\|{\bf f}\|_2\|{\bf e}\|_2=\|\alpha\|$$
+# $2\beta^2=\alpha^2-\alpha {\bf f^T e}$
+# 
+# et $\beta$ existe si $\alpha^2-\alpha {\bf f^T e}>0$. Or l'inégalité de Cauchy-Schwarz donne
+# 
+# $\mid {\bf f^T e}\mid\leq\|{\bf f}\|_2\|{\bf e}\|_2=\|\alpha\|$
+# 
 # et l'inégalité est de plus stricte par hypothèse (${\bf f}$ et ${\bf e}$ non colinéaires). Ainsi :
-# $${\bf u}=\frac{1}{2\beta}({\bf f}-\alpha {\bf e)}$$ répond à la question.
+# 
+# ${\bf u}=\frac{1}{2\beta}({\bf f}-\alpha {\bf e)}$ répond à la question.
 # ````
 #  
 # ```{prf:remark}
