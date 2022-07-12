@@ -455,6 +455,11 @@ title="Print to PDF"
    Orthogonalisation de Gram-Schmidt}
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transformations-de-householder">
+   Transformations de Householder
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -482,6 +487,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#orthogonalisation-de-gram-schmidt">
    Orthogonalisation de Gram-Schmidt}
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transformations-de-householder">
+   Transformations de Householder
   </a>
  </li>
 </ul>
@@ -586,16 +596,15 @@ une base orthonormée de <span class="math notranslate nohighlight">\(Ker({\bf A
 {\bf R_1^TQ_1^TQ_1R_1x}&amp;=&amp; {\bf R_1^TQ_1^Tb}\\
 {\bf R_1^TR_1x}&amp;=&amp; {\bf R_1^TQ_1^Tb}\\
 {\bf R_1x}&amp;=&amp; {\bf Q_1^Tb}
-\end{eqnarray*}\)</span>
-La dernière simplification étant possible car <span class="math notranslate nohighlight">\({\bf R_1}\)</span> est inversible (trangulaire supérieure, les éléments de la diagonale étant des normes, donc strictement positifs). La solution du
-problème des moindres carrés est solution du système triangulaire
-$<span class="math notranslate nohighlight">\(
-{\bf R_1x}= {\bf Q_1^Tb}
-\)</span><span class="math notranslate nohighlight">\(
-et le calcul de l'erreur donne
-\)</span><span class="math notranslate nohighlight">\(
-\|{\bf e}\|^2=\|{\bf b}\|^2-\displaystyle\sum_{i=1}^p  ({\bf b^T} {\bf q_i})^2\)</span>$</p>
-<p>\subsection{Transformations de Householder}</p>
+\end{eqnarray*}\)</span></p>
+<p>La dernière simplification étant possible car <span class="math notranslate nohighlight">\({\bf R_1}\)</span> est inversible (trangulaire supérieure, les éléments de la diagonale étant des normes, donc strictement positifs). La solution du
+problème des moindres carrés est solution du système triangulaire</p>
+<p><span class="math notranslate nohighlight">\({\bf R_1x}= {\bf Q_1^Tb}\)</span>
+et le calcul de l’erreur donne</p>
+<p><span class="math notranslate nohighlight">\(\|{\bf e}\|^2=\|{\bf b}\|^2-\displaystyle\sum_{i=1}^p  ({\bf b^T} {\bf q_i})^2\)</span></p>
+</div>
+<div class="section" id="transformations-de-householder">
+<h2>Transformations de Householder<a class="headerlink" href="#transformations-de-householder" title="Lien permanent vers ce titre">#</a></h2>
 <p>On peut interpréter la méthode de Gram-Schmidt comme une méthode de triangularisation de la matrice <span class="math notranslate nohighlight">\({\bf A}\)</span>, au même titre que la méthode de Gauss. Il est possible de réorganiser les calculs en construisant des transformations élémentaires orthogonales qui effectuent cette triangularisation colonne par colonne (ou élément par élément). Les symétries de Householder\index{transformation!de Householder}
 et les rotations de Givens sont des exemples simples et intéressants de telles transformations, car elles conduisent à des algorithmes numériquement plus stables que la méthode de Gram-Schmidt.\
 \begin{defin}{Matrice de Householder}{}

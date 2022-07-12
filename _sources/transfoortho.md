@@ -125,18 +125,16 @@ $\begin{eqnarray*}
 {\bf R_1^TR_1x}&=& {\bf R_1^TQ_1^Tb}\\
 {\bf R_1x}&=& {\bf Q_1^Tb}
 \end{eqnarray*}$
+
 La dernière simplification étant possible car ${\bf R_1}$ est inversible (trangulaire supérieure, les éléments de la diagonale étant des normes, donc strictement positifs). La solution du 
 problème des moindres carrés est solution du système triangulaire 
-$$
-{\bf R_1x}= {\bf Q_1^Tb}
-$$
-et le calcul de l'erreur donne
-$$
-\|{\bf e}\|^2=\|{\bf b}\|^2-\displaystyle\sum_{i=1}^p  ({\bf b^T} {\bf q_i})^2$$
 
-%---------------------------------------------------
-\subsection{Transformations de Householder}
-%----------------------------------------------------
+${\bf R_1x}= {\bf Q_1^Tb}$
+et le calcul de l'erreur donne
+
+$\|{\bf e}\|^2=\|{\bf b}\|^2-\displaystyle\sum_{i=1}^p  ({\bf b^T} {\bf q_i})^2$
+
+## Transformations de Householder
 
 On peut interpréter la méthode de Gram-Schmidt comme une méthode de triangularisation de la matrice ${\bf A}$, au même titre que la méthode de Gauss. Il est possible de réorganiser les calculs en construisant des transformations élémentaires orthogonales qui effectuent cette triangularisation colonne par colonne (ou élément par élément). Les symétries de Householder\index{transformation!de Householder}
 et les rotations de Givens sont des exemples simples et intéressants de telles transformations, car elles conduisent à des algorithmes numériquement plus stables que la méthode de Gram-Schmidt.\\
