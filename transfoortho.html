@@ -690,30 +690,23 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
     
     <span class="k">return</span> <span class="n">Q</span><span class="p">,</span> <span class="n">R</span>
 
-<span class="n">n</span> <span class="o">=</span> <span class="mi">4</span> 
-<span class="n">A</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
 <span class="n">Q</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">clgs</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="n">Q</span><span class="p">,</span><span class="n">R</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Q=&quot;</span><span class="p">,</span><span class="n">Q</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R=&quot;</span><span class="p">,</span><span class="n">R</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">4</span> 
-<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="n">A</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
-<span class="ne">---&gt; </span><span class="mi">21</span> <span class="n">Q</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">clgs</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="n">Q</span><span class="p">,</span><span class="n">R</span>
-
-<span class="nn">Input In [5],</span> in <span class="ni">clgs</span><span class="nt">(A)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>     
-<span class="ne">----&gt; </span><span class="mi">9</span>     <span class="n">V</span><span class="p">[:,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[:,</span><span class="n">j</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">j</span><span class="p">):</span>  
-<span class="g g-Whitespace">     </span><span class="mi">11</span>         <span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Q</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">A</span><span class="p">[:,</span><span class="n">j</span><span class="p">])</span>
-
-<span class="ne">ValueError</span>: could not broadcast input array from shape (4,1) into shape (4,)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Q= [[ 0.05427501  0.04387868  0.93047416  0.35964806]
+ [ 0.61658717  0.03196161 -0.31592648  0.72040904]
+ [ 0.66845676 -0.54797517  0.16980709 -0.47334377]
+ [ 0.41235913  0.83473129  0.07465829 -0.35722508]]
+R= [[ 0.93318984  0.67355967  0.97265877  0.94383848]
+ [ 0.          0.57143145 -0.4033228   0.67144809]
+ [ 0.          0.          0.69923096  0.5060811 ]
+ [ 0.          0.          0.          0.45788087]]
 </pre></div>
 </div>
 </div>
@@ -733,6 +726,10 @@ une base orthonormée de <span class="math notranslate nohighlight">\(Ker({\bf A
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}\frac{1}{3} &amp; - \frac{2}{3}\\\frac{2}{3} &amp; - \frac{1}{3}\\\frac{2}{3} &amp; \frac{2}{3}\end{matrix}\right]\end{split}\]</div>
+</div>
 </div>
 <p>Les colonnes de <span class="math notranslate nohighlight">\(Q\)</span> forment une base de <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> (dans <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>). Pour obtenir une matrice orthogonale, il faut compléter par un vecteur normal au plan défini par ces deux colonnes, et unitaire.</p>
 <div class="cell docutils container">
@@ -741,6 +738,10 @@ une base orthonormée de <span class="math notranslate nohighlight">\(Ker({\bf A
 <span class="n">Q</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}\frac{1}{3} &amp; - \frac{2}{3} &amp; \frac{2}{3}\\\frac{2}{3} &amp; - \frac{1}{3} &amp; - \frac{2}{3}\\\frac{2}{3} &amp; \frac{2}{3} &amp; \frac{1}{3}\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 </div>
