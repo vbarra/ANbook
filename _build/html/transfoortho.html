@@ -562,7 +562,7 @@ sont des isométries, les normes (euclidiennes), les produits scalaires et les a
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">init_printing</span><span class="p">,</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">Matrix</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">,</span> <span class="n">Rational</span><span class="p">,</span> <span class="n">GramSchmidt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">init_printing</span><span class="p">,</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">Matrix</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">,</span> <span class="n">Rational</span>
 
 <span class="n">Q</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
 <span class="n">Q</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span> <span class="o">*</span> <span class="n">Q</span>
@@ -747,8 +747,7 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 <p>Soient <span class="math notranslate nohighlight">\({\bf f}\)</span> et <span class="math notranslate nohighlight">\({\bf e}\)</span> deux vecteurs non colinéaires de <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>; avec <span class="math notranslate nohighlight">\(\|{\bf e}\|_2=1\)</span>. Il est alors possible de trouver <span class="math notranslate nohighlight">\({\bf u}\in \mathbb{R}^n\)</span> tel que :</p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(\|{\bf u}\|_2=1\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\({\bf H(u)f}=\alpha {\bf e}\)</span>
-\end{enumerate}</p></li>
+<li><p><span class="math notranslate nohighlight">\({\bf H(u)f}=\alpha {\bf e}\)</span></p></li>
 </ol>
 </div>
 </div><div class="proof admonition" id="proof">
@@ -771,9 +770,9 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 <p>Si <span class="math notranslate nohighlight">\({\bf f}\)</span> et <span class="math notranslate nohighlight">\({\bf  e}\)</span> sont colinéaires, <span class="math notranslate nohighlight">\({\bf H}=\mathbb I\)</span> ou <span class="math notranslate nohighlight">\({\bf H}=\mathbb I-2{\bf ee^\top }\)</span> répondent à la question.</p>
 </div>
 </div><p>L’algorithme d’orthonormalisation  de <span class="math notranslate nohighlight">\({\bf A}\)</span> par matrices de Householder  opère alors colonne par colonne, et transforme itérativement <span class="math notranslate nohighlight">\({\bf A}\)</span> en une matrice triangulaire supérieure.</p>
-<p>On l’illustre dans la suite (algorithme \ref{A:HS}) dans le cas où <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_n(\mathbb R)\)</span> est de rang plein.</p>
+<p>On l’illustre dans la suite (algorithme <a class="reference internal" href="#QR">Algorithm 6</a>) dans le cas où <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_n(\mathbb R)\)</span> est de rang plein.</p>
 <div class="proof algorithm admonition" id="QR">
-<p class="admonition-title"><span class="caption-number">Algorithm 6 </span> (Factorisation {\bf QR} par matrices de Householder)</p>
+<p class="admonition-title"><span class="caption-number">Algorithm 6 </span> (Factorisation QR par matrices de Householder)</p>
 <div class="algorithm-content section" id="proof-content">
 <p>**Entrée : **  <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_n(\mathbb R)\)</span></p>
 <p>**Sortie : **  <span class="math notranslate nohighlight">\({\bf Q}\in\mathcal{M}_n(\mathbb R)\)</span> orthogonale, <span class="math notranslate nohighlight">\({\bf R}\in\mathcal{M}_n(\mathbb R)\)</span> triangulaire supérieure</p>
