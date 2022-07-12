@@ -147,8 +147,14 @@ une base orthonormée de $Ker({\bf A^\top})$.
 ```{code-cell} ipython3
 Q = Rational(1, 3) * Matrix([[1, -2], [2, -1], [2, 2]])
 Q
-```
+``` 
 
+Les colonnes de $Q$ forment une base de $\mathbb{R}^2$ (dans $\mathbb{R}^3$). Pour obtenir une matrice orthogonale, il faut compléter par un vecteur normal au plan défini par ces deux colonnes, et unitaire.
+
+```{code-cell} ipython3
+Q = Rational(1, 3) * Matrix([[1, -2, 2], [2, -1, -2], [2, 2, 1]])
+Q
+```
 
 
 Appliqué au problème des moindres carrés, le système aux équations normales s'écrit donc 
