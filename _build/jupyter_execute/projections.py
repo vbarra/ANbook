@@ -65,8 +65,8 @@
 # % sur le compact  $L \cap B(y, \|y-l\|)$ pour la fonction continue et bornée inférieurement $\|x-y\|$.
 # 
 # 
-# ``Orthogonalité`` : Supposons qu'il existe ${\bf x}\in L$ tel que ${\bf x^T} ({\bf y}-{\bf p})=\delta \neq 0$. On peut supposer que $\|{\bf x}\|=1$. On prend ${\bf p_1}={\bf p}+\delta {\bf x}$ et on écrit : 
-# $  \|{\bf y}-{\bf p_1}\|^2=\|{\bf y}-{\bf p}\|^2-2 ({\bf y}-{\bf p})^T (\delta {\bf x}) + \delta^2 = \|{\bf y}-{\bf p}\|^2- \delta^2 < \|{\bf y}-{\bf p}\|^2 $
+# ``Orthogonalité`` : Supposons qu'il existe ${\bf x}\in L$ tel que ${\bf x^\top} ({\bf y}-{\bf p})=\delta \neq 0$. On peut supposer que $\|{\bf x}\|=1$. On prend ${\bf p_1}={\bf p}+\delta {\bf x}$ et on écrit : 
+# $  \|{\bf y}-{\bf p_1}\|^2=\|{\bf y}-{\bf p}\|^2-2 ({\bf y}-{\bf p})^\top (\delta {\bf x}) + \delta^2 = \|{\bf y}-{\bf p}\|^2- \delta^2 < \|{\bf y}-{\bf p}\|^2 $
 # d'où la contradiction.
 # 
 # ``Unicité`` : Supposons qu'il existe un ${\bf x}\ne {\bf p}$ qui réalise le minimum.
@@ -83,7 +83,7 @@
 # 
 # $D=\{{\bf z}\in \mathbb R^n /{\bf z}=\lambda {\bf v},\lambda\in \mathbb R\}$
 # 
-# Si ${\bf p}\in D$ est la projection orthogonale de ${\bf y}$ sur la droite, on peut écrire  : ${\bf y}={\bf p}+{\bf u}$, avec ${\bf p}=\lambda {\bf v}$ et ${\bf u^T}{\bf v}=0$. 
+# Si ${\bf p}\in D$ est la projection orthogonale de ${\bf y}$ sur la droite, on peut écrire  : ${\bf y}={\bf p}+{\bf u}$, avec ${\bf p}=\lambda {\bf v}$ et ${\bf u^\top}{\bf v}=0$. 
 # 
 # ```{margin} 
 # ![](./images/projdroite.png)
@@ -92,15 +92,15 @@
 # On remarque que la dernière relation signifie que ${\bf u}\in D^\bot$ et donc que ${\bf u}$ est la projection orthogonale de ${\bf y}$ sur $D^\bot$.
 # Alors :
 # 
-# ${\bf v^T}  {\bf y}=\lambda {\bf v^T}  {\bf v} \Rightarrow \lambda=\frac{1}{{\bf v^T}{\bf v} }. {\bf v^T}  {\bf y}$
+# ${\bf v^\top}  {\bf y}=\lambda {\bf v^\top}  {\bf v} \Rightarrow \lambda=\frac{1}{{\bf v^\top}{\bf v} }. {\bf v^\top}  {\bf y}$
 # soit
 # 
-# ${\bf p}=\frac{ {\bf v^T}  {\bf y}}{ {\bf v^T}  {\bf v}}.{\bf v}$
+# ${\bf p}=\frac{ {\bf v^\top}  {\bf y}}{ {\bf v^\top}  {\bf v}}.{\bf v}$
 # 
 # Ainsi, cette expression qui exprime le fait que ${\bf p}$ a la même direction que ${\bf v}$ peut s'écrire différemment pour représenter la transformation qui transforme ${\bf y}$ en ${\bf p}$.
 # 
-# On vérifie que $({\bf v^T}  {\bf y}){\bf v} = ({\bf v} {\bf v^T}){\bf y}$ où l'on observe que $ {\bf v^T}  {\bf y}\in \mathbb R$ alors que ${\bf v} {\bf v^T}\in\mathcal{M}_n(\mathbb R)$  de rang 1 (toutes les colonnes sont des multiples de ${\bf v}$) qui { projette} l'espace $\mathbb R^n$ sur la droite $D$. La projection orthogonale sur une droite qui passe par l'origine est donc une transformation linéaire, de matrice :
-# ${\bf P}=\frac{1}{\|{\bf v}\|^2}{\bf v}{\bf v^T} $
+# On vérifie que $({\bf v^\top}  {\bf y}){\bf v} = ({\bf v} {\bf v^\top}){\bf y}$ où l'on observe que $ {\bf v^\top}  {\bf y}\in \mathbb R$ alors que ${\bf v} {\bf v^\top}\in\mathcal{M}_n(\mathbb R)$  de rang 1 (toutes les colonnes sont des multiples de ${\bf v}$) qui { projette} l'espace $\mathbb R^n$ sur la droite $D$. La projection orthogonale sur une droite qui passe par l'origine est donc une transformation linéaire, de matrice :
+# ${\bf P}=\frac{1}{\|{\bf v}\|^2}{\bf v}{\bf v^\top} $
 # 
 # ```{index} Matrice;projection
 # ```
@@ -109,9 +109,9 @@
 # ```{prf:remark}
 # :class: dropdown
 # 1. Comme ${\bf p}={\bf Py}$, la projection orthogonale sur le sous-espace orthogonal $D^\bot$ est ${\bf u}={\bf y}-{\bf p}=(\mathbb I-{\bf P}){\bf y}$, donc $\mathbb I-{\bf P}$ est la matrice de projection orthogonale sur $D^\bot$.
-# 2. Soit $\theta$ l'angle entre les directions des vecteurs ${\bf v}$ et ${\bf y}$. On a alors : $cos(\theta)=\frac{{\bf v^T}{\bf  y}}{\|{\bf v}\|\|{\bf y}\|}$ et on en déduit l'inégalité de Schwarz : 
+# 2. Soit $\theta$ l'angle entre les directions des vecteurs ${\bf v}$ et ${\bf y}$. On a alors : $cos(\theta)=\frac{{\bf v^\top}{\bf  y}}{\|{\bf v}\|\|{\bf y}\|}$ et on en déduit l'inégalité de Schwarz : 
 # 
-#   $(\forall {\bf x},{\bf y}\in \mathbb R^n)\quad  |{\bf x^T}  {\bf y}|\leq \|{\bf x}\|\|{\bf y}\|$
+#   $(\forall {\bf x},{\bf y}\in \mathbb R^n)\quad  |{\bf x^\top}  {\bf y}|\leq \|{\bf x}\|\|{\bf y}\|$
 # ```
 # 
 # ````{prf:example}
@@ -128,7 +128,7 @@
 # 
 # Soit ${\bf y}\in \mathbb R^n$ et ${\bf p}$ sa projection orthogonale sur la droite $D$. Alors :
 # 
-# ${\bf y}={\bf p}+{\bf u}$ avec ${\bf p}={\bf z_0}+\lambda {\bf v}$ et ${\bf u^T}  {\bf v}=0$, d'où ${\bf p}={\bf z_0}+{\bf P}({\bf y}-{\bf z_0})=(\mathbb I-{\bf P}){\bf z_0}+{\bf P}{\bf y}$,
+# ${\bf y}={\bf p}+{\bf u}$ avec ${\bf p}={\bf z_0}+\lambda {\bf v}$ et ${\bf u^\top}  {\bf v}=0$, d'où ${\bf p}={\bf z_0}+{\bf P}({\bf y}-{\bf z_0})=(\mathbb I-{\bf P}){\bf z_0}+{\bf P}{\bf y}$,
 # 
 #  où ${\bf P}$ est la matrice de projection sur le sous-espace engendré par ${\bf v}$ obtenu dans le paragraphe précédent.
 #  
@@ -140,12 +140,13 @@
 # ![](./images/projespace.png)
 # ```
 # 
-# Alors ${\bf y}={\bf p}+{\bf u}$ avec ${\bf p}={\bf Ax},{\bf x}\in \mathbb R^r$ et ${\bf A^T}{\bf u}=0$ car ${\bf u}\in (Im({\bf A}))^\perp = Ker({\bf A^T})$.\\
-# On obtient alors : ${\bf A^T} {\bf y}={\bf A^T}{\bf Ax}$, et comme ${\bf A}$ est de rang plein, la matrice ($r\times r$) ${\bf A^T A}\in\mathcal{M}_{r}(\mathbb R)$ est inversible et :
+# Alors ${\bf y}={\bf p}+{\bf u}$ avec ${\bf p}={\bf Ax},{\bf x}\in \mathbb R^r$ et ${\bf A^\top}{\bf u}=0$ car ${\bf u}\in (Im({\bf A}))^\perp = Ker({\bf A^\top})$.
 # 
-# ${\bf p}={\bf Py}$ avec ${\bf P}={\bf A(A^T A)^{-1}A^T }$.
+# On obtient alors : ${\bf A^\top} {\bf y}={\bf A^\top}{\bf Ax}$, et comme ${\bf A}$ est de rang plein, la matrice ($r\times r$) ${\bf A^\top A}\in\mathcal{M}_{r}(\mathbb R)$ est inversible et :
 # 
-# De plus, on retrouve la matrice de projection orthogonale $\mathbb I -{\bf P}$ sur le noyau de ${\bf A^T }$.
+# ${\bf p}={\bf Py}$ avec ${\bf P}={\bf A(A^\top A)^{-1}A^\top }$.
+# 
+# De plus, on retrouve la matrice de projection orthogonale $\mathbb I -{\bf P}$ sur le noyau de ${\bf A^\top }$.
 # 
 # ```{prf:remark}
 # :class: dropdown
@@ -158,7 +159,7 @@
 # Les matrices de projection sont des matrices
 # qui possèdent les deux propriétés suivantes : 
 # 
-# - ${\bf P}={\bf P^T} $ [symétrie]
+# - ${\bf P}={\bf P^\top} $ [symétrie]
 # - ${\bf P}^2={\bf P}$ [idempotence]
 # 
 # 
