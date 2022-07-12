@@ -44,10 +44,7 @@ b=\left[\begin{array}{c}1 \\ 1\\ 0\\ 1 \end{array}
 1. Mettre $A_1$ sous la forme $Q_1R_1$ où $Q_1$ est une matrice $4\times 2$ de colonnes
 orthonormées $q_1$ et $q_2$, et $R_1$ une matrice $2\times 2$ triangulaire supérieure.
 
-2.  Calculer la solution aux moindres carrés du système incompatible
-$$
-A_1x_1=b
-$$
+2.  Calculer la solution aux moindres carrés du système incompatible $A_1x_1=b$
 et l'erreur $e_1$ correspondante.
 
 3. On rajoute la colonne $a_3=[1\ 0\ 1\ 4]^T $ à la matrice $A_1$ pour avoir
