@@ -105,8 +105,8 @@
 # 
 # ${\bf A}={\bf QR}=[{\bf Q_1}\ {\bf Q_2}]\cdot\left [\begin{array}{c}{\bf R_1} \\{\bf 0} \\\end{array}\right]={\bf Q_1R_1}$.\\
 # 
-# ** Les colonnes de ${\bf Q_1}$ forment une base orthonormée de $Im({\bf A})$, et les colonnes de ${\bf Q_2}$ forment 
-# une base orthonormée de $Ker({\bf A^T})$. ** 
+# **Les colonnes de ${\bf Q_1}$ forment une base orthonormée de $Im({\bf A})$, et les colonnes de ${\bf Q_2}$ forment 
+# une base orthonormée de $Ker({\bf A^T})$.** 
 # 
 # Appliqué au problème des moindres carrés, le système aux équations normales s'écrit donc 
 # \begin{eqnarray*}
