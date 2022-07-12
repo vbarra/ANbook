@@ -113,9 +113,9 @@
 # Appliqué au problème des moindres carrés, le système aux équations normales s'écrit donc 
 # 
 # $\begin{eqnarray*}
-# {\bf A^\topAx}&=& {\bf A^\top b}\\
+# {\bf A^\top Ax}&=& {\bf A^\top b}\\
 # {\bf (Q_1R_1)^\top (Q_1R_1)x}&=& {\bf (Q_1R_1)^\top b}\\
-# {\bf R_1^\top Q_1^\topQ_1R_1x}&=& {\bf R_1^\topQ_1^\top b}\\
+# {\bf R_1^\top Q_1^\top Q_1R_1x}&=& {\bf R_1^\top Q_1^\top b}\\
 # {\bf R_1^\top R_1x}&=& {\bf R_1^\top Q_1^\top b}\\
 # {\bf R_1x}&=& {\bf Q_1^\top b}
 # \end{eqnarray*}$
