@@ -17,49 +17,19 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import numpy as np
-def GramSchmidt(A):
-    n = A.shape[1] 
-    R = np.zeros([n,n])
-    V = np.zeros(A.shape)
-    Q = np.zeros(A.shape)
-    
-    for j in range(n):     
-        p[:,j] = A[:,j]
-        for i in range(j):  
-            R[i,j] = np.dot(Q[:,i].T,A[:,j])
-            p[:,j] = p[:,j] - R[i,j]*Q[:,i]
-        
-        R[j,j] = np.linalg.norm(p[:,j],2)
-        Q[:,j] = p[:,j]/R[j,j]             
-    
-    return Q, R
-
-n = 4
-A = np.random.rand(n,n)
+A = Hilbert(10)
 Q, R = GramSchmidt(A)
-print("A=",A,"\n")
-print("Q=",Q,"\n")
-print("R=",R,"\n")
-print("Q^TQ=",Q.transpose()@Q,"\n")
+print('Norme de QR-A = ',np.max(np.abs(np.dot(Q,R)-A)),"\n")
+print("Norme de Q^T*Q-I = ",np.max(np.abs(np.dot(Q.T,Q)-np.eye(n))))
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-Input [0;32mIn [5][0m, in [0;36m<module>[0;34m[0m
-[1;32m     19[0m n [38;5;241m=[39m [38;5;241m4[39m
-[1;32m     20[0m A [38;5;241m=[39m np[38;5;241m.[39mrandom[38;5;241m.[39mrand(n,n)
-[0;32m---> 21[0m Q, R [38;5;241m=[39m [43mGramSchmidt[49m[43m([49m[43mA[49m[43m)[49m
-[1;32m     22[0m [38;5;28mprint[39m([38;5;124m"[39m[38;5;124mA=[39m[38;5;124m"[39m,A,[38;5;124m"[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m)
-[1;32m     23[0m [38;5;28mprint[39m([38;5;124m"[39m[38;5;124mQ=[39m[38;5;124m"[39m,Q,[38;5;124m"[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m)
+[0;31mValueError[0m                                Traceback (most recent call last)
+Input [0;32mIn [7][0m, in [0;36m<module>[0;34m[0m
+[1;32m      2[0m Q, R [38;5;241m=[39m GramSchmidt(A)
+[1;32m      3[0m [38;5;28mprint[39m([38;5;124m'[39m[38;5;124mNorme de QR-A = [39m[38;5;124m'[39m,np[38;5;241m.[39mmax(np[38;5;241m.[39mabs(np[38;5;241m.[39mdot(Q,R)[38;5;241m-[39mA)),[38;5;124m"[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m)
+[0;32m----> 4[0m [38;5;28mprint[39m([38;5;124m"[39m[38;5;124mNorme de Q^T*Q-I = [39m[38;5;124m"[39m,np[38;5;241m.[39mmax(np[38;5;241m.[39mabs([43mnp[49m[38;5;241;43m.[39;49m[43mdot[49m[43m([49m[43mQ[49m[38;5;241;43m.[39;49m[43mT[49m[43m,[49m[43mQ[49m[43m)[49m[38;5;241;43m-[39;49m[43mnp[49m[38;5;241;43m.[39;49m[43meye[49m[43m([49m[43mn[49m[43m)[49m)))
 
-Input [0;32mIn [5][0m, in [0;36mGramSchmidt[0;34m(A)[0m
-[1;32m      6[0m Q [38;5;241m=[39m np[38;5;241m.[39mzeros(A[38;5;241m.[39mshape)
-[1;32m      8[0m [38;5;28;01mfor[39;00m j [38;5;129;01min[39;00m [38;5;28mrange[39m(n):     
-[0;32m----> 9[0m     [43mp[49m[:,j] [38;5;241m=[39m A[:,j]
-[1;32m     10[0m     [38;5;28;01mfor[39;00m i [38;5;129;01min[39;00m [38;5;28mrange[39m(j):  
-[1;32m     11[0m         R[i,j] [38;5;241m=[39m np[38;5;241m.[39mdot(Q[:,i][38;5;241m.[39mT,A[:,j])
-
-[0;31mNameError[0m: name 'p' is not defined
-NameError: name 'p' is not defined
+[0;31mValueError[0m: operands could not be broadcast together with shapes (10,10) (4,4) 
+ValueError: operands could not be broadcast together with shapes (10,10) (4,4) 
 
