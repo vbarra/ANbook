@@ -450,6 +450,11 @@ title="Print to PDF"
    Matrices orthogonales
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#orthogonalisation-de-gram-schmidt">
+   Orthogonalisation de Gram-Schmidt}
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -472,6 +477,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#matrices-orthogonales">
    Matrices orthogonales
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#orthogonalisation-de-gram-schmidt">
+   Orthogonalisation de Gram-Schmidt}
   </a>
  </li>
 </ul>
@@ -517,17 +527,18 @@ orthonormée telle que</p>
 <p><span class="math notranslate nohighlight">\({\bf x}=\displaystyle\sum_{i=1}^n ({\bf q_i^T} {\bf x}){\bf q_i}\)</span></p>
 <p><span class="math notranslate nohighlight">\(({\bf q_i^T} {\bf x}){\bf q_i}\)</span> est la projection orthogonale de <span class="math notranslate nohighlight">\({\bf x}\)</span> sur l’axe <span class="math notranslate nohighlight">\({\bf q_i}\)</span>. Cette représentation se
 généralise aisement à une base orthonormée quelconque <span class="math notranslate nohighlight">\({\bf q_1},{\bf q_2},\ldots,{\bf q_r}\)</span> d’un sous-espace de dimension <span class="math notranslate nohighlight">\(r\)</span>.</p>
-<p>\subsection{Orthogonalisation de Gram-Schmidt}</p>
-<p>\index{orthogonalisation de Gram-Schmidt}</p>
-<p>A partir d’une famille de <span class="math notranslate nohighlight">\(p\)</span> vecteurs linéairement indépendants de \R<span class="math notranslate nohighlight">\(^n\)</span>, représentés par une matrice \mbox{<span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{n,p}(\mathbb R)\)</span>} de rang <span class="math notranslate nohighlight">\(p\)</span>, on peut construire une famille <span class="math notranslate nohighlight">\(\{{\bf q_1}\cdots {\bf q_p}\}\)</span>, base orthonormée de <span class="math notranslate nohighlight">\(Im({\bf A})\)</span>. C’est un outil fondamental pour la résolution de systèmes surdéterminés.\
-L’idée générale est donc de construire une base orthonormée du sous-espace image d’un ensemble de vecteurs. L’intérêt numérique est que cette construction équivaut à triangulariser la matrice formée par ces vecteurs. L’algorithme \ref{A:GS} et la figure \ref{F:GS} présentent le procédé d’orthonormalisation de Gram-Schmidt qui, s’il est simple à comprendre, ne présente qu’un intérêt académique puisqu’il est très coûteux. En pratique, on utilise la méthode de factorisation { QR} qui permet d’atteindre le même objectif grâce à des transformations orthogonales élémentaires ({rotations de Givens} ou transformations de { Householder}) numériquement stables et seulement deux fois plus chères que la méthode de Gauss.\</p>
+</div>
+<div class="section" id="orthogonalisation-de-gram-schmidt">
+<h2>Orthogonalisation de Gram-Schmidt}<a class="headerlink" href="#orthogonalisation-de-gram-schmidt" title="Lien permanent vers ce titre">#</a></h2>
+<span class="target" id="index-4"></span><p id="index-5">A partir d’une famille de <span class="math notranslate nohighlight">\(p\)</span> vecteurs linéairement indépendants de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>, représentés par une matrice \mbox{<span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{n,p}(\mathbb R)\)</span>} de rang <span class="math notranslate nohighlight">\(p\)</span>, on peut construire une famille <span class="math notranslate nohighlight">\(\{{\bf q_1}\cdots {\bf q_p}\}\)</span>, base orthonormée de <span class="math notranslate nohighlight">\(Im({\bf A})\)</span>. C’est un outil fondamental pour la résolution de systèmes surdéterminés.</p>
+<p>L’idée générale est donc de construire une base orthonormée du sous-espace image d’un ensemble de vecteurs. L’intérêt numérique est que cette construction équivaut à triangulariser la matrice formée par ces vecteurs. L’algorithme <a class="reference internal" href="#GS">Algorithm 5</a> et la figure suivante présentent le procédé d’orthonormalisation de Gram-Schmidt qui, s’il est simple à comprendre, ne présente qu’un intérêt académique puisqu’il est très coûteux. En pratique, on utilise la méthode de factorisation QR qui permet d’atteindre le même objectif grâce à des transformations orthogonales élémentaires (rotations de Givens ou transformations de  Householder) numériquement stables et seulement deux fois plus chères que la méthode de Gauss.</p>
 <p>Le principe de Gram-Schmidt est de calculer, pour <span class="math notranslate nohighlight">\(j\in[\![2,p]\!]\)</span>,  chaque vecteur <span class="math notranslate nohighlight">\({\bf q_j}\)</span> en soustrayant à  <span class="math notranslate nohighlight">\({\bf  A_{\bullet,j}}\)</span> ses projections orthogonales sur les <span class="math notranslate nohighlight">\(j-1\)</span>
 premiers vecteurs de la base orthonormée déjà calculés, puis en normant le résultat.</p>
-<div class="proof algorithm admonition" id="algorithm-2">
+<div class="proof algorithm admonition" id="GS">
 <p class="admonition-title"><span class="caption-number">Algorithm 5 </span> (Procédé d’orthonormalisation de Gram-Schmidt - version de base)</p>
 <div class="algorithm-content section" id="proof-content">
-<p>**Entrée : **  <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{n,p}(\mathbb R)\)</span> de rang <span class="math notranslate nohighlight">\(p\)</span>
-**Sortie : ** <span class="math notranslate nohighlight">\({\bf Q_1}\in\mathcal{M}_{n,p}(\mathbb R)\)</span> à colonnes orthonormées, <span class="math notranslate nohighlight">\({\bf R_1}\in\mathcal{M}_{p}(\mathbb R)\)</span> triangulaire supérieure</p>
+<p>**Entrée : **  <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{n,p}(\mathbb R)\)</span> de rang <span class="math notranslate nohighlight">\(p\)</span></p>
+<p>**Sortie : ** <span class="math notranslate nohighlight">\({\bf Q_1}\in\mathcal{M}_{n,p}(\mathbb R)\)</span> à colonnes orthonormées, <span class="math notranslate nohighlight">\({\bf R_1}\in\mathcal{M}_{p}(\mathbb R)\)</span> triangulaire supérieure</p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(r_{11} = \\{\bf A_{\bullet,1}}\|\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\({\bf q_{{1}}} = \frac{{\bf A_{\bullet,1}}}{r_{11}}\)</span></p></li>
@@ -547,21 +558,22 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </ol>
 </div>
 </div><p><img alt="" src="_images/gs.png" /></p>
-<p>Illustration du procédé d’orthonormalisation de Gram-Schmidt dans <span class="math notranslate nohighlight">\(\mathbb R^2\)</span></p>
-<p>On remarque (voir boucles de l’algorithme) que la matrice <span class="math notranslate nohighlight">\({\bf R_1}\)</span> est triangulaire supérieure. \
-Gram-Schmidt construit donc une matrice <span class="math notranslate nohighlight">\({\bf Q_1}\in\mathcal{M}_{n,p}(\mathbb R)\)</span> à colonnes orthormées et une matrice <span class="math notranslate nohighlight">\({\bf R_1}\in\mathcal{M}_{p}(\mathbb R)\)</span> telles que <span class="math notranslate nohighlight">\({\bf Q_1^T}{\bf A} = {\bf R_1}\)</span> soit <span class="math notranslate nohighlight">\({\bf A}\)</span>=<span class="math notranslate nohighlight">\({\bf Q_1R_1}\)</span>.</p>
-<p>\exemple{
-Soit <span class="math notranslate nohighlight">\({\bf A} = \begin{pmatrix} 1&amp;1\\1&amp;0\\1&amp;1\end{pmatrix}\)</span>. Alors <span class="math notranslate nohighlight">\({\bf A} ={\bf QR}\)</span> avec <span class="math notranslate nohighlight">\({\bf Q} = \begin{pmatrix} \textcolor{blue}{\frac{1}{\sqrt{3}}}&amp;\textcolor{magenta}{\frac{1}{\sqrt{6}}}\\\textcolor{blue}{\frac{1}{\sqrt{3}}}&amp;\textcolor{magenta}{-\frac{\sqrt 2}{\sqrt 3}}\\\textcolor{blue}{\frac{1}{\sqrt{3}}}&amp;\textcolor{magenta}{\frac{1}{\sqrt{6}}}\end{pmatrix}\)</span> et <span class="math notranslate nohighlight">\({\bf R} = \begin{pmatrix} \textcolor{red}{\sqrt{3}}&amp;\textcolor{orange}{\frac{2}{\sqrt{3}}}\\0&amp;\textcolor{cyan}{\sqrt{\frac{2}{3}}}\end{pmatrix}\)</span>. En effet :
-\begin{enumerate}
-\item \textcolor{red}{<span class="math notranslate nohighlight">\(r_{11}\)</span>} = <span class="math notranslate nohighlight">\(\norme{{\bf A_{\bullet,1}}}\)</span> = \textcolor{red}{<span class="math notranslate nohighlight">\(\sqrt{3}\)</span>}
-\item \textcolor{blue}{<span class="math notranslate nohighlight">\({\bf q_{1}} \)</span>}= <span class="math notranslate nohighlight">\(\frac{1}{\sqrt{3}}{\bf A_{\bullet,1}}\)</span>= \textcolor{blue}{<span class="math notranslate nohighlight">\(\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}\)</span>}
-\item \textcolor{orange}{<span class="math notranslate nohighlight">\(r_{12}\)</span>}=<span class="math notranslate nohighlight">\({\bf A_{\bullet,2}^Tq_1}=\begin{pmatrix}1&amp;0&amp;1\end{pmatrix}.\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}\)</span> =  \textcolor{orange}{<span class="math notranslate nohighlight">\(\frac{2}{\sqrt{3}}\)</span>}
-\item <span class="math notranslate nohighlight">\({\bf p_2}={\bf A_{\bullet,2}}- r_{12}{\bf q_{{1}}}=\begin{pmatrix}1\\0\\1\end{pmatrix}-\frac{2}{\sqrt{3}}.\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}=\begin{pmatrix}\frac{1}{3}\\-\frac{2}{3}\\\frac{1}{3}\end{pmatrix}\)</span>
-\item \textcolor{cyan}{<span class="math notranslate nohighlight">\(r_{22}\)</span>} = <span class="math notranslate nohighlight">\(\norme{{\bf p_2}} \)</span>= \textcolor{cyan}{<span class="math notranslate nohighlight">\(\sqrt{\frac{2}{3}}\)</span>}
-\item \textcolor{magenta}{<span class="math notranslate nohighlight">\({\bf q_{2}} \)</span>} = <span class="math notranslate nohighlight">\(\frac{{\bf p_2}}{r_{22}}\)</span> = \textcolor{magenta}{<span class="math notranslate nohighlight">\(\begin{pmatrix}\frac{1}{\sqrt{6}}\\-\frac{\sqrt 2}{\sqrt 3}\\\frac{1}{\sqrt{6}}\end{pmatrix} \)</span>}
-\end{enumerate}
-}</p>
-<p>Il est possible de compléter <span class="math notranslate nohighlight">\({\bf q_1}\cdots {\bf q_p}\)</span> en une base orthonormée de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>, en continuant la procédure de Gram-Schmidt avec <span class="math notranslate nohighlight">\(n-p\)</span> vecteurs arbitraires, mais tels que les <span class="math notranslate nohighlight">\(n\)</span> colonnes formées avec les <span class="math notranslate nohighlight">\({\bf A_{\bullet,j}}\)</span> soient linéairement indépendantes. Soit <span class="math notranslate nohighlight">\({\bf Q_2}\)</span> la matrice des <span class="math notranslate nohighlight">\(n-p\)</span> derniers vecteurs orthonormés. On a alors bien :\
+<p>On remarque (voir boucles de l’algorithme) que la matrice <span class="math notranslate nohighlight">\({\bf R_1}\)</span> est triangulaire supérieure.</p>
+<p>Gram-Schmidt construit donc une matrice <span class="math notranslate nohighlight">\({\bf Q_1}\in\mathcal{M}_{n,p}(\mathbb R)\)</span> à colonnes orthormées et une matrice <span class="math notranslate nohighlight">\({\bf R_1}\in\mathcal{M}_{p}(\mathbb R)\)</span> telles que <span class="math notranslate nohighlight">\({\bf Q_1^T}{\bf A} = {\bf R_1}\)</span> soit <span class="math notranslate nohighlight">\({\bf A}\)</span>=<span class="math notranslate nohighlight">\({\bf Q_1R_1}\)</span>.</p>
+<div class="proof example admonition" id="example-3">
+<p class="admonition-title"><span class="caption-number">Example 13 </span></p>
+<div class="example-content section" id="proof-content">
+<p>Soit <span class="math notranslate nohighlight">\({\bf A} = \begin{pmatrix} 1&amp;1\\1&amp;0\\1&amp;1\end{pmatrix}\)</span>. Alors <span class="math notranslate nohighlight">\({\bf A} ={\bf QR}\)</span> avec <span class="math notranslate nohighlight">\({\bf Q} = \begin{pmatrix} \textcolor{blue}{\frac{1}{\sqrt{3}}}&amp;\textcolor{magenta}{\frac{1}{\sqrt{6}}}\\\textcolor{blue}{\frac{1}{\sqrt{3}}}&amp;\textcolor{magenta}{-\frac{\sqrt 2}{\sqrt 3}}\\\textcolor{blue}{\frac{1}{\sqrt{3}}}&amp;\textcolor{magenta}{\frac{1}{\sqrt{6}}}\end{pmatrix}\)</span> et <span class="math notranslate nohighlight">\({\bf R} = \begin{pmatrix} \textcolor{red}{\sqrt{3}}&amp;\textcolor{orange}{\frac{2}{\sqrt{3}}}\\0&amp;\textcolor{cyan}{\sqrt{\frac{2}{3}}}\end{pmatrix}\)</span>. En effet :</p>
+<ol class="simple">
+<li><p>\textcolor{red}{<span class="math notranslate nohighlight">\(r_{11}\)</span>} = <span class="math notranslate nohighlight">\(\norme{{\bf A_{\bullet,1}}}\)</span> = \textcolor{red}{<span class="math notranslate nohighlight">\(\sqrt{3}\)</span>}
+\item \textcolor{blue}{<span class="math notranslate nohighlight">\({\bf q_{1}} \)</span>}= <span class="math notranslate nohighlight">\(\frac{1}{\sqrt{3}}{\bf A_{\bullet,1}}\)</span>= \textcolor{blue}{<span class="math notranslate nohighlight">\(\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}\)</span>}</p></li>
+<li><p>\textcolor{orange}{<span class="math notranslate nohighlight">\(r_{12}\)</span>}=<span class="math notranslate nohighlight">\({\bf A_{\bullet,2}^Tq_1}=\begin{pmatrix}1&amp;0&amp;1\end{pmatrix}.\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}\)</span> =  \textcolor{orange}{<span class="math notranslate nohighlight">\(\frac{2}{\sqrt{3}}\)</span>}</p></li>
+<li><p><span class="math notranslate nohighlight">\({\bf p_2}={\bf A_{\bullet,2}}- r_{12}{\bf q_{{1}}}=\begin{pmatrix}1\\0\\1\end{pmatrix}-\frac{2}{\sqrt{3}}.\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}=\begin{pmatrix}\frac{1}{3}\\-\frac{2}{3}\\\frac{1}{3}\end{pmatrix}\)</span></p></li>
+<li><p>\textcolor{cyan}{<span class="math notranslate nohighlight">\(r_{22}\)</span>} = <span class="math notranslate nohighlight">\(\norme{{\bf p_2}} \)</span>= \textcolor{cyan}{<span class="math notranslate nohighlight">\(\sqrt{\frac{2}{3}}\)</span>}</p></li>
+<li><p>\textcolor{magenta}{<span class="math notranslate nohighlight">\({\bf q_{2}} \)</span>} = <span class="math notranslate nohighlight">\(\frac{{\bf p_2}}{r_{22}}\)</span> = \textcolor{magenta}{<span class="math notranslate nohighlight">\(\begin{pmatrix}\frac{1}{\sqrt{6}}\\-\frac{\sqrt 2}{\sqrt 3}\\\frac{1}{\sqrt{6}}\end{pmatrix} \)</span>}</p></li>
+</ol>
+</div>
+</div><p>Il est possible de compléter <span class="math notranslate nohighlight">\({\bf q_1}\cdots {\bf q_p}\)</span> en une base orthonormée de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>, en continuant la procédure de Gram-Schmidt avec <span class="math notranslate nohighlight">\(n-p\)</span> vecteurs arbitraires, mais tels que les <span class="math notranslate nohighlight">\(n\)</span> colonnes formées avec les <span class="math notranslate nohighlight">\({\bf A_{\bullet,j}}\)</span> soient linéairement indépendantes. Soit <span class="math notranslate nohighlight">\({\bf Q_2}\)</span> la matrice des <span class="math notranslate nohighlight">\(n-p\)</span> derniers vecteurs orthonormés. On a alors bien :\
 <span class="math notranslate nohighlight">\({\bf A^T} {\bf Q_2}={\bf R_1^T} {\bf Q_1^T} {\bf Q_2}=0\)</span> ce qui montre que :
 <span class="math notranslate nohighlight">\({\bf A}={\bf QR}=[{\bf Q_1}\ {\bf Q_2}]\cdot\left [\begin{array}{c}{\bf R_1} \\{\bf 0} \\\end{array}\right]={\bf Q_1R_1}\)</span>.\
 \vskip 20pt
