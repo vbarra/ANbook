@@ -92,10 +92,10 @@
 # 
 # 1. $\textcolor{red}{r_{11}} = \|{\bf A_{\bullet,1}}\| = \textcolor{red}{\sqrt{3}}$
 # 2. $\textcolor{blue}{{\bf q_{1}}}= \frac{1}{\sqrt{3}}{\bf A_{\bullet,1}}= \textcolor{blue}{\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}}$
-# 3. \textcolor{orange}{$r_{12}$}=${\bf A_{\bullet,2}^Tq_1}=\begin{pmatrix}1&0&1\end{pmatrix}.\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}$ =  \textcolor{orange}{$\frac{2}{\sqrt{3}}$}
+# 3. $\textcolor{orange}{r_{12}}={\bf A_{\bullet,2}^Tq_1}=\begin{pmatrix}1&0&1\end{pmatrix}.\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix} =  \textcolor{orange}{\frac{2}{\sqrt{3}}}$
 # 4. ${\bf p_2}={\bf A_{\bullet,2}}- r_{12}{\bf q_{{1}}}=\begin{pmatrix}1\\0\\1\end{pmatrix}-\frac{2}{\sqrt{3}}.\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}=\begin{pmatrix}\frac{1}{3}\\-\frac{2}{3}\\\frac{1}{3}\end{pmatrix}$
-# 5. \textcolor{cyan}{$r_{22}$} = $\norme{{\bf p_2}} $= \textcolor{cyan}{$\sqrt{\frac{2}{3}}$}
-# 6. \textcolor{magenta}{${\bf q_{2}} $} = $\frac{{\bf p_2}}{r_{22}}$ = \textcolor{magenta}{$\begin{pmatrix}\frac{1}{\sqrt{6}}\\-\frac{\sqrt 2}{\sqrt 3}\\\frac{1}{\sqrt{6}}\end{pmatrix} $} 
+# 5. $\textcolor{cyan}{r_{22}} = \|{\bf p_2}\|= \textcolor{cyan}{\sqrt{\frac{2}{3}}}$
+# 6. $\textcolor{magenta}{{\bf q_{2}}} = \frac{{\bf p_2}}{r_{22}} = \textcolor{magenta}{\begin{pmatrix}\frac{1}{\sqrt{6}}\\-\frac{\sqrt 2}{\sqrt 3}\\\frac{1}{\sqrt{6}}\end{pmatrix}}$ 
 # ````
 # 
 # 
