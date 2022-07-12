@@ -100,7 +100,7 @@ Alors ${\bf A} ={\bf QR}$ avec ${\bf Q} = \begin{pmatrix} \textcolor{blue}{\frac
 
 1. $\textcolor{red}{r_{11}} = \|{\bf A_{\bullet,1}}\| = \textcolor{red}{\sqrt{3}}$
 2. $\textcolor{blue}{{\bf q_{1}}}= \frac{1}{\sqrt{3}}{\bf A_{\bullet,1}}= \textcolor{blue}{\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}}$
-3. $\textcolor{orange}{r_{12}}={\bf A_{\bullet,2}^\topq_1}=\begin{pmatrix}1&0&1\end{pmatrix}.\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix} =  \textcolor{orange}{\frac{2}{\sqrt{3}}}$
+3. $\textcolor{orange}{r_{12}}={\bf A_{\bullet,2}^\top q_1}=\begin{pmatrix}1&0&1\end{pmatrix}.\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix} =  \textcolor{orange}{\frac{2}{\sqrt{3}}}$
 4. ${\bf p_2}={\bf A_{\bullet,2}}- r_{12}{\bf q_{{1}}}=\begin{pmatrix}1\\0\\1\end{pmatrix}-\frac{2}{\sqrt{3}}.\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}=\begin{pmatrix}\frac{1}{3}\\-\frac{2}{3}\\\frac{1}{3}\end{pmatrix}$
 5. $\textcolor{cyan}{r_{22}} = \|{\bf p_2}\|= \textcolor{cyan}{\sqrt{\frac{2}{3}}}$
 6. $\textcolor{magenta}{{\bf q_{2}}} = \frac{{\bf p_2}}{r_{22}} = \textcolor{magenta}{\begin{pmatrix}\frac{1}{\sqrt{6}}\\-\frac{\sqrt 2}{\sqrt 3}\\\frac{1}{\sqrt{6}}\end{pmatrix}}$ 
@@ -121,17 +121,17 @@ une base orthonormée de $Ker({\bf A^\top})$.
 Appliqué au problème des moindres carrés, le système aux équations normales s'écrit donc 
 
 $\begin{eqnarray*}
-{\bf A^\topAx}&=& {\bf A^\topb}\\
-{\bf (Q_1R_1)^\top(Q_1R_1)x}&=& {\bf (Q_1R_1)^\topb}\\
-{\bf R_1^\topQ_1^\topQ_1R_1x}&=& {\bf R_1^\topQ_1^\topb}\\
-{\bf R_1^\topR_1x}&=& {\bf R_1^\topQ_1^\topb}\\
-{\bf R_1x}&=& {\bf Q_1^\topb}
+{\bf A^\topAx}&=& {\bf A^\top b}\\
+{\bf (Q_1R_1)^\top (Q_1R_1)x}&=& {\bf (Q_1R_1)^\top b}\\
+{\bf R_1^\top Q_1^\topQ_1R_1x}&=& {\bf R_1^\topQ_1^\top b}\\
+{\bf R_1^\top R_1x}&=& {\bf R_1^\top Q_1^\top b}\\
+{\bf R_1x}&=& {\bf Q_1^\top b}
 \end{eqnarray*}$
 
 La dernière simplification étant possible car ${\bf R_1}$ est inversible (trangulaire supérieure, les éléments de la diagonale étant des normes, donc strictement positifs). La solution du 
 problème des moindres carrés est solution du système triangulaire 
 
-${\bf R_1x}= {\bf Q_1^\topb}$
+${\bf R_1x}= {\bf Q_1^\top b}$
 et le calcul de l'erreur donne
 
 $\|{\bf e}\|^2=\|{\bf b}\|^2-\displaystyle\sum_{i=1}^p  ({\bf b^\top} {\bf q_i})^2$
