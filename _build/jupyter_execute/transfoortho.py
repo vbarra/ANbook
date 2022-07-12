@@ -138,13 +138,15 @@
 # ![](./images/householder.png)
 # ```
 # ````{prf:definition} Matrice de Householder
-# Une matrice de Householder\index{matrice!de Householder}
+# Une matrice de Householder
 # est une matrice carrée ${\bf H}$ qui s'écrit ${\bf H}=\mathbb I-2{\bf P}$, où ${\bf P}$ est
 # la matrice de projection
 # sur la droite engendrée par un vecteur ${\bf v}$ non nul.
 # ````
 # ```{index} matrice;de projection
-# ``
+# ```
+# ```{index} matrice;de Householder
+# ```
 # On vérifie  que ${\bf H}$ représente une symétrie
 # par rapport au sous-espace ${\bf v^\perp}$.
 # ```{index} symétrie
