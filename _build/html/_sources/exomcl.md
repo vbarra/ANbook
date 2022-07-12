@@ -53,7 +53,7 @@ et l'erreur $e_1$ correspondante.
 3. On rajoute la colonne $a_3=[1\ 0\ 1\ 4]^T $ à la matrice $A_1$ pour avoir
 $A_2=[A_1\ a_3]$. Mettre $A_2$ sous la forme $Q_2R_2$ et calculer la solution aux moindres
 carrés du système $A_2x_2=b$ . 
-Calculer l'erreur $e_2$ correspondante et montrer que $e_2=e_1^2-(q_3^T b)^2$,
+Calculer l'erreur $e_2$ correspondante et montrer que $e_2=e_1^2-(q_3^\top b)^2$,
 où $q_3$ est la troisième colonne de $Q_2$. Justifier cette diminution dans le cas général.
 
 ## Exercice 6

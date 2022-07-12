@@ -21,7 +21,7 @@ Soit $P=\frac{1}{\parallel v\parallel^2}vv^\top$ la matrice de
 projection sur la droite de direction $v$.
 
 Interpréter géométriquement la matrice $Q=I-2P$. Montrer que $Q^2=I$ et
-$Q^T =Q$ (\textit{i.e.} $Q$ est orthogonale). Soit $y=(y_1, y_2)\in\mathbb R^2$.
+$Q^T =Q$ (\textit{i.e.} $Q$ est orthogonale). Soit $y=(y_1, y_2)^\top \in\mathbb R^2$.
 Déterminer $v$ pour que la seconde coordonnée de $z=Qy$ soit nulle.
 
 
@@ -64,11 +64,11 @@ points de mesure $x_i$, $i=0,\ldots,m$, sont {\it distincts}.
 Pour la suite on pose
 ${\bf x}=(x_0,\ldots,x_m)$ et ${\bf y}=(y_0,\ldots,y_m)$.
 
-Pour ${\bf a}=(a_0,a_1,\ldots,a_n)\in \mbb R^{n+1}$, on définit
+Pour ${\bf a}=(a_0,a_1,\ldots,a_n)\in \mathbb R^{n+1}$, on définit
 $J({\bf a})=\sum_{i=0}^m\Bigl[y_i-p(x_i)\Bigr]^2.$
 
 1. Caractériser la solution ${\bf a}^\ast$ qui minimise $J({\bf a})$
-sur $\mbb R^{n+1}$. Quelle est l'interprétation du polynôme $p(x)$
+sur $\mathbb R^{n+1}$. Quelle est l'interprétation du polynôme $p(x)$
 quand $m=n$. Quelle est alors la valeur de $J({\bf a}^\ast)$.
 
 2. Montrer qu'il existe une matrice $U$, rectangulaire à $(m+1)$ lignes
@@ -83,10 +83,7 @@ $\begin{eqnarray*}
          \left(x_i-\bar{{\bf x}}\right)\left(y_i-\bar{{\bf y}}\right).
 \end{eqnarray*}$
 Montrer que
-$$
-a_1=\frac{\sigma({\bf x},{\bf y})}{\sigma({\bf x}^2)},\qquad
-a_0=\bar{{\bf y}}-a_1\bar{{\bf x}} 
-$$
+$a_1=\frac{\sigma({\bf x},{\bf y})}{\sigma({\bf x}^2)},\qquad a_0=\bar{{\bf y}}-a_1\bar{{\bf x}}$
 et en déduire que le <<point moyen>> $(\bar{{\bf x}},\bar{{\bf y}})$ 
 appartient à la droite $y=a_0+a_1x$.
 
@@ -102,7 +99,7 @@ $$
 
 
 1. Montrer que le système $Ax = b$ est incompatible.
-2. Donner une CNS pour que $x \in \mbb R^3$
+2. Donner une CNS pour que $x \in \mathbb R^3$
 réalise le minimum de $E(x) = \| Ax - b \|_2^2$.
 3. En déduire que la solution des moindres carrés n'est pas unique.  
 4. Construire une base orthonormée de $ImA$ par le procédé
@@ -112,7 +109,7 @@ orthonormés, et d'une matrice $R$ triangulaire supérieure de format
 $2\times 3$, telles que $A = QR$.
 5. Montrer que $RR^T $ est une matrice inversible. En déduire
 une expression explicite pour l'ensemble des solutions des moindres
-carrés de la forme $x = x_0 + \alpha u$, où $\alpha \in \mbb R$, et
+carrés de la forme $x = x_0 + \alpha u$, où $\alpha \in \mathbb R$, et
 tel que $x_0$ et $u$ soient des vecteurs orthogonaux.
 % \item Exprimer la solution des moindres carrés de norme minimale en fonction
 % de $Q$, $R$ et $b$. On ne demande pas de la calculer mais de raisonner avec les projecteurs.
