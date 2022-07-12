@@ -48,9 +48,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
-    <link rel="next" title="Index" href="genindex.html" />
+    <link rel="next" title="&lt;no title&gt;" href="exomcl.html" />
     <link rel="prev" title="Moindres carrés linéaires" href="mcl.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="fr">
@@ -421,12 +423,36 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matrices-orthogonales">
+   Matrices orthogonales
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -438,6 +464,19 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matrices-orthogonales">
+   Matrices orthogonales
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -447,6 +486,259 @@ title="Print to PDF"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="transformations-orthogonales">
 <h1>Transformations orthogonales<a class="headerlink" href="#transformations-orthogonales" title="Lien permanent vers ce titre">#</a></h1>
+<div class="section" id="matrices-orthogonales">
+<h2>Matrices orthogonales<a class="headerlink" href="#matrices-orthogonales" title="Lien permanent vers ce titre">#</a></h2>
+<div class="proof definition admonition" id="definition-0">
+<p class="admonition-title"><span class="caption-number">Definition 28 </span> (Matrice orthogonale)</p>
+<div class="definition-content section" id="proof-content">
+<p>Une matrice carrée <span class="math notranslate nohighlight">\({\bf H}\)</span> est dite {orthogonale}
+si et seulement si <span class="math notranslate nohighlight">\({\bf H^T}{\bf H}={\bf H}{\bf H^T} = \mbb I\)</span></p>
+</div>
+</div><span class="target" id="index-0"></span><p id="index-1">Une matrice orthogonale est donc une matrice carrée dont les colonnes sont orthonormées. Les matrices de rotation, de symétrie, de permutation et l’identité sont des exemples de matrices orthogonales.</p>
+<p>Une matrice orthogonale <span class="math notranslate nohighlight">\({\bf H}\)</span> est naturellement inversible par définition, et l’inverse est <span class="math notranslate nohighlight">\({\bf H^{-1}}={\bf H^T} \)</span>.</p>
+<div class="proof property admonition" id="property-1">
+<p class="admonition-title"><span class="caption-number">Property 11 </span> (Propriété fondamentale})</p>
+<div class="property-content section" id="proof-content">
+<p>Les transformations orthogonales
+sont des isométries, les normes (euclidiennes), les produits scalaires et les angles sont conservés :</p>
+<p><span class="math notranslate nohighlight">\(({\bf H} \textrm{ orthogonale}) \Leftrightarrow (\forall {\bf x}\in \mbb R^n)\norme{{\bf Hx}}=\norme{{\bf x}}\)</span></p>
+</div>
+</div><span class="target" id="index-2"></span><p id="index-3">En effet, <span class="math notranslate nohighlight">\(\norme{{\bf Hx}}^2=({\bf Hx)^T} ({\bf Hx})={\bf x^T H^T Hx}={\bf x^T x}=\norme{{\bf x}}^2\)</span>.</p>
+<p>Cette propriété entraîne une stabilité numérique des méthodes utilisant ces transformations. On les utilise principalement pour :</p>
+<ul class="simple">
+<li><p>orthonormaliser un système de générateurs,</p></li>
+<li><p>résoudre un systèmes aux équations normales,</p></li>
+<li><p>triangulariser un système mal conditionné,</p></li>
+<li><p>calculer les valeurs propres d’une matrice.</p></li>
+</ul>
+<p>Soit <span class="math notranslate nohighlight">\({\bf Q}\in\mathcal{M}_n(\mbb R)\)</span> orthogonale, de colonnes
+<span class="math notranslate nohighlight">\({\bf q_1},{\bf q_2},\ldots,{\bf q_n}\)</span>. On a alors, pour tout <span class="math notranslate nohighlight">\({\bf x}\in\mbb R^n\)</span>, une représentation unique sur la base
+orthonormée telle que</p>
+<p><span class="math notranslate nohighlight">\({\bf x}=\displaystyle\sum_{i=1}^n ({\bf q_i^T} {\bf x}){\bf q_i}\)</span></p>
+<p><span class="math notranslate nohighlight">\(({\bf q_i^T} {\bf x}){\bf q_i}\)</span> est la projection orthogonale de <span class="math notranslate nohighlight">\({\bf x}\)</span> sur l’axe <span class="math notranslate nohighlight">\({\bf q_i}\)</span>. Cette représentation se
+généralise aisement à une base orthonormée quelconque <span class="math notranslate nohighlight">\({\bf q_1},{\bf q_2},\ldots,{\bf q_r}\)</span> d’un sous-espace de dimension <span class="math notranslate nohighlight">\(r\)</span>.</p>
+<p>\subsection{Orthogonalisation de Gram-Schmidt}</p>
+<p>\index{orthogonalisation de Gram-Schmidt}</p>
+<p>A partir d’une famille de <span class="math notranslate nohighlight">\(p\)</span> vecteurs linéairement indépendants de \R<span class="math notranslate nohighlight">\(^n\)</span>, représentés par une matrice \mbox{<span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{n,p}(\mbb R)\)</span>} de rang <span class="math notranslate nohighlight">\(p\)</span>, on peut construire une famille <span class="math notranslate nohighlight">\(\{{\bf q_1}\cdots {\bf q_p}\}\)</span>, base orthonormée de <span class="math notranslate nohighlight">\(Im({\bf A})\)</span>. C’est un outil fondamental pour la résolution de systèmes surdéterminés.\
+L’idée générale est donc de construire une base orthonormée du sous-espace image d’un ensemble de vecteurs. L’intérêt numérique est que cette construction équivaut à triangulariser la matrice formée par ces vecteurs. L’algorithme \ref{A:GS} et la figure \ref{F:GS} présentent le procédé d’orthonormalisation de Gram-Schmidt qui, s’il est simple à comprendre, ne présente qu’un intérêt académique puisqu’il est très coûteux. En pratique, on utilise la méthode de factorisation { QR} qui permet d’atteindre le même objectif grâce à des transformations orthogonales élémentaires ({rotations de Givens} ou transformations de { Householder}) numériquement stables et seulement deux fois plus chères que la méthode de Gauss.\</p>
+<p>Le principe de Gram-Schmidt est de calculer, pour <span class="math notranslate nohighlight">\(j\in[\![2,p]\!]\)</span>,  chaque vecteur <span class="math notranslate nohighlight">\({\bf q_j}\)</span> en soustrayant à  <span class="math notranslate nohighlight">\({\bf  A_{\bullet,j}}\)</span> ses projections orthogonales sur les <span class="math notranslate nohighlight">\(j-1\)</span>
+premiers vecteurs de la base orthonormée déjà calculés, puis en normant le résultat.</p>
+<p>\begin{algorithm}
+\Entree{<span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{n,p}(\mbb R)\)</span> de rang <span class="math notranslate nohighlight">\(p\)</span>}
+\Sortie{<span class="math notranslate nohighlight">\({\bf Q_1}\in\mathcal{M}_{n,p}(\mbb R)\)</span> à colonnes orthonormées, <span class="math notranslate nohighlight">\({\bf R_1}\in\mathcal{M}_{p}(\mbb R)\)</span> triangulaire supérieure}
+\Deb{
+<span class="math notranslate nohighlight">\(r_{11} = \norme{{\bf A_{\bullet,1}}}\)</span>\
+<span class="math notranslate nohighlight">\({\bf q_{{1}}} = \frac{{\bf A_{\bullet,1}}}{r_{11}}\)</span>\
+\Pour {<span class="math notranslate nohighlight">\(j\)</span>=2 à <span class="math notranslate nohighlight">\(p\)</span>}{
+<span class="math notranslate nohighlight">\({\bf p_j}={\bf A_{\bullet,j}}\)</span>\
+\Pour {<span class="math notranslate nohighlight">\(i\)</span>=1 à <span class="math notranslate nohighlight">\(j-1\)</span>}{
+<span class="math notranslate nohighlight">\(r_{ij}={\bf A_{\bullet,j}^T}{\bf q_{{i}}}\)</span>\
+<span class="math notranslate nohighlight">\({\bf p_j}={\bf p_j}- r_{ij}{\bf q_{{i}}}\)</span>\
+}
+<span class="math notranslate nohighlight">\(r_{jj} = \norme{{\bf p_j}}\)</span>\
+<span class="math notranslate nohighlight">\({\bf q_{{j}}} = \frac{{\bf p_j}}{r_{jj}}\)</span>\
+}}
+\caption{Procédé d’orthonormalisation de Gram-Schmidt - version de base}
+\label{A:GS}
+\end{algorithm}</p>
+<p>\begin{figure}[hbtp!]
+\begin{tabular}{ccccc}
+\begin{tikzpicture}[scale=0.4]
+\draw<span class="xref myst">line width=1.5pt,blue,-stealth</span>–(2,1) node[anchor=south west]{<span class="math notranslate nohighlight">\( {\bf A_{\bullet,1}}\)</span>};
+\draw<span class="xref myst">line width=1.5pt,green,-stealth</span>–(1,5) node[anchor=south west]{<span class="math notranslate nohighlight">\( {\bf A_{\bullet,2}}\)</span>};
+\end{tikzpicture}
+&amp;
+\begin{tikzpicture}[scale=0.4]
+\draw<span class="xref myst">line width=1pt,blue,opacity=0.5,-stealth</span>–(2,1) node[anchor=south west]{<span class="math notranslate nohighlight">\( {\bf A_{\bullet,1}}\)</span>};
+\draw<span class="xref myst">line width=1.5pt,red,-stealth</span>–(1,0.5) node[anchor=south west]{<span class="math notranslate nohighlight">\( {\bf q_{1}}\)</span>};
+\draw<span class="xref myst">line width=2pt,green,-stealth</span>–(1,5) node[anchor=south west]{<span class="math notranslate nohighlight">\( {\bf A_{\bullet,2}}\)</span>};
+\end{tikzpicture}&amp;
+\begin{tikzpicture}[scale=0.4]
+\draw<span class="xref myst">line width=1pt,black,opacity=0.2</span>–(5,2.5) node[anchor=south west]{};
+\draw<span class="xref myst">black,dashed</span>–(3.5,1.7) ;
+\draw<span class="xref myst">line width=2pt,red,-stealth,opacity=0.5</span>–(1,0.5) node[anchor=south west]{<span class="math notranslate nohighlight">\( {\bf q_{1}}\)</span>};
+\draw<span class="xref myst">line width=2pt,orange,-stealth</span>–(4,1.9) node[anchor=south west]{<span class="math notranslate nohighlight">\( ({\bf A_{\bullet,2}^T}{\bf q_{{1}}}){\bf q_{{1}}}\)</span>};
+\draw<span class="xref myst">line width=2pt,green,-stealth</span>–(1,5) node[anchor=south west]{<span class="math notranslate nohighlight">\( {\bf A_{\bullet,2}}\)</span>};
+\end{tikzpicture}&amp;
+\begin{tikzpicture}[scale=0.4]
+\draw<span class="xref myst">line width=2pt,red,-stealth,</span>–(1,0.5) node[anchor=south west]{<span class="math notranslate nohighlight">\( {\bf q_{1}}\)</span>};
+\draw<span class="xref myst">line width=2pt,orange,-stealth,opacity=0.5</span>–(-2,3.9) node[anchor=south]{<span class="math notranslate nohighlight">\( ({\bf A_{\bullet,2}^T}{\bf q_{{1}}}){\bf q_{{1}}}\)</span>};
+\draw<span class="xref myst">line width=2pt,green,-stealth</span>–(1,5) node[anchor=south west]{<span class="math notranslate nohighlight">\( {\bf A_{\bullet,2}}\)</span>};
+\draw<span class="xref myst">line width=2pt,blue,-stealth</span>–(-2,3.9) node[anchor=north west]{<span class="math notranslate nohighlight">\( {\bf p_2}\)</span>};
+\end{tikzpicture}&amp;
+\begin{tikzpicture}[scale=0.4]
+\draw<span class="xref myst">line width=2pt,red,-stealth,</span>–(1,0.5) node[anchor=south west]{<span class="math notranslate nohighlight">\( {\bf q_{1}}\)</span>};
+\draw<span class="xref myst">line width=2pt,blue,-stealth,opacity=0.5</span>–(-2,3.9) node[anchor=north west]{<span class="math notranslate nohighlight">\( {\bf p_2}\)</span>};
+\draw<span class="xref myst">line width=2pt,red,-stealth,</span>–(-0.6,1.1) node[anchor=south west]{<span class="math notranslate nohighlight">\( {\bf q_2}\)</span>};
+\end{tikzpicture}\
+Vecteurs initiaux&amp; Calcul de <span class="math notranslate nohighlight">\({\bf q_1}\)</span> et <span class="math notranslate nohighlight">\(r_{11}\)</span>&amp;Calcul de <span class="math notranslate nohighlight">\(r_{12}\)</span>&amp;<span class="math notranslate nohighlight">\({\bf p_2}={\bf p_2}- r_{12}{\bf q_{{1}}}\)</span>&amp;<span class="math notranslate nohighlight">\({\bf q_{{2}}}\)</span>
+\end{tabular}</p>
+<p>\caption{Illustration du procédé d’orthonormalisation de Gram-Schmidt dans <span class="math notranslate nohighlight">\(\mbb R^2\)</span>}
+\label{F:GS}
+\end{figure}
+On remarque (voir boucles de l’algorithme) que la matrice <span class="math notranslate nohighlight">\({\bf R_1}\)</span> est triangulaire supérieure. \
+Gram-Schmidt construit donc une matrice <span class="math notranslate nohighlight">\({\bf Q_1}\in\mathcal{M}_{n,p}(\mbb R)\)</span> à colonnes orthormées et une matrice <span class="math notranslate nohighlight">\({\bf R_1}\in\mathcal{M}_{p}(\mbb R)\)</span> telles que <span class="math notranslate nohighlight">\({\bf Q_1^T}{\bf A} = {\bf R_1}\)</span> soit <span class="math notranslate nohighlight">\({\bf A}\)</span>=<span class="math notranslate nohighlight">\({\bf Q_1R_1}\)</span>.</p>
+<p>\exemple{
+Soit <span class="math notranslate nohighlight">\({\bf A} = \begin{pmatrix} 1&amp;1\\1&amp;0\\1&amp;1\end{pmatrix}\)</span>. Alors <span class="math notranslate nohighlight">\({\bf A} ={\bf QR}\)</span> avec <span class="math notranslate nohighlight">\({\bf Q} = \begin{pmatrix} \textcolor{blue}{\frac{1}{\sqrt{3}}}&amp;\textcolor{magenta}{\frac{1}{\sqrt{6}}}\\\textcolor{blue}{\frac{1}{\sqrt{3}}}&amp;\textcolor{magenta}{-\frac{\sqrt 2}{\sqrt 3}}\\\textcolor{blue}{\frac{1}{\sqrt{3}}}&amp;\textcolor{magenta}{\frac{1}{\sqrt{6}}}\end{pmatrix}\)</span> et <span class="math notranslate nohighlight">\({\bf R} = \begin{pmatrix} \textcolor{red}{\sqrt{3}}&amp;\textcolor{orange}{\frac{2}{\sqrt{3}}}\\0&amp;\textcolor{cyan}{\sqrt{\frac{2}{3}}}\end{pmatrix}\)</span>. En effet :
+\begin{enumerate}
+\item \textcolor{red}{<span class="math notranslate nohighlight">\(r_{11}\)</span>} = <span class="math notranslate nohighlight">\(\norme{{\bf A_{\bullet,1}}}\)</span> = \textcolor{red}{<span class="math notranslate nohighlight">\(\sqrt{3}\)</span>}
+\item \textcolor{blue}{<span class="math notranslate nohighlight">\({\bf q_{1}} \)</span>}= <span class="math notranslate nohighlight">\(\frac{1}{\sqrt{3}}{\bf A_{\bullet,1}}\)</span>= \textcolor{blue}{<span class="math notranslate nohighlight">\(\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}\)</span>}
+\item \textcolor{orange}{<span class="math notranslate nohighlight">\(r_{12}\)</span>}=<span class="math notranslate nohighlight">\({\bf A_{\bullet,2}^Tq_1}=\begin{pmatrix}1&amp;0&amp;1\end{pmatrix}.\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}\)</span> =  \textcolor{orange}{<span class="math notranslate nohighlight">\(\frac{2}{\sqrt{3}}\)</span>}
+\item <span class="math notranslate nohighlight">\({\bf p_2}={\bf A_{\bullet,2}}- r_{12}{\bf q_{{1}}}=\begin{pmatrix}1\\0\\1\end{pmatrix}-\frac{2}{\sqrt{3}}.\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}=\begin{pmatrix}\frac{1}{3}\\-\frac{2}{3}\\\frac{1}{3}\end{pmatrix}\)</span>
+\item \textcolor{cyan}{<span class="math notranslate nohighlight">\(r_{22}\)</span>} = <span class="math notranslate nohighlight">\(\norme{{\bf p_2}} \)</span>= \textcolor{cyan}{<span class="math notranslate nohighlight">\(\sqrt{\frac{2}{3}}\)</span>}
+\item \textcolor{magenta}{<span class="math notranslate nohighlight">\({\bf q_{2}} \)</span>} = <span class="math notranslate nohighlight">\(\frac{{\bf p_2}}{r_{22}}\)</span> = \textcolor{magenta}{<span class="math notranslate nohighlight">\(\begin{pmatrix}\frac{1}{\sqrt{6}}\\-\frac{\sqrt 2}{\sqrt 3}\\\frac{1}{\sqrt{6}}\end{pmatrix} \)</span>}
+\end{enumerate}
+}</p>
+<p>Il est possible de compléter <span class="math notranslate nohighlight">\({\bf q_1}\cdots {\bf q_p}\)</span> en une base orthonormée de <span class="math notranslate nohighlight">\(\mbb R^n\)</span>, en continuant la procédure de Gram-Schmidt avec <span class="math notranslate nohighlight">\(n-p\)</span> vecteurs arbitraires, mais tels que les <span class="math notranslate nohighlight">\(n\)</span> colonnes formées avec les <span class="math notranslate nohighlight">\({\bf A_{\bullet,j}}\)</span> soient linéairement indépendantes. Soit <span class="math notranslate nohighlight">\({\bf Q_2}\)</span> la matrice des <span class="math notranslate nohighlight">\(n-p\)</span> derniers vecteurs orthonormés. On a alors bien :\
+<span class="math notranslate nohighlight">\({\bf A^T} {\bf Q_2}={\bf R_1^T} {\bf Q_1^T} {\bf Q_2}=0\)</span> ce qui montre que :
+<span class="math notranslate nohighlight">\({\bf A}={\bf QR}=[{\bf Q_1}\ {\bf Q_2}]\cdot\left [\begin{array}{c}{\bf R_1} \\{\bf 0} \\\end{array}\right]={\bf Q_1R_1}\)</span>.\
+\vskip 20pt
+\begin{center}
+{\bfseries Les colonnes de <span class="math notranslate nohighlight">\({\bf Q_1}\)</span> forment une base orthonormée de <span class="math notranslate nohighlight">\(Im({\bf A})\)</span>, et les colonnes de <span class="math notranslate nohighlight">\({\bf Q_2}\)</span> forment
+une base orthonormée de <span class="math notranslate nohighlight">\(Ker({\bf A^T})\)</span>}.
+\end{center}
+\vskip 20pt</p>
+<p>Appliqué au problème des moindres carrés, le système aux équations normales s’écrit donc
+\begin{eqnarray*}
+{\bf A^TAx}&amp;=&amp; {\bf A^Tb}\
+{\bf (Q_1R_1)^T(Q_1R_1)x}&amp;=&amp; {\bf (Q_1R_1)^Tb}\
+{\bf R_1^TQ_1^TQ_1R_1x}&amp;=&amp; {\bf R_1^TQ_1^Tb}\
+{\bf R_1^TR_1x}&amp;=&amp; {\bf R_1^TQ_1^Tb}\
+{\bf R_1x}&amp;=&amp; {\bf Q_1^Tb}
+\end{eqnarray*}
+La dernière simplification étant possible car <span class="math notranslate nohighlight">\({\bf R_1}\)</span> est inversible (trangulaire supérieure, les éléments de la diagonale étant des normes, donc strictement positifs). La solution du
+problème des moindres carrés est solution du système triangulaire
+$<span class="math notranslate nohighlight">\(
+{\bf R_1x}= {\bf Q_1^Tb}
+\)</span><span class="math notranslate nohighlight">\(
+et le calcul de l'erreur donne
+\)</span><span class="math notranslate nohighlight">\(
+\|{\bf e}\|^2=\|{\bf b}\|^2-\displaystyle\sum_{i=1}^p  ({\bf b^T} {\bf q_i})^2\)</span>$</p>
+<p>\subsection{Transformations de Householder}</p>
+<p>On peut interpréter la méthode de Gram-Schmidt comme une méthode de triangularisation de la matrice <span class="math notranslate nohighlight">\({\bf A}\)</span>, au même titre que la méthode de Gauss. Il est possible de réorganiser les calculs en construisant des transformations élémentaires orthogonales qui effectuent cette triangularisation colonne par colonne (ou élément par élément). Les symétries de Householder\index{transformation!de Householder}
+et les rotations de Givens sont des exemples simples et intéressants de telles transformations, car elles conduisent à des algorithmes numériquement plus stables que la méthode de Gram-Schmidt.\
+\begin{defin}{Matrice de Householder}{}
+Une matrice de Householder\index{matrice!de Householder}
+est une matrice carrée <span class="math notranslate nohighlight">\({\bf H}\)</span> qui s’écrit <span class="math notranslate nohighlight">\({\bf H}=\mbb I-2{\bf P}\)</span>, où <span class="math notranslate nohighlight">\({\bf P}\)</span> est
+la matrice de projection\index{matrice!de projection}
+sur la droite engendrée par un vecteur <span class="math notranslate nohighlight">\({\bf v}\)</span> non nul.
+\end{defin}
+On vérifie (figure  \ref{46}) que <span class="math notranslate nohighlight">\({\bf H}\)</span> représente une symétrie\index{symétrie}
+par rapport au sous-espace <span class="math notranslate nohighlight">\({\bf v^\perp}\)</span>.</p>
+<p>\begin{figure}[hbtp!]
+\begin{center}
+\begin{tikzpicture}[line cap=round,line join=round,&gt;=triangle 45,x=1.0cm,y=1.0cm,scale=0.5]
+\clip(-5,-5) rectangle (7.36,5.76);
+\filldraw[fill=blue!20!] (-3.5,-2) – (3.5,-2) –  (5.5,1) – (-0.5,1) – (-3.5,-2);</p>
+<p>\draw [-&gt;,line width=1.6pt,blue] (0.,0.) – (3.84,3.62);
+\draw [-&gt;,line width=1.2pt,orange] (0.,0.) – (3.84,-3.62);
+\draw [-&gt;,line width=1.6pt,red] (0.,0.) – (0,3.62);
+\draw [-] (3.84,3.62)– (3.84,0);
+\draw [dash pattern=on 4pt off 4pt] (3.84,0)– (3.84,-3.62);
+\draw (-0.54,4.74) node[anchor=north west] { <span class="math notranslate nohighlight">\(v\)</span> };</p>
+<p>\draw (3.84,3.62) node[anchor=north west] { <span class="math notranslate nohighlight">\(\textcolor{blue}{{\bf x}}\)</span> };
+\draw (3.84,-3.62) node[anchor=north west] { <span class="math notranslate nohighlight">\(\textcolor{orange}{{\bf Hx}}\)</span> };
+\draw (-3.5,-2) node[anchor=north west] { <span class="math notranslate nohighlight">\( {\bf v}^\perp\)</span> };
+\end{tikzpicture}
+\end{center}
+\caption{Transformation de Householder}
+\label{46}
+\end{figure}</p>
+<p>Le théorème suivant montre qu’il est toujours possible de trouver une matrice de Householder\index{matrice!de Householder}
+permettant de transformer un vecteur quelconque en un vecteur colinéaire à un vecteur donné
+\begin{theo}{}{}
+\label{T:householder}
+Soient <span class="math notranslate nohighlight">\({\bf f}\)</span> et <span class="math notranslate nohighlight">\({\bf e}\)</span> deux vecteurs non colinéaires de <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>; avec <span class="math notranslate nohighlight">\(\|{\bf e}\|_2=1\)</span>. Il est alors possible de trouver <span class="math notranslate nohighlight">\({\bf u}\in \mathbb{R}^n\)</span> tel que
+\begin{enumerate}
+\item <span class="math notranslate nohighlight">\(\|{\bf u}\|_2=1\)</span>
+\item <span class="math notranslate nohighlight">\({\bf H(u)f}=\alpha {\bf e}\)</span>
+\end{enumerate}
+\end{theo}</p>
+<p>\textsc{Démonstration:}
+Remarquons tout d’abord que si <span class="math notranslate nohighlight">\({\bf H(u)}\)</span> est une matrice de Householder, alors <span class="math notranslate nohighlight">\({\bf H(u)f}={\bf f-2u(u^T f)}\)</span> et <span class="math notranslate nohighlight">\(\|{\bf H(u)f}\|_2=\|{\bf f}\|_2\)</span>.\
+Posons alors <span class="math notranslate nohighlight">\(\mid\alpha\mid=\|{\bf f}\|_2\)</span>. On cherche alors <span class="math notranslate nohighlight">\({\bf u}\)</span> tel que <span class="math notranslate nohighlight">\({\bf H(u)f}=\alpha {\bf e}\)</span>, soit
+\begin{align*}
+{\bf f-2u(u^T f)}&amp;=\alpha {\bf e}\
+{\bf u}&amp;=\frac{1}{2{\bf u^T f}}({\bf f-}\alpha {\bf e})
+\end{align*}
+Si <span class="math notranslate nohighlight">\(\beta={\bf u^T f}\)</span>, en multipliant à gauche par <span class="math notranslate nohighlight">\({\bf f^T} \)</span> :
+$<span class="math notranslate nohighlight">\(2\beta^2=\alpha^2-\alpha {\bf f^T e}\)</span><span class="math notranslate nohighlight">\(
+et \)</span>\beta<span class="math notranslate nohighlight">\( existe si \)</span>\alpha^2-\alpha {\bf f^T e}&gt;0<span class="math notranslate nohighlight">\(. Or l'inégalité de Cauchy-Schwarz
+\index{inégalité!de Cauchy-Schwarz} nous donne
+\)</span><span class="math notranslate nohighlight">\(\mid {\bf f^T e}\mid\leq\|{\bf f}\|_2\|{\bf e}\|_2=\|\alpha\|\)</span><span class="math notranslate nohighlight">\(
+et l'inégalité est de plus stricte par hypothèse (\)</span>{\bf f}<span class="math notranslate nohighlight">\( et \)</span>{\bf e}<span class="math notranslate nohighlight">\( non colinéaires). Ainsi :
+\)</span><span class="math notranslate nohighlight">\({\bf u}=\frac{1}{2\beta}({\bf f}-\alpha {\bf e)}\)</span>$ répond à la question.</p>
+<p>\begin{rem}
+Si <span class="math notranslate nohighlight">\({\bf f}\)</span> et <span class="math notranslate nohighlight">\({\bf  e}\)</span> sont colinéaires, <span class="math notranslate nohighlight">\({\bf H}=\mbb I\)</span> ou <span class="math notranslate nohighlight">\({\bf H}=\mbb I-2{\bf ee^T }\)</span> répondent à la question.
+\end{rem}</p>
+<p>L’algorithme d’orthonormalisation  de <span class="math notranslate nohighlight">\({\bf A}\)</span> par matrices de Householder  opère alors colonne par colonne, et transforme itérativement <span class="math notranslate nohighlight">\({\bf A}\)</span> en une matrice triangulaire supérieure.</p>
+<p>On l’illustre dans la suite (algorithme \ref{A:HS}) dans le cas où <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_n(\mbb R)\)</span> est de rang plein.</p>
+<p>\begin{algorithm}[H]
+\Entree{<span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_n(\mbb R)\)</span>}
+\Sortie{<span class="math notranslate nohighlight">\({\bf Q}\in\mathcal{M}_n(\mbb R)\)</span> orthogonale, <span class="math notranslate nohighlight">\({\bf R}\in\mathcal{M}_n(\mbb R)\)</span> triangulaire supérieure}
+\Deb{
+<span class="math notranslate nohighlight">\({\bf A^{(1)}}={\bf A}\)</span>\
+\Pour {<span class="math notranslate nohighlight">\(j\)</span>=1 à <span class="math notranslate nohighlight">\(n-1\)</span>}
+{
+(i) Soit <span class="math notranslate nohighlight">\({\bf f_j}\in \mbb R^{n-j+1}\)</span> le vecteur commençant à l’élément <span class="math notranslate nohighlight">\((j,j)\)</span> de <span class="math notranslate nohighlight">\({\bf A^{(j)}}\)</span>\
+(ii) On construit  (théorème \ref{T:householder}) <span class="math notranslate nohighlight">\({\bf {\tilde H^{(j)}}}\in\mathcal{M}_{n-j+1}(\mbb R)\)</span> telle que <span class="math notranslate nohighlight">\({\bf \tilde{H^{(j)}}f_j} = \norme{{\bf f_j}} {\bf e^{(j)}_1}\)</span>, <span class="math notranslate nohighlight">\({\bf e^{(j)}_1}\)</span> premier vecteur de la base canonique de <span class="math notranslate nohighlight">\(\mbb R^{n-j+1}\)</span>\
+(iii) On construit [{\bf H^{(j)}} =
+\left (
+\begin{array}{lll|l}
+\bovermat{j-1}{1 &amp;\cdots &amp;0&amp;}\
+\vdots&amp;\ddots &amp;\vdots &amp;{\bf 0}\
+0 &amp; \cdots&amp; 1&amp; \
+\hline
+&amp; {\bf 0}&amp; &amp; {\bf \tilde{H^{(j)}}}\</p>
+<p>\end{array}
+\right )\in\mathcal{M}_n(\mbb R)
+]</p>
+<p>(iv) On calcule <span class="math notranslate nohighlight">\({\bf A^{(j+1)}} = {{\bf H^{(j)}}\bf A^{(j)}}\)</span>
+}
+<span class="math notranslate nohighlight">\({\bf R}={\bf A^{(n-1)}}\)</span> et <span class="math notranslate nohighlight">\({\bf Q} =  {\bf {H^{(1)}}^T}{\bf {H^{(2)}}^T} \cdots  {\bf {H^{(n-1)}}^T}\)</span>
+}
+\caption{Factorisation {\bf QR} par matrices de Householder}
+\label{A:HS}
+\end{algorithm}</p>
+<p>A l’issue des <span class="math notranslate nohighlight">\(n-1\)</span> itérations, on a effectué les produits <span class="math notranslate nohighlight">\({\bf H^{(n-1)}} \cdots {\bf H^{(2)}} {\bf H^{(1)}}\)</span> pour obtenir une matrice triangulaire supérieure <span class="math notranslate nohighlight">\({\bf R}\in\mathcal{M}_n(\mbb R)\)</span> à partir de <span class="math notranslate nohighlight">\({\bf A}\)</span>. Donc :
+$<span class="math notranslate nohighlight">\({\bf H^{(n-1)}} \cdots {\bf H^{(2)}} {\bf H^{(1)}}{\bf A} = {\bf R}\)</span><span class="math notranslate nohighlight">\(
+De plus les \)</span>{\bf H^{(j)}}, j\in[![1, n-1]!]<span class="math notranslate nohighlight">\( sont orthogonales donc
+\)</span><span class="math notranslate nohighlight">\({\bf A} ={\bf {H^{(1)}}^T}{\bf {H^{(2)}}^T} \cdots  {\bf {H^{(n-1)}}^T} {\bf R}\)</span><span class="math notranslate nohighlight">\(
+Le produit des matrices \)</span>{\bf{ H^{(j)}}^T}<span class="math notranslate nohighlight">\( est également une matrice orthogonale, et on pose 
+\)</span><span class="math notranslate nohighlight">\({\bf Q} = {\bf {H^{(1)}}^T}{\bf {H^{(2)}}^T} \cdots  {\bf {H^{(n-1)}}^T}\)</span><span class="math notranslate nohighlight">\( 
+pour finalement obtenir 
+\)</span><span class="math notranslate nohighlight">\({\bf A} = {\bf QR}\)</span>$</p>
+<p>On illustre cet algorithme sur les deux premières itérations :
+\begin{enumerate}
+\item <span class="math notranslate nohighlight">\(j\)</span>=1 :
+\begin{maliste}
+\item On construit <span class="math notranslate nohighlight">\({\bf H^{(1)}}\)</span> telle que <span class="math notranslate nohighlight">\({\bf H^{(1)}A^{(1)}_{\bullet,1}}\)</span> =<span class="math notranslate nohighlight">\({\bf e_1}\)</span>, premier vecteur de la base canonique de <span class="math notranslate nohighlight">\(\mbb R^n\)</span>
+\item <span class="math notranslate nohighlight">\({\bf A^{(2)}}={\bf H^{(1)}A^{(1)}} = \begin{pmatrix}{\norme{{\bf A^{(1)}_{\bullet,1}}}}&amp;a^{(2)}_{12}&amp;*&amp;\cdots &amp;*\\0&amp;a^{(2)}_{22}&amp;*&amp;\cdots &amp;*\\0&amp;\vdots&amp;\vdots&amp;\vdots&amp;\vdots\\0&amp;a^{(2)}_{n2}&amp;*&amp;\cdots &amp;*\end{pmatrix}\)</span>
+\end{maliste}
+\item<span class="math notranslate nohighlight">\( j\)</span>=2 :
+\begin{maliste}
+\item soit <span class="math notranslate nohighlight">\({\bf f_2} = \begin{pmatrix}a^{(2)}_{22}\\\vdots\\a^{(2)}_{n2}\end{pmatrix}\in \mbb R^{n-1}\)</span>
+\item On construit <span class="math notranslate nohighlight">\({\bf \tilde{H^{(2)}}}\in\mathcal{M}_{n-1}(\mbb R)\)</span> telle que <span class="math notranslate nohighlight">\({\bf \tilde{H^{(2)}}f_2} = \norme{{\bf f_2}} {\bf e^{(2)}_1}\)</span>, <span class="math notranslate nohighlight">\({\bf e^{(2)}_1}\)</span> premier vecteur de la base canonique de <span class="math notranslate nohighlight">\(\mbb R^{n-1}\)</span>
+\item On construit
+<span class="math notranslate nohighlight">\({\bf H^{(2)}} =\left (
+\begin{array}{l|l}
+1&amp;{\bf 0}\\
+\hline
+ {\bf 0} &amp; {\bf \tilde{H^{(2)}}}\\
+\end{array}
+\right )\in\mathcal{M}_n(\mbb R)
+\)</span> telle que $<span class="math notranslate nohighlight">\({\bf A^{(3)}}={\bf H^{(2)}A^{(2)}}\begin{pmatrix}{\norme{{\bf A^{(1)}_{\bullet,1}}}}&amp;\ast&amp;\ast&amp;\cdots &amp;\ast\\0&amp;\norme{{\bf f_2}}&amp;a^{(3)}_{23}&amp;\cdots &amp;\ast\\0&amp;0&amp;a^{(3)}_{33}&amp;\vdots&amp;\vdots\\0&amp;0&amp;a^{(3)}_{n3}&amp;\cdots &amp;*\end{pmatrix}\)</span>$
+\end{maliste}
+\end{enumerate}</p>
+<p>\aretenir{
+\begin{enumerate}
+\item Projections : définitions, propriétés.
+\item Moindres carrés : savoir résoudre un problème aux moindres carrés, en passant par le système aux équations normales
+\item Savoir décomposer une matrice A sous la forme QR, par Gram Schmidt
+\item Interpréter géométriquement cette décomposition.
+\end{enumerate}
+}</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -483,10 +775,10 @@ title="Print to PDF"
             <p class="prev-next-title">Moindres carrés linéaires</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="genindex.html" title="suivant page">
+    <a class='right-next' id="next-link" href="exomcl.html" title="suivant page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title">Index</p>
+        <p class="prev-next-title">&lt;no title&gt;</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
