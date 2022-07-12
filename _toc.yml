@@ -25,12 +25,13 @@ parts:
     - file: transfoortho 
     - file: exomcl 
    - caption: Analyse spectrale
+    chapters:
     - file: introspect
     - file: resspec
     - file: similitudes
     - file: jacobi
     - file: puissiter
     - file: QRspec    
- - caption: Index
+  - caption: Index
     chapters:
     - file: genindex
