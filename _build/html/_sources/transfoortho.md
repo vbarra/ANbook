@@ -45,9 +45,6 @@ Cette propriété entraîne une stabilité numérique des méthodes utilisant ce
 
 ```{code-cell} ipython3
 from sympy import init_printing, symbols, Matrix, sin, cos, sqrt, Rational, GramSchmidt
-from warnings import filterwarnings
-init_printing(use_latex = 'mathjax')
-filterwarnings('ignore')
 
 Q = Matrix([[0, 0, 1], [1, 0, 0], [0, 1, 0]])
 Q.transpose() * Q
