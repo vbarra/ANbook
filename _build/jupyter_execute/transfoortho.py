@@ -135,8 +135,34 @@ Q
 # 5. $\textcolor{cyan}{r_{22}} = \|{\bf p_2}\|= \textcolor{cyan}{\sqrt{\frac{2}{3}}}$
 # 6. $\textcolor{magenta}{{\bf q_{2}}} = \frac{{\bf p_2}}{r_{22}} = \textcolor{magenta}{\begin{pmatrix}\frac{1}{\sqrt{6}}\\-\frac{\sqrt 2}{\sqrt 3}\\\frac{1}{\sqrt{6}}\end{pmatrix}}$ 
 # ````
-# 
-# 
+
+# In[5]:
+
+
+def clgs(A):
+    n = A.shape[1] 
+    R = np.zeros([n,n])
+    V = np.zeros(A.shape)
+    Q = np.zeros(A.shape)
+    
+    for j in range(n):     
+        V[:,j] = A[:,j]
+        for i in range(j):  
+            R[i,j] = np.dot(Q[:,i].T,A[:,j])
+            V[:,j] = V[:,j] - R[i,j]*Q[:,i]
+        
+        R[j,j] = np.linalg.norm(V[:,j],2)
+        Q[:,j] = V[:,j]/R[j,j]             
+    
+    return Q, R
+
+n = 4
+A = np.random.rand(n,n)
+
+Q, R = clgs(A)
+Q,R
+
+
 # Il est possible de compléter ${\bf q_1}\cdots {\bf q_p}$ en une base orthonormée de $\mathbb R^n$, en continuant la procédure de Gram-Schmidt avec $n-p$ vecteurs arbitraires, mais tels que les $n$ colonnes formées avec les ${\bf A_{\bullet,j}}$ soient linéairement indépendantes. Soit ${\bf Q_2}$ la matrice des $n-p$ derniers vecteurs orthonormés. On a alors bien :
 # 
 # ${\bf A^\top} {\bf Q_2}={\bf R_1^\top} {\bf Q_1^\top} {\bf Q_2}=0$ ce qui montre que :
@@ -148,7 +174,7 @@ Q
 # une base orthonormée de $Ker({\bf A^\top})$.
 # ```
 
-# In[5]:
+# In[ ]:
 
 
 Q = Rational(1, 3) * Matrix([[1, -2], [2, -1], [2, 2]])
@@ -157,7 +183,7 @@ Q
 
 # Les colonnes de $Q$ forment une base de $\mathbb{R}^2$ (dans $\mathbb{R}^3$). Pour obtenir une matrice orthogonale, il faut compléter par un vecteur normal au plan défini par ces deux colonnes, et unitaire.
 
-# In[6]:
+# In[ ]:
 
 
 Q = Rational(1, 3) * Matrix([[1, -2, 2], [2, -1, -2], [2, 2, 1]])

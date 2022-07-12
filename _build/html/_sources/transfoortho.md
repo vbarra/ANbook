@@ -135,6 +135,32 @@ Alors ${\bf A} ={\bf QR}$ avec ${\bf Q} = \begin{pmatrix} \textcolor{blue}{\frac
 ````
 
 
+
+```{code-cell} ipython3
+def clgs(A):
+    n = A.shape[1] 
+    R = np.zeros([n,n])
+    V = np.zeros(A.shape)
+    Q = np.zeros(A.shape)
+    
+    for j in range(n):     
+        V[:,j] = A[:,j]
+        for i in range(j):  
+            R[i,j] = np.dot(Q[:,i].T,A[:,j])
+            V[:,j] = V[:,j] - R[i,j]*Q[:,i]
+        
+        R[j,j] = np.linalg.norm(V[:,j],2)
+        Q[:,j] = V[:,j]/R[j,j]             
+    
+    return Q, R
+
+n = 4
+A = np.random.rand(n,n)
+
+Q, R = clgs(A)
+Q,R
+```
+
 Il est possible de compléter ${\bf q_1}\cdots {\bf q_p}$ en une base orthonormée de $\mathbb R^n$, en continuant la procédure de Gram-Schmidt avec $n-p$ vecteurs arbitraires, mais tels que les $n$ colonnes formées avec les ${\bf A_{\bullet,j}}$ soient linéairement indépendantes. Soit ${\bf Q_2}$ la matrice des $n-p$ derniers vecteurs orthonormés. On a alors bien :
 
 ${\bf A^\top} {\bf Q_2}={\bf R_1^\top} {\bf Q_1^\top} {\bf Q_2}=0$ ce qui montre que :
