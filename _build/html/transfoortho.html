@@ -693,20 +693,27 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 <span class="n">n</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
 <span class="n">Q</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">clgs</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Q=&quot;</span><span class="p">,</span><span class="n">Q</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R=&quot;</span><span class="p">,</span><span class="n">R</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A=&quot;</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Q=&quot;</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R=&quot;</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Q= [[ 0.05427501  0.04387868  0.93047416  0.35964806]
- [ 0.61658717  0.03196161 -0.31592648  0.72040904]
- [ 0.66845676 -0.54797517  0.16980709 -0.47334377]
- [ 0.41235913  0.83473129  0.07465829 -0.35722508]]
-R= [[ 0.93318984  0.67355967  0.97265877  0.94383848]
- [ 0.          0.57143145 -0.4033228   0.67144809]
- [ 0.          0.          0.69923096  0.5060811 ]
- [ 0.          0.          0.          0.45788087]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.33885725 0.82474159 0.39351403 0.61257134]
+ [0.61488222 0.12424689 0.13961396 0.57858571]
+ [0.51640043 0.3370484  0.82750322 0.02675673]
+ [0.91282259 0.5810992  0.05107145 0.67205607]] 
+
+Q= [[ 0.26849338  0.90222317 -0.0155847   0.33713763]
+ [ 0.48720164 -0.429289   -0.00830758  0.76044493]
+ [ 0.40916964 -0.01012776  0.87507519 -0.25830417]
+ [ 0.72327455 -0.04002169 -0.48366467 -0.49126437]] 
+
+R= [[ 1.26206927  0.84017518  0.54920394  0.94338835]
+ [ 0.          0.66409303  0.28467802  0.27712776]
+ [ 0.          0.          0.69213343 -0.31598901]
+ [ 0.          0.          0.          0.30943484]] 
 </pre></div>
 </div>
 </div>
