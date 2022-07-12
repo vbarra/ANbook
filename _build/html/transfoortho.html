@@ -696,30 +696,30 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A=&quot;</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Q=&quot;</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R=&quot;</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Q^TQ=&quot;</span><span class="p">,</span><span class="n">Q</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">*</span><span class="n">Q</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Q^TQ=&quot;</span><span class="p">,</span><span class="n">Q</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="nd">@Q</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.41824959 0.83984726 0.45536865 0.02225161]
- [0.59495638 0.37656673 0.90623105 0.13813088]
- [0.12451104 0.38873137 0.74624474 0.73671684]
- [0.25494985 0.72432266 0.13816209 0.56535406]] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.40218301 0.32928442 0.61993853 0.35478362]
+ [0.38561558 0.64060035 0.20401744 0.296189  ]
+ [0.95573347 0.98510472 0.22934219 0.52420894]
+ [0.17276409 0.10690502 0.13898674 0.5878022 ]] 
 
-Q= [[ 0.53577366  0.42463389 -0.18780399 -0.70523918]
- [ 0.76213335 -0.61471197  0.07447907  0.18903654]
- [ 0.15949743  0.33305404  0.92628544  0.07503902]
- [ 0.32658828  0.5752306  -0.31808459  0.67917011]] 
+Q= [[ 0.35918871 -0.380329    0.8239031  -0.21798395]
+ [ 0.34439238  0.86614605  0.30242141  0.19931433]
+ [ 0.85356333 -0.13623272 -0.4770694  -0.15898139]
+ [ 0.1542952  -0.29424737  0.04614936  0.94206248]] 
 
-R= [[ 0.78064604  1.03551905  1.09878967  0.41933843]
- [ 0.          0.67126866 -0.03569122  0.49511356]
- [ 0.          0.          0.6292636   0.50868859]
- [ 0.          0.          0.          0.44967316]] 
+R= [[ 1.11969837  1.19623732  0.51014004  0.76758009]
+ [ 0.          0.26395703 -0.1312121  -0.12276523]
+ [ 0.          0.          0.46947052  0.15892387]
+ [ 0.          0.          0.          0.45210451]] 
 
-Q^TQ= [[ 0.28705342  0.32362765 -0.02995425 -0.23032285]
- [ 0.32362765  0.37787081  0.02480556  0.1087396 ]
- [-0.02995425  0.02480556  0.85800472 -0.02386875]
- [-0.23032285  0.1087396  -0.02386875  0.46127204]] 
+Q^TQ= [[ 1.00000000e+00 -7.86734347e-16 -4.75050738e-16 -5.02296577e-17]
+ [-7.86734347e-16  1.00000000e+00  1.01041095e-15  1.14761895e-15]
+ [-4.75050738e-16  1.01041095e-15  1.00000000e+00  9.84366791e-16]
+ [-5.02296577e-17  1.14761895e-15  9.84366791e-16  1.00000000e+00]] 
 </pre></div>
 </div>
 </div>
