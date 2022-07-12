@@ -676,7 +676,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 <span class="k">def</span> <span class="nf">GramSchmidt</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> 
     <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">])</span>
-    <span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
     <span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
     
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>     
@@ -701,23 +701,25 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">21</span> <span class="n">Q</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">GramSchmidt</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A=&quot;</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Q=&quot;</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.37684691 0.32351199 0.55352295 0.46820769]
+ [0.14100769 0.05718401 0.61200736 0.31841855]
+ [0.06305779 0.48428962 0.53500464 0.69511462]
+ [0.57016288 0.67045071 0.16698971 0.2384174 ]] 
 
-<span class="nn">Input In [5],</span> in <span class="ni">GramSchmidt</span><span class="nt">(A)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>     
-<span class="ne">----&gt; </span><span class="mi">9</span>     <span class="n">p</span><span class="p">[:,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[:,</span><span class="n">j</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">j</span><span class="p">):</span>  
-<span class="g g-Whitespace">     </span><span class="mi">11</span>         <span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Q</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">A</span><span class="p">[:,</span><span class="n">j</span><span class="p">])</span>
+Q= [[ 0.53782682 -0.21255923  0.3810626   0.72135441]
+ [ 0.20124278 -0.22533061  0.73633952 -0.60541851]
+ [ 0.08999456  0.94639495  0.30615915  0.05004155]
+ [ 0.8137227   0.09154939 -0.46782688 -0.33258395]] 
 
-<span class="ne">NameError</span>: name &#39;p&#39; is not defined
+R= [[0.70068449 0.77464569 0.60489237 0.57245627]
+ [0.         0.43805783 0.26605308 0.50840862]
+ [0.         0.         0.74724639 0.51415823]
+ [0.         0.         0.         0.10045801]] 
+
+Q^TQ= [[ 1.00000000e+00 -4.11136886e-16  1.29269160e-16  4.24276421e-16]
+ [-4.11136886e-16  1.00000000e+00  3.65846919e-16  1.64286385e-15]
+ [ 1.29269160e-16  3.65846919e-16  1.00000000e+00 -1.69929858e-15]
+ [ 4.24276421e-16  1.64286385e-15 -1.69929858e-15  1.00000000e+00]] 
 </pre></div>
 </div>
 </div>
@@ -737,6 +739,10 @@ une base orthonormée de <span class="math notranslate nohighlight">\(Ker({\bf A
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}\frac{1}{3} &amp; - \frac{2}{3}\\\frac{2}{3} &amp; - \frac{1}{3}\\\frac{2}{3} &amp; \frac{2}{3}\end{matrix}\right]\end{split}\]</div>
+</div>
 </div>
 <p>Les colonnes de <span class="math notranslate nohighlight">\(Q\)</span> forment une base de <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> (dans <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>). Pour obtenir une matrice orthogonale, il faut compléter par un vecteur normal au plan défini par ces deux colonnes, et unitaire.</p>
 <div class="cell docutils container">
@@ -745,6 +751,10 @@ une base orthonormée de <span class="math notranslate nohighlight">\(Ker({\bf A
 <span class="n">Q</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}\frac{1}{3} &amp; - \frac{2}{3} &amp; \frac{2}{3}\\\frac{2}{3} &amp; - \frac{1}{3} &amp; - \frac{2}{3}\\\frac{2}{3} &amp; \frac{2}{3} &amp; \frac{1}{3}\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 </div>

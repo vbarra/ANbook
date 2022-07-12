@@ -141,7 +141,7 @@ import numpy as np
 def GramSchmidt(A):
     n = A.shape[1] 
     R = np.zeros([n,n])
-    V = np.zeros(A.shape)
+    p = np.zeros(A.shape)
     Q = np.zeros(A.shape)
     
     for j in range(n):     
