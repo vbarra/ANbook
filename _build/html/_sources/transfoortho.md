@@ -155,10 +155,11 @@ def clgs(A):
     
     return Q, R
 
-n = 4 
-A = Matrix(np.random.rand(n,n))
+n = 4
+A = np.random.rand(n,n)
 Q, R = clgs(A)
-Q,R
+print("Q=",Q)
+print("R=",R)
 ```
 
 Il est possible de compléter ${\bf q_1}\cdots {\bf q_p}$ en une base orthonormée de $\mathbb R^n$, en continuant la procédure de Gram-Schmidt avec $n-p$ vecteurs arbitraires, mais tels que les $n$ colonnes formées avec les ${\bf A_{\bullet,j}}$ soient linéairement indépendantes. Soit ${\bf Q_2}$ la matrice des $n-p$ derniers vecteurs orthonormés. On a alors bien :

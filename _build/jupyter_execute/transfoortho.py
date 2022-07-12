@@ -157,10 +157,11 @@ def clgs(A):
     
     return Q, R
 
-n = 4 
-A = Matrix(np.random.rand(n,n))
+n = 4
+A = np.random.rand(n,n)
 Q, R = clgs(A)
-Q,R
+print("Q=",Q)
+print("R=",R)
 
 
 # Il est possible de compléter ${\bf q_1}\cdots {\bf q_p}$ en une base orthonormée de $\mathbb R^n$, en continuant la procédure de Gram-Schmidt avec $n-p$ vecteurs arbitraires, mais tels que les $n$ colonnes formées avec les ${\bf A_{\bullet,j}}$ soient linéairement indépendantes. Soit ${\bf Q_2}$ la matrice des $n-p$ derniers vecteurs orthonormés. On a alors bien :
@@ -174,7 +175,7 @@ Q,R
 # une base orthonormée de $Ker({\bf A^\top})$.
 # ```
 
-# In[ ]:
+# In[6]:
 
 
 Q = Rational(1, 3) * Matrix([[1, -2], [2, -1], [2, 2]])
@@ -183,7 +184,7 @@ Q
 
 # Les colonnes de $Q$ forment une base de $\mathbb{R}^2$ (dans $\mathbb{R}^3$). Pour obtenir une matrice orthogonale, il faut compléter par un vecteur normal au plan défini par ces deux colonnes, et unitaire.
 
-# In[ ]:
+# In[7]:
 
 
 Q = Rational(1, 3) * Matrix([[1, -2, 2], [2, -1, -2], [2, 2, 1]])
