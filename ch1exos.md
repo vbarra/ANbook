@@ -1,6 +1,6 @@
 # Exercices
 
-
+## Exercice 1
 Soit $A$, une matrice $m\times n$. 
 Montrer que 
 
@@ -19,6 +19,7 @@ Soit maintenant $A=\left(\begin{array}{cccc}
   \right).$ Quel est le rang de $A$. Donner les sous--espaces
 $\mathrm{Im}A$, $Ker A^\top$, $\mathrm{Im}A^\top$ et $Ker A$.
 
+## Exercice 2
 Soit $V$ et $W$ deux sous-espaces vectoriels de $\mathbb R^n$. Montrer que
 $\dim
 (V+W)=\dim V+\dim W-\dim V\cap W.$
@@ -27,6 +28,7 @@ Illustrer ce résultat avec $V$ et $W$ respectivement ensembles des
 matrices triangulaires inférieures et supérieures.
 
 
+## Exercice 3
 Montrer que pour toute matrice $A$ (non nécessairement carrée), les
 produits $A^\top A$ et $AA^\top$ sont des matrices symétriques. Montrer
 que
