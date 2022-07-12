@@ -144,6 +144,8 @@ Les colonnes de ${\bf Q_1}$ forment une base orthonormée de $Im({\bf A})$, et l
 une base orthonormée de $Ker({\bf A^\top})$.
 ```
 
+
+````{prf:example}
 ```{code-cell} ipython3
 Q = Rational(1, 3) * Matrix([[1, -2], [2, -1], [2, 2]])
 Q
@@ -155,7 +157,7 @@ Les colonnes de $Q$ forment une base de $\mathbb{R}^2$ (dans $\mathbb{R}^3$). Po
 Q = Rational(1, 3) * Matrix([[1, -2, 2], [2, -1, -2], [2, 2, 1]])
 Q
 ```
-
+```` 
 
 Appliqué au problème des moindres carrés, le système aux équations normales s'écrit donc 
 
