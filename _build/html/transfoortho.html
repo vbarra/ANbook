@@ -605,36 +605,23 @@ et le calcul de l’erreur donne</p>
 </div>
 <div class="section" id="transformations-de-householder">
 <h2>Transformations de Householder<a class="headerlink" href="#transformations-de-householder" title="Lien permanent vers ce titre">#</a></h2>
-<p>On peut interpréter la méthode de Gram-Schmidt comme une méthode de triangularisation de la matrice <span class="math notranslate nohighlight">\({\bf A}\)</span>, au même titre que la méthode de Gauss. Il est possible de réorganiser les calculs en construisant des transformations élémentaires orthogonales qui effectuent cette triangularisation colonne par colonne (ou élément par élément). Les symétries de Householder\index{transformation!de Householder}
-et les rotations de Givens sont des exemples simples et intéressants de telles transformations, car elles conduisent à des algorithmes numériquement plus stables que la méthode de Gram-Schmidt.\
-\begin{defin}{Matrice de Householder}{}
-Une matrice de Householder\index{matrice!de Householder}
+<p id="index-6">On peut interpréter la méthode de Gram-Schmidt comme une méthode de triangularisation de la matrice <span class="math notranslate nohighlight">\({\bf A}\)</span>, au même titre que la méthode de Gauss. Il est possible de réorganiser les calculs en construisant des transformations élémentaires orthogonales qui effectuent cette triangularisation colonne par colonne (ou élément par élément). Les symétries de Householder
+et les rotations de Givens sont des exemples simples et intéressants de telles transformations, car elles conduisent à des algorithmes numériquement plus stables que la méthode de Gram-Schmidt.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><img alt="" src="_images/householder.png" /></p>
+</div>
+<div class="proof definition admonition" id="definition-4">
+<p class="admonition-title"><span class="caption-number">Definition 29 </span> (Matrice de Householder})</p>
+<div class="definition-content section" id="proof-content">
+<p>Une matrice de Householder\index{matrice!de Householder}
 est une matrice carrée <span class="math notranslate nohighlight">\({\bf H}\)</span> qui s’écrit <span class="math notranslate nohighlight">\({\bf H}=\mathbb I-2{\bf P}\)</span>, où <span class="math notranslate nohighlight">\({\bf P}\)</span> est
 la matrice de projection\index{matrice!de projection}
-sur la droite engendrée par un vecteur <span class="math notranslate nohighlight">\({\bf v}\)</span> non nul.
-\end{defin}
-On vérifie (figure  \ref{46}) que <span class="math notranslate nohighlight">\({\bf H}\)</span> représente une symétrie\index{symétrie}
+sur la droite engendrée par un vecteur <span class="math notranslate nohighlight">\({\bf v}\)</span> non nul.</p>
+</div>
+</div><p>On vérifie  que <span class="math notranslate nohighlight">\({\bf H}\)</span> représente une symétrie
 par rapport au sous-espace <span class="math notranslate nohighlight">\({\bf v^\perp}\)</span>.</p>
-<p>\begin{figure}[hbtp!]
-\begin{center}
-\begin{tikzpicture}[line cap=round,line join=round,&gt;=triangle 45,x=1.0cm,y=1.0cm,scale=0.5]
-\clip(-5,-5) rectangle (7.36,5.76);
-\filldraw[fill=blue!20!] (-3.5,-2) – (3.5,-2) –  (5.5,1) – (-0.5,1) – (-3.5,-2);</p>
-<p>\draw [-&gt;,line width=1.6pt,blue] (0.,0.) – (3.84,3.62);
-\draw [-&gt;,line width=1.2pt,orange] (0.,0.) – (3.84,-3.62);
-\draw [-&gt;,line width=1.6pt,red] (0.,0.) – (0,3.62);
-\draw [-] (3.84,3.62)– (3.84,0);
-\draw [dash pattern=on 4pt off 4pt] (3.84,0)– (3.84,-3.62);
-\draw (-0.54,4.74) node[anchor=north west] { <span class="math notranslate nohighlight">\(v\)</span> };</p>
-<p>\draw (3.84,3.62) node[anchor=north west] { <span class="math notranslate nohighlight">\(\textcolor{blue}{{\bf x}}\)</span> };
-\draw (3.84,-3.62) node[anchor=north west] { <span class="math notranslate nohighlight">\(\textcolor{orange}{{\bf Hx}}\)</span> };
-\draw (-3.5,-2) node[anchor=north west] { <span class="math notranslate nohighlight">\( {\bf v}^\perp\)</span> };
-\end{tikzpicture}
-\end{center}
-\caption{Transformation de Householder}
-\label{46}
-\end{figure}</p>
-<p>Le théorème suivant montre qu’il est toujours possible de trouver une matrice de Householder\index{matrice!de Householder}
+<p id="index-7">Le théorème suivant montre qu’il est toujours possible de trouver une matrice de Householder\index{matrice!de Householder}
 permettant de transformer un vecteur quelconque en un vecteur colinéaire à un vecteur donné
 \begin{theo}{}{}
 \label{T:householder}

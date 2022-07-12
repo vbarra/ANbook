@@ -127,39 +127,25 @@
 # $\|{\bf e}\|^2=\|{\bf b}\|^2-\displaystyle\sum_{i=1}^p  ({\bf b^T} {\bf q_i})^2$
 # 
 # ## Transformations de Householder
+# ```{index} transformation;de Householder
+# ```
+# On peut interpréter la méthode de Gram-Schmidt comme une méthode de triangularisation de la matrice ${\bf A}$, au même titre que la méthode de Gauss. Il est possible de réorganiser les calculs en construisant des transformations élémentaires orthogonales qui effectuent cette triangularisation colonne par colonne (ou élément par élément). Les symétries de Householder
+# et les rotations de Givens sont des exemples simples et intéressants de telles transformations, car elles conduisent à des algorithmes numériquement plus stables que la méthode de Gram-Schmidt.
 # 
-# On peut interpréter la méthode de Gram-Schmidt comme une méthode de triangularisation de la matrice ${\bf A}$, au même titre que la méthode de Gauss. Il est possible de réorganiser les calculs en construisant des transformations élémentaires orthogonales qui effectuent cette triangularisation colonne par colonne (ou élément par élément). Les symétries de Householder\index{transformation!de Householder}
-# et les rotations de Givens sont des exemples simples et intéressants de telles transformations, car elles conduisent à des algorithmes numériquement plus stables que la méthode de Gram-Schmidt.\\
-# \begin{defin}{Matrice de Householder}{}
+# ```{margin} 
+# ![](./images/householder.png)
+# ```
+# ````{prf:definition} Matrice de Householder}
 # Une matrice de Householder\index{matrice!de Householder}
 # est une matrice carrée ${\bf H}$ qui s'écrit ${\bf H}=\mathbb I-2{\bf P}$, où ${\bf P}$ est
 # la matrice de projection\index{matrice!de projection}
 # sur la droite engendrée par un vecteur ${\bf v}$ non nul.
-# \end{defin}
-# On vérifie (figure  \ref{46}) que ${\bf H}$ représente une symétrie\index{symétrie}
+# ````
+# On vérifie  que ${\bf H}$ représente une symétrie
 # par rapport au sous-espace ${\bf v^\perp}$.
+# ```{index} symétrie
+# ```
 # 
-# \begin{figure}[hbtp!]
-# \begin{center}
-# \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=0.5]
-# \clip(-5,-5) rectangle (7.36,5.76);
-# \filldraw[fill=blue!20!] (-3.5,-2) -- (3.5,-2) --  (5.5,1) -- (-0.5,1) -- (-3.5,-2);
-# 
-# \draw [->,line width=1.6pt,blue] (0.,0.) -- (3.84,3.62);
-# \draw [->,line width=1.2pt,orange] (0.,0.) -- (3.84,-3.62);
-# \draw [->,line width=1.6pt,red] (0.,0.) -- (0,3.62);
-# \draw [-] (3.84,3.62)-- (3.84,0);
-# \draw [dash pattern=on 4pt off 4pt] (3.84,0)-- (3.84,-3.62);
-# \draw (-0.54,4.74) node[anchor=north west] { $v$ };
-# 
-# \draw (3.84,3.62) node[anchor=north west] { $\textcolor{blue}{{\bf x}}$ };
-# \draw (3.84,-3.62) node[anchor=north west] { $\textcolor{orange}{{\bf Hx}}$ };
-# \draw (-3.5,-2) node[anchor=north west] { $ {\bf v}^\perp$ };
-# \end{tikzpicture}
-# \end{center}
-# \caption{Transformation de Householder}
-# \label{46}
-# \end{figure}
 # 
 # Le théorème suivant montre qu'il est toujours possible de trouver une matrice de Householder\index{matrice!de Householder}
 # permettant de transformer un vecteur quelconque en un vecteur colinéaire à un vecteur donné 
