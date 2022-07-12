@@ -189,16 +189,17 @@ def Hilbert(n):
 On applique la méthode de Gram-Schmidt, et on vérifie à quel point $\bf QR$ est proche de $\bf A$, et $\bf Q$ est orthogonale.
 
 ```{code-cell} ipython3
-A = Hilbert(10)
+n = 8
+A = Hilbert(n)
 Q, R = GramSchmidt(A)
 print('Norme de QR-A = ',np.max(np.abs(np.dot(Q,R)-A)),"\n")
-print("Norme de Q^T*Q-I = ",np.max(np.abs(np.dot(Q.T,Q)-np.eye(10))))
+print("Norme de Q^T*Q-I = ",np.max(np.abs(np.dot(Q.T,Q)-np.eye(n))))
 ```
 
 La factorisation est précise, mais $\bf Q$ est loin d'être orthogonale.
 
 ```{code-cell} ipython3
-print(np.dot(Q.T,Q)-np.eye(10))
+print(np.dot(Q.T,Q)-np.eye(n))
 ```
 
 
