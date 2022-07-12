@@ -138,26 +138,26 @@ Alors ${\bf A} ={\bf QR}$ avec ${\bf Q} = \begin{pmatrix} \textcolor{blue}{\frac
 
 ```{code-cell} ipython3
 import numpy as np
-def clgs(A):
+def GramSchmidt(A):
     n = A.shape[1] 
     R = np.zeros([n,n])
     V = np.zeros(A.shape)
     Q = np.zeros(A.shape)
     
     for j in range(n):     
-        V[:,j] = A[:,j]
+        p[:,j] = A[:,j]
         for i in range(j):  
             R[i,j] = np.dot(Q[:,i].T,A[:,j])
-            V[:,j] = V[:,j] - R[i,j]*Q[:,i]
+            p[:,j] = p[:,j] - R[i,j]*Q[:,i]
         
-        R[j,j] = np.linalg.norm(V[:,j],2)
-        Q[:,j] = V[:,j]/R[j,j]             
+        R[j,j] = np.linalg.norm(p[:,j],2)
+        Q[:,j] = p[:,j]/R[j,j]             
     
     return Q, R
 
 n = 4
 A = np.random.rand(n,n)
-Q, R = clgs(A)
+Q, R = GramSchmidt(A)
 print("A=",A,"\n")
 print("Q=",Q,"\n")
 print("R=",R,"\n")

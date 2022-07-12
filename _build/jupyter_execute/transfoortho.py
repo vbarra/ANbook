@@ -140,26 +140,26 @@ Q
 
 
 import numpy as np
-def clgs(A):
+def GramSchmidt(A):
     n = A.shape[1] 
     R = np.zeros([n,n])
     V = np.zeros(A.shape)
     Q = np.zeros(A.shape)
     
     for j in range(n):     
-        V[:,j] = A[:,j]
+        p[:,j] = A[:,j]
         for i in range(j):  
             R[i,j] = np.dot(Q[:,i].T,A[:,j])
-            V[:,j] = V[:,j] - R[i,j]*Q[:,i]
+            p[:,j] = p[:,j] - R[i,j]*Q[:,i]
         
-        R[j,j] = np.linalg.norm(V[:,j],2)
-        Q[:,j] = V[:,j]/R[j,j]             
+        R[j,j] = np.linalg.norm(p[:,j],2)
+        Q[:,j] = p[:,j]/R[j,j]             
     
     return Q, R
 
 n = 4
 A = np.random.rand(n,n)
-Q, R = clgs(A)
+Q, R = GramSchmidt(A)
 print("A=",A,"\n")
 print("Q=",Q,"\n")
 print("R=",R,"\n")
@@ -177,7 +177,7 @@ print("Q^TQ=",Q.transpose()@Q,"\n")
 # une base orthonormée de $Ker({\bf A^\top})$.
 # ```
 
-# In[6]:
+# In[ ]:
 
 
 Q = Rational(1, 3) * Matrix([[1, -2], [2, -1], [2, 2]])
@@ -186,7 +186,7 @@ Q
 
 # Les colonnes de $Q$ forment une base de $\mathbb{R}^2$ (dans $\mathbb{R}^3$). Pour obtenir une matrice orthogonale, il faut compléter par un vecteur normal au plan défini par ces deux colonnes, et unitaire.
 
-# In[7]:
+# In[ ]:
 
 
 Q = Rational(1, 3) * Matrix([[1, -2, 2], [2, -1, -2], [2, 2, 1]])
