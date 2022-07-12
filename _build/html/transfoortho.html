@@ -522,7 +522,7 @@ si et seulement si <span class="math notranslate nohighlight">\({\bf H^\top}{\bf
 </div><span class="target" id="index-0"></span><p id="index-1">Une matrice orthogonale est donc une matrice carrée dont les colonnes sont orthonormées. Les matrices de rotation, de symétrie, de permutation et l’identité sont des exemples de matrices orthogonales.</p>
 <p>Une matrice orthogonale <span class="math notranslate nohighlight">\({\bf H}\)</span> est naturellement inversible par définition, et l’inverse est <span class="math notranslate nohighlight">\({\bf H^{-1}}={\bf H^\top} \)</span>.</p>
 <div class="proof property admonition" id="property-1">
-<p class="admonition-title"><span class="caption-number">Property 11 </span> (Propriété fondamentale})</p>
+<p class="admonition-title"><span class="caption-number">Property 11 </span> (Propriété fondamentale)</p>
 <div class="property-content section" id="proof-content">
 <p>Les transformations orthogonales
 sont des isométries, les normes (euclidiennes), les produits scalaires et les angles sont conservés :</p>
@@ -536,6 +536,29 @@ sont des isométries, les normes (euclidiennes), les produits scalaires et les a
 <li><p>triangulariser un système mal conditionné,</p></li>
 <li><p>calculer les valeurs propres d’une matrice.</p></li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">init_printing</span><span class="p">,</span> <span class="n">symbols</span><span class="p">,</span> <span class="n">Matrix</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">sqrt</span><span class="p">,</span> <span class="n">Rational</span><span class="p">,</span> <span class="n">GramSchmidt</span>
+<span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">filterwarnings</span>
+<span class="n">init_printing</span><span class="p">(</span><span class="n">use_latex</span> <span class="o">=</span> <span class="s1">&#39;mathjax&#39;</span><span class="p">)</span>
+<span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="n">Q</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Q</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span> <span class="o">*</span> <span class="n">Q</span><span class="p">)</span>
+
+<span class="n">theta</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;theta&#39;</span><span class="p">)</span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="o">-</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)],</span> <span class="p">[</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">R</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span> <span class="o">*</span> <span class="n">R</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matrix([[1, 0, 0], [0, 1, 0], [0, 0, 1]])
+Matrix([[sin(theta)**2 + cos(theta)**2, 0], [0, sin(theta)**2 + cos(theta)**2]])
+</pre></div>
+</div>
+</div>
+</div>
 <p>Soit <span class="math notranslate nohighlight">\({\bf Q}\in\mathcal{M}_n(\mathbb R)\)</span> orthogonale, de colonnes
 <span class="math notranslate nohighlight">\({\bf q_1},{\bf q_2},\ldots,{\bf q_n}\)</span>. On a alors, pour tout <span class="math notranslate nohighlight">\({\bf x}\in\mathbb R^n\)</span>, une représentation unique sur la base
 orthonormée telle que</p>

@@ -16,7 +16,7 @@
 # 
 # Une matrice orthogonale ${\bf H}$ est naturellement inversible par définition, et l'inverse est ${\bf H^{-1}}={\bf H^\top} $.
 # 
-# ````{prf:property} Propriété fondamentale}
+# ````{prf:property} Propriété fondamentale
 # Les transformations orthogonales
 # sont des isométries, les normes (euclidiennes), les produits scalaires et les angles sont conservés : 
 # 
@@ -34,9 +34,23 @@
 # - résoudre un systèmes aux équations normales,
 # - triangulariser un système mal conditionné,
 # - calculer les valeurs propres d'une matrice.
-# 
-# 
-# 
+
+# In[1]:
+
+
+from sympy import init_printing, symbols, Matrix, sin, cos, sqrt, Rational, GramSchmidt
+from warnings import filterwarnings
+init_printing(use_latex = 'mathjax')
+filterwarnings('ignore')
+
+Q = Matrix([[0, 0, 1], [1, 0, 0], [0, 1, 0]])
+print(Q.transpose() * Q)
+
+theta = symbols('theta')
+R = Matrix([[cos(theta), -sin(theta)], [sin(theta), cos(theta)]])
+print(R.transpose() * R)
+
+
 # Soit ${\bf Q}\in\mathcal{M}_n(\mathbb R)$ orthogonale, de colonnes 
 # ${\bf q_1},{\bf q_2},\ldots,{\bf q_n}$. On a alors, pour tout ${\bf x}\in\mathbb R^n$, une représentation unique sur la base 
 # orthonormée telle que

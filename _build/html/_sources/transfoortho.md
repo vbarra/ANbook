@@ -24,7 +24,7 @@ Une matrice orthogonale est donc une matrice carrée dont les colonnes sont orth
 
 Une matrice orthogonale ${\bf H}$ est naturellement inversible par définition, et l'inverse est ${\bf H^{-1}}={\bf H^\top} $.
 
-````{prf:property} Propriété fondamentale}
+````{prf:property} Propriété fondamentale
 Les transformations orthogonales
 sont des isométries, les normes (euclidiennes), les produits scalaires et les angles sont conservés : 
 
@@ -42,6 +42,20 @@ Cette propriété entraîne une stabilité numérique des méthodes utilisant ce
 - résoudre un systèmes aux équations normales,
 - triangulariser un système mal conditionné,
 - calculer les valeurs propres d'une matrice.
+
+```{code-cell} ipython3
+from sympy import init_printing, symbols, Matrix, sin, cos, sqrt, Rational, GramSchmidt
+from warnings import filterwarnings
+init_printing(use_latex = 'mathjax')
+filterwarnings('ignore')
+
+Q = Matrix([[0, 0, 1], [1, 0, 0], [0, 1, 0]])
+print(Q.transpose() * Q)
+
+theta = symbols('theta')
+R = Matrix([[cos(theta), -sin(theta)], [sin(theta), cos(theta)]])
+print(R.transpose() * R)
+``` 
 
 
 
