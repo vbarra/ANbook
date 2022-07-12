@@ -511,7 +511,7 @@ title="Print to PDF"
 système
 <span class="math notranslate nohighlight">\(3x=10,\qquad 4x= 5.\)</span></p>
 <p>Déterminer le carré de l’erreur <span class="math notranslate nohighlight">\(e^2\)</span> et montrer que le vecteur erreur
-<span class="math notranslate nohighlight">\((10-3\bar x\;  5-4\bar x)^T \)</span> est orthogonal à <span class="math notranslate nohighlight">\((3\; 4)^T \)</span></p>
+<span class="math notranslate nohighlight">\((10-3\bar x\;  5-4\bar x)^\top\)</span> est orthogonal à <span class="math notranslate nohighlight">\((3\; 4)^\top\)</span></p>
 </div>
 <div class="section" id="exercice-2">
 <h2>Exercice 2<a class="headerlink" href="#exercice-2" title="Lien permanent vers ce titre">#</a></h2>
@@ -523,12 +523,12 @@ carrés) les mesures : <span class="math notranslate nohighlight">\(f(0)=0,\quad
 <p>Soit <span class="math notranslate nohighlight">\(P=\frac{1}{\parallel v\parallel^2}vv^\top\)</span> la matrice de
 projection sur la droite de direction <span class="math notranslate nohighlight">\(v\)</span>.</p>
 <p>Interpréter géométriquement la matrice <span class="math notranslate nohighlight">\(Q=I-2P\)</span>. Montrer que <span class="math notranslate nohighlight">\(Q^2=I\)</span> et
-<span class="math notranslate nohighlight">\(Q^T =Q\)</span> (\textit{i.e.} <span class="math notranslate nohighlight">\(Q\)</span> est orthogonale). Soit <span class="math notranslate nohighlight">\(y=(y_1, y_2)\in\mbb R^2\)</span>.
+<span class="math notranslate nohighlight">\(Q^T =Q\)</span> (\textit{i.e.} <span class="math notranslate nohighlight">\(Q\)</span> est orthogonale). Soit <span class="math notranslate nohighlight">\(y=(y_1, y_2)\in\mathbb R^2\)</span>.
 Déterminer <span class="math notranslate nohighlight">\(v\)</span> pour que la seconde coordonnée de <span class="math notranslate nohighlight">\(z=Qy\)</span> soit nulle.</p>
 </div>
 <div class="section" id="exercice-4">
 <h2>Exercice 4<a class="headerlink" href="#exercice-4" title="Lien permanent vers ce titre">#</a></h2>
-<p>Projeter le vecteur <span class="math notranslate nohighlight">\(b=(0\; 3\; 0)^T \)</span> sur les droites de directions
+<p>Projeter le vecteur <span class="math notranslate nohighlight">\(b=(0\; 3\; 0)^\top\)</span> sur les droites de directions
 respectives
 <span class="math notranslate nohighlight">\(a^1=\left(\begin{array}{r}2/3\\ 2/3\\ -1/3\end{array}\right),\quad
 a^2=\left(\begin{array}{r}-1/3\\ 2/3\\ 2/3\end{array}\right)\)</span></p>
@@ -551,29 +551,21 @@ A_1x_1=b
 et l'erreur \)</span>e_1$ correspondante.</p></li>
 <li><p>On rajoute la colonne <span class="math notranslate nohighlight">\(a_3=[1\ 0\ 1\ 4]^T \)</span> à la matrice <span class="math notranslate nohighlight">\(A_1\)</span> pour avoir
 <span class="math notranslate nohighlight">\(A_2=[A_1\ a_3]\)</span>. Mettre <span class="math notranslate nohighlight">\(A_2\)</span> sous la forme <span class="math notranslate nohighlight">\(Q_2R_2\)</span> et calculer la solution aux moindres
-carrés du système
-$<span class="math notranslate nohighlight">\(
-A_2x_2=b
-\)</span><span class="math notranslate nohighlight">\( 
-Calculer l'erreur \)</span>e_2<span class="math notranslate nohighlight">\( correspondante et montrer que \)</span>e_2=e_1^2-(q_3^T b)^2<span class="math notranslate nohighlight">\(,
-où \)</span>q_3<span class="math notranslate nohighlight">\( est la troisième colonne de \)</span>Q_2$. Justifier cette diminution dans le cas général.</p></li>
+carrés du système <span class="math notranslate nohighlight">\(A_2x_2=b\)</span> .
+Calculer l’erreur <span class="math notranslate nohighlight">\(e_2\)</span> correspondante et montrer que <span class="math notranslate nohighlight">\(e_2=e_1^2-(q_3^T b)^2\)</span>,
+où <span class="math notranslate nohighlight">\(q_3\)</span> est la troisième colonne de <span class="math notranslate nohighlight">\(Q_2\)</span>. Justifier cette diminution dans le cas général.</p></li>
 </ol>
 </div>
 <div class="section" id="exercice-6">
 <h2>Exercice 6<a class="headerlink" href="#exercice-6" title="Lien permanent vers ce titre">#</a></h2>
-<p>On se propose de déterminer les coefficients du polynôme
-$<span class="math notranslate nohighlight">\(
-p(x)=\sum_{k=0}^na_kx^k
-\)</span><span class="math notranslate nohighlight">\(
-qui approche &lt;&lt;au mieux&gt;&gt; une fonction \)</span>y=f(x)<span class="math notranslate nohighlight">\(, connue à travers \)</span>m+1<span class="math notranslate nohighlight">\( 
-couples \)</span>(x_i,y_i)<span class="math notranslate nohighlight">\(, \)</span>i=0,\ldots,m<span class="math notranslate nohighlight">\(; avec \)</span>m\ge n<span class="math notranslate nohighlight">\(. On supposera que tous les
-points de mesure \)</span>x_i<span class="math notranslate nohighlight">\(, \)</span>i=0,\ldots,m<span class="math notranslate nohighlight">\(, sont {\it distincts}. 
+<p>On se propose de déterminer les coefficients du polynôme <span class="math notranslate nohighlight">\(p(x)=\sum_{k=0}^na_kx^k\)</span>
+qui approche &lt;<au mieux>&gt; une fonction <span class="math notranslate nohighlight">\(y=f(x)\)</span>, connue à travers <span class="math notranslate nohighlight">\(m+1\)</span>
+couples <span class="math notranslate nohighlight">\((x_i,y_i)\)</span>, <span class="math notranslate nohighlight">\(i=0,\ldots,m\)</span>; avec <span class="math notranslate nohighlight">\(m\ge n\)</span>. On supposera que tous les
+points de mesure <span class="math notranslate nohighlight">\(x_i\)</span>, <span class="math notranslate nohighlight">\(i=0,\ldots,m\)</span>, sont {\it distincts}.
 Pour la suite on pose
-\)</span>{\bf x}=(x_0,\ldots,x_m)<span class="math notranslate nohighlight">\( et \)</span>{\bf y}=(y_0,\ldots,y_m)$.</p>
+<span class="math notranslate nohighlight">\({\bf x}=(x_0,\ldots,x_m)\)</span> et <span class="math notranslate nohighlight">\({\bf y}=(y_0,\ldots,y_m)\)</span>.</p>
 <p>Pour <span class="math notranslate nohighlight">\({\bf a}=(a_0,a_1,\ldots,a_n)\in \mbb R^{n+1}\)</span>, on définit
-$<span class="math notranslate nohighlight">\(
-J({\bf a})=\sum_{i=0}^m\Bigl[y_i-p(x_i)\Bigr]^2.
-\)</span>$</p>
+<span class="math notranslate nohighlight">\(J({\bf a})=\sum_{i=0}^m\Bigl[y_i-p(x_i)\Bigr]^2.\)</span></p>
 <ol class="simple">
 <li><p>Caractériser la solution <span class="math notranslate nohighlight">\({\bf a}^\ast\)</span> qui minimise <span class="math notranslate nohighlight">\(J({\bf a})\)</span>
 sur <span class="math notranslate nohighlight">\(\mbb R^{n+1}\)</span>. Quelle est l’interprétation du polynôme <span class="math notranslate nohighlight">\(p(x)\)</span>

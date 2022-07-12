@@ -6,7 +6,7 @@ système
 $3x=10,\qquad 4x= 5.$
 
 Déterminer le carré de l'erreur $e^2$ et montrer que le vecteur erreur
-$(10-3\bar x\;  5-4\bar x)^T $ est orthogonal à $(3\; 4)^T $
+$(10-3\bar x\;  5-4\bar x)^\top$ est orthogonal à $(3\; 4)^\top$
 
 
 
@@ -21,12 +21,12 @@ Soit $P=\frac{1}{\parallel v\parallel^2}vv^\top$ la matrice de
 projection sur la droite de direction $v$.
 
 Interpréter géométriquement la matrice $Q=I-2P$. Montrer que $Q^2=I$ et
-$Q^T =Q$ (\textit{i.e.} $Q$ est orthogonale). Soit $y=(y_1, y_2)\in\mbb R^2$.
+$Q^T =Q$ (\textit{i.e.} $Q$ est orthogonale). Soit $y=(y_1, y_2)\in\mathbb R^2$.
 Déterminer $v$ pour que la seconde coordonnée de $z=Qy$ soit nulle.
 
 
 ## Exercice 4
-Projeter le vecteur $b=(0\; 3\; 0)^T $ sur les droites de directions 
+Projeter le vecteur $b=(0\; 3\; 0)^\top$ sur les droites de directions 
 respectives 
 $a^1=\left(\begin{array}{r}2/3\\ 2/3\\ -1/3\end{array}\right),\quad
 a^2=\left(\begin{array}{r}-1/3\\ 2/3\\ 2/3\end{array}\right)$
@@ -52,18 +52,12 @@ et l'erreur $e_1$ correspondante.
 
 3. On rajoute la colonne $a_3=[1\ 0\ 1\ 4]^T $ à la matrice $A_1$ pour avoir
 $A_2=[A_1\ a_3]$. Mettre $A_2$ sous la forme $Q_2R_2$ et calculer la solution aux moindres
-carrés du système
-$$
-A_2x_2=b
-$$ 
+carrés du système $A_2x_2=b$ . 
 Calculer l'erreur $e_2$ correspondante et montrer que $e_2=e_1^2-(q_3^T b)^2$,
 où $q_3$ est la troisième colonne de $Q_2$. Justifier cette diminution dans le cas général.
 
 ## Exercice 6
- On se propose de déterminer les coefficients du polynôme
-$$
-p(x)=\sum_{k=0}^na_kx^k
-$$
+ On se propose de déterminer les coefficients du polynôme $p(x)=\sum_{k=0}^na_kx^k$
 qui approche <<au mieux>> une fonction $y=f(x)$, connue à travers $m+1$ 
 couples $(x_i,y_i)$, $i=0,\ldots,m$; avec $m\ge n$. On supposera que tous les
 points de mesure $x_i$, $i=0,\ldots,m$, sont {\it distincts}. 
@@ -71,9 +65,7 @@ Pour la suite on pose
 ${\bf x}=(x_0,\ldots,x_m)$ et ${\bf y}=(y_0,\ldots,y_m)$.
 
 Pour ${\bf a}=(a_0,a_1,\ldots,a_n)\in \mbb R^{n+1}$, on définit
-$$
-J({\bf a})=\sum_{i=0}^m\Bigl[y_i-p(x_i)\Bigr]^2.
-$$
+$J({\bf a})=\sum_{i=0}^m\Bigl[y_i-p(x_i)\Bigr]^2.$
 
 1. Caractériser la solution ${\bf a}^\ast$ qui minimise $J({\bf a})$
 sur $\mbb R^{n+1}$. Quelle est l'interprétation du polynôme $p(x)$
