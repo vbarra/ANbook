@@ -140,6 +140,8 @@ Q
 
 
 import numpy as np
+np.set_printoptions(precision=4)
+
 def GramSchmidt(A):
     n = A.shape[1] 
     R = np.zeros([n,n])

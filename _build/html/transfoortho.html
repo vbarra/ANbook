@@ -673,6 +673,8 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
 <span class="k">def</span> <span class="nf">GramSchmidt</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> 
     <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">])</span>
@@ -708,32 +710,32 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.12552788 0.91700601 0.23185674 0.83574895]
- [0.05240419 0.5913724  0.65119912 0.55870361]
- [0.37603581 0.06550631 0.45885957 0.50852772]
- [0.12625633 0.94243259 0.60274239 0.97638305]] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.8372 0.268  0.0946 0.0759]
+ [0.1144 0.8782 0.8815 0.4199]
+ [0.8616 0.6419 0.9817 0.4031]
+ [0.2492 0.1165 0.5288 0.1299]] 
 
-Q= [[ 0.29934546  0.56044714 -0.63975986 -0.43243338]
- [ 0.1249679   0.39854725  0.75214795 -0.50972205]
- [ 0.89672995 -0.4372219   0.05959448 -0.03407203]
- [ 0.30108258  0.57956544  0.14638742  0.74298311]] 
+Q= [[ 0.6794 -0.2721 -0.5583 -0.3907]
+ [ 0.0928  0.9499 -0.1872 -0.2326]
+ [ 0.6992  0.1493  0.3577  0.6007]
+ [ 0.2023 -0.0379  0.7248 -0.6576]] 
 
-R= [[0.4193412  0.69089565 0.7437326  1.06998163]
- [0.         1.26718381 0.53818227 1.03460131]
- [0.         0.         0.45704485 0.05878479]
- [0.         0.         0.         0.06192025]] 
+R= [[1.2322 0.736  0.9394 0.3986]
+ [0.     0.8526 0.9381 0.4335]
+ [0.     0.     0.5166 0.1173]
+ [0.     0.     0.     0.0294]] 
 
-Q^TQ= [[ 1.00000000e+00 -1.05546327e-17  1.19547667e-16  3.39564245e-15]
- [-1.05546327e-17  1.00000000e+00  1.74772158e-16  2.00726832e-15]
- [ 1.19547667e-16  1.74772158e-16  1.00000000e+00 -4.71500727e-15]
- [ 3.39564245e-15  2.00726832e-15 -4.71500727e-15  1.00000000e+00]] 
+Q^TQ= [[ 1.0000e+00  3.2030e-17 -4.9956e-16  1.0516e-15]
+ [ 3.2030e-17  1.0000e+00  5.8284e-17 -1.5155e-15]
+ [-4.9956e-16  5.8284e-17  1.0000e+00  6.9782e-15]
+ [ 1.0516e-15 -1.5155e-15  6.9782e-15  1.0000e+00]] 
 
-Q^TQ= [[ 1.00000000e+00 -1.05546327e-17  1.19547667e-16  3.39564245e-15]
- [-1.05546327e-17  1.00000000e+00  1.74772158e-16  2.00726832e-15]
- [ 1.19547667e-16  1.74772158e-16  1.00000000e+00 -4.71500727e-15]
- [ 3.39564245e-15  2.00726832e-15 -4.71500727e-15  1.00000000e+00]] 
+Q^TQ= [[ 1.0000e+00  3.2030e-17 -4.9956e-16  1.0516e-15]
+ [ 3.2030e-17  1.0000e+00  5.8284e-17 -1.5155e-15]
+ [-4.9956e-16  5.8284e-17  1.0000e+00  6.9782e-15]
+ [ 1.0516e-15 -1.5155e-15  6.9782e-15  1.0000e+00]] 
 
-Norme de I-Q^TQ =  4.7150072700247684e-15
+Norme de I-Q^TQ =  6.978211998664883e-15
 Norme infinie de QR-A =  1.1102230246251565e-16
 </pre></div>
 </div>
