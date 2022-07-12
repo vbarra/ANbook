@@ -466,6 +466,14 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gram-schmidt-sur-mathbb-r-n">
+     Gram Schmidt sur
+     <span class="math notranslate nohighlight">
+      \(\mathbb{R}^n\)
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#retour-sur-le-probleme-aux-moindres-carres">
      Retour sur le problème aux moindres carrés
     </a>
@@ -509,6 +517,14 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#algorithme">
      Algorithme
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gram-schmidt-sur-mathbb-r-n">
+     Gram Schmidt sur
+     <span class="math notranslate nohighlight">
+      \(\mathbb{R}^n\)
+     </span>
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -710,33 +726,33 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.1013 0.7543 0.5524 0.1292]
- [0.3115 0.7697 0.8477 0.2739]
- [0.4757 0.3665 0.878  0.2858]
- [0.9194 0.5947 0.3791 0.9159]] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.9937 0.4965 0.6254 0.4035]
+ [0.4653 0.3167 0.8193 0.3324]
+ [0.4085 0.1265 0.1554 0.2164]
+ [0.5476 0.4141 0.6798 0.5963]] 
 
-Q= [[ 0.0933  0.775  -0.234  -0.5796]
- [ 0.2869  0.5774  0.1979  0.7383]
- [ 0.4381 -0.0606  0.828  -0.3448]
- [ 0.8468 -0.2497 -0.4696 -0.0079]] 
+Q= [[ 0.7688 -0.2968 -0.3045 -0.4777]
+ [ 0.36    0.3587  0.8422 -0.1802]
+ [ 0.316  -0.5812  0.2627  0.7023]
+ [ 0.4236  0.6674 -0.3592  0.4961]] 
 
-R= [[ 1.0858  0.9554  1.0004  0.9914]
- [ 0.      0.8583  0.7697  0.0123]
- [ 0.      0.      0.5874 -0.1695]
- [ 0.      0.      0.      0.0216]] 
+R= [[ 1.2926e+00  7.1110e-01  1.1129e+00  7.5091e-01]
+ [ 0.0000e+00  1.6909e-01  4.7165e-01  2.7166e-01]
+ [ 0.0000e+00  0.0000e+00  2.9623e-01 -2.0459e-04]
+ [ 0.0000e+00  0.0000e+00  0.0000e+00  1.9517e-01]] 
 
-Q^TQ= [[ 1.0000e+00 -2.4283e-16  1.9195e-16 -3.8638e-15]
- [-2.4283e-16  1.0000e+00  4.3742e-16  1.4087e-14]
- [ 1.9195e-16  4.3742e-16  1.0000e+00 -8.5325e-15]
- [-3.8638e-15  1.4087e-14 -8.5325e-15  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00  1.2682e-16  6.7919e-16  6.6567e-16]
+ [ 1.2682e-16  1.0000e+00 -1.1424e-15 -5.0631e-16]
+ [ 6.7919e-16 -1.1424e-15  1.0000e+00 -1.1051e-15]
+ [ 6.6567e-16 -5.0631e-16 -1.1051e-15  1.0000e+00]] 
 
-Q^TQ= [[ 1.0000e+00 -2.4283e-16  1.9195e-16 -3.8638e-15]
- [-2.4283e-16  1.0000e+00  4.3742e-16  1.4087e-14]
- [ 1.9195e-16  4.3742e-16  1.0000e+00 -8.5325e-15]
- [-3.8638e-15  1.4087e-14 -8.5325e-15  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00  1.2682e-16  6.7919e-16  6.6567e-16]
+ [ 1.2682e-16  1.0000e+00 -1.1424e-15 -5.0631e-16]
+ [ 6.7919e-16 -1.1424e-15  1.0000e+00 -1.1051e-15]
+ [ 6.6567e-16 -5.0631e-16 -1.1051e-15  1.0000e+00]] 
 
-Norme de I-Q^TQ =  1.4086504750260513e-14
-Norme infinie de QR-A =  5.551115123125783e-17
+Norme de I-Q^TQ =  1.1424323917089684e-15
+Norme infinie de QR-A =  1.1102230246251565e-16
 </pre></div>
 </div>
 </div>
@@ -802,6 +818,9 @@ Norme de Q^T*Q-I =  0.9999670638304938
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="gram-schmidt-sur-mathbb-r-n">
+<h3>Gram Schmidt sur <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span><a class="headerlink" href="#gram-schmidt-sur-mathbb-r-n" title="Lien permanent vers ce titre">#</a></h3>
 <p>Il est possible de compléter <span class="math notranslate nohighlight">\({\bf q_1}\cdots {\bf q_p}\)</span> en une base orthonormée de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>, en continuant la procédure de Gram-Schmidt avec <span class="math notranslate nohighlight">\(n-p\)</span> vecteurs arbitraires, mais tels que les <span class="math notranslate nohighlight">\(n\)</span> colonnes formées avec les <span class="math notranslate nohighlight">\({\bf A_{\bullet,j}}\)</span> soient linéairement indépendantes. Soit <span class="math notranslate nohighlight">\({\bf Q_2}\)</span> la matrice des <span class="math notranslate nohighlight">\(n-p\)</span> derniers vecteurs orthonormés. On a alors bien :</p>
 <p><span class="math notranslate nohighlight">\({\bf A^\top} {\bf Q_2}={\bf R_1^\top} {\bf Q_1^\top} {\bf Q_2}=0\)</span> ce qui montre que :</p>
 <p><span class="math notranslate nohighlight">\({\bf A}={\bf QR}=[{\bf Q_1}\ {\bf Q_2}]\cdot\left [\begin{array}{c}{\bf R_1} \\{\bf 0} \\\end{array}\right]={\bf Q_1R_1}\)</span>.</p>

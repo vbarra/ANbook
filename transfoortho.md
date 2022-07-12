@@ -202,7 +202,7 @@ La factorisation est précise, mais $\bf Q$ est loin d'être orthogonale.
 print(np.dot(Q.T,Q)-np.eye(n))
 ```
 
-### Gram Schmidt sur $\mathbb{R}^n$
+### Gram-Schmidt sur $\mathbb{R}^n$
 Il est possible de compléter ${\bf q_1}\cdots {\bf q_p}$ en une base orthonormée de $\mathbb R^n$, en continuant la procédure de Gram-Schmidt avec $n-p$ vecteurs arbitraires, mais tels que les $n$ colonnes formées avec les ${\bf A_{\bullet,j}}$ soient linéairement indépendantes. Soit ${\bf Q_2}$ la matrice des $n-p$ derniers vecteurs orthonormés. On a alors bien :
 
 ${\bf A^\top} {\bf Q_2}={\bf R_1^\top} {\bf Q_1^\top} {\bf Q_2}=0$ ce qui montre que :
