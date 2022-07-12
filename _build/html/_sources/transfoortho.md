@@ -210,7 +210,7 @@ On l'illustre dans la suite (algorithme \ref{A:HS}) dans le cas où ${\bf A}\in\
 **Sortie : **  ${\bf Q}\in\mathcal{M}_n(\mathbb R)$ orthogonale, ${\bf R}\in\mathcal{M}_n(\mathbb R)$ triangulaire supérieure
 
 1. ${\bf A^{(1)}}={\bf A}$
-2. Pour $j$=1 à $n-1$
+2. Pour $j=1$ à $n-1$
     1. Soit ${\bf f_j}\in \mathbb R^{n-j+1}$ le vecteur commençant à l'élément $(j,j)$ de ${\bf A^{(j)}}$
     2. On construit ${\bf {\tilde H^{(j)}}}\in\mathcal{M}_{n-j+1}(\mathbb R)$ telle que ${\bf \tilde{H^{(j)}}f_j} = \|{\bf f_j}\ {\bf e^{(j)}_1}$, ${\bf e^{(j)}_1}$ premier vecteur de la base canonique de $\mathbb R^{n-j+1}$
     3. On construit 
