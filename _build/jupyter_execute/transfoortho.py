@@ -135,14 +135,14 @@
 # ```{margin} 
 # ![](./images/householder.png)
 # ```
-# ````{prf:definition} Matrice de Householder}
+# ````{prf:definition} Matrice de Householder
 # Une matrice de Householder\index{matrice!de Householder}
 # est une matrice carrée ${\bf H}$ qui s'écrit ${\bf H}=\mathbb I-2{\bf P}$, où ${\bf P}$ est
 # la matrice de projection
 # sur la droite engendrée par un vecteur ${\bf v}$ non nul.
 # ````
 # ```{index} matrice;de projection
-# ```
+# ``
 # On vérifie  que ${\bf H}$ représente une symétrie
 # par rapport au sous-espace ${\bf v^\perp}$.
 # ```{index} symétrie
@@ -150,17 +150,16 @@
 # 
 # 
 # Le théorème suivant montre qu'il est toujours possible de trouver une matrice de Householder\index{matrice!de Householder}
-# permettant de transformer un vecteur quelconque en un vecteur colinéaire à un vecteur donné 
-# \begin{theo}{}{}
-# \label{T:householder}
-# Soient ${\bf f}$ et ${\bf e}$ deux vecteurs non colinéaires de $\mathbb{R}^n$; avec $\|{\bf e}\|_2=1$. Il est alors possible de trouver ${\bf u}\in \mathbb{R}^n$ tel que 
-# \begin{enumerate}
-#   \item $\|{\bf u}\|_2=1$
-#   \item ${\bf H(u)f}=\alpha {\bf e}$
-# \end{enumerate}
-# \end{theo}
+# permettant de transformer un vecteur quelconque en un vecteur colinéaire à un vecteur donné.
 # 
-# \textsc{Démonstration:} 
+# ````{prf:theorem} 
+# Soient ${\bf f}$ et ${\bf e}$ deux vecteurs non colinéaires de $\mathbb{R}^n$; avec $\|{\bf e}\|_2=1$. Il est alors possible de trouver ${\bf u}\in \mathbb{R}^n$ tel que :
+# 1. $\|{\bf u}\|_2=1$
+# 2. ${\bf H(u)f}=\alpha {\bf e}$
+# \end{enumerate}
+# ````
+# 
+# ````{prf:proof}
 # Remarquons tout d'abord que si ${\bf H(u)}$ est une matrice de Householder, alors ${\bf H(u)f}={\bf f-2u(u^T f)}$ et $\|{\bf H(u)f}\|_2=\|{\bf f}\|_2$.\\
 # Posons alors $\mid\alpha\mid=\|{\bf f}\|_2$. On cherche alors ${\bf u}$ tel que ${\bf H(u)f}=\alpha {\bf e}$, soit 
 # \begin{align*}
@@ -174,11 +173,12 @@
 # $$\mid {\bf f^T e}\mid\leq\|{\bf f}\|_2\|{\bf e}\|_2=\|\alpha\|$$
 # et l'inégalité est de plus stricte par hypothèse (${\bf f}$ et ${\bf e}$ non colinéaires). Ainsi :
 # $${\bf u}=\frac{1}{2\beta}({\bf f}-\alpha {\bf e)}$$ répond à la question.
-# 
+# ````
 #  
-# \begin{rem}
+# ```{prf:remark}
+# :class: dropdown
 # Si ${\bf f}$ et ${\bf  e}$ sont colinéaires, ${\bf H}=\mathbb I$ ou ${\bf H}=\mathbb I-2{\bf ee^T }$ répondent à la question.
-# \end{rem}
+# ``` 
 # 
 # L'algorithme d'orthonormalisation  de ${\bf A}$ par matrices de Householder  opère alors colonne par colonne, et transforme itérativement ${\bf A}$ en une matrice triangulaire supérieure.
 # 
