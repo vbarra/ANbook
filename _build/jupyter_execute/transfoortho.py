@@ -210,26 +210,27 @@
 # ```
 # 
 # A l'issue des $n-1$ itérations, on a effectué les produits ${\bf H^{(n-1)}} \cdots {\bf H^{(2)}} {\bf H^{(1)}}$ pour obtenir une matrice triangulaire supérieure ${\bf R}\in\mathcal{M}_n(\mathbb R)$ à partir de ${\bf A}$. Donc :
-# $${\bf H^{(n-1)}} \cdots {\bf H^{(2)}} {\bf H^{(1)}}{\bf A} = {\bf R}$$
+# 
+# ${\bf H^{(n-1)}} \cdots {\bf H^{(2)}} {\bf H^{(1)}}{\bf A} = {\bf R}$
+# 
 # De plus les ${\bf H^{(j)}}, j\in[\![1, n-1]\!]$ sont orthogonales donc
-# $${\bf A} ={\bf {H^{(1)}}^T}{\bf {H^{(2)}}^T} \cdots  {\bf {H^{(n-1)}}^T} {\bf R}$$
+# 
+# ${\bf A} ={\bf {H^{(1)}}^T}{\bf {H^{(2)}}^T} \cdots  {\bf {H^{(n-1)}}^T} {\bf R}$
+# 
 # Le produit des matrices ${\bf{ H^{(j)}}^T}$ est également une matrice orthogonale, et on pose 
-# $${\bf Q} = {\bf {H^{(1)}}^T}{\bf {H^{(2)}}^T} \cdots  {\bf {H^{(n-1)}}^T}$$ 
-# pour finalement obtenir 
-# $${\bf A} = {\bf QR}$$
+# 
+# ${\bf Q} = {\bf {H^{(1)}}^T}{\bf {H^{(2)}}^T} \cdots  {\bf {H^{(n-1)}}^T}$
+# 
+# pour finalement obtenir  ${\bf A} = {\bf QR}$
 # 
 # On illustre cet algorithme sur les deux premières itérations :
-# \begin{enumerate}
-# \item $j$=1 : 
-# \begin{maliste}
-# \item On construit ${\bf H^{(1)}}$ telle que ${\bf H^{(1)}A^{(1)}_{\bullet,1}}$ =${\bf e_1}$, premier vecteur de la base canonique de $\mathbb R^n$
-# \item ${\bf A^{(2)}}={\bf H^{(1)}A^{(1)}} = \begin{pmatrix}{\norme{{\bf A^{(1)}_{\bullet,1}}}}&a^{(2)}_{12}&*&\cdots &*\\0&a^{(2)}_{22}&*&\cdots &*\\0&\vdots&\vdots&\vdots&\vdots\\0&a^{(2)}_{n2}&*&\cdots &*\end{pmatrix}$
-# \end{maliste}
-# \item$ j$=2 : 
-# \begin{maliste}
-# \item soit ${\bf f_2} = \begin{pmatrix}a^{(2)}_{22}\\\vdots\\a^{(2)}_{n2}\end{pmatrix}\in \mathbb R^{n-1}$
-# \item On construit ${\bf \tilde{H^{(2)}}}\in\mathcal{M}_{n-1}(\mathbb R)$ telle que ${\bf \tilde{H^{(2)}}f_2} = \norme{{\bf f_2}} {\bf e^{(2)}_1}$, ${\bf e^{(2)}_1}$ premier vecteur de la base canonique de $\mathbb R^{n-1}$
-# \item On construit
+# 1. $j$=1 : 
+# - On construit ${\bf H^{(1)}}$ telle que ${\bf H^{(1)}A^{(1)}_{\bullet,1}}$ =${\bf e_1}$, premier vecteur de la base canonique de $\mathbb R^n$
+# - ${\bf A^{(2)}}={\bf H^{(1)}A^{(1)}} = \begin{pmatrix}{\norme{{\bf A^{(1)}_{\bullet,1}}}}&a^{(2)}_{12}&*&\cdots &*\\0&a^{(2)}_{22}&*&\cdots &*\\0&\vdots&\vdots&\vdots&\vdots\\0&a^{(2)}_{n2}&*&\cdots &*\end{pmatrix}$
+# 2. j$=2 : 
+# - Soit ${\bf f_2} = \begin{pmatrix}a^{(2)}_{22}\\\vdots\\a^{(2)}_{n2}\end{pmatrix}\in \mathbb R^{n-1}$
+# - On construit ${\bf \tilde{H^{(2)}}}\in\mathcal{M}_{n-1}(\mathbb R)$ telle que ${\bf \tilde{H^{(2)}}f_2} = \norme{{\bf f_2}} {\bf e^{(2)}_1}$, ${\bf e^{(2)}_1}$ premier vecteur de la base canonique de $\mathbb R^{n-1}$
+# - On construit
 # ${\bf H^{(2)}} =\left (
 # \begin{array}{l|l}
 # 1&{\bf 0}\\
@@ -237,15 +238,4 @@
 #  {\bf 0} & {\bf \tilde{H^{(2)}}}\\
 # \end{array}
 # \right )\in\mathcal{M}_n(\mathbb R)
-# $ telle que $${\bf A^{(3)}}={\bf H^{(2)}A^{(2)}}\begin{pmatrix}{\norme{{\bf A^{(1)}_{\bullet,1}}}}&\ast&\ast&\cdots &\ast\\0&\norme{{\bf f_2}}&a^{(3)}_{23}&\cdots &\ast\\0&0&a^{(3)}_{33}&\vdots&\vdots\\0&0&a^{(3)}_{n3}&\cdots &*\end{pmatrix}$$
-# \end{maliste}
-# \end{enumerate}
-# 
-# \aretenir{
-#   \begin{enumerate}
-#   \item Projections : définitions, propriétés.
-#   \item Moindres carrés : savoir résoudre un problème aux moindres carrés, en passant par le système aux équations normales
-#   \item Savoir décomposer une matrice A sous la forme QR, par Gram Schmidt
-#   \item Interpréter géométriquement cette décomposition.
-# \end{enumerate}
-# }
+# $ telle que $${\bf A^{(3)}}={\bf H^{(2)}A^{(2)}}\begin{pmatrix}{\|{\bf A^{(1)\|_{\bullet,1}}}}&\ast&\ast&\cdots &\ast\\0&\|{\bf f_2}\|&a^{(3)}_{23}&\cdots &\ast\\0&0&a^{(3)}_{33}&\vdots&\vdots\\0&0&a^{(3)}_{n3}&\cdots &*\end{pmatrix}$$
