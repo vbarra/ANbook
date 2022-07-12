@@ -23,15 +23,7 @@ parts:
     - file: projections    
     - file: mcl    
     - file: transfoortho 
-    - file: exomcl 
-   - caption: Analyse spectrale
-    chapters:
-    - file: introspect
-    - file: resspec
-    - file: similitudes
-    - file: jacobi
-    - file: puissiter
-    - file: QRspec    
+    - file: exomcl   
   - caption: Index
     chapters:
     - file: genindex
