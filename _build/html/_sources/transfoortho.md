@@ -15,9 +15,9 @@ kernelspec:
 Une matrice carrée ${\bf H}$ est dite {orthogonale}
 si et seulement si ${\bf H^T}{\bf H}={\bf H}{\bf H^T} = \mathbb I$
 ````
-```{index} matrice;orthogonale
+```{index} Matrice;orthogonale
 ```
-```{index} orthogonale;matrice
+```{index} Orthogonale;matrice
 ```
 
 Une matrice orthogonale est donc une matrice carrée dont les colonnes sont orthonormées. Les matrices de rotation, de symétrie, de permutation et l'identité sont des exemples de matrices orthogonales.
@@ -30,9 +30,9 @@ sont des isométries, les normes (euclidiennes), les produits scalaires et les a
 
 $({\bf H} \textrm{ orthogonale}) \Leftrightarrow (\forall {\bf x}\in \mathbb R^n)\\|{\bf Hx}\|=\|{\bf x}\|$
 ````
-```{index} transformation;orthogonale
+```{index} Transformation;orthogonale
 ```
-```{index} orthogonale;transformation
+```{index} Orthogonale;transformation
 ```
 
 En effet, $\|{\bf Hx}\|^2=({\bf Hx)^T} ({\bf Hx})={\bf x^T H^T Hx}={\bf x^T x}=\|{\bf x}\|^2$.
@@ -55,7 +55,7 @@ ${\bf x}=\displaystyle\sum_{i=1}^n ({\bf q_i^T} {\bf x}){\bf q_i}$
 généralise aisement à une base orthonormée quelconque ${\bf q_1},{\bf q_2},\ldots,{\bf q_r}$ d'un sous-espace de dimension $r$. 
 
 ## Orthogonalisation de Gram-Schmidt
-```{index} orthogonalisation de Gram-Schmidt
+```{index} Orthogonalisation de Gram-Schmidt
 ```
 ```{index} Gram-Schmidt;orthogonalisation
 ```
@@ -137,7 +137,7 @@ et le calcul de l'erreur donne
 $\|{\bf e}\|^2=\|{\bf b}\|^2-\displaystyle\sum_{i=1}^p  ({\bf b^T} {\bf q_i})^2$
 
 ## Transformations de Householder
-```{index} transformation;de Householder
+```{index} Transformation;de Householder
 ```
 On peut interpréter la méthode de Gram-Schmidt comme une méthode de triangularisation de la matrice ${\bf A}$, au même titre que la méthode de Gauss. Il est possible de réorganiser les calculs en construisant des transformations élémentaires orthogonales qui effectuent cette triangularisation colonne par colonne (ou élément par élément). Les symétries de Householder
 et les rotations de Givens sont des exemples simples et intéressants de telles transformations, car elles conduisent à des algorithmes numériquement plus stables que la méthode de Gram-Schmidt.
@@ -151,13 +151,13 @@ est une matrice carrée ${\bf H}$ qui s'écrit ${\bf H}=\mathbb I-2{\bf P}$, où
 la matrice de projection
 sur la droite engendrée par un vecteur ${\bf v}$ non nul.
 ````
-```{index} matrice;de projection
+```{index} Matrice;de projection
 ```
-```{index} matrice;de Householder
+```{index} Matrice;de Householder
 ```
 On vérifie  que ${\bf H}$ représente une symétrie
 par rapport au sous-espace ${\bf v^\perp}$.
-```{index} symétrie
+```{index} Symétrie
 ```
 
 
@@ -236,10 +236,10 @@ ${\bf Q} = {\bf {H^{(1)}}^T}{\bf {H^{(2)}}^T} \cdots  {\bf {H^{(n-1)}}^T}$
 pour finalement obtenir  ${\bf A} = {\bf QR}$
 
 On illustre cet algorithme sur les deux premières itérations :
-1. $j$=1 : 
+1. $j=1$ : 
 - On construit ${\bf H^{(1)}}$ telle que ${\bf H^{(1)}A^{(1)}_{\bullet,1}}$ =${\bf e_1}$, premier vecteur de la base canonique de $\mathbb R^n$
 - ${\bf A^{(2)}}={\bf H^{(1)}A^{(1)}} = \begin{pmatrix}{\|{\bf A^{(1)}_{\bullet,1}}\|}&a^{(2)}_{12}&*&\cdots &*\\0&a^{(2)}_{22}&*&\cdots &*\\0&\vdots&\vdots&\vdots&\vdots\\0&a^{(2)}_{n2}&*&\cdots &*\end{pmatrix}$
-2. $j$=2 : 
+2. $j=2$ : 
 - Soit ${\bf f_2} = \begin{pmatrix}a^{(2)}_{22}\\\vdots\\a^{(2)}_{n2}\end{pmatrix}\in \mathbb R^{n-1}$
 - On construit ${\bf \tilde{H^{(2)}}}\in\mathcal{M}_{n-1}(\mathbb R)$ telle que ${\bf \tilde{H^{(2)}}f_2} = \|{\bf f_2}\| {\bf e^{(2)}_1}$ avec ${\bf e^{(2)}_1}$ premier vecteur de la base canonique de $\mathbb R^{n-1}$
 - On construit
