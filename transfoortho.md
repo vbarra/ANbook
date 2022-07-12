@@ -210,15 +210,7 @@ On l'illustre dans la suite (algorithme \ref{A:HS}) dans le cas où ${\bf A}\in\
     1. Soit ${\bf f_j}\in \mathbb R^{n-j+1}$ le vecteur commençant à l'élément $(j,j)$ de ${\bf A^{(j)}}$\\
     2. On construit ${\bf {\tilde H^{(j)}}}\in\mathcal{M}_{n-j+1}(\mathbb R)$ telle que ${\bf \tilde{H^{(j)}}f_j} = \|{\bf f_j}\ {\bf e^{(j)}_1}$, ${\bf e^{(j)}_1}$ premier vecteur de la base canonique de $\mathbb R^{n-j+1}$
     3. On construit 
-    ${\bf H^{(j)}} =\left (
-\begin{array}{lll|l}
-\bovermat{j-1}{1 &\cdots &0&}\\
-  \vdots&\ddots &\vdots &{\bf 0}\\
-0 & \cdots& 1& \\
-\hline
- & {\bf 0}& & {\bf \tilde{H^{(j)}}}\\
-\end{array}
-\right )\in\mathcal{M}_n(\mathbb R)$
+    ![](./images/h.png)
     4. On calcule ${\bf A^{(j+1)}} = {{\bf H^{(j)}}\bf A^{(j)}}$
 
 3. ${\bf R}={\bf A^{(n-1)}}$ et ${\bf Q} =  {\bf {H^{(1)}}^T}{\bf {H^{(2)}}^T} \cdots  {\bf {H^{(n-1)}}^T}$
