@@ -137,6 +137,7 @@ Alors ${\bf A} ={\bf QR}$ avec ${\bf Q} = \begin{pmatrix} \textcolor{blue}{\frac
 
 
 ```{code-cell} ipython3
+import numpy as np
 def clgs(A):
     n = A.shape[1] 
     R = np.zeros([n,n])

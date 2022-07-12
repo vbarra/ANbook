@@ -139,6 +139,7 @@ Q
 # In[5]:
 
 
+import numpy as np
 def clgs(A):
     n = A.shape[1] 
     R = np.zeros([n,n])
@@ -174,7 +175,7 @@ Q,R
 # une base orthonormée de $Ker({\bf A^\top})$.
 # ```
 
-# In[ ]:
+# In[6]:
 
 
 Q = Rational(1, 3) * Matrix([[1, -2], [2, -1], [2, 2]])
@@ -183,7 +184,7 @@ Q
 
 # Les colonnes de $Q$ forment une base de $\mathbb{R}^2$ (dans $\mathbb{R}^3$). Pour obtenir une matrice orthogonale, il faut compléter par un vecteur normal au plan défini par ces deux colonnes, et unitaire.
 
-# In[ ]:
+# In[7]:
 
 
 Q = Rational(1, 3) * Matrix([[1, -2, 2], [2, -1, -2], [2, 2, 1]])
