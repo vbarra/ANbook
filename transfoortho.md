@@ -218,8 +218,7 @@ On l'illustre dans la suite (algorithme \ref{A:HS}) dans le cas où ${\bf A}\in\
 \hline
  & {\bf 0}& & {\bf \tilde{H^{(j)}}}\\
 \end{array}
-\right )\in\mathcal{M}_n(\mathbb R)
-$
+\right )\in\mathcal{M}_n(\mathbb R)$
     4. On calcule ${\bf A^{(j+1)}} = {{\bf H^{(j)}}\bf A^{(j)}}$
 
 3. ${\bf R}={\bf A^{(n-1)}}$ et ${\bf Q} =  {\bf {H^{(1)}}^T}{\bf {H^{(2)}}^T} \cdots  {\bf {H^{(n-1)}}^T}$
