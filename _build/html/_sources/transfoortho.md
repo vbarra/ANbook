@@ -98,7 +98,7 @@ Soit ${\bf A} = \begin{pmatrix} 1&1\\1&0\\1&1\end{pmatrix}$.
 
 Alors ${\bf A} ={\bf QR}$ avec ${\bf Q} = \begin{pmatrix} \textcolor{blue}{\frac{1}{\sqrt{3}}}&\textcolor{magenta}{\frac{1}{\sqrt{6}}}\\\textcolor{blue}{\frac{1}{\sqrt{3}}}&\textcolor{magenta}{-\frac{\sqrt 2}{\sqrt 3}}\\\textcolor{blue}{\frac{1}{\sqrt{3}}}&\textcolor{magenta}{\frac{1}{\sqrt{6}}}\end{pmatrix}$ et ${\bf R} = \begin{pmatrix} \textcolor{red}{\sqrt{3}}&\textcolor{orange}{\frac{2}{\sqrt{3}}}\\0&\textcolor{cyan}{\sqrt{\frac{2}{3}}}\end{pmatrix}$. En effet : 
 
-1. \textcolor{red}{$r_{11}$} = $\norme{{\bf A_{\bullet,1}}}$ = \textcolor{red}{$\sqrt{3}$}
+1. $\textcolor{red}{r_{11}}$ = $\norme{{\bf A_{\bullet,1}}}$ = \textcolor{red}{$\sqrt{3}$}
 \item \textcolor{blue}{${\bf q_{1}} $}= $\frac{1}{\sqrt{3}}{\bf A_{\bullet,1}}$= \textcolor{blue}{$\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}$}
 2. \textcolor{orange}{$r_{12}$}=${\bf A_{\bullet,2}^Tq_1}=\begin{pmatrix}1&0&1\end{pmatrix}.\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}$ =  \textcolor{orange}{$\frac{2}{\sqrt{3}}$}
 3. ${\bf p_2}={\bf A_{\bullet,2}}- r_{12}{\bf q_{{1}}}=\begin{pmatrix}1\\0\\1\end{pmatrix}-\frac{2}{\sqrt{3}}.\frac{1}{\sqrt{3}}\begin{pmatrix}1\\1\\1\end{pmatrix}=\begin{pmatrix}\frac{1}{3}\\-\frac{2}{3}\\\frac{1}{3}\end{pmatrix}$
