@@ -66,62 +66,26 @@ Le principe de Gram-Schmidt est de calculer, pour $j\in[\![2,p]\!]$,  chaque vec
  premiers vecteurs de la base orthonormée déjà calculés, puis en normant le résultat.
 
 
-\begin{algorithm}
-\Entree{${\bf A}\in\mathcal{M}_{n,p}(\mbb R)$ de rang $p$}
-\Sortie{${\bf Q_1}\in\mathcal{M}_{n,p}(\mbb R)$ à colonnes orthonormées, ${\bf R_1}\in\mathcal{M}_{p}(\mbb R)$ triangulaire supérieure}
-\Deb{
-$r_{11} = \norme{{\bf A_{\bullet,1}}}$\\
-${\bf q_{{1}}} = \frac{{\bf A_{\bullet,1}}}{r_{11}}$\\
-\Pour {$j$=2 à $p$}{
-${\bf p_j}={\bf A_{\bullet,j}}$\\
-\Pour {$i$=1 à $j-1$}{
-$r_{ij}={\bf A_{\bullet,j}^T}{\bf q_{{i}}}$\\
-${\bf p_j}={\bf p_j}- r_{ij}{\bf q_{{i}}}$\\
-}
-$r_{jj} = \norme{{\bf p_j}}$\\
-${\bf q_{{j}}} = \frac{{\bf p_j}}{r_{jj}}$\\
-}}
-\caption{Procédé d'orthonormalisation de Gram-Schmidt - version de base}
-\label{A:GS}
-\end{algorithm}
+```{prf:algorithm} Procédé d'orthonormalisation de Gram-Schmidt - version de base
+**Entrée : **  ${\bf A}\in\mathcal{M}_{n,p}(\mbb R)$ de rang $p$
+**Sortie : ** ${\bf Q_1}\in\mathcal{M}_{n,p}(\mbb R)$ à colonnes orthonormées, ${\bf R_1}\in\mathcal{M}_{p}(\mbb R)$ triangulaire supérieure
+
+1. $r_{11} = \norme{{\bf A_{\bullet,1}}}$
+2. ${\bf q_{{1}}} = \frac{{\bf A_{\bullet,1}}}{r_{11}}$
+3. Pour $j$=2 à $p$
+  1. ${\bf p_j}={\bf A_{\bullet,j}}$
+  2. Pour $i$=1 à $j-1$
+    1. $r_{ij}={\bf A_{\bullet,j}^T}{\bf q_{{i}}}$
+    2. ${\bf p_j}={\bf p_j}- r_{ij}{\bf q_{{i}}}$
+  3. $r_{jj} = \norme{{\bf p_j}}$
+  4. ${\bf q_{{j}}} = \frac{{\bf p_j}}{r_{jj}}$
+```
 
 
-\begin{figure}[hbtp!]
-\begin{tabular}{ccccc}
-  \begin{tikzpicture}[scale=0.4]
-\draw[line width=1.5pt,blue,-stealth](0,0)--(2,1) node[anchor=south west]{$ {\bf A_{\bullet,1}}$};
-\draw[line width=1.5pt,green,-stealth](0,0)--(1,5) node[anchor=south west]{$ {\bf A_{\bullet,2}}$};
-\end{tikzpicture}
-&
-\begin{tikzpicture}[scale=0.4]
-\draw[line width=1pt,blue,opacity=0.5,-stealth](0,0)--(2,1) node[anchor=south west]{$ {\bf A_{\bullet,1}}$};
-\draw[line width=1.5pt,red,-stealth](0,0)--(1,0.5) node[anchor=south west]{$ {\bf q_{1}}$};
-\draw[line width=2pt,green,-stealth](0,0)--(1,5) node[anchor=south west]{$ {\bf A_{\bullet,2}}$};
-\end{tikzpicture}&
-\begin{tikzpicture}[scale=0.4]
-\draw[line width=1pt,black,opacity=0.2](0,0)--(5,2.5) node[anchor=south west]{};
-\draw[black,dashed](1,5)--(3.5,1.7) ;
-\draw[line width=2pt,red,-stealth,opacity=0.5](0,0)--(1,0.5) node[anchor=south west]{$ {\bf q_{1}}$};
-\draw[line width=2pt,orange,-stealth](0,0)--(4,1.9) node[anchor=south west]{$ ({\bf A_{\bullet,2}^T}{\bf q_{{1}}}){\bf q_{{1}}}$};
-\draw[line width=2pt,green,-stealth](0,0)--(1,5) node[anchor=south west]{$ {\bf A_{\bullet,2}}$};
-\end{tikzpicture}&
-\begin{tikzpicture}[scale=0.4]
-\draw[line width=2pt,red,-stealth,](0,0)--(1,0.5) node[anchor=south west]{$ {\bf q_{1}}$};
-\draw[line width=2pt,orange,-stealth,opacity=0.5](1,5)--(-2,3.9) node[anchor=south]{$ ({\bf A_{\bullet,2}^T}{\bf q_{{1}}}){\bf q_{{1}}}$};
-\draw[line width=2pt,green,-stealth](0,0)--(1,5) node[anchor=south west]{$ {\bf A_{\bullet,2}}$};
-\draw[line width=2pt,blue,-stealth](0,0)--(-2,3.9) node[anchor=north west]{$ {\bf p_2}$};
-\end{tikzpicture}&
-\begin{tikzpicture}[scale=0.4]
-\draw[line width=2pt,red,-stealth,](0,0)--(1,0.5) node[anchor=south west]{$ {\bf q_{1}}$};
-\draw[line width=2pt,blue,-stealth,opacity=0.5](0,0)--(-2,3.9) node[anchor=north west]{$ {\bf p_2}$};
-\draw[line width=2pt,red,-stealth,](0,0)--(-0.6,1.1) node[anchor=south west]{$ {\bf q_2}$};
-\end{tikzpicture}\\
-Vecteurs initiaux& Calcul de ${\bf q_1}$ et $r_{11}$&Calcul de $r_{12}$&${\bf p_2}={\bf p_2}- r_{12}{\bf q_{{1}}}$&${\bf q_{{2}}}$
-\end{tabular}
+![](./images/gs.png)
 
 \caption{Illustration du procédé d'orthonormalisation de Gram-Schmidt dans $\mbb R^2$}
-\label{F:GS}
-\end{figure}
+
 On remarque (voir boucles de l'algorithme) que la matrice ${\bf R_1}$ est triangulaire supérieure. \\
 Gram-Schmidt construit donc une matrice ${\bf Q_1}\in\mathcal{M}_{n,p}(\mbb R)$ à colonnes orthormées et une matrice ${\bf R_1}\in\mathcal{M}_{p}(\mbb R)$ telles que ${\bf Q_1^T}{\bf A} = {\bf R_1}$ soit ${\bf A}$=${\bf Q_1R_1}$.
 
