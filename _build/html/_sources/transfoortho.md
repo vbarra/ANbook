@@ -146,9 +146,11 @@ et les rotations de Givens sont des exemples simples et intéressants de telles 
 ````{prf:definition} Matrice de Householder}
 Une matrice de Householder\index{matrice!de Householder}
 est une matrice carrée ${\bf H}$ qui s'écrit ${\bf H}=\mathbb I-2{\bf P}$, où ${\bf P}$ est
-la matrice de projection\index{matrice!de projection}
+la matrice de projection
 sur la droite engendrée par un vecteur ${\bf v}$ non nul.
 ````
+```{index} matrice;de projection
+```
 On vérifie  que ${\bf H}$ représente une symétrie
 par rapport au sous-espace ${\bf v^\perp}$.
 ```{index} symétrie
