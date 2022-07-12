@@ -50,11 +50,12 @@ init_printing(use_latex = 'mathjax')
 filterwarnings('ignore')
 
 Q = Matrix([[0, 0, 1], [1, 0, 0], [0, 1, 0]])
-print(Q.transpose() * Q)
-
+Q.transpose() * Q
+```
+```{code-cell} ipython3
 theta = symbols('theta')
 R = Matrix([[cos(theta), -sin(theta)], [sin(theta), cos(theta)]])
-print(R.transpose() * R)
+R.transpose() * R
 ``` 
 
 

@@ -44,11 +44,15 @@ init_printing(use_latex = 'mathjax')
 filterwarnings('ignore')
 
 Q = Matrix([[0, 0, 1], [1, 0, 0], [0, 1, 0]])
-print(Q.transpose() * Q)
+Q.transpose() * Q
+
+
+# In[2]:
+
 
 theta = symbols('theta')
 R = Matrix([[cos(theta), -sin(theta)], [sin(theta), cos(theta)]])
-print(R.transpose() * R)
+R.transpose() * R
 
 
 # Soit ${\bf Q}\in\mathcal{M}_n(\mathbb R)$ orthogonale, de colonnes 
