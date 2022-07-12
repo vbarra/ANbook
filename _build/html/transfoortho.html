@@ -523,60 +523,26 @@ généralise aisement à une base orthonormée quelconque <span class="math notr
 L’idée générale est donc de construire une base orthonormée du sous-espace image d’un ensemble de vecteurs. L’intérêt numérique est que cette construction équivaut à triangulariser la matrice formée par ces vecteurs. L’algorithme \ref{A:GS} et la figure \ref{F:GS} présentent le procédé d’orthonormalisation de Gram-Schmidt qui, s’il est simple à comprendre, ne présente qu’un intérêt académique puisqu’il est très coûteux. En pratique, on utilise la méthode de factorisation { QR} qui permet d’atteindre le même objectif grâce à des transformations orthogonales élémentaires ({rotations de Givens} ou transformations de { Householder}) numériquement stables et seulement deux fois plus chères que la méthode de Gauss.\</p>
 <p>Le principe de Gram-Schmidt est de calculer, pour <span class="math notranslate nohighlight">\(j\in[\![2,p]\!]\)</span>,  chaque vecteur <span class="math notranslate nohighlight">\({\bf q_j}\)</span> en soustrayant à  <span class="math notranslate nohighlight">\({\bf  A_{\bullet,j}}\)</span> ses projections orthogonales sur les <span class="math notranslate nohighlight">\(j-1\)</span>
 premiers vecteurs de la base orthonormée déjà calculés, puis en normant le résultat.</p>
-<p>\begin{algorithm}
-\Entree{<span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{n,p}(\mbb R)\)</span> de rang <span class="math notranslate nohighlight">\(p\)</span>}
-\Sortie{<span class="math notranslate nohighlight">\({\bf Q_1}\in\mathcal{M}_{n,p}(\mbb R)\)</span> à colonnes orthonormées, <span class="math notranslate nohighlight">\({\bf R_1}\in\mathcal{M}_{p}(\mbb R)\)</span> triangulaire supérieure}
-\Deb{
-<span class="math notranslate nohighlight">\(r_{11} = \norme{{\bf A_{\bullet,1}}}\)</span>\
-<span class="math notranslate nohighlight">\({\bf q_{{1}}} = \frac{{\bf A_{\bullet,1}}}{r_{11}}\)</span>\
-\Pour {<span class="math notranslate nohighlight">\(j\)</span>=2 à <span class="math notranslate nohighlight">\(p\)</span>}{
-<span class="math notranslate nohighlight">\({\bf p_j}={\bf A_{\bullet,j}}\)</span>\
-\Pour {<span class="math notranslate nohighlight">\(i\)</span>=1 à <span class="math notranslate nohighlight">\(j-1\)</span>}{
-<span class="math notranslate nohighlight">\(r_{ij}={\bf A_{\bullet,j}^T}{\bf q_{{i}}}\)</span>\
-<span class="math notranslate nohighlight">\({\bf p_j}={\bf p_j}- r_{ij}{\bf q_{{i}}}\)</span>\
-}
-<span class="math notranslate nohighlight">\(r_{jj} = \norme{{\bf p_j}}\)</span>\
-<span class="math notranslate nohighlight">\({\bf q_{{j}}} = \frac{{\bf p_j}}{r_{jj}}\)</span>\
-}}
-\caption{Procédé d’orthonormalisation de Gram-Schmidt - version de base}
-\label{A:GS}
-\end{algorithm}</p>
-<p>\begin{figure}[hbtp!]
-\begin{tabular}{ccccc}
-\begin{tikzpicture}[scale=0.4]
-\draw<span class="xref myst">line width=1.5pt,blue,-stealth</span>–(2,1) node[anchor=south west]{<span class="math notranslate nohighlight">\( {\bf A_{\bullet,1}}\)</span>};
-\draw<span class="xref myst">line width=1.5pt,green,-stealth</span>–(1,5) node[anchor=south west]{<span class="math notranslate nohighlight">\( {\bf A_{\bullet,2}}\)</span>};
-\end{tikzpicture}
-&amp;
-\begin{tikzpicture}[scale=0.4]
-\draw<span class="xref myst">line width=1pt,blue,opacity=0.5,-stealth</span>–(2,1) node[anchor=south west]{<span class="math notranslate nohighlight">\( {\bf A_{\bullet,1}}\)</span>};
-\draw<span class="xref myst">line width=1.5pt,red,-stealth</span>–(1,0.5) node[anchor=south west]{<span class="math notranslate nohighlight">\( {\bf q_{1}}\)</span>};
-\draw<span class="xref myst">line width=2pt,green,-stealth</span>–(1,5) node[anchor=south west]{<span class="math notranslate nohighlight">\( {\bf A_{\bullet,2}}\)</span>};
-\end{tikzpicture}&amp;
-\begin{tikzpicture}[scale=0.4]
-\draw<span class="xref myst">line width=1pt,black,opacity=0.2</span>–(5,2.5) node[anchor=south west]{};
-\draw<span class="xref myst">black,dashed</span>–(3.5,1.7) ;
-\draw<span class="xref myst">line width=2pt,red,-stealth,opacity=0.5</span>–(1,0.5) node[anchor=south west]{<span class="math notranslate nohighlight">\( {\bf q_{1}}\)</span>};
-\draw<span class="xref myst">line width=2pt,orange,-stealth</span>–(4,1.9) node[anchor=south west]{<span class="math notranslate nohighlight">\( ({\bf A_{\bullet,2}^T}{\bf q_{{1}}}){\bf q_{{1}}}\)</span>};
-\draw<span class="xref myst">line width=2pt,green,-stealth</span>–(1,5) node[anchor=south west]{<span class="math notranslate nohighlight">\( {\bf A_{\bullet,2}}\)</span>};
-\end{tikzpicture}&amp;
-\begin{tikzpicture}[scale=0.4]
-\draw<span class="xref myst">line width=2pt,red,-stealth,</span>–(1,0.5) node[anchor=south west]{<span class="math notranslate nohighlight">\( {\bf q_{1}}\)</span>};
-\draw<span class="xref myst">line width=2pt,orange,-stealth,opacity=0.5</span>–(-2,3.9) node[anchor=south]{<span class="math notranslate nohighlight">\( ({\bf A_{\bullet,2}^T}{\bf q_{{1}}}){\bf q_{{1}}}\)</span>};
-\draw<span class="xref myst">line width=2pt,green,-stealth</span>–(1,5) node[anchor=south west]{<span class="math notranslate nohighlight">\( {\bf A_{\bullet,2}}\)</span>};
-\draw<span class="xref myst">line width=2pt,blue,-stealth</span>–(-2,3.9) node[anchor=north west]{<span class="math notranslate nohighlight">\( {\bf p_2}\)</span>};
-\end{tikzpicture}&amp;
-\begin{tikzpicture}[scale=0.4]
-\draw<span class="xref myst">line width=2pt,red,-stealth,</span>–(1,0.5) node[anchor=south west]{<span class="math notranslate nohighlight">\( {\bf q_{1}}\)</span>};
-\draw<span class="xref myst">line width=2pt,blue,-stealth,opacity=0.5</span>–(-2,3.9) node[anchor=north west]{<span class="math notranslate nohighlight">\( {\bf p_2}\)</span>};
-\draw<span class="xref myst">line width=2pt,red,-stealth,</span>–(-0.6,1.1) node[anchor=south west]{<span class="math notranslate nohighlight">\( {\bf q_2}\)</span>};
-\end{tikzpicture}\
-Vecteurs initiaux&amp; Calcul de <span class="math notranslate nohighlight">\({\bf q_1}\)</span> et <span class="math notranslate nohighlight">\(r_{11}\)</span>&amp;Calcul de <span class="math notranslate nohighlight">\(r_{12}\)</span>&amp;<span class="math notranslate nohighlight">\({\bf p_2}={\bf p_2}- r_{12}{\bf q_{{1}}}\)</span>&amp;<span class="math notranslate nohighlight">\({\bf q_{{2}}}\)</span>
-\end{tabular}</p>
-<p>\caption{Illustration du procédé d’orthonormalisation de Gram-Schmidt dans <span class="math notranslate nohighlight">\(\mbb R^2\)</span>}
-\label{F:GS}
-\end{figure}
-On remarque (voir boucles de l’algorithme) que la matrice <span class="math notranslate nohighlight">\({\bf R_1}\)</span> est triangulaire supérieure. \
+<div class="proof algorithm admonition" id="algorithm-2">
+<p class="admonition-title"><span class="caption-number">Algorithm 5 </span> (Procédé d’orthonormalisation de Gram-Schmidt - version de base)</p>
+<div class="algorithm-content section" id="proof-content">
+<p>**Entrée : **  <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{n,p}(\mbb R)\)</span> de rang <span class="math notranslate nohighlight">\(p\)</span>
+**Sortie : ** <span class="math notranslate nohighlight">\({\bf Q_1}\in\mathcal{M}_{n,p}(\mbb R)\)</span> à colonnes orthonormées, <span class="math notranslate nohighlight">\({\bf R_1}\in\mathcal{M}_{p}(\mbb R)\)</span> triangulaire supérieure</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(r_{11} = \norme{{\bf A_{\bullet,1}}}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\({\bf q_{{1}}} = \frac{{\bf A_{\bullet,1}}}{r_{11}}\)</span></p></li>
+<li><p>Pour <span class="math notranslate nohighlight">\(j\)</span>=2 à <span class="math notranslate nohighlight">\(p\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\({\bf p_j}={\bf A_{\bullet,j}}\)</span></p></li>
+<li><p>Pour <span class="math notranslate nohighlight">\(i\)</span>=1 à <span class="math notranslate nohighlight">\(j-1\)</span>
+1. <span class="math notranslate nohighlight">\(r_{ij}={\bf A_{\bullet,j}^T}{\bf q_{{i}}}\)</span>
+2. <span class="math notranslate nohighlight">\({\bf p_j}={\bf p_j}- r_{ij}{\bf q_{{i}}}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(r_{jj} = \norme{{\bf p_j}}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\({\bf q_{{j}}} = \frac{{\bf p_j}}{r_{jj}}\)</span></p></li>
+</ol>
+</div>
+</div><p><img alt="" src="_images/gs.png" /></p>
+<p>\caption{Illustration du procédé d’orthonormalisation de Gram-Schmidt dans <span class="math notranslate nohighlight">\(\mbb R^2\)</span>}</p>
+<p>On remarque (voir boucles de l’algorithme) que la matrice <span class="math notranslate nohighlight">\({\bf R_1}\)</span> est triangulaire supérieure. \
 Gram-Schmidt construit donc une matrice <span class="math notranslate nohighlight">\({\bf Q_1}\in\mathcal{M}_{n,p}(\mbb R)\)</span> à colonnes orthormées et une matrice <span class="math notranslate nohighlight">\({\bf R_1}\in\mathcal{M}_{p}(\mbb R)\)</span> telles que <span class="math notranslate nohighlight">\({\bf Q_1^T}{\bf A} = {\bf R_1}\)</span> soit <span class="math notranslate nohighlight">\({\bf A}\)</span>=<span class="math notranslate nohighlight">\({\bf Q_1R_1}\)</span>.</p>
 <p>\exemple{
 Soit <span class="math notranslate nohighlight">\({\bf A} = \begin{pmatrix} 1&amp;1\\1&amp;0\\1&amp;1\end{pmatrix}\)</span>. Alors <span class="math notranslate nohighlight">\({\bf A} ={\bf QR}\)</span> avec <span class="math notranslate nohighlight">\({\bf Q} = \begin{pmatrix} \textcolor{blue}{\frac{1}{\sqrt{3}}}&amp;\textcolor{magenta}{\frac{1}{\sqrt{6}}}\\\textcolor{blue}{\frac{1}{\sqrt{3}}}&amp;\textcolor{magenta}{-\frac{\sqrt 2}{\sqrt 3}}\\\textcolor{blue}{\frac{1}{\sqrt{3}}}&amp;\textcolor{magenta}{\frac{1}{\sqrt{6}}}\end{pmatrix}\)</span> et <span class="math notranslate nohighlight">\({\bf R} = \begin{pmatrix} \textcolor{red}{\sqrt{3}}&amp;\textcolor{orange}{\frac{2}{\sqrt{3}}}\\0&amp;\textcolor{cyan}{\sqrt{\frac{2}{3}}}\end{pmatrix}\)</span>. En effet :
