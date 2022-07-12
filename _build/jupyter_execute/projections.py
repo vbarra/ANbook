@@ -53,10 +53,10 @@
 # $
 # 
 # Par passage à la limite, on déduit que $\|{\bf p_j}-{\bf p_i}\|\rightarrow 0$. Ce qui prouve que la suite des 
-# ${\bf p_i}$ est une suite de Cauchy\footnote{Une suite de Cauchy est une suite de vecteurs $\{{\bf x_k}\}$
+# ${\bf p_i}$ est une suite de Cauchy. Pour rappel, une suite de Cauchy est une suite de vecteurs $\{{\bf x_k}\}$
 # qui satisfait $\lim_{k,\ell\rightarrow+\infty}\|{\bf x_k}-{\bf x_\ell}\|=0$. Toute suite convergente est bien sûr de Cauchy
 # mais l'inverse n'est pas toujours vrai dans les espaces vectoriels normés généraux. C'est toujours vrai dans 
-# les espaces de Hilbert (donc dans $\mathbb R^n$).}
+# les espaces de Hilbert (donc dans $\mathbb R^n$).
 # 
 # 
 # % On prend un $l \in L$ et on applique 
