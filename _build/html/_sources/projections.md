@@ -13,11 +13,11 @@ kernelspec:
 
 
 ## Théorème de projection
-On s'intéresse ici aux mécanismes de calcul de la projection orthogonale d'un vecteur de \mathbb R$^n$ sur un sous-espace. Les résultats fondamentaux d'existence, d'unicité et de caractérisation de la projection orthogonale d'un point sur un sous-espace, valables dans des espaces plus généraux que $\mathbb R^n$, sont rappelés ci-après. Dans tout le chapitre,
+On s'intéresse ici aux mécanismes de calcul de la projection orthogonale d'un vecteur de $\mathbb R^n$ sur un sous-espace. Les résultats fondamentaux d'existence, d'unicité et de caractérisation de la projection orthogonale d'un point sur un sous-espace, valables dans des espaces plus généraux que $\mathbb R^n$, sont rappelés ci-après. Dans tout le chapitre,
 la norme vectorielle utilisée, et notée $\|\cdot\|$, est la norme euclidienne.
 
 ````{prf:theorem} Théorème de projection
-Soit $L$ un sous-espace vectoriel de \mathbb R$^n$. Étant donné un vecteur ${\bf y}\in\mathbb R^n$, il existe un unique vecteur ${\bf p}\in L$, appelé projection orthogonale
+Soit $L$ un sous-espace vectoriel de $\mathbb R^n$. Étant donné un vecteur ${\bf y}\in\mathbb R^n$, il existe un unique vecteur ${\bf p}\in L$, appelé projection orthogonale
 de ${\bf y}$ sur $L$, tel que :
 
 $(\forall {\bf x}\in L)\ \|{\bf y}-{\bf p}\|\leq \\{\bf y}-{\bf x}\|$
