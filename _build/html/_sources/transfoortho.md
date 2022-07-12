@@ -85,6 +85,8 @@ généralise aisement à une base orthonormée quelconque ${\bf q_1},{\bf q_2},\
 ```
 ```{index} Gram-Schmidt;orthogonalisation
 ```
+
+### Algorithme
 A partir d'une famille de $p$ vecteurs linéairement indépendants de $\mathbb R^n$, représentés par une matrice ${\bf A}\in\mathcal{M}_{n,p}(\mathbb R)$ de rang $p$, on peut construire une famille $\{{\bf q_1}\cdots {\bf q_p}\}$, base orthonormée de $Im({\bf A})$. C'est un outil fondamental pour la résolution de systèmes surdéterminés.
 
 L'idée générale est donc de construire une base orthonormée du sous-espace image d'un ensemble de vecteurs. L'intérêt numérique est que cette construction équivaut à triangulariser la matrice formée par ces vecteurs. L'algorithme {prf:ref}`GS` et la figure suivante présentent le procédé d'orthonormalisation de Gram-Schmidt qui, s'il est simple à comprendre, ne présente qu'un intérêt académique puisqu'il est très coûteux. En pratique, on utilise la méthode de factorisation QR qui permet d'atteindre le même objectif grâce à des transformations orthogonales élémentaires (rotations de Givens ou transformations de  Householder) numériquement stables et seulement deux fois plus chères que la méthode de Gauss.
@@ -145,7 +147,7 @@ une base orthonormée de $Ker({\bf A^\top})$.
 ```
 
 
-````{prf:example}
+
 ```{code-cell} ipython3
 Q = Rational(1, 3) * Matrix([[1, -2], [2, -1], [2, 2]])
 Q
@@ -157,8 +159,8 @@ Les colonnes de $Q$ forment une base de $\mathbb{R}^2$ (dans $\mathbb{R}^3$). Po
 Q = Rational(1, 3) * Matrix([[1, -2, 2], [2, -1, -2], [2, 2, 1]])
 Q
 ```
-```` 
 
+### Retour sur le problème aux moindres carrés
 Appliqué au problème des moindres carrés, le système aux équations normales s'écrit donc 
 
 $\begin{eqnarray*}

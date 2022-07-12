@@ -44,7 +44,7 @@ Cette propriété entraîne une stabilité numérique des méthodes utilisant ce
 - calculer les valeurs propres d'une matrice.
 
 ```{code-cell} ipython3
-from sympy import init_printing, symbols, Matrix, sin, cos, sqrt, Rational, GramSchmidt
+from sympy import init_printing, symbols, Matrix, sin, cos, sqrt, Rational
 
 Q = Matrix([[0, 0, 1], [1, 0, 0], [0, 1, 0]])
 Q.transpose() * Q
@@ -211,7 +211,6 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 Soient ${\bf f}$ et ${\bf e}$ deux vecteurs non colinéaires de $\mathbb{R}^n$; avec $\|{\bf e}\|_2=1$. Il est alors possible de trouver ${\bf u}\in \mathbb{R}^n$ tel que :
 1. $\|{\bf u}\|_2=1$
 2. ${\bf H(u)f}=\alpha {\bf e}$
-\end{enumerate}
 ````
 
 ````{prf:proof}
@@ -244,9 +243,9 @@ Si ${\bf f}$ et ${\bf  e}$ sont colinéaires, ${\bf H}=\mathbb I$ ou ${\bf H}=\m
 L'algorithme d'orthonormalisation  de ${\bf A}$ par matrices de Householder  opère alors colonne par colonne, et transforme itérativement ${\bf A}$ en une matrice triangulaire supérieure.
 
 
-On l'illustre dans la suite (algorithme \ref{A:HS}) dans le cas où ${\bf A}\in\mathcal{M}_n(\mathbb R)$ est de rang plein.
+On l'illustre dans la suite (algorithme {prf:ref}`QR`) dans le cas où ${\bf A}\in\mathcal{M}_n(\mathbb R)$ est de rang plein.
 
-```{prf:algorithm} Factorisation {\bf QR} par matrices de Householder
+```{prf:algorithm} Factorisation QR par matrices de Householder
 :label: QR
 **Entrée : **  ${\bf A}\in\mathcal{M}_n(\mathbb R)$
 
