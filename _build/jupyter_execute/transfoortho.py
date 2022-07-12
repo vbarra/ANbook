@@ -109,6 +109,7 @@
 # une base orthonormée de $Ker({\bf A^T})$.** 
 # 
 # Appliqué au problème des moindres carrés, le système aux équations normales s'écrit donc 
+# 
 # $\begin{eqnarray*}
 # {\bf A^TAx}&=& {\bf A^Tb}\\
 # {\bf (Q_1R_1)^T(Q_1R_1)x}&=& {\bf (Q_1R_1)^Tb}\\
