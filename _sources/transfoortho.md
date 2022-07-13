@@ -389,12 +389,12 @@ Q, R = qr(A)
 ```{code-cell} ipython3
 from sympy import *
 print ("A=\n")
-print(A)
+Matrix(A)
 ```
 
 ```{code-cell} ipython3
 print ("Q=\n")
-Q
+print(Q)
 ```
 ```{code-cell} ipython3
 print ("R=\n")
