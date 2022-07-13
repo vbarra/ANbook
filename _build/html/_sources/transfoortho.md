@@ -308,7 +308,7 @@ ${\bf u}=\frac{1}{2\beta}({\bf f}-\alpha {\bf e)}$ répond à la question.
 Si ${\bf f}$ et ${\bf  e}$ sont colinéaires, ${\bf H}=\mathbb I$ ou ${\bf H}=\mathbb I-2{\bf ee^\top }$ répondent à la question.
 ``` 
 
-La mise en oeuvre pratique peut se faire comme suit : pour ${\bf e,f}\in\mathbb{R}^n$, on construit une fonction `Householder` qui calcule $\beta\in\mathbb{R}$ et ${\bf u}\in\mathbb{R}$^n$, $u[0]=1$ tels que pour $\bf H=\mathbb I-\beta {\bf u\bf u^\top}$ on ait $\bf {Hf} = \pm \sqrt{\|\bf f\|^2}\bf e$.
+La mise en oeuvre pratique peut se faire comme suit : pour ${\bf e,f}\in\mathbb{R}^n$, on construit une fonction `Householder` qui calcule $\beta\in\mathbb{R}$ et ${\bf u}\in\mathbb{R}^n$, $u[0]=1$ tels que pour $\bf H=\mathbb I-\beta {\bf u\bf u^\top}$ on ait $\bf {Hf} = \pm \sqrt{\|\bf f\|^2}\bf e$.
 
 ```{code-cell} ipython3
 def Householder(e,f):
