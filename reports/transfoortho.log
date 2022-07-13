@@ -65,20 +65,28 @@ def householder(A):
 A = [[12, -51, 4], [6, 167, -68], [-4, 24, -41]]
 Q, R = householder(A)
 
-print "A:"
-print(A)
-
-print "Q:"
-print(Q)
-
-print "R:"
-print(R)
+print ("A=",A,"\n")
+print ("Q=",Q,"\n")
+print ("R=",R,"\n")
 ------------------
 
-[0;36m  Input [0;32mIn [11][0;36m[0m
-[0;31m    print "A:"[0m
-[0m          ^[0m
-[0;31mSyntaxError[0m[0;31m:[0m Missing parentheses in call to 'print'. Did you mean print("A:")?
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Input [0;32mIn [11][0m, in [0;36m<module>[0;34m[0m
+[1;32m     44[0m     [38;5;28;01mreturn[39;00m trans_matrix(Q), R
+[1;32m     46[0m A [38;5;241m=[39m [[[38;5;241m12[39m, [38;5;241m-[39m[38;5;241m51[39m, [38;5;241m4[39m], [[38;5;241m6[39m, [38;5;241m167[39m, [38;5;241m-[39m[38;5;241m68[39m], [[38;5;241m-[39m[38;5;241m4[39m, [38;5;241m24[39m, [38;5;241m-[39m[38;5;241m41[39m]]
+[0;32m---> 47[0m Q, R [38;5;241m=[39m [43mhouseholder[49m[43m([49m[43mA[49m[43m)[49m
+[1;32m     49[0m [38;5;28mprint[39m ([38;5;124m"[39m[38;5;124mA=[39m[38;5;124m"[39m,A,[38;5;124m"[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m)
+[1;32m     50[0m [38;5;28mprint[39m ([38;5;124m"[39m[38;5;124mQ=[39m[38;5;124m"[39m,Q,[38;5;124m"[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m)
 
-SyntaxError: Missing parentheses in call to 'print'. Did you mean print("A:")? (<ipython-input-11-5b06d1587876>, line 49)
+Input [0;32mIn [11][0m, in [0;36mhouseholder[0;34m(A)[0m
+[1;32m      7[0m [38;5;66;03m# Set R equal to A, and create Q as a zero matrix of the same size[39;00m
+[1;32m      8[0m R [38;5;241m=[39m A
+[0;32m----> 9[0m Q [38;5;241m=[39m [[[38;5;241m0.0[39m] [38;5;241m*[39m n [38;5;28;01mfor[39;00m i [38;5;129;01min[39;00m [43mxrange[49m(n)]
+[1;32m     11[0m [38;5;66;03m# The Householder procedure[39;00m
+[1;32m     12[0m [38;5;28;01mfor[39;00m k [38;5;129;01min[39;00m [38;5;28mrange[39m(n[38;5;241m-[39m[38;5;241m1[39m):  [38;5;66;03m# We don't perform the procedure on a 1x1 matrix, so we reduce the index by 1[39;00m
+[1;32m     13[0m     [38;5;66;03m# Create identity matrix of same size as A                                                                    [39;00m
+
+[0;31mNameError[0m: name 'xrange' is not defined
+NameError: name 'xrange' is not defined
 
