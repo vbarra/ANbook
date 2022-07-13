@@ -376,7 +376,7 @@ Q
 
 
 def cmp(a, b):
-    return (a > b) - (a < b)
+    return bool(a > b) - bool(a < b)
 
 def householder(A):
     n = A.shape[1]

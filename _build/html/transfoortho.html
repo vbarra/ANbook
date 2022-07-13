@@ -763,32 +763,32 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.4037 0.0647 0.6407 0.3667]
- [0.7328 0.113  0.3656 0.0247]
- [0.2305 0.0449 0.1967 0.2626]
- [0.3867 0.0071 0.0327 0.9602]] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.311  0.119  0.7239 0.7999]
+ [0.6181 0.0749 0.2235 0.1866]
+ [0.4961 0.6651 0.3631 0.2776]
+ [0.228  0.423  0.3688 0.5432]] 
 
-Q= [[ 0.4249  0.2023  0.8749 -0.114 ]
- [ 0.7713  0.2766 -0.4795 -0.3141]
- [ 0.2426  0.2738 -0.0601  0.9287]
- [ 0.407  -0.8987  0.031   0.1606]] 
+Q= [[ 0.3529 -0.1536  0.8941 -0.2291]
+ [ 0.7012 -0.5971 -0.3239  0.2164]
+ [ 0.5629  0.6132 -0.2442 -0.4975]
+ [ 0.2587  0.4938  0.1898  0.8082]] 
 
-R= [[ 0.9501  0.1284  0.6153  0.6294]
- [ 0.      0.0502  0.2552 -0.71  ]
- [ 0.      0.      0.3745  0.323 ]
- [ 0.      0.      0.      0.3485]] 
+R= [[0.8814 0.5783 0.712  0.7099]
+ [0.     0.5538 0.1601 0.2041]
+ [0.     0.     0.5561 0.6901]
+ [0.     0.     0.     0.1581]] 
 
-Q^TQ= [[ 1.0000e+00  2.7275e-16 -3.2770e-16  9.1714e-16]
- [ 2.7275e-16  1.0000e+00 -4.2942e-16 -2.9302e-16]
- [-3.2770e-16 -4.2942e-16  1.0000e+00 -4.5124e-16]
- [ 9.1714e-16 -2.9302e-16 -4.5124e-16  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00 -1.8211e-16 -2.4506e-17  7.1503e-16]
+ [-1.8211e-16  1.0000e+00  6.8502e-17 -2.8284e-17]
+ [-2.4506e-17  6.8502e-17  1.0000e+00 -6.9719e-16]
+ [ 7.1503e-16 -2.8284e-17 -6.9719e-16  1.0000e+00]] 
 
-Q^TQ= [[ 1.0000e+00  2.7275e-16 -3.2770e-16  9.1714e-16]
- [ 2.7275e-16  1.0000e+00 -4.2942e-16 -2.9302e-16]
- [-3.2770e-16 -4.2942e-16  1.0000e+00 -4.5124e-16]
- [ 9.1714e-16 -2.9302e-16 -4.5124e-16  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00 -1.8211e-16 -2.4506e-17  7.1503e-16]
+ [-1.8211e-16  1.0000e+00  6.8502e-17 -2.8284e-17]
+ [-2.4506e-17  6.8502e-17  1.0000e+00 -6.9719e-16]
+ [ 7.1503e-16 -2.8284e-17 -6.9719e-16  1.0000e+00]] 
 
-Norme de I-Q^TQ =  9.17141086062899e-16
+Norme de I-Q^TQ =  7.150309222174183e-16
 Norme infinie de QR-A =  1.1102230246251565e-16
 </pre></div>
 </div>
@@ -1013,7 +1013,7 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cmp</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="o">-</span> <span class="nb">bool</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">householder</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -1063,7 +1063,7 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
 <span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">39</span>     <span class="k">return</span> <span class="n">Q</span><span class="o">.</span><span class="n">transpose</span><span class="p">(),</span> <span class="n">R</span>
 <span class="g g-Whitespace">     </span><span class="mi">41</span> <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">12</span><span class="p">,</span> <span class="o">-</span><span class="mi">51</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">167</span><span class="p">,</span> <span class="o">-</span><span class="mi">68</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="o">-</span><span class="mi">41</span><span class="p">]])</span>
@@ -1078,11 +1078,7 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 <span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="c1"># Using anonymous functions, we create u and v</span>
 <span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="n">u</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">p</span><span class="p">,</span><span class="n">q</span><span class="p">:</span> <span class="n">p</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">q</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
 
-<span class="nn">Input In [11],</span> in <span class="ni">cmp</span><span class="nt">(a, b)</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">cmp</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="k">return</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">)</span>
-
-<span class="ne">TypeError</span>: numpy boolean subtract, the `-` operator, is not supported, use the bitwise_xor, the `^` operator, or the logical_xor function instead.
+<span class="ne">NameError</span>: name &#39;norm&#39; is not defined
 </pre></div>
 </div>
 </div>
