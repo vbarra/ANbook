@@ -378,6 +378,14 @@ Q
 def cmp(a, b):
     return bool(a > b) - bool(a < b)
 
+def Q_i(Q_min, i, j, k):
+    """Construct the Q_t matrix by left-top padding the matrix Q                                                      
+    with elements from the identity matrix."""
+    if i < k or j < k:
+        return float(i == j)
+    else:
+        return Q_min[i-k][j-k]
+
 def norm(x):
     """Return the Euclidean norm of the vector x."""
     return sqrt(sum([x_i**2 for x_i in x]))
