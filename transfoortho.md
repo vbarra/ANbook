@@ -372,7 +372,7 @@ def householder(A):
     # The Householder procedure
     for k in range(n-1):  
         # Create identity matrix of same size as A                                                                    
-        I = np.eye((n,n))
+        I = np.eye(n)
 
         # Create the vectors x, e and the scalar alpha
         # Python does not have a sgn function, so we use cmp instead
