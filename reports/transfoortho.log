@@ -26,7 +26,7 @@ def householder(A):
     # The Householder procedure
     for k in range(n-1):  
         # Create identity matrix of same size as A                                                                    
-        I = np.eye((n,n))
+        I = np.eye(n)
 
         # Create the vectors x, e and the scalar alpha
         # Python does not have a sgn function, so we use cmp instead
@@ -63,7 +63,7 @@ print ("R=",R,"\n")
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;31mNameError[0m                                 Traceback (most recent call last)
 Input [0;32mIn [11][0m, in [0;36m<module>[0;34m[0m
 [1;32m     36[0m     [38;5;28;01mreturn[39;00m Q[38;5;241m.[39mtranspose(), R
 [1;32m     38[0m A [38;5;241m=[39m np[38;5;241m.[39marray([[[38;5;241m12[39m, [38;5;241m-[39m[38;5;241m51[39m, [38;5;241m4[39m], [[38;5;241m6[39m, [38;5;241m167[39m, [38;5;241m-[39m[38;5;241m68[39m], [[38;5;241m-[39m[38;5;241m4[39m, [38;5;241m24[39m, [38;5;241m-[39m[38;5;241m41[39m]])
@@ -72,21 +72,12 @@ Input [0;32mIn [11][0m, in [0;36m<module>[0;34m[0m
 [1;32m     42[0m [38;5;28mprint[39m ([38;5;124m"[39m[38;5;124mQ=[39m[38;5;124m"[39m,Q,[38;5;124m"[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m)
 
 Input [0;32mIn [11][0m, in [0;36mhouseholder[0;34m(A)[0m
-[1;32m      7[0m [38;5;66;03m# The Householder procedure[39;00m
-[1;32m      8[0m [38;5;28;01mfor[39;00m k [38;5;129;01min[39;00m [38;5;28mrange[39m(n[38;5;241m-[39m[38;5;241m1[39m):  
-[1;32m      9[0m     [38;5;66;03m# Create identity matrix of same size as A                                                                    [39;00m
-[0;32m---> 10[0m     I [38;5;241m=[39m [43mnp[49m[38;5;241;43m.[39;49m[43meye[49m[43m([49m[43m([49m[43mn[49m[43m,[49m[43mn[49m[43m)[49m[43m)[49m
-[1;32m     12[0m     [38;5;66;03m# Create the vectors x, e and the scalar alpha[39;00m
-[1;32m     13[0m     [38;5;66;03m# Python does not have a sgn function, so we use cmp instead[39;00m
-[1;32m     14[0m     x [38;5;241m=[39m [row[k] [38;5;28;01mfor[39;00m row [38;5;129;01min[39;00m R[k:]]
+[1;32m     14[0m x [38;5;241m=[39m [row[k] [38;5;28;01mfor[39;00m row [38;5;129;01min[39;00m R[k:]]
+[1;32m     15[0m e [38;5;241m=[39m [row[k] [38;5;28;01mfor[39;00m row [38;5;129;01min[39;00m I[k:]]
+[0;32m---> 16[0m alpha [38;5;241m=[39m [38;5;241m-[39m[43mcmp[49m(x[[38;5;241m0[39m],[38;5;241m0[39m) [38;5;241m*[39m norm(x)
+[1;32m     18[0m [38;5;66;03m# Using anonymous functions, we create u and v[39;00m
+[1;32m     19[0m u [38;5;241m=[39m [38;5;28mmap[39m([38;5;28;01mlambda[39;00m p,q: p [38;5;241m+[39m alpha [38;5;241m*[39m q, x, e)
 
-File [0;32m/usr/local/lib/python3.9/site-packages/numpy/lib/twodim_base.py:214[0m, in [0;36meye[0;34m(N, M, k, dtype, order, like)[0m
-[1;32m    212[0m [38;5;28;01mif[39;00m M [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
-[1;32m    213[0m     M [38;5;241m=[39m N
-[0;32m--> 214[0m m [38;5;241m=[39m [43mzeros[49m[43m([49m[43m([49m[43mN[49m[43m,[49m[43m [49m[43mM[49m[43m)[49m[43m,[49m[43m [49m[43mdtype[49m[38;5;241;43m=[39;49m[43mdtype[49m[43m,[49m[43m [49m[43morder[49m[38;5;241;43m=[39;49m[43morder[49m[43m)[49m
-[1;32m    215[0m [38;5;28;01mif[39;00m k [38;5;241m>[39m[38;5;241m=[39m M:
-[1;32m    216[0m     [38;5;28;01mreturn[39;00m m
-
-[0;31mTypeError[0m: 'tuple' object cannot be interpreted as an integer
-TypeError: 'tuple' object cannot be interpreted as an integer
+[0;31mNameError[0m: name 'cmp' is not defined
+NameError: name 'cmp' is not defined
 
