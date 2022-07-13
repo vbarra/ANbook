@@ -18,7 +18,7 @@ Traceback (most recent call last):
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
 def householder(A):
-    n = A.shape(1)
+    n = A.shape[1]
 
     R = A
     Q = np.zeros(n,n)
@@ -73,7 +73,7 @@ Input [0;32mIn [11][0m, in [0;36m<module>[0;34m[0m
 
 Input [0;32mIn [11][0m, in [0;36mhouseholder[0;34m(A)[0m
 [1;32m      1[0m [38;5;28;01mdef[39;00m [38;5;21mhouseholder[39m(A):
-[0;32m----> 2[0m     n [38;5;241m=[39m [43mA[49m[38;5;241;43m.[39;49m[43mshape[49m([38;5;241m1[39m)
+[0;32m----> 2[0m     n [38;5;241m=[39m [43mA[49m[38;5;241;43m.[39;49m[43mshape[49m[[38;5;241m1[39m]
 [1;32m      4[0m     R [38;5;241m=[39m A
 [1;32m      5[0m     Q [38;5;241m=[39m np[38;5;241m.[39mzeros(n,n)
 
