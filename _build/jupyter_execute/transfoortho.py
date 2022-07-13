@@ -403,14 +403,14 @@ Q, R = qr(A)
 
 from sympy import *
 print ("A=\n")
-print(A)
+Matrix(A)
 
 
 # In[13]:
 
 
 print ("Q=\n")
-Q
+print(Q)
 
 
 # In[14]:
