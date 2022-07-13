@@ -403,10 +403,11 @@ Q, R = qr(A)
 
 from sympy import *
 print ("A=\n")
-Matrix(A).evalf(4)
+A1=1
+Matrix(A1).evalf(4)
 
 
-# In[13]:
+# In[ ]:
 
 
 print ("Q=\n")

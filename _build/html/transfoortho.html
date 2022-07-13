@@ -763,32 +763,32 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.6875 0.4586 0.2881 0.8076]
- [0.5812 0.0892 0.0998 0.2847]
- [0.2082 0.4891 0.5637 0.9174]
- [0.1131 0.4303 0.5617 0.248 ]] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.3022 0.9311 0.9215 0.9346]
+ [0.4083 0.2191 0.6896 0.0199]
+ [0.2524 0.0535 0.0905 0.9748]
+ [0.0851 0.0184 0.3284 0.0504]] 
 
-Q= [[ 0.7385  0.0831 -0.6445 -0.1798]
- [ 0.6244 -0.4468  0.6359  0.0785]
- [ 0.2237  0.6316  0.134   0.7302]
- [ 0.1215  0.6282  0.4028 -0.6545]] 
+Q= [[ 0.5269  0.8451 -0.047   0.0769]
+ [ 0.7118 -0.3809  0.306  -0.5046]
+ [ 0.4401 -0.3556 -0.6672  0.4845]
+ [ 0.1485 -0.1195  0.6775  0.7104]] 
 
-R= [[ 0.9309  0.556   0.4694  1.0095]
- [ 0.      0.5775  0.6882  0.6751]
- [ 0.      0.      0.1795 -0.1167]
- [ 0.      0.      0.      0.3847]] 
+R= [[ 0.5735  0.6729  1.065   0.943 ]
+ [ 0.      0.6822  0.4447  0.4296]
+ [ 0.      0.      0.3298 -0.6541]
+ [ 0.      0.      0.      0.5699]] 
 
-Q^TQ= [[ 1.0000e+00 -7.2202e-17 -4.3283e-17 -1.7276e-16]
- [-7.2202e-17  1.0000e+00 -7.6046e-17 -1.2000e-17]
- [-4.3283e-17 -7.6046e-17  1.0000e+00  3.2380e-16]
- [-1.7276e-16 -1.2000e-17  3.2380e-16  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00 -3.3772e-16 -7.6654e-16 -9.9780e-16]
+ [-3.3772e-16  1.0000e+00  1.0830e-15  1.7386e-15]
+ [-7.6654e-16  1.0830e-15  1.0000e+00  7.1867e-16]
+ [-9.9780e-16  1.7386e-15  7.1867e-16  1.0000e+00]] 
 
-Q^TQ= [[ 1.0000e+00 -7.2202e-17 -4.3283e-17 -1.7276e-16]
- [-7.2202e-17  1.0000e+00 -7.6046e-17 -1.2000e-17]
- [-4.3283e-17 -7.6046e-17  1.0000e+00  3.2380e-16]
- [-1.7276e-16 -1.2000e-17  3.2380e-16  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00 -3.3772e-16 -7.6654e-16 -9.9780e-16]
+ [-3.3772e-16  1.0000e+00  1.0830e-15  1.7386e-15]
+ [-7.6654e-16  1.0830e-15  1.0000e+00  7.1867e-16]
+ [-9.9780e-16  1.7386e-15  7.1867e-16  1.0000e+00]] 
 
-Norme de I-Q^TQ =  3.238046334405929e-16
+Norme de I-Q^TQ =  1.7385614344827367e-15
 Norme infinie de QR-A =  1.1102230246251565e-16
 </pre></div>
 </div>
@@ -1040,7 +1040,8 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;A=</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="n">Matrix</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="o">.</span><span class="n">evalf</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">A1</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">Matrix</span><span class="p">(</span><span class="n">A1</span><span class="p">)</span><span class="o">.</span><span class="n">evalf</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1048,26 +1049,12 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A=
 </pre></div>
 </div>
-<div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}12.0 &amp; -51.0 &amp; 4.0\\6.0 &amp; 167.0 &amp; -68.0\\-4.0 &amp; 24.0 &amp; -41.0\end{matrix}\right]\end{split}\]</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Q=</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="n">Matrix</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Q=
-</pre></div>
-</div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Q=</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">Matrix</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;A=</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">A1</span><span class="o">=</span><span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">Matrix</span><span class="p">(</span><span class="n">A1</span><span class="p">)</span><span class="o">.</span><span class="n">evalf</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 
 <span class="nn">File /usr/local/lib/python3.9/site-packages/sympy/matrices/dense.py:299,</span> in <span class="ni">MutableDenseMatrix.__new__</span><span class="nt">(cls, *args, **kwargs)</span>
 <span class="g g-Whitespace">    </span><span class="mi">298</span> <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -1090,6 +1077,14 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 
 <span class="ne">TypeError</span>: 
 <span class="n">Data</span> <span class="nb">type</span> <span class="ow">not</span> <span class="n">understood</span><span class="p">;</span> <span class="n">expecting</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">lists</span> <span class="ow">or</span> <span class="n">lists</span> <span class="n">of</span> <span class="n">values</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Q=</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">Matrix</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
