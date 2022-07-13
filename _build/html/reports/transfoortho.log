@@ -22,9 +22,9 @@ def householder(a):
     v[0] = 1
     H = np.eye(a.shape[0])
     toto1 = 2 / np.dot(v, v) 
-    print(toto1)
+    print(toto1.shape)
     toto2 = np.dot(v[:, None], v[None, :])
-    print(toto2)
+    print(toto2.shape)
     H -= (toto1 * toto2)
     return H
 
@@ -58,7 +58,7 @@ Input [0;32mIn [11][0m, in [0;36m<module>[0;34m[0m
 
 Input [0;32mIn [11][0m, in [0;36mhouseholder[0;34m(a)[0m
 [1;32m      7[0m toto2 [38;5;241m=[39m np[38;5;241m.[39mdot(v[:, [38;5;28;01mNone[39;00m], v[[38;5;28;01mNone[39;00m, :])
-[1;32m      8[0m [38;5;28mprint[39m(toto2)
+[1;32m      8[0m [38;5;28mprint[39m(toto2[38;5;241m.[39mshape)
 [0;32m----> 9[0m H [38;5;241m-[39m[38;5;241m=[39m (toto1 [38;5;241m*[39m toto2)
 [1;32m     10[0m [38;5;28;01mreturn[39;00m H
 
