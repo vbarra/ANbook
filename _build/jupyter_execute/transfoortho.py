@@ -398,6 +398,23 @@ A = np.array([[12, -51, 4], [6, 167, -68], [-4, 24, -41]])
 Q, R = qr(A)
 
 
+# In[12]:
+
+
 print ("A=\n")
 Matrix(A)
+
+
+# In[13]:
+
+
+print ("Q=\n")
+Matrix(Q)
+
+
+# In[14]:
+
+
+print ("R=\n")
+Matrix(R)
 

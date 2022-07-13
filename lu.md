@@ -170,8 +170,6 @@ membre lors de la résolution de ${\bf Ly}={\bf b}$.
 ```{code-cell} ipython3
 from fractions import Fraction
 from sympy import *
-from warnings import filterwarnings
-filterwarnings('ignore')
 init_printing(use_latex = 'mathjax')
 ```
 

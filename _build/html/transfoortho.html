@@ -763,32 +763,32 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.2202 0.4546 0.2844 0.5404]
- [0.4215 0.1612 0.6004 0.1384]
- [0.4889 0.3488 0.8441 0.5202]
- [0.1744 0.0531 0.6528 0.6501]] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.6824 0.0289 0.7877 0.9524]
+ [0.906  0.1854 0.5279 0.067 ]
+ [0.2439 0.7879 0.4332 0.7773]
+ [0.4205 0.507  0.7678 0.6528]] 
 
-Q= [[ 0.3128  0.8926  0.0154  0.3242]
- [ 0.5987 -0.4005 -0.4285  0.5454]
- [ 0.6945  0.0168  0.0406 -0.7182]
- [ 0.2477 -0.2062  0.9025  0.2858]] 
+Q= [[ 0.553  -0.2868  0.561   0.5452]
+ [ 0.7342 -0.2028 -0.607  -0.2267]
+ [ 0.1976  0.839  -0.213   0.46  ]
+ [ 0.3408  0.4156  0.521  -0.6631]] 
 
-R= [[ 0.704   0.4941  1.1964  0.7742]
- [ 0.      0.3361 -0.107   0.3017]
- [ 0.      0.      0.3705  0.5568]
- [ 0.      0.      0.      0.0629]] 
+R= [[1.234  0.4806 1.1704 0.952 ]
+ [0.     0.8259 0.3496 0.6367]
+ [0.     0.     0.4292 0.6681]
+ [0.     0.     0.     0.4289]] 
 
-Q^TQ= [[ 1.0000e+00 -1.5107e-16  6.7201e-17  5.2002e-16]
- [-1.5107e-16  1.0000e+00  6.0404e-16 -3.0486e-15]
- [ 6.7201e-17  6.0404e-16  1.0000e+00 -2.6159e-15]
- [ 5.2002e-16 -3.0486e-15 -2.6159e-15  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00  1.7685e-17  1.6701e-16 -4.7033e-16]
+ [ 1.7685e-17  1.0000e+00 -1.7026e-17 -2.7014e-17]
+ [ 1.6701e-16 -1.7026e-17  1.0000e+00 -2.8637e-16]
+ [-4.7033e-16 -2.7014e-17 -2.8637e-16  1.0000e+00]] 
 
-Q^TQ= [[ 1.0000e+00 -1.5107e-16  6.7201e-17  5.2002e-16]
- [-1.5107e-16  1.0000e+00  6.0404e-16 -3.0486e-15]
- [ 6.7201e-17  6.0404e-16  1.0000e+00 -2.6159e-15]
- [ 5.2002e-16 -3.0486e-15 -2.6159e-15  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00  1.7685e-17  1.6701e-16 -4.7033e-16]
+ [ 1.7685e-17  1.0000e+00 -1.7026e-17 -2.7014e-17]
+ [ 1.6701e-16 -1.7026e-17  1.0000e+00 -2.8637e-16]
+ [-4.7033e-16 -2.7014e-17 -2.8637e-16  1.0000e+00]] 
 
-Norme de I-Q^TQ =  3.0486223945549107e-15
+Norme de I-Q^TQ =  4.703283963379555e-16
 Norme infinie de QR-A =  1.1102230246251565e-16
 </pre></div>
 </div>
@@ -1032,9 +1032,13 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 
 <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">12</span><span class="p">,</span> <span class="o">-</span><span class="mi">51</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">167</span><span class="p">,</span> <span class="o">-</span><span class="mi">68</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="o">-</span><span class="mi">41</span><span class="p">]])</span>
 <span class="n">Q</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">qr</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-
-
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;A=</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;A=</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="n">Matrix</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1045,6 +1049,36 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 </div>
 <div class="output text_latex math notranslate nohighlight">
 \[\begin{split}\displaystyle \left[\begin{matrix}12 &amp; -51 &amp; 4\\6 &amp; 167 &amp; -68\\-4 &amp; 24 &amp; -41\end{matrix}\right]\end{split}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Q=</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">Matrix</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Q=
+</pre></div>
+</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}-0.857142857142857 &amp; 0.394285714285714 &amp; 0.331428571428571\\-0.428571428571429 &amp; -0.902857142857143 &amp; -0.0342857142857143\\0.285714285714286 &amp; -0.171428571428571 &amp; 0.942857142857143\end{matrix}\right]\end{split}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;R=</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">Matrix</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R=
+</pre></div>
+</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}-14.0 &amp; -21.0 &amp; 14.0\\2.26656300565782 \cdot 10^{-16} &amp; -175.0 &amp; 70.0\\4.72100990779067 \cdot 10^{-16} &amp; -7.43126796127797 \cdot 10^{-16} &amp; -35.0\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 </div>
