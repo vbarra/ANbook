@@ -420,3 +420,15 @@ def householder(A):
     # we need to take the transpose upon returning it
     return trans_matrix(Q), R
 
+A = [[12, -51, 4], [6, 167, -68], [-4, 24, -41]]
+Q, R = householder(A)
+
+print "A:"
+print(A)
+
+print "Q:"
+print(Q)
+
+print "R:"
+print(R)
+
