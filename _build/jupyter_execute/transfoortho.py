@@ -401,8 +401,10 @@ Q, R = qr(A)
 # In[12]:
 
 
+from sympy import *
 print ("A=\n")
-Matrix(A)
+m = Matrix(A)
+m.applyfunc(lambda x: round(x, 3))
 
 
 # In[13]:
@@ -412,7 +414,7 @@ print ("Q=\n")
 Matrix(Q)
 
 
-# In[14]:
+# In[ ]:
 
 
 print ("R=\n")

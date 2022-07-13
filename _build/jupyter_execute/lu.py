@@ -163,8 +163,6 @@
 
 from fractions import Fraction
 from sympy import *
-from warnings import filterwarnings
-filterwarnings('ignore')
 init_printing(use_latex = 'mathjax')
 
 
