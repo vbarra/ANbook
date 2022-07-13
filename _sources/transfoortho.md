@@ -363,7 +363,7 @@ $ telle que
 ${\bf A^{(3)}}={\bf H^{(2)}A^{(2)}}\begin{pmatrix}{\|{\bf A^{(1)}_{\bullet,1}}\|}&\ast&\ast&\cdots &\ast\\0&\|{\bf f_2}\|&a^{(3)}_{23}&\cdots &\ast\\0&0&a^{(3)}_{33}&\vdots&\vdots\\0&0&a^{(3)}_{n3}&\cdots &*\end{pmatrix}$
 
 ```{code-cell} ipython3
-def make_householder(a):
+def householder(a):
     v = a / (a[0] + np.copysign(np.linalg.norm(a), a[0]))
     v[0] = 1
     H = np.eye(a.shape[0])
