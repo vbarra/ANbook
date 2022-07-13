@@ -381,7 +381,7 @@ def householder(a):
     H = np.eye(a.shape[0])
     toto1 = 2 / np.dot(v, v) 
     toto2 = np.dot(v[:, None], v[None, :])
-    H -= (toto1 * toto2
+    H -= (toto1 * toto2)
     return H
 
 def qr(A):
