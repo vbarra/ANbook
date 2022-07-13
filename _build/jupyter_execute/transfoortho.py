@@ -403,8 +403,7 @@ Q, R = qr(A)
 
 from sympy import *
 print ("A=\n")
-m = Matrix(A)
-m.applyfunc(lambda x: round(x, 3))
+Matrix(A).evalf(4)
 
 
 # In[13]:
