@@ -378,6 +378,10 @@ Q
 def cmp(a, b):
     return bool(a > b) - bool(a < b)
 
+def norm(x):
+    """Return the Euclidean norm of the vector x."""
+    return sqrt(sum([x_i**2 for x_i in x]))
+
 def householder(A):
     n = A.shape[1]
 
@@ -393,11 +397,11 @@ def householder(A):
         # Python does not have a sgn function, so we use cmp instead
         x = [row[k] for row in R[k:]]
         e = [row[k] for row in I[k:]]
-        alpha = -cmp(x[0],0) * np.linalg.norm(x)
+        alpha = -cmp(x[0],0) * norm(x)
 
         # Using anonymous functions, we create u and v
         u = map(lambda p,q: p + alpha * q, x, e)
-        norm_u = np.linalg.norm(u)
+        norm_u = norm(u)
         v = map(lambda p: p/norm_u, u)
 
         # Sous matrice Q

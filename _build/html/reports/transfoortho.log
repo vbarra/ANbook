@@ -20,6 +20,10 @@ nbclient.exceptions.CellExecutionError: An error occurred while executing the fo
 def cmp(a, b):
     return bool(a > b) - bool(a < b)
 
+def norm(x):
+    """Return the Euclidean norm of the vector x."""
+    return sqrt(sum([x_i**2 for x_i in x]))
+
 def householder(A):
     n = A.shape[1]
 
@@ -35,11 +39,11 @@ def householder(A):
         # Python does not have a sgn function, so we use cmp instead
         x = [row[k] for row in R[k:]]
         e = [row[k] for row in I[k:]]
-        alpha = -cmp(x[0],0) * np.linalg.norm(x)
+        alpha = -cmp(x[0],0) * norm(x)
 
         # Using anonymous functions, we create u and v
         u = map(lambda p,q: p + alpha * q, x, e)
-        norm_u = np.linalg.norm(u)
+        norm_u = norm(u)
         v = map(lambda p: p/norm_u, u)
 
         # Sous matrice Q
@@ -68,30 +72,33 @@ print ("R=",R,"\n")
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mTypeError[0m                                 Traceback (most recent call last)
 Input [0;32mIn [11][0m, in [0;36m<module>[0;34m[0m
-[1;32m     39[0m     [38;5;28;01mreturn[39;00m Q[38;5;241m.[39mtranspose(), R
-[1;32m     41[0m A [38;5;241m=[39m np[38;5;241m.[39marray([[[38;5;241m12[39m, [38;5;241m-[39m[38;5;241m51[39m, [38;5;241m4[39m], [[38;5;241m6[39m, [38;5;241m167[39m, [38;5;241m-[39m[38;5;241m68[39m], [[38;5;241m-[39m[38;5;241m4[39m, [38;5;241m24[39m, [38;5;241m-[39m[38;5;241m41[39m]])
-[0;32m---> 42[0m Q, R [38;5;241m=[39m [43mhouseholder[49m[43m([49m[43mA[49m[43m)[49m
-[1;32m     44[0m [38;5;28mprint[39m ([38;5;124m"[39m[38;5;124mA=[39m[38;5;124m"[39m,A,[38;5;124m"[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m)
-[1;32m     45[0m [38;5;28mprint[39m ([38;5;124m"[39m[38;5;124mQ=[39m[38;5;124m"[39m,Q,[38;5;124m"[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m)
+[1;32m     43[0m     [38;5;28;01mreturn[39;00m Q[38;5;241m.[39mtranspose(), R
+[1;32m     45[0m A [38;5;241m=[39m np[38;5;241m.[39marray([[[38;5;241m12[39m, [38;5;241m-[39m[38;5;241m51[39m, [38;5;241m4[39m], [[38;5;241m6[39m, [38;5;241m167[39m, [38;5;241m-[39m[38;5;241m68[39m], [[38;5;241m-[39m[38;5;241m4[39m, [38;5;241m24[39m, [38;5;241m-[39m[38;5;241m41[39m]])
+[0;32m---> 46[0m Q, R [38;5;241m=[39m [43mhouseholder[49m[43m([49m[43mA[49m[43m)[49m
+[1;32m     48[0m [38;5;28mprint[39m ([38;5;124m"[39m[38;5;124mA=[39m[38;5;124m"[39m,A,[38;5;124m"[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m)
+[1;32m     49[0m [38;5;28mprint[39m ([38;5;124m"[39m[38;5;124mQ=[39m[38;5;124m"[39m,Q,[38;5;124m"[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m)
 
 Input [0;32mIn [11][0m, in [0;36mhouseholder[0;34m(A)[0m
-[1;32m     21[0m [38;5;66;03m# Using anonymous functions, we create u and v[39;00m
-[1;32m     22[0m u [38;5;241m=[39m [38;5;28mmap[39m([38;5;28;01mlambda[39;00m p,q: p [38;5;241m+[39m alpha [38;5;241m*[39m q, x, e)
-[0;32m---> 23[0m norm_u [38;5;241m=[39m [43mnp[49m[38;5;241;43m.[39;49m[43mlinalg[49m[38;5;241;43m.[39;49m[43mnorm[49m[43m([49m[43mu[49m[43m)[49m
-[1;32m     24[0m v [38;5;241m=[39m [38;5;28mmap[39m([38;5;28;01mlambda[39;00m p: p[38;5;241m/[39mnorm_u, u)
-[1;32m     26[0m [38;5;66;03m# Sous matrice Q[39;00m
+[1;32m     28[0m v [38;5;241m=[39m [38;5;28mmap[39m([38;5;28;01mlambda[39;00m p: p[38;5;241m/[39mnorm_u, u)
+[1;32m     30[0m [38;5;66;03m# Sous matrice Q[39;00m
+[0;32m---> 31[0m Q_min [38;5;241m=[39m [ [[38;5;28mfloat[39m(i[38;5;241m==[39mj) [38;5;241m-[39m [38;5;241m2.0[39m [38;5;241m*[39m v[i] [38;5;241m*[39m v[j] [38;5;28;01mfor[39;00m i [38;5;129;01min[39;00m [38;5;28mrange[39m(n[38;5;241m-[39mk)] [38;5;28;01mfor[39;00m j [38;5;129;01min[39;00m [38;5;28mrange[39m(n[38;5;241m-[39mk) ]
+[1;32m     33[0m [38;5;66;03m# Intégration à Q [39;00m
+[1;32m     34[0m Q_t [38;5;241m=[39m [[ Q_i(Q_min,i,j,k) [38;5;28;01mfor[39;00m i [38;5;129;01min[39;00m [38;5;28mrange[39m(n)] [38;5;28;01mfor[39;00m j [38;5;129;01min[39;00m [38;5;28mrange[39m(n)]
 
-File [0;32m<__array_function__ internals>:180[0m, in [0;36mnorm[0;34m(*args, **kwargs)[0m
+Input [0;32mIn [11][0m, in [0;36m<listcomp>[0;34m(.0)[0m
+[1;32m     28[0m v [38;5;241m=[39m [38;5;28mmap[39m([38;5;28;01mlambda[39;00m p: p[38;5;241m/[39mnorm_u, u)
+[1;32m     30[0m [38;5;66;03m# Sous matrice Q[39;00m
+[0;32m---> 31[0m Q_min [38;5;241m=[39m [ [[38;5;28mfloat[39m(i[38;5;241m==[39mj) [38;5;241m-[39m [38;5;241m2.0[39m [38;5;241m*[39m v[i] [38;5;241m*[39m v[j] [38;5;28;01mfor[39;00m i [38;5;129;01min[39;00m [38;5;28mrange[39m(n[38;5;241m-[39mk)] [38;5;28;01mfor[39;00m j [38;5;129;01min[39;00m [38;5;28mrange[39m(n[38;5;241m-[39mk) ]
+[1;32m     33[0m [38;5;66;03m# Intégration à Q [39;00m
+[1;32m     34[0m Q_t [38;5;241m=[39m [[ Q_i(Q_min,i,j,k) [38;5;28;01mfor[39;00m i [38;5;129;01min[39;00m [38;5;28mrange[39m(n)] [38;5;28;01mfor[39;00m j [38;5;129;01min[39;00m [38;5;28mrange[39m(n)]
 
-File [0;32m/usr/local/lib/python3.9/site-packages/numpy/linalg/linalg.py:2516[0m, in [0;36mnorm[0;34m(x, ord, axis, keepdims)[0m
-[1;32m   2514[0m     sqnorm [38;5;241m=[39m dot(x[38;5;241m.[39mreal, x[38;5;241m.[39mreal) [38;5;241m+[39m dot(x[38;5;241m.[39mimag, x[38;5;241m.[39mimag)
-[1;32m   2515[0m [38;5;28;01melse[39;00m:
-[0;32m-> 2516[0m     sqnorm [38;5;241m=[39m [43mdot[49m[43m([49m[43mx[49m[43m,[49m[43m [49m[43mx[49m[43m)[49m
-[1;32m   2517[0m ret [38;5;241m=[39m sqrt(sqnorm)
-[1;32m   2518[0m [38;5;28;01mif[39;00m keepdims:
+Input [0;32mIn [11][0m, in [0;36m<listcomp>[0;34m(.0)[0m
+[1;32m     28[0m v [38;5;241m=[39m [38;5;28mmap[39m([38;5;28;01mlambda[39;00m p: p[38;5;241m/[39mnorm_u, u)
+[1;32m     30[0m [38;5;66;03m# Sous matrice Q[39;00m
+[0;32m---> 31[0m Q_min [38;5;241m=[39m [ [[38;5;28mfloat[39m(i[38;5;241m==[39mj) [38;5;241m-[39m [38;5;241m2.0[39m [38;5;241m*[39m [43mv[49m[43m[[49m[43mi[49m[43m][49m [38;5;241m*[39m v[j] [38;5;28;01mfor[39;00m i [38;5;129;01min[39;00m [38;5;28mrange[39m(n[38;5;241m-[39mk)] [38;5;28;01mfor[39;00m j [38;5;129;01min[39;00m [38;5;28mrange[39m(n[38;5;241m-[39mk) ]
+[1;32m     33[0m [38;5;66;03m# Intégration à Q [39;00m
+[1;32m     34[0m Q_t [38;5;241m=[39m [[ Q_i(Q_min,i,j,k) [38;5;28;01mfor[39;00m i [38;5;129;01min[39;00m [38;5;28mrange[39m(n)] [38;5;28;01mfor[39;00m j [38;5;129;01min[39;00m [38;5;28mrange[39m(n)]
 
-File [0;32m<__array_function__ internals>:180[0m, in [0;36mdot[0;34m(*args, **kwargs)[0m
-
-[0;31mTypeError[0m: unsupported operand type(s) for *: 'map' and 'map'
-TypeError: unsupported operand type(s) for *: 'map' and 'map'
+[0;31mTypeError[0m: 'map' object is not subscriptable
+TypeError: 'map' object is not subscriptable
 
