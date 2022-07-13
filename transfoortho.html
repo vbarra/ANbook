@@ -763,32 +763,32 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.8854 0.4666 0.0675 0.572 ]
- [0.0653 0.2547 0.7867 0.3204]
- [0.6369 0.6695 0.4236 0.3676]
- [0.0036 0.5323 0.1139 0.8018]] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.2591 0.0921 0.2495 0.2521]
+ [0.3971 0.6979 0.7266 0.229 ]
+ [0.4541 0.7041 0.8854 0.9532]
+ [0.852  0.4005 0.4786 0.162 ]] 
 
-Q= [[ 0.8103 -0.2693 -0.1265  0.5048]
- [ 0.0597  0.3297  0.892   0.3036]
- [ 0.5829  0.3359  0.0869 -0.7347]
- [ 0.0033  0.8402 -0.4253  0.3364]] 
+Q= [[ 0.2408 -0.2079  0.7311 -0.6035]
+ [ 0.3692  0.62   -0.4073 -0.5598]
+ [ 0.4222  0.5504  0.4688  0.5468]
+ [ 0.7921 -0.5191 -0.2823  0.1529]] 
 
-R= [[ 1.0927  0.7853  0.349   0.6996]
- [ 0.      0.6305  0.4791  0.7488]
- [ 0.      0.      0.6816 -0.0956]
- [ 0.      0.      0.      0.3857]] 
+R= [[1.0756 0.8944 1.0813 0.676 ]
+ [0.     0.5932 0.6375 0.5301]
+ [0.     0.     0.1664 0.4921]
+ [0.     0.     0.     0.2657]] 
 
-Q^TQ= [[ 1.0000e+00  3.4361e-16 -7.9928e-17 -5.2480e-16]
- [ 3.4361e-16  1.0000e+00 -3.5922e-16 -1.1911e-15]
- [-7.9928e-17 -3.5922e-16  1.0000e+00  8.8299e-16]
- [-5.2480e-16 -1.1911e-15  8.8299e-16  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00  2.1573e-16 -2.2510e-16  1.5145e-16]
+ [ 2.1573e-16  1.0000e+00 -2.3022e-15  2.9095e-15]
+ [-2.2510e-16 -2.3022e-15  1.0000e+00  5.2492e-15]
+ [ 1.5145e-16  2.9095e-15  5.2492e-15  1.0000e+00]] 
 
-Q^TQ= [[ 1.0000e+00  3.4361e-16 -7.9928e-17 -5.2480e-16]
- [ 3.4361e-16  1.0000e+00 -3.5922e-16 -1.1911e-15]
- [-7.9928e-17 -3.5922e-16  1.0000e+00  8.8299e-16]
- [-5.2480e-16 -1.1911e-15  8.8299e-16  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00  2.1573e-16 -2.2510e-16  1.5145e-16]
+ [ 2.1573e-16  1.0000e+00 -2.3022e-15  2.9095e-15]
+ [-2.2510e-16 -2.3022e-15  1.0000e+00  5.2492e-15]
+ [ 1.5145e-16  2.9095e-15  5.2492e-15  1.0000e+00]] 
 
-Norme de I-Q^TQ =  1.1910754145386959e-15
+Norme de I-Q^TQ =  5.249162196336595e-15
 Norme infinie de QR-A =  1.1102230246251565e-16
 </pre></div>
 </div>
@@ -1055,14 +1055,41 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Q=</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+<span class="n">Matrix</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span><span class="o">.</span><span class="n">evalf</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Q=
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Q=</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">Matrix</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span><span class="o">.</span><span class="n">evalf</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 
-&lt;sympy.assumptions.ask.AssumptionKeys object at 0x10b5bdaf0&gt;
+<span class="nn">File /usr/local/lib/python3.9/site-packages/sympy/matrices/dense.py:299,</span> in <span class="ni">MutableDenseMatrix.__new__</span><span class="nt">(cls, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">298</span> <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">299</span>     <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_new</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /usr/local/lib/python3.9/site-packages/sympy/matrices/dense.py:310,</span> in <span class="ni">MutableDenseMatrix._new</span><span class="nt">(cls, copy, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">308</span>     <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">,</span> <span class="n">flat_list</span> <span class="o">=</span> <span class="n">args</span>
+<span class="g g-Whitespace">    </span><span class="mi">309</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">310</span>     <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">,</span> <span class="n">flat_list</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_handle_creation_inputs</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">311</span>     <span class="n">flat_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">flat_list</span><span class="p">)</span> <span class="c1"># create a shallow copy</span>
+<span class="g g-Whitespace">    </span><span class="mi">312</span> <span class="bp">self</span> <span class="o">=</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
+
+<span class="nn">File /usr/local/lib/python3.9/site-packages/sympy/matrices/matrices.py:1121,</span> in <span class="ni">MatrixBase._handle_creation_inputs</span><span class="nt">(cls, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1118</span>     <span class="n">flat_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1120</span> <span class="k">if</span> <span class="n">flat_list</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1121</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="n">filldedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1122</span><span class="s1">         Data type not understood; expecting list of lists</span>
+<span class="g g-Whitespace">   </span><span class="mi">1123</span><span class="s1">         or lists of values.&#39;&#39;&#39;</span><span class="p">))</span>
+<span class="g g-Whitespace">   </span><span class="mi">1125</span> <span class="k">return</span> <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">,</span> <span class="n">flat_list</span>
+
+<span class="ne">TypeError</span>: 
+<span class="n">Data</span> <span class="nb">type</span> <span class="ow">not</span> <span class="n">understood</span><span class="p">;</span> <span class="n">expecting</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">lists</span> <span class="ow">or</span> <span class="n">lists</span> <span class="n">of</span> <span class="n">values</span><span class="o">.</span>
 </pre></div>
 </div>
 </div>
@@ -1073,13 +1100,6 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 <span class="n">Matrix</span><span class="p">(</span><span class="n">R</span><span class="p">)</span><span class="o">.</span><span class="n">evalf</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>R=
-</pre></div>
-</div>
-<div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}-14.0 &amp; -21.0 &amp; 14.0\\2.267 \cdot 10^{-16} &amp; -175.0 &amp; 70.0\\4.721 \cdot 10^{-16} &amp; -7.431 \cdot 10^{-16} &amp; -35.0\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 </div>
