@@ -763,32 +763,32 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.4556 0.1353 0.3235 0.4513]
- [0.5738 0.1408 0.2382 0.9645]
- [0.1512 0.1646 0.6009 0.6994]
- [0.9009 0.1332 0.7195 0.4888]] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.9749 0.6366 0.6706 0.2736]
+ [0.3162 0.9372 0.9587 0.3544]
+ [0.4063 0.4722 0.3611 0.6694]
+ [0.3454 0.578  0.6338 0.2772]] 
 
-Q= [[ 0.3891  0.2642 -0.3248 -0.8206]
- [ 0.49    0.1365 -0.6695  0.5413]
- [ 0.1291  0.8808  0.4189  0.179 ]
- [ 0.7693 -0.3684  0.5204  0.0402]] 
+Q= [[ 0.8438 -0.4271  0.2171 -0.2417]
+ [ 0.2737  0.8397  0.0723 -0.4634]
+ [ 0.3517  0.0989 -0.8976  0.2468]
+ [ 0.299   0.3204  0.3768  0.816 ]] 
 
-R= [[ 1.1711  0.2454  0.8737  1.1145]
- [ 0.      0.1508  0.3822  0.6869]
- [ 0.      0.      0.3616 -0.245 ]
- [ 0.      0.      0.      0.2966]] 
+R= [[ 1.1553  1.1325  1.1447  0.6462]
+ [ 0.      0.747   0.7574  0.3357]
+ [ 0.      0.      0.1296 -0.4114]
+ [ 0.      0.      0.      0.161 ]] 
 
-Q^TQ= [[ 1.0000e+00  2.9797e-17 -1.0919e-17 -4.0842e-16]
- [ 2.9797e-17  1.0000e+00 -7.9771e-17 -3.3250e-16]
- [-1.0919e-17 -7.9771e-17  1.0000e+00  4.4178e-16]
- [-4.0842e-16 -3.3250e-16  4.4178e-16  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00 -2.5481e-16 -2.0893e-16 -7.9022e-16]
+ [-2.5481e-16  1.0000e+00  6.3752e-16  2.5252e-15]
+ [-2.0893e-16  6.3752e-16  1.0000e+00  3.2181e-16]
+ [-7.9022e-16  2.5252e-15  3.2181e-16  1.0000e+00]] 
 
-Q^TQ= [[ 1.0000e+00  2.9797e-17 -1.0919e-17 -4.0842e-16]
- [ 2.9797e-17  1.0000e+00 -7.9771e-17 -3.3250e-16]
- [-1.0919e-17 -7.9771e-17  1.0000e+00  4.4178e-16]
- [-4.0842e-16 -3.3250e-16  4.4178e-16  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00 -2.5481e-16 -2.0893e-16 -7.9022e-16]
+ [-2.5481e-16  1.0000e+00  6.3752e-16  2.5252e-15]
+ [-2.0893e-16  6.3752e-16  1.0000e+00  3.2181e-16]
+ [-7.9022e-16  2.5252e-15  3.2181e-16  1.0000e+00]] 
 
-Norme de I-Q^TQ =  4.4177542337294572e-16
+Norme de I-Q^TQ =  2.5251912191171046e-15
 Norme infinie de QR-A =  1.1102230246251565e-16
 </pre></div>
 </div>
@@ -1056,6 +1056,26 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
     <span class="c1"># Since Q is defined as the product of transposes of Q_t,</span>
     <span class="c1"># we need to take the transpose upon returning it</span>
     <span class="k">return</span> <span class="n">trans_matrix</span><span class="p">(</span><span class="n">Q</span><span class="p">),</span> <span class="n">R</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">12</span><span class="p">,</span> <span class="o">-</span><span class="mi">51</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">167</span><span class="p">,</span> <span class="o">-</span><span class="mi">68</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="o">-</span><span class="mi">41</span><span class="p">]]</span>
+<span class="n">Q</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">householder</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="nb">print</span> <span class="s2">&quot;A:&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="nb">print</span> <span class="s2">&quot;Q:&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+
+<span class="nb">print</span> <span class="s2">&quot;R:&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">]</span>
+    <span class="nb">print</span> <span class="s2">&quot;A:&quot;</span>
+          <span class="o">^</span>
+<span class="ne">SyntaxError</span>: Missing parentheses in call to &#39;print&#39;. Did you mean print(&quot;A:&quot;)?
 </pre></div>
 </div>
 </div>

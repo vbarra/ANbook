@@ -17,19 +17,68 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-A = Hilbert(10)
-Q, R = GramSchmidt(A)
-print('Norme de QR-A = ',np.max(np.abs(np.dot(Q,R)-A)),"\n")
-print("Norme de Q^T*Q-I = ",np.max(np.abs(np.dot(Q.T,Q)-np.eye(n))))
+def householder(A):
+    """Performs a Householder Reflections based QR Decomposition of the                                               
+    matrix A. The function returns Q, an orthogonal matrix and R, an                                                  
+    upper triangular matrix such that A = QR."""
+    n = len(A)
+
+    # Set R equal to A, and create Q as a zero matrix of the same size
+    R = A
+    Q = [[0.0] * n for i in xrange(n)]
+
+    # The Householder procedure
+    for k in range(n-1):  # We don't perform the procedure on a 1x1 matrix, so we reduce the index by 1
+        # Create identity matrix of same size as A                                                                    
+        I = [[float(i == j) for i in xrange(n)] for j in xrange(n)]
+
+        # Create the vectors x, e and the scalar alpha
+        # Python does not have a sgn function, so we use cmp instead
+        x = [row[k] for row in R[k:]]
+        e = [row[k] for row in I[k:]]
+        alpha = -cmp(x[0],0) * norm(x)
+
+        # Using anonymous functions, we create u and v
+        u = map(lambda p,q: p + alpha * q, x, e)
+        norm_u = norm(u)
+        v = map(lambda p: p/norm_u, u)
+
+        # Create the Q minor matrix
+        Q_min = [ [float(i==j) - 2.0 * v[i] * v[j] for i in xrange(n-k)] for j in xrange(n-k) ]
+
+        # "Pad out" the Q minor matrix with elements from the identity
+        Q_t = [[ Q_i(Q_min,i,j,k) for i in xrange(n)] for j in xrange(n)]
+
+        # If this is the first run through, right multiply by A,
+        # else right multiply by Q
+        if k == 0:
+            Q = Q_t
+            R = mult_matrix(Q_t,A)
+        else:
+            Q = mult_matrix(Q_t,Q)
+            R = mult_matrix(Q_t,R)
+
+    # Since Q is defined as the product of transposes of Q_t,
+    # we need to take the transpose upon returning it
+    return trans_matrix(Q), R
+
+A = [[12, -51, 4], [6, 167, -68], [-4, 24, -41]]
+Q, R = householder(A)
+
+print "A:"
+print(A)
+
+print "Q:"
+print(Q)
+
+print "R:"
+print(R)
 ------------------
 
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mValueError[0m                                Traceback (most recent call last)
-Input [0;32mIn [7][0m, in [0;36m<module>[0;34m[0m
-[1;32m      2[0m Q, R [38;5;241m=[39m GramSchmidt(A)
-[1;32m      3[0m [38;5;28mprint[39m([38;5;124m'[39m[38;5;124mNorme de QR-A = [39m[38;5;124m'[39m,np[38;5;241m.[39mmax(np[38;5;241m.[39mabs(np[38;5;241m.[39mdot(Q,R)[38;5;241m-[39mA)),[38;5;124m"[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m)
-[0;32m----> 4[0m [38;5;28mprint[39m([38;5;124m"[39m[38;5;124mNorme de Q^T*Q-I = [39m[38;5;124m"[39m,np[38;5;241m.[39mmax(np[38;5;241m.[39mabs([43mnp[49m[38;5;241;43m.[39;49m[43mdot[49m[43m([49m[43mQ[49m[38;5;241;43m.[39;49m[43mT[49m[43m,[49m[43mQ[49m[43m)[49m[38;5;241;43m-[39;49m[43mnp[49m[38;5;241;43m.[39;49m[43meye[49m[43m([49m[43mn[49m[43m)[49m)))
+[0;36m  Input [0;32mIn [11][0;36m[0m
+[0;31m    print "A:"[0m
+[0m          ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m Missing parentheses in call to 'print'. Did you mean print("A:")?
 
-[0;31mValueError[0m: operands could not be broadcast together with shapes (10,10) (4,4) 
-ValueError: operands could not be broadcast together with shapes (10,10) (4,4) 
+SyntaxError: Missing parentheses in call to 'print'. Did you mean print("A:")? (<ipython-input-11-5b06d1587876>, line 49)
 
