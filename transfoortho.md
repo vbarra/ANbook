@@ -400,7 +400,7 @@ def householder(A):
 
     return Q.transpose(), R
 
-A = [[12, -51, 4], [6, 167, -68], [-4, 24, -41]]
+A = np.array([[12, -51, 4], [6, 167, -68], [-4, 24, -41]])
 Q, R = householder(A)
 
 print ("A=",A,"\n")

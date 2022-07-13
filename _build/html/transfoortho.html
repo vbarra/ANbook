@@ -763,32 +763,32 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.6513 0.2779 0.2023 0.3045]
- [0.4331 0.3264 0.2051 0.4038]
- [0.3395 0.8557 0.2385 0.2945]
- [0.1914 0.694  0.1624 0.2565]] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.8639 0.8315 0.6239 0.4443]
+ [0.0178 0.3946 0.5359 0.8577]
+ [0.9254 0.6642 0.221  0.9199]
+ [0.331  0.1298 0.421  0.5082]] 
 
-Q= [[ 0.7453 -0.4376 -0.503   0.0046]
- [ 0.4956 -0.118   0.8388  0.1919]
- [ 0.3884  0.6407  0.0121 -0.6621]
- [ 0.2191  0.6197 -0.208   0.7244]] 
+Q= [[ 0.6601  0.3085  0.0529 -0.6828]
+ [ 0.0136  0.8762  0.2241  0.4264]
+ [ 0.7072 -0.1916 -0.3748  0.5681]
+ [ 0.2529 -0.3168  0.898   0.1709]] 
 
-R= [[0.8739 0.8533 0.3806 0.5976]
- [0.     0.8182 0.1407 0.1668]
- [0.     0.     0.0394 0.1357]
- [0.     0.     0.     0.0697]] 
+R= [[1.3087 1.0568 0.682  1.0841]
+ [0.     0.4339 0.4863 0.5514]
+ [0.     0.     0.4483 0.3273]
+ [0.     0.     0.     0.6718]] 
 
-Q^TQ= [[ 1.0000e+00 -2.2123e-16 -1.1999e-15  2.0083e-16]
- [-2.2123e-16  1.0000e+00  1.9764e-15 -1.9429e-15]
- [-1.1999e-15  1.9764e-15  1.0000e+00  6.1778e-15]
- [ 2.0083e-16 -1.9429e-15  6.1778e-15  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00 -4.4595e-16  1.2793e-16 -1.2893e-18]
+ [-4.4595e-16  1.0000e+00  4.7183e-16  4.4231e-16]
+ [ 1.2793e-16  4.7183e-16  1.0000e+00 -4.5883e-16]
+ [-1.2893e-18  4.4231e-16 -4.5883e-16  1.0000e+00]] 
 
-Q^TQ= [[ 1.0000e+00 -2.2123e-16 -1.1999e-15  2.0083e-16]
- [-2.2123e-16  1.0000e+00  1.9764e-15 -1.9429e-15]
- [-1.1999e-15  1.9764e-15  1.0000e+00  6.1778e-15]
- [ 2.0083e-16 -1.9429e-15  6.1778e-15  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00 -4.4595e-16  1.2793e-16 -1.2893e-18]
+ [-4.4595e-16  1.0000e+00  4.7183e-16  4.4231e-16]
+ [ 1.2793e-16  4.7183e-16  1.0000e+00 -4.5883e-16]
+ [-1.2893e-18  4.4231e-16 -4.5883e-16  1.0000e+00]] 
 
-Norme de I-Q^TQ =  6.177836120627728e-15
+Norme de I-Q^TQ =  4.71834398178346e-16
 Norme infinie de QR-A =  1.1102230246251565e-16
 </pre></div>
 </div>
@@ -1013,7 +1013,7 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">householder</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 
     <span class="n">R</span> <span class="o">=</span> <span class="n">A</span>
     <span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
@@ -1070,7 +1070,7 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 
 <span class="nn">Input In [11],</span> in <span class="ni">householder</span><span class="nt">(A)</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">householder</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
-<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">R</span> <span class="o">=</span> <span class="n">A</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
 

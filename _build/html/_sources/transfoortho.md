@@ -364,7 +364,7 @@ ${\bf A^{(3)}}={\bf H^{(2)}A^{(2)}}\begin{pmatrix}{\|{\bf A^{(1)}_{\bullet,1}}\|
 
 ```{code-cell} ipython3
 def householder(A):
-    n = A.shape(1)
+    n = A.shape[1]
 
     R = A
     Q = np.zeros(n,n)
