@@ -410,12 +410,12 @@ Matrix(A)
 
 
 print ("Q=\n")
-Matrix(Q)
+print(Q)
 
 
-# In[ ]:
+# In[14]:
 
 
 print ("R=\n")
-Matrix(R)
+print(R)
 
