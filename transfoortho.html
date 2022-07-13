@@ -763,33 +763,33 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.0468 0.6614 0.3434 0.1336]
- [0.9815 0.2412 0.9254 0.4244]
- [0.7057 0.4527 0.1492 0.8842]
- [0.1639 0.6618 0.0795 0.43  ]] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.1846 0.8406 0.0663 0.0466]
+ [0.0969 0.4379 0.7448 0.4524]
+ [0.9389 0.4443 0.68   0.234 ]
+ [0.3413 0.2059 0.908  0.2171]] 
 
-Q= [[ 0.0383  0.7089  0.4757  0.5193]
- [ 0.804  -0.2404  0.5074 -0.1959]
- [ 0.5781  0.1367 -0.6941  0.4066]
- [ 0.1343  0.6488 -0.1855 -0.7257]] 
+Q= [[ 0.1809  0.8673 -0.3619 -0.29  ]
+ [ 0.095   0.4512  0.621   0.6338]
+ [ 0.92   -0.209  -0.2313  0.2375]
+ [ 0.3344 -0.0224  0.6557 -0.6766]] 
 
-R= [[ 1.2208  0.5698  0.854   0.9151]
- [ 0.      0.9022  0.093   0.3925]
- [ 0.      0.      0.5146 -0.4146]
- [ 0.      0.      0.      0.0337]] 
+R= [[1.0205 0.6713 1.012  0.3392]
+ [0.     0.8292 0.2311 0.1908]
+ [0.     0.     0.8766 0.3523]
+ [0.     0.     0.     0.1819]] 
 
-Q^TQ= [[ 1.0000e+00 -1.3794e-17 -9.6347e-17 -6.4339e-15]
- [-1.3794e-17  1.0000e+00  1.0499e-16  5.6887e-15]
- [-9.6347e-17  1.0499e-16  1.0000e+00  2.1786e-16]
- [-6.4339e-15  5.6887e-15  2.1786e-16  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00  1.0608e-16 -2.7322e-16  5.0344e-16]
+ [ 1.0608e-16  1.0000e+00 -1.1369e-16 -8.2605e-17]
+ [-2.7322e-16 -1.1369e-16  1.0000e+00  5.1078e-16]
+ [ 5.0344e-16 -8.2605e-17  5.1078e-16  1.0000e+00]] 
 
-Q^TQ= [[ 1.0000e+00 -1.3794e-17 -9.6347e-17 -6.4339e-15]
- [-1.3794e-17  1.0000e+00  1.0499e-16  5.6887e-15]
- [-9.6347e-17  1.0499e-16  1.0000e+00  2.1786e-16]
- [-6.4339e-15  5.6887e-15  2.1786e-16  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00  1.0608e-16 -2.7322e-16  5.0344e-16]
+ [ 1.0608e-16  1.0000e+00 -1.1369e-16 -8.2605e-17]
+ [-2.7322e-16 -1.1369e-16  1.0000e+00  5.1078e-16]
+ [ 5.0344e-16 -8.2605e-17  5.1078e-16  1.0000e+00]] 
 
-Norme de I-Q^TQ =  6.433892742415836e-15
-Norme infinie de QR-A =  1.1102230246251565e-16
+Norme de I-Q^TQ =  5.10780870113728e-16
+Norme infinie de QR-A =  5.551115123125783e-17
 </pre></div>
 </div>
 </div>
@@ -1028,7 +1028,7 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
     <span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="p">(</span><span class="n">m</span> <span class="o">==</span> <span class="n">n</span><span class="p">)):</span>
         <span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-        <span class="n">H</span><span class="p">[</span><span class="n">i</span><span class="p">:,</span> <span class="n">i</span><span class="p">:]</span> <span class="o">=</span> <span class="n">make_householder</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">:,</span> <span class="n">i</span><span class="p">])</span>
+        <span class="n">H</span><span class="p">[</span><span class="n">i</span><span class="p">:,</span> <span class="n">i</span><span class="p">:]</span> <span class="o">=</span> <span class="n">householder</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">:,</span> <span class="n">i</span><span class="p">])</span>
         <span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">H</span><span class="p">)</span>
         <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">Q</span><span class="p">,</span> <span class="n">A</span>
@@ -1044,23 +1044,21 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span>     <span class="k">return</span> <span class="n">Q</span><span class="p">,</span> <span class="n">A</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">12</span><span class="p">,</span> <span class="o">-</span><span class="mi">51</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">167</span><span class="p">,</span> <span class="o">-</span><span class="mi">68</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="o">-</span><span class="mi">41</span><span class="p">]])</span>
-<span class="ne">---&gt; </span><span class="mi">24</span> <span class="n">Q</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">qr</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;A=&quot;</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Q=&quot;</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>()
+(3, 3)
+()
+(2, 2)
+A= [[ 12 -51   4]
+ [  6 167 -68]
+ [ -4  24 -41]] 
 
-<span class="nn">Input In [11],</span> in <span class="ni">qr</span><span class="nt">(A)</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="p">(</span><span class="n">m</span> <span class="o">==</span> <span class="n">n</span><span class="p">)):</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span>     <span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">17</span>     <span class="n">H</span><span class="p">[</span><span class="n">i</span><span class="p">:,</span> <span class="n">i</span><span class="p">:]</span> <span class="o">=</span> <span class="n">make_householder</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">:,</span> <span class="n">i</span><span class="p">])</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span>     <span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">H</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span>     <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+Q= [[-0.8571  0.3943  0.3314]
+ [-0.4286 -0.9029 -0.0343]
+ [ 0.2857 -0.1714  0.9429]] 
 
-<span class="ne">NameError</span>: name &#39;make_householder&#39; is not defined
+R= [[-1.4000e+01 -2.1000e+01  1.4000e+01]
+ [ 2.2666e-16 -1.7500e+02  7.0000e+01]
+ [ 4.7210e-16 -7.4313e-16 -3.5000e+01]] 
 </pre></div>
 </div>
 </div>
