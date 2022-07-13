@@ -382,11 +382,11 @@ def householder(A):
         # Python does not have a sgn function, so we use cmp instead
         x = [row[k] for row in R[k:]]
         e = [row[k] for row in I[k:]]
-        alpha = -cmp(x[0],0) * norm(x)
+        alpha = -cmp(x[0],0) * np.linalg.norm(x)
 
         # Using anonymous functions, we create u and v
         u = map(lambda p,q: p + alpha * q, x, e)
-        norm_u = norm(u)
+        norm_u = np.linalg.norm(u)
         v = map(lambda p: p/norm_u, u)
 
         # Sous matrice Q
