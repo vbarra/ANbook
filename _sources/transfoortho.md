@@ -386,7 +386,7 @@ def qr(A):
 
 
 A = np.array([[12, -51, 4], [6, 167, -68], [-4, 24, -41]])
-Q, R = householder(A)
+Q, R = qr(A)
 
 print ("A=",A,"\n")
 print ("Q=",Q,"\n")
