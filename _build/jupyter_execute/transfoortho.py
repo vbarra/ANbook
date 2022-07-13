@@ -207,7 +207,7 @@ print("Norme de Q^T*Q-I = ",np.max(np.abs(np.dot(Q.T,Q)-np.eye(n))))
 # In[8]:
 
 
-Matrix(np.dot(Q.T,Q)-np.eye(n)).evalf(4)
+Matrix(np.dot(Q.T,Q)-np.eye(n)).evalf(2)
 
 
 # ### Gram-Schmidt sur $\mathbb{R}^n$

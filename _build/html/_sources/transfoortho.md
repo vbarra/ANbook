@@ -199,7 +199,7 @@ print("Norme de Q^T*Q-I = ",np.max(np.abs(np.dot(Q.T,Q)-np.eye(n))))
 La factorisation est précise, mais $\bf Q$ est loin d'être orthogonale.
 
 ```{code-cell} ipython3
-Matrix(np.dot(Q.T,Q)-np.eye(n)).evalf(4)
+Matrix(np.dot(Q.T,Q)-np.eye(n)).evalf(2)
 ```
 
 ### Gram-Schmidt sur $\mathbb{R}^n$
