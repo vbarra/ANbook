@@ -763,33 +763,33 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.7602 0.1061 0.0991 0.9252]
- [0.8602 0.2022 0.452  0.6606]
- [0.7302 0.4282 0.3816 0.1226]
- [0.9769 0.9746 0.0198 0.7678]] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.8061 0.9727 0.4908 0.6391]
+ [0.4773 0.7541 0.9545 0.4946]
+ [0.5355 0.6121 0.4291 0.3377]
+ [0.6881 0.5718 0.2369 0.1047]] 
 
-Q= [[ 0.4539 -0.5076 -0.6562 -0.3251]
- [ 0.5136 -0.4379  0.3809  0.6319]
- [ 0.4359  0.0544  0.5935 -0.6743]
- [ 0.5833  0.74   -0.2684  0.2006]] 
+Q= [[ 0.6299  0.1799 -0.7137 -0.248 ]
+ [ 0.373   0.6934  0.5782 -0.2139]
+ [ 0.4184  0.0077  0.0562  0.9065]
+ [ 0.5376 -0.6977  0.3913 -0.2665]] 
 
-R= [[ 1.675   0.9071  0.455   1.2605]
- [ 0.      0.602  -0.2129 -0.1842]
- [ 0.      0.      0.3283 -0.4888]
- [ 0.      0.      0.      0.188 ]] 
+R= [[ 1.2798  1.4575  0.9721  0.7846]
+ [ 0.      0.3036  0.5881  0.3874]
+ [ 0.      0.      0.3185 -0.1102]
+ [ 0.      0.      0.      0.014 ]] 
 
-Q^TQ= [[ 1.0000e+00  1.4734e-16  3.9211e-16  2.1662e-15]
- [ 1.4734e-16  1.0000e+00 -3.5193e-16 -1.9904e-15]
- [ 3.9211e-16 -3.5193e-16  1.0000e+00 -3.0629e-15]
- [ 2.1662e-15 -1.9904e-15 -3.0629e-15  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00 -3.2449e-16  4.6738e-16  1.0955e-14]
+ [-3.2449e-16  1.0000e+00  8.6101e-16  2.6333e-14]
+ [ 4.6738e-16  8.6101e-16  1.0000e+00 -4.5672e-14]
+ [ 1.0955e-14  2.6333e-14 -4.5672e-14  1.0000e+00]] 
 
-Q^TQ= [[ 1.0000e+00  1.4734e-16  3.9211e-16  2.1662e-15]
- [ 1.4734e-16  1.0000e+00 -3.5193e-16 -1.9904e-15]
- [ 3.9211e-16 -3.5193e-16  1.0000e+00 -3.0629e-15]
- [ 2.1662e-15 -1.9904e-15 -3.0629e-15  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00 -3.2449e-16  4.6738e-16  1.0955e-14]
+ [-3.2449e-16  1.0000e+00  8.6101e-16  2.6333e-14]
+ [ 4.6738e-16  8.6101e-16  1.0000e+00 -4.5672e-14]
+ [ 1.0955e-14  2.6333e-14 -4.5672e-14  1.0000e+00]] 
 
-Norme de I-Q^TQ =  3.062905928697214e-15
-Norme infinie de QR-A =  2.7755575615628914e-17
+Norme de I-Q^TQ =  4.5672265476250896e-14
+Norme infinie de QR-A =  1.1102230246251565e-16
 </pre></div>
 </div>
 </div>
@@ -1040,30 +1040,31 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;A=</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="n">Matrix</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="o">.</span><span class="n">evalf</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A=
+
+[[ 12 -51   4]
+ [  6 167 -68]
+ [ -4  24 -41]]
 </pre></div>
 </div>
-<div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}12.0 &amp; -51.0 &amp; 4.0\\6.0 &amp; 167.0 &amp; -68.0\\-4.0 &amp; 24.0 &amp; -41.0\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Q=</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="n">Q</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Q=
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;sympy.assumptions.ask.AssumptionKeys at 0x1061d2af0&gt;
+
+&lt;sympy.assumptions.ask.AssumptionKeys object at 0x11319daf0&gt;
 </pre></div>
 </div>
 </div>
@@ -1071,7 +1072,7 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;R=</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">R</span><span class="p">)</span><span class="o">.</span><span class="n">evalf</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1081,15 +1082,6 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 [[-1.4000e+01 -2.1000e+01  1.4000e+01]
  [ 2.2666e-16 -1.7500e+02  7.0000e+01]
  [ 4.7210e-16 -7.4313e-16 -3.5000e+01]]
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;R=</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">R</span><span class="p">)</span><span class="o">.</span><span class="n">evalf</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-
-<span class="ne">AttributeError</span>: &#39;NoneType&#39; object has no attribute &#39;evalf&#39;
 </pre></div>
 </div>
 </div>
