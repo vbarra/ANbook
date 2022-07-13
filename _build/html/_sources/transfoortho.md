@@ -394,7 +394,7 @@ print(A)
 
 ```{code-cell} ipython3
 print ("Q=\n")
-print(Q)
+Q
 ```
 ```{code-cell} ipython3
 print ("R=\n")

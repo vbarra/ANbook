@@ -410,7 +410,7 @@ print(A)
 
 
 print ("Q=\n")
-print(Q)
+Q
 
 
 # In[14]:
