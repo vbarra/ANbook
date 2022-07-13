@@ -202,7 +202,7 @@ La factorisation est précise, mais $\bf Q$ est loin d'être orthogonale.
 print(np.dot(Q.T,Q)-np.eye(n))
 ```
 
-### Gram Schmidt sur $\mathbb{R}^n$
+### Gram-Schmidt sur $\mathbb{R}^n$
 Il est possible de compléter ${\bf q_1}\cdots {\bf q_p}$ en une base orthonormée de $\mathbb R^n$, en continuant la procédure de Gram-Schmidt avec $n-p$ vecteurs arbitraires, mais tels que les $n$ colonnes formées avec les ${\bf A_{\bullet,j}}$ soient linéairement indépendantes. Soit ${\bf Q_2}$ la matrice des $n-p$ derniers vecteurs orthonormés. On a alors bien :
 
 ${\bf A^\top} {\bf Q_2}={\bf R_1^\top} {\bf Q_1^\top} {\bf Q_2}=0$ ce qui montre que :
@@ -307,6 +307,18 @@ ${\bf u}=\frac{1}{2\beta}({\bf f}-\alpha {\bf e)}$ répond à la question.
 :class: dropdown
 Si ${\bf f}$ et ${\bf  e}$ sont colinéaires, ${\bf H}=\mathbb I$ ou ${\bf H}=\mathbb I-2{\bf ee^\top }$ répondent à la question.
 ``` 
+
+La mise en oeuvre pratique peut se faire comme suit : pour ${\bf e,f}\in\mathbb{R}^n$, on construit une fonction `Householder` qui calcule $\beta\in\mathbb{R}$ et ${\bf u}\in\mathbb{R}$^n$, $u[0]=1$ tels que pour $\bf H=\mathbb I-\beta {\bf u\bf u^\top}$ on ait $\bf {Hf} = \pm \sqrt{\|\bf f\|^2}\bf e$.
+
+```{code-cell} ipython3
+def Householder(e,f):
+  alpha = np.norm(f)
+
+```
+
+
+
+
 
 L'algorithme d'orthonormalisation  de ${\bf A}$ par matrices de Householder  opère alors colonne par colonne, et transforme itérativement ${\bf A}$ en une matrice triangulaire supérieure.
 

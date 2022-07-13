@@ -218,6 +218,43 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p class="caption">
  <span class="caption-text">
+  Analyse spectrale
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introspect.html">
+   Moindres carrés linéaires
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="resspec.html">
+   Moindres carrés linéaires
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="similitudes.html">
+   Moindres carrés linéaires
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="jacobi.html">
+   Moindres carrés linéaires
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="puissiter.html">
+   Moindres carrés linéaires
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="QRspec.html">
+   Moindres carrés linéaires
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
   Index
  </span>
 </p>
@@ -467,7 +504,7 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#gram-schmidt-sur-mathbb-r-n">
-     Gram Schmidt sur
+     Gram-Schmidt sur
      <span class="math notranslate nohighlight">
       \(\mathbb{R}^n\)
      </span>
@@ -521,7 +558,7 @@ title="Print to PDF"
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#gram-schmidt-sur-mathbb-r-n">
-     Gram Schmidt sur
+     Gram-Schmidt sur
      <span class="math notranslate nohighlight">
       \(\mathbb{R}^n\)
      </span>
@@ -726,32 +763,32 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.9937 0.4965 0.6254 0.4035]
- [0.4653 0.3167 0.8193 0.3324]
- [0.4085 0.1265 0.1554 0.2164]
- [0.5476 0.4141 0.6798 0.5963]] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.3382 0.8864 0.2201 0.1004]
+ [0.5661 0.7463 0.958  0.5682]
+ [0.9266 0.7059 0.0289 0.8056]
+ [0.2661 0.642  0.972  0.3658]] 
 
-Q= [[ 0.7688 -0.2968 -0.3045 -0.4777]
- [ 0.36    0.3587  0.8422 -0.1802]
- [ 0.316  -0.5812  0.2627  0.7023]
- [ 0.4236  0.6674 -0.3592  0.4961]] 
+Q= [[ 0.2895  0.7123 -0.6234 -0.1421]
+ [ 0.4847  0.1477  0.546  -0.6672]
+ [ 0.7933 -0.4886 -0.2499  0.2636]
+ [ 0.2279  0.4818  0.5009  0.682 ]] 
 
-R= [[ 1.2926e+00  7.1110e-01  1.1129e+00  7.5091e-01]
- [ 0.0000e+00  1.6909e-01  4.7165e-01  2.7166e-01]
- [ 0.0000e+00  0.0000e+00  2.9623e-01 -2.0459e-04]
- [ 0.0000e+00  0.0000e+00  0.0000e+00  1.9517e-01]] 
+R= [[ 1.168   1.3247  0.7725  1.0269]
+ [ 0.      0.706   0.7525 -0.062 ]
+ [ 0.      0.      0.8655  0.2296]
+ [ 0.      0.      0.      0.0685]] 
 
-Q^TQ= [[ 1.0000e+00  1.2682e-16  6.7919e-16  6.6567e-16]
- [ 1.2682e-16  1.0000e+00 -1.1424e-15 -5.0631e-16]
- [ 6.7919e-16 -1.1424e-15  1.0000e+00 -1.1051e-15]
- [ 6.6567e-16 -5.0631e-16 -1.1051e-15  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00 -4.5198e-16  1.3000e-16 -3.9927e-15]
+ [-4.5198e-16  1.0000e+00  4.9327e-16  5.4384e-15]
+ [ 1.3000e-16  4.9327e-16  1.0000e+00 -2.0595e-15]
+ [-3.9927e-15  5.4384e-15 -2.0595e-15  1.0000e+00]] 
 
-Q^TQ= [[ 1.0000e+00  1.2682e-16  6.7919e-16  6.6567e-16]
- [ 1.2682e-16  1.0000e+00 -1.1424e-15 -5.0631e-16]
- [ 6.7919e-16 -1.1424e-15  1.0000e+00 -1.1051e-15]
- [ 6.6567e-16 -5.0631e-16 -1.1051e-15  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00 -4.5198e-16  1.3000e-16 -3.9927e-15]
+ [-4.5198e-16  1.0000e+00  4.9327e-16  5.4384e-15]
+ [ 1.3000e-16  4.9327e-16  1.0000e+00 -2.0595e-15]
+ [-3.9927e-15  5.4384e-15 -2.0595e-15  1.0000e+00]] 
 
-Norme de I-Q^TQ =  1.1424323917089684e-15
+Norme de I-Q^TQ =  5.438436249570426e-15
 Norme infinie de QR-A =  1.1102230246251565e-16
 </pre></div>
 </div>
@@ -820,7 +857,7 @@ Norme de Q^T*Q-I =  0.9999670638304938
 </div>
 </div>
 <div class="section" id="gram-schmidt-sur-mathbb-r-n">
-<h3>Gram Schmidt sur <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span><a class="headerlink" href="#gram-schmidt-sur-mathbb-r-n" title="Lien permanent vers ce titre">#</a></h3>
+<h3>Gram-Schmidt sur <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span><a class="headerlink" href="#gram-schmidt-sur-mathbb-r-n" title="Lien permanent vers ce titre">#</a></h3>
 <p>Il est possible de compléter <span class="math notranslate nohighlight">\({\bf q_1}\cdots {\bf q_p}\)</span> en une base orthonormée de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>, en continuant la procédure de Gram-Schmidt avec <span class="math notranslate nohighlight">\(n-p\)</span> vecteurs arbitraires, mais tels que les <span class="math notranslate nohighlight">\(n\)</span> colonnes formées avec les <span class="math notranslate nohighlight">\({\bf A_{\bullet,j}}\)</span> soient linéairement indépendantes. Soit <span class="math notranslate nohighlight">\({\bf Q_2}\)</span> la matrice des <span class="math notranslate nohighlight">\(n-p\)</span> derniers vecteurs orthonormés. On a alors bien :</p>
 <p><span class="math notranslate nohighlight">\({\bf A^\top} {\bf Q_2}={\bf R_1^\top} {\bf Q_1^\top} {\bf Q_2}=0\)</span> ce qui montre que :</p>
 <p><span class="math notranslate nohighlight">\({\bf A}={\bf QR}=[{\bf Q_1}\ {\bf Q_2}]\cdot\left [\begin{array}{c}{\bf R_1} \\{\bf 0} \\\end{array}\right]={\bf Q_1R_1}\)</span>.</p>
@@ -920,7 +957,16 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 <div class="remark-content section" id="proof-content">
 <p>Si <span class="math notranslate nohighlight">\({\bf f}\)</span> et <span class="math notranslate nohighlight">\({\bf  e}\)</span> sont colinéaires, <span class="math notranslate nohighlight">\({\bf H}=\mathbb I\)</span> ou <span class="math notranslate nohighlight">\({\bf H}=\mathbb I-2{\bf ee^\top }\)</span> répondent à la question.</p>
 </div>
-</div><p>L’algorithme d’orthonormalisation  de <span class="math notranslate nohighlight">\({\bf A}\)</span> par matrices de Householder  opère alors colonne par colonne, et transforme itérativement <span class="math notranslate nohighlight">\({\bf A}\)</span> en une matrice triangulaire supérieure.</p>
+</div><p>La mise en oeuvre pratique peut se faire comme suit : pour <span class="math notranslate nohighlight">\({\bf e,f}\in\mathbb{R}^n\)</span>, on construit une fonction <code class="docutils literal notranslate"><span class="pre">Householder</span></code> qui calcule <span class="math notranslate nohighlight">\(\beta\in\mathbb{R}\)</span> et <span class="math notranslate nohighlight">\({\bf u}\in\mathbb{R}\)</span>^n<span class="math notranslate nohighlight">\(, \)</span>u[0]=1<span class="math notranslate nohighlight">\( tels que pour \)</span>\bf H=\mathbb I-\beta {\bf u\bf u^\top}<span class="math notranslate nohighlight">\( on ait \)</span>\bf {Hf} = \pm \sqrt{|\bf f|^2}\bf e$.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Householder</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="n">f</span><span class="p">):</span>
+  <span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>L’algorithme d’orthonormalisation  de <span class="math notranslate nohighlight">\({\bf A}\)</span> par matrices de Householder  opère alors colonne par colonne, et transforme itérativement <span class="math notranslate nohighlight">\({\bf A}\)</span> en une matrice triangulaire supérieure.</p>
 <p>On l’illustre dans la suite (algorithme <a class="reference internal" href="#QR">Algorithm 6</a>) dans le cas où <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_n(\mathbb R)\)</span> est de rang plein.</p>
 <div class="proof algorithm admonition" id="QR">
 <p class="admonition-title"><span class="caption-number">Algorithm 6 </span> (Factorisation QR par matrices de Householder)</p>
