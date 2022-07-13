@@ -389,7 +389,7 @@ Q, R = qr(A)
 ```{code-cell} ipython3
 from sympy import *
 print ("A=\n")
-A1=1
+A1=A
 Matrix(A1).evalf(4)
 ```
 
