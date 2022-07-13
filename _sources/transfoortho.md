@@ -363,6 +363,10 @@ $ telle que
 ${\bf A^{(3)}}={\bf H^{(2)}A^{(2)}}\begin{pmatrix}{\|{\bf A^{(1)}_{\bullet,1}}\|}&\ast&\ast&\cdots &\ast\\0&\|{\bf f_2}\|&a^{(3)}_{23}&\cdots &\ast\\0&0&a^{(3)}_{33}&\vdots&\vdots\\0&0&a^{(3)}_{n3}&\cdots &*\end{pmatrix}$
 
 ```{code-cell} ipython3
+
+def cmp_0(a, b):
+    return (a > b) - (a < b)
+
 def householder(A):
     n = A.shape[1]
 
