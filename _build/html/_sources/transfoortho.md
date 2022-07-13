@@ -160,11 +160,21 @@ def GramSchmidt(A):
 n = 4
 A = np.random.rand(n,n)
 Q, R = GramSchmidt(A)
-print("A=",A,"\n")
-print("Q=",Q,"\n")
-print("R=",R,"\n")
-print("Q^TQ=",Q.transpose()@Q,"\n")
+```
+```{code-cell} ipython3
+Matrix(A).evalf(4)
+```
+```{code-cell} ipython3
+Matrix(Q).evalf(4)
+```
+```{code-cell} ipython3
+Matrix(R).evalf(4)
+```
+```{code-cell} ipython3
+Matrix(Q.transpose()@Q).evalf(4)
+```
 
+```{code-cell} ipython3
 # On vérifie à quel point Q est orthogonale
 print("Q^TQ=",Q.transpose()@Q,"\n")
 print("Norme de I-Q^TQ = ", np.max(np.abs(np.dot(Q.T,Q)-np.eye(n))))

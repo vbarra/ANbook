@@ -162,10 +162,34 @@ def GramSchmidt(A):
 n = 4
 A = np.random.rand(n,n)
 Q, R = GramSchmidt(A)
-print("A=",A,"\n")
-print("Q=",Q,"\n")
-print("R=",R,"\n")
-print("Q^TQ=",Q.transpose()@Q,"\n")
+
+
+# In[6]:
+
+
+Matrix(A).evalf(4)
+
+
+# In[7]:
+
+
+Matrix(Q).evalf(4)
+
+
+# In[8]:
+
+
+Matrix(R).evalf(4)
+
+
+# In[9]:
+
+
+Matrix(Q.transpose()@Q).evalf(4)
+
+
+# In[10]:
+
 
 # On vérifie à quel point Q est orthogonale
 print("Q^TQ=",Q.transpose()@Q,"\n")
@@ -179,7 +203,7 @@ print("Norme infinie de QR-A = ", np.max(np.abs(np.dot(Q,R)-A)))
 # 
 # Considérons par exemple la matrice suivante, dite matrice de Hilbert
 
-# In[6]:
+# In[11]:
 
 
 def Hilbert(n):
@@ -192,7 +216,7 @@ def Hilbert(n):
 
 # On applique la méthode de Gram-Schmidt, et on vérifie à quel point $\bf QR$ est proche de $\bf A$, et $\bf Q$ est orthogonale.
 
-# In[7]:
+# In[12]:
 
 
 n = 8
@@ -204,7 +228,7 @@ print("Norme de Q^T*Q-I = ",np.max(np.abs(np.dot(Q.T,Q)-np.eye(n))))
 
 # La factorisation est précise, mais $\bf Q$ est loin d'être orthogonale.
 
-# In[8]:
+# In[13]:
 
 
 Matrix(np.dot(Q.T,Q)-np.eye(n)).evalf(2)
@@ -222,7 +246,7 @@ Matrix(np.dot(Q.T,Q)-np.eye(n)).evalf(2)
 # une base orthonormée de $Ker({\bf A^\top})$.
 # ```
 
-# In[9]:
+# In[14]:
 
 
 Q = Rational(1, 3) * Matrix([[1, -2], [2, -1], [2, 2]])
@@ -231,7 +255,7 @@ Q
 
 # Les colonnes de $Q$ forment une base de $\mathbb{R}^2$ (dans $\mathbb{R}^3$). Pour obtenir une matrice orthogonale, il faut compléter par un vecteur normal au plan défini par ces deux colonnes, et unitaire.
 
-# In[10]:
+# In[15]:
 
 
 Q = Rational(1, 3) * Matrix([[1, -2, 2], [2, -1, -2], [2, 2, 1]])
@@ -374,7 +398,7 @@ Q
 # 
 # L'implémentation peut se faire de la manière suivante.
 
-# In[11]:
+# In[16]:
 
 
 def householder(a):
@@ -398,20 +422,20 @@ A = np.array([[12, -51, 4], [6, 167, -68], [-4, 24, -41]])
 Q1, R1 = qr(A)
 
 
-# In[12]:
+# In[17]:
 
 
 from sympy import *
 Matrix(A).evalf(4)
 
 
-# In[13]:
+# In[18]:
 
 
 Matrix(R1).evalf(4)
 
 
-# In[14]:
+# In[19]:
 
 
 Matrix(Q1).evalf(4)
