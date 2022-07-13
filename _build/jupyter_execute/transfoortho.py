@@ -379,7 +379,9 @@ def householder(a):
     v = a / (a[0] + np.copysign(np.linalg.norm(a), a[0]))
     v[0] = 1
     H = np.eye(a.shape[0])
-    H -= (2 / np.dot(v, v)) * np.dot(v[:, None], v[None, :])
+    toto1 = 2 / np.dot(v, v)) 
+    toto2 = np.dot(v[:, None], v[None, :])
+    H -= (toto1 * toto2
     return H
 
 def qr(A):
