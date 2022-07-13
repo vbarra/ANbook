@@ -401,10 +401,9 @@ Q, R = qr(A)
 # In[12]:
 
 
-from sympy import *
-print ("A=\n")
-A1=A
-Matrix(A1).evalf(4)
+#from sympy import *
+#print ("A=\n")
+#Matrix(A).evalf(4)
 
 
 # In[13]:
@@ -414,7 +413,7 @@ print ("Q=\n")
 Matrix(Q)
 
 
-# In[ ]:
+# In[14]:
 
 
 print ("R=\n")

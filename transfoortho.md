@@ -387,9 +387,9 @@ Q, R = qr(A)
 ```
 
 ```{code-cell} ipython3
-#from sympy import *
-#print ("A=\n")
-#Matrix(A).evalf(4)
+from sympy import *
+print ("A=\n")
+Matrix(A)
 ```
 
 ```{code-cell} ipython3
