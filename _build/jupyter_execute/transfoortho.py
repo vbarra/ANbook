@@ -380,7 +380,9 @@ def householder(a):
     v[0] = 1
     H = np.eye(a.shape[0])
     toto1 = 2 / np.dot(v, v) 
+    print(toto1)
     toto2 = np.dot(v[:, None], v[None, :])
+    print(toto2)
     H -= (toto1 * toto2)
     return H
 
