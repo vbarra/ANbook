@@ -40,7 +40,7 @@ def qr(A):
 
 
 A = np.array([[12, -51, 4], [6, 167, -68], [-4, 24, -41]])
-Q, R = householder(A)
+Q, R = qr(A)
 
 print ("A=",A,"\n")
 print ("Q=",Q,"\n")
@@ -48,20 +48,21 @@ print ("R=",R,"\n")
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mValueError[0m                                Traceback (most recent call last)
+[0;31mNameError[0m                                 Traceback (most recent call last)
 Input [0;32mIn [11][0m, in [0;36m<module>[0;34m[0m
 [1;32m     20[0m     [38;5;28;01mreturn[39;00m Q, A
 [1;32m     23[0m A [38;5;241m=[39m np[38;5;241m.[39marray([[[38;5;241m12[39m, [38;5;241m-[39m[38;5;241m51[39m, [38;5;241m4[39m], [[38;5;241m6[39m, [38;5;241m167[39m, [38;5;241m-[39m[38;5;241m68[39m], [[38;5;241m-[39m[38;5;241m4[39m, [38;5;241m24[39m, [38;5;241m-[39m[38;5;241m41[39m]])
-[0;32m---> 24[0m Q, R [38;5;241m=[39m [43mhouseholder[49m[43m([49m[43mA[49m[43m)[49m
+[0;32m---> 24[0m Q, R [38;5;241m=[39m [43mqr[49m[43m([49m[43mA[49m[43m)[49m
 [1;32m     26[0m [38;5;28mprint[39m ([38;5;124m"[39m[38;5;124mA=[39m[38;5;124m"[39m,A,[38;5;124m"[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m)
 [1;32m     27[0m [38;5;28mprint[39m ([38;5;124m"[39m[38;5;124mQ=[39m[38;5;124m"[39m,Q,[38;5;124m"[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m)
 
-Input [0;32mIn [11][0m, in [0;36mhouseholder[0;34m(a)[0m
-[1;32m      7[0m toto2 [38;5;241m=[39m np[38;5;241m.[39mdot(v[:, [38;5;28;01mNone[39;00m], v[[38;5;28;01mNone[39;00m, :])
-[1;32m      8[0m [38;5;28mprint[39m(toto2[38;5;241m.[39mshape)
-[0;32m----> 9[0m H [38;5;241m-[39m[38;5;241m=[39m (toto1 [38;5;241m*[39m toto2)
-[1;32m     10[0m [38;5;28;01mreturn[39;00m H
+Input [0;32mIn [11][0m, in [0;36mqr[0;34m(A)[0m
+[1;32m     15[0m [38;5;28;01mfor[39;00m i [38;5;129;01min[39;00m [38;5;28mrange[39m(n [38;5;241m-[39m (m [38;5;241m==[39m n)):
+[1;32m     16[0m     H [38;5;241m=[39m np[38;5;241m.[39meye(m)
+[0;32m---> 17[0m     H[i:, i:] [38;5;241m=[39m [43mmake_householder[49m(A[i:, i])
+[1;32m     18[0m     Q [38;5;241m=[39m np[38;5;241m.[39mdot(Q, H)
+[1;32m     19[0m     A [38;5;241m=[39m np[38;5;241m.[39mdot(H, A)
 
-[0;31mValueError[0m: non-broadcastable output operand with shape (3,3) doesn't match the broadcast shape (3,1,3,3)
-ValueError: non-broadcastable output operand with shape (3,3) doesn't match the broadcast shape (3,1,3,3)
+[0;31mNameError[0m: name 'make_householder' is not defined
+NameError: name 'make_householder' is not defined
 
