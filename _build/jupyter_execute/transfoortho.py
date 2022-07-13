@@ -402,20 +402,17 @@ Q1, R1 = qr(A)
 
 
 from sympy import *
-print ("A=\n")
 Matrix(A).evalf(4)
 
 
 # In[13]:
 
 
-print ("R=\n")
 Matrix(R1).evalf(4)
 
 
 # In[14]:
 
 
-print ("Q=\n")
 Matrix(Q1).evalf(4)
 
