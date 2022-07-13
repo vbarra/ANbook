@@ -763,32 +763,32 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.6274 0.365  0.9874 0.6178]
- [0.8769 0.2686 0.7087 0.3137]
- [0.1024 0.085  0.9018 0.7439]
- [0.3463 0.948  0.9408 0.6547]] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.3382 0.8864 0.2201 0.1004]
+ [0.5661 0.7463 0.958  0.5682]
+ [0.9266 0.7059 0.0289 0.8056]
+ [0.2661 0.642  0.972  0.3658]] 
 
-Q= [[ 0.5517 -0.0305  0.249  -0.7954]
- [ 0.7712 -0.3508 -0.2433  0.4722]
- [ 0.0901  0.0274  0.9309  0.3529]
- [ 0.3045  0.9355 -0.1104  0.1408]] 
+Q= [[ 0.2895  0.7123 -0.6234 -0.1421]
+ [ 0.4847  0.1477  0.546  -0.6672]
+ [ 0.7933 -0.4886 -0.2499  0.2636]
+ [ 0.2279  0.4818  0.5009  0.682 ]] 
 
-R= [[1.1371 0.7049 1.4591 0.8492]
- [0.     0.7838 0.6261 0.504 ]
- [0.     0.     0.8091 0.6977]
- [0.     0.     0.     0.0114]] 
+R= [[ 1.168   1.3247  0.7725  1.0269]
+ [ 0.      0.706   0.7525 -0.062 ]
+ [ 0.      0.      0.8655  0.2296]
+ [ 0.      0.      0.      0.0685]] 
 
-Q^TQ= [[ 1.0000e+00  1.7511e-16  3.0153e-16 -8.4290e-16]
- [ 1.7511e-16  1.0000e+00 -2.4091e-16 -5.6405e-15]
- [ 3.0153e-16 -2.4091e-16  1.0000e+00 -1.9188e-14]
- [-8.4290e-16 -5.6405e-15 -1.9188e-14  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00 -4.5198e-16  1.3000e-16 -3.9927e-15]
+ [-4.5198e-16  1.0000e+00  4.9327e-16  5.4384e-15]
+ [ 1.3000e-16  4.9327e-16  1.0000e+00 -2.0595e-15]
+ [-3.9927e-15  5.4384e-15 -2.0595e-15  1.0000e+00]] 
 
-Q^TQ= [[ 1.0000e+00  1.7511e-16  3.0153e-16 -8.4290e-16]
- [ 1.7511e-16  1.0000e+00 -2.4091e-16 -5.6405e-15]
- [ 3.0153e-16 -2.4091e-16  1.0000e+00 -1.9188e-14]
- [-8.4290e-16 -5.6405e-15 -1.9188e-14  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00 -4.5198e-16  1.3000e-16 -3.9927e-15]
+ [-4.5198e-16  1.0000e+00  4.9327e-16  5.4384e-15]
+ [ 1.3000e-16  4.9327e-16  1.0000e+00 -2.0595e-15]
+ [-3.9927e-15  5.4384e-15 -2.0595e-15  1.0000e+00]] 
 
-Norme de I-Q^TQ =  1.9187567517223453e-14
+Norme de I-Q^TQ =  5.438436249570426e-15
 Norme infinie de QR-A =  1.1102230246251565e-16
 </pre></div>
 </div>
@@ -957,7 +957,16 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 <div class="remark-content section" id="proof-content">
 <p>Si <span class="math notranslate nohighlight">\({\bf f}\)</span> et <span class="math notranslate nohighlight">\({\bf  e}\)</span> sont colinéaires, <span class="math notranslate nohighlight">\({\bf H}=\mathbb I\)</span> ou <span class="math notranslate nohighlight">\({\bf H}=\mathbb I-2{\bf ee^\top }\)</span> répondent à la question.</p>
 </div>
-</div><p>L’algorithme d’orthonormalisation  de <span class="math notranslate nohighlight">\({\bf A}\)</span> par matrices de Householder  opère alors colonne par colonne, et transforme itérativement <span class="math notranslate nohighlight">\({\bf A}\)</span> en une matrice triangulaire supérieure.</p>
+</div><p>La mise en oeuvre pratique peut se faire comme suit : pour <span class="math notranslate nohighlight">\({\bf e,f}\in\mathbb{R}^n\)</span>, on construit une fonction <code class="docutils literal notranslate"><span class="pre">Householder</span></code> qui calcule <span class="math notranslate nohighlight">\(\beta\in\mathbb{R}\)</span> et <span class="math notranslate nohighlight">\({\bf u}\in\mathbb{R}\)</span>^n<span class="math notranslate nohighlight">\(, \)</span>u[0]=1<span class="math notranslate nohighlight">\( tels que pour \)</span>\bf H=\mathbb I-\beta {\bf u\bf u^\top}<span class="math notranslate nohighlight">\( on ait \)</span>\bf {Hf} = \pm \sqrt{|\bf f|^2}\bf e$.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Householder</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="n">f</span><span class="p">):</span>
+  <span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>L’algorithme d’orthonormalisation  de <span class="math notranslate nohighlight">\({\bf A}\)</span> par matrices de Householder  opère alors colonne par colonne, et transforme itérativement <span class="math notranslate nohighlight">\({\bf A}\)</span> en une matrice triangulaire supérieure.</p>
 <p>On l’illustre dans la suite (algorithme <a class="reference internal" href="#QR">Algorithm 6</a>) dans le cas où <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_n(\mathbb R)\)</span> est de rang plein.</p>
 <div class="proof algorithm admonition" id="QR">
 <p class="admonition-title"><span class="caption-number">Algorithm 6 </span> (Factorisation QR par matrices de Householder)</p>
