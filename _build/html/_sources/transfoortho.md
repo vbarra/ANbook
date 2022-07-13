@@ -411,14 +411,9 @@ def householder(A):
 A = [[12, -51, 4], [6, 167, -68], [-4, 24, -41]]
 Q, R = householder(A)
 
-print "A:"
-print(A)
-
-print "Q:"
-print(Q)
-
-print "R:"
-print(R)
+print ("A=",A,"\n")
+print ("Q=",Q,"\n")
+print ("R=",R,"\n")
 ```
 
 
