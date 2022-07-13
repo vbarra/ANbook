@@ -375,7 +375,7 @@ Q
 # In[11]:
 
 
-def make_householder(a):
+def householder(a):
     v = a / (a[0] + np.copysign(np.linalg.norm(a), a[0]))
     v[0] = 1
     H = np.eye(a.shape[0])

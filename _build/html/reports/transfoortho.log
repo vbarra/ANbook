@@ -17,7 +17,7 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-def make_householder(a):
+def householder(a):
     v = a / (a[0] + np.copysign(np.linalg.norm(a), a[0]))
     v[0] = 1
     H = np.eye(a.shape[0])
@@ -44,14 +44,20 @@ print ("R=",R,"\n")
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;31mValueError[0m                                Traceback (most recent call last)
 Input [0;32mIn [11][0m, in [0;36m<module>[0;34m[0m
 [1;32m     16[0m     [38;5;28;01mreturn[39;00m Q, A
 [1;32m     19[0m A [38;5;241m=[39m np[38;5;241m.[39marray([[[38;5;241m12[39m, [38;5;241m-[39m[38;5;241m51[39m, [38;5;241m4[39m], [[38;5;241m6[39m, [38;5;241m167[39m, [38;5;241m-[39m[38;5;241m68[39m], [[38;5;241m-[39m[38;5;241m4[39m, [38;5;241m24[39m, [38;5;241m-[39m[38;5;241m41[39m]])
-[0;32m---> 20[0m Q, R [38;5;241m=[39m [43mhouseholder[49m(A)
+[0;32m---> 20[0m Q, R [38;5;241m=[39m [43mhouseholder[49m[43m([49m[43mA[49m[43m)[49m
 [1;32m     22[0m [38;5;28mprint[39m ([38;5;124m"[39m[38;5;124mA=[39m[38;5;124m"[39m,A,[38;5;124m"[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m)
 [1;32m     23[0m [38;5;28mprint[39m ([38;5;124m"[39m[38;5;124mQ=[39m[38;5;124m"[39m,Q,[38;5;124m"[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m)
 
-[0;31mNameError[0m: name 'householder' is not defined
-NameError: name 'householder' is not defined
+Input [0;32mIn [11][0m, in [0;36mhouseholder[0;34m(a)[0m
+[1;32m      3[0m v[[38;5;241m0[39m] [38;5;241m=[39m [38;5;241m1[39m
+[1;32m      4[0m H [38;5;241m=[39m np[38;5;241m.[39meye(a[38;5;241m.[39mshape[[38;5;241m0[39m])
+[0;32m----> 5[0m H [38;5;241m-[39m[38;5;241m=[39m ([38;5;241m2[39m [38;5;241m/[39m np[38;5;241m.[39mdot(v, v)) [38;5;241m*[39m np[38;5;241m.[39mdot(v[:, [38;5;28;01mNone[39;00m], v[[38;5;28;01mNone[39;00m, :])
+[1;32m      6[0m [38;5;28;01mreturn[39;00m H
+
+[0;31mValueError[0m: non-broadcastable output operand with shape (3,3) doesn't match the broadcast shape (3,1,3,3)
+ValueError: non-broadcastable output operand with shape (3,3) doesn't match the broadcast shape (3,1,3,3)
 
