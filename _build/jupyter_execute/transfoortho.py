@@ -391,7 +391,7 @@ def qr(A):
     Q = np.eye(m)
     for i in range(n - (m == n)):
         H = np.eye(m)
-        H[i:, i:] = make_householder(A[i:, i])
+        H[i:, i:] = householder(A[i:, i])
         Q = np.dot(Q, H)
         A = np.dot(H, A)
     return Q, A
