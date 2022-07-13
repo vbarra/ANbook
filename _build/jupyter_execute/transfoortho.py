@@ -395,7 +395,7 @@ def qr(A):
 
 
 A = np.array([[12, -51, 4], [6, 167, -68], [-4, 24, -41]])
-Q, R = qr(A)
+Q1, R1 = qr(A)
 
 
 # In[12]:
@@ -403,21 +403,19 @@ Q, R = qr(A)
 
 from sympy import *
 print ("A=\n")
-#Matrix(A).evalf(4)
-print(A)
+Matrix(A).evalf(4)
 
 
 # In[13]:
 
 
 print ("R=\n")
-#Matrix(R).evalf(4)
-print(R)
+Matrix(R1).evalf(4)
 
 
 # In[14]:
 
 
 print ("Q=\n")
-print(Q)
+print(Q1)
 
