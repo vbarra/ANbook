@@ -763,33 +763,33 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[7.4598e-01 1.4806e-01 5.3588e-02 1.3160e-01]
- [2.3652e-01 5.8027e-01 9.8255e-01 3.3145e-01]
- [6.7127e-02 1.4063e-01 7.2554e-04 1.9192e-02]
- [3.7881e-01 1.9495e-01 5.4621e-01 2.2964e-02]] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.2202 0.4546 0.2844 0.5404]
+ [0.4215 0.1612 0.6004 0.1384]
+ [0.4889 0.3488 0.8441 0.5202]
+ [0.1744 0.0531 0.6528 0.6501]] 
 
-Q= [[ 0.8555 -0.3385 -0.2965  0.2564]
- [ 0.2712  0.9146 -0.0023  0.2998]
- [ 0.077   0.2135 -0.6493 -0.7259]
- [ 0.4344  0.0576  0.7003 -0.5635]] 
+Q= [[ 0.3128  0.8926  0.0154  0.3242]
+ [ 0.5987 -0.4005 -0.4285  0.5454]
+ [ 0.6945  0.0168  0.0406 -0.7182]
+ [ 0.2477 -0.2062  0.9025  0.2858]] 
 
-R= [[ 0.872   0.3796  0.5497  0.2139]
- [ 0.      0.5219  0.9122  0.264 ]
- [ 0.      0.      0.3639 -0.0362]
- [ 0.      0.      0.      0.1062]] 
+R= [[ 0.704   0.4941  1.1964  0.7742]
+ [ 0.      0.3361 -0.107   0.3017]
+ [ 0.      0.      0.3705  0.5568]
+ [ 0.      0.      0.      0.0629]] 
 
-Q^TQ= [[ 1.0000e+00  1.5119e-16 -8.1813e-17 -3.3109e-16]
- [ 1.5119e-16  1.0000e+00 -3.1782e-16  3.5480e-18]
- [-8.1813e-17 -3.1782e-16  1.0000e+00  9.6700e-16]
- [-3.3109e-16  3.5480e-18  9.6700e-16  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00 -1.5107e-16  6.7201e-17  5.2002e-16]
+ [-1.5107e-16  1.0000e+00  6.0404e-16 -3.0486e-15]
+ [ 6.7201e-17  6.0404e-16  1.0000e+00 -2.6159e-15]
+ [ 5.2002e-16 -3.0486e-15 -2.6159e-15  1.0000e+00]] 
 
-Q^TQ= [[ 1.0000e+00  1.5119e-16 -8.1813e-17 -3.3109e-16]
- [ 1.5119e-16  1.0000e+00 -3.1782e-16  3.5480e-18]
- [-8.1813e-17 -3.1782e-16  1.0000e+00  9.6700e-16]
- [-3.3109e-16  3.5480e-18  9.6700e-16  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00 -1.5107e-16  6.7201e-17  5.2002e-16]
+ [-1.5107e-16  1.0000e+00  6.0404e-16 -3.0486e-15]
+ [ 6.7201e-17  6.0404e-16  1.0000e+00 -2.6159e-15]
+ [ 5.2002e-16 -3.0486e-15 -2.6159e-15  1.0000e+00]] 
 
-Norme de I-Q^TQ =  9.670016879898324e-16
-Norme infinie de QR-A =  6.938893903907228e-18
+Norme de I-Q^TQ =  3.0486223945549107e-15
+Norme infinie de QR-A =  1.1102230246251565e-16
 </pre></div>
 </div>
 </div>
@@ -1036,23 +1036,15 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 
 <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;A=</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="n">Matrix</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Q=&quot;</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;R=&quot;</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A=
-
-Q= [[-0.8571  0.3943  0.3314]
- [-0.4286 -0.9029 -0.0343]
- [ 0.2857 -0.1714  0.9429]] 
-
-R= [[-1.4000e+01 -2.1000e+01  1.4000e+01]
- [ 2.2666e-16 -1.7500e+02  7.0000e+01]
- [ 4.7210e-16 -7.4313e-16 -3.5000e+01]] 
 </pre></div>
 </div>
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}12 &amp; -51 &amp; 4\\6 &amp; 167 &amp; -68\\-4 &amp; 24 &amp; -41\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 </div>

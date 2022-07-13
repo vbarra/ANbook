@@ -400,6 +400,4 @@ Q, R = qr(A)
 
 print ("A=\n")
 Matrix(A)
-print ("Q=",Q,"\n")
-print ("R=",R,"\n")
 
