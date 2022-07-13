@@ -21,7 +21,7 @@ def householder(a):
     v = a / (a[0] + np.copysign(np.linalg.norm(a), a[0]))
     v[0] = 1
     H = np.eye(a.shape[0])
-    toto1 = 2 / np.dot(v, v)) 
+    toto1 = 2 / np.dot(v, v) 
     toto2 = np.dot(v[:, None], v[None, :])
     H -= (toto1 * toto2
     return H
@@ -46,9 +46,9 @@ print ("R=",R,"\n")
 ------------------
 
 [0;36m  Input [0;32mIn [11][0;36m[0m
-[0;31m    toto1 = 2 / np.dot(v, v))[0m
-[0m                            ^[0m
-[0;31mSyntaxError[0m[0;31m:[0m unmatched ')'
+[0;31m    return H[0m
+[0m    ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
 
-SyntaxError: unmatched ')' (<ipython-input-11-4e1a1b9cd287>, line 5)
+SyntaxError: invalid syntax (<ipython-input-11-9fae4bcf484b>, line 8)
 
