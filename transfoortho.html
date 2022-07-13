@@ -763,32 +763,32 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.2314 0.5575 0.8314 0.1463]
- [0.9305 0.1177 0.9507 0.6391]
- [0.9695 0.0277 0.0604 0.4908]
- [0.7951 0.6608 0.7244 0.4127]] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.57   0.8282 0.9811 0.0481]
+ [0.3834 0.8141 0.0963 0.7915]
+ [0.6661 0.8717 0.0246 0.2097]
+ [0.019  0.8786 0.132  0.9991]] 
 
-Q= [[ 0.1466  0.6771  0.284  -0.6629]
- [ 0.5895 -0.2485  0.7434  0.195 ]
- [ 0.6142 -0.3917 -0.4932 -0.4755]
- [ 0.5037  0.5713 -0.3513  0.5445]] 
+Q= [[ 0.5955 -0.0352  0.802  -0.0302]
+ [ 0.4006  0.2642 -0.2542  0.8397]
+ [ 0.696  -0.149  -0.5403 -0.4488]
+ [ 0.0198  0.9522  0.0157 -0.3043]] 
 
-R= [[ 1.5784  0.501   1.0843  0.9076]
- [ 0.      0.715   0.7168 -0.0162]
- [ 0.      0.      0.6586  0.1296]
- [ 0.      0.      0.      0.019 ]] 
+R= [[ 0.9571  1.4435  0.6425  0.5115]
+ [ 0.      0.8926  0.1128  1.1275]
+ [ 0.      0.      0.7511 -0.2603]
+ [ 0.      0.      0.      0.265 ]] 
 
-Q^TQ= [[ 1.0000e+00 -9.1818e-17 -1.5039e-16 -4.1717e-15]
- [-9.1818e-17  1.0000e+00 -2.6585e-16  7.9435e-15]
- [-1.5039e-16 -2.6585e-16  1.0000e+00  6.4890e-15]
- [-4.1717e-15  7.9435e-15  6.4890e-15  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00  5.4130e-17  1.2624e-16 -5.1334e-16]
+ [ 5.4130e-17  1.0000e+00 -3.3636e-17  4.1826e-16]
+ [ 1.2624e-16 -3.3636e-17  1.0000e+00 -6.0899e-17]
+ [-5.1334e-16  4.1826e-16 -6.0899e-17  1.0000e+00]] 
 
-Q^TQ= [[ 1.0000e+00 -9.1818e-17 -1.5039e-16 -4.1717e-15]
- [-9.1818e-17  1.0000e+00 -2.6585e-16  7.9435e-15]
- [-1.5039e-16 -2.6585e-16  1.0000e+00  6.4890e-15]
- [-4.1717e-15  7.9435e-15  6.4890e-15  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00  5.4130e-17  1.2624e-16 -5.1334e-16]
+ [ 5.4130e-17  1.0000e+00 -3.3636e-17  4.1826e-16]
+ [ 1.2624e-16 -3.3636e-17  1.0000e+00 -6.0899e-17]
+ [-5.1334e-16  4.1826e-16 -6.0899e-17  1.0000e+00]] 
 
-Norme de I-Q^TQ =  7.943504931626515e-15
+Norme de I-Q^TQ =  5.13342081904679e-16
 Norme infinie de QR-A =  1.1102230246251565e-16
 </pre></div>
 </div>
@@ -830,13 +830,13 @@ Norme de Q^T*Q-I =  0.9999670638304938
 <p>La factorisation est précise, mais <span class="math notranslate nohighlight">\(\bf Q\)</span> est loin d’être orthogonale.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Q</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">Q</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">n</span><span class="p">))</span><span class="o">.</span><span class="n">evalf</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Q</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">Q</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">n</span><span class="p">))</span><span class="o">.</span><span class="n">evalf</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}2.22 \cdot 10^{-16} &amp; -7.191 \cdot 10^{-16} &amp; 2.106 \cdot 10^{-16} &amp; 1.285 \cdot 10^{-13} &amp; -3.878 \cdot 10^{-12} &amp; 6.262 \cdot 10^{-11} &amp; 9.36 \cdot 10^{-10} &amp; -1.123 \cdot 10^{-9}\\-7.191 \cdot 10^{-16} &amp; -1.11 \cdot 10^{-16} &amp; 3.348 \cdot 10^{-14} &amp; -3.876 \cdot 10^{-13} &amp; 2.901 \cdot 10^{-12} &amp; -4.716 \cdot 10^{-12} &amp; -7.863 \cdot 10^{-10} &amp; 8.396 \cdot 10^{-10}\\2.106 \cdot 10^{-16} &amp; 3.348 \cdot 10^{-14} &amp; -2.22 \cdot 10^{-16} &amp; -7.504 \cdot 10^{-12} &amp; 1.801 \cdot 10^{-10} &amp; -3.398 \cdot 10^{-9} &amp; 6.537 \cdot 10^{-8} &amp; -6.725 \cdot 10^{-8}\\1.285 \cdot 10^{-13} &amp; -3.876 \cdot 10^{-13} &amp; -7.504 \cdot 10^{-12} &amp; -2.22 \cdot 10^{-16} &amp; 5.227 \cdot 10^{-9} &amp; -2.015 \cdot 10^{-7} &amp; 6.207 \cdot 10^{-6} &amp; -6.472 \cdot 10^{-6}\\-3.878 \cdot 10^{-12} &amp; 2.901 \cdot 10^{-12} &amp; 1.801 \cdot 10^{-10} &amp; 5.227 \cdot 10^{-9} &amp; -1.11 \cdot 10^{-16} &amp; -1.105 \cdot 10^{-5} &amp; 0.0007015 &amp; -0.0007498\\6.262 \cdot 10^{-11} &amp; -4.716 \cdot 10^{-12} &amp; -3.398 \cdot 10^{-9} &amp; -2.015 \cdot 10^{-7} &amp; -1.105 \cdot 10^{-5} &amp; 0 &amp; 0.05767 &amp; -0.06568\\9.36 \cdot 10^{-10} &amp; -7.863 \cdot 10^{-10} &amp; 6.537 \cdot 10^{-8} &amp; 6.207 \cdot 10^{-6} &amp; 0.0007015 &amp; 0.05767 &amp; -3.331 \cdot 10^{-16} &amp; -1.0\\-1.123 \cdot 10^{-9} &amp; 8.396 \cdot 10^{-10} &amp; -6.725 \cdot 10^{-8} &amp; -6.472 \cdot 10^{-6} &amp; -0.0007498 &amp; -0.06568 &amp; -1.0 &amp; 0\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}2.2 \cdot 10^{-16} &amp; -7.2 \cdot 10^{-16} &amp; 2.1 \cdot 10^{-16} &amp; 1.3 \cdot 10^{-13} &amp; -3.9 \cdot 10^{-12} &amp; 6.3 \cdot 10^{-11} &amp; 9.4 \cdot 10^{-10} &amp; -1.1 \cdot 10^{-9}\\-7.2 \cdot 10^{-16} &amp; -1.1 \cdot 10^{-16} &amp; 3.3 \cdot 10^{-14} &amp; -3.9 \cdot 10^{-13} &amp; 2.9 \cdot 10^{-12} &amp; -4.7 \cdot 10^{-12} &amp; -7.9 \cdot 10^{-10} &amp; 8.4 \cdot 10^{-10}\\2.1 \cdot 10^{-16} &amp; 3.3 \cdot 10^{-14} &amp; -2.2 \cdot 10^{-16} &amp; -7.5 \cdot 10^{-12} &amp; 1.8 \cdot 10^{-10} &amp; -3.4 \cdot 10^{-9} &amp; 6.5 \cdot 10^{-8} &amp; -6.7 \cdot 10^{-8}\\1.3 \cdot 10^{-13} &amp; -3.9 \cdot 10^{-13} &amp; -7.5 \cdot 10^{-12} &amp; -2.2 \cdot 10^{-16} &amp; 5.2 \cdot 10^{-9} &amp; -2.0 \cdot 10^{-7} &amp; 6.2 \cdot 10^{-6} &amp; -6.5 \cdot 10^{-6}\\-3.9 \cdot 10^{-12} &amp; 2.9 \cdot 10^{-12} &amp; 1.8 \cdot 10^{-10} &amp; 5.2 \cdot 10^{-9} &amp; -1.1 \cdot 10^{-16} &amp; -1.1 \cdot 10^{-5} &amp; 0.0007 &amp; -0.00075\\6.3 \cdot 10^{-11} &amp; -4.7 \cdot 10^{-12} &amp; -3.4 \cdot 10^{-9} &amp; -2.0 \cdot 10^{-7} &amp; -1.1 \cdot 10^{-5} &amp; 0 &amp; 0.058 &amp; -0.066\\9.4 \cdot 10^{-10} &amp; -7.9 \cdot 10^{-10} &amp; 6.5 \cdot 10^{-8} &amp; 6.2 \cdot 10^{-6} &amp; 0.0007 &amp; 0.058 &amp; -3.3 \cdot 10^{-16} &amp; -1.0\\-1.1 \cdot 10^{-9} &amp; 8.4 \cdot 10^{-10} &amp; -6.7 \cdot 10^{-8} &amp; -6.5 \cdot 10^{-6} &amp; -0.00075 &amp; -0.066 &amp; -1.0 &amp; 0\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 </div>
