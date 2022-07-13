@@ -763,33 +763,33 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.9729 0.315  0.6754 0.4892]
- [0.7053 0.8983 0.336  0.8381]
- [0.5854 0.0623 0.9616 0.7198]
- [0.7707 0.3744 0.9355 0.6455]] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.4587 0.1552 0.1346 0.9505]
+ [0.3282 0.9769 0.1125 0.2539]
+ [0.0047 0.6022 0.5992 0.0109]
+ [0.0231 0.5164 0.3181 0.5965]] 
 
-Q= [[ 0.6306 -0.3286 -0.702   0.0404]
- [ 0.4571  0.8515  0.0267  0.2555]
- [ 0.3794 -0.4046  0.5653  0.6106]
- [ 0.4995 -0.0571  0.4323 -0.7485]] 
+Q= [[ 0.8126 -0.412   0.399   0.1038]
+ [ 0.5813  0.535  -0.5797 -0.1996]
+ [ 0.0082  0.5713  0.6891 -0.4457]
+ [ 0.0409  0.4665  0.1731  0.8664]] 
 
-R= [[ 1.5429  0.8199  1.4116  1.2871]
- [ 0.      0.6148 -0.3783  0.2248]
- [ 0.      0.      0.4829  0.365 ]
- [ 0.      0.      0.      0.1902]] 
+R= [[0.5645 0.7201 0.1927 0.9444]
+ [0.     1.0437 0.4955 0.0288]
+ [0.     0.     0.4564 0.3428]
+ [0.     0.     0.     0.5599]] 
 
-Q^TQ= [[ 1.0000e+00  2.8359e-16  6.9551e-16 -1.1387e-15]
- [ 2.8359e-16  1.0000e+00 -7.1804e-16 -7.1779e-16]
- [ 6.9551e-16 -7.1804e-16  1.0000e+00 -4.0095e-15]
- [-1.1387e-15 -7.1779e-16 -4.0095e-15  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00  2.3779e-16 -9.3770e-17  3.6550e-16]
+ [ 2.3779e-16  1.0000e+00  1.8684e-16 -5.0470e-16]
+ [-9.3770e-17  1.8684e-16  1.0000e+00  5.5752e-17]
+ [ 3.6550e-16 -5.0470e-16  5.5752e-17  1.0000e+00]] 
 
-Q^TQ= [[ 1.0000e+00  2.8359e-16  6.9551e-16 -1.1387e-15]
- [ 2.8359e-16  1.0000e+00 -7.1804e-16 -7.1779e-16]
- [ 6.9551e-16 -7.1804e-16  1.0000e+00 -4.0095e-15]
- [-1.1387e-15 -7.1779e-16 -4.0095e-15  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00  2.3779e-16 -9.3770e-17  3.6550e-16]
+ [ 2.3779e-16  1.0000e+00  1.8684e-16 -5.0470e-16]
+ [-9.3770e-17  1.8684e-16  1.0000e+00  5.5752e-17]
+ [ 3.6550e-16 -5.0470e-16  5.5752e-17  1.0000e+00]] 
 
-Norme de I-Q^TQ =  4.009546501281393e-15
-Norme infinie de QR-A =  1.3877787807814457e-17
+Norme de I-Q^TQ =  5.047044621156257e-16
+Norme infinie de QR-A =  1.1102230246251565e-16
 </pre></div>
 </div>
 </div>
@@ -1070,18 +1070,16 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Q=</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">Q1</span><span class="p">)</span>
+<span class="n">Matrix</span><span class="p">(</span><span class="n">Q1</span><span class="p">)</span><span class="o">.</span><span class="n">evalf</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Q=
-
-[[-0.8571  0.3943  0.3314]
- [-0.4286 -0.9029 -0.0343]
- [ 0.2857 -0.1714  0.9429]]
 </pre></div>
 </div>
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}-0.8571 &amp; 0.3943 &amp; 0.3314\\-0.4286 &amp; -0.9029 &amp; -0.03429\\0.2857 &amp; -0.1714 &amp; 0.9429\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 </div>
