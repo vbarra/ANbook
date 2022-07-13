@@ -763,33 +763,33 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.4099 0.9642 0.87   0.2091]
- [0.025  0.787  0.7727 0.4166]
- [0.0051 0.8249 0.5916 0.7322]
- [0.5566 0.7561 0.6713 0.2324]] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.4317 0.7972 0.2319 0.153 ]
+ [0.6474 0.8362 0.83   0.1931]
+ [0.2596 0.5159 0.5807 0.6557]
+ [0.7423 0.7034 0.7592 0.0944]] 
 
-Q= [[ 0.5926  0.2124  0.1219 -0.7674]
- [ 0.0362  0.6451  0.6944  0.3168]
- [ 0.0073  0.7085 -0.6999  0.0905]
- [ 0.8046 -0.1919 -0.1146  0.5501]] 
+Q= [[ 0.3902  0.6459 -0.6476  0.1055]
+ [ 0.5852  0.0528  0.2817 -0.7585]
+ [ 0.2346  0.4815  0.6988  0.4741]
+ [ 0.671  -0.5901 -0.1135  0.4344]] 
 
-R= [[ 0.6917  1.2143  1.088   0.3314]
- [ 0.      1.1518  0.9736  0.7873]
- [ 0.      0.      0.1516 -0.2243]
- [ 0.      0.      0.      0.1656]] 
+R= [[1.1063 1.3935 1.2219 0.39  ]
+ [0.     0.3924 0.0252 0.369 ]
+ [0.     0.     0.4034 0.4028]
+ [0.     0.     0.     0.2216]] 
 
-Q^TQ= [[ 1.0000e+00  2.4877e-16 -8.2369e-16 -2.1199e-15]
- [ 2.4877e-16  1.0000e+00 -1.8743e-15 -4.6463e-15]
- [-8.2369e-16 -1.8743e-15  1.0000e+00  1.0019e-14]
- [-2.1199e-15 -4.6463e-15  1.0019e-14  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00 -4.3253e-16 -1.0477e-16  5.1378e-16]
+ [-4.3253e-16  1.0000e+00  1.2571e-15 -1.1771e-15]
+ [-1.0477e-16  1.2571e-15  1.0000e+00 -2.0979e-15]
+ [ 5.1378e-16 -1.1771e-15 -2.0979e-15  1.0000e+00]] 
 
-Q^TQ= [[ 1.0000e+00  2.4877e-16 -8.2369e-16 -2.1199e-15]
- [ 2.4877e-16  1.0000e+00 -1.8743e-15 -4.6463e-15]
- [-8.2369e-16 -1.8743e-15  1.0000e+00  1.0019e-14]
- [-2.1199e-15 -4.6463e-15  1.0019e-14  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00 -4.3253e-16 -1.0477e-16  5.1378e-16]
+ [-4.3253e-16  1.0000e+00  1.2571e-15 -1.1771e-15]
+ [-1.0477e-16  1.2571e-15  1.0000e+00 -2.0979e-15]
+ [ 5.1378e-16 -1.1771e-15 -2.0979e-15  1.0000e+00]] 
 
-Norme de I-Q^TQ =  1.0018866350680915e-14
-Norme infinie de QR-A =  1.1102230246251565e-16
+Norme de I-Q^TQ =  2.0978568167030047e-15
+Norme infinie de QR-A =  2.7755575615628914e-17
 </pre></div>
 </div>
 </div>
@@ -1013,19 +1013,15 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">householder</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Performs a Householder Reflections based QR Decomposition of the                                               </span>
-<span class="sd">    matrix A. The function returns Q, an orthogonal matrix and R, an                                                  </span>
-<span class="sd">    upper triangular matrix such that A = QR.&quot;&quot;&quot;</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 
-    <span class="c1"># Set R equal to A, and create Q as a zero matrix of the same size</span>
     <span class="n">R</span> <span class="o">=</span> <span class="n">A</span>
-    <span class="n">Q</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+    <span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
 
     <span class="c1"># The Householder procedure</span>
-    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>  <span class="c1"># We don&#39;t perform the procedure on a 1x1 matrix, so we reduce the index by 1</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>  
         <span class="c1"># Create identity matrix of same size as A                                                                    </span>
-        <span class="n">I</span> <span class="o">=</span> <span class="p">[[</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+        <span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
 
         <span class="c1"># Create the vectors x, e and the scalar alpha</span>
         <span class="c1"># Python does not have a sgn function, so we use cmp instead</span>
@@ -1038,24 +1034,20 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
         <span class="n">norm_u</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
         <span class="n">v</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="n">p</span><span class="o">/</span><span class="n">norm_u</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
 
-        <span class="c1"># Create the Q minor matrix</span>
-        <span class="n">Q_min</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="n">j</span><span class="p">)</span> <span class="o">-</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)</span> <span class="p">]</span>
+        <span class="c1"># Sous matrice Q</span>
+        <span class="n">Q_min</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="n">j</span><span class="p">)</span> <span class="o">-</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)</span> <span class="p">]</span>
 
-        <span class="c1"># &quot;Pad out&quot; the Q minor matrix with elements from the identity</span>
-        <span class="n">Q_t</span> <span class="o">=</span> <span class="p">[[</span> <span class="n">Q_i</span><span class="p">(</span><span class="n">Q_min</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+        <span class="c1"># Intégration à Q </span>
+        <span class="n">Q_t</span> <span class="o">=</span> <span class="p">[[</span> <span class="n">Q_i</span><span class="p">(</span><span class="n">Q_min</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
 
-        <span class="c1"># If this is the first run through, right multiply by A,</span>
-        <span class="c1"># else right multiply by Q</span>
         <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">Q</span> <span class="o">=</span> <span class="n">Q_t</span>
-            <span class="n">R</span> <span class="o">=</span> <span class="n">mult_matrix</span><span class="p">(</span><span class="n">Q_t</span><span class="p">,</span><span class="n">A</span><span class="p">)</span>
+            <span class="n">R</span> <span class="o">=</span> <span class="n">Q_t</span><span class="nd">@A</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">Q</span> <span class="o">=</span> <span class="n">mult_matrix</span><span class="p">(</span><span class="n">Q_t</span><span class="p">,</span><span class="n">Q</span><span class="p">)</span>
-            <span class="n">R</span> <span class="o">=</span> <span class="n">mult_matrix</span><span class="p">(</span><span class="n">Q_t</span><span class="p">,</span><span class="n">R</span><span class="p">)</span>
+            <span class="n">Q</span> <span class="o">=</span> <span class="n">Q_t</span><span class="nd">@Q</span>
+            <span class="n">R</span> <span class="o">=</span> <span class="n">Q_t</span><span class="nd">@R</span>
 
-    <span class="c1"># Since Q is defined as the product of transposes of Q_t,</span>
-    <span class="c1"># we need to take the transpose upon returning it</span>
-    <span class="k">return</span> <span class="n">trans_matrix</span><span class="p">(</span><span class="n">Q</span><span class="p">),</span> <span class="n">R</span>
+    <span class="k">return</span> <span class="n">Q</span><span class="o">.</span><span class="n">transpose</span><span class="p">(),</span> <span class="n">R</span>
 
 <span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">12</span><span class="p">,</span> <span class="o">-</span><span class="mi">51</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">167</span><span class="p">,</span> <span class="o">-</span><span class="mi">68</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="o">-</span><span class="mi">41</span><span class="p">]]</span>
 <span class="n">Q</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">householder</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
@@ -1068,23 +1060,23 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
 <span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">44</span>     <span class="k">return</span> <span class="n">trans_matrix</span><span class="p">(</span><span class="n">Q</span><span class="p">),</span> <span class="n">R</span>
-<span class="g g-Whitespace">     </span><span class="mi">46</span> <span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">12</span><span class="p">,</span> <span class="o">-</span><span class="mi">51</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">167</span><span class="p">,</span> <span class="o">-</span><span class="mi">68</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="o">-</span><span class="mi">41</span><span class="p">]]</span>
-<span class="ne">---&gt; </span><span class="mi">47</span> <span class="n">Q</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">householder</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">49</span> <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;A=&quot;</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">50</span> <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Q=&quot;</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span>     <span class="k">return</span> <span class="n">Q</span><span class="o">.</span><span class="n">transpose</span><span class="p">(),</span> <span class="n">R</span>
+<span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">12</span><span class="p">,</span> <span class="o">-</span><span class="mi">51</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">167</span><span class="p">,</span> <span class="o">-</span><span class="mi">68</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="o">-</span><span class="mi">41</span><span class="p">]]</span>
+<span class="ne">---&gt; </span><span class="mi">39</span> <span class="n">Q</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">householder</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">41</span> <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;A=&quot;</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span> <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Q=&quot;</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="nn">Input In [11],</span> in <span class="ni">householder</span><span class="nt">(A)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1"># Set R equal to A, and create Q as a zero matrix of the same size</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">R</span> <span class="o">=</span> <span class="n">A</span>
-<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">Q</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.0</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1"># The Householder procedure</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>  <span class="c1"># We don&#39;t perform the procedure on a 1x1 matrix, so we reduce the index by 1</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="c1"># Create identity matrix of same size as A                                                                    </span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">R</span> <span class="o">=</span> <span class="n">A</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1"># The Householder procedure</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>  
+<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="c1"># Create identity matrix of same size as A                                                                    </span>
 
-<span class="ne">NameError</span>: name &#39;xrange&#39; is not defined
+<span class="ne">TypeError</span>: Cannot interpret &#39;3&#39; as a data type
 </pre></div>
 </div>
 </div>

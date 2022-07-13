@@ -18,19 +18,15 @@ Traceback (most recent call last):
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
 def householder(A):
-    """Performs a Householder Reflections based QR Decomposition of the                                               
-    matrix A. The function returns Q, an orthogonal matrix and R, an                                                  
-    upper triangular matrix such that A = QR."""
     n = len(A)
 
-    # Set R equal to A, and create Q as a zero matrix of the same size
     R = A
-    Q = [[0.0] * n for i in xrange(n)]
+    Q = np.zeros(n,n)
 
     # The Householder procedure
-    for k in range(n-1):  # We don't perform the procedure on a 1x1 matrix, so we reduce the index by 1
+    for k in range(n-1):  
         # Create identity matrix of same size as A                                                                    
-        I = [[float(i == j) for i in xrange(n)] for j in xrange(n)]
+        I = np.eye(n,n)
 
         # Create the vectors x, e and the scalar alpha
         # Python does not have a sgn function, so we use cmp instead
@@ -43,24 +39,20 @@ def householder(A):
         norm_u = norm(u)
         v = map(lambda p: p/norm_u, u)
 
-        # Create the Q minor matrix
-        Q_min = [ [float(i==j) - 2.0 * v[i] * v[j] for i in xrange(n-k)] for j in xrange(n-k) ]
+        # Sous matrice Q
+        Q_min = [ [float(i==j) - 2.0 * v[i] * v[j] for i in range(n-k)] for j in range(n-k) ]
 
-        # "Pad out" the Q minor matrix with elements from the identity
-        Q_t = [[ Q_i(Q_min,i,j,k) for i in xrange(n)] for j in xrange(n)]
+        # Intégration à Q 
+        Q_t = [[ Q_i(Q_min,i,j,k) for i in range(n)] for j in range(n)]
 
-        # If this is the first run through, right multiply by A,
-        # else right multiply by Q
         if k == 0:
             Q = Q_t
-            R = mult_matrix(Q_t,A)
+            R = Q_t@A
         else:
-            Q = mult_matrix(Q_t,Q)
-            R = mult_matrix(Q_t,R)
+            Q = Q_t@Q
+            R = Q_t@R
 
-    # Since Q is defined as the product of transposes of Q_t,
-    # we need to take the transpose upon returning it
-    return trans_matrix(Q), R
+    return Q.transpose(), R
 
 A = [[12, -51, 4], [6, 167, -68], [-4, 24, -41]]
 Q, R = householder(A)
@@ -71,22 +63,22 @@ print ("R=",R,"\n")
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;31mTypeError[0m                                 Traceback (most recent call last)
 Input [0;32mIn [11][0m, in [0;36m<module>[0;34m[0m
-[1;32m     44[0m     [38;5;28;01mreturn[39;00m trans_matrix(Q), R
-[1;32m     46[0m A [38;5;241m=[39m [[[38;5;241m12[39m, [38;5;241m-[39m[38;5;241m51[39m, [38;5;241m4[39m], [[38;5;241m6[39m, [38;5;241m167[39m, [38;5;241m-[39m[38;5;241m68[39m], [[38;5;241m-[39m[38;5;241m4[39m, [38;5;241m24[39m, [38;5;241m-[39m[38;5;241m41[39m]]
-[0;32m---> 47[0m Q, R [38;5;241m=[39m [43mhouseholder[49m[43m([49m[43mA[49m[43m)[49m
-[1;32m     49[0m [38;5;28mprint[39m ([38;5;124m"[39m[38;5;124mA=[39m[38;5;124m"[39m,A,[38;5;124m"[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m)
-[1;32m     50[0m [38;5;28mprint[39m ([38;5;124m"[39m[38;5;124mQ=[39m[38;5;124m"[39m,Q,[38;5;124m"[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m)
+[1;32m     36[0m     [38;5;28;01mreturn[39;00m Q[38;5;241m.[39mtranspose(), R
+[1;32m     38[0m A [38;5;241m=[39m [[[38;5;241m12[39m, [38;5;241m-[39m[38;5;241m51[39m, [38;5;241m4[39m], [[38;5;241m6[39m, [38;5;241m167[39m, [38;5;241m-[39m[38;5;241m68[39m], [[38;5;241m-[39m[38;5;241m4[39m, [38;5;241m24[39m, [38;5;241m-[39m[38;5;241m41[39m]]
+[0;32m---> 39[0m Q, R [38;5;241m=[39m [43mhouseholder[49m[43m([49m[43mA[49m[43m)[49m
+[1;32m     41[0m [38;5;28mprint[39m ([38;5;124m"[39m[38;5;124mA=[39m[38;5;124m"[39m,A,[38;5;124m"[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m)
+[1;32m     42[0m [38;5;28mprint[39m ([38;5;124m"[39m[38;5;124mQ=[39m[38;5;124m"[39m,Q,[38;5;124m"[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m)
 
 Input [0;32mIn [11][0m, in [0;36mhouseholder[0;34m(A)[0m
-[1;32m      7[0m [38;5;66;03m# Set R equal to A, and create Q as a zero matrix of the same size[39;00m
-[1;32m      8[0m R [38;5;241m=[39m A
-[0;32m----> 9[0m Q [38;5;241m=[39m [[[38;5;241m0.0[39m] [38;5;241m*[39m n [38;5;28;01mfor[39;00m i [38;5;129;01min[39;00m [43mxrange[49m(n)]
-[1;32m     11[0m [38;5;66;03m# The Householder procedure[39;00m
-[1;32m     12[0m [38;5;28;01mfor[39;00m k [38;5;129;01min[39;00m [38;5;28mrange[39m(n[38;5;241m-[39m[38;5;241m1[39m):  [38;5;66;03m# We don't perform the procedure on a 1x1 matrix, so we reduce the index by 1[39;00m
-[1;32m     13[0m     [38;5;66;03m# Create identity matrix of same size as A                                                                    [39;00m
+[1;32m      2[0m n [38;5;241m=[39m [38;5;28mlen[39m(A)
+[1;32m      4[0m R [38;5;241m=[39m A
+[0;32m----> 5[0m Q [38;5;241m=[39m [43mnp[49m[38;5;241;43m.[39;49m[43mzeros[49m[43m([49m[43mn[49m[43m,[49m[43mn[49m[43m)[49m
+[1;32m      7[0m [38;5;66;03m# The Householder procedure[39;00m
+[1;32m      8[0m [38;5;28;01mfor[39;00m k [38;5;129;01min[39;00m [38;5;28mrange[39m(n[38;5;241m-[39m[38;5;241m1[39m):  
+[1;32m      9[0m     [38;5;66;03m# Create identity matrix of same size as A                                                                    [39;00m
 
-[0;31mNameError[0m: name 'xrange' is not defined
-NameError: name 'xrange' is not defined
+[0;31mTypeError[0m: Cannot interpret '3' as a data type
+TypeError: Cannot interpret '3' as a data type
 
