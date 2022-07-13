@@ -417,5 +417,5 @@ Matrix(R).evalf(4)
 
 
 print ("Q=\n")
-Matrix(Q)
+print(Q)
 

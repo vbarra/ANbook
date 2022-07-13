@@ -389,13 +389,15 @@ Q, R = qr(A)
 ```{code-cell} ipython3
 from sympy import *
 print ("A=\n")
-Matrix(A).evalf(4)
+#Matrix(A).evalf(4)
+print(A)
 ```
 
 
 ```{code-cell} ipython3
 print ("R=\n")
-Matrix(R).evalf(4)
+#Matrix(R).evalf(4)
+print(R)
 ```
 
 ```{code-cell} ipython3

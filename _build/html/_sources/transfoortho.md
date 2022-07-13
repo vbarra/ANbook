@@ -400,7 +400,7 @@ Matrix(R).evalf(4)
 
 ```{code-cell} ipython3
 print ("Q=\n")
-Matrix(Q)
+print(Q)
 ```
 
 
