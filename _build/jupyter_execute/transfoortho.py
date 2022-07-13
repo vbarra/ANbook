@@ -376,7 +376,7 @@ Q
 
 
 def householder(A):
-    n = len(A)
+    n = A.shape(1)
 
     R = A
     Q = np.zeros(n,n)
