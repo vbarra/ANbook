@@ -410,10 +410,10 @@ Matrix(A).evalf(4)
 
 
 print ("Q=\n")
-Q.evalf(4)
+Q
 
 
-# In[ ]:
+# In[14]:
 
 
 print ("R=\n")
