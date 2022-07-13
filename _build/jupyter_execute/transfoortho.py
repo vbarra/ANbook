@@ -398,7 +398,8 @@ A = np.array([[12, -51, 4], [6, 167, -68], [-4, 24, -41]])
 Q, R = qr(A)
 
 
-print ("A=",Matrix(A),"\n")
+print ("A=\n")
+Matrix(A)
 print ("Q=",Q,"\n")
 print ("R=",R,"\n")
 
