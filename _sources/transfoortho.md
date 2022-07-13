@@ -394,11 +394,11 @@ Matrix(A)
 
 ```{code-cell} ipython3
 print ("Q=\n")
-Matrix(Q)
+print(Q)
 ```
 ```{code-cell} ipython3
 print ("R=\n")
-Matrix(R)
+print(R)
 ```
 
 
