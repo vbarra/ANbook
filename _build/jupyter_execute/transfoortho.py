@@ -417,5 +417,5 @@ print(Q)
 
 
 print ("R=\n")
-print(R)
+Matrix(R)
 

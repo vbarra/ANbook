@@ -398,7 +398,7 @@ print(Q)
 ```
 ```{code-cell} ipython3
 print ("R=\n")
-print(R)
+Matrix(R)
 ```
 
 
