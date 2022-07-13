@@ -364,7 +364,7 @@ ${\bf A^{(3)}}={\bf H^{(2)}A^{(2)}}\begin{pmatrix}{\|{\bf A^{(1)}_{\bullet,1}}\|
 
 ```{code-cell} ipython3
 
-def cmp_0(a, b):
+def cmp(a, b):
     return (a > b) - (a < b)
 
 def householder(A):

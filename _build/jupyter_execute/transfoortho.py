@@ -375,6 +375,9 @@ Q
 # In[11]:
 
 
+def cmp_0(a, b):
+    return (a > b) - (a < b)
+
 def householder(A):
     n = A.shape[1]
 
