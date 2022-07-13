@@ -371,19 +371,16 @@ Q
 # \right )\in\mathcal{M}_n(\mathbb R)
 # $ telle que 
 # ${\bf A^{(3)}}={\bf H^{(2)}A^{(2)}}\begin{pmatrix}{\|{\bf A^{(1)}_{\bullet,1}}\|}&\ast&\ast&\cdots &\ast\\0&\|{\bf f_2}\|&a^{(3)}_{23}&\cdots &\ast\\0&0&a^{(3)}_{33}&\vdots&\vdots\\0&0&a^{(3)}_{n3}&\cdots &*\end{pmatrix}$
+# 
+# L'implémentation peut se faire de la manière suivante.
 
 # In[11]:
 
 
 def householder(a):
-    v = a / (a[0] + np.copysign(np.linalg.norm(a), a[0]))
-    v[0] = 1
-    H = np.eye(a.shape[0])
-    toto1 = 2 / np.dot(v, v) 
-    print(toto1.shape)
-    toto2 = np.dot(v[:, None], v[None, :])
-    print(toto2.shape)
-    H -= (toto1 * toto2)
+    u = a / (a[0] + np.copysign(np.linalg.norm(a), a[0]))
+    u[0] = 1
+    H = np.eye(a.shape[0])-(2 / np.dot(u, u) * np.dot(u[:, None], u[None, :]))
     return H
 
 def qr(A):
@@ -400,7 +397,8 @@ def qr(A):
 A = np.array([[12, -51, 4], [6, 167, -68], [-4, 24, -41]])
 Q, R = qr(A)
 
-print ("A=",A,"\n")
+
+print ("A=",Matrix(A),"\n")
 print ("Q=",Q,"\n")
 print ("R=",R,"\n")
 
