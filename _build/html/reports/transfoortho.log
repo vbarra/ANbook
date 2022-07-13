@@ -32,6 +32,16 @@ def norm(x):
     """Return the Euclidean norm of the vector x."""
     return sqrt(sum([x_i**2 for x_i in x]))
 
+def mult_matrix(M, N):
+    """Multiply square matrices of same dimension M and N"""
+    # Converts N into a list of tuples of columns                                                                     
+    tuple_N = zip(*N)
+
+    # Nested list comprehension to calculate matrix multiplication                                                    
+    return [[sum(el_m * el_n for el_m, el_n in zip(row_m, col_n)) for col_n in tuple_N] for row_m in M]
+
+
+
 def householder(A):
     n = A.shape[1]
 
@@ -62,10 +72,10 @@ def householder(A):
 
         if k == 0:
             Q = Q_t
-            R = Q_t@A
+            R = mult_matrix(Q_t,A)
         else:
-            Q = Q_t@Q
-            R = Q_t@R
+            Q = mult_matrix(Q_t,Q)
+            R = mult_matrix(Q_t,R)
 
     return Q.transpose(), R
 
@@ -78,21 +88,30 @@ print ("R=",R,"\n")
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;31mIndexError[0m                                Traceback (most recent call last)
 Input [0;32mIn [11][0m, in [0;36m<module>[0;34m[0m
-[1;32m     51[0m     [38;5;28;01mreturn[39;00m Q[38;5;241m.[39mtranspose(), R
-[1;32m     53[0m A [38;5;241m=[39m np[38;5;241m.[39marray([[[38;5;241m12[39m, [38;5;241m-[39m[38;5;241m51[39m, [38;5;241m4[39m], [[38;5;241m6[39m, [38;5;241m167[39m, [38;5;241m-[39m[38;5;241m68[39m], [[38;5;241m-[39m[38;5;241m4[39m, [38;5;241m24[39m, [38;5;241m-[39m[38;5;241m41[39m]])
-[0;32m---> 54[0m Q, R [38;5;241m=[39m [43mhouseholder[49m[43m([49m[43mA[49m[43m)[49m
-[1;32m     56[0m [38;5;28mprint[39m ([38;5;124m"[39m[38;5;124mA=[39m[38;5;124m"[39m,A,[38;5;124m"[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m)
-[1;32m     57[0m [38;5;28mprint[39m ([38;5;124m"[39m[38;5;124mQ=[39m[38;5;124m"[39m,Q,[38;5;124m"[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m)
+[1;32m     61[0m     [38;5;28;01mreturn[39;00m Q[38;5;241m.[39mtranspose(), R
+[1;32m     63[0m A [38;5;241m=[39m np[38;5;241m.[39marray([[[38;5;241m12[39m, [38;5;241m-[39m[38;5;241m51[39m, [38;5;241m4[39m], [[38;5;241m6[39m, [38;5;241m167[39m, [38;5;241m-[39m[38;5;241m68[39m], [[38;5;241m-[39m[38;5;241m4[39m, [38;5;241m24[39m, [38;5;241m-[39m[38;5;241m41[39m]])
+[0;32m---> 64[0m Q, R [38;5;241m=[39m [43mhouseholder[49m[43m([49m[43mA[49m[43m)[49m
+[1;32m     66[0m [38;5;28mprint[39m ([38;5;124m"[39m[38;5;124mA=[39m[38;5;124m"[39m,A,[38;5;124m"[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m)
+[1;32m     67[0m [38;5;28mprint[39m ([38;5;124m"[39m[38;5;124mQ=[39m[38;5;124m"[39m,Q,[38;5;124m"[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m)
 
 Input [0;32mIn [11][0m, in [0;36mhouseholder[0;34m(A)[0m
-[1;32m     46[0m         R [38;5;241m=[39m Q_t[38;5;129m@A[39m
-[1;32m     47[0m     [38;5;28;01melse[39;00m:
-[0;32m---> 48[0m         Q [38;5;241m=[39m [43mQ_t[49m[38;5;129;43m@Q[39;49m
-[1;32m     49[0m         R [38;5;241m=[39m Q_t[38;5;129m@R[39m
-[1;32m     51[0m [38;5;28;01mreturn[39;00m Q[38;5;241m.[39mtranspose(), R
+[1;32m     35[0m I [38;5;241m=[39m np[38;5;241m.[39meye(n)
+[1;32m     37[0m [38;5;66;03m# Create the vectors x, e and the scalar alpha[39;00m
+[1;32m     38[0m [38;5;66;03m# Python does not have a sgn function, so we use cmp instead[39;00m
+[0;32m---> 39[0m x [38;5;241m=[39m [row[k] [38;5;28;01mfor[39;00m row [38;5;129;01min[39;00m R[k:]]
+[1;32m     40[0m e [38;5;241m=[39m [row[k] [38;5;28;01mfor[39;00m row [38;5;129;01min[39;00m I[k:]]
+[1;32m     41[0m alpha [38;5;241m=[39m [38;5;241m-[39mcmp(x[[38;5;241m0[39m],[38;5;241m0[39m) [38;5;241m*[39m norm(x)
 
-[0;31mTypeError[0m: unsupported operand type(s) for @: 'list' and 'list'
-TypeError: unsupported operand type(s) for @: 'list' and 'list'
+Input [0;32mIn [11][0m, in [0;36m<listcomp>[0;34m(.0)[0m
+[1;32m     35[0m I [38;5;241m=[39m np[38;5;241m.[39meye(n)
+[1;32m     37[0m [38;5;66;03m# Create the vectors x, e and the scalar alpha[39;00m
+[1;32m     38[0m [38;5;66;03m# Python does not have a sgn function, so we use cmp instead[39;00m
+[0;32m---> 39[0m x [38;5;241m=[39m [[43mrow[49m[43m[[49m[43mk[49m[43m][49m [38;5;28;01mfor[39;00m row [38;5;129;01min[39;00m R[k:]]
+[1;32m     40[0m e [38;5;241m=[39m [row[k] [38;5;28;01mfor[39;00m row [38;5;129;01min[39;00m I[k:]]
+[1;32m     41[0m alpha [38;5;241m=[39m [38;5;241m-[39mcmp(x[[38;5;241m0[39m],[38;5;241m0[39m) [38;5;241m*[39m norm(x)
+
+[0;31mIndexError[0m: list index out of range
+IndexError: list index out of range
 

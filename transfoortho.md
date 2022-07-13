@@ -363,68 +363,23 @@ $ telle que
 ${\bf A^{(3)}}={\bf H^{(2)}A^{(2)}}\begin{pmatrix}{\|{\bf A^{(1)}_{\bullet,1}}\|}&\ast&\ast&\cdots &\ast\\0&\|{\bf f_2}\|&a^{(3)}_{23}&\cdots &\ast\\0&0&a^{(3)}_{33}&\vdots&\vdots\\0&0&a^{(3)}_{n3}&\cdots &*\end{pmatrix}$
 
 ```{code-cell} ipython3
+def make_householder(a):
+    v = a / (a[0] + np.copysign(np.linalg.norm(a), a[0]))
+    v[0] = 1
+    H = np.eye(a.shape[0])
+    H -= (2 / np.dot(v, v)) * np.dot(v[:, None], v[None, :])
+    return H
 
-def cmp(a, b):
-    return bool(a > b) - bool(a < b)
+def qr(A):
+    m, n = A.shape
+    Q = np.eye(m)
+    for i in range(n - (m == n)):
+        H = np.eye(m)
+        H[i:, i:] = make_householder(A[i:, i])
+        Q = np.dot(Q, H)
+        A = np.dot(H, A)
+    return Q, A
 
-def Q_i(Q_min, i, j, k):
-    """Construct the Q_t matrix by left-top padding the matrix Q                                                      
-    with elements from the identity matrix."""
-    if i < k or j < k:
-        return float(i == j)
-    else:
-        return Q_min[i-k][j-k]
-
-def norm(x):
-    """Return the Euclidean norm of the vector x."""
-    return sqrt(sum([x_i**2 for x_i in x]))
-
-def mult_matrix(M, N):
-    """Multiply square matrices of same dimension M and N"""
-    # Converts N into a list of tuples of columns                                                                     
-    tuple_N = zip(*N)
-
-    # Nested list comprehension to calculate matrix multiplication                                                    
-    return [[sum(el_m * el_n for el_m, el_n in zip(row_m, col_n)) for col_n in tuple_N] for row_m in M]
-
-
-
-def householder(A):
-    n = A.shape[1]
-
-    R = A
-    Q = np.zeros((n,n))
-
-    # The Householder procedure
-    for k in range(n-1):  
-        # Create identity matrix of same size as A                                                                    
-        I = np.eye(n)
-
-        # Create the vectors x, e and the scalar alpha
-        # Python does not have a sgn function, so we use cmp instead
-        x = [row[k] for row in R[k:]]
-        e = [row[k] for row in I[k:]]
-        alpha = -cmp(x[0],0) * norm(x)
-
-        # Using anonymous functions, we create u and v
-        u = list(map(lambda p,q: p + alpha * q, x, e))
-        norm_u = norm(u)
-        v = list(map(lambda p: p/norm_u, u))
-
-        # Sous matrice Q
-        Q_min = [ [float(i==j) - 2.0 * v[i] * v[j] for i in range(n-k)] for j in range(n-k) ]
-
-        # Intégration à Q 
-        Q_t = [[ Q_i(Q_min,i,j,k) for i in range(n)] for j in range(n)]
-
-        if k == 0:
-            Q = Q_t
-            R = mult_matrix(Q_t,A)
-        else:
-            Q = mult_matrix(Q_t,Q)
-            R = mult_matrix(Q_t,R)
-
-    return Q.transpose(), R
 
 A = np.array([[12, -51, 4], [6, 167, -68], [-4, 24, -41]])
 Q, R = householder(A)
