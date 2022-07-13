@@ -384,12 +384,21 @@ def qr(A):
 
 A = np.array([[12, -51, 4], [6, 167, -68], [-4, 24, -41]])
 Q, R = qr(A)
+```
 
-
+```{code-cell} ipython3
 print ("A=\n")
 Matrix(A)
 ```
 
+```{code-cell} ipython3
+print ("Q=\n")
+Matrix(Q)
+```
+```{code-cell} ipython3
+print ("R=\n")
+Matrix(R)
+```
 
 
  
