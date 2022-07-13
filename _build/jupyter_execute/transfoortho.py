@@ -417,5 +417,5 @@ print(Q)
 
 
 print ("R=\n")
-Matrix(R)
+Matrix(R).evalf(4)
 

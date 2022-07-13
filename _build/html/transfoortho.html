@@ -763,32 +763,32 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.3196 0.8541 0.8395 0.4483]
- [0.2448 0.0356 0.2062 0.9   ]
- [0.194  0.4086 0.4197 0.0707]
- [0.8113 0.6506 0.0762 0.5429]] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.8854 0.4666 0.0675 0.572 ]
+ [0.0653 0.2547 0.7867 0.3204]
+ [0.6369 0.6695 0.4236 0.3676]
+ [0.0036 0.5323 0.1139 0.8018]] 
 
-Q= [[ 0.345   0.8267  0.1557  0.4162]
- [ 0.2643 -0.3447  0.891   0.1322]
- [ 0.2095  0.3281  0.1982 -0.8995]
- [ 0.8759 -0.3001 -0.3776  0.0113]] 
+Q= [[ 0.8103 -0.2693 -0.1265  0.5048]
+ [ 0.0597  0.3297  0.892   0.3036]
+ [ 0.5829  0.3359  0.0869 -0.7347]
+ [ 0.0033  0.8402 -0.4253  0.3364]] 
 
-R= [[ 0.9263  0.9596  0.4988  0.8829]
- [ 0.      0.6327  0.7378 -0.0793]
- [ 0.      0.      0.3689  0.6807]
- [ 0.      0.      0.      0.2481]] 
+R= [[ 1.0927  0.7853  0.349   0.6996]
+ [ 0.      0.6305  0.4791  0.7488]
+ [ 0.      0.      0.6816 -0.0956]
+ [ 0.      0.      0.      0.3857]] 
 
-Q^TQ= [[ 1.0000e+00  2.8168e-16 -5.8837e-16  2.2391e-15]
- [ 2.8168e-16  1.0000e+00 -9.1131e-16  1.1467e-15]
- [-5.8837e-16 -9.1131e-16  1.0000e+00  1.8753e-15]
- [ 2.2391e-15  1.1467e-15  1.8753e-15  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00  3.4361e-16 -7.9928e-17 -5.2480e-16]
+ [ 3.4361e-16  1.0000e+00 -3.5922e-16 -1.1911e-15]
+ [-7.9928e-17 -3.5922e-16  1.0000e+00  8.8299e-16]
+ [-5.2480e-16 -1.1911e-15  8.8299e-16  1.0000e+00]] 
 
-Q^TQ= [[ 1.0000e+00  2.8168e-16 -5.8837e-16  2.2391e-15]
- [ 2.8168e-16  1.0000e+00 -9.1131e-16  1.1467e-15]
- [-5.8837e-16 -9.1131e-16  1.0000e+00  1.8753e-15]
- [ 2.2391e-15  1.1467e-15  1.8753e-15  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00  3.4361e-16 -7.9928e-17 -5.2480e-16]
+ [ 3.4361e-16  1.0000e+00 -3.5922e-16 -1.1911e-15]
+ [-7.9928e-17 -3.5922e-16  1.0000e+00  8.8299e-16]
+ [-5.2480e-16 -1.1911e-15  8.8299e-16  1.0000e+00]] 
 
-Norme de I-Q^TQ =  2.239129055729072e-15
+Norme de I-Q^TQ =  1.1910754145386959e-15
 Norme infinie de QR-A =  1.1102230246251565e-16
 </pre></div>
 </div>
@@ -1062,7 +1062,7 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Q=
 
-&lt;sympy.assumptions.ask.AssumptionKeys object at 0x105d92af0&gt;
+&lt;sympy.assumptions.ask.AssumptionKeys object at 0x10b5bdaf0&gt;
 </pre></div>
 </div>
 </div>
@@ -1070,7 +1070,7 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;R=</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="n">Matrix</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+<span class="n">Matrix</span><span class="p">(</span><span class="n">R</span><span class="p">)</span><span class="o">.</span><span class="n">evalf</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1079,7 +1079,7 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 </pre></div>
 </div>
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}-14.0 &amp; -21.0 &amp; 14.0\\2.26656300565782 \cdot 10^{-16} &amp; -175.0 &amp; 70.0\\4.72100990779067 \cdot 10^{-16} &amp; -7.43126796127797 \cdot 10^{-16} &amp; -35.0\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}-14.0 &amp; -21.0 &amp; 14.0\\2.267 \cdot 10^{-16} &amp; -175.0 &amp; 70.0\\4.721 \cdot 10^{-16} &amp; -7.431 \cdot 10^{-16} &amp; -35.0\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 </div>
