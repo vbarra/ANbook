@@ -763,33 +763,33 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.4317 0.7972 0.2319 0.153 ]
- [0.6474 0.8362 0.83   0.1931]
- [0.2596 0.5159 0.5807 0.6557]
- [0.7423 0.7034 0.7592 0.0944]] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.6513 0.2779 0.2023 0.3045]
+ [0.4331 0.3264 0.2051 0.4038]
+ [0.3395 0.8557 0.2385 0.2945]
+ [0.1914 0.694  0.1624 0.2565]] 
 
-Q= [[ 0.3902  0.6459 -0.6476  0.1055]
- [ 0.5852  0.0528  0.2817 -0.7585]
- [ 0.2346  0.4815  0.6988  0.4741]
- [ 0.671  -0.5901 -0.1135  0.4344]] 
+Q= [[ 0.7453 -0.4376 -0.503   0.0046]
+ [ 0.4956 -0.118   0.8388  0.1919]
+ [ 0.3884  0.6407  0.0121 -0.6621]
+ [ 0.2191  0.6197 -0.208   0.7244]] 
 
-R= [[1.1063 1.3935 1.2219 0.39  ]
- [0.     0.3924 0.0252 0.369 ]
- [0.     0.     0.4034 0.4028]
- [0.     0.     0.     0.2216]] 
+R= [[0.8739 0.8533 0.3806 0.5976]
+ [0.     0.8182 0.1407 0.1668]
+ [0.     0.     0.0394 0.1357]
+ [0.     0.     0.     0.0697]] 
 
-Q^TQ= [[ 1.0000e+00 -4.3253e-16 -1.0477e-16  5.1378e-16]
- [-4.3253e-16  1.0000e+00  1.2571e-15 -1.1771e-15]
- [-1.0477e-16  1.2571e-15  1.0000e+00 -2.0979e-15]
- [ 5.1378e-16 -1.1771e-15 -2.0979e-15  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00 -2.2123e-16 -1.1999e-15  2.0083e-16]
+ [-2.2123e-16  1.0000e+00  1.9764e-15 -1.9429e-15]
+ [-1.1999e-15  1.9764e-15  1.0000e+00  6.1778e-15]
+ [ 2.0083e-16 -1.9429e-15  6.1778e-15  1.0000e+00]] 
 
-Q^TQ= [[ 1.0000e+00 -4.3253e-16 -1.0477e-16  5.1378e-16]
- [-4.3253e-16  1.0000e+00  1.2571e-15 -1.1771e-15]
- [-1.0477e-16  1.2571e-15  1.0000e+00 -2.0979e-15]
- [ 5.1378e-16 -1.1771e-15 -2.0979e-15  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00 -2.2123e-16 -1.1999e-15  2.0083e-16]
+ [-2.2123e-16  1.0000e+00  1.9764e-15 -1.9429e-15]
+ [-1.1999e-15  1.9764e-15  1.0000e+00  6.1778e-15]
+ [ 2.0083e-16 -1.9429e-15  6.1778e-15  1.0000e+00]] 
 
-Norme de I-Q^TQ =  2.0978568167030047e-15
-Norme infinie de QR-A =  2.7755575615628914e-17
+Norme de I-Q^TQ =  6.177836120627728e-15
+Norme infinie de QR-A =  1.1102230246251565e-16
 </pre></div>
 </div>
 </div>
@@ -1013,7 +1013,7 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">householder</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
     <span class="n">R</span> <span class="o">=</span> <span class="n">A</span>
     <span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
@@ -1060,7 +1060,7 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
 <span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">36</span>     <span class="k">return</span> <span class="n">Q</span><span class="o">.</span><span class="n">transpose</span><span class="p">(),</span> <span class="n">R</span>
 <span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="n">A</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">12</span><span class="p">,</span> <span class="o">-</span><span class="mi">51</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">167</span><span class="p">,</span> <span class="o">-</span><span class="mi">68</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="o">-</span><span class="mi">41</span><span class="p">]]</span>
@@ -1069,14 +1069,12 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 <span class="g g-Whitespace">     </span><span class="mi">42</span> <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Q=&quot;</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="nn">Input In [11],</span> in <span class="ni">householder</span><span class="nt">(A)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">R</span> <span class="o">=</span> <span class="n">A</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1"># The Householder procedure</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>  
-<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="c1"># Create identity matrix of same size as A                                                                    </span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">householder</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">R</span> <span class="o">=</span> <span class="n">A</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
 
-<span class="ne">TypeError</span>: Cannot interpret &#39;3&#39; as a data type
+<span class="ne">AttributeError</span>: &#39;list&#39; object has no attribute &#39;shape&#39;
 </pre></div>
 </div>
 </div>
