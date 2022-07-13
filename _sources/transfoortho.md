@@ -389,9 +389,9 @@ def householder(A):
         alpha = -cmp(x[0],0) * norm(x)
 
         # Using anonymous functions, we create u and v
-        u = map(lambda p,q: p + alpha * q, x, e)
+        u = list(map(lambda p,q: p + alpha * q, x, e))
         norm_u = norm(u)
-        v = map(lambda p: p/norm_u, u)
+        v = list(map(lambda p: p/norm_u, u))
 
         # Sous matrice Q
         Q_min = [ [float(i==j) - 2.0 * v[i] * v[j] for i in range(n-k)] for j in range(n-k) ]

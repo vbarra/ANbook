@@ -763,32 +763,32 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.6556 0.0099 0.472  0.9032]
- [0.7998 0.1355 0.4291 0.0809]
- [0.9787 0.6608 0.8348 0.071 ]
- [0.3954 0.7942 0.5547 0.4903]] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A= [[0.616  0.7341 0.3817 0.1092]
+ [0.0706 0.8449 0.8673 0.7599]
+ [0.6943 0.4718 0.7151 0.9454]
+ [0.8474 0.5195 0.4879 0.3866]] 
 
-Q= [[ 0.4437 -0.4198  0.723   0.3228]
- [ 0.5412 -0.3467 -0.6858  0.3413]
- [ 0.6623  0.2397  0.049  -0.7082]
- [ 0.2676  0.8038  0.0672  0.527 ]] 
+Q= [[ 0.4893  0.2805 -0.7151  0.413 ]
+ [ 0.0561  0.9338  0.2812 -0.2139]
+ [ 0.5516 -0.1054  0.6394  0.5252]
+ [ 0.6732 -0.1954 -0.0276 -0.7127]] 
 
-R= [[1.4777 0.7279 1.143  0.6227]
- [0.     0.7457 0.2991 0.0039]
- [0.     0.     0.1252 0.6339]
- [0.     0.     0.     0.5273]] 
+R= [[1.2588 1.0165 0.9583 0.8778]
+ [0.     0.8437 0.7463 0.5651]
+ [0.     0.     0.4147 0.7294]
+ [0.     0.     0.     0.1035]] 
 
-Q^TQ= [[ 1.0000e+00 -1.1704e-16  2.1912e-16 -4.1961e-16]
- [-1.1704e-16  1.0000e+00  1.4241e-15 -1.5900e-15]
- [ 2.1912e-16  1.4241e-15  1.0000e+00 -3.3011e-16]
- [-4.1961e-16 -1.5900e-15 -3.3011e-16  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00  2.1490e-17 -1.9274e-17 -9.1447e-16]
+ [ 2.1490e-17  1.0000e+00 -8.3433e-17  7.7547e-16]
+ [-1.9274e-17 -8.3433e-17  1.0000e+00  1.5192e-15]
+ [-9.1447e-16  7.7547e-16  1.5192e-15  1.0000e+00]] 
 
-Q^TQ= [[ 1.0000e+00 -1.1704e-16  2.1912e-16 -4.1961e-16]
- [-1.1704e-16  1.0000e+00  1.4241e-15 -1.5900e-15]
- [ 2.1912e-16  1.4241e-15  1.0000e+00 -3.3011e-16]
- [-4.1961e-16 -1.5900e-15 -3.3011e-16  1.0000e+00]] 
+Q^TQ= [[ 1.0000e+00  2.1490e-17 -1.9274e-17 -9.1447e-16]
+ [ 2.1490e-17  1.0000e+00 -8.3433e-17  7.7547e-16]
+ [-1.9274e-17 -8.3433e-17  1.0000e+00  1.5192e-15]
+ [-9.1447e-16  7.7547e-16  1.5192e-15  1.0000e+00]] 
 
-Norme de I-Q^TQ =  1.5899663147850494e-15
+Norme de I-Q^TQ =  1.519156865158378e-15
 Norme infinie de QR-A =  1.1102230246251565e-16
 </pre></div>
 </div>
@@ -1037,9 +1037,9 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
         <span class="n">alpha</span> <span class="o">=</span> <span class="o">-</span><span class="n">cmp</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
         <span class="c1"># Using anonymous functions, we create u and v</span>
-        <span class="n">u</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">p</span><span class="p">,</span><span class="n">q</span><span class="p">:</span> <span class="n">p</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">q</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">p</span><span class="p">,</span><span class="n">q</span><span class="p">:</span> <span class="n">p</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">q</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
         <span class="n">norm_u</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
-        <span class="n">v</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="n">p</span><span class="o">/</span><span class="n">norm_u</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="n">p</span><span class="o">/</span><span class="n">norm_u</span><span class="p">,</span> <span class="n">u</span><span class="p">))</span>
 
         <span class="c1"># Sous matrice Q</span>
         <span class="n">Q_min</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="n">j</span><span class="p">)</span> <span class="o">-</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)</span> <span class="p">]</span>
@@ -1067,7 +1067,7 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
 <span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">     </span><span class="mi">43</span>     <span class="k">return</span> <span class="n">Q</span><span class="o">.</span><span class="n">transpose</span><span class="p">(),</span> <span class="n">R</span>
 <span class="g g-Whitespace">     </span><span class="mi">45</span> <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">12</span><span class="p">,</span> <span class="o">-</span><span class="mi">51</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">167</span><span class="p">,</span> <span class="o">-</span><span class="mi">68</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="o">-</span><span class="mi">41</span><span class="p">]])</span>
@@ -1076,27 +1076,27 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 <span class="g g-Whitespace">     </span><span class="mi">49</span> <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Q=&quot;</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="nn">Input In [11],</span> in <span class="ni">householder</span><span class="nt">(A)</span>
-<span class="g g-Whitespace">     </span><span class="mi">28</span> <span class="n">v</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="n">p</span><span class="o">/</span><span class="n">norm_u</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">30</span> <span class="c1"># Sous matrice Q</span>
-<span class="ne">---&gt; </span><span class="mi">31</span> <span class="n">Q_min</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="n">j</span><span class="p">)</span> <span class="o">-</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)</span> <span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span> <span class="n">Q_min</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="n">j</span><span class="p">)</span> <span class="o">-</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)</span> <span class="p">]</span>
 <span class="g g-Whitespace">     </span><span class="mi">33</span> <span class="c1"># Intégration à Q </span>
-<span class="g g-Whitespace">     </span><span class="mi">34</span> <span class="n">Q_t</span> <span class="o">=</span> <span class="p">[[</span> <span class="n">Q_i</span><span class="p">(</span><span class="n">Q_min</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+<span class="ne">---&gt; </span><span class="mi">34</span> <span class="n">Q_t</span> <span class="o">=</span> <span class="p">[[</span> <span class="n">Q_i</span><span class="p">(</span><span class="n">Q_min</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span> <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span>     <span class="n">Q</span> <span class="o">=</span> <span class="n">Q_t</span>
 
 <span class="nn">Input In [11],</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">     </span><span class="mi">28</span> <span class="n">v</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="n">p</span><span class="o">/</span><span class="n">norm_u</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">30</span> <span class="c1"># Sous matrice Q</span>
-<span class="ne">---&gt; </span><span class="mi">31</span> <span class="n">Q_min</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="n">j</span><span class="p">)</span> <span class="o">-</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)</span> <span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span> <span class="n">Q_min</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="n">j</span><span class="p">)</span> <span class="o">-</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)</span> <span class="p">]</span>
 <span class="g g-Whitespace">     </span><span class="mi">33</span> <span class="c1"># Intégration à Q </span>
-<span class="g g-Whitespace">     </span><span class="mi">34</span> <span class="n">Q_t</span> <span class="o">=</span> <span class="p">[[</span> <span class="n">Q_i</span><span class="p">(</span><span class="n">Q_min</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+<span class="ne">---&gt; </span><span class="mi">34</span> <span class="n">Q_t</span> <span class="o">=</span> <span class="p">[[</span> <span class="n">Q_i</span><span class="p">(</span><span class="n">Q_min</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span> <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span>     <span class="n">Q</span> <span class="o">=</span> <span class="n">Q_t</span>
 
 <span class="nn">Input In [11],</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">     </span><span class="mi">28</span> <span class="n">v</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="n">p</span><span class="o">/</span><span class="n">norm_u</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">30</span> <span class="c1"># Sous matrice Q</span>
-<span class="ne">---&gt; </span><span class="mi">31</span> <span class="n">Q_min</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="n">j</span><span class="p">)</span> <span class="o">-</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)</span> <span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span> <span class="n">Q_min</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="n">j</span><span class="p">)</span> <span class="o">-</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">)</span> <span class="p">]</span>
 <span class="g g-Whitespace">     </span><span class="mi">33</span> <span class="c1"># Intégration à Q </span>
-<span class="g g-Whitespace">     </span><span class="mi">34</span> <span class="n">Q_t</span> <span class="o">=</span> <span class="p">[[</span> <span class="n">Q_i</span><span class="p">(</span><span class="n">Q_min</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+<span class="ne">---&gt; </span><span class="mi">34</span> <span class="n">Q_t</span> <span class="o">=</span> <span class="p">[[</span> <span class="n">Q_i</span><span class="p">(</span><span class="n">Q_min</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span> <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span>     <span class="n">Q</span> <span class="o">=</span> <span class="n">Q_t</span>
 
-<span class="ne">TypeError</span>: &#39;map&#39; object is not subscriptable
+<span class="ne">NameError</span>: name &#39;Q_i&#39; is not defined
 </pre></div>
 </div>
 </div>
