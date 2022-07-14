@@ -68,6 +68,44 @@ Par récurrence, on montre alors que  $q_k=\frac{A^kq_0}{\|A^kq_0\|}$ et comme l
  On peut montrer de plus que $\|Aq_k\|$ tend vers $|\lambda_n|$ et que la convergence est linéaire de taux $\left |\frac{\lambda_{n-1}}{\lambda_n}\right |$ si $\alpha_{n-1}\neq 0$.
 
 
+
+
+```{code-cell} ipython3
+import numpy as np
+import matplotlib.pyplot as plt
+
+def puissiter(A,v0,lam,niter=5):
+    v = v0
+    vv = [v0]
+    l = np.dot(v0,np.dot(A,v0))
+    ll = [l]
+    epsilon = 1e-4
+    while np.fabs(lam-l)>epsilon and k<niter:
+        w = np.dot(A,v)
+        v = w/np.linalg.norm(w)
+        l = np.dot(v,np.dot(A,v))
+        vv.append(v)
+        ll.append(l)
+        k=k+1
+    return ll, vv
+
+A = np.array([[2.,1,-1],[1,3,1],[-1,1,4]])
+print(A)
+lam =(np.linalg.eigvals(A)[0])
+print("La plus grande valeur propre de A est ",lam)
+ll, vv = puissiter(A,np.ones(3),lam)
+
+plt.plot(range(len(ll)),ll,'-o',label='Puissances itérées')
+plt.plot(range(len(ll)),lam*np.ones((len(ll)), dtype=np.uint8) ,'r')
+plt.ylabel('valeur propre')
+plt.xlabel('Iteration');
+plt.legend()
+plt.tight_layout()
+
+
+
+```
+
 ## Méthode des puissances inverses
 
 Pour les mêmes raisons, l'itération 

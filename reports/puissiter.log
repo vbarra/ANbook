@@ -1,0 +1,73 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/usr/local/lib/python3.9/site-packages/nbclient/client.py", line 1093, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/usr/local/lib/python3.9/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/usr/local/lib/python3.9/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/usr/local/Cellar/python@3.9/3.9.13/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/usr/local/lib/python3.9/site-packages/nbclient/client.py", line 559, in async_execute
+    await self.async_execute_cell(
+  File "/usr/local/lib/python3.9/site-packages/nbclient/client.py", line 854, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/usr/local/lib/python3.9/site-packages/nbclient/client.py", line 756, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import numpy as np
+import matplotlib.pyplot as plt
+
+def puissiter(A,v0,lam,niter=5):
+    v = v0
+    vv = [v0]
+    l = np.dot(v0,np.dot(A,v0))
+    ll = [l]
+    epsilon = 1e-4
+    while np.fabs(lam-l)>epsilon and k<niter:
+        w = np.dot(A,v)
+        v = w/np.linalg.norm(w)
+        l = np.dot(v,np.dot(A,v))
+        vv.append(v)
+        ll.append(l)
+        k=k+1
+    return ll, vv
+
+A = np.array([[2.,1,-1],[1,3,1],[-1,1,4]])
+print(A)
+lam =(np.linalg.eigvals(A)[0])
+print("La plus grande valeur propre de A est ",lam)
+ll, vv = puissiter(A,np.ones(3),lam)
+
+plt.plot(range(len(ll)),ll,'-o',label='Puissances itérées')
+plt.plot(range(len(ll)),lam*np.ones((len(ll)), dtype=np.uint8) ,'r')
+plt.ylabel('valeur propre')
+plt.xlabel('Iteration');
+plt.legend()
+plt.tight_layout()
+
+
+
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mUnboundLocalError[0m                         Traceback (most recent call last)
+Input [0;32mIn [1][0m, in [0;36m<module>[0;34m[0m
+[1;32m     21[0m lam [38;5;241m=[39m(np[38;5;241m.[39mlinalg[38;5;241m.[39meigvals(A)[[38;5;241m0[39m])
+[1;32m     22[0m [38;5;28mprint[39m([38;5;124m"[39m[38;5;124mLa plus grande valeur propre de A est [39m[38;5;124m"[39m,lam)
+[0;32m---> 23[0m ll, vv [38;5;241m=[39m [43mpuissiter[49m[43m([49m[43mA[49m[43m,[49m[43mnp[49m[38;5;241;43m.[39;49m[43mones[49m[43m([49m[38;5;241;43m3[39;49m[43m)[49m[43m,[49m[43mlam[49m[43m)[49m
+[1;32m     25[0m plt[38;5;241m.[39mplot([38;5;28mrange[39m([38;5;28mlen[39m(ll)),ll,[38;5;124m'[39m[38;5;124m-o[39m[38;5;124m'[39m,label[38;5;241m=[39m[38;5;124m'[39m[38;5;124mPuissances itérées[39m[38;5;124m'[39m)
+[1;32m     26[0m plt[38;5;241m.[39mplot([38;5;28mrange[39m([38;5;28mlen[39m(ll)),lam[38;5;241m*[39mnp[38;5;241m.[39mones(([38;5;28mlen[39m(ll)), dtype[38;5;241m=[39mnp[38;5;241m.[39muint8) ,[38;5;124m'[39m[38;5;124mr[39m[38;5;124m'[39m)
+
+Input [0;32mIn [1][0m, in [0;36mpuissiter[0;34m(A, v0, lam, niter)[0m
+[1;32m      8[0m ll [38;5;241m=[39m [l]
+[1;32m      9[0m epsilon [38;5;241m=[39m [38;5;241m1e-4[39m
+[0;32m---> 10[0m [38;5;28;01mwhile[39;00m np[38;5;241m.[39mfabs(lam[38;5;241m-[39ml)[38;5;241m>[39mepsilon [38;5;129;01mand[39;00m [43mk[49m[38;5;241m<[39mniter:
+[1;32m     11[0m     w [38;5;241m=[39m np[38;5;241m.[39mdot(A,v)
+[1;32m     12[0m     v [38;5;241m=[39m w[38;5;241m/[39mnp[38;5;241m.[39mlinalg[38;5;241m.[39mnorm(w)
+
+[0;31mUnboundLocalError[0m: local variable 'k' referenced before assignment
+UnboundLocalError: local variable 'k' referenced before assignment
+
