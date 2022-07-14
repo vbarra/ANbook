@@ -96,6 +96,8 @@ def puissiter(A,v0,lam,niter,epsilon):
     return ll, vv,k
 
 A = np.array([[2.,1,-1],[1,3,1],[-1,1,4]])
+w,v=np.linalg.eig(A)
+vmax = v[:, np.argmax(w)]
 lam =np.max(np.linalg.eigvals(A))
 print("La plus grande valeur propre de A est ",lam)
 
@@ -117,8 +119,10 @@ plt.subplot(122)
 plot_vector2d(vv[0], color="b", linestyle="dotted")
 plt.text(vv[0][0],vv[0][1],'v0')
 for i in range(1,k):
-    plot_vector2d(vv[i], color="g", linestyle="dotted",alpha = 0.5)
-    plt.text(vv[i][0],vv[i][1],'v('+str(i)+')',color="g")
+    plot_vector2d(vv[i], color="g", linestyle="dotted",alpha = 1-float(i)/k)
+    plt.text(vv[i][0],vv[i][1]+0.1,'v('+str(i)+')',color="g")
+plot_vector2d(vmax, color="r", linestyle="dotted")
+plt.text(vmax[0],vmax[1],'$v_\lambda$',color="r")
 
 plt.title("Vecteur propre approché")
 plt.tight_layout()
