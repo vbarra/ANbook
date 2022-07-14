@@ -8,7 +8,7 @@
 # ```{index} Rayleigh;quotient de 
 # ```
 # ```{prf:definition}
-# Pour une matrice symétrique $A$, le quotient de Rayleigh est le rapport défini pour tout vecteur $x\neq 0$ par :
+# Pour une matrice symétrique $A$, le *quotient de Rayleigh* est le rapport défini pour tout $x\neq 0$ par :
 # 
 # $\rho_A(x)=\frac{x^\top Ax}{x^\top x}$
 # ```
@@ -16,20 +16,20 @@
 # 
 # Si $\lambda_1$ et $\lambda_n$ sont respectivement la plus petite et la plus grande valeur propre de $A$, et $x^1$,$x^n$ les vecteurs propres associés, on a également les résultats suivants :
 # 
+# ```{prf:theorem} Théorème min-max de Courant-Fischer
 # $\begin{align*}
 # \lambda_1&=\rho_A(x^1)=\displaystyle\min_{x\in \mathbb{R}^n}\{\rho_A(x)\}\\
 # \lambda_n&=\rho_A(x^n)=\displaystyle\max_{x\in \mathbb{R}^n}\{\rho_A(x)\}
 # \end{align*}
 # $
-# 
 # De plus, si les valeurs propres sont rangées dans l'ordre croissant, on a 
 # 
 # $\begin{align*}
 # \lambda_i&=\displaystyle\min_{S_i}\{\displaystyle\max_{x\in S_i}\{\rho_A(x)\}\}\\
 # \lambda_i&=\displaystyle\max_{S_{i-1}}\{\displaystyle\min_{x\in S_{i-1}^\bot}\{\rho_A(x)\}\}
 # \end{align*}$
-# 
 # où $S_i$ est un sous-espace quelconque de dimension $i$.
+# ```
 # 
 # Le sous-espace $S_i$ pour lequel le quotient de Rayleigh est maximum est le sous-espace propre associé aux $i$ premières valeurs propres. Le sous-espace pour lequel il est minimum est orthogonal au sous-espace propre associé aux $i-1$ premières valeurs propres. C'est donc le sous-espace engendré par les $n-i+1$ vecteurs propres associés à $\{\lambda_i\cdots\lambda_n\}$.
 # 
@@ -51,7 +51,7 @@
 #  $q_0=\displaystyle\sum{i=1}^n\alpha_iv^i,\quad\alpha_n\neq 0$
 #  et 
 # 
-#  $A^kq_0=\alpha_n\lambda_n^k\left (v^n+\dsum_{i=1}^{n-1}\frac{\alpha_i}{\alpha_n}\left (\frac{\lambda_i}{\lambda_n}\right )^kv^i\right )$
+#  $A^kq_0=\alpha_n\lambda_n^k\left (v^n+\displaystyle\sum{i=1}^{n-1}\frac{\alpha_i}{\alpha_n}\left (\frac{\lambda_i}{\lambda_n}\right )^kv^i\right )$
 # 
 #  Lorsque $k\rightarrow\infty$, les rapports $\left (\frac{\lambda_i}{\lambda_n}\right )^k$ tendent vers 0 pour $i\neq n$, 
 #  ce qui signifie que la suite des itérés $\{q_k\}$ converge vers le vecteur propre $v^n$ ou $-v^n$. 
@@ -72,6 +72,6 @@
 # 
 # ```{prf:remark}
 # :class: dropdown
-# 1. Accélération par \textbf{décalage} : la matrice $A+\alpha I$ a les mêmes vecteurs propres que $A$ et ses valeurs propres sont décalées de la quantité $\alpha$. La méthode des puissances itérées inverses converge d'autant plus vite que les rapports $\left|\frac{\lambda_1}{\lambda_2}\right|^k$ tendent rapidement vers 0. On a donc intérêt à ce que $\lambda_1$ soit le plus proche possible de 0, et de plus, la méthode sera d'autant plus rapide que l'écart entre les deux plus petites valeurs propres se creuse. La technique du décalage consiste donc à remplacer $A$ par $A+\alpha I$, avec $\alpha\approx -\lambda_1$. Plus l'estimation de $\lambda_1$ sera précise, plus la convergence sera rapide. Toutefois, il faut que $\alpha\neq -\lambda_1$ pour éviter que la matrice ne devienne singulière
-# 2. Technique de \textbf{déflation} : la méthode des puissances itérées peut être étendue pour permettre le calcul de toutes les valeurs propres d'une matrice symétrique. Supposons en effet calculée la plus grande valeur propre $\lambda_n$ ainsi qu'un vecteur propre associé $v^n$. Soit $P_n$ la la matrice de projection orthogonale sur l'hyperplan $(v^n)^\bot$. La matrice $P_nA$ possède les mêmes vecteurs propres que $A$ et les mêmes valeurs propres à l'exception de $\lambda_n$ qui est remplacée par 0. L'application de la méthode des puissances itérées à $P_nA$ permettra donc de calculer la deuxième plus grande valeur propre de $A$. Cette technique, dite de déflation, permet théoriquement de calculer toutes les valeurs propres de $A$. Elle est toutefois numériquement instable sans précautions, et on lui préférera généralement la méthode des puissances groupées présentée ci-après.
+# 1. Accélération par *décalage* : la matrice $A+\alpha I$ a les mêmes vecteurs propres que $A$ et ses valeurs propres sont décalées de la quantité $\alpha$. La méthode des puissances itérées inverses converge d'autant plus vite que les rapports $\left|\frac{\lambda_1}{\lambda_2}\right|^k$ tendent rapidement vers 0. On a donc intérêt à ce que $\lambda_1$ soit le plus proche possible de 0, et de plus, la méthode sera d'autant plus rapide que l'écart entre les deux plus petites valeurs propres se creuse. La technique du décalage consiste donc à remplacer $A$ par $A+\alpha I$, avec $\alpha\approx -\lambda_1$. Plus l'estimation de $\lambda_1$ sera précise, plus la convergence sera rapide. Toutefois, il faut que $\alpha\neq -\lambda_1$ pour éviter que la matrice ne devienne singulière
+# 2. Technique de *déflation* : la méthode des puissances itérées peut être étendue pour permettre le calcul de toutes les valeurs propres d'une matrice symétrique. Supposons en effet calculée la plus grande valeur propre $\lambda_n$ ainsi qu'un vecteur propre associé $v^n$. Soit $P_n$ la la matrice de projection orthogonale sur l'hyperplan $(v^n)^\bot$. La matrice $P_nA$ possède les mêmes vecteurs propres que $A$ et les mêmes valeurs propres à l'exception de $\lambda_n$ qui est remplacée par 0. L'application de la méthode des puissances itérées à $P_nA$ permettra donc de calculer la deuxième plus grande valeur propre de $A$. Cette technique, dite de déflation, permet théoriquement de calculer toutes les valeurs propres de $A$. Elle est toutefois numériquement instable sans précautions, et on lui préférera généralement la méthode des puissances groupées.
 # ```
