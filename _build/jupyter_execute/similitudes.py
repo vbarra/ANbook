@@ -20,13 +20,14 @@
 # ```{prf:property}
 # Deux matrices semblables ont les mêmes valeurs propres
 # ```
-# En effet, soit $x$ un vecteur propre de $A$ associé à la valeur propre $\lambda$. On a donc $Ax=\lambda x$, qui s'écrit $SBS^{-1}x=\lambda x$, ce qui veut dire que $\lambda$ est valeur propre de $B$ associé au vecteur propre $S^{-1}x$.\hfill$\Box$
+# En effet, soit $x$ un vecteur propre de $A$ associé à la valeur propre $\lambda$. On a donc $Ax=\lambda x$, qui s'écrit $SBS^{-1}x=\lambda x$, ce qui veut dire que $\lambda$ est valeur propre de $B$ associé au vecteur propre $S^{-1}x$.
+# 
 # 
 # 
 # L'intérêt de ces transformations est double : 
 # - les valeurs propres sont inchangées
 # - en supposant les vecteurs propres linéairement indépendants, la similitude associée à la matrice $X$ dont les colonnes sont les vecteurs propres transforme $A$ en une matrice diagonale dont les éléments diagonaux sont les valeurs propres de $A$ : $X^{-1}AX = \Lambda$.
-# - 
+# 
 # 
 # Montrons maintenant sur un exemple que deux matrices semblables représentent la même transformation linéaire sur deux bases différentes : soit $P$ la matrice de projection dans $\mathbb{R}^2$ sur la droite $L$ d'angle $\theta$ : 
 # $P =

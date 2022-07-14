@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Introduction &#8212; Analyse numérique</title>
+    <title>Moindres carrés linéaires &#8212; Analyse numérique</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -48,9 +48,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
-    <link rel="next" title="Requirement" href="Installation.html" />
+    <link rel="next" title="Similitudes" href="similitudes.html" />
+    <link rel="prev" title="Résultats généraux" href="resspec.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="fr">
     
@@ -104,8 +107,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
                     Introduction
                 </a>
             </li>
@@ -218,7 +221,7 @@ const thebe_selector_output = ".output, .cell_output"
   Analyse spectrale
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="introspect.html">
    Introduction
@@ -229,8 +232,8 @@ const thebe_selector_output = ".output, .cell_output"
    Résultats généraux
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="gershgorin.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Moindres carrés linéaires
   </a>
  </li>
@@ -317,6 +320,35 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -356,7 +388,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/vbarra/anbook.git/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/vbarra/anbook.git/issues/new?title=Issue%20on%20page%20%2Fgershgorin.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -384,7 +416,24 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/intro.md"
+        <a href="_sources/gershgorin.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="_sources/gershgorin.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -433,7 +482,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Introduction</h1>
+                <h1>Moindres carrés linéaires</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -445,65 +494,38 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">#</a></h1>
-<p>L’objectif de ce cours est d’initier les étudiants aux méthodes d’Analyse Numérique et d’Optimisation en dimension finie nécessaires pour la résolution des systèmes d’équations linéaires.</p>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Tutoriels</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Installation.html">Requirement</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tutoriel-jupyter.html">Tutoriel Jupyter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tutoriel-numpy.html">Tutoriel Numpy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tutoriel-matplotlib.html">Tutoriel Matplotlib</a></li>
-</ul>
+  <div class="tex2jax_ignore mathjax_ignore section" id="moindres-carres-lineaires">
+<h1>Moindres carrés linéaires<a class="headerlink" href="#moindres-carres-lineaires" title="Lien permanent vers ce titre">#</a></h1>
+<p>Avant d’aborder quelques algorithmes de calcul des valeurs propres d’une matrice, donnons une alternative pratique à ces algorithmes . Le théorème suivant  permet de localiser les valeurs propres dans des disques, dits disques de Gershgorin, du plan complexe.</p>
+<div class="highlight-{prf:theorem}Théorème notranslate"><div class="highlight"><pre><span></span>Si on représente une matrice $A$ (ou toute matrice semblable à $A$) sous la forme $A=diag\{d_1\cdots d_n\}+F$, où $F$ est une matrice de diagonale nulle, alors le spectre de $A$ est contenu dans l&#39;union des disques $D_i,1\leq i\leq n$ du plan complexe, tels que 
+$$D_i=\left \{ z\in \mathbb{C}, |z-d_i|\leq \dsum_{j=1}^n|f_{ij}|\right \}$$
+</pre></div>
 </div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Introduction au calcul matriciel</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ev.html">Espaces Vectoriels</a></li>
-<li class="toctree-l1"><a class="reference internal" href="matrices.html">Matrices</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sl.html">Systèmes d’équations linéaires</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch1exos.html">Exercices</a></li>
-</ul>
+<p id="index-0">Une application intéressante de ce résultat est l’estimation des valeurs propres d’une matrice obtenue en perturbant une matrice dont on connaît le spectre.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><img alt="" src="images/gershgorin.png" /></p>
 </div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Elimination de Gauss</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ch2.html">Gauss et LU</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch2.html#preambule-transformations-elementaires">Préambule : transformations élémentaires</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gauss.html">Elimination de Gauss</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lu.html">Facteurs LU d’une matrice non singulière</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lu.html#autres-applications">Autres applications</a></li>
-</ul>
+<div class="proof example admonition" id="example-0">
+<p class="admonition-title"><span class="caption-number">Example 14 </span></p>
+<div class="example-content section" id="proof-content">
+<p><span class="math notranslate nohighlight">\(A =
+\left[
+\begin{array}{ccc}
+1&amp;0.1&amp;-0.1\\
+0&amp;2&amp;0.4\\
+-0.2&amp;0&amp;3\\
+\end{array}
+\right]
+\)</span></p>
+<p>dont les valeurs propres sont situées dans les disques suivants
+<span class="math notranslate nohighlight">\(\begin{align*}
+D_1&amp;=\left \{ z\in \mathbb{C}, |z-1|\leq 0.2\right\}\\
+D_2&amp;=\left \{ z\in \mathbb{C}, |z-2|\leq 0.4\right\}\\
+D_3&amp;=\left \{ z\in \mathbb{C}, |z-3|\leq 0.2\right\}
+\end{align*}\)</span></p>
 </div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Moindres carrés linéaires</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="projections.html">Projections orthogonales</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mcl.html">Moindres carrés linéaires</a></li>
-<li class="toctree-l1"><a class="reference internal" href="transfoortho.html">Transformations orthogonales</a></li>
-<li class="toctree-l1"><a class="reference internal" href="exomcl.html">Exercices</a></li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Analyse spectrale</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="introspect.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="resspec.html">Résultats généraux</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gershgorin.html">Moindres carrés linéaires</a></li>
-<li class="toctree-l1"><a class="reference internal" href="similitudes.html">Similitudes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jacobi.html">Moindres carrés linéaires</a></li>
-<li class="toctree-l1"><a class="reference internal" href="puissiter.html">Moindres carrés linéaires</a></li>
-<li class="toctree-l1"><a class="reference internal" href="QRspec.html">Moindres carrés linéaires</a></li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Index</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
-</ul>
-</div>
-</div>
+</div></div>
 
     <script type="text/x-thebe-config">
     {
@@ -532,10 +554,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="Installation.html" title="suivant page">
+    <a class='left-prev' id="prev-link" href="resspec.html" title="précédent page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">précédent</p>
+            <p class="prev-next-title">Résultats généraux</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="similitudes.html" title="suivant page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title">Requirement</p>
+        <p class="prev-next-title">Similitudes</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

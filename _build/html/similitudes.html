@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Moindres carrés linéaires" href="jacobi.html" />
-    <link rel="prev" title="Résultats généraux" href="resspec.html" />
+    <link rel="prev" title="Moindres carrés linéaires" href="gershgorin.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="fr">
     
@@ -230,6 +230,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="resspec.html">
    Résultats généraux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gershgorin.html">
+   Moindres carrés linéaires
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -505,12 +510,11 @@ s’il existe une matrice <span class="math notranslate nohighlight">\(S\)</span
 <div class="property-content section" id="proof-content">
 <p>Deux matrices semblables ont les mêmes valeurs propres</p>
 </div>
-</div><p>En effet, soit <span class="math notranslate nohighlight">\(x\)</span> un vecteur propre de <span class="math notranslate nohighlight">\(A\)</span> associé à la valeur propre <span class="math notranslate nohighlight">\(\lambda\)</span>. On a donc <span class="math notranslate nohighlight">\(Ax=\lambda x\)</span>, qui s’écrit <span class="math notranslate nohighlight">\(SBS^{-1}x=\lambda x\)</span>, ce qui veut dire que <span class="math notranslate nohighlight">\(\lambda\)</span> est valeur propre de <span class="math notranslate nohighlight">\(B\)</span> associé au vecteur propre <span class="math notranslate nohighlight">\(S^{-1}x\)</span>.\hfill<span class="math notranslate nohighlight">\(\Box\)</span></p>
+</div><p>En effet, soit <span class="math notranslate nohighlight">\(x\)</span> un vecteur propre de <span class="math notranslate nohighlight">\(A\)</span> associé à la valeur propre <span class="math notranslate nohighlight">\(\lambda\)</span>. On a donc <span class="math notranslate nohighlight">\(Ax=\lambda x\)</span>, qui s’écrit <span class="math notranslate nohighlight">\(SBS^{-1}x=\lambda x\)</span>, ce qui veut dire que <span class="math notranslate nohighlight">\(\lambda\)</span> est valeur propre de <span class="math notranslate nohighlight">\(B\)</span> associé au vecteur propre <span class="math notranslate nohighlight">\(S^{-1}x\)</span>.</p>
 <p>L’intérêt de ces transformations est double :</p>
 <ul class="simple">
 <li><p>les valeurs propres sont inchangées</p></li>
 <li><p>en supposant les vecteurs propres linéairement indépendants, la similitude associée à la matrice <span class="math notranslate nohighlight">\(X\)</span> dont les colonnes sont les vecteurs propres transforme <span class="math notranslate nohighlight">\(A\)</span> en une matrice diagonale dont les éléments diagonaux sont les valeurs propres de <span class="math notranslate nohighlight">\(A\)</span> : <span class="math notranslate nohighlight">\(X^{-1}AX = \Lambda\)</span>.</p></li>
-<li></li>
 </ul>
 <p>Montrons maintenant sur un exemple que deux matrices semblables représentent la même transformation linéaire sur deux bases différentes : soit <span class="math notranslate nohighlight">\(P\)</span> la matrice de projection dans <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> sur la droite <span class="math notranslate nohighlight">\(L\)</span> d’angle <span class="math notranslate nohighlight">\(\theta\)</span> :
 <span class="math notranslate nohighlight">\(P =
@@ -577,11 +581,11 @@ Rv&amp;= PRu\\ \Rightarrow v&amp;=R^{-1}PRu=Qu
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="resspec.html" title="précédent page">
+    <a class='left-prev' id="prev-link" href="gershgorin.html" title="précédent page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">précédent</p>
-            <p class="prev-next-title">Résultats généraux</p>
+            <p class="prev-next-title">Moindres carrés linéaires</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="jacobi.html" title="suivant page">
