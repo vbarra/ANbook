@@ -74,7 +74,7 @@ Par récurrence, on montre alors que  $q_k=\frac{A^kq_0}{\|A^kq_0\|}$ et comme l
 import numpy as np
 import matplotlib.pyplot as plt
 
-def puissiter(A,v0,lam,niter=5):
+def puissiter(A,v0,lam,niter=50):
     v = v0
     vv = [v0]
     l = np.dot(v0,np.dot(A,v0))
