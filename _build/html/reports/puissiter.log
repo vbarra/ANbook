@@ -62,8 +62,10 @@ plt.title("Valeur propre approchée à "+ str(epsilon)+" près en "+str(k)+" it�
 plt.subplot(122)
 plot_vector2d(vv[0], color="b", linestyle="dotted")
 plt.text(vv[0][0],vv[0][1],'v0')
-plot_vector2d(vv[k-1], color="r", linestyle="dotted")
-plt.text(vv[k-1][0],vv[k_1][1],'vfinal')
+for i in range k:
+    plot_vector2d(vv[i], color="r", linestyle="dotted")
+
+    plt.text(vv[i][0],vv[k-1][1],'v('+str(i)+')')
 
 plt.title("Vecteur propre approché")
 plt.tight_layout()
@@ -72,15 +74,10 @@ plt.tight_layout()
 
 ------------------
 
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-Input [0;32mIn [1][0m, in [0;36m<module>[0;34m[0m
-[1;32m     45[0m plt[38;5;241m.[39mtext(vv[[38;5;241m0[39m][[38;5;241m0[39m],vv[[38;5;241m0[39m][[38;5;241m1[39m],[38;5;124m'[39m[38;5;124mv0[39m[38;5;124m'[39m)
-[1;32m     46[0m plot_vector2d(vv[k[38;5;241m-[39m[38;5;241m1[39m], color[38;5;241m=[39m[38;5;124m"[39m[38;5;124mr[39m[38;5;124m"[39m, linestyle[38;5;241m=[39m[38;5;124m"[39m[38;5;124mdotted[39m[38;5;124m"[39m)
-[0;32m---> 47[0m plt[38;5;241m.[39mtext(vv[k[38;5;241m-[39m[38;5;241m1[39m][[38;5;241m0[39m],vv[[43mk_1[49m][[38;5;241m1[39m],[38;5;124m'[39m[38;5;124mvfinal[39m[38;5;124m'[39m)
-[1;32m     49[0m plt[38;5;241m.[39mtitle([38;5;124m"[39m[38;5;124mVecteur propre approché[39m[38;5;124m"[39m)
-[1;32m     50[0m plt[38;5;241m.[39mtight_layout()
+[0;36m  Input [0;32mIn [1][0;36m[0m
+[0;31m    for i in range k:[0m
+[0m                   ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
 
-[0;31mNameError[0m: name 'k_1' is not defined
-NameError: name 'k_1' is not defined
+SyntaxError: invalid syntax (<ipython-input-1-0e1dc23aa364>, line 46)
 
