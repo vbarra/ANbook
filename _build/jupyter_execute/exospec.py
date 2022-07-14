@@ -6,49 +6,42 @@
 # ## Exercice 1
 # 
 # Soit les matrices 
-# $
-# \bm 
+# $begin{pmatrix}
 # 1 & 1 \\
 # 0 & 2 
-# \em
+# \end{pmatrix}
 # , 
-# \bm 
+# begin{pmatrix} 
 # 1 & 0 \\
 # 1 & 2 
-# \em
+# \end{pmatrix}
 # ,
-# \bm 
+# begin{pmatrix} 
 # 1 & 1 \\
 # 0 & 1 
-# \em
+# \end{pmatrix}
 # ,
-# \bm 
+# begin{pmatrix}
 # 1 & 1 \\
 # 1 & 0 
-# \em
+# \end{pmatrix}
 # ,
-# \bm 
+# begin{pmatrix}
 # 1 & 2 \\
 # 2 & 4 
-# \em,
-# $
-# et 
-# $
-# %\bm 
-# %\cos\theta & -\sin\theta \\
-# %\sin\theta & \cos\theta 
-# %\em,
-# \bm 
+# \end{pmatrix},
+# 
+# begin{pmatrix}
 # 0 & 1 & 0 \\
 # 1 & 0 & 1 \\
 # 0 & 1 & 0
-# \em
+# \end{pmatrix}
 # ,
-# \bm 
+# begin{pmatrix} 
 # 11 & -5 & 5 \\
 # -5 & 3 & -3 \\
 # 5 & -3 & 3
-# \em
+# \end{pmatrix}
 # $
 # 
 # Pour chacune de ces matrices, répondre aux questions suivantes :

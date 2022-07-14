@@ -14,38 +14,38 @@ kernelspec:
 ## Exercice 1
 
 Soit les matrices 
-$begin{pmatrix}
+$\begin{pmatrix}
 1 & 1 \\
 0 & 2 
 \end{pmatrix}
 , 
-begin{pmatrix} 
+\begin{pmatrix} 
 1 & 0 \\
 1 & 2 
 \end{pmatrix}
 ,
-begin{pmatrix} 
+\begin{pmatrix} 
 1 & 1 \\
 0 & 1 
 \end{pmatrix}
 ,
-begin{pmatrix}
+\begin{pmatrix}
 1 & 1 \\
 1 & 0 
 \end{pmatrix}
 ,
-begin{pmatrix}
+\begin{pmatrix}
 1 & 2 \\
 2 & 4 
 \end{pmatrix},
 
-begin{pmatrix}
+\begin{pmatrix}
 0 & 1 & 0 \\
 1 & 0 & 1 \\
 0 & 1 & 0
 \end{pmatrix}
 ,
-begin{pmatrix} 
+\begin{pmatrix} 
 11 & -5 & 5 \\
 -5 & 3 & -3 \\
 5 & -3 & 3
