@@ -93,7 +93,8 @@ plt.plot(range(len(ll)),lam*np.ones((len(ll)), dtype=np.uint8) ,'r')
 plt.ylabel('valeur propre')
 plt.xlabel('Iteration');
 plt.legend()
-plt.title("Valeur propre approchée à ",epsilon," près en ",k," itérations")
+titre = "Valeur propre approchée à ",epsilon," près en ",k," itérations"
+plt.title(titre)
 plt.tight_layout()
 
 
