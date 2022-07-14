@@ -60,7 +60,7 @@ q\\
 \right .$
 
 On vérifie que seules les lignes et colonnes $p$ et $q$ de $A$ sont modifiées. 
-En posant $c=\cos\theta$, $s=\sin\theta$, $t=\tan\theta$, la mise à jour s'écrit :
+En posant $c=\cos\theta$, $s=\sin\theta$ et $t=\tan\theta$, la mise à jour s'écrit :
 
 $\begin{align*}
 a'_{pj}&=ca_{pj}-sa_{qj},j\neq p,q\\
