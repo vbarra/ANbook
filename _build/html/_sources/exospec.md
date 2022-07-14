@@ -155,7 +155,7 @@ $
  
 
 ## Exercice 5
-Soit $a$ et $b$ deux vecteurs non colinéaires de $\mathbb R^n$, $\norme{a}=\norme{b}=1$. Déterminer
+Soit $a$ et $b$ deux vecteurs non colinéaires de $\mathbb R^n$, $\|a\|=\|b\|=1$. Déterminer
 les vecteurs propres et les valeurs propres de la matrice $n\times n$
 $
 A=aa^\top +bb^\top .
@@ -201,7 +201,7 @@ $v_n^\perp$.
 l'exception de $v_n$. Quelles sont les valeurs propres de $P_nA$.
 En déduire une première méthode de calcul des plus grandes valeurs 
 propres de $A$.
-\end{exo}
+
 
 
 ## Exercice 8
