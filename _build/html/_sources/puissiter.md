@@ -80,6 +80,7 @@ def puissiter(A,v0,lam,niter=5):
     l = np.dot(v0,np.dot(A,v0))
     ll = [l]
     epsilon = 1e-4
+    k=0
     while np.fabs(lam-l)>epsilon and k<niter:
         w = np.dot(A,v)
         v = w/np.linalg.norm(w)

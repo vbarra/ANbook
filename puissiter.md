@@ -87,6 +87,7 @@ def puissiter(A,v0,lam,niter=5):
         l = np.dot(v,np.dot(A,v))
         vv.append(v)
         ll.append(l)
+        print(np.fabs(lam-l)," --- ",k)
         k=k+1
     return ll, vv
 
