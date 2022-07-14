@@ -47,10 +47,14 @@ On vérifie que $\bf A$ et $\bf B$ ont le même spectre
 ```{code-cell} ipython3
 A.eigenvals(), B.eigenvals()
 ```
- mais que les vecteurs propres sont différents
+
+Les valeurs propres sont donc 1 et 3, de multiplicité 1 chacune.
+
+En revanche, les vecteurs propres sont différents
 
 ```{code-cell} ipython3
 Matrix(A.eigenvects())
+Matrix(B.eigenvects())
 ```
 
 
