@@ -28,6 +28,7 @@ parts:
     chapters:
     - file: introspect    
     - file: resspec    
+    - file: gershgorin 
     - file: similitudes 
     - file: jacobi   
     - file: puissiter   

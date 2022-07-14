@@ -12,7 +12,7 @@
 # 
 # $B=S^{-1}AS$
 # ```
-# ```{index}Matrice;semblable
+# ```{index} Matrice;semblable
 # ```
 # 
 # La transformation de $A$ vers $B$ est une *similitude*. En l'écrivant sous la forme $AS=SB$, on retrouve une généralisation de la définition des valeurs propres et des vecteurs propres. On a d'ailleurs le résultat fondamental :
