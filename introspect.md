@@ -12,7 +12,7 @@ kernelspec:
 # Introduction
 
 ## Introduction
-L'analyse spectrale est l'étude des valeurs propres et des vecteurs propres d'une matrice carrée. \\
+L'analyse spectrale est l'étude des valeurs propres et des vecteurs propres d'une matrice carrée. 
 
 ```{index} valeur propre
 ```
@@ -27,7 +27,7 @@ on a $Ax=\lambda x$.
 
 Le calcul des $n$ solutions de l'équation caractéristique est coûteux dès que $n>2$ et le théorème d'Abel montre qu'on ne peut 
 espérer la résoudre par des radicaux
-dès que $n>4$. On recherchera donc des méthodes itératives qui permettent d'approcher ces racines et non de les calculer explicitement car, à la différence des méthodes de résolution de systèmes linéaires vues dans le chapitre 2, la convergence sera ici asymptotique. En fait, les méthodes qui seront présentées pour le calcul des valeurs propres sont utilisées pour extraire les racines d'un polynôme en passant par la matrice compagne : 
+dès que $n>4$. On recherchera donc des méthodes itératives qui permettent d'approcher ces racines et non de les calculer explicitement car, à la différence des méthodes de résolution de systèmes linéaires vues précédemment, la convergence sera ici asymptotique. En fait, les méthodes qui seront présentées pour le calcul des valeurs propres sont utilisées pour extraire les racines d'un polynôme en passant par la matrice compagne : 
 
 $\displaystyle\sum_{i=0}^{n-1}a_it^i+t^n = 0$
 

@@ -13,7 +13,10 @@ kernelspec:
 
 ## Introduction
 L'analyse spectrale est l'étude des valeurs propres et des vecteurs propres d'une matrice carrée. \\
-Les valeurs propres\index{valeur propre}
+
+```{index} valeur propre
+```
+Les valeurs propres
 d'une matrice carrée $A (n\times n)$ sont les $n$ solutions dans $\mathbb{C}$ de l'équation caractéristique
 
 $det(\lambda I-A) = 0$
@@ -24,10 +27,11 @@ on a $Ax=\lambda x$.
 
 Le calcul des $n$ solutions de l'équation caractéristique est coûteux dès que $n>2$ et le théorème d'Abel montre qu'on ne peut 
 espérer la résoudre par des radicaux
-dès que $n>4$. On recherchera donc des méthodes itératives qui permettent d'approcher ces racines et non de les calculer explicitement car, à la différence des méthodes de résolution de systèmes linéaires vues dans le chapitre 2, la convergence sera ici asymptotique. En fait, les méthodes qui seront présentées pour le calcul des valeurs propres sont utilisées pour extraire les racines d'un polynôme en passant par la matrice compagne :  
-$$\displaystyle\sum_{i=0}^{n-1}a_it^i+t^n = 0$$
-est le polynôme caractéristique
-de la matrice compagne
+dès que $n>4$. On recherchera donc des méthodes itératives qui permettent d'approcher ces racines et non de les calculer explicitement car, à la différence des méthodes de résolution de systèmes linéaires vues dans le chapitre 2, la convergence sera ici asymptotique. En fait, les méthodes qui seront présentées pour le calcul des valeurs propres sont utilisées pour extraire les racines d'un polynôme en passant par la matrice compagne : 
+
+$\displaystyle\sum_{i=0}^{n-1}a_it^i+t^n = 0$
+
+est le polynôme caractéristique de la matrice compagne
 
 $A =
 \left (
@@ -46,17 +50,22 @@ $
 
 ## Intérêts
 
-Considérons par exemple un système d'équations différentielles ordinaires : \index{système!différentiel}\\
+Considérons par exemple un système d'équations différentielles ordinaires : 
+
 Trouver les fonctions $v(t)$ et $w(t)$, pour $t\in \mathbb{R}^+$, telles que :
-\begin{eqnarray*}
+
+$\begin{eqnarray*}
 \frac{dv}{dt}& =& 4v - 5w\\[.25pc]
 \frac{dw}{dt}& =& 2v - 3w
-\end{eqnarray*}
+\end{eqnarray*}$
+
 avec comme conditions initiales $v(0)=8,w(0)=5$.
 Ce système peut être mis sous la forme vectorielle
-\begin{equation}\label{eqvec}
+
+$\begin{equation}\label{eqvec}
 \frac{du}{dt}=Au
-\end{equation}
+\end{equation}$
+
 avec : 
 $u(t)=\begin{pmatrix}v(t)\\w(t)\end {pmatrix},u(0)=\begin{pmatrix}8\\5\end {pmatrix},A=\begin{pmatrix}4\quad -5\\2\quad -3\end {pmatrix}$
 
