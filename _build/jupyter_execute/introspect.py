@@ -7,7 +7,9 @@
 # L'analyse spectrale est l'étude des valeurs propres et des vecteurs propres d'une matrice carrée. \\
 # Les valeurs propres\index{valeur propre}
 # d'une matrice carrée $A (n\times n)$ sont les $n$ solutions dans $\mathbb{C}$ de l'équation caractéristique
-# $$det(\lambda I-A) = 0$$
+# 
+# $det(\lambda I-A) = 0$
+# 
 # Du point de vue de l'algèbre linéaire, cela signifie que le noyau de $\lambda I-A$ contient des vecteurs non nuls, appelés vecteurs propres\index{vecteurs!propres} associés à $\lambda$.
 # Donc, si $x\neq 0$ est un vecteur propre  de $A$ associé à la valeur propre $\lambda$,
 # on a $Ax=\lambda x$.
@@ -15,7 +17,7 @@
 # Le calcul des $n$ solutions de l'équation caractéristique est coûteux dès que $n>2$ et le théorème d'Abel montre qu'on ne peut 
 # espérer la résoudre par des radicaux
 # dès que $n>4$. On recherchera donc des méthodes itératives qui permettent d'approcher ces racines et non de les calculer explicitement car, à la différence des méthodes de résolution de systèmes linéaires vues dans le chapitre 2, la convergence sera ici asymptotique. En fait, les méthodes qui seront présentées pour le calcul des valeurs propres sont utilisées pour extraire les racines d'un polynôme en passant par la matrice compagne :  
-# $$\dsum_{i=0}^{n-1}a_it^i+t^n = 0$$
+# $$\displaystyle\sum_{i=0}^{n-1}a_it^i+t^n = 0$$
 # est le polynôme caractéristique
 # de la matrice compagne
 # 
@@ -47,7 +49,9 @@
 # \begin{equation}\label{eqvec}
 # \frac{du}{dt}=Au
 # \end{equation}
-# avec : $$u(t)=\begin{pmatrix}v(t)\\w(t)\end {pmatrix},u(0)=\begin{pmatrix}8\\5\end {pmatrix},A=\begin{pmatrix}4\quad -5\\2\quad -3\end {pmatrix}$$
+# avec : 
+# $u(t)=\begin{pmatrix}v(t)\\w(t)\end {pmatrix},u(0)=\begin{pmatrix}8\\5\end {pmatrix},A=\begin{pmatrix}4\quad -5\\2\quad -3\end {pmatrix}$
+# 
 # Sachant que la solution de l'équation $x'=ax$ en dimension 1 est $x(t)=x_0e^{at}$, qui diverge si $a>0$ et se stabilise asymptotiquement à zéro si $a<0$, on cherchera des solutions particulières de la forme 
 # 
 # $

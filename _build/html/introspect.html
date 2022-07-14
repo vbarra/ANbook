@@ -542,15 +542,15 @@ title="Print to PDF"
 <h2>Introduction<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">#</a></h2>
 <p>L’analyse spectrale est l’étude des valeurs propres et des vecteurs propres d’une matrice carrée. \
 Les valeurs propres\index{valeur propre}
-d’une matrice carrée <span class="math notranslate nohighlight">\(A (n\times n)\)</span> sont les <span class="math notranslate nohighlight">\(n\)</span> solutions dans <span class="math notranslate nohighlight">\(\mathbb{C}\)</span> de l’équation caractéristique
-$<span class="math notranslate nohighlight">\(det(\lambda I-A) = 0\)</span><span class="math notranslate nohighlight">\(
-Du point de vue de l'algèbre linéaire, cela signifie que le noyau de \)</span>\lambda I-A<span class="math notranslate nohighlight">\( contient des vecteurs non nuls, appelés vecteurs propres\index{vecteurs!propres} associés à \)</span>\lambda<span class="math notranslate nohighlight">\(.
-Donc, si \)</span>x\neq 0<span class="math notranslate nohighlight">\( est un vecteur propre  de \)</span>A<span class="math notranslate nohighlight">\( associé à la valeur propre \)</span>\lambda<span class="math notranslate nohighlight">\(,
-on a \)</span>Ax=\lambda x$.</p>
+d’une matrice carrée <span class="math notranslate nohighlight">\(A (n\times n)\)</span> sont les <span class="math notranslate nohighlight">\(n\)</span> solutions dans <span class="math notranslate nohighlight">\(\mathbb{C}\)</span> de l’équation caractéristique</p>
+<p><span class="math notranslate nohighlight">\(det(\lambda I-A) = 0\)</span></p>
+<p>Du point de vue de l’algèbre linéaire, cela signifie que le noyau de <span class="math notranslate nohighlight">\(\lambda I-A\)</span> contient des vecteurs non nuls, appelés vecteurs propres\index{vecteurs!propres} associés à <span class="math notranslate nohighlight">\(\lambda\)</span>.
+Donc, si <span class="math notranslate nohighlight">\(x\neq 0\)</span> est un vecteur propre  de <span class="math notranslate nohighlight">\(A\)</span> associé à la valeur propre <span class="math notranslate nohighlight">\(\lambda\)</span>,
+on a <span class="math notranslate nohighlight">\(Ax=\lambda x\)</span>.</p>
 <p>Le calcul des <span class="math notranslate nohighlight">\(n\)</span> solutions de l’équation caractéristique est coûteux dès que <span class="math notranslate nohighlight">\(n&gt;2\)</span> et le théorème d’Abel montre qu’on ne peut
 espérer la résoudre par des radicaux
 dès que <span class="math notranslate nohighlight">\(n&gt;4\)</span>. On recherchera donc des méthodes itératives qui permettent d’approcher ces racines et non de les calculer explicitement car, à la différence des méthodes de résolution de systèmes linéaires vues dans le chapitre 2, la convergence sera ici asymptotique. En fait, les méthodes qui seront présentées pour le calcul des valeurs propres sont utilisées pour extraire les racines d’un polynôme en passant par la matrice compagne :<br />
-$<span class="math notranslate nohighlight">\(\dsum_{i=0}^{n-1}a_it^i+t^n = 0\)</span>$
+$<span class="math notranslate nohighlight">\(\displaystyle\sum_{i=0}^{n-1}a_it^i+t^n = 0\)</span>$
 est le polynôme caractéristique
 de la matrice compagne</p>
 <p><span class="math notranslate nohighlight">\(A =
@@ -577,8 +577,9 @@ Ce système peut être mis sous la forme vectorielle
 \begin{equation}\label{eqvec}
 \frac{du}{dt}=Au
 \end{equation}
-avec : $<span class="math notranslate nohighlight">\(u(t)=\begin{pmatrix}v(t)\\w(t)\end {pmatrix},u(0)=\begin{pmatrix}8\\5\end {pmatrix},A=\begin{pmatrix}4\quad -5\\2\quad -3\end {pmatrix}\)</span><span class="math notranslate nohighlight">\(
-Sachant que la solution de l'équation \)</span>x”=ax<span class="math notranslate nohighlight">\( en dimension 1 est \)</span>x(t)=x_0e^{at}<span class="math notranslate nohighlight">\(, qui diverge si \)</span>a&gt;0<span class="math notranslate nohighlight">\( et se stabilise asymptotiquement à zéro si \)</span>a&lt;0$, on cherchera des solutions particulières de la forme</p>
+avec :
+<span class="math notranslate nohighlight">\(u(t)=\begin{pmatrix}v(t)\\w(t)\end {pmatrix},u(0)=\begin{pmatrix}8\\5\end {pmatrix},A=\begin{pmatrix}4\quad -5\\2\quad -3\end {pmatrix}\)</span></p>
+<p>Sachant que la solution de l’équation <span class="math notranslate nohighlight">\(x'=ax\)</span> en dimension 1 est <span class="math notranslate nohighlight">\(x(t)=x_0e^{at}\)</span>, qui diverge si <span class="math notranslate nohighlight">\(a&gt;0\)</span> et se stabilise asymptotiquement à zéro si <span class="math notranslate nohighlight">\(a&lt;0\)</span>, on cherchera des solutions particulières de la forme</p>
 <p><span class="math notranslate nohighlight">\(
 \left \{
 \begin{array}{cc}
