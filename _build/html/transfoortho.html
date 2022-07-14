@@ -760,7 +760,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}0.03738 &amp; 0.9514 &amp; 0.9808 &amp; 0.2364\\0.05246 &amp; 0.4384 &amp; 0.09361 &amp; 0.126\\0.4821 &amp; 0.2755 &amp; 0.4644 &amp; 0.9254\\0.1066 &amp; 0.003111 &amp; 0.3943 &amp; 0.3182\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}0.1227 &amp; 0.6199 &amp; 0.3828 &amp; 0.3176\\0.3736 &amp; 0.3836 &amp; 0.961 &amp; 0.3976\\0.02945 &amp; 0.7203 &amp; 0.757 &amp; 0.1775\\0.5479 &amp; 0.09539 &amp; 0.4605 &amp; 0.1244\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -771,7 +771,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}0.07507 &amp; 0.9112 &amp; 0.3244 &amp; -0.2427\\0.1054 &amp; 0.3929 &amp; -0.6416 &amp; 0.6503\\0.9682 &amp; -0.09609 &amp; -0.1072 &amp; -0.2045\\0.2141 &amp; -0.07833 &amp; 0.6868 &amp; 0.6902\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}0.1817 &amp; 0.5797 &amp; -0.6396 &amp; 0.4709\\0.5534 &amp; 0.1538 &amp; 0.6565 &amp; 0.4889\\0.04363 &amp; 0.7514 &amp; 0.2429 &amp; -0.6119\\0.8117 &amp; -0.275 &amp; -0.3176 &amp; -0.4059\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -782,7 +782,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}0.4979 &amp; 0.385 &amp; 0.6175 &amp; 0.9951\\0 &amp; 1.012 &amp; 0.855 &amp; 0.1511\\0 &amp; 0 &amp; 0.4792 &amp; 0.1152\\0 &amp; 0 &amp; 0 &amp; 0.05487\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}0.6751 &amp; 0.4338 &amp; 1.008 &amp; 0.3865\\0 &amp; 0.9334 &amp; 0.8119 &amp; 0.3444\\0 &amp; 0 &amp; 0.4237 &amp; 0.06155\\0 &amp; 0 &amp; 0 &amp; 0.1848\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -793,13 +793,12 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}1.0 &amp; -4.99 \cdot 10^{-17} &amp; -1.928 \cdot 10^{-16} &amp; -3.341 \cdot 10^{-15}\\-4.99 \cdot 10^{-17} &amp; 1.0 &amp; -1.691 \cdot 10^{-18} &amp; 9.601 \cdot 10^{-17}\\-1.928 \cdot 10^{-16} &amp; -1.691 \cdot 10^{-18} &amp; 1.0 &amp; 2.597 \cdot 10^{-15}\\-3.341 \cdot 10^{-15} &amp; 9.601 \cdot 10^{-17} &amp; 2.597 \cdot 10^{-15} &amp; 1.0\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}1.0 &amp; 4.334 \cdot 10^{-17} &amp; 4.03 \cdot 10^{-16} &amp; 4.423 \cdot 10^{-16}\\4.334 \cdot 10^{-17} &amp; 1.0 &amp; 2.689 \cdot 10^{-16} &amp; 1.791 \cdot 10^{-16}\\4.03 \cdot 10^{-16} &amp; 2.689 \cdot 10^{-16} &amp; 1.0 &amp; -1.232 \cdot 10^{-15}\\4.423 \cdot 10^{-16} &amp; 1.791 \cdot 10^{-16} &amp; -1.232 \cdot 10^{-15} &amp; 1.0\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># On vérifie à quel point Q est orthogonale</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Q^TQ=&quot;</span><span class="p">,</span><span class="n">Q</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="nd">@Q</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Norme de I-Q^TQ = &quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Q</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">Q</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">n</span><span class="p">))))</span>
 
 <span class="c1">#On vérifie à quel point A=QR</span>
@@ -808,12 +807,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Q^TQ= [[ 1.0000e+00 -4.9897e-17 -1.9284e-16 -3.3412e-15]
- [-4.9897e-17  1.0000e+00 -1.6906e-18  9.6015e-17]
- [-1.9284e-16 -1.6906e-18  1.0000e+00  2.5972e-15]
- [-3.3412e-15  9.6015e-17  2.5972e-15  1.0000e+00]] 
-
-Norme de I-Q^TQ =  3.3411500615945418e-15
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Norme de I-Q^TQ =  1.2324355924340125e-15
 Norme infinie de QR-A =  1.1102230246251565e-16
 </pre></div>
 </div>
@@ -1022,7 +1016,7 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 <p>L’implémentation peut se faire de la manière suivante.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">householder</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Householder</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
     <span class="n">u</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">copysign</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
     <span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">-</span><span class="p">(</span><span class="mi">2</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">u</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">u</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:]))</span>
@@ -1033,7 +1027,7 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
     <span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="p">(</span><span class="n">m</span> <span class="o">==</span> <span class="n">n</span><span class="p">)):</span>
         <span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-        <span class="n">H</span><span class="p">[</span><span class="n">i</span><span class="p">:,</span> <span class="n">i</span><span class="p">:]</span> <span class="o">=</span> <span class="n">householder</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">:,</span> <span class="n">i</span><span class="p">])</span>
+        <span class="n">H</span><span class="p">[</span><span class="n">i</span><span class="p">:,</span> <span class="n">i</span><span class="p">:]</span> <span class="o">=</span> <span class="n">Householder</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">:,</span> <span class="n">i</span><span class="p">])</span>
         <span class="n">Q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="n">H</span><span class="p">)</span>
         <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">Q</span><span class="p">,</span> <span class="n">A</span>

@@ -176,7 +176,6 @@ Matrix(Q.transpose()@Q).evalf(4)
 
 ```{code-cell} ipython3
 # On vérifie à quel point Q est orthogonale
-print("Q^TQ=",Q.transpose()@Q,"\n")
 print("Norme de I-Q^TQ = ", np.max(np.abs(np.dot(Q.T,Q)-np.eye(n))))
 
 #On vérifie à quel point A=QR
@@ -375,7 +374,7 @@ ${\bf A^{(3)}}={\bf H^{(2)}A^{(2)}}\begin{pmatrix}{\|{\bf A^{(1)}_{\bullet,1}}\|
 L'implémentation peut se faire de la manière suivante.
 
 ```{code-cell} ipython3
-def householder(a):
+def Householder(a):
     u = a / (a[0] + np.copysign(np.linalg.norm(a), a[0]))
     u[0] = 1
     H = np.eye(a.shape[0])-(2 / np.dot(u, u) * np.dot(u[:, None], u[None, :]))
@@ -386,7 +385,7 @@ def qr(A):
     Q = np.eye(m)
     for i in range(n - (m == n)):
         H = np.eye(m)
-        H[i:, i:] = householder(A[i:, i])
+        H[i:, i:] = Householder(A[i:, i])
         Q = np.dot(Q, H)
         A = np.dot(H, A)
     return Q, A
