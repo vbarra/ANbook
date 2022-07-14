@@ -12,7 +12,7 @@ kernelspec:
 
 # Résultats généraux
 
-On donnera ici quelques propriétés d'intérêt surtout pratique concernant les valeurs propres et les vecteurs propres de certaines matrices. Les démonstrations sont omises.
+On donnera ici quelques propriétés d'intérêt surtout pratiques concernant les valeurs propres et les vecteurs propres de certaines matrices. Les démonstrations sont omises.
 
 Une matrice carrée $A$ de dimension $n$ à coefficients complexes ou réels possède $n$ valeurs 
 propres non nécessairement distinctes dans $\mathbb{C}$. L'ensemble de ces valeurs propres est 
@@ -28,11 +28,11 @@ valeur propre $\lambda$ dans ce spectre est appelé sa
 ```
 ```{index} Rayon spectral
 ```
-Le *rayon spectral*, noté $\rho(A)$, est le plus grand module des valeurs propres de $A$. La somme des valeurs propres est égale à la \textbf{trace} de la matrice :
+Le *rayon spectral*, noté $\rho(A)$, est le plus grand module des valeurs propres de $A$. La somme des valeurs propres est égale à la *trace* de la matrice :
 
 $\displaystyle\sum_{i=1}^n\lambda_i=\displaystyle\sum{i=1}^na_{ii}$
 
-et on en déduit donc que si une matrice réelle possède une valeur propre complexe, son conjugué est aussi valeur propre. De même, le produit des valeurs propres est égal au \textbf{déterminant} de 
+et on en déduit donc que si une matrice réelle possède une valeur propre complexe, son conjugué est aussi valeur propre. De même, le produit des valeurs propres est égal au *déterminant* de 
 $A$ :
 $\displaystyle\prod_{i=1}^n\lambda_i=det(A)$
 
@@ -82,6 +82,7 @@ suivantes :
 ```
 
 Le seul fait de l'existence de valeurs propres multiples ne suffit pas à impliquer que la matrice soit défective (cf. la matrice identité par exemple).
+
 Un exemple typique de matrice défective est $A=\begin{pmatrix} 0\quad 1\\0\quad 0\end{pmatrix}$, qui possède la valeur propre double 0. Les vecteurs propres sont de la forme $x=\begin{pmatrix}\alpha\\0\end{pmatrix}$, ils engendrent donc un sous-espace de dimension 1. $A$ n'est donc pas diagonalisable.
 
 Dans certains cas, il est relativement facile d'inférer sur la valeur ou la nature des valeurs propres d'une matrice $A$:

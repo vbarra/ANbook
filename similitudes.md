@@ -14,7 +14,7 @@ kernelspec:
 L'objectif est encore une fois de transformer une matrice par des transformations simples en une matrice dont on connaît les valeurs propres, c'est-à-dire, une matrice triangulaire ou diagonale. Les transformations qui maintiennent le spectre d'une matrice sont des similitudes.
 
 
-```{prl:definition}
+```{prl:definition} Similitude
 Deux matrices carrées $A$ et $B$ sont dites *semblables* 
 s'il existe une matrice $S$ non singulière telle que 
 
