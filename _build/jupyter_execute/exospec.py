@@ -81,7 +81,8 @@
 # En posant $X_k=\begin{pmatrix}  u_{k+1} \\ u_k \end{pmatrix}^\top $, déterminer la matrice $A$ telle que $X_k=A X_{k-1} $ puis en déduire la limite de $F_k=\frac{u_{k+1}}{u_k}$ quand $k$ tend vers l'infini.
 # 
 # 
-# 3. Soientt les suites récurrentes linéaires simultanées suivantes :
+# 3. Soient les suites récurrentes linéaires simultanées suivantes :
+# 
 # $
 # \left\lbrace\begin{array}{l}
 # u_0=v_0=0,w_0=1\\
@@ -108,7 +109,7 @@
 # 
 # 1. Soit $a$ et $b$ deux réels et $D$ une matrice carrée. Montrer que si
 # $\lambda$ est valeur propre de $D$, alors $a\lambda+b$ est une valeur
-# propre de $aD+b\mbb I$, o\`u $\mbb I$ est la matrice identité.
+# propre de $aD+b\mathbb I$, o\`u $\mathbb I$ est la matrice identité.
 # 
 # 2. Soit $D$ la matrice carrée tridiagonale définie par
 # $\begin{eqnarray*}
@@ -117,13 +118,13 @@
 # &&d_{ij}=0,\quad\mbox{ailleurs}.
 # \end{eqnarray*}$
 # 
-# Pour $j=1,\ldots,n$, soit $\mbf x^{(j)}$ le vecteur de $\mbb R^n$ dont
+# Pour $j=1,\ldots,n$, soit $\mathbf x^{(j)}$ le vecteur de $\mathbb R^n$ dont
 # la $i$--ème composante est
 # $
 # x_i^{(j)}=\sin 2i\frac{j\pi}{n+1}.
 # $
 # 
-# Montrer que $\mbf x^{(j)}$ est un vecteur propre de $D$ associée à la
+# Montrer que $\mathbf x^{(j)}$ est un vecteur propre de $D$ associée à la
 # valeur propre 
 # $
 # \lambda_j=2\cos 2\frac{j\pi}{n+1}.
@@ -146,7 +147,7 @@
 #  
 # 
 # ## Exercice 5
-# Soit $a$ et $b$ deux vecteurs non colinéaires de $\mbb R^n$, $\norme{a}=\norme{b}=1$. Déterminer
+# Soit $a$ et $b$ deux vecteurs non colinéaires de $\mathbb R^n$, $\norme{a}=\norme{b}=1$. Déterminer
 # les vecteurs propres et les valeurs propres de la matrice $n\times n$
 # $
 # A=aa^\top +bb^\top .

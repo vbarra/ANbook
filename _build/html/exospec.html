@@ -687,16 +687,16 @@ u_{k}&amp;=u_{k-1}+u_{k-2}, \quad k\geq 2.
 </ol>
 <p>En posant <span class="math notranslate nohighlight">\(X_k=\begin{pmatrix}  u_{k+1} \\ u_k \end{pmatrix}^\top \)</span>, déterminer la matrice <span class="math notranslate nohighlight">\(A\)</span> telle que <span class="math notranslate nohighlight">\(X_k=A X_{k-1} \)</span> puis en déduire la limite de <span class="math notranslate nohighlight">\(F_k=\frac{u_{k+1}}{u_k}\)</span> quand <span class="math notranslate nohighlight">\(k\)</span> tend vers l’infini.</p>
 <ol class="simple">
-<li><p>Soientt les suites récurrentes linéaires simultanées suivantes :
-<span class="math notranslate nohighlight">\(
+<li><p>Soient les suites récurrentes linéaires simultanées suivantes :</p></li>
+</ol>
+<p><span class="math notranslate nohighlight">\(
 \left\lbrace\begin{array}{l}
 u_0=v_0=0,w_0=1\\
 u_{n+1}=11u_n-5v_n+5w_n\\
 v_{n+1}=-5u_n+3v_n-3w_n\\
 w_{n+1}=5u_n-3v_n+3w_n
 \end{array}\right.
-\)</span></p></li>
-</ol>
+\)</span></p>
 <p>Exprimer <span class="math notranslate nohighlight">\(u_n,v_n,w_n\)</span> en fonction de <span class="math notranslate nohighlight">\(n\)</span>, pour <span class="math notranslate nohighlight">\(n\geq 0\)</span>.</p>
 <ol class="simple">
 <li><p>Résoudre le système différentiel suivant (variable <span class="math notranslate nohighlight">\(t\)</span>, inconnues <span class="math notranslate nohighlight">\(x(t), y(t), z(t)\)</span> à valeurs réelles)
@@ -715,7 +715,7 @@ z'(t)=y(t)
 <ol class="simple">
 <li><p>Soit <span class="math notranslate nohighlight">\(a\)</span> et <span class="math notranslate nohighlight">\(b\)</span> deux réels et <span class="math notranslate nohighlight">\(D\)</span> une matrice carrée. Montrer que si
 <span class="math notranslate nohighlight">\(\lambda\)</span> est valeur propre de <span class="math notranslate nohighlight">\(D\)</span>, alors <span class="math notranslate nohighlight">\(a\lambda+b\)</span> est une valeur
-propre de <span class="math notranslate nohighlight">\(aD+b\mbb I\)</span>, o`u <span class="math notranslate nohighlight">\(\mbb I\)</span> est la matrice identité.</p></li>
+propre de <span class="math notranslate nohighlight">\(aD+b\mathbb I\)</span>, o`u <span class="math notranslate nohighlight">\(\mathbb I\)</span> est la matrice identité.</p></li>
 <li><p>Soit <span class="math notranslate nohighlight">\(D\)</span> la matrice carrée tridiagonale définie par
 <span class="math notranslate nohighlight">\(\begin{eqnarray*}
 &amp;&amp;d_{ii}=0,\quad i=1,\ldots,n\\
@@ -723,12 +723,12 @@ propre de <span class="math notranslate nohighlight">\(aD+b\mbb I\)</span>, o`u 
 &amp;&amp;d_{ij}=0,\quad\mbox{ailleurs}.
 \end{eqnarray*}\)</span></p></li>
 </ol>
-<p>Pour <span class="math notranslate nohighlight">\(j=1,\ldots,n\)</span>, soit <span class="math notranslate nohighlight">\(\mbf x^{(j)}\)</span> le vecteur de <span class="math notranslate nohighlight">\(\mbb R^n\)</span> dont
+<p>Pour <span class="math notranslate nohighlight">\(j=1,\ldots,n\)</span>, soit <span class="math notranslate nohighlight">\(\mathbf x^{(j)}\)</span> le vecteur de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span> dont
 la <span class="math notranslate nohighlight">\(i\)</span>–ème composante est
 <span class="math notranslate nohighlight">\(
 x_i^{(j)}=\sin 2i\frac{j\pi}{n+1}.
 \)</span></p>
-<p>Montrer que <span class="math notranslate nohighlight">\(\mbf x^{(j)}\)</span> est un vecteur propre de <span class="math notranslate nohighlight">\(D\)</span> associée à la
+<p>Montrer que <span class="math notranslate nohighlight">\(\mathbf x^{(j)}\)</span> est un vecteur propre de <span class="math notranslate nohighlight">\(D\)</span> associée à la
 valeur propre
 <span class="math notranslate nohighlight">\(
 \lambda_j=2\cos 2\frac{j\pi}{n+1}.
@@ -749,7 +749,7 @@ A=\left[\begin{array}{rrrr}
 </div>
 <div class="section" id="exercice-5">
 <h2>Exercice 5<a class="headerlink" href="#exercice-5" title="Lien permanent vers ce titre">#</a></h2>
-<p>Soit <span class="math notranslate nohighlight">\(a\)</span> et <span class="math notranslate nohighlight">\(b\)</span> deux vecteurs non colinéaires de <span class="math notranslate nohighlight">\(\mbb R^n\)</span>, <span class="math notranslate nohighlight">\(\norme{a}=\norme{b}=1\)</span>. Déterminer
+<p>Soit <span class="math notranslate nohighlight">\(a\)</span> et <span class="math notranslate nohighlight">\(b\)</span> deux vecteurs non colinéaires de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>, <span class="math notranslate nohighlight">\(\norme{a}=\norme{b}=1\)</span>. Déterminer
 les vecteurs propres et les valeurs propres de la matrice <span class="math notranslate nohighlight">\(n\times n\)</span>
 <span class="math notranslate nohighlight">\(
 A=aa^\top +bb^\top .
