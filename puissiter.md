@@ -122,7 +122,7 @@ for i in range(1,k):
     plot_vector2d(vv[i], color="g", linestyle="dotted",alpha = 1-float(i)/k)
     plt.text(vv[i][0],vv[i][1]+0.1,'v('+str(i)+')',color="g")
 plot_vector2d(vmax, color="r", linestyle="dotted")
-plt.text(vmax[0],vmax[1],'$v_\lambda$',color="r")
+plt.text(vmax[0],vmax[1],'$v_\lambda$',color="r",fontsize=18)
 
 plt.title("Vecteur propre approché")
 plt.tight_layout()
