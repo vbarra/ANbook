@@ -7,7 +7,7 @@
 # 
 # Une matrice carrée $A$ de dimension $n$ à coefficients complexes ou réels possède $n$ valeurs 
 # propres non nécessairement distinctes dans $\mathbb{C}$. L'ensemble de ces valeurs propres est 
-# le \textbf{spectre} \index{spectre d'une matrice} de $A$, noté $\mathrm{sp}(A)$.
+# le *spectre* de $A$, noté $\mathrm{sp}(A)$.
 # ```{index} Matrice;spectre
 # ```
 # ```{index} Spectre
@@ -19,9 +19,9 @@
 # ```
 # ```{index} Rayon spectral
 # ```
-# Le \textbf{rayon spectral}, noté $\rho(A)$, est le plus grand module des valeurs propres de $A$. La somme des valeurs propres est égale à la \textbf{trace} de la matrice :
+# Le *rayon spectral*, noté $\rho(A)$, est le plus grand module des valeurs propres de $A$. La somme des valeurs propres est égale à la \textbf{trace} de la matrice :
 # 
-# $\displaystyle\um_{i=1}^n\lambda_i=\dsum_{i=1}^na_{ii}$
+# $\displaystyle\sum_{i=1}^n\lambda_i=\displaystyle\sum{i=1}^na_{ii}$
 # 
 # et on en déduit donc que si une matrice réelle possède une valeur propre complexe, son conjugué est aussi valeur propre. De même, le produit des valeurs propres est égal au \textbf{déterminant} de 
 # $A$ :
@@ -51,9 +51,10 @@
 # 
 # $X^{-1}AX=\Lambda=\mathrm{diag}\{\lambda_1\cdots\lambda_n\}$
 # 
-# En effet, $AX$ est la matrice dont les colonnes sont les vecteurs $Ax_i=\lambda x_i$ qui est bien égale à $X\Lambda$. On dit dans ce cas que {\gr $A$ est diagonalisable}
-# \index{matrice!diagonalisable}
-# et cette propriété ne peut s'écrire qu'avec la matrice des vecteurs propres. 
+# En effet, $AX$ est la matrice dont les colonnes sont les vecteurs $Ax_i=\lambda x_i$ qui est bien égale à $X\Lambda$. On dit dans ce cas que $A$ est *diagonalisable*
+# ```{index} Matrice;diagonalisable
+# ```
+# Cette propriété ne peut s'écrire qu'avec la matrice des vecteurs propres. 
 # Elle caractérise le fait que $X$ a pour colonnes des vecteurs propres et que ces vecteurs 
 # propres sont linéairement indépendants.
 # 
@@ -62,7 +63,7 @@
 # ```
 # ```{admonition} Observation
 # Il existe des matrices qui ne sont pas diagonalisables (on les appelle 
-# matrices \textbf{défectives}. 
+# matrices *défectives*. 
 # 
 # Elles satisfont aux deux conditions 
 # suivantes :
@@ -82,14 +83,13 @@
 # - si $A$ est symétrique, ses valeurs propres sont réelles. Les vecteurs propres associés à des valeurs propres distinctes sont 
 # alors orthogonaux. On a $\|A\|_2=\rho(A)$.
 # 
-# Le dernier point implique en particulier que toute matrice réelle symétrique est diagonalisable par une matrice orthogonale : $\Lambda=Q^\top AQ$,où $Q$ est formée par $n$ vecteurs propres orthonormés. On a alors la \textbf{factorisation spectrale} \index{factorisation!spectrale}
+# Le dernier point implique en particulier que toute matrice réelle symétrique est diagonalisable par une matrice orthogonale : $\Lambda=Q^\top AQ$,où $Q$ est formée par $n$ vecteurs propres orthonormés. On a alors la *factorisation spectrale* 
 # d'une matrice symétrique réelle :
-# $$A=Q\Lambda Q^\top $$
-# \vskip 10pt
+# $A=Q\Lambda Q^\top $
+# ```{index} Factorisation spectrale
+# ```
+# ```{important}
 # En résumé de ce qui précède :
-# {\gr 
-# \begin{itemize}
-#     \item l'inversibilité est liée aux valeurs propres
-#     \item la diagonalisabilité est liée aux vecteurs propres
-# \end{itemize}
-# }
+# - l'inversibilité est liée aux valeurs propres
+# - la diagonalisabilité est liée aux vecteurs propres
+# ```
