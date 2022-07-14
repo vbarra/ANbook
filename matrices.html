@@ -224,22 +224,27 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="introspect.html">
-   Moindres carrés linéaires
+   Introduction
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="resspec.html">
-   Moindres carrés linéaires
+   Résultats généraux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gershgorin.html">
+   Disques de Gershgorin
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="similitudes.html">
-   Moindres carrés linéaires
+   Similitudes
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="jacobi.html">
-   Moindres carrés linéaires
+   Méthode de Jacobi
   </a>
  </li>
  <li class="toctree-l1">
@@ -936,14 +941,14 @@ la norme de la trace ou norme de Frobenius :</p></li>
 \)</span></p>
 <p>Cette norme n’est subordonnée à aucune norme vectorielle sur <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>.</p>
 </div>
-</div></div>
+</div><span class="target" id="index-2"></span></div>
 </div>
 <div class="section" id="matrice-transposee">
-<span id="index-2"></span><h2>Matrice transposée<a class="headerlink" href="#matrice-transposee" title="Lien permanent vers ce titre">#</a></h2>
+<span id="index-3"></span><h2>Matrice transposée<a class="headerlink" href="#matrice-transposee" title="Lien permanent vers ce titre">#</a></h2>
 <div class="proof definition admonition" id="definition-4">
 <p class="admonition-title"><span class="caption-number">Definition 15 </span> (Transposée)</p>
 <div class="definition-content section" id="proof-content">
-<span class="target" id="index-3"></span><p id="index-4">Soit <span class="math notranslate nohighlight">\({\bf A}\in \mathcal{M}_{m,n}(\mathbb{R})\)</span>. On appelle
+<span class="target" id="index-4"></span><p id="index-5">Soit <span class="math notranslate nohighlight">\({\bf A}\in \mathcal{M}_{m,n}(\mathbb{R})\)</span>. On appelle
 matrice transposée de <span class="math notranslate nohighlight">\({\bf A}\)</span>, et on note <span class="math notranslate nohighlight">\({\bf A^\top}\)</span>, l’unique
 matrice de <span class="math notranslate nohighlight">\(\mathcal{M}_{n,m}(\mathbb{R})\)</span> telle que :
 <span class="math notranslate nohighlight">\((\forall  {\bf x} \in\mathbb R^n)\ (\forall  {\bf y} \in\mathbb R^m)\quad{\bf y}^\top ({\bf A}{\bf x})=({\bf A^\top }{\bf y})^\top {\bf x} 
@@ -993,7 +998,7 @@ A^	op =
 <div class="proof definition admonition" id="definition-6">
 <p class="admonition-title"><span class="caption-number">Definition 16 </span> (Trace)</p>
 <div class="definition-content section" id="proof-content">
-<p id="index-5">Soit <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_n(\mathbb R)\)</span>. La trace de <span class="math notranslate nohighlight">\({\bf A}\)</span>,
+<p id="index-6">Soit <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_n(\mathbb R)\)</span>. La trace de <span class="math notranslate nohighlight">\({\bf A}\)</span>,
 notée <span class="math notranslate nohighlight">\(Tr({\bf A})\)</span>, est par définition :
 <span class="math notranslate nohighlight">\(Tr({\bf A}) = \displaystyle\sum_{i=1}^n a_{ii}\)</span></p>
 </div>
@@ -1024,7 +1029,7 @@ matrices <span class="math notranslate nohighlight">\({\bf A}\)</span> et <span 
 </div><div class="proof definition admonition" id="definition-8">
 <p class="admonition-title"><span class="caption-number">Definition 17 </span> (Déterminant)</p>
 <div class="definition-content section" id="proof-content">
-<p id="index-6">oit <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_n(\mathbb R)\)</span>. Le déterminant de
+<p id="index-7">oit <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_n(\mathbb R)\)</span>. Le déterminant de
 <span class="math notranslate nohighlight">\({\bf A}\)</span>, noté <span class="math notranslate nohighlight">\(det({\bf A})\)</span> est défini récursivement comme suit :</p>
 <ol class="simple">
 <li><p>si <span class="math notranslate nohighlight">\(n=1\)</span>, <span class="math notranslate nohighlight">\(det({\bf A})=a_{11}\)</span></p></li>
@@ -1081,7 +1086,7 @@ linéaires.</p>
 <div class="proof definition admonition" id="definition-10">
 <p class="admonition-title"><span class="caption-number">Definition 18 </span> (Produit matriciel )</p>
 <div class="definition-content section" id="proof-content">
-<span class="target" id="index-7"></span><p id="index-8">Soient <span class="math notranslate nohighlight">\({\bf A}\in \mathcal{M}_{m,n}(\mathbb{R})\)</span> et
+<span class="target" id="index-8"></span><p id="index-9">Soient <span class="math notranslate nohighlight">\({\bf A}\in \mathcal{M}_{m,n}(\mathbb{R})\)</span> et
 <span class="math notranslate nohighlight">\({\bf B}\in \mathcal{M}_{n,p}(\mathbb{R})\)</span>. Le produit <span class="math notranslate nohighlight">\({\bf C = AB}\)</span>
 est une matrice de <span class="math notranslate nohighlight">\(\mathcal{M}_{m,p}(\mathbb{R})\)</span> avec
 <span class="math notranslate nohighlight">\((\forall i\in  [\![ 1, m]\!])(\forall j\in [\![ 1, p]\!])\quad c_{ij}=\sum_{k=1}^n a_{ik}b_{kj} = {\bf A_{i,\bullet}^\top B_{\bullet,j}}
@@ -1122,7 +1127,7 @@ opération et d’un algorithme.</p>
 <div class="proof definition admonition" id="definition-12">
 <p class="admonition-title"><span class="caption-number">Definition 19 </span> (Flop)</p>
 <div class="definition-content section" id="proof-content">
-<p id="index-9">On appelle flop l’opération élémentaire d’un produit scalaire : une
+<p id="index-10">On appelle flop l’opération élémentaire d’un produit scalaire : une
 multiplication suivie d’une addition et d’une substitution.</p>
 </div>
 </div><p>Un flop revient donc à mettre à jour une somme <span class="math notranslate nohighlight">\(s\)</span> en lui rajoutant le
@@ -1197,7 +1202,7 @@ taille <span class="math notranslate nohighlight">\(n\)</span>, la seconde de ta
 <li><p><span class="math notranslate nohighlight">\({\bf A} = ({\bf A_{ij}}), i\in[\![1,m]\!], j\in[\![1, n]\!]\)</span> où <span class="math notranslate nohighlight">\({\bf A_{ij}}\in \mathcal{M}_{m_i,n_j}(\mathbb R)\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\({\bf B} = ({\bf B_{kl}}),   k\in[\![1, n]\!], l\in[\![1, p]\!]\)</span> où <span class="math notranslate nohighlight">\({\bf B_{kl}}\in \mathcal{M}_{n_k,p_l}(\mathbb R)\)</span></p></li>
 </ul>
-<p id="index-10">Tous les produits <span class="math notranslate nohighlight">\({\bf A_{ik}}{\bf B_{kl}}\)</span> sont bien définis. Le
+<p id="index-11">Tous les produits <span class="math notranslate nohighlight">\({\bf A_{ik}}{\bf B_{kl}}\)</span> sont bien définis. Le
 produit par blocs des matrices <span class="math notranslate nohighlight">\({\bf A}\)</span> et <span class="math notranslate nohighlight">\({\bf B}\)</span> est défini par
 <span class="math notranslate nohighlight">\({\bf AB}= (({\bf AB})_{il})\)</span> avec :
 <span class="math notranslate nohighlight">\((\forall i\in  [\![ 1, m]\!])(\forall l\in  [\![ 1, p]\!])\quad ({\bf AB})_{il}  = \displaystyle\sum_{k=1}^n {\bf A_{ik}B_{kl}}\)</span></p>
@@ -1211,7 +1216,7 @@ C’est pourquoi il faut prendre garde à la non commutativité des produits
 <div class="proof definition admonition" id="definition-14">
 <p class="admonition-title"><span class="caption-number">Definition 20 </span> (Inverse)</p>
 <div class="definition-content section" id="proof-content">
-<span class="target" id="index-11"></span><p id="index-12">Soit <span class="math notranslate nohighlight">\({\bf A}\in \mathcal{M}_{n}(\mathbb{R})\)</span> une matrice carrée
+<span class="target" id="index-12"></span><p id="index-13">Soit <span class="math notranslate nohighlight">\({\bf A}\in \mathcal{M}_{n}(\mathbb{R})\)</span> une matrice carrée
 de taille <span class="math notranslate nohighlight">\(n\)</span>. L’inverse de <span class="math notranslate nohighlight">\({\bf A}\)</span>, notée <span class="math notranslate nohighlight">\({\bf A^{-1}}\)</span>, est
 l’unique matrice (lorsqu’elle existe) telle que
 <span class="math notranslate nohighlight">\({\bf A}{\bf A^{-1}}={\bf A^{-1}}{\bf A}=\mathbb I.\)</span></p>
@@ -1271,23 +1276,23 @@ taille <span class="math notranslate nohighlight">\(n\)</span>, on obtient une s
 des sous-matrices principales sont les mineurs de la matrice.</p></li>
 </ul>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="07491c83-b209-4b2c-9443-7b41016375df" name="a05b22c3-f4ca-48ea-9568-35658dbf3f7b" type="radio">
-</input><label class="sd-tab-label" for="07491c83-b209-4b2c-9443-7b41016375df">
+<input checked="checked" id="88fc6928-e970-4000-ba0f-5d1c019655a8" name="6d215d3c-97cb-4a0f-9008-39c097307f2c" type="radio">
+</input><label class="sd-tab-label" for="88fc6928-e970-4000-ba0f-5d1c019655a8">
 Diagonale</label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;0&amp;0\\0&amp;-4&amp;0\\0&amp;0&amp;1\end{pmatrix}\)</span></p>
 </div>
-<input id="68787caf-cc76-4c48-bfe6-35c4c2729b7a" name="a05b22c3-f4ca-48ea-9568-35658dbf3f7b" type="radio">
-</input><label class="sd-tab-label" for="68787caf-cc76-4c48-bfe6-35c4c2729b7a">
+<input id="0606f126-165e-4e01-9c28-0bd8e3b1a14b" name="6d215d3c-97cb-4a0f-9008-39c097307f2c" type="radio">
+</input><label class="sd-tab-label" for="0606f126-165e-4e01-9c28-0bd8e3b1a14b">
 Triang. sup. </label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix} 3&amp;2&amp;1\\0&amp;-4&amp;2\\0&amp;0&amp;1 \end{pmatrix}\)</span></p>
 </div>
-<input id="2407c76c-a46c-4037-92a4-f86a857f48b3" name="a05b22c3-f4ca-48ea-9568-35658dbf3f7b" type="radio">
-</input><label class="sd-tab-label" for="2407c76c-a46c-4037-92a4-f86a857f48b3">
+<input id="79b24b04-3f5f-4d83-9b59-c0d0282dd6c2" name="6d215d3c-97cb-4a0f-9008-39c097307f2c" type="radio">
+</input><label class="sd-tab-label" for="79b24b04-3f5f-4d83-9b59-c0d0282dd6c2">
 Triang. inf.</label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;0&amp;0\\1&amp;-4&amp;0\\5&amp;8&amp;1 \end{pmatrix}\)</span></p>
 </div>
-<input id="7034dca4-400c-4bab-9172-bbd8aa3aadef" name="a05b22c3-f4ca-48ea-9568-35658dbf3f7b" type="radio">
-</input><label class="sd-tab-label" for="7034dca4-400c-4bab-9172-bbd8aa3aadef">
+<input id="fbe096b9-e865-44af-8c75-57f22b690184" name="6d215d3c-97cb-4a0f-9008-39c097307f2c" type="radio">
+</input><label class="sd-tab-label" for="fbe096b9-e865-44af-8c75-57f22b690184">
 Vecteur ligne </label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;2&amp;1&amp;-4&amp;0&amp;3.5 \end{pmatrix}\)</span></p>
 </div>
@@ -1303,7 +1308,7 @@ transformation <span class="math notranslate nohighlight">\({\bf A}\)</span> com
 <div class="proof definition admonition" id="definition-16">
 <p class="admonition-title"><span class="caption-number">Definition 21 </span> (Image d’une matrice )</p>
 <div class="definition-content section" id="proof-content">
-<span class="target" id="index-13"></span><p id="index-14">Le sous-espace de <span class="math notranslate nohighlight">\(\mathbb R^m\)</span> engendré par les
+<span class="target" id="index-14"></span><p id="index-15">Le sous-espace de <span class="math notranslate nohighlight">\(\mathbb R^m\)</span> engendré par les
 colonnes de <span class="math notranslate nohighlight">\({\bf A}\)</span> est appelé <em>sous-espace image</em> de <span class="math notranslate nohighlight">\({\bf A}\)</span>, noté
 <span class="math notranslate nohighlight">\(\mathrm{Im}({\bf A})\)</span>.</p>
 </div>
@@ -1334,7 +1339,7 @@ forme <span class="math notranslate nohighlight">\({\bf A}{\bf x}\)</span> pour 
 <div class="proof definition admonition" id="definition-17">
 <p class="admonition-title"><span class="caption-number">Definition 22 </span> (Rang d’une matrice )</p>
 <div class="definition-content section" id="proof-content">
-<span class="target" id="index-15"></span><p id="index-16">Soit <span class="math notranslate nohighlight">\({\bf A}\in \mathcal{M}_{m,n}(\mathbb{R})\)</span> Le
+<span class="target" id="index-16"></span><p id="index-17">Soit <span class="math notranslate nohighlight">\({\bf A}\in \mathcal{M}_{m,n}(\mathbb{R})\)</span> Le
 rang de <span class="math notranslate nohighlight">\({\bf A}\)</span>, noté <span class="math notranslate nohighlight">\(\mathrm{rang}({\bf A})\)</span>, est le nombre maximal
 de colonnes de <span class="math notranslate nohighlight">\({\bf A}\)</span> linéairement indépendantes. C’est aussi le
 nombre maximal de lignes linéairement indépendantes. On a donc

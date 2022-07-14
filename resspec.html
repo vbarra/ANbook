@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
-    <link rel="next" title="Moindres carrés linéaires" href="similitudes.html" />
+    <link rel="next" title="Similitudes" href="similitudes.html" />
     <link rel="prev" title="Introduction" href="introspect.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="fr">
@@ -234,7 +234,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="similitudes.html">
-   Moindres carrés linéaires
+   Similitudes
   </a>
  </li>
  <li class="toctree-l1">
@@ -491,16 +491,16 @@ title="Print to PDF"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="resultats-generaux">
 <h1>Résultats généraux<a class="headerlink" href="#resultats-generaux" title="Lien permanent vers ce titre">#</a></h1>
-<p>On donnera ici quelques propriétés d’intérêt surtout pratique concernant les valeurs propres et les vecteurs propres de certaines matrices. Les démonstrations sont omises.</p>
+<p>On donnera ici quelques propriétés d’intérêt surtout pratiques concernant les valeurs propres et les vecteurs propres de certaines matrices. Les démonstrations sont omises.</p>
 <p>Une matrice carrée <span class="math notranslate nohighlight">\(A\)</span> de dimension <span class="math notranslate nohighlight">\(n\)</span> à coefficients complexes ou réels possède <span class="math notranslate nohighlight">\(n\)</span> valeurs
 propres non nécessairement distinctes dans <span class="math notranslate nohighlight">\(\mathbb{C}\)</span>. L’ensemble de ces valeurs propres est
 le <em>spectre</em> de <span class="math notranslate nohighlight">\(A\)</span>, noté <span class="math notranslate nohighlight">\(\mathrm{sp}(A)\)</span>.</p>
 <span class="target" id="index-0"></span><p id="index-1">Le nombre de fois où apparaît une
 valeur propre <span class="math notranslate nohighlight">\(\lambda\)</span> dans ce spectre est appelé sa
 \textbf{multiplicité}.</p>
-<span class="target" id="index-2"></span><p id="index-3">Le <em>rayon spectral</em>, noté <span class="math notranslate nohighlight">\(\rho(A)\)</span>, est le plus grand module des valeurs propres de <span class="math notranslate nohighlight">\(A\)</span>. La somme des valeurs propres est égale à la \textbf{trace} de la matrice :</p>
+<span class="target" id="index-2"></span><p id="index-3">Le <em>rayon spectral</em>, noté <span class="math notranslate nohighlight">\(\rho(A)\)</span>, est le plus grand module des valeurs propres de <span class="math notranslate nohighlight">\(A\)</span>. La somme des valeurs propres est égale à la <em>trace</em> de la matrice :</p>
 <p><span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1}^n\lambda_i=\displaystyle\sum{i=1}^na_{ii}\)</span></p>
-<p>et on en déduit donc que si une matrice réelle possède une valeur propre complexe, son conjugué est aussi valeur propre. De même, le produit des valeurs propres est égal au \textbf{déterminant} de
+<p>et on en déduit donc que si une matrice réelle possède une valeur propre complexe, son conjugué est aussi valeur propre. De même, le produit des valeurs propres est égal au <em>déterminant</em> de
 <span class="math notranslate nohighlight">\(A\)</span> :
 <span class="math notranslate nohighlight">\(\displaystyle\prod_{i=1}^n\lambda_i=det(A)\)</span></p>
 <p>Donc <span class="math notranslate nohighlight">\(A\)</span> non singulière <span class="math notranslate nohighlight">\(\Leftrightarrow\)</span> <span class="math notranslate nohighlight">\(0\notin \mathrm{sp}(A)\)</span>.</p>
@@ -534,8 +534,8 @@ suivantes :</p>
 <li><p>la dimension du sous-espace propre associé est strictement inférieure à la multiplicité de la valeur propre.</p></li>
 </ul>
 </div>
-<p>Le seul fait de l’existence de valeurs propres multiples ne suffit pas à impliquer que la matrice soit défective (cf. la matrice identité par exemple).
-Un exemple typique de matrice défective est <span class="math notranslate nohighlight">\(A=\begin{pmatrix} 0\quad 1\\0\quad 0\end{pmatrix}\)</span>, qui possède la valeur propre double 0. Les vecteurs propres sont de la forme <span class="math notranslate nohighlight">\(x=\begin{pmatrix}\alpha\\0\end{pmatrix}\)</span>, ils engendrent donc un sous-espace de dimension 1. <span class="math notranslate nohighlight">\(A\)</span> n’est donc pas diagonalisable.</p>
+<p>Le seul fait de l’existence de valeurs propres multiples ne suffit pas à impliquer que la matrice soit défective (cf. la matrice identité par exemple).</p>
+<p>Un exemple typique de matrice défective est <span class="math notranslate nohighlight">\(A=\begin{pmatrix} 0\quad 1\\0\quad 0\end{pmatrix}\)</span>, qui possède la valeur propre double 0. Les vecteurs propres sont de la forme <span class="math notranslate nohighlight">\(x=\begin{pmatrix}\alpha\\0\end{pmatrix}\)</span>, ils engendrent donc un sous-espace de dimension 1. <span class="math notranslate nohighlight">\(A\)</span> n’est donc pas diagonalisable.</p>
 <p>Dans certains cas, il est relativement facile d’inférer sur la valeur ou la nature des valeurs propres d’une matrice <span class="math notranslate nohighlight">\(A\)</span>:</p>
 <ul class="simple">
 <li><p>si <span class="math notranslate nohighlight">\(A\)</span> est diagonale, les valeurs propres sont les éléments diagonaux</p></li>
@@ -595,7 +595,7 @@ d’une matrice symétrique réelle :
     <a class='right-next' id="next-link" href="similitudes.html" title="suivant page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
-        <p class="prev-next-title">Moindres carrés linéaires</p>
+        <p class="prev-next-title">Similitudes</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
