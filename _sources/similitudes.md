@@ -32,6 +32,29 @@ En effet, soit $x$ un vecteur propre de $A$ associé à la valeur propre $\lambd
 
 
 
+```{code-cell} ipython3
+from sympy import Matrix
+A = Matrix([[2, 1], [1, 2]])
+S = Matrix([[1, 4], [0, 1]])
+```
+Pour $\bf S$ inversible, on construit donc $\bf{B=S^{-1}AS}$ semblable. 
+
+```{code-cell} ipython3
+B = S.inv() * A * S
+```
+
+On vérifie que $\bf A$ et $\bf B$ ont le même spectre
+```{code-cell} ipython3
+A.eigenvals(), B.eigenvals()
+```
+ mais que les vecteurs propres sont différents
+
+```{code-cell} ipython3
+Matrix(A.eigenvects())
+```
+
+
+
 L'intérêt de ces transformations est double : 
 - les valeurs propres sont inchangées
 - en supposant les vecteurs propres linéairement indépendants, la similitude associée à la matrice $X$ dont les colonnes sont les vecteurs propres transforme $A$ en une matrice diagonale dont les éléments diagonaux sont les valeurs propres de $A$ : $X^{-1}AX = \Lambda$.
