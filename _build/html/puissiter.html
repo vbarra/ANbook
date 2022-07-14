@@ -606,7 +606,7 @@ On peut montrer de plus que <span class="math notranslate nohighlight">\(\|Aq_k\
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="k">def</span> <span class="nf">puissiter</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">v0</span><span class="p">,</span><span class="n">lam</span><span class="p">,</span><span class="n">niter</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">puissiter</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">v0</span><span class="p">,</span><span class="n">lam</span><span class="p">,</span><span class="n">niter</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
     <span class="n">v</span> <span class="o">=</span> <span class="n">v0</span>
     <span class="n">vv</span> <span class="o">=</span> <span class="p">[</span><span class="n">v0</span><span class="p">]</span>
     <span class="n">l</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">v0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">v0</span><span class="p">))</span>
@@ -648,6 +648,51 @@ La plus grande valeur propre de A est  0.7856802566224643
 3.710765314249763  ---  2
 3.7796903074474497  ---  3
 3.823842509822556  ---  4
+3.8509010068035834  ---  5
+3.8670335927168336  ---  6
+3.8764945762984353  ---  7
+3.8819893576014715  ---  8
+3.8851626471000276  ---  9
+3.886989272912372  ---  10
+3.8880387473985265  ---  11
+3.888641063182575  ---  12
+3.8889865303950404  ---  13
+3.8891846076812633  ---  14
+3.889298154189809  ---  15
+3.8893632363595674  ---  16
+3.8894005374136627  ---  17
+3.8894219152365523  ---  18
+3.889434166934097  ---  19
+3.8894411883317574  ---  20
+3.8894452122368404  ---  21
+3.889447518294078  ---  22
+3.8894488398678297  ---  23
+3.8894495972448655  ---  24
+3.8894500312876326  ---  25
+3.8894502800316935  ---  26
+3.889450422583525  ---  27
+3.889450504278027  ---  28
+3.889450551096022  ---  29
+3.8894505779267683  ---  30
+3.8894505933031005  ---  31
+3.8894506021150623  ---  32
+3.889450607165078  ---  33
+3.8894506100591717  ---  34
+3.8894506117177357  ---  35
+3.8894506126682358  ---  36
+3.8894506132129547  ---  37
+3.8894506135251246  ---  38
+3.889450613704027  ---  39
+3.889450613806551  ---  40
+3.8894506138653075  ---  41
+3.88945061389898  ---  42
+3.8894506139182767  ---  43
+3.8894506139293363  ---  44
+3.8894506139356744  ---  45
+3.8894506139393052  ---  46
+3.889450613941388  ---  47
+3.88945061394258  ---  48
+3.889450613943264  ---  49
 </pre></div>
 </div>
 <img alt="_images/puissiter_1_1.png" src="_images/puissiter_1_1.png" />
