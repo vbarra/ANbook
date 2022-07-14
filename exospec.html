@@ -1,0 +1,886 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercices &#8212; Analyse numérique</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" />
+    <link rel="next" title="Index" href="genindex.html" />
+    <link rel="prev" title="Puissances groupées et méthode QR" href="QRspec.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="fr">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/isimainp.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Analyse numérique</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p class="caption">
+ <span class="caption-text">
+  Tutoriels
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Installation.html">
+   Requirement
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tutoriel-jupyter.html">
+   Tutoriel Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tutoriel-numpy.html">
+   Tutoriel Numpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tutoriel-matplotlib.html">
+   Tutoriel Matplotlib
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction au calcul matriciel
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ev.html">
+   Espaces Vectoriels
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matrices.html">
+   Matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sl.html">
+   Systèmes d’équations linéaires
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch1exos.html">
+   Exercices
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Elimination de Gauss
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch2.html">
+   Gauss et LU
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gauss.html">
+   Elimination de Gauss
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lu.html">
+   Facteurs LU d’une matrice non singulière
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Moindres carrés linéaires
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="projections.html">
+   Projections orthogonales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mcl.html">
+   Moindres carrés linéaires
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="transfoortho.html">
+   Transformations orthogonales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exomcl.html">
+   Exercices
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Analyse spectrale
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introspect.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="resspec.html">
+   Résultats généraux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gershgorin.html">
+   Disques de Gershgorin
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="similitudes.html">
+   Similitudes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="jacobi.html">
+   Méthode de Jacobi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="puissiter.html">
+   Méthode des puissances itérées
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="QRspec.html">
+   Puissances groupées et méthode QR
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Exercices
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Index
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="genindex.html">
+   Index
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/vbarra/anbook.git"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/vbarra/anbook.git/issues/new?title=Issue%20on%20page%20%2Fexospec.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/exospec.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download notebook file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="_sources/exospec.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-1">
+   Exercice 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-2">
+   Exercice 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-3">
+   Exercice 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-4">
+   Exercice 4
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-5">
+   Exercice 5
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-6">
+   Exercice 6
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-7">
+   Exercice 7
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-8">
+   Exercice 8
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Exercices</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-1">
+   Exercice 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-2">
+   Exercice 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-3">
+   Exercice 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-4">
+   Exercice 4
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-5">
+   Exercice 5
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-6">
+   Exercice 6
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-7">
+   Exercice 7
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercice-8">
+   Exercice 8
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="exercices">
+<h1>Exercices<a class="headerlink" href="#exercices" title="Lien permanent vers ce titre">#</a></h1>
+<div class="section" id="exercice-1">
+<h2>Exercice 1<a class="headerlink" href="#exercice-1" title="Lien permanent vers ce titre">#</a></h2>
+<p>Soit les matrices
+<span class="math notranslate nohighlight">\(\begin{pmatrix}
+1 &amp; 1 \\
+0 &amp; 2 
+\end{pmatrix}
+\)</span>,
+<span class="math notranslate nohighlight">\(\begin{pmatrix} 
+1 &amp; 0 \\
+1 &amp; 2 
+\end{pmatrix}
+\)</span>,
+<span class="math notranslate nohighlight">\(\begin{pmatrix} 
+1 &amp; 1 \\
+0 &amp; 1 
+\end{pmatrix}
+\)</span>,
+<span class="math notranslate nohighlight">\(
+\begin{pmatrix}
+1 &amp; 1 \\
+1 &amp; 0 
+\end{pmatrix}
+\)</span>,
+<span class="math notranslate nohighlight">\(
+\begin{pmatrix}
+1 &amp; 2 \\
+2 &amp; 4 
+\end{pmatrix}
+\)</span>,
+<span class="math notranslate nohighlight">\(
+\begin{pmatrix}
+0 &amp; 1 &amp; 0 \\
+1 &amp; 0 &amp; 1 \\
+0 &amp; 1 &amp; 0
+\end{pmatrix}
+\)</span>,
+<span class="math notranslate nohighlight">\(
+\begin{pmatrix} 
+11 &amp; -5 &amp; 5 \\
+-5 &amp; 3 &amp; -3 \\
+5 &amp; -3 &amp; 3
+\end{pmatrix}
+\)</span></p>
+<p>Pour chacune de ces matrices, répondre aux questions suivantes :</p>
+<ul class="simple">
+<li><p>Polynôme caractéristique ?</p></li>
+<li><p>Spectre et rayon spectral ?</p></li>
+<li><p>Multiplicité algébrique des valeurs propres ?</p></li>
+<li><p>Sous-espaces propres ?</p></li>
+<li><p>Multiplicité géométrique des valeurs propres ?</p></li>
+<li><p>La matrice est-elle diagonalisable ?  Si oui, la diagonaliser.</p></li>
+</ul>
+</div>
+<div class="section" id="exercice-2">
+<h2>Exercice 2<a class="headerlink" href="#exercice-2" title="Lien permanent vers ce titre">#</a></h2>
+<p>Que peut-on dire de la diagonalisabilité, des valeurs propres et des vecteurs propres</p>
+<ul class="simple">
+<li><p>d’une homothétie ?</p></li>
+<li><p>d’un projecteur ?</p></li>
+<li><p>d’une rotation?</p></li>
+</ul>
+</div>
+<div class="section" id="exercice-3">
+<h2>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien permanent vers ce titre">#</a></h2>
+<ol class="simple">
+<li><p>Soit <span class="math notranslate nohighlight">\(A=\begin{pmatrix}  
+1 &amp; 1 \\
+0 &amp; 2 
+\end{pmatrix}\)</span>.
+Exprimer  la matrice <span class="math notranslate nohighlight">\(A^k\)</span>.</p></li>
+<li><p>Soit la suite de Fibonacci <span class="math notranslate nohighlight">\(1\)</span>, <span class="math notranslate nohighlight">\(1\)</span>, <span class="math notranslate nohighlight">\(2\)</span>, <span class="math notranslate nohighlight">\(3\)</span>, <span class="math notranslate nohighlight">\(5\)</span>, <span class="math notranslate nohighlight">\(8\)</span>, <span class="math notranslate nohighlight">\(13\)</span>, … définie par :
+<span class="math notranslate nohighlight">\( \begin{align*}
+u_0&amp;=u_1=1,\\
+u_{k}&amp;=u_{k-1}+u_{k-2}, \quad k\geq 2.
+\end{align*}\)</span></p></li>
+</ol>
+<p>En posant <span class="math notranslate nohighlight">\(X_k=\begin{pmatrix}  u_{k+1} \\ u_k \end{pmatrix}^\top \)</span>, déterminer la matrice <span class="math notranslate nohighlight">\(A\)</span> telle que <span class="math notranslate nohighlight">\(X_k=A X_{k-1} \)</span> puis en déduire la limite de <span class="math notranslate nohighlight">\(F_k=\frac{u_{k+1}}{u_k}\)</span> quand <span class="math notranslate nohighlight">\(k\)</span> tend vers l’infini.</p>
+<ol class="simple">
+<li><p>Soient les suites récurrentes linéaires simultanées suivantes :</p></li>
+</ol>
+<p><span class="math notranslate nohighlight">\(
+\left\lbrace\begin{array}{l}
+u_0=v_0=0,w_0=1\\
+u_{n+1}=11u_n-5v_n+5w_n\\
+v_{n+1}=-5u_n+3v_n-3w_n\\
+w_{n+1}=5u_n-3v_n+3w_n
+\end{array}\right.
+\)</span></p>
+<p>Exprimer <span class="math notranslate nohighlight">\(u_n,v_n,w_n\)</span> en fonction de <span class="math notranslate nohighlight">\(n\)</span>, pour <span class="math notranslate nohighlight">\(n\geq 0\)</span>.</p>
+<ol class="simple">
+<li><p>Résoudre le système différentiel suivant (variable <span class="math notranslate nohighlight">\(t\)</span>, inconnues <span class="math notranslate nohighlight">\(x(t), y(t), z(t)\)</span> à valeurs réelles)
+<span class="math notranslate nohighlight">\(
+\left\lbrace\begin{array}{l}
+x'(t)=y(t)\\
+y'(t)=x(t)+z(t)\\
+z'(t)=y(t)
+\end{array}\right.
+\)</span>
+}</p></li>
+</ol>
+</div>
+<div class="section" id="exercice-4">
+<h2>Exercice 4<a class="headerlink" href="#exercice-4" title="Lien permanent vers ce titre">#</a></h2>
+<ol class="simple">
+<li><p>Soit <span class="math notranslate nohighlight">\(a\)</span> et <span class="math notranslate nohighlight">\(b\)</span> deux réels et <span class="math notranslate nohighlight">\(D\)</span> une matrice carrée. Montrer que si
+<span class="math notranslate nohighlight">\(\lambda\)</span> est valeur propre de <span class="math notranslate nohighlight">\(D\)</span>, alors <span class="math notranslate nohighlight">\(a\lambda+b\)</span> est une valeur
+propre de <span class="math notranslate nohighlight">\(aD+b\mathbb I\)</span>, o`u <span class="math notranslate nohighlight">\(\mathbb I\)</span> est la matrice identité.</p></li>
+<li><p>Soit <span class="math notranslate nohighlight">\(D\)</span> la matrice carrée tridiagonale définie par
+<span class="math notranslate nohighlight">\(\begin{eqnarray*}
+&amp;&amp;d_{ii}=0,\quad i=1,\ldots,n\\
+&amp;&amp;d_{i,i+1}=d_{i+1,i}=1,\quad i=1,\ldots,n-1\\
+&amp;&amp;d_{ij}=0,\quad\mbox{ailleurs}.
+\end{eqnarray*}\)</span></p></li>
+</ol>
+<p>Pour <span class="math notranslate nohighlight">\(j=1,\ldots,n\)</span>, soit <span class="math notranslate nohighlight">\(\mathbf x^{(j)}\)</span> le vecteur de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span> dont
+la <span class="math notranslate nohighlight">\(i\)</span>–ème composante est
+<span class="math notranslate nohighlight">\(
+x_i^{(j)}=\sin 2i\frac{j\pi}{n+1}.
+\)</span></p>
+<p>Montrer que <span class="math notranslate nohighlight">\(\mathbf x^{(j)}\)</span> est un vecteur propre de <span class="math notranslate nohighlight">\(D\)</span> associée à la
+valeur propre
+<span class="math notranslate nohighlight">\(
+\lambda_j=2\cos 2\frac{j\pi}{n+1}.
+\)</span></p>
+<ol class="simple">
+<li><p>En déduire les vecteurs propres et les valeurs propres de la
+matrice <span class="math notranslate nohighlight">\(4\times 4\)</span> suivante
+<span class="math notranslate nohighlight">\(
+A=\left[\begin{array}{rrrr}
+2 &amp; -1 &amp;  0 &amp;  0\\
+    -1 &amp;  2 &amp; -1 &amp;  0\\
+     0 &amp; -1 &amp;  2 &amp; -1\\
+     0 &amp;  0 &amp; -1 &amp;  2
+     \end{array}
+\right]
+\)</span></p></li>
+</ol>
+</div>
+<div class="section" id="exercice-5">
+<h2>Exercice 5<a class="headerlink" href="#exercice-5" title="Lien permanent vers ce titre">#</a></h2>
+<p>Soit <span class="math notranslate nohighlight">\(a\)</span> et <span class="math notranslate nohighlight">\(b\)</span> deux vecteurs non colinéaires de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>, <span class="math notranslate nohighlight">\(\|a\|=\|b\|=1\)</span>. Déterminer
+les vecteurs propres et les valeurs propres de la matrice <span class="math notranslate nohighlight">\(n\times n\)</span>
+<span class="math notranslate nohighlight">\(
+A=aa^\top +bb^\top .
+\)</span></p>
+</div>
+<div class="section" id="exercice-6">
+<h2>Exercice 6<a class="headerlink" href="#exercice-6" title="Lien permanent vers ce titre">#</a></h2>
+<p>Soit <span class="math notranslate nohighlight">\(A'=A+E\)</span>, la somme de deux matrices symétriques. Les valeurs propres
+de ces trois matrices sont notées
+<span class="math notranslate nohighlight">\(
+\lambda'_1\le \lambda'_2\le\cdots\le\lambda'_n,\quad
+\lambda_1\le \lambda_2\le\cdots\le\lambda_n,\quad
+\mu_1\le\mu_2\le\cdots\le\mu_n.
+\)</span></p>
+<ol class="simple">
+<li><p>Montrer les propriétés suivantes pour tout <span class="math notranslate nohighlight">\(i=1,\ldots,n\)</span></p></li>
+</ol>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\lambda_i+\mu_1\le\lambda'_i\le\lambda_i+\mu_n\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(|\lambda'_i-\lambda_i|\le \parallel E\parallel\)</span>, quelle que soit
+la norme matricielle <span class="math notranslate nohighlight">\(\parallel\cdot\parallel\)</span>.</p></li>
+</ul>
+<ol class="simple">
+<li><p>Soit <span class="math notranslate nohighlight">\(E^{(k)}=A^{(k)}-\mathrm{diag}(a_{ii}^{(k)})\)</span>, où les
+<span class="math notranslate nohighlight">\(A^{(k)}\)</span> sont les matrices engendrées par la méthode de Jacobi.
+En utilisant la norme <span class="math notranslate nohighlight">\(\parallel E\parallel_F=(\mbox{trace}(E^\top E))^{1/2}\)</span>,
+montrer que <span class="math notranslate nohighlight">\(E^{(k)}\)</span> tend vers la matrice nulle, lorsque
+<span class="math notranslate nohighlight">\(k\longmapsto \infty\)</span>.</p></li>
+<li><p>En déduire le théorème de convergence de la méthode de Jacobi, i.e.</p></li>
+</ol>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(a_{ij}^{(k)}\longrightarrow 0\)</span>, pour <span class="math notranslate nohighlight">\(i\ne j\)</span></p></li>
+<li><p>chaque <span class="math notranslate nohighlight">\(a_{ii}^{(k)}\longrightarrow \lambda_i\)</span>, o`u <span class="math notranslate nohighlight">\(\lambda_i\)</span>
+est une valeur propre de <span class="math notranslate nohighlight">\(A\)</span>.</p></li>
+</ul>
+</div>
+<div class="section" id="exercice-7">
+<h2>Exercice 7<a class="headerlink" href="#exercice-7" title="Lien permanent vers ce titre">#</a></h2>
+<p>Supposons calculée la plus grande valeur propre <span class="math notranslate nohighlight">\(\lambda_n\)</span> d’une
+matrice symétrique <span class="math notranslate nohighlight">\(A\)</span> et le vecteur propre associé <span class="math notranslate nohighlight">\(v_n\)</span>.</p>
+<ol class="simple">
+<li><p>Quelle est la matrice <span class="math notranslate nohighlight">\(P_n\)</span> de projection orthogonale sur
+<span class="math notranslate nohighlight">\(v_n^\perp\)</span>.</p></li>
+<li><p>Montrer que <span class="math notranslate nohighlight">\(P_nA\)</span> a les m^emes vecteurs propres que <span class="math notranslate nohighlight">\(A\)</span>, à
+l’exception de <span class="math notranslate nohighlight">\(v_n\)</span>. Quelles sont les valeurs propres de <span class="math notranslate nohighlight">\(P_nA\)</span>.
+En déduire une première méthode de calcul des plus grandes valeurs
+propres de <span class="math notranslate nohighlight">\(A\)</span>.</p></li>
+</ol>
+</div>
+<div class="section" id="exercice-8">
+<h2>Exercice 8<a class="headerlink" href="#exercice-8" title="Lien permanent vers ce titre">#</a></h2>
+<p>Chaque année, une proportion <span class="math notranslate nohighlight">\(a\)</span> de clermontois quitte Clermont-Ferrand pour s’installer
+dans le Puy de Dôme (hors Clermont-Ferrand), une proportion <span class="math notranslate nohighlight">\(b\)</span> de non clermontois
+du Puy de Dôme s’installe à Clermont-Ferrand (<span class="math notranslate nohighlight">\(0\le a,b\le 1\)</span>). On pose <span class="math notranslate nohighlight">\(x_0\)</span> le nombre
+de Clermontois, et <span class="math notranslate nohighlight">\(y_0\)</span> le nombre de non clermontois (du Puy de Dôme), en cette année.
+Au bout de <span class="math notranslate nohighlight">\(k\)</span> années, ces nombres vaudront <span class="math notranslate nohighlight">\(x_k\)</span> et <span class="math notranslate nohighlight">\(y_k\)</span>. On suppose qu’il n’y a pas
+de flux migratoire du Puy de Dôme vers l’extérieur, et vice versa.</p>
+<ol class="simple">
+<li><p>Calculer <span class="math notranslate nohighlight">\(x_k\)</span> et <span class="math notranslate nohighlight">\(y_k\)</span> en fonction de <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(x_0\)</span> et <span class="math notranslate nohighlight">\(y_0\)</span>.</p></li>
+<li><p>A quelle condition sur <span class="math notranslate nohighlight">\(a\)</span> et <span class="math notranslate nohighlight">\(b\)</span> existe-t-il une limite pour <span class="math notranslate nohighlight">\(x_k\)</span> et
+<span class="math notranslate nohighlight">\(y_k\)</span> lorsque <span class="math notranslate nohighlight">\(k\rightarrow+\infty\)</span>? Que vaut cette limite?</p></li>
+<li><p>Application numérique: calculer cette limite en fonction de <span class="math notranslate nohighlight">\(x_0\)</span> et <span class="math notranslate nohighlight">\(y_0\)</span> lorsque
+<span class="math notranslate nohighlight">\(a=0.1\)</span> et <span class="math notranslate nohighlight">\(b=0.2\)</span>.</p></li>
+</ol>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "vbarra/anbook.git",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="QRspec.html" title="précédent page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">précédent</p>
+            <p class="prev-next-title">Puissances groupées et méthode QR</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="genindex.html" title="suivant page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title">Index</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Vincent BARRA<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
