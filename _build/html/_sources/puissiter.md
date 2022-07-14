@@ -76,7 +76,6 @@ import matplotlib.pyplot as plt
 
 def puissiter(A,v0,lam,niter,epsilon):
     v = v0
-    vv = [v0]
     l = np.dot(v0,np.dot(A,v0))
     ll = [l]
     k=0
@@ -97,6 +96,16 @@ epsilon = 1e-4
 niter=50
 ll, vv,k = puissiter(A,np.ones(3),lam,niter,epsilon)
 
+plt.figure(figsize=(10,5))
+plt.subplot(121)
+plt.plot(range(len(ll)),ll,'-o',label='Puissances itérées')
+plt.plot(range(len(ll)),lam*np.ones((len(ll)), dtype=np.uint8) ,'r')
+plt.ylabel('valeur propre')
+plt.xlabel('Iteration');
+plt.text(0, lam+0.3, "$\lambda$", color="r", fontsize=18)
+plt.legend()
+plt.title("Valeur propre approchée à "+ str(epsilon)+" près en "+str(k)+" itérations")
+plt.subplot(122)
 plt.plot(range(len(ll)),ll,'-o',label='Puissances itérées')
 plt.plot(range(len(ll)),lam*np.ones((len(ll)), dtype=np.uint8) ,'r')
 plt.ylabel('valeur propre')
