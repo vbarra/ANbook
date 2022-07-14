@@ -65,7 +65,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def puissiter(A,v0,lam,niter=50,epsilon = 1e-4):
+def puissiter(A,v0,lam,niter,epsilon):
     v = v0
     vv = [v0]
     l = np.dot(v0,np.dot(A,v0))
