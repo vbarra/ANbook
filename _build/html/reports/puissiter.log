@@ -48,7 +48,7 @@ plt.plot(range(len(ll)),lam*np.ones((len(ll)), dtype=np.uint8) ,'r')
 plt.ylabel('valeur propre')
 plt.xlabel('Iteration');
 plt.legend()
-titre = "Valeur propre approchée à "epsilon" près en "k" itérations"
+titre = 'Valeur propre approchée à', epsilon', près en ',k,' itérations'
 plt.title(titre)
 plt.tight_layout()
 
@@ -57,9 +57,9 @@ plt.tight_layout()
 ------------------
 
 [0;36m  Input [0;32mIn [1][0;36m[0m
-[0;31m    titre = "Valeur propre approchée à "epsilon" près en "k" itérations"[0m
-[0m                                        ^[0m
+[0;31m    titre = 'Valeur propre approchée à', epsilon', près en ',k,' itérations'[0m
+[0m                                                ^[0m
 [0;31mSyntaxError[0m[0;31m:[0m invalid syntax
 
-SyntaxError: invalid syntax (<ipython-input-1-3680e0de1854>, line 32)
+SyntaxError: invalid syntax (<ipython-input-1-6bf2de0650fb>, line 32)
 
