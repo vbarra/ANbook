@@ -74,12 +74,17 @@ Par récurrence, on montre alors que  $q_k=\frac{A^kq_0}{\|A^kq_0\|}$ et comme l
 import numpy as np
 import matplotlib.pyplot as plt
 
-def puissiter(A,v0,lam,niter=5):
+def plot_vector2d(vector2d, origin=[0, 0], **options):
+    return plt.arrow(origin[0], origin[1], vector2d[0], vector2d[1],
+              head_width=0.05, head_length=0.1, length_includes_head=True,
+              **options)
+
+
+def puissiter(A,v0,lam,niter,epsilon):
     v = v0
-    vv = [v0]
+    vv=[v0]
     l = np.dot(v0,np.dot(A,v0))
     ll = [l]
-    epsilon = 1e-4
     k=0
     while np.fabs(lam-l)>epsilon and k<niter:
         w = np.dot(A,v)
@@ -87,21 +92,39 @@ def puissiter(A,v0,lam,niter=5):
         l = np.dot(v,np.dot(A,v))
         vv.append(v)
         ll.append(l)
-        print(np.fabs(lam-l)," --- ",k)
         k=k+1
-    return ll, vv
+    return ll, vv,k
 
 A = np.array([[2.,1,-1],[1,3,1],[-1,1,4]])
-print(A)
-lam =(np.linalg.eigvals(A)[0])
+w,v=np.linalg.eig(A)
+vmax = v[:, np.argmax(w)]
+lam =np.max(np.linalg.eigvals(A))
 print("La plus grande valeur propre de A est ",lam)
-ll, vv = puissiter(A,np.ones(3),lam)
 
+epsilon = 1e-4
+niter=50
+ll, vv,k = puissiter(A,np.ones(3),lam,niter,epsilon)
+
+plt.figure(figsize=(10,5))
+plt.subplot(121)
 plt.plot(range(len(ll)),ll,'-o',label='Puissances itérées')
 plt.plot(range(len(ll)),lam*np.ones((len(ll)), dtype=np.uint8) ,'r')
 plt.ylabel('valeur propre')
 plt.xlabel('Iteration');
+plt.text(0, lam+0.3, "$\lambda$", color="r", fontsize=18)
 plt.legend()
+plt.title("Valeur propre approchée à "+ str(epsilon)+" près en "+str(k)+" itérations")
+
+plt.subplot(122)
+plot_vector2d(vv[0], color="b", linestyle="dotted")
+plt.text(vv[0][0],vv[0][1],'v0')
+for i in range(1,k):
+    plot_vector2d(vv[i], color="g", linestyle="dotted",alpha = 1-float(i)/k)
+    plt.text(vv[i][0],vv[i][1]+0.1,'v('+str(i)+')',color="g")
+plot_vector2d(vmax, color="r", linestyle="dotted")
+plt.text(vmax[0],vmax[1],'$v_\lambda$',color="r")
+
+plt.title("Vecteur propre approché")
 plt.tight_layout()
 
 
