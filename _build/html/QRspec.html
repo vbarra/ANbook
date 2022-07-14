@@ -544,45 +544,44 @@ title="Print to PDF"
   <div class="tex2jax_ignore mathjax_ignore section" id="puissances-groupees-et-methode-qr">
 <h1>Puissances groupées et méthode QR<a class="headerlink" href="#puissances-groupees-et-methode-qr" title="Lien permanent vers ce titre">#</a></h1>
 <p>On peut généraliser la méthode des puissances itérées à des itérations dites groupées, permettant d’identifier les vecteurs propres associés aux <span class="math notranslate nohighlight">\(p\)</span> plus grandes valeurs propres
-en valeur absolue. A chaque itération, on applique la transformation <span class="math notranslate nohighlight">\(A\)</span> à chacun des vecteurs orthonormés, et on orthogonalise (par Gram-Schmidt ou Householder, {\it cf.} chapitre 4) le système résultant.</p>
+en valeur absolue. A chaque itération, on applique la transformation <span class="math notranslate nohighlight">\(A\)</span> à chacun des vecteurs orthonormés, et on orthogonalise (par Gram-Schmidt ou Householder) le système résultant.</p>
 <div class="section" id="iteration-des-puissances-iterees">
 <h2>Itération des puissances itérées<a class="headerlink" href="#iteration-des-puissances-iterees" title="Lien permanent vers ce titre">#</a></h2>
-<p>Soit <span class="math notranslate nohighlight">\(\{q_1^{(k)}\cdots q_p^{(k)}\}\)</span> un système de <span class="math notranslate nohighlight">\(p\)</span> vecteurs orthonormés obtenu à l’itération <span class="math notranslate nohighlight">\(k\)</span>
-\begin{itemize}
-\item construire le système <span class="math notranslate nohighlight">\(\{Aq_1^{(k)}\cdots Aq_p^{(k)}\}\)</span>
-\item calculer les quotients de Rayleigh : <span class="math notranslate nohighlight">\(\lambda_i={q^{(k)}_i}^\top Aq_i^{(k)},\quad 1\leq i\leq p\)</span>
-\item tester la convergence : <span class="math notranslate nohighlight">\(\displaystyle\max_{1\leq i\leq p} \|Aq_i^{(k)}-\lambda_i q_i^{(k)} \|&lt;Tol\)</span>
-\item orthogonaliser <span class="math notranslate nohighlight">\(\{Aq_1^{(k)}\cdots Aq_p^{(k)}\} \rightarrow \{q_1^{(k+1)}\cdots q_p^{(k+1)}\}\)</span>
-\end{itemize}</p>
+<p>Soit <span class="math notranslate nohighlight">\(\{q_1^{(k)}\cdots q_p^{(k)}\}\)</span> un système de <span class="math notranslate nohighlight">\(p\)</span> vecteurs orthonormés obtenu à l’itération <span class="math notranslate nohighlight">\(k\)</span> On calcule les <span class="math notranslate nohighlight">\(p\)</span> premiers vecteurs propres en itérant les étapes suivantes :</p>
+<ol class="simple">
+<li><p>construire le système <span class="math notranslate nohighlight">\(\{Aq_1^{(k)}\cdots Aq_p^{(k)}\}\)</span></p></li>
+<li><p>calculer les quotients de Rayleigh : <span class="math notranslate nohighlight">\(\lambda_i={q^{(k)}_i}^\top Aq_i^{(k)},\quad 1\leq i\leq p\)</span>
+\item tester la convergence : <span class="math notranslate nohighlight">\(\displaystyle\max_{1\leq i\leq p} \|Aq_i^{(k)}-\lambda_i q_i^{(k)} \|&lt;Tol\)</span></p></li>
+<li><p>orthogonaliser <span class="math notranslate nohighlight">\(\{Aq_1^{(k)}\cdots Aq_p^{(k)}\} \rightarrow \{q_1^{(k+1)}\cdots q_p^{(k+1)}\}\)</span></p></li>
+</ol>
 </div>
 <div class="section" id="methode-qr">
 <h2>Méthode QR<a class="headerlink" href="#methode-qr" title="Lien permanent vers ce titre">#</a></h2>
-<p>La méthode QR correspond au cas <span class="math notranslate nohighlight">\(p=n\)</span> : soit <span class="math notranslate nohighlight">\(Q_k\)</span> la matrice (<span class="math notranslate nohighlight">\(n\times n\)</span>) dont les colonnes sont les vecteurs orthogonaux <span class="math notranslate nohighlight">\(q_i^{(k)}\)</span> et soit <span class="math notranslate nohighlight">\(A_k=Q_k^\top AQ_k\)</span> la représentation de <span class="math notranslate nohighlight">\(A\)</span> sur la base des <span class="math notranslate nohighlight">\(\{q_i^{(k)}\}\)</span>. On peut écrire alors (Gram-Schmidt) :
-$<span class="math notranslate nohighlight">\(
-AQ_k=Q_{k+1}R_{k+1}
-\)</span><span class="math notranslate nohighlight">\( 
-où \)</span>R_{k+1}<span class="math notranslate nohighlight">\( est triangulaire supérieure. Et ainsi 
-\begin{align*}
+<p>La méthode QR correspond au cas <span class="math notranslate nohighlight">\(p=n\)</span> : soit <span class="math notranslate nohighlight">\(Q_k\)</span> la matrice (<span class="math notranslate nohighlight">\(n\times n\)</span>) dont les colonnes sont les vecteurs orthogonaux <span class="math notranslate nohighlight">\(q_i^{(k)}\)</span> et soit <span class="math notranslate nohighlight">\(A_k=Q_k^\top AQ_k\)</span> la représentation de <span class="math notranslate nohighlight">\(A\)</span> sur la base des <span class="math notranslate nohighlight">\(\{q_i^{(k)}\}\)</span>. On peut écrire alors (Gram-Schmidt) :</p>
+<p><span class="math notranslate nohighlight">\(AQ_k=Q_{k+1}R_{k+1}\)</span></p>
+<p>où <span class="math notranslate nohighlight">\(R_{k+1}\)</span> est triangulaire supérieure. Et ainsi</p>
+<p><span class="math notranslate nohighlight">\(\begin{align*}
 A_k&amp;=Q_k^\top Q_{k+1}R_{k+1}=QR_{k+1}\\
 A_{k+1}&amp;=Q_{k+1}^\top AQ_{k+1}=R_{k+1}Q_k^\top Q_{k+1}=R_{k+1}Q
-\end{align*}
-En résumé, \)</span>Q<span class="math notranslate nohighlight">\( est la matrice orthogonale qui permet de triangulariser \)</span>A_k<span class="math notranslate nohighlight">\( et on écrit \)</span>A_{k+1}<span class="math notranslate nohighlight">\( en inversant le produit \)</span>QR<span class="math notranslate nohighlight">\(. La méthode QR prend alors la forme particulièrement simple suivante :
-\begin{itemize}
-    \item \)</span>A_0=A<span class="math notranslate nohighlight">\(
-    \item \)</span>A_k=Q_kR_k<span class="math notranslate nohighlight">\( (par Gram-Schmidt par exemple)
-    \item \)</span>A_{k+1}=R_kQ_k<span class="math notranslate nohighlight">\(
-    \item test sur le plus grand élément non diagonal
-\end{itemize}
-\vskip 10pt
-Observons que \)</span>A_{k+1}=Q^\top A_kQ<span class="math notranslate nohighlight">\(, ce qui implique que les matrices sont toutes semblables et que la suite des matrices  \)</span>Q<span class="math notranslate nohighlight">\( converge vers la matrice des vecteurs propres. La matrice \)</span>A_k$ converge vers une matrice diagonale où les valeurs propres sont rangées dans l’ordre décroissant (Figure \ref{52}).</p>
-<p>\begin{figure}[htpb]
-\begin{center}
-\includegraphics[width=22em]{QR.eps}
-\end{center}
-\caption{diagonalisation d’une matrice 8<span class="math notranslate nohighlight">\(\times\)</span>8 par QR d’après \cite{LGT:89}}
-\label{52}
-\end{figure}</p>
-<div class="proof remark admonition" id="remark-0">
+\end{align*}\)</span></p>
+<p>En résumé, <span class="math notranslate nohighlight">\(Q\)</span> est la matrice orthogonale qui permet de triangulariser <span class="math notranslate nohighlight">\(A_k\)</span> et on écrit <span class="math notranslate nohighlight">\(A_{k+1}\)</span> en inversant le produit <span class="math notranslate nohighlight">\(QR\)</span>. La méthode QR prend alors la forme particulièrement simple suivante :</p>
+<div class="proof algorithm admonition" id="FactLU">
+<p class="admonition-title"><span class="caption-number">Algorithm 7 </span> (Algorithme QR)</p>
+<div class="algorithm-content section" id="proof-content">
+<p>**Entrée : ** La matrice <span class="math notranslate nohighlight">\({\bf A}\)</span></p>
+<p>**Sortie : ** Les matrices ${\bf Q} et {\bf R}</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(A_0=A\)</span></p></li>
+<li><p>Tant que le plus grand élément non diagonal de  <span class="math notranslate nohighlight">\(A_k\)</span> est non nul</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(A_k=Q_kR_k\)</span> (par Gram-Schmidt par exemple)</p></li>
+<li><p><span class="math notranslate nohighlight">\(A_{k+1}=R_kQ_k\)</span></p></li>
+</ol>
+</li>
+</ol>
+</div>
+</div><p>Observons que <span class="math notranslate nohighlight">\(A_{k+1}=Q^\top A_kQ\)</span>, ce qui implique que les matrices sont toutes semblables et que la suite des matrices  <span class="math notranslate nohighlight">\(Q\)</span> converge vers la matrice des vecteurs propres. La matrice <span class="math notranslate nohighlight">\(A_k\)</span> converge vers une matrice diagonale où les valeurs propres sont rangées dans l’ordre décroissant (Figure \ref{52}).</p>
+<div class="proof remark admonition" id="remark-1">
 <p class="admonition-title"><span class="caption-number">Remark 12 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Les performances sont considérablement améliorées si on intègre deux modifications :</p>
