@@ -21,9 +21,39 @@
 # Deux matrices semblables ont les mêmes valeurs propres
 # ```
 # En effet, soit $x$ un vecteur propre de $A$ associé à la valeur propre $\lambda$. On a donc $Ax=\lambda x$, qui s'écrit $SBS^{-1}x=\lambda x$, ce qui veut dire que $\lambda$ est valeur propre de $B$ associé au vecteur propre $S^{-1}x$.
-# 
-# 
-# 
+
+# In[1]:
+
+
+from sympy import Matrix
+A = Matrix([[2, 1], [1, 2]])
+S = Matrix([[1, 4], [0, 1]])
+
+
+# Pour $\bf S$ inversible, on construit donc $\bf{B=S^{-1}AS}$ semblable.
+
+# In[2]:
+
+
+B = S.inv() * A * S
+
+
+# On vérifie que $A$ et $\bf B$ ont le même spectre
+
+# In[3]:
+
+
+A.eigenvals(), B.eigenvals()
+
+
+#  mais que les vecteurs propres sont différents
+
+# In[4]:
+
+
+A.eigenvects(), B.eigenvects()
+
+
 # L'intérêt de ces transformations est double : 
 # - les valeurs propres sont inchangées
 # - en supposant les vecteurs propres linéairement indépendants, la similitude associée à la matrice $X$ dont les colonnes sont les vecteurs propres transforme $A$ en une matrice diagonale dont les éléments diagonaux sont les valeurs propres de $A$ : $X^{-1}AX = \Lambda$.
