@@ -18,36 +18,36 @@ $\begin{pmatrix}
 1 & 1 \\
 0 & 2 
 \end{pmatrix}
-$
+$,
 $\begin{pmatrix} 
 1 & 0 \\
 1 & 2 
 \end{pmatrix}
-$
+$,
 $\begin{pmatrix} 
 1 & 1 \\
 0 & 1 
 \end{pmatrix}
-$
+$,
 $
 \begin{pmatrix}
 1 & 1 \\
 1 & 0 
 \end{pmatrix}
-$
+$,
 $
 \begin{pmatrix}
 1 & 2 \\
 2 & 4 
 \end{pmatrix}
-$
+$,
 $
 \begin{pmatrix}
 0 & 1 & 0 \\
 1 & 0 & 1 \\
 0 & 1 & 0
 \end{pmatrix}
-$
+$,
 $
 \begin{pmatrix} 
 11 & -5 & 5 \\
@@ -74,10 +74,10 @@ Que peut-on dire de la diagonalisabilité, des valeurs propres et des vecteurs p
 
 ## Exercice 3
 
-1. Soit $A=\bm 
+1. Soit $A=\begin{pmatrix}  
 1 & 1 \\
 0 & 2 
-\em$.
+\end{pmatrix}$.
 Exprimer  la matrice $A^k$.
 
 2.  Soit la suite de Fibonacci $1$, $1$, $2$, $3$, $5$, $8$, $13$, ... définie par :
@@ -86,7 +86,7 @@ u_0&=u_1=1,\\
 u_{k}&=u_{k-1}+u_{k-2}, \quad k\geq 2.
 \end{align*}$
 
-En posant $X_k=\bm u_{k+1} \\ u_k \em$, déterminer la matrice $A$ telle que $X_k=A X_{k-1} $ puis en déduire la limite de $F_k=\frac{u_{k+1}}{u_k}$ quand $k$ tend vers l'infini.
+En posant $X_k=\begin{pmatrix}  u_{k+1} \\ u_k \end{pmatrix}^\top $, déterminer la matrice $A$ telle que $X_k=A X_{k-1} $ puis en déduire la limite de $F_k=\frac{u_{k+1}}{u_k}$ quand $k$ tend vers l'infini.
 
 
 3. Soientt les suites récurrentes linéaires simultanées suivantes :
