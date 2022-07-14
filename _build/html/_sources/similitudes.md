@@ -54,6 +54,9 @@ En revanche, les vecteurs propres sont différents
 
 ```{code-cell} ipython3
 Matrix(A.eigenvects())
+```
+
+```{code-cell} ipython3
 Matrix(B.eigenvects())
 ```
 

@@ -54,6 +54,11 @@ A.eigenvals(), B.eigenvals()
 
 
 Matrix(A.eigenvects())
+
+
+# In[5]:
+
+
 Matrix(B.eigenvects())
 
 
