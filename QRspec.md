@@ -48,9 +48,11 @@ En résumé, $Q$ est la matrice orthogonale qui permet de triangulariser $A_k$ e
 **Sortie : ** Les matrices ${\bf Q}$ et ${\bf R}$
 
 1. $A_0=A$
+2. k=0
 2. Tant que le plus grand élément non diagonal de  $A_k$ est non nul
     1. $A_k=Q_kR_k$ (par Gram-Schmidt par exemple)
     2. $A_{k+1}=R_kQ_k$
+    3. k=k+1
     
 ```
 

@@ -565,11 +565,11 @@ A_k&amp;=Q_k^\top Q_{k+1}R_{k+1}=QR_{k+1}\\
 A_{k+1}&amp;=Q_{k+1}^\top AQ_{k+1}=R_{k+1}Q_k^\top Q_{k+1}=R_{k+1}Q
 \end{align*}\)</span></p>
 <p>En résumé, <span class="math notranslate nohighlight">\(Q\)</span> est la matrice orthogonale qui permet de triangulariser <span class="math notranslate nohighlight">\(A_k\)</span> et on écrit <span class="math notranslate nohighlight">\(A_{k+1}\)</span> en inversant le produit <span class="math notranslate nohighlight">\(QR\)</span>. La méthode QR prend alors la forme particulièrement simple suivante :</p>
-<div class="proof algorithm admonition" id="FactLU">
+<div class="proof algorithm admonition" id="QR">
 <p class="admonition-title"><span class="caption-number">Algorithm 7 </span> (Algorithme QR)</p>
 <div class="algorithm-content section" id="proof-content">
 <p>**Entrée : ** La matrice <span class="math notranslate nohighlight">\({\bf A}\)</span></p>
-<p>**Sortie : ** Les matrices ${\bf Q} et {\bf R}</p>
+<p>**Sortie : ** Les matrices <span class="math notranslate nohighlight">\({\bf Q}\)</span> et <span class="math notranslate nohighlight">\({\bf R}\)</span></p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(A_0=A\)</span></p></li>
 <li><p>Tant que le plus grand élément non diagonal de  <span class="math notranslate nohighlight">\(A_k\)</span> est non nul</p>
@@ -580,14 +580,14 @@ A_{k+1}&amp;=Q_{k+1}^\top AQ_{k+1}=R_{k+1}Q_k^\top Q_{k+1}=R_{k+1}Q
 </li>
 </ol>
 </div>
-</div><p>Observons que <span class="math notranslate nohighlight">\(A_{k+1}=Q^\top A_kQ\)</span>, ce qui implique que les matrices sont toutes semblables et que la suite des matrices  <span class="math notranslate nohighlight">\(Q\)</span> converge vers la matrice des vecteurs propres. La matrice <span class="math notranslate nohighlight">\(A_k\)</span> converge vers une matrice diagonale où les valeurs propres sont rangées dans l’ordre décroissant (Figure \ref{52}).</p>
+</div><p>Observons que <span class="math notranslate nohighlight">\(A_{k+1}=Q^\top A_kQ\)</span>, ce qui implique que les matrices sont toutes semblables et que la suite des matrices  <span class="math notranslate nohighlight">\(Q\)</span> converge vers la matrice des vecteurs propres. La matrice <span class="math notranslate nohighlight">\(A_k\)</span> converge vers une matrice diagonale où les valeurs propres sont rangées dans l’ordre décroissant.</p>
 <div class="proof remark admonition" id="remark-1">
 <p class="admonition-title"><span class="caption-number">Remark 12 </span></p>
 <div class="remark-content section" id="proof-content">
 <p>Les performances sont considérablement améliorées si on intègre deux modifications :</p>
 <ul class="simple">
-<li><p>{\gr décalage} de la matrice en prenant comme approximation de la plus petite valeur propre l’élément (<span class="math notranslate nohighlight">\(n\times n\)</span>) de <span class="math notranslate nohighlight">\(A_k\)</span></p></li>
-<li><p>transformation préalable de <span class="math notranslate nohighlight">\(A\)</span> en une matrice {\gr tridiagonale}. Les matrices <span class="math notranslate nohighlight">\(A_k\)</span> restent tridiagonales et l’orthogonalisation s’effectue en <span class="math notranslate nohighlight">\(O(n)\)</span> flops.</p></li>
+<li><p>décalage de la matrice en prenant comme approximation de la plus petite valeur propre l’élément (<span class="math notranslate nohighlight">\(n\times n\)</span>) de <span class="math notranslate nohighlight">\(A_k\)</span></p></li>
+<li><p>transformation préalable de <span class="math notranslate nohighlight">\(A\)</span> en une matrice tridiagonale. Les matrices <span class="math notranslate nohighlight">\(A_k\)</span> restent tridiagonales et l’orthogonalisation s’effectue en <span class="math notranslate nohighlight">\(O(n)\)</span> flops.</p></li>
 </ul>
 </div>
 </div></div>

@@ -34,10 +34,10 @@
 # En résumé, $Q$ est la matrice orthogonale qui permet de triangulariser $A_k$ et on écrit $A_{k+1}$ en inversant le produit $QR$. La méthode QR prend alors la forme particulièrement simple suivante :
 # 
 # ```{prf:algorithm} Algorithme QR
-# :label: FactLU
+# :label: QR
 # **Entrée : ** La matrice ${\bf A}$
 # 
-# **Sortie : ** Les matrices ${\bf Q} et {\bf R}
+# **Sortie : ** Les matrices ${\bf Q}$ et ${\bf R}$
 # 
 # 1. $A_0=A$
 # 2. Tant que le plus grand élément non diagonal de  $A_k$ est non nul
@@ -46,12 +46,12 @@
 #     
 # ```
 # 
-# Observons que $A_{k+1}=Q^\top A_kQ$, ce qui implique que les matrices sont toutes semblables et que la suite des matrices  $Q$ converge vers la matrice des vecteurs propres. La matrice $A_k$ converge vers une matrice diagonale où les valeurs propres sont rangées dans l'ordre décroissant (Figure \ref{52}). 
+# Observons que $A_{k+1}=Q^\top A_kQ$, ce qui implique que les matrices sont toutes semblables et que la suite des matrices  $Q$ converge vers la matrice des vecteurs propres. La matrice $A_k$ converge vers une matrice diagonale où les valeurs propres sont rangées dans l'ordre décroissant. 
 # 
 # 
 # 
 # ```{prf:remark}
 # Les performances sont considérablement améliorées si on intègre deux modifications :
-# - {\gr décalage} de la matrice en prenant comme approximation de la plus petite valeur propre l'élément ($n\times n$) de $A_k$
-# - transformation préalable de $A$ en une matrice {\gr tridiagonale}. Les matrices $A_k$ restent tridiagonales et l'orthogonalisation s'effectue en $O(n)$ flops.
+# - décalage de la matrice en prenant comme approximation de la plus petite valeur propre l'élément ($n\times n$) de $A_k$
+# - transformation préalable de $A$ en une matrice tridiagonale. Les matrices $A_k$ restent tridiagonales et l'orthogonalisation s'effectue en $O(n)$ flops.
 # ```
