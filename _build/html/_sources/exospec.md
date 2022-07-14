@@ -14,42 +14,49 @@ kernelspec:
 ## Exercice 1
 
 Soit les matrices 
-$begin{pmatrix}
+$
+\bm 
 1 & 1 \\
 0 & 2 
-\end{pmatrix}
+\em
 , 
-begin{pmatrix} 
+\bm 
 1 & 0 \\
 1 & 2 
-\end{pmatrix}
+\em
 ,
-begin{pmatrix} 
+\bm 
 1 & 1 \\
 0 & 1 
-\end{pmatrix}
+\em
 ,
-begin{pmatrix}
+\bm 
 1 & 1 \\
 1 & 0 
-\end{pmatrix}
+\em
 ,
-begin{pmatrix}
+\bm 
 1 & 2 \\
 2 & 4 
-\end{pmatrix},
-
-begin{pmatrix}
+\em,
+$
+et 
+$
+%\bm 
+%\cos\theta & -\sin\theta \\
+%\sin\theta & \cos\theta 
+%\em,
+\bm 
 0 & 1 & 0 \\
 1 & 0 & 1 \\
 0 & 1 & 0
-\end{pmatrix}
+\em
 ,
-begin{pmatrix} 
+\bm 
 11 & -5 & 5 \\
 -5 & 3 & -3 \\
 5 & -3 & 3
-\end{pmatrix}
+\em
 $
 
 Pour chacune de ces matrices, répondre aux questions suivantes :
