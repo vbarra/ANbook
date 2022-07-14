@@ -92,7 +92,7 @@ print("La plus grande valeur propre de A est ",lam)
 ll, vv = puissiter(A,np.ones(3))
 
 plt.plot(range(len(ll)),ll,'-o')
-%plt.plot(range(len(ll)),lam*np.ones((len(ll)), dtype=np.uint8) ,'r')
+plt.plot(range(len(ll)),lam*np.ones((len(ll)), dtype=np.uint8) ,'r')
 plt.ylabel('Puissances itérées')
 plt.xlabel('Iteration');
 plt.tight_layout()

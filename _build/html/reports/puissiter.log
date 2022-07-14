@@ -33,7 +33,8 @@ def puissiter(A,v0,niter=5):
     return ll, vv
 
 A = np.array([[2.,1,1],[1,3,1],[1,1,4]])
-print("La plus grande valeur propre de A est ",lam =(np.linalg.eigvals(A)[0]))
+lam =(np.linalg.eigvals(A)[0])
+print("La plus grande valeur propre de A est ",lam)
 ll, vv = puissiter(A,np.ones(3))
 
 plt.plot(range(len(ll)),ll,'-o')
@@ -46,15 +47,6 @@ plt.tight_layout()
 
 ------------------
 
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mTypeError[0m                                 Traceback (most recent call last)
-Input [0;32mIn [1][0m, in [0;36m<module>[0;34m[0m
-[1;32m     14[0m     [38;5;28;01mreturn[39;00m ll, vv
-[1;32m     16[0m A [38;5;241m=[39m np[38;5;241m.[39marray([[[38;5;241m2.[39m,[38;5;241m1[39m,[38;5;241m1[39m],[[38;5;241m1[39m,[38;5;241m3[39m,[38;5;241m1[39m],[[38;5;241m1[39m,[38;5;241m1[39m,[38;5;241m4[39m]])
-[0;32m---> 17[0m [38;5;28;43mprint[39;49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mLa plus grande valeur propre de A est [39;49m[38;5;124;43m"[39;49m[43m,[49m[43mlam[49m[43m [49m[38;5;241;43m=[39;49m[43m([49m[43mnp[49m[38;5;241;43m.[39;49m[43mlinalg[49m[38;5;241;43m.[39;49m[43meigvals[49m[43m([49m[43mA[49m[43m)[49m[43m[[49m[38;5;241;43m0[39;49m[43m][49m[43m)[49m[43m)[49m
-[1;32m     18[0m ll, vv [38;5;241m=[39m puissiter(A,np[38;5;241m.[39mones([38;5;241m3[39m))
-[1;32m     20[0m plt[38;5;241m.[39mplot([38;5;28mrange[39m([38;5;28mlen[39m(ll)),ll,[38;5;124m'[39m[38;5;124m-o[39m[38;5;124m'[39m)
 
-[0;31mTypeError[0m: 'lam' is an invalid keyword argument for print()
-TypeError: 'lam' is an invalid keyword argument for print()
+UsageError: Line magic function `%plt.plot(range(len(ll)),lam*np.ones((len(ll)),` not found.
 
