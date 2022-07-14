@@ -229,7 +229,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="resspec.html">
-   Moindres carrés linéaires
+   Résultats généraux
   </a>
  </li>
  <li class="toctree-l1">
@@ -579,7 +579,7 @@ consiste à choisir  <span class="math notranslate nohighlight">\({\bf x}\)</spa
 <p><img alt="" src="_images/mcl1.png" /></p>
 </div>
 <div class="proof example admonition" id="example-0">
-<p class="admonition-title"><span class="caption-number">Example 20 </span></p>
+<p class="admonition-title"><span class="caption-number">Example 18 </span></p>
 <div class="example-content section" id="proof-content">
 <p>Le système <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> produit pour les entrées <span class="math notranslate nohighlight">\(t_i =\{-1,0,1\}\)</span> les sorties <span class="math notranslate nohighlight">\(Y_i=\{4,5,9\}\)</span></p>
 <p>On modélise <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> à l’aide d’un modèle affine <span class="math notranslate nohighlight">\(y=\alpha+\beta t\)</span>, où <span class="math notranslate nohighlight">\(\alpha\)</span> et <span class="math notranslate nohighlight">\(\beta\)</span> sont deux paramètres à déterminer pour minimiser au sens des moindres carrés l’erreur des trois mesures.</p>
@@ -632,7 +632,7 @@ la solution aux moindres carrés est donc <span class="math notranslate nohighli
 Le vecteur des erreurs <span class="math notranslate nohighlight">\({\bf Y}-{\bf Ax}=(1/2\)</span> <span class="math notranslate nohighlight">\(-1\)</span> <span class="math notranslate nohighlight">\(1/2)^\top \)</span> est bien orthogonal dans <span class="math notranslate nohighlight">\(R^3\)</span> aux colonnes de <span class="math notranslate nohighlight">\({\bf A}\)</span>. Chaque erreur peut être également représentée par la distance verticale entre la mesure <span class="math notranslate nohighlight">\({ Y_i}\)</span> et la droite <span class="math notranslate nohighlight">\(f(t)=6+\frac{5}{2}t\)</span> pour <span class="math notranslate nohighlight">\(t=t_i\)</span> (segments rouges).</p>
 </div>
 </div><div class="proof example admonition" id="example-1">
-<p class="admonition-title"><span class="caption-number">Example 21 </span></p>
+<p class="admonition-title"><span class="caption-number">Example 19 </span></p>
 <div class="example-content section" id="proof-content">
 <p>Le système <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> produit pour les entrées <span class="math notranslate nohighlight">\(t_i =\{-2,-1,0,1,2\}\)</span> les sorties \<span class="math notranslate nohighlight">\(Y_i=\{3,1,-0.5,1.5,4\}\)</span>.</p>
 <p>On modélise <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> par un polynôme <span class="math notranslate nohighlight">\(P(t)=\alpha+\beta t+\gamma t^2 = {\bf a^\top}{\bf x}\)</span>, où <span class="math notranslate nohighlight">\({\bf x}=\begin{pmatrix}\alpha\\\beta\\\gamma\end{pmatrix} \)</span>et <span class="math notranslate nohighlight">\({\bf a}=\begin{pmatrix}1\\t\\t^2\end{pmatrix}\)</span>. On recherche les valeurs de <span class="math notranslate nohighlight">\(\alpha,\beta,\gamma\)</span> qui minimisent la somme des carrés des erreurs entre les valeurs théoriques et les valeurs mesurées.</p>
