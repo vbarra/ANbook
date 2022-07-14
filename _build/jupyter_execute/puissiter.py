@@ -67,7 +67,7 @@ import matplotlib.pyplot as plt
 
 def plot_vector2d(vector2d, origin=[0, 0], **options):
     return plt.arrow(origin[0], origin[1], vector2d[0], vector2d[1],
-              head_width=0.2, head_length=0.3, length_includes_head=True,
+              head_width=0.05, head_length=0.1, length_includes_head=True,
               **options)
 
 
@@ -106,7 +106,9 @@ plt.title("Valeur propre approchée à "+ str(epsilon)+" près en "+str(k)+" it�
 
 plt.subplot(122)
 plot_vector2d(vv[0], color="b", linestyle="dotted")
+plt.text(vv[0][0],vv[0][1],'v0')
 plot_vector2d(vv[k-1], color="r", linestyle="dotted")
+plt.text(vv[k-1][0],vv[k_1][1],'vfinal')
 
 plt.title("Vecteur propre approché")
 plt.tight_layout()
