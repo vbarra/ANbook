@@ -38,7 +38,7 @@ S = Matrix([[1, 4], [0, 1]])
 B = S.inv() * A * S
 
 
-# On vérifie que $A$ et $\bf B$ ont le même spectre
+# On vérifie que $\bf A$ et $\bf B$ ont le même spectre
 
 # In[3]:
 

@@ -43,7 +43,7 @@ Pour $\bf S$ inversible, on construit donc $\bf{B=S^{-1}AS}$ semblable.
 B = S.inv() * A * S
 ```
 
-On vérifie que $A$ et $\bf B$ ont le même spectre
+On vérifie que $\bf A$ et $\bf B$ ont le même spectre
 ```{code-cell} ipython3
 A.eigenvals(), B.eigenvals()
 ```
