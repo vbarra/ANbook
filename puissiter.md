@@ -117,7 +117,7 @@ plt.subplot(122)
 plot_vector2d(vv[0], color="b", linestyle="dotted")
 plt.text(vv[0][0],vv[0][1],'v0')
 for i in range(1,k):
-    plot_vector2d(vv[i], color="g", linestyle="dotted")
+    plot_vector2d(vv[i], color="g", linestyle="dotted",alpha = 0.5)
     plt.text(vv[i][0],vv[i][1],'v('+str(i)+')',color="g")
 
 plt.title("Vecteur propre approché")
