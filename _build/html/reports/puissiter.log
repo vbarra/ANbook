@@ -38,7 +38,10 @@ def puissiter(A,v0,lam,niter=50,epsilon = 1e-4):
 A = np.array([[2.,1,-1],[1,3,1],[-1,1,4]])
 lam =np.max(np.linalg.eigvals(A))
 print("La plus grande valeur propre de A est ",lam)
-ll, vv,k = puissiter(A,np.ones(3),lam)
+
+epsilon = 1e-4
+niter=50
+ll, vv,k = puissiter(A,np.ones(3),lam,niter,epsilon)
 
 plt.plot(range(len(ll)),ll,'-o',label='Puissances itérées')
 plt.plot(range(len(ll)),lam*np.ones((len(ll)), dtype=np.uint8) ,'r')
@@ -53,13 +56,13 @@ plt.tight_layout()
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;31mTypeError[0m                                 Traceback (most recent call last)
 Input [0;32mIn [1][0m, in [0;36m<module>[0;34m[0m
-[1;32m     27[0m plt[38;5;241m.[39mxlabel([38;5;124m'[39m[38;5;124mIteration[39m[38;5;124m'[39m);
-[1;32m     28[0m plt[38;5;241m.[39mlegend()
-[0;32m---> 29[0m plt[38;5;241m.[39mtitle([38;5;124m"[39m[38;5;124mValeur propre approchée à [39m[38;5;124m"[39m,[43mepsilon[49m,[38;5;124m"[39m[38;5;124m près en [39m[38;5;124m"[39m,k,[38;5;124m"[39m[38;5;124m itérations[39m[38;5;124m"[39m)
-[1;32m     30[0m plt[38;5;241m.[39mtight_layout()
+[1;32m     30[0m plt[38;5;241m.[39mxlabel([38;5;124m'[39m[38;5;124mIteration[39m[38;5;124m'[39m);
+[1;32m     31[0m plt[38;5;241m.[39mlegend()
+[0;32m---> 32[0m [43mplt[49m[38;5;241;43m.[39;49m[43mtitle[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mValeur propre approchée à [39;49m[38;5;124;43m"[39;49m[43m,[49m[43mepsilon[49m[43m,[49m[38;5;124;43m"[39;49m[38;5;124;43m près en [39;49m[38;5;124;43m"[39;49m[43m,[49m[43mk[49m[43m,[49m[38;5;124;43m"[39;49m[38;5;124;43m itérations[39;49m[38;5;124;43m"[39;49m[43m)[49m
+[1;32m     33[0m plt[38;5;241m.[39mtight_layout()
 
-[0;31mNameError[0m: name 'epsilon' is not defined
-NameError: name 'epsilon' is not defined
+[0;31mTypeError[0m: title() takes from 1 to 4 positional arguments but 5 were given
+TypeError: title() takes from 1 to 4 positional arguments but 5 were given
 

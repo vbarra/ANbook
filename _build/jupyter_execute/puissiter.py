@@ -83,7 +83,10 @@ def puissiter(A,v0,lam,niter=50,epsilon = 1e-4):
 A = np.array([[2.,1,-1],[1,3,1],[-1,1,4]])
 lam =np.max(np.linalg.eigvals(A))
 print("La plus grande valeur propre de A est ",lam)
-ll, vv,k = puissiter(A,np.ones(3),lam)
+
+epsilon = 1e-4
+niter=50
+ll, vv,k = puissiter(A,np.ones(3),lam,niter,epsilon)
 
 plt.plot(range(len(ll)),ll,'-o',label='Puissances itérées')
 plt.plot(range(len(ll)),lam*np.ones((len(ll)), dtype=np.uint8) ,'r')
