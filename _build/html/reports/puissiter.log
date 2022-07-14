@@ -25,7 +25,6 @@ def puissiter(A,v0,lam,niter=50,epsilon = 1e-4):
     vv = [v0]
     l = np.dot(v0,np.dot(A,v0))
     ll = [l]
-    epsilon = 1e-4
     k=0
     while np.fabs(lam-l)>epsilon and k<niter:
         w = np.dot(A,v)
@@ -39,14 +38,14 @@ def puissiter(A,v0,lam,niter=50,epsilon = 1e-4):
 A = np.array([[2.,1,-1],[1,3,1],[-1,1,4]])
 lam =np.max(np.linalg.eigvals(A))
 print("La plus grande valeur propre de A est ",lam)
-ll, vv = puissiter(A,np.ones(3),lam)
+ll, vv,k = puissiter(A,np.ones(3),lam)
 
 plt.plot(range(len(ll)),ll,'-o',label='Puissances itérées')
 plt.plot(range(len(ll)),lam*np.ones((len(ll)), dtype=np.uint8) ,'r')
 plt.ylabel('valeur propre')
 plt.xlabel('Iteration');
 plt.legend()
-plt.title("Valeur propre approchée à ",epsilon,"près en ",k," itérations")
+plt.title("Valeur propre approchée à ",epsilon," près en ",k," itérations")
 plt.tight_layout()
 
 
@@ -54,14 +53,13 @@ plt.tight_layout()
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mValueError[0m                                Traceback (most recent call last)
+[0;31mNameError[0m                                 Traceback (most recent call last)
 Input [0;32mIn [1][0m, in [0;36m<module>[0;34m[0m
-[1;32m     21[0m lam [38;5;241m=[39mnp[38;5;241m.[39mmax(np[38;5;241m.[39mlinalg[38;5;241m.[39meigvals(A))
-[1;32m     22[0m [38;5;28mprint[39m([38;5;124m"[39m[38;5;124mLa plus grande valeur propre de A est [39m[38;5;124m"[39m,lam)
-[0;32m---> 23[0m ll, vv [38;5;241m=[39m puissiter(A,np[38;5;241m.[39mones([38;5;241m3[39m),lam)
-[1;32m     25[0m plt[38;5;241m.[39mplot([38;5;28mrange[39m([38;5;28mlen[39m(ll)),ll,[38;5;124m'[39m[38;5;124m-o[39m[38;5;124m'[39m,label[38;5;241m=[39m[38;5;124m'[39m[38;5;124mPuissances itérées[39m[38;5;124m'[39m)
-[1;32m     26[0m plt[38;5;241m.[39mplot([38;5;28mrange[39m([38;5;28mlen[39m(ll)),lam[38;5;241m*[39mnp[38;5;241m.[39mones(([38;5;28mlen[39m(ll)), dtype[38;5;241m=[39mnp[38;5;241m.[39muint8) ,[38;5;124m'[39m[38;5;124mr[39m[38;5;124m'[39m)
+[1;32m     27[0m plt[38;5;241m.[39mxlabel([38;5;124m'[39m[38;5;124mIteration[39m[38;5;124m'[39m);
+[1;32m     28[0m plt[38;5;241m.[39mlegend()
+[0;32m---> 29[0m plt[38;5;241m.[39mtitle([38;5;124m"[39m[38;5;124mValeur propre approchée à [39m[38;5;124m"[39m,[43mepsilon[49m,[38;5;124m"[39m[38;5;124m près en [39m[38;5;124m"[39m,k,[38;5;124m"[39m[38;5;124m itérations[39m[38;5;124m"[39m)
+[1;32m     30[0m plt[38;5;241m.[39mtight_layout()
 
-[0;31mValueError[0m: too many values to unpack (expected 2)
-ValueError: too many values to unpack (expected 2)
+[0;31mNameError[0m: name 'epsilon' is not defined
+NameError: name 'epsilon' is not defined
 
