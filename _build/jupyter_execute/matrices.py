@@ -248,7 +248,8 @@ plt.tight_layout()
 # ```
 # ```{index} Norme matricielle;de Frobenius
 # ```
-# 
+# ```{index} Frobenius;Norme de 
+# ```
 # 
 # 
 # ## Matrice transposée

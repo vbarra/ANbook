@@ -254,7 +254,7 @@ A, L * U
 # Dans ce cas, ${\bf U}$ peut s'écrire ${\bf U}={\bf DL^\top} $ où 
 # ${\bf D}$ est la matrice diagonale contenant les pivots successifs.  On a donc
 # la factorisation ${\bf A}={\bf LDL^\top }$.
-# ```{index} Factorisation! ; LDL^\top
+# ```{index} Factorisation! ; LDL^T
 # ```
 # La complexité de 
 # l'algorithme est alors de $n^3/6$ flops.

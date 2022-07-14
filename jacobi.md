@@ -96,6 +96,7 @@ Un élément annulé peut redevenir non nul aux itérations suivantes.
 ```
 
 ```{prf:remark} 
+:class: dropdown
 - Le tri du plus grand élément parmi $n(n-1)/2$ coûtant relativement cher, on lui préfère d'autres stratégies plus économiques (balayage cyclique ou choix avec seuil)
 - La méthode de Jacobi présente d'excellentes performances pour des matrices pleines de faible dimension (typiquement inférieure à 100). Dans le cas général, on lui préférera la méthode QR.
 ``` 

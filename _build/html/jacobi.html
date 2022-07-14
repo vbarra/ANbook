@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Moindres carrés linéaires &#8212; Analyse numérique</title>
+    <title>Méthode de Jacobi &#8212; Analyse numérique</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -234,7 +234,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="gershgorin.html">
-   Moindres carrés linéaires
+   Disques de Gershgorin
   </a>
  </li>
  <li class="toctree-l1">
@@ -244,7 +244,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Moindres carrés linéaires
+   Méthode de Jacobi
   </a>
  </li>
  <li class="toctree-l1">
@@ -493,23 +493,13 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#modelisation">
-   Modélisation
+  <a class="reference internal nav-link" href="#principe-d-elimination-symetrique">
+   Principe d’élimination symétrique
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#systemes-incompatibles">
-   Systèmes incompatibles
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#un-exemple-de-regression-polynomiale-par-moindres-carres">
-   Un exemple de régression polynomiale par moindres carrés
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#un-exemple-de-regression-lineaire">
-   Un exemple de régression linéaire
+  <a class="reference internal nav-link" href="#convergence">
+   Convergence
   </a>
  </li>
 </ul>
@@ -521,7 +511,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Moindres carrés linéaires</h1>
+                <h1>Méthode de Jacobi</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -532,23 +522,13 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#modelisation">
-   Modélisation
+  <a class="reference internal nav-link" href="#principe-d-elimination-symetrique">
+   Principe d’élimination symétrique
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#systemes-incompatibles">
-   Systèmes incompatibles
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#un-exemple-de-regression-polynomiale-par-moindres-carres">
-   Un exemple de régression polynomiale par moindres carrés
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#un-exemple-de-regression-lineaire">
-   Un exemple de régression linéaire
+  <a class="reference internal nav-link" href="#convergence">
+   Convergence
   </a>
  </li>
 </ul>
@@ -561,348 +541,82 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="moindres-carres-lineaires">
-<h1>Moindres carrés linéaires<a class="headerlink" href="#moindres-carres-lineaires" title="Lien permanent vers ce titre">#</a></h1>
-<div class="section" id="modelisation">
-<h2>Modélisation<a class="headerlink" href="#modelisation" title="Lien permanent vers ce titre">#</a></h2>
-<p>On observe un système <span class="math notranslate nohighlight">\(\mathcal S\)</span> qui produit, pour une sollicitation en entrée <span class="math notranslate nohighlight">\(t\)</span> donnée, une sortie <span class="math notranslate nohighlight">\(Y\)</span> (par exemple la vitesse d’un coureur en fonction du temps, la température d’une pièce mesurée chaque seconde,…). L’objectif est de construire un modèle théorique de <span class="math notranslate nohighlight">\(\mathcal S\)</span>, qui reproduise aussi fidèlement que possible le comportement du système.</p>
-<p>On se donne donc un modèle (une fonction) <span class="math notranslate nohighlight">\(f_{\bf x}\)</span>, paramétrée par <span class="math notranslate nohighlight">\(n\)</span> paramètres <span class="math notranslate nohighlight">\({\bf x}=\left (x_1\cdots x_n\right )^\top\in\mathbb R^n\)</span>, qui calcule pour chaque entrée <span class="math notranslate nohighlight">\(t\)</span> la valeur <span class="math notranslate nohighlight">\(f_{\bf x}(t) = y\)</span>.</p>
-<p>Pour <span class="math notranslate nohighlight">\(m\)</span> entrées <span class="math notranslate nohighlight">\(t_i, 1\leq i\leq m\)</span>, on souhaite donc que les valeurs <span class="math notranslate nohighlight">\(y_i=f_{\bf x}(t_i)\)</span> calculées par le modèle soient les plus proches possibles des valeurs théoriques <span class="math notranslate nohighlight">\(Y_i\)</span> mesurées sur <span class="math notranslate nohighlight">\(\mathcal S\)</span>. L’ajustement du modèle se fait à l’aide du vecteur de paramètres <span class="math notranslate nohighlight">\({\bf x}\)</span>.</p>
-<p>L’erreur entre le modèle théorique et la sortie mesurée pour l’entrée <span class="math notranslate nohighlight">\(t_i\)</span> est <span class="math notranslate nohighlight">\(e_i=y_i-Y_i\)</span> et la solution aux moindres carrés
-consiste à choisir  <span class="math notranslate nohighlight">\({\bf x}\)</span> qui minimise la somme des carrés des erreurs. On pose donc le problème :</p>
-<p>Trouver <span class="math notranslate nohighlight">\({\bf x}\in \mathbb R^n\)</span> tel que <span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1}^me_i^2\)</span> soit minimale.</p>
-<p>Si la fonction <span class="math notranslate nohighlight">\(f_{\bf x}\)</span> est  linéaire par rapport aux paramètres <span class="math notranslate nohighlight">\({\bf x}\)</span>, alors le modèle s’écrit
-<span class="math notranslate nohighlight">\(f_{\bf x}(t_i) = {\bf a_i}^\top{\bf x}\)</span> et on parle de problème au moindres carrés linéaires.</p>
-<p>Soient <span class="math notranslate nohighlight">\({\bf Y}\in \mathbb R^m\)</span> le vecteur des valeurs <span class="math notranslate nohighlight">\(Y_i\)</span> mesurées sur <span class="math notranslate nohighlight">\(\mathcal{S}\)</span>, <span class="math notranslate nohighlight">\({\bf e}\in \mathbb R^m\)</span> le vecteur dont les composantes sont les erreurs <span class="math notranslate nohighlight">\(e_i\)</span> et  <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{mn}(\mathbb R)\)</span> la matrice dont les lignes sont les <span class="math notranslate nohighlight">\({\bf a_i^\top} \)</span>. Le problème consiste alors à :</p>
-<p>Trouver <span class="math notranslate nohighlight">\({\bf x}\in \mathbb R^n\)</span> qui  minimise <span class="math notranslate nohighlight">\(\|{\bf Ax}-{\bf Y}\|^2\)</span>.</p>
-<p>Dans <span class="math notranslate nohighlight">\(\mathbb R^m\)</span>, il s’agit donc de trouver le point de l’image de <span class="math notranslate nohighlight">\({\bf A}\)</span> le plus proche au sens de la norme euclidienne du vecteur <span class="math notranslate nohighlight">\({\bf Y}\)</span> (qui a peu de chances d’appartenir à <span class="math notranslate nohighlight">\(Im({\bf A})\)</span>, car <span class="math notranslate nohighlight">\(m&gt;&gt;n\)</span>). L’unique solution  est  la  projection orthogonale du vecteur <span class="math notranslate nohighlight">\({\bf Y}\)</span> sur le sous-espace <span class="math notranslate nohighlight">\(Im({\bf A})\)</span>. La solution a déjà été calculée, c’est la solution du système linéaire suivant, dit système aux équations normales : <span class="math notranslate nohighlight">\({\bf A^\top Ax}={\bf A^\top Y}\)</span></p>
-<p>Si <span class="math notranslate nohighlight">\(rang({\bf A})=n\)</span> (hypothèse raisonnable car <span class="math notranslate nohighlight">\(m&gt;&gt;n\)</span> et les <span class="math notranslate nohighlight">\({\bf a_i}\)</span> dépendent des entrées <span class="math notranslate nohighlight">\(t_i\)</span>), ce système a une solution unique</p>
-<p><span class="math notranslate nohighlight">\({\bf x}={\bf (A^\top A)^{-1}A^\top Y}\)</span></p>
-<p>dite solution aux moindres carrés. La matrice <span class="math notranslate nohighlight">\({\bf A^+}={\bf (A^\top A)^{-1}A^\top}\)</span> (Attention !! ce n’est pas la matrice de projection) est la pseudo inverse de la matrice rectangulaire <span class="math notranslate nohighlight">\({\bf A}\)</span>. Elle satisfait <span class="math notranslate nohighlight">\({\bf A^+A}=\mathbb I\)</span> et <span class="math notranslate nohighlight">\({\bf AA^+}={\bf P}\)</span>.</p>
-<div class="margin sidebar">
-<p class="sidebar-title"></p>
-<p><img alt="" src="_images/mcl1.png" /></p>
-</div>
-<div class="proof example admonition" id="example-0">
-<p class="admonition-title"><span class="caption-number">Example 15 </span></p>
-<div class="example-content section" id="proof-content">
-<p>Le système <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> produit pour les entrées <span class="math notranslate nohighlight">\(t_i =\{-1,0,1\}\)</span> les sorties <span class="math notranslate nohighlight">\(Y_i=\{4,5,9\}\)</span></p>
-<p>On modélise <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> à l’aide d’un modèle affine <span class="math notranslate nohighlight">\(y=\alpha+\beta t\)</span>, où <span class="math notranslate nohighlight">\(\alpha\)</span> et <span class="math notranslate nohighlight">\(\beta\)</span> sont deux paramètres à déterminer pour minimiser au sens des moindres carrés l’erreur des trois mesures.</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Point</p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\(t_i\)</span></p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\(Y_i\)</span></p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\(y_i\)</span></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(P_1\)</span></p></td>
-<td><p>-1</p></td>
-<td><p>4</p></td>
-<td><p><span class="math notranslate nohighlight">\(\alpha-\beta\)</span></p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(P_2\)</span></p></td>
-<td><p>0</p></td>
-<td><p>5</p></td>
-<td><p><span class="math notranslate nohighlight">\(\alpha\)</span></p></td>
-</tr>
-<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(P_3\)</span></p></td>
-<td><p>1</p></td>
-<td><p>9</p></td>
-<td><p><span class="math notranslate nohighlight">\(\alpha+\beta\)</span></p></td>
-</tr>
-</tbody>
-</table>
-<p>Le système
-<span class="math notranslate nohighlight">\({\bf Ax} = {\bf Y} :
-\left \{
+  <div class="tex2jax_ignore mathjax_ignore section" id="methode-de-jacobi">
+<h1>Méthode de Jacobi<a class="headerlink" href="#methode-de-jacobi" title="Lien permanent vers ce titre">#</a></h1>
+<p>L’intérêt principal des matrices réelles symétriques est qu’il existe une base de vecteurs propres orthonormés. On peut donc la diagonaliser par une transformation orthogonale : soient <span class="math notranslate nohighlight">\(A\)</span> une telle matrice et <span class="math notranslate nohighlight">\(Q\)</span> la matrice orthogonale dont les colonnes sont les vecteurs propres de <span class="math notranslate nohighlight">\(A\)</span>, alors <span class="math notranslate nohighlight">\(Q^\top AQ=diag\{\lambda_1\cdots \lambda_n\}\)</span>.</p>
+<p>La méthode de Jacobi est une méthode d’élimination symétrique itérative utilisant des similitudes - la matrice transformée tend vers une matrice diagonale</p>
+<ul class="simple">
+<li><p>le produit des transformations orthogonales tend vers la matrice des vecteurs propres.</p></li>
+</ul>
+<div class="section" id="principe-d-elimination-symetrique">
+<h2>Principe d’élimination symétrique<a class="headerlink" href="#principe-d-elimination-symetrique" title="Lien permanent vers ce titre">#</a></h2>
+<p>Ce principe, basé sur des rotations successives, sera illustré tout d’abord sur une matrice (2<span class="math notranslate nohighlight">\(\times\)</span>2) : soit <span class="math notranslate nohighlight">\(A\)</span> la sous-matrice (2<span class="math notranslate nohighlight">\(\times\)</span>2) symétrique</p>
+<p><span class="math notranslate nohighlight">\(A=\begin{pmatrix}a_{pp}\quad a_{pq}\\
+         a_{pq}\quad a_{qq}
+   \end{pmatrix}\quad a_{pq}\neq 0\)</span></p>
+<p>Soit <span class="math notranslate nohighlight">\(R\)</span> la matrice de rotation d’angle <span class="math notranslate nohighlight">\(-\theta\)</span> :</p>
+<p><span class="math notranslate nohighlight">\(R = \begin{pmatrix}\cos\theta \quad  \sin\theta\\ 
+                  -\sin\theta\quad  \cos\theta
+    \end{pmatrix}\)</span></p>
+<p>Pour éliminer l’élément <span class="math notranslate nohighlight">\(a_{pq}\)</span> non diagonal, on détermine <span class="math notranslate nohighlight">\(\theta\)</span> tel que</p>
+<p><span class="math notranslate nohighlight">\(R^\top AR=\begin{pmatrix}*\quad0\\0\quad *\end{pmatrix}\)</span></p>
+<p>Le calcul donne
+<span class="math notranslate nohighlight">\(\mathrm{cotg}(2\theta)=\frac{a_{qq}-a_{pp}}{2a_{pq}}\)</span></p>
+<p>Considérons maintenant une matrice symétrique <span class="math notranslate nohighlight">\(n\times n\)</span> <span class="math notranslate nohighlight">\(A\)</span> telle que l’élément <span class="math notranslate nohighlight">\(a_{pq}\)</span> soit non nul. La transformation orthogonale <span class="math notranslate nohighlight">\(\Omega\)</span> telle que <span class="math notranslate nohighlight">\(A'=\Omega^\top A\Omega\)</span>, avec <span class="math notranslate nohighlight">\(a'_{pq}=a'_{qp}=0\)</span> est :</p>
+<p><span class="math notranslate nohighlight">\(\Omega =
+\left (
 \begin{array}{ccccc}
-\alpha &amp; - &amp; \beta&amp; = &amp; 4 \\
-\alpha &amp;  &amp; &amp; = &amp; 5 \\
-\alpha &amp; + &amp; \beta&amp; = &amp; 9 \\
+1&amp;&amp;&amp;&amp;\\
+&amp;\ddots&amp; \cos\theta &amp; \sin\theta&amp;\\
+&amp;&amp;-\sin\theta &amp; \cos\theta&amp;\\
+&amp;&amp;&amp;\ddots&amp;\\
+&amp;&amp;&amp;&amp;1\\
 \end{array}
-\right.
-\)</span></p>
-<p>n’a bien sûr pas de solution. On construit les équations normales en multipliant
-le système par
-<span class="math notranslate nohighlight">\({\bf A^\top} =\left [\begin{array}{ccc}1 &amp; 1 &amp; 1\\-1 &amp; 0 &amp; 1\\\end{array}\right]\)</span>.</p>
-<p>Comme
-<span class="math notranslate nohighlight">\(
-{\bf A^\top A}=\left[\begin{array}{cc}3 &amp; 0\\0 &amp; 2\end{array}\right] 
-\textrm{ et }
-{\bf (A^\top A)^{-1}}=\left [\begin{array}{cc}1/3 &amp; 0\\0 &amp; 1/2\\\end{array}\right]
-\)</span>
-la solution aux moindres carrés est donc <span class="math notranslate nohighlight">\(\alpha=6\)</span> et <span class="math notranslate nohighlight">\(\beta=5/2\)</span>.
-Le vecteur des erreurs <span class="math notranslate nohighlight">\({\bf Y}-{\bf Ax}=(1/2\)</span> <span class="math notranslate nohighlight">\(-1\)</span> <span class="math notranslate nohighlight">\(1/2)^\top \)</span> est bien orthogonal dans <span class="math notranslate nohighlight">\(R^3\)</span> aux colonnes de <span class="math notranslate nohighlight">\({\bf A}\)</span>. Chaque erreur peut être également représentée par la distance verticale entre la mesure <span class="math notranslate nohighlight">\({ Y_i}\)</span> et la droite <span class="math notranslate nohighlight">\(f(t)=6+\frac{5}{2}t\)</span> pour <span class="math notranslate nohighlight">\(t=t_i\)</span> (segments rouges).</p>
+\right )
+\left .
+\begin{array}{c}
+p\\
+q\\
+\\
+\end{array}
+\right .\)</span></p>
+<p>On vérifie que seules les lignes et colonnes <span class="math notranslate nohighlight">\(p\)</span> et <span class="math notranslate nohighlight">\(q\)</span> de <span class="math notranslate nohighlight">\(A\)</span> sont modifiées.
+En posant <span class="math notranslate nohighlight">\(c=\cos\theta\)</span>, <span class="math notranslate nohighlight">\(s=\sin\theta\)</span>, <span class="math notranslate nohighlight">\(t=\tan\theta\)</span>, la mise à jour s’écrit :</p>
+<p><span class="math notranslate nohighlight">\(\begin{align*}
+a'_{pj}&amp;=ca_{pj}-sa_{qj},j\neq p,q\\
+a'_{qj}&amp;=ca_{qj}+sa_{pj},j\neq p,q\\
+a'_{pp}&amp;=a_{pp}-ta_{pq}\\
+a'_{qq}&amp;=a_{qq}+ta_{pq}
+\end{align*}\)</span></p>
+<p>Un choix classique pour <span class="math notranslate nohighlight">\(p\)</span> et <span class="math notranslate nohighlight">\(q\)</span> est celui qui permet d’éliminer l’élément non diagonal de plus grand module : <span class="math notranslate nohighlight">\(|a_{pq}|=\displaystyle\max_{i\neq j}|a_{ij}|\)</span></p>
 </div>
-</div><div class="proof example admonition" id="example-1">
-<p class="admonition-title"><span class="caption-number">Example 16 </span></p>
-<div class="example-content section" id="proof-content">
-<p>Le système <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> produit pour les entrées <span class="math notranslate nohighlight">\(t_i =\{-2,-1,0,1,2\}\)</span> les sorties \<span class="math notranslate nohighlight">\(Y_i=\{3,1,-0.5,1.5,4\}\)</span>.</p>
-<p>On modélise <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> par un polynôme <span class="math notranslate nohighlight">\(P(t)=\alpha+\beta t+\gamma t^2 = {\bf a^\top}{\bf x}\)</span>, où <span class="math notranslate nohighlight">\({\bf x}=\begin{pmatrix}\alpha\\\beta\\\gamma\end{pmatrix} \)</span>et <span class="math notranslate nohighlight">\({\bf a}=\begin{pmatrix}1\\t\\t^2\end{pmatrix}\)</span>. On recherche les valeurs de <span class="math notranslate nohighlight">\(\alpha,\beta,\gamma\)</span> qui minimisent la somme des carrés des erreurs entre les valeurs théoriques et les valeurs mesurées.</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Point</p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\(t_i\)</span></p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\(Y_i\)</span></p></th>
-<th class="head"><p><span class="math notranslate nohighlight">\(y_i\)</span></p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(P_1\)</span></p></td>
-<td><p>-2</p></td>
-<td><p>3</p></td>
-<td><p><span class="math notranslate nohighlight">\(\alpha-2\beta+4\gamma\)</span></p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(P_2\)</span></p></td>
-<td><p>1</p></td>
-<td><p>1</p></td>
-<td><p><span class="math notranslate nohighlight">\(\alpha-\beta+\gamma\)</span></p></td>
-</tr>
-<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(P_3\)</span></p></td>
-<td><p>0</p></td>
-<td><p>-0.5</p></td>
-<td><p><span class="math notranslate nohighlight">\(\alpha\)</span></p></td>
-</tr>
-<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(P_4\)</span></p></td>
-<td><p>1</p></td>
-<td><p>1.5</p></td>
-<td><p><span class="math notranslate nohighlight">\(\alpha+\beta+\gamma\)</span></p></td>
-</tr>
-<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(P_5\)</span></p></td>
-<td><p>2</p></td>
-<td><p>4</p></td>
-<td><p><span class="math notranslate nohighlight">\(\alpha+2\beta+4\gamma\)</span></p></td>
-</tr>
-</tbody>
-</table>
-<p>En posant <span class="math notranslate nohighlight">\({\bf A}=\begin{pmatrix}
-1&amp;-2&amp;4\\1&amp;-1&amp;1\\1&amp;0&amp;0\\1&amp;1&amp;1\\1&amp;2&amp;4
-\end{pmatrix}\)</span> et <span class="math notranslate nohighlight">\({\bf Y}\begin{pmatrix}
-3\\1\\-0.5\\1.5\\4
-\end{pmatrix}
-\)</span>, on cherche <span class="math notranslate nohighlight">\({\bf x}\)</span> qui minimise <span class="math notranslate nohighlight">\(\|{\bf Ax}-{\bf Y}\|^2\)</span>, soit encore <span class="math notranslate nohighlight">\({\bf x}\)</span> solution du système aux équations normales <span class="math notranslate nohighlight">\({\bf A^\top Ax}={\bf A^\top Y}\)</span>\
-On a alors</p>
-<p><span class="math notranslate nohighlight">\({\bf A^\top A}=\begin{pmatrix}5&amp;0&amp;10\\0&amp;10&amp;0\\10&amp;0&amp;34\end{pmatrix}\quad{\bf A^\top Y}=\begin{pmatrix}9\\2.5\\30.5\end{pmatrix}\textrm{ d'où } P(t)=\frac{1}{70}+\frac{1}{4}t+\frac{25}{28}t^2\)</span></p>
+<div class="section" id="convergence">
+<h2>Convergence<a class="headerlink" href="#convergence" title="Lien permanent vers ce titre">#</a></h2>
+<p>Soit <span class="math notranslate nohighlight">\(\{A_k\}\)</span> la suite de matrices engendrée par l’algorithme en éliminant à chaque itération un élément non diagonal non nul (<span class="math notranslate nohighlight">\(A_0=A\)</span>) et son symétrique. Comme la transformation est orthogonale, la norme de Frobenius de la matrice est conservée :</p>
+<p><span class="math notranslate nohighlight">\(\displaystyle\sum{i,j}a_{ij}'^2=\displaystyle\sum_{i,j}a_{ij}^2\)</span></p>
+<p>Mais ce même résultat est vrai pour la matrice (2<span class="math notranslate nohighlight">\(\times\)</span>2) transformée ci-dessus. Donc :</p>
+<p><span class="math notranslate nohighlight">\(a'^2_{pp}+a'^2_{qq}=a^2_{pp}+a^2_{qq}+2a_{pq}^2\)</span></p>
+<p>Comme seules les lignes <span class="math notranslate nohighlight">\(p\)</span> et <span class="math notranslate nohighlight">\(q\)</span> sont modifiées, ces résultats impliquent que la somme des carrés des éléments diagonaux augmente strictement de la valeur <span class="math notranslate nohighlight">\(2a_{pq}^2\)</span>, et que la somme des carrés des éléments non diagonaux diminue strictement de la même quantité.</p>
+<p>On démontre alors le théorème suivant :</p>
+<div class="proof theorem admonition" id="theorem-0">
+<p class="admonition-title"><span class="caption-number">Theorem 9 </span> (Convergence de la méthode de Jacobi)</p>
+<div class="theorem-content section" id="proof-content">
+<p>La suite de matrices <span class="math notranslate nohighlight">\(\{A_k\}\)</span> engendrée par la méthode de Jacobi classique converge vers une matrice diagonale contenant toutes les valeurs propres de <span class="math notranslate nohighlight">\(A\)</span> sur la diagonale</p>
+</div>
+</div><p>On peut également démontrer que, si les valeurs propres sont toutes distinctes, la suite des matrices <span class="math notranslate nohighlight">\(Q_k=\Omega_1\cdots \Omega_k\)</span> converge vers la matrice orthogonale contenant les vecteurs propres.</p>
+<div class="admonition warning">
+<p class="admonition-title">Avertissement</p>
+<p>Un élément annulé peut redevenir non nul aux itérations suivantes.</p>
+</div>
+<div class="proof remark admonition" id="remark-1">
+<p class="admonition-title"><span class="caption-number">Remark 10 </span></p>
+<div class="remark-content section" id="proof-content">
+<ul class="simple">
+<li><p>Le tri du plus grand élément parmi <span class="math notranslate nohighlight">\(n(n-1)/2\)</span> coûtant relativement cher, on lui préfère d’autres stratégies plus économiques (balayage cyclique ou choix avec seuil)</p></li>
+<li><p>La méthode de Jacobi présente d’excellentes performances pour des matrices pleines de faible dimension (typiquement inférieure à 100). Dans le cas général, on lui préférera la méthode QR.</p></li>
+</ul>
 </div>
 </div></div>
-<div class="section" id="systemes-incompatibles">
-<h2>Systèmes incompatibles<a class="headerlink" href="#systemes-incompatibles" title="Lien permanent vers ce titre">#</a></h2>
-<p id="index-0">Soit un système linéaire incompatible <span class="math notranslate nohighlight">\({\bf Ax}={\bf b}\)</span>, où <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{mn}(\mathbb R)\)</span> est telle que <span class="math notranslate nohighlight">\(rang({\bf A})&lt;m\)</span> et <span class="math notranslate nohighlight">\({\bf b}\notin Im({\bf A})\)</span>. On supposera par exemple (comme dans le cas des moindres carrés) que <span class="math notranslate nohighlight">\(m&gt;n\)</span> et <span class="math notranslate nohighlight">\(rang({\bf A})=n\)</span>. Le système n’a donc pas de solution, et on le remplace par le système aux équations normales obtenu en le multipliant par <span class="math notranslate nohighlight">\({\bf A^\top} \)</span> :</p>
-<p><span class="math notranslate nohighlight">\({\bf A^\top Ax}={\bf A^\top b}\)</span></p>
-<p>Ce système est en général mal conditionné car <span class="math notranslate nohighlight">\(\sigma({\bf A^\top A}) = \sigma^2({\bf A})\)</span> dans le cas d’une matrice carrée <span class="math notranslate nohighlight">\({\bf A}\)</span>. La méthode de Gauss risque d’être inefficace et on lui préférera des méthodes basées sur des transformations orthogonales qui ont l’avantage d’être numériquement stables.</p>
-<p>Finalement, si les colonnes de <span class="math notranslate nohighlight">\({\bf A}\)</span> sont orthonormées i.e. orthogonales deux à deux et de norme 1) <span class="math notranslate nohighlight">\({\bf A^\top A}=\mathbb I\)</span> (l’identité dans la « petite » dimension <span class="math notranslate nohighlight">\(n\)</span>) et la solution des équations normales est simplement <span class="math notranslate nohighlight">\({\bf x^*}={\bf A^\top b}\)</span>. La  « bonne » stratégie pour résoudre le problème des moindres carrés est donc de construire une base orthonormée de <span class="math notranslate nohighlight">\(Im({\bf A})\)</span> pour calculer explicitement la projection. On verra que cette construction revient à triangulariser la matrice par des transformations orthogonales.</p>
-</div>
-<div class="section" id="un-exemple-de-regression-polynomiale-par-moindres-carres">
-<h2>Un exemple de régression polynomiale par moindres carrés<a class="headerlink" href="#un-exemple-de-regression-polynomiale-par-moindres-carres" title="Lien permanent vers ce titre">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d.art3d</span> <span class="kn">import</span> <span class="n">Poly3DCollection</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
-<span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">inv</span>
-<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">dot</span><span class="p">,</span><span class="n">power</span>
-
-<span class="o">%</span><span class="k">matplotlib</span> inline
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dim_i</span> <span class="o">=</span> <span class="mi">1</span> 
-<span class="n">dim_o</span> <span class="o">=</span> <span class="mi">1</span> 
-<span class="n">nb_data</span> <span class="o">=</span> <span class="mi">40</span>  
-
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="n">x</span><span class="p">)[:,</span><span class="kc">None</span><span class="p">]</span>
-
-
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">nb_data</span><span class="p">)</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">nb_data</span><span class="p">,</span> <span class="n">dim_o</span><span class="p">))</span><span class="o">*</span><span class="mf">2e-1</span> 
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span> <span class="s1">&#39;.b&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;y&#39;)
-</pre></div>
-</div>
-<img alt="_images/jacobi_2_1.png" src="_images/jacobi_2_1.png" />
-</div>
-</div>
-<p>On fait passer un polynome de degré <span class="math notranslate nohighlight">\(d\)</span> par moindres carrés.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">A</span><span class="p">,</span> <span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">i</span><span class="p">)])</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">T</span>
-
-<span class="n">X</span> <span class="o">=</span> <span class="n">dot</span><span class="p">(</span><span class="n">inv</span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">A</span><span class="p">)),</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span><span class="p">))</span> 
-<span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">X</span><span class="p">)</span><span class="o">-</span><span class="n">Y</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>On calcule le modèle et les erreurs</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Y_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">X</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">plot_data_2D</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
-    <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]</span>
-    <span class="n">alphas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
- 
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y_pred</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">y_true</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s1">&#39;.&#39;</span> <span class="o">+</span> <span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> <span class="p">[</span><span class="n">y_true</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y_pred</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> <span class="s1">&#39;-&#39;</span><span class="o">+</span><span class="n">colors</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">alpha</span> <span class="o">=</span> <span class="n">alphas</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-    
-    <span class="n">xp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">300</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">f</span><span class="p">(</span><span class="n">xp</span><span class="p">),</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
-    
-    <span class="k">return</span>
-
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">plot_title</span> <span class="o">=</span> <span class="s1">&#39;Degré &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; (erreur =</span><span class="si">{0:0.2f}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-<span class="n">plot_data_2D</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Y_pred</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">plot_title</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/jacobi_6_0.png" src="_images/jacobi_6_0.png" />
-</div>
-</div>
-<p>et on teste la précision du modèle en fonction du degré du polynôme</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-
-<span class="n">degre</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">50</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">ind</span><span class="p">,</span><span class="n">d</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">degre</span><span class="p">):</span>
-    <span class="n">A</span> <span class="o">=</span> <span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">A</span><span class="p">,</span> <span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">i</span><span class="p">)])</span>
-    <span class="n">A</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">T</span> 
-    <span class="n">X</span> <span class="o">=</span> <span class="n">dot</span><span class="p">(</span><span class="n">inv</span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">A</span><span class="p">)),</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span><span class="p">))</span> 
-    <span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">X</span><span class="p">)</span><span class="o">-</span><span class="n">Y</span><span class="p">)</span>
-    <span class="n">Y_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">X</span><span class="p">)</span>
-
-    <span class="n">plot_title</span> <span class="o">=</span> <span class="s1">&#39;Degré &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; (erreur =</span><span class="si">{0:0.2f}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">degre</span><span class="p">),</span> <span class="n">ind</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">plot_data_2D</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Y_pred</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="n">plot_title</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/jacobi_8_0.png" src="_images/jacobi_8_0.png" />
-</div>
-</div>
-</div>
-<div class="section" id="un-exemple-de-regression-lineaire">
-<h2>Un exemple de régression linéaire<a class="headerlink" href="#un-exemple-de-regression-lineaire" title="Lien permanent vers ce titre">#</a></h2>
-<p>On construit un nuage de points dans <span class="math notranslate nohighlight">\(\mathbb R^3\)</span>, initialement sur un plan, et bruité par un bruit suivant une loi centré d’écart-type <span class="math notranslate nohighlight">\(\sigma\)</span>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dim_i</span> <span class="o">=</span> <span class="mi">2</span> 
-<span class="n">dim_o</span> <span class="o">=</span> <span class="mi">1</span> 
-<span class="n">nb_data</span> <span class="o">=</span> <span class="mi">50</span>  
-
-<span class="c1"># Construction d&#39;un modèle linéaire bruité</span>
-<span class="n">A0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">nb_data</span><span class="p">,</span> <span class="n">dim_i</span><span class="p">)</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">A0</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">scale</span> <span class="o">=</span> <span class="mf">7e-1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">nb_data</span><span class="p">,</span> <span class="n">dim_o</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>On résout le systèmes aux équations normales et on regarde l’erreur  du modèle en fonction du bruit</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">dot</span><span class="p">(</span><span class="n">inv</span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">A</span><span class="p">)),</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span><span class="p">))</span> 
-
-<span class="c1"># Erreur </span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Erreur : &quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">X</span><span class="p">)</span><span class="o">-</span><span class="n">Y</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-<span class="n">err</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">sigma</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">/</span><span class="mi">50</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">50</span><span class="p">)]</span>
-<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sigma</span><span class="p">:</span>
-    <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">A0</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">scale</span> <span class="o">=</span> <span class="n">s</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">nb_data</span><span class="p">,</span> <span class="n">dim_o</span><span class="p">))</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="n">dot</span><span class="p">(</span><span class="n">inv</span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">A</span><span class="p">)),</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span><span class="p">))</span> 
-    <span class="n">err</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">X</span><span class="p">)</span><span class="o">-</span><span class="n">Y</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sigma</span><span class="p">,</span><span class="n">err</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Erreur en fonction du bruit introduit $\mathcal</span><span class="si">{N}</span><span class="s2">(0,\sigma)$&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$\sigma$&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Erreur&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Erreur :  3.731201992544465
-</pre></div>
-</div>
-<img alt="_images/jacobi_12_1.png" src="_images/jacobi_12_1.png" />
-</div>
-</div>
-<p>On affiche le modèle pour un niveau de bruit <span class="math notranslate nohighlight">\(s\sigma\)</span>=0.7</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">A0</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">scale</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">nb_data</span><span class="p">,</span> <span class="n">dim_o</span><span class="p">))</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">dot</span><span class="p">(</span><span class="n">inv</span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">A</span><span class="p">)),</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span><span class="p">))</span> 
-<span class="n">err</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">X</span><span class="p">)</span><span class="o">-</span><span class="n">Y</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
-
-<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">A</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">A</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">Y</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Nuage de points&quot;</span><span class="p">)</span>
-
-<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
-
-<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">z</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]),</span><span class="n">X</span><span class="p">),</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]),</span><span class="n">X</span><span class="p">),</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]),</span><span class="n">X</span><span class="p">)]</span>
-<span class="n">verts</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">))]</span>
-<span class="n">predicted_plane</span> <span class="o">=</span> <span class="n">Poly3DCollection</span><span class="p">(</span><span class="n">verts</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
-<span class="n">predicted_plane</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.</span><span class="p">])</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">add_collection3d</span><span class="p">(</span><span class="n">predicted_plane</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nb_data</span><span class="p">):</span>
-    <span class="n">ax2</span><span class="o">.</span><span class="n">plot3D</span><span class="p">([</span><span class="n">A</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="mi">0</span><span class="p">]],</span> <span class="p">[</span><span class="n">A</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="mi">1</span><span class="p">]],</span> <span class="p">[</span><span class="n">Y</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">t</span><span class="p">,:],</span><span class="n">X</span><span class="p">)],</span> <span class="s1">&#39;-b&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">ax2</span><span class="o">.</span><span class="n">plot3D</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">Y</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;.k&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-    
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Moindres carrés linéaires&quot;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/jacobi_14_0.png" src="_images/jacobi_14_0.png" />
-</div>
-</div>
-</div>
 </div>
 
     <script type="text/x-thebe-config">
