@@ -79,7 +79,6 @@ def puissiter(A,v0,lam,niter=50,epsilon = 1e-4):
     vv = [v0]
     l = np.dot(v0,np.dot(A,v0))
     ll = [l]
-    epsilon = 1e-4
     k=0
     while np.fabs(lam-l)>epsilon and k<niter:
         w = np.dot(A,v)
@@ -93,14 +92,14 @@ def puissiter(A,v0,lam,niter=50,epsilon = 1e-4):
 A = np.array([[2.,1,-1],[1,3,1],[-1,1,4]])
 lam =np.max(np.linalg.eigvals(A))
 print("La plus grande valeur propre de A est ",lam)
-ll, vv = puissiter(A,np.ones(3),lam)
+ll, vv,k = puissiter(A,np.ones(3),lam)
 
 plt.plot(range(len(ll)),ll,'-o',label='Puissances itérées')
 plt.plot(range(len(ll)),lam*np.ones((len(ll)), dtype=np.uint8) ,'r')
 plt.ylabel('valeur propre')
 plt.xlabel('Iteration');
 plt.legend()
-plt.title("Valeur propre approchée à ",epsilon,"près en ",k," itérations")
+plt.title("Valeur propre approchée à ",epsilon," près en ",k," itérations")
 plt.tight_layout()
 
 

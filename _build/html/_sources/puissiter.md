@@ -74,7 +74,7 @@ Par récurrence, on montre alors que  $q_k=\frac{A^kq_0}{\|A^kq_0\|}$ et comme l
 import numpy as np
 import matplotlib.pyplot as plt
 
-def puissiter(A,v0,lam,niter=50):
+def puissiter(A,v0,lam,niter=50,epsilon = 1e-4):
     v = v0
     vv = [v0]
     l = np.dot(v0,np.dot(A,v0))
@@ -88,10 +88,9 @@ def puissiter(A,v0,lam,niter=50):
         vv.append(v)
         ll.append(l)
         k=k+1
-    return ll, vv
+    return ll, vv,k
 
 A = np.array([[2.,1,-1],[1,3,1],[-1,1,4]])
-print(np.linalg.eigvals(A))
 lam =np.max(np.linalg.eigvals(A))
 print("La plus grande valeur propre de A est ",lam)
 ll, vv = puissiter(A,np.ones(3),lam)
@@ -101,6 +100,7 @@ plt.plot(range(len(ll)),lam*np.ones((len(ll)), dtype=np.uint8) ,'r')
 plt.ylabel('valeur propre')
 plt.xlabel('Iteration');
 plt.legend()
+plt.title("Valeur propre approchée à ",epsilon,"près en ",k," itérations")
 plt.tight_layout()
 
 

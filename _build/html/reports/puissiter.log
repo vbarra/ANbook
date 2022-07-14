@@ -20,7 +20,7 @@ nbclient.exceptions.CellExecutionError: An error occurred while executing the fo
 import numpy as np
 import matplotlib.pyplot as plt
 
-def puissiter(A,v0,lam,niter=50):
+def puissiter(A,v0,lam,niter=50,epsilon = 1e-4):
     v = v0
     vv = [v0]
     l = np.dot(v0,np.dot(A,v0))
@@ -34,11 +34,10 @@ def puissiter(A,v0,lam,niter=50):
         vv.append(v)
         ll.append(l)
         k=k+1
-    return ll, vv
+    return ll, vv,k
 
 A = np.array([[2.,1,-1],[1,3,1],[-1,1,4]])
-print(np.linalg.eigvals(A))
-lam =(np.max(np.linalg.eigvals(A))
+lam =np.max(np.linalg.eigvals(A))
 print("La plus grande valeur propre de A est ",lam)
 ll, vv = puissiter(A,np.ones(3),lam)
 
@@ -47,16 +46,22 @@ plt.plot(range(len(ll)),lam*np.ones((len(ll)), dtype=np.uint8) ,'r')
 plt.ylabel('valeur propre')
 plt.xlabel('Iteration');
 plt.legend()
+plt.title("Valeur propre approchée à ",epsilon,"près en ",k," itérations")
 plt.tight_layout()
 
 
 
 ------------------
 
-[0;36m  Input [0;32mIn [1][0;36m[0m
-[0;31m    print("La plus grande valeur propre de A est ",lam)[0m
-[0m    ^[0m
-[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+Input [0;32mIn [1][0m, in [0;36m<module>[0;34m[0m
+[1;32m     21[0m lam [38;5;241m=[39mnp[38;5;241m.[39mmax(np[38;5;241m.[39mlinalg[38;5;241m.[39meigvals(A))
+[1;32m     22[0m [38;5;28mprint[39m([38;5;124m"[39m[38;5;124mLa plus grande valeur propre de A est [39m[38;5;124m"[39m,lam)
+[0;32m---> 23[0m ll, vv [38;5;241m=[39m puissiter(A,np[38;5;241m.[39mones([38;5;241m3[39m),lam)
+[1;32m     25[0m plt[38;5;241m.[39mplot([38;5;28mrange[39m([38;5;28mlen[39m(ll)),ll,[38;5;124m'[39m[38;5;124m-o[39m[38;5;124m'[39m,label[38;5;241m=[39m[38;5;124m'[39m[38;5;124mPuissances itérées[39m[38;5;124m'[39m)
+[1;32m     26[0m plt[38;5;241m.[39mplot([38;5;28mrange[39m([38;5;28mlen[39m(ll)),lam[38;5;241m*[39mnp[38;5;241m.[39mones(([38;5;28mlen[39m(ll)), dtype[38;5;241m=[39mnp[38;5;241m.[39muint8) ,[38;5;124m'[39m[38;5;124mr[39m[38;5;124m'[39m)
 
-SyntaxError: invalid syntax (<ipython-input-1-ae868d128e7b>, line 23)
+[0;31mValueError[0m: too many values to unpack (expected 2)
+ValueError: too many values to unpack (expected 2)
 
