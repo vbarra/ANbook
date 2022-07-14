@@ -58,8 +58,38 @@
 #  Lorsque $k\rightarrow\infty$, les rapports $\left (\frac{\lambda_i}{\lambda_n}\right )^k$ tendent vers 0 pour $i\neq n$, 
 #  ce qui signifie que la suite des itérés $\{q_k\}$ converge vers le vecteur propre $v^n$ ou $-v^n$. 
 #  On peut montrer de plus que $\|Aq_k\|$ tend vers $|\lambda_n|$ et que la convergence est linéaire de taux $\left |\frac{\lambda_{n-1}}{\lambda_n}\right |$ si $\alpha_{n-1}\neq 0$.
-# 
-# 
+
+# In[1]:
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+def puissiter(A,v0,niter=5):
+    v = v0
+    vv = [v0]
+    ll = [np.dot(v0,np.dot(A,v0))]
+    for k in range(niter):
+        w = np.dot(A,v)
+        v = w/np.linalg.norm(w)
+        lamda = np.dot(v,np.dot(A,v))
+        vv.append(v)
+        ll.append(lamda)
+    return ll, vv
+
+A = np.array([[2.,1,1],[1,3,1],[1,1,4]])
+print("La plus grande valeur propre de A est ",lam =(np.linalg.eigvals(A)[0]))
+ll, vv = puissiter(A,np.ones(3))
+
+plt.plot(range(len(ll)),ll,'-o')
+plt.plot(range(len(ll)),lam*np.ones((len(ll)), dtype=np.uint8) ,'r')
+plt.ylabel('Puissances itérées')
+plt.xlabel('Iteration');
+plt.tight_layout()
+
+
+
+
 # ## Méthode des puissances inverses
 # 
 # Pour les mêmes raisons, l'itération 

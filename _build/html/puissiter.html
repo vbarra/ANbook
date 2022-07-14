@@ -257,6 +257,11 @@ const thebe_selector_output = ".output, .cell_output"
    Puissances groupées et méthode QR
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exospec.html">
+   Exercices
+  </a>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -596,6 +601,50 @@ et</p>
 <p>Lorsque <span class="math notranslate nohighlight">\(k\rightarrow\infty\)</span>, les rapports <span class="math notranslate nohighlight">\(\left (\frac{\lambda_i}{\lambda_n}\right )^k\)</span> tendent vers 0 pour <span class="math notranslate nohighlight">\(i\neq n\)</span>,
 ce qui signifie que la suite des itérés <span class="math notranslate nohighlight">\(\{q_k\}\)</span> converge vers le vecteur propre <span class="math notranslate nohighlight">\(v^n\)</span> ou <span class="math notranslate nohighlight">\(-v^n\)</span>.
 On peut montrer de plus que <span class="math notranslate nohighlight">\(\|Aq_k\|\)</span> tend vers <span class="math notranslate nohighlight">\(|\lambda_n|\)</span> et que la convergence est linéaire de taux <span class="math notranslate nohighlight">\(\left |\frac{\lambda_{n-1}}{\lambda_n}\right |\)</span> si <span class="math notranslate nohighlight">\(\alpha_{n-1}\neq 0\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="k">def</span> <span class="nf">puissiter</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">v0</span><span class="p">,</span><span class="n">niter</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">v0</span>
+    <span class="n">vv</span> <span class="o">=</span> <span class="p">[</span><span class="n">v0</span><span class="p">]</span>
+    <span class="n">ll</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">v0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">v0</span><span class="p">))]</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">niter</span><span class="p">):</span>
+        <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">w</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+        <span class="n">lamda</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">v</span><span class="p">))</span>
+        <span class="n">vv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="n">ll</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lamda</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ll</span><span class="p">,</span> <span class="n">vv</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">2.</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La plus grande valeur propre de A est &quot;</span><span class="p">,</span><span class="n">lam</span> <span class="o">=</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigvals</span><span class="p">(</span><span class="n">A</span><span class="p">)[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="n">ll</span><span class="p">,</span> <span class="n">vv</span> <span class="o">=</span> <span class="n">puissiter</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ll</span><span class="p">)),</span><span class="n">ll</span><span class="p">,</span><span class="s1">&#39;-o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ll</span><span class="p">)),</span><span class="n">lam</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">ll</span><span class="p">)),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span> <span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Puissances itérées&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Iteration&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="k">return</span> <span class="n">ll</span><span class="p">,</span> <span class="n">vv</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">2.</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
+<span class="ne">---&gt; </span><span class="mi">17</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La plus grande valeur propre de A est &quot;</span><span class="p">,</span><span class="n">lam</span> <span class="o">=</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigvals</span><span class="p">(</span><span class="n">A</span><span class="p">)[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="n">ll</span><span class="p">,</span> <span class="n">vv</span> <span class="o">=</span> <span class="n">puissiter</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ll</span><span class="p">)),</span><span class="n">ll</span><span class="p">,</span><span class="s1">&#39;-o&#39;</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: &#39;lam&#39; is an invalid keyword argument for print()
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="methode-des-puissances-inverses">
 <h2>Méthode des puissances inverses<a class="headerlink" href="#methode-des-puissances-inverses" title="Lien permanent vers ce titre">#</a></h2>
