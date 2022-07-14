@@ -74,23 +74,26 @@ Par récurrence, on montre alors que  $q_k=\frac{A^kq_0}{\|A^kq_0\|}$ et comme l
 import numpy as np
 import matplotlib.pyplot as plt
 
-def puissiter(A,v0,niter=5):
+def puissiter(A,v0,lam,niter=5):
     v = v0
     vv = [v0]
-    ll = [np.dot(v0,np.dot(A,v0))]
-    for k in range(niter):
+    l = np.dot(v0,np.dot(A,v0))
+    ll = [l]
+    epsilon = 1e-4
+    while np.fabs(lam-l)>epsilon and k<niter:
         w = np.dot(A,v)
         v = w/np.linalg.norm(w)
-        lamda = np.dot(v,np.dot(A,v))
+        l = np.dot(v,np.dot(A,v))
         vv.append(v)
-        ll.append(lamda)
+        ll.append(l)
+        k=k+1
     return ll, vv
 
 A = np.array([[2.,1,-1],[1,3,1],[-1,1,4]])
 print(A)
 lam =(np.linalg.eigvals(A)[0])
 print("La plus grande valeur propre de A est ",lam)
-ll, vv = puissiter(A,np.ones(3))
+ll, vv = puissiter(A,np.ones(3),lam)
 
 plt.plot(range(len(ll)),ll,'-o',label='Puissances itérées')
 plt.plot(range(len(ll)),lam*np.ones((len(ll)), dtype=np.uint8) ,'r')
