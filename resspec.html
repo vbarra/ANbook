@@ -494,12 +494,12 @@ title="Print to PDF"
 <p>On donnera ici quelques propriétés d’intérêt surtout pratique concernant les valeurs propres et les vecteurs propres de certaines matrices. Les démonstrations sont omises.</p>
 <p>Une matrice carrée <span class="math notranslate nohighlight">\(A\)</span> de dimension <span class="math notranslate nohighlight">\(n\)</span> à coefficients complexes ou réels possède <span class="math notranslate nohighlight">\(n\)</span> valeurs
 propres non nécessairement distinctes dans <span class="math notranslate nohighlight">\(\mathbb{C}\)</span>. L’ensemble de ces valeurs propres est
-le \textbf{spectre} \index{spectre d’une matrice} de <span class="math notranslate nohighlight">\(A\)</span>, noté <span class="math notranslate nohighlight">\(\mathrm{sp}(A)\)</span>.</p>
+le <em>spectre</em> de <span class="math notranslate nohighlight">\(A\)</span>, noté <span class="math notranslate nohighlight">\(\mathrm{sp}(A)\)</span>.</p>
 <span class="target" id="index-0"></span><p id="index-1">Le nombre de fois où apparaît une
 valeur propre <span class="math notranslate nohighlight">\(\lambda\)</span> dans ce spectre est appelé sa
 \textbf{multiplicité}.</p>
-<span class="target" id="index-2"></span><p id="index-3">Le \textbf{rayon spectral}, noté <span class="math notranslate nohighlight">\(\rho(A)\)</span>, est le plus grand module des valeurs propres de <span class="math notranslate nohighlight">\(A\)</span>. La somme des valeurs propres est égale à la \textbf{trace} de la matrice :</p>
-<p><span class="math notranslate nohighlight">\(\displaystyle\um_{i=1}^n\lambda_i=\dsum_{i=1}^na_{ii}\)</span></p>
+<span class="target" id="index-2"></span><p id="index-3">Le <em>rayon spectral</em>, noté <span class="math notranslate nohighlight">\(\rho(A)\)</span>, est le plus grand module des valeurs propres de <span class="math notranslate nohighlight">\(A\)</span>. La somme des valeurs propres est égale à la \textbf{trace} de la matrice :</p>
+<p><span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1}^n\lambda_i=\displaystyle\sum{i=1}^na_{ii}\)</span></p>
 <p>et on en déduit donc que si une matrice réelle possède une valeur propre complexe, son conjugué est aussi valeur propre. De même, le produit des valeurs propres est égal au \textbf{déterminant} de
 <span class="math notranslate nohighlight">\(A\)</span> :
 <span class="math notranslate nohighlight">\(\displaystyle\prod_{i=1}^n\lambda_i=det(A)\)</span></p>
@@ -519,15 +519,14 @@ associé à une valeur propre <span class="math notranslate nohighlight">\(\lamb
 convaincre.</p>
 <p>Si les <span class="math notranslate nohighlight">\(n\)</span> vecteurs propres <span class="math notranslate nohighlight">\(x_i,1\leq i\leq n\)</span> peuvent être choisis linéairement indépendants, ils forment une matrice <span class="math notranslate nohighlight">\(X=\left [ x_i\right ]\)</span> non singulière, et on a :</p>
 <p><span class="math notranslate nohighlight">\(X^{-1}AX=\Lambda=\mathrm{diag}\{\lambda_1\cdots\lambda_n\}\)</span></p>
-<p>En effet, <span class="math notranslate nohighlight">\(AX\)</span> est la matrice dont les colonnes sont les vecteurs <span class="math notranslate nohighlight">\(Ax_i=\lambda x_i\)</span> qui est bien égale à <span class="math notranslate nohighlight">\(X\Lambda\)</span>. On dit dans ce cas que {\gr <span class="math notranslate nohighlight">\(A\)</span> est diagonalisable}
-\index{matrice!diagonalisable}
-et cette propriété ne peut s’écrire qu’avec la matrice des vecteurs propres.
+<p>En effet, <span class="math notranslate nohighlight">\(AX\)</span> est la matrice dont les colonnes sont les vecteurs <span class="math notranslate nohighlight">\(Ax_i=\lambda x_i\)</span> qui est bien égale à <span class="math notranslate nohighlight">\(X\Lambda\)</span>. On dit dans ce cas que <span class="math notranslate nohighlight">\(A\)</span> est <em>diagonalisable</em></p>
+<p id="index-6">Cette propriété ne peut s’écrire qu’avec la matrice des vecteurs propres.
 Elle caractérise le fait que <span class="math notranslate nohighlight">\(X\)</span> a pour colonnes des vecteurs propres et que ces vecteurs
 propres sont linéairement indépendants.</p>
-<div class="admonition-observation admonition" id="index-6">
+<div class="admonition-observation admonition" id="index-7">
 <p class="admonition-title">Observation</p>
 <p>Il existe des matrices qui ne sont pas diagonalisables (on les appelle
-matrices \textbf{défectives}.</p>
+matrices <em>défectives</em>.</p>
 <p>Elles satisfont aux deux conditions
 suivantes :</p>
 <ul class="simple">
@@ -546,17 +545,17 @@ Un exemple typique de matrice défective est <span class="math notranslate nohig
 <li><p>si <span class="math notranslate nohighlight">\(A\)</span> est symétrique, ses valeurs propres sont réelles. Les vecteurs propres associés à des valeurs propres distinctes sont
 alors orthogonaux. On a <span class="math notranslate nohighlight">\(\|A\|_2=\rho(A)\)</span>.</p></li>
 </ul>
-<p>Le dernier point implique en particulier que toute matrice réelle symétrique est diagonalisable par une matrice orthogonale : <span class="math notranslate nohighlight">\(\Lambda=Q^\top AQ\)</span>,où <span class="math notranslate nohighlight">\(Q\)</span> est formée par <span class="math notranslate nohighlight">\(n\)</span> vecteurs propres orthonormés. On a alors la \textbf{factorisation spectrale} \index{factorisation!spectrale}
+<p>Le dernier point implique en particulier que toute matrice réelle symétrique est diagonalisable par une matrice orthogonale : <span class="math notranslate nohighlight">\(\Lambda=Q^\top AQ\)</span>,où <span class="math notranslate nohighlight">\(Q\)</span> est formée par <span class="math notranslate nohighlight">\(n\)</span> vecteurs propres orthonormés. On a alors la <em>factorisation spectrale</em>
 d’une matrice symétrique réelle :
-$<span class="math notranslate nohighlight">\(A=Q\Lambda Q^\top \)</span>$
-\vskip 10pt
-En résumé de ce qui précède :
-{\gr
-\begin{itemize}
-\item l’inversibilité est liée aux valeurs propres
-\item la diagonalisabilité est liée aux vecteurs propres
-\end{itemize}
-}</p>
+<span class="math notranslate nohighlight">\(A=Q\Lambda Q^\top \)</span></p>
+<div class="admonition important" id="index-8">
+<p class="admonition-title">Important</p>
+<p>En résumé de ce qui précède :</p>
+<ul class="simple">
+<li><p>l’inversibilité est liée aux valeurs propres</p></li>
+<li><p>la diagonalisabilité est liée aux vecteurs propres</p></li>
+</ul>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
