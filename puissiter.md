@@ -74,6 +74,12 @@ Par récurrence, on montre alors que  $q_k=\frac{A^kq_0}{\|A^kq_0\|}$ et comme l
 import numpy as np
 import matplotlib.pyplot as plt
 
+def plot_vector2d(vector2d, origin=[0, 0], **options):
+    return plt.arrow(origin[0], origin[1], vector2d[0], vector2d[1],
+              head_width=0.2, head_length=0.3, length_includes_head=True,
+              **options)
+
+
 def puissiter(A,v0,lam,niter,epsilon):
     v = v0
     vv=[v0]
@@ -106,14 +112,12 @@ plt.xlabel('Iteration');
 plt.text(0, lam+0.3, "$\lambda$", color="r", fontsize=18)
 plt.legend()
 plt.title("Valeur propre approchée à "+ str(epsilon)+" près en "+str(k)+" itérations")
+
 plt.subplot(122)
-plt.plot(range(len(ll)),ll,'-o',label='Puissances itérées')
-plt.plot(range(len(ll)),lam*np.ones((len(ll)), dtype=np.uint8) ,'r')
-plt.ylabel('valeur propre')
-plt.xlabel('Iteration');
-plt.text(0, lam+0.3, "$\lambda$", color="r", fontsize=18)
-plt.legend()
-plt.title("Valeur propre approchée à "+ str(epsilon)+" près en "+str(k)+" itérations")
+plot_vector2d(vv[0], color="b", linestyle="dotted")
+plot_vector2d(vv[k-1], color="r", linestyle="dotted")
+
+plt.title("Vecteur propre approché")
 plt.tight_layout()
 
 

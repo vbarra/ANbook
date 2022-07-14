@@ -608,6 +608,7 @@ On peut montrer de plus que <span class="math notranslate nohighlight">\(\|Aq_k\
 
 <span class="k">def</span> <span class="nf">puissiter</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">v0</span><span class="p">,</span><span class="n">lam</span><span class="p">,</span><span class="n">niter</span><span class="p">,</span><span class="n">epsilon</span><span class="p">):</span>
     <span class="n">v</span> <span class="o">=</span> <span class="n">v0</span>
+    <span class="n">vv</span><span class="o">=</span><span class="p">[</span><span class="n">v0</span><span class="p">]</span>
     <span class="n">l</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">v0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">v0</span><span class="p">))</span>
     <span class="n">ll</span> <span class="o">=</span> <span class="p">[</span><span class="n">l</span><span class="p">]</span>
     <span class="n">k</span><span class="o">=</span><span class="mi">0</span>
@@ -653,25 +654,7 @@ On peut montrer de plus que <span class="math notranslate nohighlight">\(\|Aq_k\
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>La plus grande valeur propre de A est  4.675130870566646
 </pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="n">epsilon</span> <span class="o">=</span> <span class="mf">1e-4</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="n">niter</span><span class="o">=</span><span class="mi">50</span>
-<span class="ne">---&gt; </span><span class="mi">24</span> <span class="n">ll</span><span class="p">,</span> <span class="n">vv</span><span class="p">,</span><span class="n">k</span> <span class="o">=</span> <span class="n">puissiter</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="n">lam</span><span class="p">,</span><span class="n">niter</span><span class="p">,</span><span class="n">epsilon</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
-
-<span class="nn">Input In [1],</span> in <span class="ni">puissiter</span><span class="nt">(A, v0, lam, niter, epsilon)</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">v</span> <span class="o">=</span> <span class="n">w</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">l</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">v</span><span class="p">))</span>
-<span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">vv</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">ll</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span>
-
-<span class="ne">NameError</span>: name &#39;vv&#39; is not defined
-</pre></div>
-</div>
+<img alt="_images/puissiter_1_1.png" src="_images/puissiter_1_1.png" />
 </div>
 </div>
 </div>
