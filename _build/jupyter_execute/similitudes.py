@@ -46,12 +46,15 @@ B = S.inv() * A * S
 A.eigenvals(), B.eigenvals()
 
 
-#  mais que les vecteurs propres sont différents
+# Les valeurs propres sont donc 1 et 3, de multiplicité 1 chacune.
+# 
+# En revanche, les vecteurs propres sont différents
 
 # In[4]:
 
 
 Matrix(A.eigenvects())
+Matrix(B.eigenvects())
 
 
 # L'intérêt de ces transformations est double : 
