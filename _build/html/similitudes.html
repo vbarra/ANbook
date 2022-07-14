@@ -492,11 +492,23 @@ title="Print to PDF"
   <div class="tex2jax_ignore mathjax_ignore section" id="similitudes">
 <h1>Similitudes<a class="headerlink" href="#similitudes" title="Lien permanent vers ce titre">#</a></h1>
 <p>L’objectif est encore une fois de transformer une matrice par des transformations simples en une matrice dont on connaît les valeurs propres, c’est-à-dire, une matrice triangulaire ou diagonale. Les transformations qui maintiennent le spectre d’une matrice sont des similitudes.</p>
-<div class="highlight-{index}Matrice;semblable notranslate"><div class="highlight"><pre><span></span>
+<div class="proof definition admonition" id="definition-0">
+<p class="admonition-title"><span class="caption-number">Definition 30 </span> (Similitude)</p>
+<div class="definition-content section" id="proof-content">
+<p>Deux matrices carrées <span class="math notranslate nohighlight">\(A\)</span> et <span class="math notranslate nohighlight">\(B\)</span> sont dites <em>semblables</em>
+s’il existe une matrice <span class="math notranslate nohighlight">\(S\)</span> non singulière telle que</p>
+<p><span class="math notranslate nohighlight">\(B=S^{-1}AS\)</span></p>
+</div>
+</div><div class="highlight-{index}Matrice;semblable notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 <p>La transformation de <span class="math notranslate nohighlight">\(A\)</span> vers <span class="math notranslate nohighlight">\(B\)</span> est une <em>similitude</em>. En l’écrivant sous la forme <span class="math notranslate nohighlight">\(AS=SB\)</span>, on retrouve une généralisation de la définition des valeurs propres et des vecteurs propres. On a d’ailleurs le résultat fondamental :</p>
-<p>En effet, soit <span class="math notranslate nohighlight">\(x\)</span> un vecteur propre de <span class="math notranslate nohighlight">\(A\)</span> associé à la valeur propre <span class="math notranslate nohighlight">\(\lambda\)</span>. On a donc <span class="math notranslate nohighlight">\(Ax=\lambda x\)</span>, qui s’écrit <span class="math notranslate nohighlight">\(SBS^{-1}x=\lambda x\)</span>, ce qui veut dire que <span class="math notranslate nohighlight">\(\lambda\)</span> est valeur propre de <span class="math notranslate nohighlight">\(B\)</span> associé au vecteur propre <span class="math notranslate nohighlight">\(S^{-1}x\)</span>.\hfill<span class="math notranslate nohighlight">\(\Box\)</span></p>
+<div class="proof property admonition" id="property-1">
+<p class="admonition-title"><span class="caption-number">Property 12 </span></p>
+<div class="property-content section" id="proof-content">
+<p>Deux matrices semblables ont les mêmes valeurs propres</p>
+</div>
+</div><p>En effet, soit <span class="math notranslate nohighlight">\(x\)</span> un vecteur propre de <span class="math notranslate nohighlight">\(A\)</span> associé à la valeur propre <span class="math notranslate nohighlight">\(\lambda\)</span>. On a donc <span class="math notranslate nohighlight">\(Ax=\lambda x\)</span>, qui s’écrit <span class="math notranslate nohighlight">\(SBS^{-1}x=\lambda x\)</span>, ce qui veut dire que <span class="math notranslate nohighlight">\(\lambda\)</span> est valeur propre de <span class="math notranslate nohighlight">\(B\)</span> associé au vecteur propre <span class="math notranslate nohighlight">\(S^{-1}x\)</span>.\hfill<span class="math notranslate nohighlight">\(\Box\)</span></p>
 <p>L’intérêt de ces transformations est double :</p>
 <ul class="simple">
 <li><p>les valeurs propres sont inchangées</p></li>

@@ -6,7 +6,7 @@
 # L'objectif est encore une fois de transformer une matrice par des transformations simples en une matrice dont on connaît les valeurs propres, c'est-à-dire, une matrice triangulaire ou diagonale. Les transformations qui maintiennent le spectre d'une matrice sont des similitudes.
 # 
 # 
-# ```{prl:definition} Similitude
+# ```{prf:definition} Similitude
 # Deux matrices carrées $A$ et $B$ sont dites *semblables* 
 # s'il existe une matrice $S$ non singulière telle que 
 # 
@@ -17,7 +17,7 @@
 # 
 # La transformation de $A$ vers $B$ est une *similitude*. En l'écrivant sous la forme $AS=SB$, on retrouve une généralisation de la définition des valeurs propres et des vecteurs propres. On a d'ailleurs le résultat fondamental :
 # 
-# ```{prl:property}
+# ```{prf:property}
 # Deux matrices semblables ont les mêmes valeurs propres
 # ```
 # En effet, soit $x$ un vecteur propre de $A$ associé à la valeur propre $\lambda$. On a donc $Ax=\lambda x$, qui s'écrit $SBS^{-1}x=\lambda x$, ce qui veut dire que $\lambda$ est valeur propre de $B$ associé au vecteur propre $S^{-1}x$.\hfill$\Box$
