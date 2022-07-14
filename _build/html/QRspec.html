@@ -470,12 +470,41 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#iteration-des-puissances-iterees">
+   Itération des puissances itérées
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methode-qr">
+   Méthode QR
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -487,6 +516,24 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#iteration-des-puissances-iterees">
+   Itération des puissances itérées
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methode-qr">
+   Méthode QR
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -498,7 +545,8 @@ title="Print to PDF"
 <h1>Puissances groupées et méthode QR<a class="headerlink" href="#puissances-groupees-et-methode-qr" title="Lien permanent vers ce titre">#</a></h1>
 <p>On peut généraliser la méthode des puissances itérées à des itérations dites groupées, permettant d’identifier les vecteurs propres associés aux <span class="math notranslate nohighlight">\(p\)</span> plus grandes valeurs propres
 en valeur absolue. A chaque itération, on applique la transformation <span class="math notranslate nohighlight">\(A\)</span> à chacun des vecteurs orthonormés, et on orthogonalise (par Gram-Schmidt ou Householder, {\it cf.} chapitre 4) le système résultant.</p>
-<p>\subsection{Itération des puissances itérées}</p>
+<div class="section" id="iteration-des-puissances-iterees">
+<h2>Itération des puissances itérées<a class="headerlink" href="#iteration-des-puissances-iterees" title="Lien permanent vers ce titre">#</a></h2>
 <p>Soit <span class="math notranslate nohighlight">\(\{q_1^{(k)}\cdots q_p^{(k)}\}\)</span> un système de <span class="math notranslate nohighlight">\(p\)</span> vecteurs orthonormés obtenu à l’itération <span class="math notranslate nohighlight">\(k\)</span>
 \begin{itemize}
 \item construire le système <span class="math notranslate nohighlight">\(\{Aq_1^{(k)}\cdots Aq_p^{(k)}\}\)</span>
@@ -506,7 +554,9 @@ en valeur absolue. A chaque itération, on applique la transformation <span clas
 \item tester la convergence : <span class="math notranslate nohighlight">\(\displaystyle\max_{1\leq i\leq p} \|Aq_i^{(k)}-\lambda_i q_i^{(k)} \|&lt;Tol\)</span>
 \item orthogonaliser <span class="math notranslate nohighlight">\(\{Aq_1^{(k)}\cdots Aq_p^{(k)}\} \rightarrow \{q_1^{(k+1)}\cdots q_p^{(k+1)}\}\)</span>
 \end{itemize}</p>
-<p>\subsection{Méthode QR}  %———-</p>
+</div>
+<div class="section" id="methode-qr">
+<h2>Méthode QR<a class="headerlink" href="#methode-qr" title="Lien permanent vers ce titre">#</a></h2>
 <p>La méthode QR correspond au cas <span class="math notranslate nohighlight">\(p=n\)</span> : soit <span class="math notranslate nohighlight">\(Q_k\)</span> la matrice (<span class="math notranslate nohighlight">\(n\times n\)</span>) dont les colonnes sont les vecteurs orthogonaux <span class="math notranslate nohighlight">\(q_i^{(k)}\)</span> et soit <span class="math notranslate nohighlight">\(A_k=Q_k^\top AQ_k\)</span> la représentation de <span class="math notranslate nohighlight">\(A\)</span> sur la base des <span class="math notranslate nohighlight">\(\{q_i^{(k)}\}\)</span>. On peut écrire alors (Gram-Schmidt) :
 $<span class="math notranslate nohighlight">\(
 AQ_k=Q_{k+1}R_{k+1}
@@ -532,11 +582,16 @@ Observons que \)</span>A_{k+1}=Q^\top A_kQ<span class="math notranslate nohighli
 \caption{diagonalisation d’une matrice 8<span class="math notranslate nohighlight">\(\times\)</span>8 par QR d’après \cite{LGT:89}}
 \label{52}
 \end{figure}</p>
-<p>Les performances sont considérablement améliorées si on intègre deux modifications :
-\begin{itemize}
-\item {\gr décalage} de la matrice en prenant comme approximation de la plus petite valeur propre l’élément (<span class="math notranslate nohighlight">\(n\times n\)</span>) de <span class="math notranslate nohighlight">\(A_k\)</span>
-\item transformation préalable de <span class="math notranslate nohighlight">\(A\)</span> en une matrice {\gr tridiagonale}. Les matrices <span class="math notranslate nohighlight">\(A_k\)</span> restent tridiagonales et l’orthogonalisation s’effectue en <span class="math notranslate nohighlight">\(O(n)\)</span> flops.
-\end{itemize}</p>
+<div class="proof remark admonition" id="remark-0">
+<p class="admonition-title"><span class="caption-number">Remark 12 </span></p>
+<div class="remark-content section" id="proof-content">
+<p>Les performances sont considérablement améliorées si on intègre deux modifications :</p>
+<ul class="simple">
+<li><p>{\gr décalage} de la matrice en prenant comme approximation de la plus petite valeur propre l’élément (<span class="math notranslate nohighlight">\(n\times n\)</span>) de <span class="math notranslate nohighlight">\(A_k\)</span></p></li>
+<li><p>transformation préalable de <span class="math notranslate nohighlight">\(A\)</span> en une matrice {\gr tridiagonale}. Les matrices <span class="math notranslate nohighlight">\(A_k\)</span> restent tridiagonales et l’orthogonalisation s’effectue en <span class="math notranslate nohighlight">\(O(n)\)</span> flops.</p></li>
+</ul>
+</div>
+</div></div>
 </div>
 
     <script type="text/x-thebe-config">

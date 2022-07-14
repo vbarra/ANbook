@@ -6,7 +6,7 @@
 # On peut généraliser la méthode des puissances itérées à des itérations dites groupées, permettant d'identifier les vecteurs propres associés aux $p$ plus grandes valeurs propres
 # en valeur absolue. A chaque itération, on applique la transformation $A$ à chacun des vecteurs orthonormés, et on orthogonalise (par Gram-Schmidt ou Householder, {\it cf.} chapitre 4) le système résultant.
 # 
-# \subsection{Itération des puissances itérées}
+# ## Itération des puissances itérées
 # 
 # Soit $\{q_1^{(k)}\cdots q_p^{(k)}\}$ un système de $p$ vecteurs orthonormés obtenu à l'itération $k$
 # \begin{itemize}
@@ -16,9 +16,9 @@
 #     \item orthogonaliser $\{Aq_1^{(k)}\cdots Aq_p^{(k)}\} \rightarrow \{q_1^{(k+1)}\cdots q_p^{(k+1)}\}$
 # \end{itemize}
 # 
-# %-----------------------------------
-# \subsection{Méthode QR}  %----------
-# %-----------------------------------
+# 
+# ## Méthode QR
+# 
 # 
 # La méthode QR correspond au cas $p=n$ : soit $Q_k$ la matrice ($n\times n$) dont les colonnes sont les vecteurs orthogonaux $q_i^{(k)}$ et soit $A_k=Q_k^\top AQ_k$ la représentation de $A$ sur la base des $\{q_i^{(k)}\}$. On peut écrire alors (Gram-Schmidt) : 
 # $$
@@ -47,8 +47,8 @@
 # \label{52}
 # \end{figure}
 # 
+# ```{prf:remark}
 # Les performances sont considérablement améliorées si on intègre deux modifications :
-# \begin{itemize}
-#     \item {\gr décalage} de la matrice en prenant comme approximation de la plus petite valeur propre l'élément ($n\times n$) de $A_k$
-#     \item transformation préalable de $A$ en une matrice {\gr tridiagonale}. Les matrices $A_k$ restent tridiagonales et l'orthogonalisation s'effectue en $O(n)$ flops.
-# \end{itemize}
+# - {\gr décalage} de la matrice en prenant comme approximation de la plus petite valeur propre l'élément ($n\times n$) de $A_k$
+# - transformation préalable de $A$ en une matrice {\gr tridiagonale}. Les matrices $A_k$ restent tridiagonales et l'orthogonalisation s'effectue en $O(n)$ flops.
+# ```

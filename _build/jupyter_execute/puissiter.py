@@ -22,12 +22,14 @@
 # \lambda_n&=\rho_A(x^n)=\displaystyle\max_{x\in \mathbb{R}^n}\{\rho_A(x)\}
 # \end{align*}
 # $
+# 
 # De plus, si les valeurs propres sont rangées dans l'ordre croissant, on a 
 # 
 # $\begin{align*}
 # \lambda_i&=\displaystyle\min_{S_i}\{\displaystyle\max_{x\in S_i}\{\rho_A(x)\}\}\\
 # \lambda_i&=\displaystyle\max_{S_{i-1}}\{\displaystyle\min_{x\in S_{i-1}^\bot}\{\rho_A(x)\}\}
 # \end{align*}$
+# 
 # où $S_i$ est un sous-espace quelconque de dimension $i$.
 # ```
 # 
