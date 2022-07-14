@@ -51,7 +51,7 @@ A.eigenvals(), B.eigenvals()
 # In[4]:
 
 
-A.eigenvects(), B.eigenvects()
+Matrixx(A.eigenvects())
 
 
 # L'intérêt de ces transformations est double : 

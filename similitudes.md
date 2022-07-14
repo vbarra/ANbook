@@ -50,7 +50,7 @@ A.eigenvals(), B.eigenvals()
  mais que les vecteurs propres sont différents
 
 ```{code-cell} ipython3
-Matrixx(A.eigenvects())
+Matrix(A.eigenvects())
 ```
 
 
