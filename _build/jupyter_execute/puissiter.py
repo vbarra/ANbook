@@ -92,8 +92,9 @@ plt.plot(range(len(ll)),ll,'-o',label='Puissances itérées')
 plt.plot(range(len(ll)),lam*np.ones((len(ll)), dtype=np.uint8) ,'r')
 plt.ylabel('valeur propre')
 plt.xlabel('Iteration');
+plt.text(0, lam+0.3, "$\lambda$", color="r", fontsize=18)
 plt.legend()
-plt.title("Valeur propre approchée à"+ str(epsilon)+" près en "+str(k)+" itérations")
+plt.title("Valeur propre approchée à "+ str(epsilon)+" près en "+str(k)+" itérations")
 plt.tight_layout()
 
 
