@@ -245,7 +245,8 @@ Cette norme n'est subordonnée à aucune norme vectorielle sur $\mathbb R^n$.
 ```
 ```{index} Norme matricielle;de Frobenius
 ```
-
+```{index} Frobenius;Norme de 
+```
 
 
 ## Matrice transposée

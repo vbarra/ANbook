@@ -15,7 +15,8 @@ Avant d'aborder quelques algorithmes de calcul des valeurs propres d'une matrice
 
 ```{prf:theorem} Théorème de Gershgorin
 Si on représente une matrice $A$ (ou toute matrice semblable à $A$) sous la forme $A=diag\{d_1\cdots d_n\}+F$, où $F$ est une matrice de diagonale nulle, alors le spectre de $A$ est contenu dans l'union des disques $D_i,1\leq i\leq n$ du plan complexe, tels que 
-$$D_i=\left \{ z\in \mathbb{C}, |z-d_i|\leq \dsum_{j=1}^n|f_{ij}|\right \}$$
+
+$D_i=\left \{ z\in \mathbb{C}, |z-d_i|\leq \displaystyle\sum_{j=1}^n|f_{ij}|\right \}$
 ```
 
 ```{index} Gershgorin;théorème
