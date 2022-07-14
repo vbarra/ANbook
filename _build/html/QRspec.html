@@ -572,10 +572,12 @@ A_{k+1}&amp;=Q_{k+1}^\top AQ_{k+1}=R_{k+1}Q_k^\top Q_{k+1}=R_{k+1}Q
 <p>**Sortie : ** Les matrices <span class="math notranslate nohighlight">\({\bf Q}\)</span> et <span class="math notranslate nohighlight">\({\bf R}\)</span></p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(A_0=A\)</span></p></li>
+<li><p>k=0</p></li>
 <li><p>Tant que le plus grand élément non diagonal de  <span class="math notranslate nohighlight">\(A_k\)</span> est non nul</p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(A_k=Q_kR_k\)</span> (par Gram-Schmidt par exemple)</p></li>
 <li><p><span class="math notranslate nohighlight">\(A_{k+1}=R_kQ_k\)</span></p></li>
+<li><p>k=k+1</p></li>
 </ol>
 </li>
 </ol>

@@ -33,6 +33,7 @@ parts:
     - file: jacobi   
     - file: puissiter   
     - file: QRspec   
+    - file: exospec
   - caption: Index
     chapters:
     - file: genindex
