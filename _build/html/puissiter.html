@@ -624,7 +624,7 @@ On peut montrer de plus que <span class="math notranslate nohighlight">\(\|Aq_k\
 <span class="n">ll</span><span class="p">,</span> <span class="n">vv</span> <span class="o">=</span> <span class="n">puissiter</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ll</span><span class="p">)),</span><span class="n">ll</span><span class="p">,</span><span class="s1">&#39;-o&#39;</span><span class="p">)</span>
-<span class="o">%</span><span class="k">plt</span>.plot(range(len(ll)),lam*np.ones((len(ll)), dtype=np.uint8) ,&#39;r&#39;)
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ll</span><span class="p">)),</span><span class="n">lam</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">ll</span><span class="p">)),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span> <span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Puissances itérées&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Iteration&#39;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
@@ -635,10 +635,7 @@ On peut montrer de plus que <span class="math notranslate nohighlight">\(\|Aq_k\
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>La plus grande valeur propre de A est  5.214319743377532
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>UsageError: Line magic function `%plt.plot(range(len(ll)),lam*np.ones((len(ll)),` not found.
-</pre></div>
-</div>
-<img alt="_images/puissiter_1_2.png" src="_images/puissiter_1_2.png" />
+<img alt="_images/puissiter_1_1.png" src="_images/puissiter_1_1.png" />
 </div>
 </div>
 </div>
