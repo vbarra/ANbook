@@ -87,7 +87,8 @@ def puissiter(A,v0,niter=5):
     return ll, vv
 
 A = np.array([[2.,1,1],[1,3,1],[1,1,4]])
-print("La plus grande valeur propre de A est ",lam =(np.linalg.eigvals(A)[0]))
+lam =(np.linalg.eigvals(A)[0])
+print("La plus grande valeur propre de A est ",lam)
 ll, vv = puissiter(A,np.ones(3))
 
 plt.plot(range(len(ll)),ll,'-o')
