@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gauss et LU &#8212; Analyse numérique</title>
+    <title>Transformations élémentaires &#8212; Analyse numérique</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -175,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Gauss et LU
+   Transformations élémentaires
   </a>
  </li>
  <li class="toctree-l1">
@@ -224,32 +224,42 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="introspect.html">
-   Moindres carrés linéaires
+   Introduction
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="resspec.html">
-   Moindres carrés linéaires
+   Résultats généraux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gershgorin.html">
+   Disques de Gershgorin
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="similitudes.html">
-   Moindres carrés linéaires
+   Similitudes
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="jacobi.html">
-   Moindres carrés linéaires
+   Méthode de Jacobi
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="puissiter.html">
-   Moindres carrés linéaires
+   Méthode des puissances itérées
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="QRspec.html">
-   Moindres carrés linéaires
+   Puissances groupées et méthode QR
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exospec.html">
+   Exercices
   </a>
  </li>
 </ul>
@@ -487,27 +497,15 @@ title="Print to PDF"
     </div>
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Gauss et LU
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definition">
+   Définition
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#preambule-transformations-elementaires">
-   Préambule : transformations élémentaires
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pivotage-d-une-colonne">
+   Pivotage d’une colonne
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#definition">
-     Définition
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pivotage-d-une-colonne">
-     Pivotage d’une colonne
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -518,7 +516,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Gauss et LU</h1>
+                <h1>Transformations élémentaires</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -528,27 +526,15 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Gauss et LU
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definition">
+   Définition
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#preambule-transformations-elementaires">
-   Préambule : transformations élémentaires
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pivotage-d-une-colonne">
+   Pivotage d’une colonne
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#definition">
-     Définition
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pivotage-d-une-colonne">
-     Pivotage d’une colonne
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -560,12 +546,9 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="gauss-et-lu">
-<h1>Gauss et LU<a class="headerlink" href="#gauss-et-lu" title="Lien permanent vers ce titre">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="transformations-elementaires">
+<h1>Transformations élémentaires<a class="headerlink" href="#transformations-elementaires" title="Lien permanent vers ce titre">#</a></h1>
 <p>Parmi toutes les méthodes de résolution de systèmes linéaires, nous étudions dans la suite deux algorithmes largement utilisés : l’élimination de Gauss et la méthode LU.</p>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="preambule-transformations-elementaires">
-<h1>Préambule : transformations élémentaires<a class="headerlink" href="#preambule-transformations-elementaires" title="Lien permanent vers ce titre">#</a></h1>
 <div class="section" id="definition">
 <h2>Définition<a class="headerlink" href="#definition" title="Lien permanent vers ce titre">#</a></h2>
 <div class="proof definition admonition" id="definition-0">
