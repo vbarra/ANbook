@@ -154,7 +154,7 @@ epsilon = 1e-4
 niter=50
 ll, vv,k = puissiter(A,np.ones(3),lam,niter,epsilon)
 
-fig = plt.figure(figsize=(8,8))
+fig = plt.figure(figsize=(5,5))
 plt.plot(range(len(ll)),ll,'-o',label='Puissances itérées')
 plt.plot(range(len(ll)),lam*np.ones((len(ll)), dtype=np.uint8) ,'r')
 plt.ylabel('valeur propre')
@@ -163,7 +163,7 @@ plt.text(0, lam+0.3, "$\lambda$", color="r", fontsize=18)
 plt.legend()
 plt.title("Valeur propre approchée à "+ str(epsilon)+" près en "+str(k)+" itérations")
 
-fig = plt.figure(figsize=(8,8))
+fig = plt.figure(figsize=(5,5))
 ax = fig.add_subplot(111, projection='3d')
 #plt.subplot(122)
 plot_vector3d(ax,vv[0], color="b",mutation_scale=20)
