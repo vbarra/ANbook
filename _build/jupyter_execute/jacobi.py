@@ -5,6 +5,9 @@
 # 
 # L'intérêt principal des matrices réelles symétriques est qu'il existe une base de vecteurs propres orthonormés. On peut donc la diagonaliser par une transformation orthogonale : soient $A$ une telle matrice et $Q$ la matrice orthogonale dont les colonnes sont les vecteurs propres de $A$, alors $Q^\top AQ=diag\{\lambda_1\cdots \lambda_n\}$.
 # 
+# ```{margin} 
+# ![](./images/jacobi.png)
+# ```
 # La méthode de Jacobi est une méthode d'élimination symétrique itérative utilisant des similitudes
 # - la matrice transformée tend vers une matrice diagonale
 # - le produit des transformations orthogonales tend vers la matrice des vecteurs propres.

@@ -13,6 +13,11 @@ kernelspec:
 
 
 ## Quotient de Rayleigh
+
+```{margin} 
+![](./images/rayleigh.png)
+```
+
 ```{index} Rayleigh;quotient de 
 ```
 ```{prf:definition}
