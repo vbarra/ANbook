@@ -14,7 +14,7 @@ kernelspec:
 ## Introduction
 L'analyse spectrale est l'étude des valeurs propres et des vecteurs propres d'une matrice carrée. 
 
-```{index} valeur propre
+```{index} Valeur propre
 ```
 Les valeurs propres
 d'une matrice carrée $A (n\times n)$ sont les $n$ solutions dans $\mathbb{C}$ de l'équation caractéristique
