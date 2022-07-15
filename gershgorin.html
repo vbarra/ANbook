@@ -557,7 +557,6 @@ D_3&amp;=\left \{ z\in \mathbb{C}, |z-3|\leq 0.2\right\}
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">eigenvalues</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">eigenvalues</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span> <span class="s1">&#39;k+&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">D</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">k</span><span class="p">],</span><span class="mf">0.2</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">k</span><span class="p">]))</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>    
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$x$&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;$y$&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Disques de Gershgorin dans le plan complexe&quot;</span><span class="p">)</span>
@@ -567,9 +566,13 @@ D_3&amp;=\left \{ z\in \mathbb{C}, |z-3|\leq 0.2\right\}
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-1-d180bc3f4a70&gt;:27: UserWarning: Tight layout not applied. The bottom and top margins cannot be made large enough to accommodate all axes decorations.
+  plt.tight_layout()
+</pre></div>
+</div>
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}0 &amp; 0.2219 &amp; 0.4859 &amp; 0.0974 &amp; 0.8397\\0.5639 &amp; -1.0 &amp; 0.4268 &amp; 0.4515 &amp; 0.6086\\0.8829 &amp; 0.7608 &amp; 4.0 &amp; 0.3021 &amp; 0.9523\\0.6733 &amp; 0.663 &amp; 0.1839 &amp; 1.0 &amp; 0.2973\\0.4506 &amp; 0.9106 &amp; 0.8515 &amp; 0.7325 &amp; 7.0\end{matrix}\right]\end{split}\]</div>
-<img alt="_images/gershgorin_1_1.png" src="_images/gershgorin_1_1.png" />
+\[\begin{split}\displaystyle \left[\begin{matrix}0 &amp; 0.725 &amp; 0.37 &amp; 0.0306 &amp; 0.6869\\0.06189 &amp; -1.0 &amp; 0.8881 &amp; 0.2955 &amp; 0.0478\\0.6585 &amp; 0.736 &amp; 4.0 &amp; 0.03496 &amp; 0.99\\0.3653 &amp; 0.4519 &amp; 0.7435 &amp; 1.0 &amp; 0.3737\\0.9132 &amp; 0.8789 &amp; 0.6648 &amp; 0.456 &amp; 7.0\end{matrix}\right]\end{split}\]</div>
+<img alt="_images/gershgorin_1_2.png" src="_images/gershgorin_1_2.png" />
 </div>
 </div>
 </div>
