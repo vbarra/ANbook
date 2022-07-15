@@ -53,7 +53,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 n = 5 
 
-D = np.diag([0, 3 + 1j, 4 + 1j, 1 + 5j, 9 + 2j])
+D = np.diag([0, -1, 4 , 1 , 7 ])
 M = np.random.rand(n, n) + D
 
 R = np.zeros(n) 
@@ -74,5 +74,6 @@ ax.set_aspect(1)
 plt.xlabel("$x$")
 plt.ylabel("$y$")
 plt.title("Gershgorin disks and eigenvalues $x + iy$")
+plt.tight_layout()
 ```
 
