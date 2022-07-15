@@ -45,20 +45,20 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-N = 5 # dimension of our square matrix
+n = 5 
 
 D = np.diag([0, 3 + 1j, 4 + 1j, 1 + 5j, 9 + 2j])
-M = np.random.rand(N, N) + D
+M = np.random.rand(n, n) + D
 
-R = np.zeros(N) # disk radii
-for i in range(N):
+R = np.zeros(n) 
+for i in range(n):
     R[i] = sum(abs(M[i,:])) - abs(M[i,i])
 
 eigenvalues = np.linalg.eigvals(M)
 
 # Plotting code
 fig, ax = plt.subplots()
-for k in range(N):
+for k in range(n):
     x, y = M[k,k].real, M[k,k].imag
     ax.add_artist( plt.Circle((x, y), R[k], alpha=0.5) )
     plt.plot(eigenvalues[k].real, eigenvalues[k].imag, 'k+')
