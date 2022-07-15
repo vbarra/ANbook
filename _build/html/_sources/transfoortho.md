@@ -95,6 +95,11 @@ Le principe de Gram-Schmidt est de calculer, pour $j\in[\![2,p]\!]$,  chaque vec
  premiers vecteurs de la base orthonormée déjà calculés, puis en normant le résultat.
 
 
+
+```{margin} 
+![](./images/SchmidtE.png)
+```
+
 ```{prf:algorithm} Procédé d'orthonormalisation de Gram-Schmidt - version de base
 :label: GS
 **Entrée : **  ${\bf A}\in\mathcal{M}_{n,p}(\mathbb R)$ de rang $p$
