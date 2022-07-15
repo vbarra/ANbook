@@ -14,6 +14,13 @@
 # ```{index} Gershgorin;théorème
 # ```
 # 
+# ```{margin} 
+# ![](./images/gershgorinsemyon.png)
+# ```
+# 
+# 
+# 
+# 
 # Une application intéressante de ce résultat est l'estimation des valeurs propres d'une matrice obtenue en perturbant une matrice dont on connaît le spectre.
 # 
 # 
