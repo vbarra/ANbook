@@ -92,6 +92,12 @@
 # inégalité de Hölder : 
 # ```{index} Inégalité;de Hölder
 # ``` 
+# 
+# 
+# ```{margin} 
+# ![](./images/holder.png)
+# ```
+# 
 # ```` {prf:property} Inégalité de Hölder
 # $
 # (\forall {\bf x,y}\in\mathbb R^n)\ (\forall p,q>1\ /\ \frac{1}{p}+\frac{1}{q}=1)$
