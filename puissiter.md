@@ -66,7 +66,7 @@ Par récurrence, on montre alors que  $q_k=\frac{A^kq_0}{\|A^kq_0\|}$ et comme l
  $q_0=\displaystyle\sum{i=1}^n\alpha_iv^i,\quad\alpha_n\neq 0$
  et 
 
- $A^kq_0=\alpha_n\lambda_n^k\left (v^n+\displaystyle\sum{i=1}^{n-1}\frac{\alpha_i}{\alpha_n}\left (\frac{\lambda_i}{\lambda_n}\right )^kv^i\right )$
+ $A^kq_0=\alpha_n\lambda_n^k\left (v^n+\displaystyle\sum_{i=1}^{n-1}\frac{\alpha_i}{\alpha_n}\left (\frac{\lambda_i}{\lambda_n}\right )^kv^i\right )$
 
  Lorsque $k\rightarrow\infty$, les rapports $\left (\frac{\lambda_i}{\lambda_n}\right )^k$ tendent vers 0 pour $i\neq n$, 
  ce qui signifie que la suite des itérés $\{q_k\}$ converge vers le vecteur propre $v^n$ ou $-v^n$. 
