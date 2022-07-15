@@ -175,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="ch2.html">
-   Gauss et LU
+   Transformations élémentaires
   </a>
  </li>
  <li class="toctree-l1">
@@ -254,7 +254,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="QRspec.html">
-   Moindres carrés linéaires
+   Puissances groupées et méthode QR
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exospec.html">
+   Exercices
   </a>
  </li>
 </ul>
@@ -544,6 +549,10 @@ title="Print to PDF"
   <div class="tex2jax_ignore mathjax_ignore section" id="methode-de-jacobi">
 <h1>Méthode de Jacobi<a class="headerlink" href="#methode-de-jacobi" title="Lien permanent vers ce titre">#</a></h1>
 <p>L’intérêt principal des matrices réelles symétriques est qu’il existe une base de vecteurs propres orthonormés. On peut donc la diagonaliser par une transformation orthogonale : soient <span class="math notranslate nohighlight">\(A\)</span> une telle matrice et <span class="math notranslate nohighlight">\(Q\)</span> la matrice orthogonale dont les colonnes sont les vecteurs propres de <span class="math notranslate nohighlight">\(A\)</span>, alors <span class="math notranslate nohighlight">\(Q^\top AQ=diag\{\lambda_1\cdots \lambda_n\}\)</span>.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><img alt="" src="_images/jacobi.png" /></p>
+</div>
 <p>La méthode de Jacobi est une méthode d’élimination symétrique itérative utilisant des similitudes</p>
 <ul class="simple">
 <li><p>la matrice transformée tend vers une matrice diagonale</p></li>
