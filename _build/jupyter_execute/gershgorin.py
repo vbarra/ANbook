@@ -44,6 +44,7 @@
 
 
 import numpy as np
+import matplotlib.pyplot as plt
 N = 5 # dimension of our square matrix
 
 D = np.diag([0, 3 + 1j, 4 + 1j, 1 + 5j, 9 + 2j])
