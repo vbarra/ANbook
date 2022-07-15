@@ -71,14 +71,72 @@ Par récurrence, on montre alors que  $q_k=\frac{A^kq_0}{\|A^kq_0\|}$ et comme l
 
 
 ```{code-cell} ipython3
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib.patches import FancyArrowPatch
+from mpl_toolkits.mplot3d.proj3d import proj_transform
+from matplotlib.text import Annotation
 
-def plot_vector2d(vector2d, origin=[0, 0], **options):
-    return plt.arrow(origin[0], origin[1], vector2d[0], vector2d[1],
-              head_width=0.05, head_length=0.1, length_includes_head=True,
+
+class Arrow3D(FancyArrowPatch):
+
+    def __init__(self, x, y, z, dx, dy, dz, *args, **kwargs):
+        super().__init__((0, 0), (0, 0), *args, **kwargs)
+        self._xyz = (x, y, z)
+        self._dxdydz = (dx, dy, dz)
+
+    def draw(self, renderer):
+        x1, y1, z1 = self._xyz
+        dx, dy, dz = self._dxdydz
+        x2, y2, z2 = (x1 + dx, y1 + dy, z1 + dz)
+
+        xs, ys, zs = proj_transform((x1, x2), (y1, y2), (z1, z2), self.axes.M)
+        self.set_positions((xs[0], ys[0]), (xs[1], ys[1]))
+        super().draw(renderer)
+        
+    def do_3d_projection(self, renderer=None):
+        x1, y1, z1 = self._xyz
+        dx, dy, dz = self._dxdydz
+        x2, y2, z2 = (x1 + dx, y1 + dy, z1 + dz)
+
+        xs, ys, zs = proj_transform((x1, x2), (y1, y2), (z1, z2), self.axes.M)
+        self.set_positions((xs[0], ys[0]), (xs[1], ys[1]))
+
+        return np.min(zs) 
+
+def _arrow3D(ax, x, y, z, dx, dy, dz, *args, **kwargs):
+    '''Add an 3d arrow to an `Axes3D` instance.'''
+
+    arrow = Arrow3D(x, y, z, dx, dy, dz, *args, **kwargs)
+    ax.add_artist(arrow)
+setattr(Axes3D, 'arrow3D', _arrow3D)
+
+
+def plot_vector3d(ax,vector3d, origin=[0, 0, 0], **options):
+    return ax.arrow3D(origin[0], origin[1], origin[2], vector3d[0], vector3d[1],vector3d[2],
+              arrowstyle="-|>",
               **options)
 
+
+class Annotation3D(Annotation):
+
+    def __init__(self, text, xyz, *args, **kwargs):
+        super().__init__(text, xy=(0, 0), *args, **kwargs)
+        self._xyz = xyz
+
+    def draw(self, renderer):
+        x2, y2, z2 = proj_transform(*self._xyz, self.axes.M)
+        self.xy = (x2, y2)
+        super().draw(renderer)
+        
+        
+def _annotate3D(ax, text, xyz, *args, **kwargs):
+    '''Add anotation `text` to an `Axes3d` instance.'''
+
+    annotation = Annotation3D(text, xyz, *args, **kwargs)
+    ax.add_artist(annotation)
+setattr(Axes3D, 'annotate3D', _annotate3D)
 
 def puissiter(A,v0,lam,niter,epsilon):
     v = v0
@@ -98,15 +156,14 @@ def puissiter(A,v0,lam,niter,epsilon):
 A = np.array([[2.,1,-1],[1,3,1],[-1,1,4]])
 w,v=np.linalg.eig(A)
 vmax = v[:, np.argmax(w)]
-lam =np.max(np.linalg.eigvals(A))
+lam =np.max(w)
 print("La plus grande valeur propre de A est ",lam)
 
 epsilon = 1e-4
 niter=50
 ll, vv,k = puissiter(A,np.ones(3),lam,niter,epsilon)
 
-plt.figure(figsize=(10,5))
-plt.subplot(121)
+fig = plt.figure(figsize=(5,5))
 plt.plot(range(len(ll)),ll,'-o',label='Puissances itérées')
 plt.plot(range(len(ll)),lam*np.ones((len(ll)), dtype=np.uint8) ,'r')
 plt.ylabel('valeur propre')
@@ -115,21 +172,21 @@ plt.text(0, lam+0.3, "$\lambda$", color="r", fontsize=18)
 plt.legend()
 plt.title("Valeur propre approchée à "+ str(epsilon)+" près en "+str(k)+" itérations")
 
-plt.subplot(122)
-plot_vector2d(vv[0], color="b", linestyle="dotted")
-plt.text(vv[0][0],vv[0][1],'v0')
+fig = plt.figure(figsize=(5,5))
+ax = fig.add_subplot(111, projection='3d')
+#plt.subplot(122)
+plot_vector3d(ax,vv[0], color="b",mutation_scale=20)
+ax.annotate3D('$v_0$', (vv[0][0],vv[0][1],vv[0][2]), xytext=(10, 10), textcoords='offset points',color="b",fontsize=18)
 for i in range(1,k):
-    plot_vector2d(vv[i], color="g", linestyle="dotted",alpha = 1-float(i)/k)
+    plot_vector3d(ax,vv[i], color="g",alpha = 1-float(i)/k,mutation_scale=20)
     if i%2==0 :
-        plt.text(vv[i][0],vv[i][1]+0.05,'v('+str(i)+')',color="g")
-plot_vector2d(vmax, color="r", linestyle="dotted")
-plt.text(vmax[0],vmax[1],'$v_\lambda$',color="r",fontsize=18)
+        ax.annotate3D('v('+str(i)+')', (vv[i][0],vv[i][1],vv[i][2]), xytext=(3, 3), textcoords='offset points')
 
+#        plt.text(vv[i][0],vv[i][1]+0.05,vv[i][2],'v('+str(i)+')',color="g")
+plot_vector3d(ax,vmax, color="r",mutation_scale=20)
+ax.annotate3D('$v_\lambda$', (vmax[0],vmax[1],vmax[2]), xytext=(-8, 10), textcoords='offset points',color="r",fontsize=18)
 plt.title("Vecteur propre approché")
 plt.tight_layout()
-
-
-
 ```
 
 ## Méthode des puissances inverses
@@ -143,6 +200,47 @@ q_{k+1}&=\frac{x_{k+1}}{\|x_{k+1}\|}
 
 avec $\|q_0\|=1$, et $q_0$ n'est pas orthogonal à $v^1$, converge vers la direction du vecteur propre associé à la plus 
 petite valeur propre en module. On remarquera le coût de calcul en $O(n^2)$.
+
+
+```{code-cell} ipython3
+import matplotlib.pyplot as plt
+
+def puissinverse(A,v0,lam,niter,epsilon):
+    v = v0
+    I = np.eye(len(v0))
+    vv = [v0]
+    l = np.dot(v0,np.dot(A,v0))
+    ll = [l]
+    k=0
+    while np.fabs(lam-l)>epsilon and k<niter:
+        w = np.linalg.solve(A-lam*I,v)
+        v = w/np.linalg.norm(w)
+        l = np.dot(v,np.dot(A,v))
+        vv.append(v)
+        ll.append(l)
+        k=k+1
+    return ll, vv,k
+
+A = np.array([[2.,1,-1],[1,3,1],[-1,1,4]])
+w,v=np.linalg.eig(A)
+vmin = v[:, np.argmin(w)]
+lam =np.min(w)
+print("La plus petite valeur propre de A est ",lam)
+
+epsilon = 1e-4
+niter=50
+ll, vv,k = puissinverse(A,[0,0,1],lam,niter,epsilon)
+
+fig = plt.figure(figsize=(10,5))
+plt.plot(range(len(ll)),ll,'-o',label='Puissances itérées')
+plt.plot(range(len(ll)),lam*np.ones((len(ll)), dtype=np.uint8) ,'r')
+plt.ylabel('valeur propre')
+plt.xlabel('Iteration');
+plt.text(0, lam+0.3, "$\lambda$", color="r", fontsize=18)
+plt.legend()
+plt.title("Valeur propre approchée à "+ str(epsilon)+" près en "+str(k)+" itérations")
+plt.tight_layout()
+```
 
 ```{prf:remark}
 :class: dropdown
