@@ -502,17 +502,17 @@ title="Print to PDF"
   <div class="tex2jax_ignore mathjax_ignore section" id="disques-de-gershgorin">
 <h1>Disques de Gershgorin<a class="headerlink" href="#disques-de-gershgorin" title="Lien permanent vers ce titre">#</a></h1>
 <p>Avant d’aborder quelques algorithmes de calcul des valeurs propres d’une matrice, donnons une alternative pratique à ces algorithmes . Le théorème suivant  permet de localiser les valeurs propres dans des disques, dits disques de Gershgorin, du plan complexe.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><img alt="" src="_images/gershgorinsemyon.png" /></p>
+</div>
 <div class="proof theorem admonition" id="theorem-0">
 <p class="admonition-title"><span class="caption-number">Theorem 8 </span> (Théorème de Gershgorin)</p>
 <div class="theorem-content section" id="proof-content">
 <p>Si on représente une matrice <span class="math notranslate nohighlight">\(A\)</span> (ou toute matrice semblable à <span class="math notranslate nohighlight">\(A\)</span>) sous la forme <span class="math notranslate nohighlight">\(A=diag\{d_1\cdots d_n\}+F\)</span>, où <span class="math notranslate nohighlight">\(F\)</span> est une matrice de diagonale nulle, alors le spectre de <span class="math notranslate nohighlight">\(A\)</span> est contenu dans l’union des disques <span class="math notranslate nohighlight">\(D_i,1\leq i\leq n\)</span> du plan complexe, tels que</p>
 <p><span class="math notranslate nohighlight">\(D_i=\left \{ z\in \mathbb{C}, |z-d_i|\leq \displaystyle\sum_{j=1}^n|f_{ij}|\right \}\)</span></p>
 </div>
-</div><div class="margin sidebar" id="index-0">
-<p class="sidebar-title"></p>
-<p><img alt="" src="_images/gershgorinsemyon.png" /></p>
-</div>
-<p>Une application intéressante de ce résultat est l’estimation des valeurs propres d’une matrice obtenue en perturbant une matrice dont on connaît le spectre.</p>
+</div><p id="index-0">Une application intéressante de ce résultat est l’estimation des valeurs propres d’une matrice obtenue en perturbant une matrice dont on connaît le spectre.</p>
 <div class="proof example admonition" id="example-1">
 <p class="admonition-title"><span class="caption-number">Example 14 </span></p>
 <div class="example-content section" id="proof-content">
@@ -569,7 +569,7 @@ D_3&amp;=\left \{ z\in \mathbb{C}, |z-3|\leq 0.2\right\}
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}0 &amp; 0.5137 &amp; 0.6842 &amp; 0.579 &amp; 0.2386\\0.4864 &amp; -1.0 &amp; 0.5871 &amp; 0.2609 &amp; 0.05569\\0.4654 &amp; 0.2654 &amp; 4.0 &amp; 0.5691 &amp; 0.246\\0.6149 &amp; 0.5578 &amp; 0.354 &amp; 1.0 &amp; 0.9717\\0.7809 &amp; 0.4985 &amp; 0.7871 &amp; 0.02668 &amp; 7.0\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}0 &amp; 0.9497 &amp; 0.05442 &amp; 0.9337 &amp; 0.9447\\0.3356 &amp; -1.0 &amp; 0.8119 &amp; 0.5749 &amp; 0.5114\\0.507 &amp; 0.5306 &amp; 4.0 &amp; 0.8024 &amp; 0.6342\\0.6503 &amp; 0.8991 &amp; 0.8187 &amp; 1.0 &amp; 0.2688\\0.01118 &amp; 0.7228 &amp; 0.7092 &amp; 0.7927 &amp; 7.0\end{matrix}\right]\end{split}\]</div>
 <img alt="_images/gershgorin_1_1.png" src="_images/gershgorin_1_1.png" />
 </div>
 </div>
