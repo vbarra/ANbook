@@ -17,6 +17,7 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
+import numpy as np
 N = 5 # dimension of our square matrix
 
 D = np.diag([0, 3 + 1j, 4 + 1j, 1 + 5j, 9 + 2j])
@@ -45,11 +46,12 @@ plt.title("Gershgorin disks and eigenvalues $x + iy$")
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
 Input [0;32mIn [1][0m, in [0;36m<module>[0;34m[0m
-[1;32m      1[0m N [38;5;241m=[39m [38;5;241m5[39m [38;5;66;03m# dimension of our square matrix[39;00m
-[0;32m----> 3[0m D [38;5;241m=[39m [43mnp[49m[38;5;241m.[39mdiag([[38;5;241m0[39m, [38;5;241m3[39m [38;5;241m+[39m [38;5;241m1[39mj, [38;5;241m4[39m [38;5;241m+[39m [38;5;241m1[39mj, [38;5;241m1[39m [38;5;241m+[39m [38;5;241m5[39mj, [38;5;241m9[39m [38;5;241m+[39m [38;5;241m2[39mj])
-[1;32m      4[0m M [38;5;241m=[39m np[38;5;241m.[39mrandom[38;5;241m.[39mrand(N, N) [38;5;241m+[39m D
-[1;32m      6[0m R [38;5;241m=[39m np[38;5;241m.[39mzeros(N) [38;5;66;03m# disk radii[39;00m
+[1;32m     11[0m eigenvalues [38;5;241m=[39m np[38;5;241m.[39mlinalg[38;5;241m.[39meigvals(M)
+[1;32m     13[0m [38;5;66;03m# Plotting code[39;00m
+[0;32m---> 14[0m fig, ax [38;5;241m=[39m [43mplt[49m[38;5;241m.[39msubplots()
+[1;32m     15[0m [38;5;28;01mfor[39;00m k [38;5;129;01min[39;00m [38;5;28mrange[39m(N):
+[1;32m     16[0m     x, y [38;5;241m=[39m M[k,k][38;5;241m.[39mreal, M[k,k][38;5;241m.[39mimag
 
-[0;31mNameError[0m: name 'np' is not defined
-NameError: name 'np' is not defined
+[0;31mNameError[0m: name 'plt' is not defined
+NameError: name 'plt' is not defined
 
