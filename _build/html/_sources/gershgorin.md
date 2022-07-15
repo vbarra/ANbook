@@ -71,6 +71,6 @@ plt.xlabel("$x$")
 plt.ylabel("$y$")
 plt.title("Disques de Gershgorin dans le plan complexe")
 plt.tight_layout()
-M.evalf(4)
+Matrix(M).evalf(4)
 ```
 
