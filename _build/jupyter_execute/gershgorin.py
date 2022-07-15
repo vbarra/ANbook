@@ -48,7 +48,7 @@ import matplotlib.pyplot as plt
 n = 5 
 
 D = np.diag([0, -1, 4 , 1 , 7 ])
-M = np.random.rand(n, n) + D
+M = 3*np.random.rand(n, n) + D
 
 R = np.zeros(n) 
 for i in range(n):
