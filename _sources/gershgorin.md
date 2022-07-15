@@ -46,7 +46,7 @@ D_3&=\left \{ z\in \mathbb{C}, |z-3|\leq 0.2\right\}
 
 ```{code-cell} ipython3
 import numpy as np
-import matplotlib.pyplot as 
+import matplotlib.pyplot as plt
 from sympy import Matrix
 n = 5 
 

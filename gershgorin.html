@@ -531,8 +531,8 @@ D_3&amp;=\left \{ z\in \mathbb{C}, |z-3|\leq 0.2\right\}
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> 
-<span class="nn">from</span> <span class="n">sympy</span> <span class="kn">import</span> <span class="nn">Matrix</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">Matrix</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">5</span> 
 
 <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span> <span class="p">,</span> <span class="mi">1</span> <span class="p">,</span> <span class="mi">7</span> <span class="p">])</span>
@@ -561,12 +561,9 @@ D_3&amp;=\left \{ z\in \mathbb{C}, |z-3|\leq 0.2\right\}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span>
-                                <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
-</pre></div>
-</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}1.18076664137955 &amp; 0.994503464559737 &amp; 0.95599519269416 &amp; 0.0112717215808424 &amp; 0.00375152038227227\\1.08188529088077 &amp; -8.48634355927746 \cdot 10^{-5} &amp; 1.14919801418827 &amp; 0.30995915608557 &amp; 1.00090978508799\\0.120213667625161 &amp; 0.241445108579683 &amp; 5.08413714016929 &amp; 0.450109180040272 &amp; 0.0968908070154588\\0.649528174853025 &amp; 1.15155616049775 &amp; 0.609227281132481 &amp; 1.56416811770846 &amp; 0.430924846972963\\0.634188383829956 &amp; 0.107689652608647 &amp; 0.760024191915451 &amp; 0.253849374754833 &amp; 7.53159641019502\end{matrix}\right]\end{split}\]</div>
+<img alt="_images/gershgorin_1_1.png" src="_images/gershgorin_1_1.png" />
 </div>
 </div>
 </div>
