@@ -50,6 +50,7 @@ D_3&=\left \{ z\in \mathbb{C}, |z-3|\leq 0.2\right\}
 
 ```{code-cell} ipython3
 import numpy as np
+import matplotlib.pyplot as plt
 N = 5 # dimension of our square matrix
 
 D = np.diag([0, 3 + 1j, 4 + 1j, 1 + 5j, 9 + 2j])
