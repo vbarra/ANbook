@@ -12,10 +12,9 @@ kernelspec:
 
 
 
-# Gauss et LU
+# Transformations élémentaires
 Parmi toutes les méthodes de résolution de systèmes linéaires, nous étudions dans la suite deux algorithmes largement utilisés : l'élimination de Gauss et la méthode LU.
 
-# Préambule : transformations élémentaires
 ## Définition
 ````{prf:definition} Transformation élémentaire
 ```{index} Transformation ; élémentaire
