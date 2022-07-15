@@ -58,6 +58,7 @@ for k in range(n):
     x, y = M[k,k].real, M[k,k].imag
     ax.add_artist( plt.Circle((x, y), R[k], alpha=0.5) )
     plt.plot(eigenvalues[k].real, eigenvalues[k].imag, 'k+')
+    plt.text(D[k],0.2,str(D[k]))
 
 ax.axis([-4, 12.5, -4, 9])
 ax.set_aspect(1)    
