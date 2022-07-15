@@ -1,0 +1,55 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/usr/local/lib/python3.9/site-packages/nbclient/client.py", line 1093, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/usr/local/lib/python3.9/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/usr/local/lib/python3.9/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/usr/local/Cellar/python@3.9/3.9.13/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/usr/local/lib/python3.9/site-packages/nbclient/client.py", line 559, in async_execute
+    await self.async_execute_cell(
+  File "/usr/local/lib/python3.9/site-packages/nbclient/client.py", line 854, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/usr/local/lib/python3.9/site-packages/nbclient/client.py", line 756, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+N = 5 # dimension of our square matrix
+
+D = np.diag([0, 3 + 1j, 4 + 1j, 1 + 5j, 9 + 2j])
+M = np.random.rand(N, N) + D
+
+R = np.zeros(N) # disk radii
+for i in range(N):
+    R[i] = sum(abs(M[i,:])) - abs(M[i,i])
+
+eigenvalues = np.linalg.eigvals(M)
+
+# Plotting code
+fig, ax = plt.subplots()
+for k in range(N):
+    x, y = M[k,k].real, M[k,k].imag
+    ax.add_artist( plt.Circle((x, y), R[k], alpha=0.5) )
+    plt.plot(eigenvalues[k].real, eigenvalues[k].imag, 'k+')
+
+ax.axis([-4, 12.5, -4, 9])
+ax.set_aspect(1)    
+plt.xlabel("$x$")
+plt.ylabel("$y$")
+plt.title("Gershgorin disks and eigenvalues $x + iy$")
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Input [0;32mIn [1][0m, in [0;36m<module>[0;34m[0m
+[1;32m      1[0m N [38;5;241m=[39m [38;5;241m5[39m [38;5;66;03m# dimension of our square matrix[39;00m
+[0;32m----> 3[0m D [38;5;241m=[39m [43mnp[49m[38;5;241m.[39mdiag([[38;5;241m0[39m, [38;5;241m3[39m [38;5;241m+[39m [38;5;241m1[39mj, [38;5;241m4[39m [38;5;241m+[39m [38;5;241m1[39mj, [38;5;241m1[39m [38;5;241m+[39m [38;5;241m5[39mj, [38;5;241m9[39m [38;5;241m+[39m [38;5;241m2[39mj])
+[1;32m      4[0m M [38;5;241m=[39m np[38;5;241m.[39mrandom[38;5;241m.[39mrand(N, N) [38;5;241m+[39m D
+[1;32m      6[0m R [38;5;241m=[39m np[38;5;241m.[39mzeros(N) [38;5;66;03m# disk radii[39;00m
+
+[0;31mNameError[0m: name 'np' is not defined
+NameError: name 'np' is not defined
+
