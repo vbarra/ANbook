@@ -25,10 +25,6 @@ $D_i=\left \{ z\in \mathbb{C}, |z-d_i|\leq \displaystyle\sum_{j=1}^n|f_{ij}|\rig
 Une application intéressante de ce résultat est l'estimation des valeurs propres d'une matrice obtenue en perturbant une matrice dont on connaît le spectre.
 
 
-```{margin} 
-![](./images/gershgorin.png)
-```
-
 ```{prf:example}
 $A =
 \left[
@@ -50,7 +46,8 @@ D_3&=\left \{ z\in \mathbb{C}, |z-3|\leq 0.2\right\}
 
 ```{code-cell} ipython3
 import numpy as np
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as 
+from sympy import Matrix
 n = 5 
 
 D = np.diag([0, -1, 4 , 1 , 7 ])
@@ -62,7 +59,6 @@ for i in range(n):
 
 eigenvalues = np.linalg.eigvals(M)
 
-# Plotting code
 fig, ax = plt.subplots()
 for k in range(n):
     x, y = M[k,k].real, M[k,k].imag
@@ -73,7 +69,8 @@ ax.axis([-4, 12.5, -4, 9])
 ax.set_aspect(1)    
 plt.xlabel("$x$")
 plt.ylabel("$y$")
-plt.title("Gershgorin disks and eigenvalues $x + iy$")
+plt.title("Disques de Gershgorin dans le plan complexe")
 plt.tight_layout()
+Matrix(M)
 ```
 
