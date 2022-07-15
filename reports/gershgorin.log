@@ -18,20 +18,21 @@ Traceback (most recent call last):
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
 import numpy as np
-N = 5 # dimension of our square matrix
+import matplotlib.pyplot as 
+from sympy import Matrix
+n = 5 
 
-D = np.diag([0, 3 + 1j, 4 + 1j, 1 + 5j, 9 + 2j])
-M = np.random.rand(N, N) + D
+D = np.diag([0, -1, 4 , 1 , 7 ])
+M = 1.2*np.random.rand(n, n) + D
 
-R = np.zeros(N) # disk radii
-for i in range(N):
+R = np.zeros(n) 
+for i in range(n):
     R[i] = sum(abs(M[i,:])) - abs(M[i,i])
 
 eigenvalues = np.linalg.eigvals(M)
 
-# Plotting code
 fig, ax = plt.subplots()
-for k in range(N):
+for k in range(n):
     x, y = M[k,k].real, M[k,k].imag
     ax.add_artist( plt.Circle((x, y), R[k], alpha=0.5) )
     plt.plot(eigenvalues[k].real, eigenvalues[k].imag, 'k+')
@@ -40,18 +41,15 @@ ax.axis([-4, 12.5, -4, 9])
 ax.set_aspect(1)    
 plt.xlabel("$x$")
 plt.ylabel("$y$")
-plt.title("Gershgorin disks and eigenvalues $x + iy$")
+plt.title("Disques de Gershgorin dans le plan complexe")
+plt.tight_layout()
+Matrix(M)
 ------------------
 
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-Input [0;32mIn [1][0m, in [0;36m<module>[0;34m[0m
-[1;32m     11[0m eigenvalues [38;5;241m=[39m np[38;5;241m.[39mlinalg[38;5;241m.[39meigvals(M)
-[1;32m     13[0m [38;5;66;03m# Plotting code[39;00m
-[0;32m---> 14[0m fig, ax [38;5;241m=[39m [43mplt[49m[38;5;241m.[39msubplots()
-[1;32m     15[0m [38;5;28;01mfor[39;00m k [38;5;129;01min[39;00m [38;5;28mrange[39m(N):
-[1;32m     16[0m     x, y [38;5;241m=[39m M[k,k][38;5;241m.[39mreal, M[k,k][38;5;241m.[39mimag
+[0;36m  Input [0;32mIn [1][0;36m[0m
+[0;31m    import matplotlib.pyplot as[0m
+[0m                                ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
 
-[0;31mNameError[0m: name 'plt' is not defined
-NameError: name 'plt' is not defined
+SyntaxError: invalid syntax (<ipython-input-1-8dc3f4e7c6b2>, line 2)
 
