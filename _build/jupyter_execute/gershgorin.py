@@ -40,7 +40,7 @@
 
 
 import numpy as np
-import matplotlib.pyplot as 
+import matplotlib.pyplot as plt
 from sympy import Matrix
 n = 5 
 
