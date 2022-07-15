@@ -18,7 +18,7 @@ Traceback (most recent call last):
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
 import numpy as np
-import matplotlib.pyplot as 
+import matplotlib.pyplot as plt
 from sympy import Matrix
 n = 5 
 
@@ -43,13 +43,16 @@ plt.xlabel("$x$")
 plt.ylabel("$y$")
 plt.title("Disques de Gershgorin dans le plan complexe")
 plt.tight_layout()
-Matrix(M)
+M.evalf(4)
 ------------------
 
-[0;36m  Input [0;32mIn [1][0;36m[0m
-[0;31m    import matplotlib.pyplot as[0m
-[0m                                ^[0m
-[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mAttributeError[0m                            Traceback (most recent call last)
+Input [0;32mIn [1][0m, in [0;36m<module>[0;34m[0m
+[1;32m     25[0m plt[38;5;241m.[39mtitle([38;5;124m"[39m[38;5;124mDisques de Gershgorin dans le plan complexe[39m[38;5;124m"[39m)
+[1;32m     26[0m plt[38;5;241m.[39mtight_layout()
+[0;32m---> 27[0m [43mM[49m[38;5;241;43m.[39;49m[43mevalf[49m([38;5;241m4[39m)
 
-SyntaxError: invalid syntax (<ipython-input-1-8dc3f4e7c6b2>, line 2)
+[0;31mAttributeError[0m: 'numpy.ndarray' object has no attribute 'evalf'
+AttributeError: 'numpy.ndarray' object has no attribute 'evalf'
 

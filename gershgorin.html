@@ -556,13 +556,21 @@ D_3&amp;=\left \{ z\in \mathbb{C}, |z-3|\leq 0.2\right\}
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;$y$&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Disques de Gershgorin dans le plan complexe&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">Matrix</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+<span class="n">M</span><span class="o">.</span><span class="n">evalf</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}1.18076664137955 &amp; 0.994503464559737 &amp; 0.95599519269416 &amp; 0.0112717215808424 &amp; 0.00375152038227227\\1.08188529088077 &amp; -8.48634355927746 \cdot 10^{-5} &amp; 1.14919801418827 &amp; 0.30995915608557 &amp; 1.00090978508799\\0.120213667625161 &amp; 0.241445108579683 &amp; 5.08413714016929 &amp; 0.450109180040272 &amp; 0.0968908070154588\\0.649528174853025 &amp; 1.15155616049775 &amp; 0.609227281132481 &amp; 1.56416811770846 &amp; 0.430924846972963\\0.634188383829956 &amp; 0.107689652608647 &amp; 0.760024191915451 &amp; 0.253849374754833 &amp; 7.53159641019502\end{matrix}\right]\end{split}\]</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Disques de Gershgorin dans le plan complexe&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="ne">---&gt; </span><span class="mi">27</span> <span class="n">M</span><span class="o">.</span><span class="n">evalf</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="ne">AttributeError</span>: &#39;numpy.ndarray&#39; object has no attribute &#39;evalf&#39;
+</pre></div>
+</div>
 <img alt="_images/gershgorin_1_1.png" src="_images/gershgorin_1_1.png" />
 </div>
 </div>
