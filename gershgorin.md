@@ -77,7 +77,6 @@ for k in range(n):
     plt.plot(eigenvalues[k].real, eigenvalues[k].imag, 'k+')
     plt.text(D[k][k],0.2,str(M[k][k]))
 
-ax.set_aspect(1)    
 plt.xlabel("$x$")
 plt.ylabel("$y$")
 plt.title("Disques de Gershgorin dans le plan complexe")
