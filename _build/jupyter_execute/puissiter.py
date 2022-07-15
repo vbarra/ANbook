@@ -213,26 +213,6 @@ def puissinverse(A,v0,lam,niter,epsilon):
         k=k+1
     return ll, vv,k
 
-A = np.array([[2.,1,-1],[1,3,1],[-1,1,4]])
-w,v=np.linalg.eig(A)
-vmin = v[:, np.argmin(w)]
-lam =np.min(w)
-print("La plus petite valeur propre de A est ",lam)
-
-epsilon = 1e-4
-niter=50
-ll, vv,k = puissinverse(A,[0,0,1],lam,niter,epsilon)
-
-fig = plt.figure(figsize=(10,5))
-plt.plot(range(len(ll)),ll,'-o',label='Puissances itérées')
-plt.plot(range(len(ll)),lam*np.ones((len(ll)), dtype=np.uint8) ,'r')
-plt.ylabel('valeur propre')
-plt.xlabel('Iteration');
-plt.text(0, lam+0.3, "$\lambda$", color="r", fontsize=18)
-plt.legend()
-plt.title("Valeur propre approchée à "+ str(epsilon)+" près en "+str(k)+" itérations")
-plt.tight_layout()
-
 
 # ```{prf:remark}
 # :class: dropdown
