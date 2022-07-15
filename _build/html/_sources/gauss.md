@@ -242,6 +242,9 @@ transforme la matrice ${\bf A}$ en une matrice triangulaire supérieure (étape 
 Le système triangulaire supérieur est ensuite résolu par substitution inverse
 (étape 2).
 
+```{margin} 
+![](./images/gaussKF.png)
+```
 
 ```{prf:algorithm} Méthode de Gauss
 :label: AlgoGauss

@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Facteurs LU d’une matrice non singulière" href="lu.html" />
-    <link rel="prev" title="Gauss et LU" href="ch2.html" />
+    <link rel="prev" title="Transformations élémentaires" href="ch2.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="fr">
     
@@ -175,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="ch2.html">
-   Gauss et LU
+   Transformations élémentaires
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -224,32 +224,42 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="introspect.html">
-   Moindres carrés linéaires
+   Introduction
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="resspec.html">
-   Moindres carrés linéaires
+   Résultats généraux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gershgorin.html">
+   Disques de Gershgorin
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="similitudes.html">
-   Moindres carrés linéaires
+   Similitudes
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="jacobi.html">
-   Moindres carrés linéaires
+   Méthode de Jacobi
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="puissiter.html">
-   Moindres carrés linéaires
+   Méthode des puissances itérées
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="QRspec.html">
-   Moindres carrés linéaires
+   Puissances groupées et méthode QR
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exospec.html">
+   Exercices
   </a>
  </li>
 </ul>
@@ -796,6 +806,10 @@ Le second membre est stocké dans la dernière colonne de <span class="math notr
 transforme la matrice <span class="math notranslate nohighlight">\({\bf A}\)</span> en une matrice triangulaire supérieure (étape 1).
 Le système triangulaire supérieur est ensuite résolu par substitution inverse
 (étape 2).</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><img alt="" src="images/gaussKF.png" /></p>
+</div>
 <div class="proof algorithm admonition" id="AlgoGauss">
 <p class="admonition-title"><span class="caption-number">Algorithm 2 </span> (Méthode de Gauss)</p>
 <div class="algorithm-content section" id="proof-content">
@@ -965,7 +979,7 @@ la meilleure stratégie pour calculer le rang d’une matrice.</p>
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">précédent</p>
-            <p class="prev-next-title">Gauss et LU</p>
+            <p class="prev-next-title">Transformations élémentaires</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="lu.html" title="suivant page">
