@@ -20,7 +20,7 @@ la norme vectorielle utilisée, et notée $\|\cdot\|$, est la norme euclidienne.
 Soit $L$ un sous-espace vectoriel de $\mathbb R^n$. Étant donné un vecteur ${\bf y}\in\mathbb R^n$, il existe un unique vecteur ${\bf p}\in L$, appelé projection orthogonale
 de ${\bf y}$ sur $L$, tel que :
 
-$(\forall {\bf x}\in L)\ \|{\bf y}-{\bf p}\|\leq \\{\bf y}-{\bf x}\|$
+$(\forall {\bf x}\in L)\ \|{\bf y}-{\bf p}\|\leq \|{\bf y}-{\bf x}\|$
 Une condition nécessaire et suffisante pour que ${\bf p}\in L$ soit la projection orthogonale de ${\bf y}$ sur $L$ est ${\bf y}-{\bf p}\in L^\bot$
 ````
 ```{index} Projection orthogonale
