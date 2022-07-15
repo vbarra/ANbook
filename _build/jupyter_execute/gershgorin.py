@@ -46,6 +46,8 @@ n = 5
 
 D = np.diag([0, -1, 4 , 1 , 7 ])
 M = 1.2*np.random.rand(n, n) + D
+for k in range(n):
+  M[k][k] = D[k][k]
 
 R = np.zeros(n) 
 for i in range(n):
@@ -58,7 +60,7 @@ for k in range(n):
     x, y = M[k,k].real, M[k,k].imag
     ax.add_artist( plt.Circle((x, y), R[k], alpha=0.5) )
     plt.plot(eigenvalues[k].real, eigenvalues[k].imag, 'k+')
-    plt.text(D[k][k],0.2,str(D[k][k]))
+    plt.text(D[k][k],0.2,str(M[k][k]))
 
 ax.axis([-4, 12.5, -4, 9])
 ax.set_aspect(1)    
