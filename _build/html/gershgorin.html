@@ -536,7 +536,7 @@ D_3&amp;=\left \{ z\in \mathbb{C}, |z-3|\leq 0.2\right\}
 <span class="n">n</span> <span class="o">=</span> <span class="mi">5</span> 
 
 <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span> <span class="p">,</span> <span class="mi">1</span> <span class="p">,</span> <span class="mi">7</span> <span class="p">])</span>
-<span class="n">M</span> <span class="o">=</span> <span class="mf">1.2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">D</span>
+<span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">D</span>
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
   <span class="n">M</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">D</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">k</span><span class="p">]</span>
 
@@ -565,7 +565,7 @@ D_3&amp;=\left \{ z\in \mathbb{C}, |z-3|\leq 0.2\right\}
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}0 &amp; 0.5204 &amp; 0.3512 &amp; 0.4476 &amp; 0.5068\\0.5488 &amp; -1.0 &amp; 1.136 &amp; 0.858 &amp; 0.09801\\0.2652 &amp; 0.5211 &amp; 4.0 &amp; 1.088 &amp; 0.2444\\0.7534 &amp; 1.184 &amp; 0.5552 &amp; 1.0 &amp; 1.168\\0.4507 &amp; 0.7435 &amp; 0.452 &amp; 0.4229 &amp; 7.0\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}0 &amp; 0.2561 &amp; 0.523 &amp; 0.8442 &amp; 0.3933\\0.2862 &amp; -1.0 &amp; 0.3506 &amp; 0.1743 &amp; 0.3715\\0.03553 &amp; 0.2015 &amp; 4.0 &amp; 0.08609 &amp; 0.6798\\0.1094 &amp; 0.4847 &amp; 0.4597 &amp; 1.0 &amp; 0.02024\\0.4427 &amp; 0.8335 &amp; 0.3778 &amp; 0.6904 &amp; 7.0\end{matrix}\right]\end{split}\]</div>
 <img alt="_images/gershgorin_1_1.png" src="_images/gershgorin_1_1.png" />
 </div>
 </div>

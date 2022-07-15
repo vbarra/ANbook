@@ -45,7 +45,7 @@ from sympy import Matrix
 n = 5 
 
 D = np.diag([0, -1, 4 , 1 , 7 ])
-M = 1.2*np.random.rand(n, n) + D
+M = np.random.rand(n, n) + D
 for k in range(n):
   M[k][k] = D[k][k]
 
