@@ -455,7 +455,7 @@ print('norme : ',r2.norm().evalf(4))
 
 
 def plot_vector2d(vector2d, origin=[0, 0], **options):
-    return plt.arrow(origin[0], origin[1], vector2d[0], vector2d[1],head_width=0.2, head_length=0.1, length_includes_head=True,**options)
+    return plt.arrow(origin[0], origin[1], vector2d[0], vector2d[1],head_width=0.1, head_length=0.05, length_includes_head=True,**options)
 
 x = np.array([1,-1])
 x_app1 = np.array([0.999, -1])
