@@ -175,7 +175,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="ch2.html">
-   Gauss et LU
+   Transformations élémentaires
   </a>
  </li>
  <li class="toctree-l1">
@@ -224,32 +224,42 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="introspect.html">
-   Moindres carrés linéaires
+   Introduction
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="resspec.html">
-   Moindres carrés linéaires
+   Résultats généraux
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gershgorin.html">
+   Disques de Gershgorin
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="similitudes.html">
-   Moindres carrés linéaires
+   Similitudes
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="jacobi.html">
-   Moindres carrés linéaires
+   Méthode de Jacobi
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="puissiter.html">
-   Moindres carrés linéaires
+   Méthode des puissances itérées
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="QRspec.html">
-   Moindres carrés linéaires
+   Puissances groupées et méthode QR
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exospec.html">
+   Exercices
   </a>
  </li>
 </ul>
@@ -683,6 +693,10 @@ généralise aisement à une base orthonormée quelconque <span class="math notr
 <p>L’idée générale est donc de construire une base orthonormée du sous-espace image d’un ensemble de vecteurs. L’intérêt numérique est que cette construction équivaut à triangulariser la matrice formée par ces vecteurs. L’algorithme <a class="reference internal" href="#GS">Algorithm 5</a> et la figure suivante présentent le procédé d’orthonormalisation de Gram-Schmidt qui, s’il est simple à comprendre, ne présente qu’un intérêt académique puisqu’il est très coûteux. En pratique, on utilise la méthode de factorisation QR qui permet d’atteindre le même objectif grâce à des transformations orthogonales élémentaires (rotations de Givens ou transformations de  Householder) numériquement stables et seulement deux fois plus chères que la méthode de Gauss.</p>
 <p>Le principe de Gram-Schmidt est de calculer, pour <span class="math notranslate nohighlight">\(j\in[\![2,p]\!]\)</span>,  chaque vecteur <span class="math notranslate nohighlight">\({\bf q_j}\)</span> en soustrayant à  <span class="math notranslate nohighlight">\({\bf  A_{\bullet,j}}\)</span> ses projections orthogonales sur les <span class="math notranslate nohighlight">\(j-1\)</span>
 premiers vecteurs de la base orthonormée déjà calculés, puis en normant le résultat.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p><img alt="" src="_images/SchmidtE.png" /></p>
+</div>
 <div class="proof algorithm admonition" id="GS">
 <p class="admonition-title"><span class="caption-number">Algorithm 5 </span> (Procédé d’orthonormalisation de Gram-Schmidt - version de base)</p>
 <div class="algorithm-content section" id="proof-content">
@@ -760,7 +774,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}0.1227 &amp; 0.6199 &amp; 0.3828 &amp; 0.3176\\0.3736 &amp; 0.3836 &amp; 0.961 &amp; 0.3976\\0.02945 &amp; 0.7203 &amp; 0.757 &amp; 0.1775\\0.5479 &amp; 0.09539 &amp; 0.4605 &amp; 0.1244\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}0.4571 &amp; 0.7974 &amp; 0.3557 &amp; 0.3018\\0.2982 &amp; 0.7552 &amp; 0.6095 &amp; 0.5151\\0.2264 &amp; 0.6987 &amp; 0.8677 &amp; 0.6889\\0.9347 &amp; 0.07341 &amp; 0.8704 &amp; 0.1186\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -771,7 +785,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}0.1817 &amp; 0.5797 &amp; -0.6396 &amp; 0.4709\\0.5534 &amp; 0.1538 &amp; 0.6565 &amp; 0.4889\\0.04363 &amp; 0.7514 &amp; 0.2429 &amp; -0.6119\\0.8117 &amp; -0.275 &amp; -0.3176 &amp; -0.4059\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}0.4134 &amp; 0.4581 &amp; -0.6911 &amp; 0.3764\\0.2696 &amp; 0.5175 &amp; 0.06344 &amp; -0.8096\\0.2047 &amp; 0.5096 &amp; 0.7048 &amp; 0.4492\\0.8453 &amp; -0.5125 &amp; 0.1471 &amp; -0.0346\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -782,7 +796,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}0.6751 &amp; 0.4338 &amp; 1.008 &amp; 0.3865\\0 &amp; 0.9334 &amp; 0.8119 &amp; 0.3444\\0 &amp; 0 &amp; 0.4237 &amp; 0.06155\\0 &amp; 0 &amp; 0 &amp; 0.1848\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}1.106 &amp; 0.7384 &amp; 1.225 &amp; 0.5049\\0 &amp; 1.074 &amp; 0.4744 &amp; 0.695\\0 &amp; 0 &amp; 0.5323 &amp; 0.3271\\0 &amp; 0 &amp; 0 &amp; 0.001895\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -793,7 +807,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}1.0 &amp; 4.334 \cdot 10^{-17} &amp; 4.03 \cdot 10^{-16} &amp; 4.423 \cdot 10^{-16}\\4.334 \cdot 10^{-17} &amp; 1.0 &amp; 2.689 \cdot 10^{-16} &amp; 1.791 \cdot 10^{-16}\\4.03 \cdot 10^{-16} &amp; 2.689 \cdot 10^{-16} &amp; 1.0 &amp; -1.232 \cdot 10^{-15}\\4.423 \cdot 10^{-16} &amp; 1.791 \cdot 10^{-16} &amp; -1.232 \cdot 10^{-15} &amp; 1.0\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}1.0 &amp; -1.205 \cdot 10^{-16} &amp; -1.507 \cdot 10^{-17} &amp; 1.109 \cdot 10^{-14}\\-1.205 \cdot 10^{-16} &amp; 1.0 &amp; 2.556 \cdot 10^{-17} &amp; -1.321 \cdot 10^{-14}\\-1.507 \cdot 10^{-17} &amp; 2.556 \cdot 10^{-17} &amp; 1.0 &amp; -2.789 \cdot 10^{-14}\\1.109 \cdot 10^{-14} &amp; -1.321 \cdot 10^{-14} &amp; -2.789 \cdot 10^{-14} &amp; 1.0\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -807,7 +821,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Norme de I-Q^TQ =  1.2324355924340125e-15
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Norme de I-Q^TQ =  2.7894357810482995e-14
 Norme infinie de QR-A =  1.1102230246251565e-16
 </pre></div>
 </div>
