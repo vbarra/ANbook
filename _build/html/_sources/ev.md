@@ -56,7 +56,7 @@ qui vérifie les propriétés suivantes :
 ````
 
 Les éléments de $E$ sont des vecteurs
-```{index} vecteurs.
+```{index} Vecteurs.
 ```
 
 ````{prf:definition} Produit scalaire 
