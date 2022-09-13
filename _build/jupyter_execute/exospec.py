@@ -158,11 +158,10 @@
 # ## Exercice 6
 # Soit $A'=A+E$, la somme de deux matrices symétriques. Les valeurs propres
 # de ces trois matrices sont notées
-# $
-# \lambda'_1\le \lambda'_2\le\cdots\le\lambda'_n,\quad
+# $\lambda'_1\le \lambda'_2\le\cdots\le\lambda'_n,\quad
 # \lambda_1\le \lambda_2\le\cdots\le\lambda_n,\quad
-# \mu_1\le\mu_2\le\cdots\le\mu_n.
-# $
+# \mu_1\le\mu_2\le\cdots\le\mu_n$.
+# 
 # 
 # 1. Montrer les propriétés suivantes pour tout $i=1,\ldots,n$
 # - $\lambda_i+\mu_1\le\lambda'_i\le\lambda_i+\mu_n$
