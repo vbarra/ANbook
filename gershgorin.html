@@ -125,7 +125,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Installation.html">
-   Requirement
+   Installation
   </a>
  </li>
  <li class="toctree-l1">
@@ -503,7 +503,37 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="disques-de-gershgorin">
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># n&#39;exécuter qu&#39;une fois</span>
+<span class="o">!</span>pip3 install sympy numpy matplotlib
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: sympy in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (1.11.1)
+Requirement already satisfied: numpy in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (1.23.3)
+Requirement already satisfied: matplotlib in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (3.5.3)
+Requirement already satisfied: mpmath&gt;=0.19 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from sympy) (1.2.1)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (2.8.2)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (4.37.1)
+Requirement already satisfied: cycler&gt;=0.10 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (0.11.0)
+Requirement already satisfied: pillow&gt;=6.2.0 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (9.2.0)
+Requirement already satisfied: packaging&gt;=20.0 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (21.3)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (1.4.4)
+Requirement already satisfied: pyparsing&gt;=2.2.1 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (3.0.9)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six&gt;=1.5 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib) (1.16.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: You are using pip version 21.3.1; however, version 22.2.2 is available.</span>
+<span class=" -Color -Color-Yellow">You should consider upgrading via the &#39;/Users/vibarra/Documents/Cours/FISA/envbook/bin/python3.9 -m pip install --upgrade pip&#39; command.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="disques-de-gershgorin">
 <h1>Disques de Gershgorin<a class="headerlink" href="#disques-de-gershgorin" title="Lien permanent vers ce titre">#</a></h1>
 <p>Avant d’aborder quelques algorithmes de calcul des valeurs propres d’une matrice, donnons une alternative pratique à ces algorithmes . Le théorème suivant  permet de localiser les valeurs propres dans des disques, dits disques de Gershgorin, du plan complexe.</p>
 <aside class="margin sidebar">
@@ -572,18 +602,9 @@ D_3&amp;=\left \{ z\in \mathbb{C}, |z-3|\leq 0.2\right\}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">Matrix</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">5</span> 
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span> <span class="p">,</span> <span class="mi">1</span> <span class="p">,</span> <span class="mi">7</span> <span class="p">])</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;sympy&#39;
-</pre></div>
-</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}0 &amp; 0.3596 &amp; 0.7324 &amp; 0.1395 &amp; 0.5958\\0.627 &amp; -1.0 &amp; 0.7354 &amp; 0.1223 &amp; 0.7556\\0.1506 &amp; 0.6158 &amp; 4.0 &amp; 0.4166 &amp; 0.7373\\0.4929 &amp; 0.4457 &amp; 0.7713 &amp; 1.0 &amp; 0.8209\\0.9059 &amp; 0.801 &amp; 0.9646 &amp; 0.8044 &amp; 7.0\end{matrix}\right]\end{split}\]</div>
+<img alt="_images/gershgorin_2_1.png" src="_images/gershgorin_2_1.png" />
 </div>
 </div>
 </section>
