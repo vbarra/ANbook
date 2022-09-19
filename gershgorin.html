@@ -4,7 +4,8 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Disques de Gershgorin &#8212; Analyse numérique</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -35,10 +36,13 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script src="_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
@@ -48,8 +52,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Similitudes" href="similitudes.html" />
@@ -113,7 +117,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p class="caption">
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Tutoriels
  </span>
@@ -140,7 +144,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Introduction au calcul matriciel
  </span>
@@ -167,7 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Elimination de Gauss
  </span>
@@ -189,7 +193,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Moindres carrés linéaires
  </span>
@@ -216,7 +220,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Analyse spectrale
  </span>
@@ -263,7 +267,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Index
  </span>
@@ -499,23 +503,23 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="disques-de-gershgorin">
+  <section class="tex2jax_ignore mathjax_ignore" id="disques-de-gershgorin">
 <h1>Disques de Gershgorin<a class="headerlink" href="#disques-de-gershgorin" title="Lien permanent vers ce titre">#</a></h1>
 <p>Avant d’aborder quelques algorithmes de calcul des valeurs propres d’une matrice, donnons une alternative pratique à ces algorithmes . Le théorème suivant  permet de localiser les valeurs propres dans des disques, dits disques de Gershgorin, du plan complexe.</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p><img alt="" src="_images/gershgorinsemyon.png" /></p>
-</div>
+</aside>
 <div class="proof theorem admonition" id="theorem-0">
 <p class="admonition-title"><span class="caption-number">Theorem 8 </span> (Théorème de Gershgorin)</p>
-<div class="theorem-content section" id="proof-content">
+<section class="theorem-content" id="proof-content">
 <p>Si on représente une matrice <span class="math notranslate nohighlight">\(A\)</span> (ou toute matrice semblable à <span class="math notranslate nohighlight">\(A\)</span>) sous la forme <span class="math notranslate nohighlight">\(A=diag\{d_1\cdots d_n\}+F\)</span>, où <span class="math notranslate nohighlight">\(F\)</span> est une matrice de diagonale nulle, alors le spectre de <span class="math notranslate nohighlight">\(A\)</span> est contenu dans l’union des disques <span class="math notranslate nohighlight">\(D_i,1\leq i\leq n\)</span> du plan complexe, tels que</p>
 <p><span class="math notranslate nohighlight">\(D_i=\left \{ z\in \mathbb{C}, |z-d_i|\leq \displaystyle\sum_{j=1}^n|f_{ij}|\right \}\)</span></p>
-</div>
+</section>
 </div><p id="index-0">Une application intéressante de ce résultat est l’estimation des valeurs propres d’une matrice obtenue en perturbant une matrice dont on connaît le spectre.</p>
 <div class="proof example admonition" id="example-1">
 <p class="admonition-title"><span class="caption-number">Example 14 </span></p>
-<div class="example-content section" id="proof-content">
+<section class="example-content" id="proof-content">
 <p><span class="math notranslate nohighlight">\(A =
 \left[
 \begin{array}{ccc}
@@ -531,7 +535,7 @@ D_1&amp;=\left \{ z\in \mathbb{C}, |z-1|\leq 0.2\right\}\\
 D_2&amp;=\left \{ z\in \mathbb{C}, |z-2|\leq 0.4\right\}\\
 D_3&amp;=\left \{ z\in \mathbb{C}, |z-3|\leq 0.2\right\}
 \end{align*}\)</span></p>
-</div>
+</section>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -568,12 +572,21 @@ D_3&amp;=\left \{ z\in \mathbb{C}, |z-3|\leq 0.2\right\}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}0 &amp; 0.04329 &amp; 0.6169 &amp; 0.8401 &amp; 0.2913\\0.7116 &amp; -1.0 &amp; 0.676 &amp; 0.3325 &amp; 0.9515\\0.8178 &amp; 0.854 &amp; 4.0 &amp; 0.6352 &amp; 0.3423\\0.3133 &amp; 0.722 &amp; 0.224 &amp; 1.0 &amp; 0.4113\\0.4315 &amp; 0.5765 &amp; 0.9823 &amp; 0.8082 &amp; 7.0\end{matrix}\right]\end{split}\]</div>
-<img alt="_images/gershgorin_1_1.png" src="_images/gershgorin_1_1.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">Matrix</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">5</span> 
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span> <span class="p">,</span> <span class="mi">1</span> <span class="p">,</span> <span class="mi">7</span> <span class="p">])</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;sympy&#39;
+</pre></div>
 </div>
 </div>
 </div>
+</section>
 
     <script type="text/x-thebe-config">
     {

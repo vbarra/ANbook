@@ -4,7 +4,8 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Méthode des puissances itérées &#8212; Analyse numérique</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -35,10 +36,13 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script src="_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
@@ -48,8 +52,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Puissances groupées et méthode QR" href="QRspec.html" />
@@ -113,7 +117,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p class="caption">
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Tutoriels
  </span>
@@ -140,7 +144,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Introduction au calcul matriciel
  </span>
@@ -167,7 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Elimination de Gauss
  </span>
@@ -189,7 +193,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Moindres carrés linéaires
  </span>
@@ -216,7 +220,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Analyse spectrale
  </span>
@@ -263,7 +267,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Index
  </span>
@@ -556,25 +560,25 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="methode-des-puissances-iterees">
+  <section class="tex2jax_ignore mathjax_ignore" id="methode-des-puissances-iterees">
 <h1>Méthode des puissances itérées<a class="headerlink" href="#methode-des-puissances-iterees" title="Lien permanent vers ce titre">#</a></h1>
-<div class="section" id="quotient-de-rayleigh">
+<section id="quotient-de-rayleigh">
 <h2>Quotient de Rayleigh<a class="headerlink" href="#quotient-de-rayleigh" title="Lien permanent vers ce titre">#</a></h2>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p><img alt="" src="_images/rayleigh.png" /></p>
-</div>
+</aside>
 <div class="proof definition admonition" id="definition-0">
 <span id="index-0"></span><p class="admonition-title"><span class="caption-number">Definition 31 </span></p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>Pour une matrice symétrique <span class="math notranslate nohighlight">\(A\)</span>, le <em>quotient de Rayleigh</em> est le rapport défini pour tout <span class="math notranslate nohighlight">\(x\neq 0\)</span> par :</p>
 <p><span class="math notranslate nohighlight">\(\rho_A(x)=\frac{x^\top Ax}{x^\top x}\)</span></p>
-</div>
+</section>
 </div><p>On vérifie immédiatement que si <span class="math notranslate nohighlight">\(x\)</span> est vecteur propre, le quotient de Rayleigh fournit la valeur propre associée : en effet <span class="math notranslate nohighlight">\(Ax=\lambda x \Rightarrow x^\top Ax=\lambda x^\top x\)</span>.</p>
 <p>Si <span class="math notranslate nohighlight">\(\lambda_1\)</span> et <span class="math notranslate nohighlight">\(\lambda_n\)</span> sont respectivement la plus petite et la plus grande valeur propre de <span class="math notranslate nohighlight">\(A\)</span>, et <span class="math notranslate nohighlight">\(x^1\)</span>,<span class="math notranslate nohighlight">\(x^n\)</span> les vecteurs propres associés, on a également les résultats suivants :</p>
 <div class="proof theorem admonition" id="theorem-1">
 <p class="admonition-title"><span class="caption-number">Theorem 10 </span> (Théorème min-max de Courant-Fischer)</p>
-<div class="theorem-content section" id="proof-content">
+<section class="theorem-content" id="proof-content">
 <p><span class="math notranslate nohighlight">\(\begin{align*}
 \lambda_1&amp;=\rho_A(x^1)=\displaystyle\min_{x\in \mathbb{R}^n}\{\rho_A(x)\}\\
 \lambda_n&amp;=\rho_A(x^n)=\displaystyle\max_{x\in \mathbb{R}^n}\{\rho_A(x)\}
@@ -586,10 +590,10 @@ title="Print to PDF"
 \lambda_i&amp;=\displaystyle\max_{S_{i-1}}\{\displaystyle\min_{x\in S_{i-1}^\bot}\{\rho_A(x)\}\}
 \end{align*}\)</span></p>
 <p>où <span class="math notranslate nohighlight">\(S_i\)</span> est un sous-espace quelconque de dimension <span class="math notranslate nohighlight">\(i\)</span>.</p>
-</div>
+</section>
 </div><p>Le sous-espace <span class="math notranslate nohighlight">\(S_i\)</span> pour lequel le quotient de Rayleigh est maximum est le sous-espace propre associé aux <span class="math notranslate nohighlight">\(i\)</span> premières valeurs propres. Le sous-espace pour lequel il est minimum est orthogonal au sous-espace propre associé aux <span class="math notranslate nohighlight">\(i-1\)</span> premières valeurs propres. C’est donc le sous-espace engendré par les <span class="math notranslate nohighlight">\(n-i+1\)</span> vecteurs propres associés à <span class="math notranslate nohighlight">\(\{\lambda_i\cdots\lambda_n\}\)</span>.</p>
-</div>
-<div class="section" id="id1">
+</section>
+<section id="id1">
 <h2>Méthode des puissances itérées<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">#</a></h2>
 <p>La méthode des puissances itérées permet de calculer le vecteur propre associé à la plus grande valeur propre.</p>
 <p>Supposons <span class="math notranslate nohighlight">\(A\)</span> symétrique de valeurs propres ordonnées selon <span class="math notranslate nohighlight">\(|\lambda_1|\leq\cdots|\lambda_{n-1}|&lt;|\lambda_n|\)</span>.</p>
@@ -734,8 +738,8 @@ On peut montrer de plus que <span class="math notranslate nohighlight">\(\|Aq_k\
 <img alt="_images/puissiter_1_2.png" src="_images/puissiter_1_2.png" />
 </div>
 </div>
-</div>
-<div class="section" id="methode-des-puissances-inverses">
+</section>
+<section id="methode-des-puissances-inverses">
 <h2>Méthode des puissances inverses<a class="headerlink" href="#methode-des-puissances-inverses" title="Lien permanent vers ce titre">#</a></h2>
 <p>Pour les mêmes raisons, l’itération</p>
 <p><span class="math notranslate nohighlight">\(\begin{align*}
@@ -769,14 +773,14 @@ petite valeur propre en module. On remarquera le coût de calcul en <span class=
 </div>
 <div class="proof remark dropdown admonition" id="remark-2">
 <p class="admonition-title"><span class="caption-number">Remark 11 </span></p>
-<div class="remark-content section" id="proof-content">
+<section class="remark-content" id="proof-content">
 <ol class="simple">
 <li><p>Accélération par <em>décalage</em> : la matrice <span class="math notranslate nohighlight">\(A+\alpha I\)</span> a les mêmes vecteurs propres que <span class="math notranslate nohighlight">\(A\)</span> et ses valeurs propres sont décalées de la quantité <span class="math notranslate nohighlight">\(\alpha\)</span>. La méthode des puissances itérées inverses converge d’autant plus vite que les rapports <span class="math notranslate nohighlight">\(\left|\frac{\lambda_1}{\lambda_2}\right|^k\)</span> tendent rapidement vers 0. On a donc intérêt à ce que <span class="math notranslate nohighlight">\(\lambda_1\)</span> soit le plus proche possible de 0, et de plus, la méthode sera d’autant plus rapide que l’écart entre les deux plus petites valeurs propres se creuse. La technique du décalage consiste donc à remplacer <span class="math notranslate nohighlight">\(A\)</span> par <span class="math notranslate nohighlight">\(A+\alpha I\)</span>, avec <span class="math notranslate nohighlight">\(\alpha\approx -\lambda_1\)</span>. Plus l’estimation de <span class="math notranslate nohighlight">\(\lambda_1\)</span> sera précise, plus la convergence sera rapide. Toutefois, il faut que <span class="math notranslate nohighlight">\(\alpha\neq -\lambda_1\)</span> pour éviter que la matrice ne devienne singulière</p></li>
 <li><p>Technique de <em>déflation</em> : la méthode des puissances itérées peut être étendue pour permettre le calcul de toutes les valeurs propres d’une matrice symétrique. Supposons en effet calculée la plus grande valeur propre <span class="math notranslate nohighlight">\(\lambda_n\)</span> ainsi qu’un vecteur propre associé <span class="math notranslate nohighlight">\(v^n\)</span>. Soit <span class="math notranslate nohighlight">\(P_n\)</span> la la matrice de projection orthogonale sur l’hyperplan <span class="math notranslate nohighlight">\((v^n)^\bot\)</span>. La matrice <span class="math notranslate nohighlight">\(P_nA\)</span> possède les mêmes vecteurs propres que <span class="math notranslate nohighlight">\(A\)</span> et les mêmes valeurs propres à l’exception de <span class="math notranslate nohighlight">\(\lambda_n\)</span> qui est remplacée par 0. L’application de la méthode des puissances itérées à <span class="math notranslate nohighlight">\(P_nA\)</span> permettra donc de calculer la deuxième plus grande valeur propre de <span class="math notranslate nohighlight">\(A\)</span>. Cette technique, dite de déflation, permet théoriquement de calculer toutes les valeurs propres de <span class="math notranslate nohighlight">\(A\)</span>. Elle est toutefois numériquement instable sans précautions, et on lui préférera généralement la méthode des puissances groupées.</p></li>
 </ol>
-</div>
-</div></div>
-</div>
+</section>
+</div></section>
+</section>
 
     <script type="text/x-thebe-config">
     {

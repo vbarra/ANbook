@@ -4,7 +4,8 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Tutoriel Numpy &#8212; Analyse numérique</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -35,10 +36,13 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script src="_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
@@ -111,7 +115,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p class="caption">
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Tutoriels
  </span>
@@ -138,7 +142,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Introduction au calcul matriciel
  </span>
@@ -165,7 +169,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Elimination de Gauss
  </span>
@@ -187,7 +191,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Moindres carrés linéaires
  </span>
@@ -214,7 +218,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Analyse spectrale
  </span>
@@ -261,7 +265,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Index
  </span>
@@ -575,7 +579,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="tutoriel-numpy">
+  <section class="tex2jax_ignore mathjax_ignore" id="tutoriel-numpy">
 <h1>Tutoriel Numpy<a class="headerlink" href="#tutoriel-numpy" title="Lien permanent vers ce titre">#</a></h1>
 <p><a class="reference external" href="https://numpy.org">Numpy</a> est la bibliothèque centrale de calcul scientifique en Python. Elle utilise un type de tableau multidimensionnel, et des outils pour travailler sur ces tableaux.
 Pour utiliser la bibliothèque <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, on l’importe :</p>
@@ -586,9 +590,9 @@ Pour utiliser la bibliothèque <code class="docutils literal notranslate"><span 
 </div>
 </div>
 </div>
-<div class="section" id="arrays">
+<section id="arrays">
 <h2>Arrays<a class="headerlink" href="#arrays" title="Lien permanent vers ce titre">#</a></h2>
-<div class="section" id="definition">
+<section id="definition">
 <h3>Définition<a class="headerlink" href="#definition" title="Lien permanent vers ce titre">#</a></h3>
 <p>Un <code class="docutils literal notranslate"><span class="pre">array</span></code> est un tableau de valeurs, toutes du même type, indexées par un tuples d’entiers. Le nombre de dimensions est le rang du tableau.</p>
 <div class="cell docutils container">
@@ -632,8 +636,8 @@ taille de la matrice :  (2, 3)
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="indexation">
+</section>
+<section id="indexation">
 <h3>Indexation<a class="headerlink" href="#indexation" title="Lien permanent vers ce titre">#</a></h3>
 <p>On résume dans la suite quelques méthodes d’accès, voir la <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html">documentation</a> pour plus de détails.</p>
 <ul class="simple">
@@ -753,9 +757,9 @@ résultat :  [3 4 5 6 3]  également accessible par  [3 4 5 6 3]
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="types-de-donnees">
+</section>
+</section>
+<section id="types-de-donnees">
 <h2>Types de données<a class="headerlink" href="#types-de-donnees" title="Lien permanent vers ce titre">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">numpy</span></code> essaye de déterminer le type de données lors de la création, mais on peut spécifier explicitement le type désiré (<a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/arrays.dtypes.html">documentation</a>).</p>
 <div class="cell docutils container">
@@ -776,7 +780,7 @@ type de z :  int64
 </div>
 </div>
 </div>
-<div class="section" id="operations-mathematiques">
+<section id="operations-mathematiques">
 <h3>Opérations mathématiques<a class="headerlink" href="#operations-mathematiques" title="Lien permanent vers ce titre">#</a></h3>
 <p>opèrent point à point dans le tableau. Sont disponibles comme surchare d’opérateur ou comme fonction (<a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/routines.math.html">documentation</a>).</p>
 <div class="cell docutils container">
@@ -883,8 +887,8 @@ Somme de tous les éléments de chaque ligne d&#39;un tableau :  [3 7]
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="broadcasting">
+</section>
+<section id="broadcasting">
 <h3>Broadcasting<a class="headerlink" href="#broadcasting" title="Lien permanent vers ce titre">#</a></h3>
 <p><a class="reference external" href="http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html">Le broadcasting</a> : permet de travailler avec des tableaux de différentes tailles pour réaliser des opérations arithmétiques.</p>
 <p>Par exemple, pour ajouter un vecteur constant à chaque ligne d’une matrice</p>
@@ -906,9 +910,9 @@ Somme de tous les éléments de chaque ligne d&#39;un tableau :  [3 7]
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
