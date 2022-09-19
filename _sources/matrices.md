@@ -305,7 +305,7 @@ import numpy as np
 A = np.array([[5, 4, 0],[1, 8, 3],[6, 7, 2]])
 print('A = \n',A,'\n' 
 )
-print('A^\top = \n',A.transpose())
+print('transposée de A = \n',A.transpose())
 ```
 
 ```{prf:remark}

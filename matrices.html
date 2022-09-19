@@ -688,35 +688,23 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting sympy
-  Using cached sympy-1.11.1-py3-none-any.whl (6.5 MB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (1.23.3)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: sympy in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (1.11.1)
+Requirement already satisfied: numpy in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (1.23.3)
 Requirement already satisfied: matplotlib in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (3.5.3)
+Requirement already satisfied: mpmath&gt;=0.19 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from sympy) (1.2.1)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting mpmath&gt;=0.19
-  Using cached mpmath-1.2.1-py3-none-any.whl (532 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pyparsing&gt;=2.2.1 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (3.0.9)
-Requirement already satisfied: fonttools&gt;=4.22.0 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (4.37.1)
-Requirement already satisfied: packaging&gt;=20.0 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (21.3)
-Requirement already satisfied: kiwisolver&gt;=1.0.1 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (1.4.4)
-Requirement already satisfied: cycler&gt;=0.10 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (0.11.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: cycler&gt;=0.10 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (0.11.0)
 Requirement already satisfied: python-dateutil&gt;=2.7 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (2.8.2)
 Requirement already satisfied: pillow&gt;=6.2.0 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (9.2.0)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (4.37.1)
+Requirement already satisfied: pyparsing&gt;=2.2.1 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (3.0.9)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (1.4.4)
+Requirement already satisfied: packaging&gt;=20.0 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (21.3)
+Requirement already satisfied: six&gt;=1.5 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib) (1.16.0)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six&gt;=1.5 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib) (1.16.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: mpmath, sympy
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed mpmath-1.2.1 sympy-1.11.1
-<span class=" -Color -Color-Yellow">WARNING: You are using pip version 21.3.1; however, version 22.2.2 is available.</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: You are using pip version 21.3.1; however, version 22.2.2 is available.</span>
 <span class=" -Color -Color-Yellow">You should consider upgrading via the &#39;/Users/vibarra/Documents/Cours/FISA/envbook/bin/python3.9 -m pip install --upgrade pip&#39; command.</span>
 </pre></div>
 </div>
@@ -1038,7 +1026,7 @@ scalaire.</p>
 <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">],[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> 
 <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A^</span><span class="se">\t</span><span class="s1">op = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">A</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;transposée de A = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">A</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -1048,7 +1036,7 @@ scalaire.</p>
  [1 8 3]
  [6 7 2]] 
 
-A^	op = 
+transposée de A = 
  [[5 1 6]
  [4 8 7]
  [0 3 2]]
@@ -1349,23 +1337,23 @@ taille <span class="math notranslate nohighlight">\(n\)</span>, on obtient une s
 des sous-matrices principales sont les mineurs de la matrice.</p></li>
 </ul>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="043df941-de8d-4b58-860e-a5b1d2e369ce" name="658cc33e-a741-4c4b-acf7-5a526a2d1241" type="radio">
-</input><label class="sd-tab-label" for="043df941-de8d-4b58-860e-a5b1d2e369ce">
+<input checked="checked" id="2d726850-9a86-4621-8276-1fabde9ac2ac" name="b60886b9-5d84-498f-88ac-484fe4d816af" type="radio">
+</input><label class="sd-tab-label" for="2d726850-9a86-4621-8276-1fabde9ac2ac">
 Diagonale</label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;0&amp;0\\0&amp;-4&amp;0\\0&amp;0&amp;1\end{pmatrix}\)</span></p>
 </div>
-<input id="4a77704e-1de2-4161-8f55-e2730e239475" name="658cc33e-a741-4c4b-acf7-5a526a2d1241" type="radio">
-</input><label class="sd-tab-label" for="4a77704e-1de2-4161-8f55-e2730e239475">
+<input id="c2de969d-714a-4327-8b40-8f6a1b9ca5f4" name="b60886b9-5d84-498f-88ac-484fe4d816af" type="radio">
+</input><label class="sd-tab-label" for="c2de969d-714a-4327-8b40-8f6a1b9ca5f4">
 Triang. sup. </label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix} 3&amp;2&amp;1\\0&amp;-4&amp;2\\0&amp;0&amp;1 \end{pmatrix}\)</span></p>
 </div>
-<input id="3c4b7f4c-af08-4a52-9998-9c46762d8ecb" name="658cc33e-a741-4c4b-acf7-5a526a2d1241" type="radio">
-</input><label class="sd-tab-label" for="3c4b7f4c-af08-4a52-9998-9c46762d8ecb">
+<input id="f6827779-1312-424e-b738-7adcf03b7aef" name="b60886b9-5d84-498f-88ac-484fe4d816af" type="radio">
+</input><label class="sd-tab-label" for="f6827779-1312-424e-b738-7adcf03b7aef">
 Triang. inf.</label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;0&amp;0\\1&amp;-4&amp;0\\5&amp;8&amp;1 \end{pmatrix}\)</span></p>
 </div>
-<input id="8ea30881-1abb-42d0-9dcf-fe3de6ae73d5" name="658cc33e-a741-4c4b-acf7-5a526a2d1241" type="radio">
-</input><label class="sd-tab-label" for="8ea30881-1abb-42d0-9dcf-fe3de6ae73d5">
+<input id="3a0fa4d8-874c-45dd-b066-1b351755d6a0" name="b60886b9-5d84-498f-88ac-484fe4d816af" type="radio">
+</input><label class="sd-tab-label" for="3a0fa4d8-874c-45dd-b066-1b351755d6a0">
 Vecteur ligne </label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;2&amp;1&amp;-4&amp;0&amp;3.5 \end{pmatrix}\)</span></p>
 </div>
