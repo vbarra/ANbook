@@ -242,7 +242,7 @@ def SubstitutionInverse(A,b):
 # **Entrée :** ${\bf A}\in\mathcal{M}_{n,n+1}(\mathbb R)$ (la dernière colonne représente
 # le second membre du système)
 # 
-# **Sortie  ** Solution ${\bf x}$ du système ${\bf Ax}={\bf b}$
+# **Sortie :** Solution ${\bf x}$ du système ${\bf Ax}={\bf b}$
 # 
 # `étape 1. Elimination`
 # 
