@@ -192,6 +192,17 @@ plt.title("Vecteur propre approché")
 plt.tight_layout()
 
 
+# ```{prf:example} Considérons la suite de  Fibonacci : 0, 1, 1, 2, 3, 5, 8, 13, ...
+# On cherche, sans calculer explicitement le terme, quelle va être la valeur du 100-ième terme 
+# La suite est définie par 
+# $$ {F}_{k+2}={F}_{k+1}+{F}_{k} $$
+# En ajoutant l'équation  $F_{k+1}=F_{k+1}$, on note alors  $u_{k}$ 
+# $$ {u}_{k}=\begin{bmatrix} {F}_{k+1} \\ {F}_{k} \end{bmatrix} $$
+# Ainsi
+# $$ {u}_{k+1}=\begin{bmatrix} 1 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} {F}_{k+1} \\ {F}_{k} \end{bmatrix}=\begin{bmatrix} {F}_{k+1}+{F}_{k} \\ {F}_{k+1} \end{bmatrix} \\ {u}_{k+1}=\begin{bmatrix} 1 & 1 \\ 1 & 0 \end{bmatrix}{u}_{k} $$
+# ```
+# 
+# 
 # ## Méthode des puissances inverses
 # 
 # Pour les mêmes raisons, l'itération 
