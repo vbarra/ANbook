@@ -5,7 +5,7 @@
 
 
 # n'exécuter qu'une fois
-get_ipython().system('pip3 install numpy matplotlib')
+get_ipython().system('pip3 install numpy matplotlib sympy')
 
 
 # # Méthode des puissances itérées
