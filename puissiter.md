@@ -223,13 +223,11 @@ A.eigenvals()
 ```
 
 
-```
-{code-cell} ipython3
+```{code-cell} ipython3
 A.eigenvects()
 ```
 
-```
-{code-cell} ipython3
+```{code-cell} ipython3
 S, D = A.diagonalize()
 ```
 
@@ -237,8 +235,7 @@ Et puisque ${u}_{k} = {A}^{k}{u}_{0}={\Lambda}^{k}{S}{c}$
 et $u_0=\begin{bmatrix}1\\0\end{bmatrix}$
 
 
-```
-{code-cell} ipython3
+```{code-cell} ipython3
 u_zero =  Matrix([1, 0])
 u_100 = A ** 100 * u_zero
 u_100

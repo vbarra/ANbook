@@ -223,8 +223,7 @@ A.eigenvals()
 # S, D = A.diagonalize()
 # ```
 # 
-# Et puisque 
-# $$ {u}_{k} = {A}^{k}{u}_{0}={\Lambda}^{k}{S}{c} $$
+# Et puisque ${u}_{k} = {A}^{k}{u}_{0}={\Lambda}^{k}{S}{c}$ 
 # et $u_0=\begin{bmatrix}1\\0\end{bmatrix}$
 # 
 # 
