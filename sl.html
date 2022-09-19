@@ -125,7 +125,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Installation.html">
-   Requirement
+   Installation
   </a>
  </li>
  <li class="toctree-l1">
@@ -570,7 +570,37 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="systemes-d-equations-lineaires">
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># n&#39;exécuter qu&#39;une fois</span>
+<span class="o">!</span>pip3 install sympy numpy matplotlib
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: sympy in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (1.11.1)
+Requirement already satisfied: numpy in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (1.23.3)
+Requirement already satisfied: matplotlib in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (3.5.3)
+Requirement already satisfied: mpmath&gt;=0.19 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from sympy) (1.2.1)
+Requirement already satisfied: pillow&gt;=6.2.0 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (9.2.0)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (4.37.1)
+Requirement already satisfied: cycler&gt;=0.10 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (0.11.0)
+Requirement already satisfied: packaging&gt;=20.0 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (21.3)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (1.4.4)
+Requirement already satisfied: pyparsing&gt;=2.2.1 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (3.0.9)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (2.8.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six&gt;=1.5 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib) (1.16.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: You are using pip version 21.3.1; however, version 22.2.2 is available.</span>
+<span class=" -Color -Color-Yellow">You should consider upgrading via the &#39;/Users/vibarra/Documents/Cours/FISA/envbook/bin/python3.9 -m pip install --upgrade pip&#39; command.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="systemes-d-equations-lineaires">
 <h1>Systèmes d’équations linéaires<a class="headerlink" href="#systemes-d-equations-lineaires" title="Lien permanent vers ce titre">#</a></h1>
 <p id="index-0">Les systèmes linéaires interviennent dans de nombreux contextes
 d’applications (physique, mécanique, sciences du vivant, chimie,
@@ -858,28 +888,13 @@ et
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">init_printing</span><span class="p">,</span> <span class="n">Matrix</span>
 <span class="kn">from</span> <span class="nn">sympy.solvers.solveset</span> <span class="kn">import</span> <span class="n">linsolve</span>
-<span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">filterwarnings</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 
 <span class="n">A</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]])</span>
 <span class="n">deltaA</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="o">/</span><span class="mf">25.</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mf">25.</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mf">50.</span><span class="p">,</span> <span class="o">-</span><span class="mi">11</span><span class="o">/</span><span class="mf">100.</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.01</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mf">50.</span><span class="p">]])</span>
 <span class="n">b_1</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([</span><span class="mi">32</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">31</span><span class="p">])</span>
 <span class="n">b_2</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([</span><span class="mf">32.01</span><span class="p">,</span> <span class="mf">22.99</span><span class="p">,</span> <span class="mf">33.01</span><span class="p">,</span> <span class="mf">30.99</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">init_printing</span><span class="p">,</span> <span class="n">Matrix</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">sympy.solvers.solveset</span> <span class="kn">import</span> <span class="n">linsolve</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">filterwarnings</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;sympy&#39;
 </pre></div>
 </div>
 </div>
@@ -891,6 +906,10 @@ et
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left\{\left( 1, \  1, \  1, \  1\right)\right\}\]</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -898,6 +917,10 @@ et
 <span class="n">x_2</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left\{\left( 1.82000000000001, \  -0.360000000000021, \  1.35, \  0.789999999999998\right)\right\}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -907,6 +930,10 @@ et
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left\{\left( -1.91734708097774, \  5.63520081425947, \  0.0789600378770682, \  1.53992900043846\right)\right\}\]</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -915,11 +942,20 @@ et
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \left\{\left( -1.83740079314526, \  5.5073371018571, \  0.0658714766362356, \  1.56931795245825\right)\right\}\]</div>
+</div>
 </div>
 <p>La condition de la matrice peut être facilement calculée</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Condition de la  matrice :&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cond</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float&#39;</span><span class="p">),</span><span class="n">p</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Condition de la  matrice : 2984.092701675935
 </pre></div>
 </div>
 </div>
@@ -943,14 +979,11 @@ et
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">init_printing</span><span class="p">,</span> <span class="n">Matrix</span>
 <span class="kn">from</span> <span class="nn">sympy.solvers.solveset</span> <span class="kn">import</span> <span class="n">linsolve</span>
-<span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">filterwarnings</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="n">init_printing</span><span class="p">(</span><span class="n">use_latex</span> <span class="o">=</span> <span class="s1">&#39;mathjax&#39;</span><span class="p">)</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 
 <span class="n">A</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mf">0.78</span><span class="p">,</span><span class="mf">0.563</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.913</span><span class="p">,</span><span class="mf">0.659</span><span class="p">]])</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([</span><span class="mf">0.217</span><span class="p">,</span><span class="mf">0.254</span><span class="p">])</span>
@@ -968,10 +1001,19 @@ et
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}-0.00078\\-0.000913\end{matrix}\right]\end{split}\]</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;norme : &#39;</span><span class="p">,</span><span class="n">r</span><span class="o">.</span><span class="n">norm</span><span class="p">()</span><span class="o">.</span><span class="n">evalf</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>norme :  0.001201
 </pre></div>
 </div>
 </div>
@@ -985,10 +1027,19 @@ et
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[\begin{matrix}-1.0 \cdot 10^{-6}\\0\end{matrix}\right]\end{split}\]</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;norme : &#39;</span><span class="p">,</span><span class="n">r2</span><span class="o">.</span><span class="n">norm</span><span class="p">()</span><span class="o">.</span><span class="n">evalf</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>norme :  1.000e-6
 </pre></div>
 </div>
 </div>
@@ -1016,11 +1067,19 @@ et
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/sl_17_0.png" src="_images/sl_17_0.png" />
+</div>
 </div>
 <p>La condition de la matrice est</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Condition de la matrice :&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cond</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float&#39;</span><span class="p">),</span><span class="n">p</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Condition de la matrice : 2193218.9997129813
 </pre></div>
 </div>
 </div>

@@ -9,6 +9,15 @@ kernelspec:
   language: python
   name: python3
 ---
+
+
+```{code-cell} ipython3
+# n'exécuter qu'une fois
+!pip3 install sympy numpy matplotlib
+
+```
+
+
 # Systèmes d'équations linéaires
 ```{index} Système linéaire
 ```
@@ -334,11 +343,8 @@ $\Rightarrow$ Une petite variation de ${\bf b}$ et/ou ${\bf A}$  entraîne une g
 ```{code-cell} ipython3
 from sympy import init_printing, Matrix
 from sympy.solvers.solveset import linsolve
-from warnings import filterwarnings
 import numpy as np
 import matplotlib.pyplot as plt
-%matplotlib inline
-filterwarnings('ignore')
 
 A = Matrix([[10, 7, 8, 7], [7, 5, 6, 5], [8, 6, 10, 9], [7, 5, 9, 10]])
 deltaA = Matrix([[0, 0, 0.1, 0.2], [2/25., 1/25., 0, 0], [0, -1/50., -11/100., 0], [-0.01, -0.1, 9, -1/50.]])
@@ -401,14 +407,11 @@ $\Rightarrow$ Un vecteur ${\bf x_2}$ "loin" de la solution théorique fournit un
 ```{code-cell} ipython3
 from sympy import init_printing, Matrix
 from sympy.solvers.solveset import linsolve
-from warnings import filterwarnings
 import numpy as np
 
 %matplotlib inline
 import matplotlib.pyplot as plt
 init_printing(use_latex = 'mathjax')
-%matplotlib inline
-filterwarnings('ignore')
 
 A = Matrix([[0.78,0.563], [0.913,0.659]])
 b = Matrix([0.217,0.254])
