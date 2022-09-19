@@ -12,7 +12,7 @@ kernelspec:
 
 ```{code-cell} ipython3
 # n'exécuter qu'une fois
-pip3 install sympy numpy matplotlib fractions warnings
+!pip3 install sympy numpy matplotlib fractions warnings
 
 ```
 
