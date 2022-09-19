@@ -20,8 +20,8 @@ Soit $\{q_1^{(k)}\cdots q_p^{(k)}\}$ un système de $p$ vecteurs orthonormés ob
 
 1. construire le système $\{Aq_1^{(k)}\cdots Aq_p^{(k)}\}$
 2. calculer les quotients de Rayleigh : $\lambda_i={q^{(k)}_i}^\top Aq_i^{(k)},\quad 1\leq i\leq p$
-    \item tester la convergence : $\displaystyle\max_{1\leq i\leq p} \|Aq_i^{(k)}-\lambda_i q_i^{(k)} \|<Tol$
-3. orthogonaliser $\{Aq_1^{(k)}\cdots Aq_p^{(k)}\} \rightarrow \{q_1^{(k+1)}\cdots q_p^{(k+1)}\}$
+3. tester la convergence : $\displaystyle\max_{1\leq i\leq p} \|Aq_i^{(k)}-\lambda_i q_i^{(k)} \|<Tol$
+4. orthogonaliser $\{Aq_1^{(k)}\cdots Aq_p^{(k)}\} \rightarrow \{q_1^{(k+1)}\cdots q_p^{(k+1)}\}$
 
 
 
