@@ -125,7 +125,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Installation.html">
-   Requirement
+   Installation
   </a>
  </li>
  <li class="toctree-l1">
@@ -616,8 +616,8 @@ d’une matrice <span class="math notranslate nohighlight">\({\bf A}\)</span> en
 <div class="proof algorithm admonition" id="pivotage">
 <p class="admonition-title"><span class="caption-number">Algorithm 1 </span> (Pivotage d’une colonne <span class="math notranslate nohighlight">\({\bf A_{\bullet s}}\)</span> suivant le pivot <span class="math notranslate nohighlight">\(a_{rs}\ne 0\)</span>)</p>
 <section class="algorithm-content" id="proof-content">
-<p>**Entrée : ** <span class="math notranslate nohighlight">\({\bf A}\)</span>, <span class="math notranslate nohighlight">\(s\)</span> l’indice de la colonne à pivoter, <span class="math notranslate nohighlight">\(r\)</span> l’indice de ligne du pivot</p>
-<p>**Sortie : ** La colonne transformée</p>
+<p><strong>Entrée :</strong> <span class="math notranslate nohighlight">\({\bf A}\)</span>, <span class="math notranslate nohighlight">\(s\)</span> l’indice de la colonne à pivoter, <span class="math notranslate nohighlight">\(r\)</span> l’indice de ligne du pivot</p>
+<p><strong>Sortie :</strong> La colonne transformée</p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\({\bf A_{r \bullet}}\leftarrow \frac{1}{a_{rs}}\bf A_{r \bullet}\)</span></p></li>
 <li><p>Pour <span class="math notranslate nohighlight">\(i \ne r\)</span> : <span class="math notranslate nohighlight">\({\bf A_{i \bullet}}\leftarrow {\bf A_{i \bullet}} -a_{is}{\bf A_{r \bullet}}\)</span></p></li>
