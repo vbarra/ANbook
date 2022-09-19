@@ -5,7 +5,7 @@
 
 
 # n'exécuter qu'une fois
-pip3 install sympy numpy matplotlib fractions warnings
+get_ipython().system('pip3 install sympy numpy matplotlib fractions warnings')
 
 
 # # Matrices
@@ -21,7 +21,7 @@ pip3 install sympy numpy matplotlib fractions warnings
 # 
 # La définition de matrice se fait simplement en Python à l'aide de la librairie <a href="https://numpy.org" target="_blank">numpy</a>
 
-# In[ ]:
+# In[2]:
 
 
 import numpy as np
@@ -69,7 +69,7 @@ D = np.array([[2],[6]])
 # 
 # et en Python
 
-# In[ ]:
+# In[3]:
 
 
 import numpy as np
@@ -86,7 +86,7 @@ print(A+C,'\n')
 # 
 # ### Addition
 
-# In[ ]:
+# In[4]:
 
 
 import matplotlib.pyplot as plt
@@ -129,7 +129,7 @@ plt.show()
 
 # ### Multiplication par un scalaire
 
-# In[ ]:
+# In[5]:
 
 
 import matplotlib.pyplot as plt
@@ -155,7 +155,7 @@ plt.show()
 
 # ### Rotation
 
-# In[ ]:
+# In[6]:
 
 
 import matplotlib.pyplot as plt
@@ -174,7 +174,7 @@ plt.show()
 
 # ### Transvection
 
-# In[ ]:
+# In[7]:
 
 
 import matplotlib.pyplot as plt
@@ -192,7 +192,7 @@ plt.show()
 
 # ### Compression
 
-# In[ ]:
+# In[8]:
 
 
 import matplotlib.pyplot as plt
@@ -210,7 +210,7 @@ plt.show()
 
 # ### Réflexion
 
-# In[ ]:
+# In[9]:
 
 
 import matplotlib.pyplot as plt
@@ -302,7 +302,7 @@ plt.tight_layout()
 # 1&4&7\\2&5&8\\3&6&9
 # \end{pmatrix}$
 
-# In[ ]:
+# In[10]:
 
 
 import numpy as np
@@ -327,7 +327,7 @@ print('A^\top = \n',A.transpose())
 # $Tr({\bf A}) = \displaystyle\sum_{i=1}^n a_{ii}$
 # ````
 
-# In[ ]:
+# In[11]:
 
 
 print("Trace de A : ", np.trace(A))
@@ -362,7 +362,7 @@ print("Trace de A : ", np.trace(A))
 # ${\bf A}$ en supprimant la première ligne et la $j^e$ colonne.
 # ````
 
-# In[ ]:
+# In[12]:
 
 
 print("Déterminant de A : ", np.linalg.det(A))
@@ -421,7 +421,7 @@ print("Déterminant de A : ", np.linalg.det(A))
 # On note que le nombre de colonnes de ${\bf A}$ doit être égal au nombre
 # de lignes de ${\bf B}$ pour que l'opération puisse être réalisée.
 
-# In[ ]:
+# In[13]:
 
 
 import numpy as np
@@ -481,7 +481,7 @@ print(C)
 # 
 # Le produit matriciel correspond à une composition de transformations linéaires.
 
-# In[ ]:
+# In[14]:
 
 
 import numpy as np
@@ -556,7 +556,7 @@ plt.tight_layout()
 # assurer l'existence, il faut et il suffit que
 # ${\bf A}{\bf x}={\bf 0}\quad\Leftrightarrow\quad {\bf x}={\bf 0}.$
 
-# In[ ]:
+# In[15]:
 
 
 import numpy as np
@@ -647,7 +647,7 @@ print(B)
 # $\mathrm{Im}({\bf A})$ est clairement un sous-espace vectoriel de
 # $\mathbb R^m$.
 
-# In[ ]:
+# In[16]:
 
 
 from sympy import init_printing, Matrix, symbols
