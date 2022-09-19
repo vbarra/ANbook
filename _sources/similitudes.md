@@ -60,7 +60,7 @@ Les valeurs propres sont donc 1 et 3, de multiplicité 1 chacune.
 En revanche, les vecteurs propres sont différents
 
 ```{code-cell} ipython3
-Matrix(A.eigenvects())
+A.eigenvects()
 ```
 
 ```{code-cell} ipython3
