@@ -1,6 +1,13 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# In[1]:
+
+
+# n'exécuter qu'une fois
+get_ipython().system('pip3 install sympy numpy matplotlib')
+
+
 # # Facteurs LU d'une matrice non singulière
 # 
 # ## Méthode
@@ -115,9 +122,9 @@
 # ```{prf:algorithm} Factorisation LU
 # :label: FactLU
 # 
-# **Entrée : ** La matrice ${\bf A}$
+# **Entrée :** La matrice ${\bf A}$
 # 
-# **Sortie : ** Les facteurs ${\bf L}$ et ${\bf U}$, les permutations $\sigma$
+# **Sortie :** Les facteurs ${\bf L}$ et ${\bf U}$, les permutations $\sigma$
 # 
 # 1. $\sigma(i)=i$, $i\in[\![1,n]\!]$ (initialisation du vecteur des permutations)
 # 2. Pour $k=1,\ldots, n-1$
@@ -158,7 +165,7 @@
 # 
 # ## Exemple numérique
 
-# In[1]:
+# In[2]:
 
 
 from fractions import Fraction
@@ -173,7 +180,7 @@ init_printing(use_latex = 'mathjax')
 # 
 # La première étape consiste à mettre un 0 en position (2,1). La transformation élémentaire correspondante $E_{21}$ est donc
 
-# In[ ]:
+# In[3]:
 
 
 A = Matrix([[1., -1., 1.], [3., 2., -2.], [6., -1., -1.]])
@@ -184,7 +191,7 @@ E21 * A
 
 # On met ensuite un 0 en position (3,1). La transformation élémentaire est  $E_{31}$ et le résultat $E_{31}.E_{21}.A$
 
-# In[ ]:
+# In[4]:
 
 
 E31 = Matrix([[1, 0, 0], [0, 1, 0], [-6, 0, 1]])
@@ -194,7 +201,7 @@ E31 * E21 * A
 
 # On procède de même sur la deuxième colonne, en position (3,2)
 
-# In[ ]:
+# In[5]:
 
 
 E32 = Matrix([[1, 0 , 0], [0, 1, 0], [0, str(Fraction(-11./8.)), 1]])
@@ -211,7 +218,7 @@ U
 # 
 # Ainsi
 
-# In[ ]:
+# In[6]:
 
 
 E21, E21.inv()
@@ -219,7 +226,7 @@ E21, E21.inv()
 
 # et par exemple
 
-# In[ ]:
+# In[7]:
 
 
 E31,E32,E31*E32
@@ -232,7 +239,7 @@ E31,E32,E31*E32
 # On pose $L=E ^{ -1 }_{ 21 }E^{ -1 }_{ 31 } E^{ -1 }_{ 32 }$
 # de sorte que $A=LU$
 
-# In[ ]:
+# In[8]:
 
 
 L = E21.inv() * E31.inv() * E32.inv()
@@ -241,7 +248,7 @@ L
 
 # On vérifie le résultat
 
-# In[ ]:
+# In[9]:
 
 
 A, L * U 

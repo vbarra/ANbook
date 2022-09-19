@@ -9,6 +9,13 @@ kernelspec:
   language: python
   name: python3
 ---
+
+```{code-cell} ipython3
+# n'exécuter qu'une fois
+!pip3 install sympy numpy matplotlib
+
+```
+
 # Facteurs LU d'une matrice non singulière
 
 ## Méthode
@@ -123,9 +130,9 @@ et $\sigma$ les permutations de lignes éventuelles.
 ```{prf:algorithm} Factorisation LU
 :label: FactLU
 
-**Entrée : ** La matrice ${\bf A}$
+**Entrée :** La matrice ${\bf A}$
 
-**Sortie : ** Les facteurs ${\bf L}$ et ${\bf U}$, les permutations $\sigma$
+**Sortie :** Les facteurs ${\bf L}$ et ${\bf U}$, les permutations $\sigma$
 
 1. $\sigma(i)=i$, $i\in[\![1,n]\!]$ (initialisation du vecteur des permutations)
 2. Pour $k=1,\ldots, n-1$
