@@ -683,7 +683,7 @@ title="Print to PDF"
   <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># n&#39;exécuter qu&#39;une fois</span>
-<span class="o">!</span>pip3 install sympy numpy matplotlib warnings
+<span class="o">!</span>pip3 install sympy numpy matplotlib
 </pre></div>
 </div>
 </div>
@@ -696,8 +696,26 @@ title="Print to PDF"
 Requirement already satisfied: matplotlib in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (3.5.3)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">ERROR: Could not find a version that satisfies the requirement warnings (from versions: none)</span>
-<span class=" -Color -Color-Red">ERROR: No matching distribution found for warnings</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting mpmath&gt;=0.19
+  Using cached mpmath-1.2.1-py3-none-any.whl (532 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pyparsing&gt;=2.2.1 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (3.0.9)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (4.37.1)
+Requirement already satisfied: packaging&gt;=20.0 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (21.3)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (1.4.4)
+Requirement already satisfied: cycler&gt;=0.10 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (0.11.0)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (2.8.2)
+Requirement already satisfied: pillow&gt;=6.2.0 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (9.2.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six&gt;=1.5 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib) (1.16.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: mpmath, sympy
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed mpmath-1.2.1 sympy-1.11.1
 <span class=" -Color -Color-Yellow">WARNING: You are using pip version 21.3.1; however, version 22.2.2 is available.</span>
 <span class=" -Color -Color-Yellow">You should consider upgrading via the &#39;/Users/vibarra/Documents/Cours/FISA/envbook/bin/python3.9 -m pip install --upgrade pip&#39; command.</span>
 </pre></div>
@@ -1331,23 +1349,23 @@ taille <span class="math notranslate nohighlight">\(n\)</span>, on obtient une s
 des sous-matrices principales sont les mineurs de la matrice.</p></li>
 </ul>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="e34bad00-b0c5-4917-abb9-4403b8f349f6" name="5db6f88d-8922-494e-a6f8-d8df4d80d9ce" type="radio">
-</input><label class="sd-tab-label" for="e34bad00-b0c5-4917-abb9-4403b8f349f6">
+<input checked="checked" id="043df941-de8d-4b58-860e-a5b1d2e369ce" name="658cc33e-a741-4c4b-acf7-5a526a2d1241" type="radio">
+</input><label class="sd-tab-label" for="043df941-de8d-4b58-860e-a5b1d2e369ce">
 Diagonale</label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;0&amp;0\\0&amp;-4&amp;0\\0&amp;0&amp;1\end{pmatrix}\)</span></p>
 </div>
-<input id="a58b9a67-76e4-42a1-862e-34e0b5dd1e92" name="5db6f88d-8922-494e-a6f8-d8df4d80d9ce" type="radio">
-</input><label class="sd-tab-label" for="a58b9a67-76e4-42a1-862e-34e0b5dd1e92">
+<input id="4a77704e-1de2-4161-8f55-e2730e239475" name="658cc33e-a741-4c4b-acf7-5a526a2d1241" type="radio">
+</input><label class="sd-tab-label" for="4a77704e-1de2-4161-8f55-e2730e239475">
 Triang. sup. </label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix} 3&amp;2&amp;1\\0&amp;-4&amp;2\\0&amp;0&amp;1 \end{pmatrix}\)</span></p>
 </div>
-<input id="3ab9114c-3d7c-4db5-8be3-411aa0b61ab4" name="5db6f88d-8922-494e-a6f8-d8df4d80d9ce" type="radio">
-</input><label class="sd-tab-label" for="3ab9114c-3d7c-4db5-8be3-411aa0b61ab4">
+<input id="3c4b7f4c-af08-4a52-9998-9c46762d8ecb" name="658cc33e-a741-4c4b-acf7-5a526a2d1241" type="radio">
+</input><label class="sd-tab-label" for="3c4b7f4c-af08-4a52-9998-9c46762d8ecb">
 Triang. inf.</label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;0&amp;0\\1&amp;-4&amp;0\\5&amp;8&amp;1 \end{pmatrix}\)</span></p>
 </div>
-<input id="b10ca46e-f97c-4e84-afd4-ca98b13ff642" name="5db6f88d-8922-494e-a6f8-d8df4d80d9ce" type="radio">
-</input><label class="sd-tab-label" for="b10ca46e-f97c-4e84-afd4-ca98b13ff642">
+<input id="8ea30881-1abb-42d0-9dcf-fe3de6ae73d5" name="658cc33e-a741-4c4b-acf7-5a526a2d1241" type="radio">
+</input><label class="sd-tab-label" for="8ea30881-1abb-42d0-9dcf-fe3de6ae73d5">
 Vecteur ligne </label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;2&amp;1&amp;-4&amp;0&amp;3.5 \end{pmatrix}\)</span></p>
 </div>
@@ -1384,16 +1402,11 @@ forme <span class="math notranslate nohighlight">\({\bf A}{\bf x}\)</span> pour 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">16</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">init_printing</span><span class="p">,</span> <span class="n">Matrix</span><span class="p">,</span> <span class="n">symbols</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">init_printing</span><span class="p">(</span><span class="n">use_latex</span> <span class="o">=</span> <span class="s1">&#39;mathjax&#39;</span><span class="p">)</span> 
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">A</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;sympy&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>L&#39;image de A est le sous-espace engendré par 
 </pre></div>
 </div>
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \left[ \left[\begin{matrix}1\\1\\1\end{matrix}\right], \  \left[\begin{matrix}2\\1\\2\end{matrix}\right]\right]\end{split}\]</div>
 </div>
 </div>
 <div class="proof definition admonition" id="definition-17">
@@ -1409,6 +1422,11 @@ nombre maximal de lignes linéairement indépendantes. On a donc
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rang de A = &quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rang de A =  3
 </pre></div>
 </div>
 </div>
