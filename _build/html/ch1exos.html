@@ -4,7 +4,8 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Exercices &#8212; Analyse numérique</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -35,10 +36,13 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script src="_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
@@ -48,8 +52,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Transformations élémentaires" href="ch2.html" />
@@ -113,7 +117,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p class="caption">
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Tutoriels
  </span>
@@ -140,7 +144,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Introduction au calcul matriciel
  </span>
@@ -167,7 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Elimination de Gauss
  </span>
@@ -189,7 +193,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Moindres carrés linéaires
  </span>
@@ -216,7 +220,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Analyse spectrale
  </span>
@@ -263,7 +267,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Index
  </span>
@@ -510,9 +514,9 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="exercices">
+  <section class="tex2jax_ignore mathjax_ignore" id="exercices">
 <h1>Exercices<a class="headerlink" href="#exercices" title="Lien permanent vers ce titre">#</a></h1>
-<div class="section" id="exercice-1">
+<section id="exercice-1">
 <h2>Exercice 1<a class="headerlink" href="#exercice-1" title="Lien permanent vers ce titre">#</a></h2>
 <p>Soit <span class="math notranslate nohighlight">\(A\)</span>, une matrice <span class="math notranslate nohighlight">\(m\times n\)</span>.
 Montrer que</p>
@@ -528,23 +532,23 @@ les espaces contenant ces ensembles.</p>
         \end{array}
   \right).\)</span> Quel est le rang de <span class="math notranslate nohighlight">\(A\)</span>. Donner les sous–espaces
 <span class="math notranslate nohighlight">\(\mathrm{Im}A\)</span>, <span class="math notranslate nohighlight">\(Ker A^\top\)</span>, <span class="math notranslate nohighlight">\(\mathrm{Im}A^\top\)</span> et <span class="math notranslate nohighlight">\(Ker A\)</span>.</p>
-</div>
-<div class="section" id="exercice-2">
+</section>
+<section id="exercice-2">
 <h2>Exercice 2<a class="headerlink" href="#exercice-2" title="Lien permanent vers ce titre">#</a></h2>
 <p>Soit <span class="math notranslate nohighlight">\(V\)</span> et <span class="math notranslate nohighlight">\(W\)</span> deux sous-espaces vectoriels de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>. Montrer que
 <span class="math notranslate nohighlight">\(\dim
 (V+W)=\dim V+\dim W-\dim V\cap W.\)</span></p>
 <p>Illustrer ce résultat avec <span class="math notranslate nohighlight">\(V\)</span> et <span class="math notranslate nohighlight">\(W\)</span> respectivement ensembles des
 matrices triangulaires inférieures et supérieures.</p>
-</div>
-<div class="section" id="exercice-3">
+</section>
+<section id="exercice-3">
 <h2>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien permanent vers ce titre">#</a></h2>
 <p>Montrer que pour toute matrice <span class="math notranslate nohighlight">\(A\)</span> (non nécessairement carrée), les
 produits <span class="math notranslate nohighlight">\(A^\top A\)</span> et <span class="math notranslate nohighlight">\(AA^\top\)</span> sont des matrices symétriques. Montrer
 que
 <span class="math notranslate nohighlight">\(\mathrm{rang}(A)=\mathrm{rang}(A^\top A)=\mathrm{rang}(AA^\top ).\)</span></p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

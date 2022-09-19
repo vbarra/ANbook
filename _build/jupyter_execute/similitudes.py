@@ -32,7 +32,7 @@ S = Matrix([[1, 4], [0, 1]])
 
 # Pour $\bf S$ inversible, on construit donc $\bf{B=S^{-1}AS}$ semblable.
 
-# In[2]:
+# In[ ]:
 
 
 B = S.inv() * A * S
@@ -40,7 +40,7 @@ B = S.inv() * A * S
 
 # On vérifie que $\bf A$ et $\bf B$ ont le même spectre
 
-# In[3]:
+# In[ ]:
 
 
 A.eigenvals(), B.eigenvals()
@@ -50,13 +50,13 @@ A.eigenvals(), B.eigenvals()
 # 
 # En revanche, les vecteurs propres sont différents
 
-# In[4]:
+# In[ ]:
 
 
 Matrix(A.eigenvects())
 
 
-# In[5]:
+# In[ ]:
 
 
 Matrix(B.eigenvects())

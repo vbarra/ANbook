@@ -44,7 +44,7 @@ Q = Matrix([[0, 0, 1], [1, 0, 0], [0, 1, 0]])
 Q.transpose() * Q
 
 
-# In[2]:
+# In[ ]:
 
 
 theta = symbols('theta')
@@ -54,7 +54,7 @@ R.transpose() * R
 
 # Si les colonnes sont orthogonales mais pas normées, la matrice n'est pas orthogonale
 
-# In[3]:
+# In[ ]:
 
 
 Q = Matrix([[1, 1], [1, -1]])
@@ -66,7 +66,7 @@ Q.transpose() * Q
 # $\sqrt { { \left( 1 \right)  }^{ 2 }+{ \left( 1 \right)  }^{ 2 } } =\sqrt { 2 } \\ \sqrt { { \left( 1 \right)  }^{ 2 }+{ \left( -1 \right)  }^{ 2 } } =\sqrt { 2 }$
 # $Q=\frac { 1 }{ \sqrt { 2 }  } \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}$
 
-# In[4]:
+# In[ ]:
 
 
 Q = (1 / sqrt(2)) * Matrix([[1, 1], [1, -1]])
@@ -141,7 +141,7 @@ Q
 # 6. $\textcolor{magenta}{{\bf q_{2}}} = \frac{{\bf p_2}}{r_{22}} = \textcolor{magenta}{\begin{pmatrix}\frac{1}{\sqrt{6}}\\-\frac{\sqrt 2}{\sqrt 3}\\\frac{1}{\sqrt{6}}\end{pmatrix}}$ 
 # ````
 
-# In[5]:
+# In[ ]:
 
 
 import numpy as np
@@ -169,31 +169,31 @@ A = np.random.rand(n,n)
 Q, R = GramSchmidt(A)
 
 
-# In[6]:
+# In[ ]:
 
 
 Matrix(A).evalf(4)
 
 
-# In[7]:
+# In[ ]:
 
 
 Matrix(Q).evalf(4)
 
 
-# In[8]:
+# In[ ]:
 
 
 Matrix(R).evalf(4)
 
 
-# In[9]:
+# In[ ]:
 
 
 Matrix(Q.transpose()@Q).evalf(4)
 
 
-# In[10]:
+# In[ ]:
 
 
 # On vérifie à quel point Q est orthogonale
@@ -207,7 +207,7 @@ print("Norme infinie de QR-A = ", np.max(np.abs(np.dot(Q,R)-A)))
 # 
 # Considérons par exemple la matrice suivante, dite matrice de Hilbert
 
-# In[11]:
+# In[ ]:
 
 
 def Hilbert(n):
@@ -220,7 +220,7 @@ def Hilbert(n):
 
 # On applique la méthode de Gram-Schmidt, et on vérifie à quel point $\bf QR$ est proche de $\bf A$, et $\bf Q$ est orthogonale.
 
-# In[12]:
+# In[ ]:
 
 
 n = 8
@@ -232,7 +232,7 @@ print("Norme de Q^T*Q-I = ",np.max(np.abs(np.dot(Q.T,Q)-np.eye(n))))
 
 # La factorisation est précise, mais $\bf Q$ est loin d'être orthogonale.
 
-# In[13]:
+# In[ ]:
 
 
 Matrix(np.dot(Q.T,Q)-np.eye(n)).evalf(2)
@@ -250,7 +250,7 @@ Matrix(np.dot(Q.T,Q)-np.eye(n)).evalf(2)
 # une base orthonormée de $Ker({\bf A^\top})$.
 # ```
 
-# In[14]:
+# In[ ]:
 
 
 Q = Rational(1, 3) * Matrix([[1, -2], [2, -1], [2, 2]])
@@ -259,7 +259,7 @@ Q
 
 # Les colonnes de $Q$ forment une base de $\mathbb{R}^2$ (dans $\mathbb{R}^3$). Pour obtenir une matrice orthogonale, il faut compléter par un vecteur normal au plan défini par ces deux colonnes, et unitaire.
 
-# In[15]:
+# In[ ]:
 
 
 Q = Rational(1, 3) * Matrix([[1, -2, 2], [2, -1, -2], [2, 2, 1]])
@@ -402,7 +402,7 @@ Q
 # 
 # L'implémentation peut se faire de la manière suivante.
 
-# In[16]:
+# In[ ]:
 
 
 def Householder(a):
@@ -426,20 +426,20 @@ A = np.array([[12, -51, 4], [6, 167, -68], [-4, 24, -41]])
 Q1, R1 = qr(A)
 
 
-# In[17]:
+# In[ ]:
 
 
 from sympy import *
 Matrix(A).evalf(4)
 
 
-# In[18]:
+# In[ ]:
 
 
 Matrix(R1).evalf(4)
 
 
-# In[19]:
+# In[ ]:
 
 
 Matrix(Q1).evalf(4)

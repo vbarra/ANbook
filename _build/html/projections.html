@@ -4,7 +4,8 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Projections orthogonales &#8212; Analyse numérique</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -35,10 +36,13 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script src="_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
@@ -48,8 +52,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Moindres carrés linéaires" href="mcl.html" />
@@ -113,7 +117,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p class="caption">
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Tutoriels
  </span>
@@ -140,7 +144,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Introduction au calcul matriciel
  </span>
@@ -167,7 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Elimination de Gauss
  </span>
@@ -189,7 +193,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Moindres carrés linéaires
  </span>
@@ -216,7 +220,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Analyse spectrale
  </span>
@@ -263,7 +267,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Index
  </span>
@@ -576,24 +580,24 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="projections-orthogonales">
+  <section class="tex2jax_ignore mathjax_ignore" id="projections-orthogonales">
 <h1>Projections orthogonales<a class="headerlink" href="#projections-orthogonales" title="Lien permanent vers ce titre">#</a></h1>
-<div class="section" id="theoreme-de-projection">
+<section id="theoreme-de-projection">
 <h2>Théorème de projection<a class="headerlink" href="#theoreme-de-projection" title="Lien permanent vers ce titre">#</a></h2>
 <p>On s’intéresse ici aux mécanismes de calcul de la projection orthogonale d’un vecteur de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span> sur un sous-espace. Les résultats fondamentaux d’existence, d’unicité et de caractérisation de la projection orthogonale d’un point sur un sous-espace, valables dans des espaces plus généraux que <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>, sont rappelés ci-après. Dans tout le chapitre,
 la norme vectorielle utilisée, et notée <span class="math notranslate nohighlight">\(\|\cdot\|\)</span>, est la norme euclidienne.</p>
 <div class="proof theorem admonition" id="theorem-0">
 <p class="admonition-title"><span class="caption-number">Theorem 6 </span> (Théorème de projection)</p>
-<div class="theorem-content section" id="proof-content">
+<section class="theorem-content" id="proof-content">
 <p>Soit <span class="math notranslate nohighlight">\(L\)</span> un sous-espace vectoriel de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>. Étant donné un vecteur <span class="math notranslate nohighlight">\({\bf y}\in\mathbb R^n\)</span>, il existe un unique vecteur <span class="math notranslate nohighlight">\({\bf p}\in L\)</span>, appelé projection orthogonale
 de <span class="math notranslate nohighlight">\({\bf y}\)</span> sur <span class="math notranslate nohighlight">\(L\)</span>, tel que :</p>
 <p><span class="math notranslate nohighlight">\((\forall {\bf x}\in L)\ \|{\bf y}-{\bf p}\|\leq \| {\bf y}-{\bf x}\|\)</span>
 Une condition nécessaire et suffisante pour que <span class="math notranslate nohighlight">\({\bf p}\in L\)</span> soit la projection orthogonale de <span class="math notranslate nohighlight">\({\bf y}\)</span> sur <span class="math notranslate nohighlight">\(L\)</span> est <span class="math notranslate nohighlight">\({\bf y}-{\bf p}\in L^\bot\)</span></p>
-</div>
-</div><div class="margin sidebar" id="index-0">
+</section>
+</div><aside class="margin sidebar" id="index-0">
 <p class="sidebar-title"></p>
 <p><img alt="" src="_images/projection.png" /></p>
-</div>
+</aside>
 <div class="proof admonition" id="proof">
 <p>Proof. <code class="docutils literal notranslate"><span class="pre">Existence</span></code>: On peut supposer que <span class="math notranslate nohighlight">\({\bf y}\notin L\)</span> et on introduit</p>
 <p><span class="math notranslate nohighlight">\(\varepsilon=\inf_{{\bf x}\in L}\|{\bf y}-{\bf x}\|&gt;0.\)</span></p>
@@ -627,16 +631,16 @@ On applique le théorème de Pythagore :</p>
 <p><span class="math notranslate nohighlight">\( (\forall {\bf x} \in L)\ \|{\bf y}-{\bf x}\|^2=\|{\bf y}-{\bf p}+{\bf p}-{\bf x}\|^2  = \|{\bf y}-{\bf p}\|^2 + \|{\bf p}-{\bf x}\|^2  &gt; \| {\bf y}-{\bf p}\|^2 \)</span></p>
 <p>d’où la contradiction.</p>
 </div>
-</div>
-<div class="section" id="projection-sur-une-droite-passant-par-l-origine">
+</section>
+<section id="projection-sur-une-droite-passant-par-l-origine">
 <h2>Projection sur une droite passant par l’origine<a class="headerlink" href="#projection-sur-une-droite-passant-par-l-origine" title="Lien permanent vers ce titre">#</a></h2>
 <p>Une droite qui passe par l’origine est un sous-espace de dimension 1. Soit <span class="math notranslate nohighlight">\({\bf y}\in \mathbb R^n\)</span> et <span class="math notranslate nohighlight">\(D\)</span> le sous-espace de vecteurs engendrés par un vecteur <span class="math notranslate nohighlight">\({\bf v}\)</span> non nul :</p>
 <p><span class="math notranslate nohighlight">\(D=\{{\bf z}\in \mathbb R^n /{\bf z}=\lambda {\bf v},\lambda\in \mathbb R\}\)</span></p>
 <p>Si <span class="math notranslate nohighlight">\({\bf p}\in D\)</span> est la projection orthogonale de <span class="math notranslate nohighlight">\({\bf y}\)</span> sur la droite, on peut écrire  : <span class="math notranslate nohighlight">\({\bf y}={\bf p}+{\bf u}\)</span>, avec <span class="math notranslate nohighlight">\({\bf p}=\lambda {\bf v}\)</span> et <span class="math notranslate nohighlight">\({\bf u^\top}{\bf v}=0\)</span>.</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p><img alt="" src="_images/projdroite.png" /></p>
-</div>
+</aside>
 <p>On remarque que la dernière relation signifie que <span class="math notranslate nohighlight">\({\bf u}\in D^\bot\)</span> et donc que <span class="math notranslate nohighlight">\({\bf u}\)</span> est la projection orthogonale de <span class="math notranslate nohighlight">\({\bf y}\)</span> sur <span class="math notranslate nohighlight">\(D^\bot\)</span>.
 Alors :</p>
 <p><span class="math notranslate nohighlight">\({\bf v^\top}  {\bf y}=\lambda {\bf v^\top}  {\bf v} \Rightarrow \lambda=\frac{1}{{\bf v^\top}{\bf v} }. {\bf v^\top}  {\bf y}\)</span>
@@ -647,45 +651,45 @@ soit</p>
 <span class="math notranslate nohighlight">\({\bf P}=\frac{1}{\|{\bf v}\|^2}{\bf v}{\bf v^\top} \)</span></p>
 <div class="proof remark dropdown admonition" id="remark-1">
 <span id="index-1"></span><p class="admonition-title"><span class="caption-number">Remark 7 </span></p>
-<div class="remark-content section" id="proof-content">
+<section class="remark-content" id="proof-content">
 <ol class="simple">
 <li><p>Comme <span class="math notranslate nohighlight">\({\bf p}={\bf Py}\)</span>, la projection orthogonale sur le sous-espace orthogonal <span class="math notranslate nohighlight">\(D^\bot\)</span> est <span class="math notranslate nohighlight">\({\bf u}={\bf y}-{\bf p}=(\mathbb I-{\bf P}){\bf y}\)</span>, donc <span class="math notranslate nohighlight">\(\mathbb I-{\bf P}\)</span> est la matrice de projection orthogonale sur <span class="math notranslate nohighlight">\(D^\bot\)</span>.</p></li>
 <li><p>Soit <span class="math notranslate nohighlight">\(\theta\)</span> l’angle entre les directions des vecteurs <span class="math notranslate nohighlight">\({\bf v}\)</span> et <span class="math notranslate nohighlight">\({\bf y}\)</span>. On a alors : <span class="math notranslate nohighlight">\(cos(\theta)=\frac{{\bf v^\top}{\bf  y}}{\|{\bf v}\|\|{\bf y}\|}\)</span> et on en déduit l’inégalité de Schwarz :</p></li>
 </ol>
 <p><span class="math notranslate nohighlight">\((\forall {\bf x},{\bf y}\in \mathbb R^n)\quad  |{\bf x^\top}  {\bf y}|\leq \|{\bf x}\|\|{\bf y}\|\)</span></p>
-</div>
+</section>
 </div><div class="proof example admonition" id="example-2">
 <p class="admonition-title"><span class="caption-number">Example 10 </span></p>
-<div class="example-content section" id="proof-content">
+<section class="example-content" id="proof-content">
 <p>Dans <span class="math notranslate nohighlight">\(\mathbb R^2\)</span>, la projection sur l’axe des abscisses, dirigé par <span class="math notranslate nohighlight">\({\bf v}=\begin{pmatrix}1 \\0\\\end{pmatrix}\)</span>, est effectuée par <span class="math notranslate nohighlight">\({\bf P}= \begin{pmatrix}1&amp;0\\0&amp;0\end{pmatrix}\)</span> et on a bien <span class="math notranslate nohighlight">\({\bf p}={\bf Py}=\begin{pmatrix}y_1 \\0\\\end{pmatrix}\)</span></p>
-</div>
-</div></div>
-<div class="section" id="projection-sur-une-droite-ne-passant-pas-par-l-origine">
+</section>
+</div></section>
+<section id="projection-sur-une-droite-ne-passant-pas-par-l-origine">
 <h2>Projection sur une droite ne passant pas par l’origine<a class="headerlink" href="#projection-sur-une-droite-ne-passant-pas-par-l-origine" title="Lien permanent vers ce titre">#</a></h2>
 <p>On utilise la représentation d’une droite comme un sous-espace affine parallèle à un sous-espace :</p>
 <p><span class="math notranslate nohighlight">\(D=\{{\bf z}\in \mathbb R^n / {\bf z}={\bf z_0}+\lambda {\bf v},\lambda \in \mathbb R\}\)</span></p>
 <p>Soit <span class="math notranslate nohighlight">\({\bf y}\in \mathbb R^n\)</span> et <span class="math notranslate nohighlight">\({\bf p}\)</span> sa projection orthogonale sur la droite <span class="math notranslate nohighlight">\(D\)</span>. Alors :</p>
 <p><span class="math notranslate nohighlight">\({\bf y}={\bf p}+{\bf u}\)</span> avec <span class="math notranslate nohighlight">\({\bf p}={\bf z_0}+\lambda {\bf v}\)</span> et <span class="math notranslate nohighlight">\({\bf u^\top}  {\bf v}=0\)</span>, d’où <span class="math notranslate nohighlight">\({\bf p}={\bf z_0}+{\bf P}({\bf y}-{\bf z_0})=(\mathbb I-{\bf P}){\bf z_0}+{\bf P}{\bf y}\)</span>,</p>
 <p>où <span class="math notranslate nohighlight">\({\bf P}\)</span> est la matrice de projection sur le sous-espace engendré par <span class="math notranslate nohighlight">\({\bf v}\)</span> obtenu dans le paragraphe précédent.</p>
-</div>
-<div class="section" id="projection-sur-un-sous-espace">
+</section>
+<section id="projection-sur-un-sous-espace">
 <h2>Projection sur un sous-espace<a class="headerlink" href="#projection-sur-un-sous-espace" title="Lien permanent vers ce titre">#</a></h2>
 <p>Soit <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{n,r}(\mathbb R)\)</span>  de rang <span class="math notranslate nohighlight">\(r\)</span> (donc <span class="math notranslate nohighlight">\(r\leq n\)</span>). Considérons la projection <span class="math notranslate nohighlight">\({\bf p}\)</span> d’un vecteur  <span class="math notranslate nohighlight">\({\bf y}\in\mathbb R^n\)</span> sur le sous-espace image de <span class="math notranslate nohighlight">\({\bf A}\)</span></p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p><img alt="" src="_images/projespace.png" /></p>
-</div>
+</aside>
 <p>Alors <span class="math notranslate nohighlight">\({\bf y}={\bf p}+{\bf u}\)</span> avec <span class="math notranslate nohighlight">\({\bf p}={\bf Ax},{\bf x}\in \mathbb R^r\)</span> et <span class="math notranslate nohighlight">\({\bf A^\top}{\bf u}=0\)</span> car <span class="math notranslate nohighlight">\({\bf u}\in (Im({\bf A}))^\perp = Ker({\bf A^\top})\)</span>.</p>
 <p>On obtient alors : <span class="math notranslate nohighlight">\({\bf A^\top} {\bf y}={\bf A^\top}{\bf Ax}\)</span>, et comme <span class="math notranslate nohighlight">\({\bf A}\)</span> est de rang plein, la matrice (<span class="math notranslate nohighlight">\(r\times r\)</span>) <span class="math notranslate nohighlight">\({\bf A^\top A}\in\mathcal{M}_{r}(\mathbb R)\)</span> est inversible et :</p>
 <p><span class="math notranslate nohighlight">\({\bf p}={\bf Py}\)</span> avec <span class="math notranslate nohighlight">\({\bf P}={\bf A(A^\top A)^{-1}A^\top }\)</span>.</p>
 <p>De plus, on retrouve la matrice de projection orthogonale <span class="math notranslate nohighlight">\(\mathbb I -{\bf P}\)</span> sur le noyau de <span class="math notranslate nohighlight">\({\bf A^\top }\)</span>.</p>
 <div class="proof remark dropdown admonition" id="remark-3">
 <p class="admonition-title"><span class="caption-number">Remark 8 </span></p>
-<div class="remark-content section" id="proof-content">
+<section class="remark-content" id="proof-content">
 <p>Si <span class="math notranslate nohighlight">\(r=1\)</span> on retrouve la formule trouvée dans le cas de la projection sur une droite vectorielle.</p>
-</div>
-</div></div>
-<div class="section" id="matrices-de-projection">
+</section>
+</div></section>
+<section id="matrices-de-projection">
 <h2>Matrices de projection<a class="headerlink" href="#matrices-de-projection" title="Lien permanent vers ce titre">#</a></h2>
 <p id="index-2">Les matrices de projection sont des matrices
 qui possèdent les deux propriétés suivantes :</p>
@@ -694,8 +698,8 @@ qui possèdent les deux propriétés suivantes :</p>
 <li><p><span class="math notranslate nohighlight">\({\bf P}^2={\bf P}\)</span> [idempotence]</p></li>
 </ul>
 <p>Les matrices de projection sont en général singulières, puisqu’elles ramènent l’espace à un sous-espace de dimension plus petite. De plus, elles contractent les normes : <span class="math notranslate nohighlight">\(\|{\bf Py}\|\leq \|{\bf y}\|\)</span>.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

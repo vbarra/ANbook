@@ -4,7 +4,8 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Systèmes d’équations linéaires &#8212; Analyse numérique</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -35,10 +36,13 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script src="_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
@@ -48,8 +52,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Exercices" href="ch1exos.html" />
@@ -113,7 +117,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p class="caption">
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Tutoriels
  </span>
@@ -140,7 +144,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Introduction au calcul matriciel
  </span>
@@ -167,7 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Elimination de Gauss
  </span>
@@ -189,7 +193,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Moindres carrés linéaires
  </span>
@@ -216,7 +220,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Analyse spectrale
  </span>
@@ -263,7 +267,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Index
  </span>
@@ -566,7 +570,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="systemes-d-equations-lineaires">
+  <section class="tex2jax_ignore mathjax_ignore" id="systemes-d-equations-lineaires">
 <h1>Systèmes d’équations linéaires<a class="headerlink" href="#systemes-d-equations-lineaires" title="Lien permanent vers ce titre">#</a></h1>
 <p id="index-0">Les systèmes linéaires interviennent dans de nombreux contextes
 d’applications (physique, mécanique, sciences du vivant, chimie,
@@ -580,19 +584,19 @@ vecteur(s) <span class="math notranslate nohighlight">\({\bf x}\)</span> satisfa
 système linéaire.</p>
 <div class="proof definition admonition" id="definition-0">
 <p class="admonition-title"><span class="caption-number">Definition 23 </span> (Système singulier)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p id="index-1">On dira que le système est singulier s’il n’a pas de
 solution ou s’il a une infinité de solutions.</p>
-</div>
-</div><div class="section" id="representations-des-systemes-d-equations-lineaires">
+</section>
+</div><section id="representations-des-systemes-d-equations-lineaires">
 <h2>Représentations des systèmes d’équations linéaires<a class="headerlink" href="#representations-des-systemes-d-equations-lineaires" title="Lien permanent vers ce titre">#</a></h2>
 <p>Considérons le système de 2 équations à 2 inconnues <span class="math notranslate nohighlight">\(\begin{aligned}
 2x_1-x_2&amp;=&amp;1\label{explsl1}\\
 x_1+x_2&amp;=&amp;5 \label{explsl2}\end{aligned}\)</span></p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p><img alt="" src="_images/syslin1.png" /></p>
-</div>
+</aside>
 <ul class="simple">
 <li><p><em>Première interprétation (lecture par ligne).</em> Chaque équation
 représente une droite de <span class="math notranslate nohighlight">\(\mathbb R^2\)</span>. La solution se trouve à
@@ -600,10 +604,10 @@ l’intersection des deux droites (à moins qu’elles ne soient parallèles).
 On obtient ici le point <span class="math notranslate nohighlight">\(x_1=2\)</span>, <span class="math notranslate nohighlight">\(x_2=3\)</span>, c’est-à-dire le vecteur
 <span class="math notranslate nohighlight">\(x=\left(\begin{array}{c}2\\ 3\end{array}\right)\)</span> de <span class="math notranslate nohighlight">\(\mathbb R^2\)</span> .</p></li>
 </ul>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p><img alt="" src="_images/syslin2.png" /></p>
-</div>
+</aside>
 <ul class="simple">
 <li><p><em>Deuxième interprétation (lecture par colonne).</em> On écrit le
 système sous la forme vectorielle
@@ -620,15 +624,15 @@ vecteurs qui donnent un troisième.</p></li>
 1\\5
 \end{pmatrix}\)</span> peut s’écrire comme combinaison linéaire des colonnes de
 <span class="math notranslate nohighlight">\({\bf A}\)</span>, et donc de savoir si <span class="math notranslate nohighlight">\({\bf y}\in {Im(\bf A})\)</span>.</p>
-</div>
-<div class="section" id="systemes-d-equations-lineaires-homogenes">
+</section>
+<section id="systemes-d-equations-lineaires-homogenes">
 <h2>Systèmes d’équations linéaires homogènes<a class="headerlink" href="#systemes-d-equations-lineaires-homogenes" title="Lien permanent vers ce titre">#</a></h2>
 <div class="proof definition admonition" id="definition-1">
 <p class="admonition-title"><span class="caption-number">Definition 24 </span> (Système homogène )</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p id="index-2">Un système d’équations linéaires est dit homogène si le
 second membre est nul.</p>
-</div>
+</section>
 </div><p>Soit <span class="math notranslate nohighlight">\({\bf A}\in \mathcal{M}_{m,n}(\mathbb{R})\)</span> la matrice du système
 <span class="math notranslate nohighlight">\({\bf A}{\bf x}={\bf b}\)</span>. Analysons l’ensemble des solutions du système
 d’équations linéaires homogène
@@ -636,10 +640,10 @@ d’équations linéaires homogène
 est toujours solution.</p>
 <div class="proof definition admonition" id="definition-2">
 <p class="admonition-title"><span class="caption-number">Definition 25 </span> (Noyau d’une matrice )</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <span class="target" id="index-3"></span><p id="index-4">L’ensemble des solutions du système linéaire est un sous-espace vectoriel de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>. Ce
 sous-espace est appelé noyau de <span class="math notranslate nohighlight">\({\bf A}\)</span>, noté <span class="math notranslate nohighlight">\(Ker({\bf A})\)</span>.</p>
-</div>
+</section>
 </div><p>En effet, si <span class="math notranslate nohighlight">\({\bf x}\)</span> et <span class="math notranslate nohighlight">\({\bf y}\)</span> sont solutions de
 <span class="math notranslate nohighlight">\({\bf A}{\bf x}={\bf 0}\)</span>, <span class="math notranslate nohighlight">\({\bf x}+{\bf y}\)</span> est aussi solution, ainsi
 que <span class="math notranslate nohighlight">\(\lambda {\bf x}\)</span>, <span class="math notranslate nohighlight">\(\lambda\in\mathbb R\)</span>.</p>
@@ -658,20 +662,20 @@ de la matrice dont les lignes contiennent les coefficients des
 <span class="math notranslate nohighlight">\((\forall i\in [\![ 1,m]\!])A_{i\bullet}^\top x = 0\)</span></p></li>
 </ul>
 </div>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p><img alt="" src="_images/ssesp.png" /></p>
-</div>
+</aside>
 <div class="proof property admonition" id="property-3">
 <p class="admonition-title"><span class="caption-number">Property 9 </span> (Sous-espaces supplémentaires d’une matrice )</p>
-<div class="property-content section" id="proof-content">
+<section class="property-content" id="proof-content">
 <p id="index-5">Soit
 <span class="math notranslate nohighlight">\({\bf A}\in \mathcal{M}_{m,n}(\mathbb{R})\)</span>. On a :</p>
 <p><span class="math notranslate nohighlight">\(\begin{aligned}
 &amp;&amp; Ker({\bf A})\perp Im({\bf A^\top} ),\quad\mbox{dans}\ \mathbb R^n\\
 &amp;&amp; Ker({\bf A^\top} )\perp Im({\bf A}),\quad\mbox{dans}\ \mathbb R^m.\end{aligned}\)</span></p>
 <p>et les sous-espaces sont supplémentaires.</p>
-</div>
+</section>
 </div><p>Les dimensions respectives de ces quatre sous-espaces ne dépendent que
 du rang de <span class="math notranslate nohighlight">\({\bf A}\)</span>. <span class="math notranslate nohighlight">\(\begin{aligned}
 &amp;&amp;dim Ker({\bf A})=n-rang({\bf A}),\ dim Im({\bf A^\top} )=rang({\bf A}),\quad\mbox{dans}\ \mathbb R^n\\
@@ -692,8 +696,8 @@ deuxième colonne en <span class="math notranslate nohighlight">\(\begin{pmatrix
 colonnes sont alors linéairement indépendantes et <span class="math notranslate nohighlight">\(rang({\bf A})=2\)</span>.
 Dans ce cas <span class="math notranslate nohighlight">\(Im(A)=Im({\bf A^\top} )=\mathbb R^2\)</span> et
 <span class="math notranslate nohighlight">\(Ker({\bf A})=Ker({\bf A^\top} )=\{0\}\)</span>.</p>
-</div>
-<div class="section" id="id1">
+</section>
+<section id="id1">
 <h2>Systèmes d’équations linéaires<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">#</a></h2>
 <p>Terminons par le problème général de la résolution d’un système linéaire
 <span class="math notranslate nohighlight">\({\bf A}{\bf x}={\bf b}\)</span> où <span class="math notranslate nohighlight">\({\bf A}\in \mathcal{M}_{m,n}(\mathbb{R})\)</span>,
@@ -710,10 +714,10 @@ a <span class="math notranslate nohighlight">\({\bf A}({\bf x}-{\bf x^0})={\bf 0
 s’obtient par une translation du sous–espace noyau de <span class="math notranslate nohighlight">\({\bf A}\)</span>. Il en
 a donc la forme géométrique et quand <span class="math notranslate nohighlight">\({\bf y}\)</span> varie, on construit une
 famille d’objets linéaires parallèles entre eux.</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p><img alt="" src="_images/variete.png" /></p>
-</div>
+</aside>
 <p>On les
 appelle des <em>variétés linéaires</em> ou <em>sous-espaces affines</em>. Si une
 variété linéaire passe par l’origine, c’est un sous-espace vectoriel.</p>
@@ -726,18 +730,18 @@ telle que <span class="math notranslate nohighlight">\(V=\{{\bf x^0}\}+Ker({\bf 
 <span class="math notranslate nohighlight">\(\dim V=dim Ker({\bf A})=n-rang({\bf A}).\)</span> Si un système homogène a
 toujours une solution (l’origine), ce n’est pas vrai pour le cas
 général.</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p><img alt="" src="_images/incomp.png" /></p>
-</div>
+</aside>
 <div class="proof theorem admonition" id="theorem-4">
 <p class="admonition-title"><span class="caption-number">Theorem 2 </span> (Existence d’une solution )</p>
-<div class="theorem-content section" id="proof-content">
+<section class="theorem-content" id="proof-content">
 <p>Le système linéaire
 <span class="math notranslate nohighlight">\({\bf A}{\bf x}={\bf b}\)</span> possède au moins une solution si, et seulement
 si, <span class="math notranslate nohighlight">\({\bf b}\in Im({\bf A})\)</span>.<br />
 Dans le cas contraire, on dit que le système est incompatible.</p>
-</div>
+</section>
 </div><p>On remarque que cette condition s’exprime dans l’espace des colonnes
 <span class="math notranslate nohighlight">\(\mathbb R^m\)</span>. On sait déjà que le sous–espace <span class="math notranslate nohighlight">\(Im({\bf A})\)</span> est de
 dimension <span class="math notranslate nohighlight">\(rang({\bf A})\)</span>. On en déduit que si <span class="math notranslate nohighlight">\(rang({\bf A})&lt;m\)</span>, la
@@ -756,7 +760,7 @@ inversibles sont associées aux transformations <em>singulières</em> de
 <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>.</p>
 <div class="proof remark dropdown admonition" id="remark-5">
 <p class="admonition-title"><span class="caption-number">Remark 4 </span></p>
-<div class="remark-content section" id="proof-content">
+<section class="remark-content" id="proof-content">
 <p>Une condition équivalente, nécessaire et suffisante, pour que le système
 ait une solution est :
 <span class="math notranslate nohighlight">\(rang({\bf A})=rang\left([{\bf A}\,|\,{\bf b}]\right),\label{SL_CNS1}\)</span>
@@ -767,9 +771,9 @@ l’inverse d’une matrice et que la résolution itérative d’un système
 linéaire permet de tester la condition
 précédente
 comme elle permet de calculer le rang de <span class="math notranslate nohighlight">\({\bf A}\)</span>.</p>
-</div>
-</div></div>
-<div class="section" id="condition-d-une-matrice">
+</section>
+</div></section>
+<section id="condition-d-une-matrice">
 <h2>Condition d’une matrice<a class="headerlink" href="#condition-d-une-matrice" title="Lien permanent vers ce titre">#</a></h2>
 <p>Etudions les variations de la solution d’un système d’équations linéaires quand le second membre subit une perturbation :</p>
 <p><span class="math notranslate nohighlight">\({\bf Ax}={\bf b} \Rightarrow {\bf A(x+\bf \delta x)}={\bf b+\bf \delta\bf b}
@@ -781,9 +785,9 @@ comme elle permet de calculer le rang de <span class="math notranslate nohighlig
 <p><span class="math notranslate nohighlight">\(\frac{\|\bf\delta \bf x\|}{\|\bf x}\|\leq \|\bf A\|\|\bf A^{-1}\|\frac{\|\bf \delta \bf b\|}{\|\bf b\|}\)</span></p>
 <div class="proof definition admonition" id="definition-6">
 <p class="admonition-title"><span class="caption-number">Definition 26 </span> (Condition d’une matrice)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>La quantité <span class="math notranslate nohighlight">\(\|{\bf A}\|\|{\bf A^{-1}}\|\)</span> est appelée la condition de la matrice est notée <span class="math notranslate nohighlight">\(\sigma({\bf A})\)</span>.</p>
-</div>
+</section>
 </div><p id="index-6">On peut démontrer de même que si <span class="math notranslate nohighlight">\({\bf A}\)</span> est sujette à une erreur <span class="math notranslate nohighlight">\({\bf \delta \bf A}\)</span> alors</p>
 <p><span class="math notranslate nohighlight">\(
 {\bf Ax}={\bf b} \Rightarrow ({\bf A + {\bf \delta {\bf A}})(x+\bf \delta x)}={\bf b}
@@ -793,14 +797,14 @@ et</p>
 <p>et on peut même majorer l’erreur relative dans le cas où l’on commet à la fois une erreur sur <span class="math notranslate nohighlight">\({\bf A}\)</span> et une erreur sur <span class="math notranslate nohighlight">\({\bf b}\)</span> :</p>
 <div class="proof theorem admonition" id="theorem-7">
 <p class="admonition-title"><span class="caption-number">Theorem 3 </span> (Majoration de l’erreur dans le cas  <span class="math notranslate nohighlight">\(({ A + { \delta { A}})( x+\delta x)}={ b+\delta b}\)</span>)</p>
-<div class="theorem-content section" id="proof-content">
+<section class="theorem-content" id="proof-content">
 <p>Soient <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_n(\mathbb R)\)</span> inversible, <span class="math notranslate nohighlight">\({\bf b}\in(\mathbb R^n)^*\)</span>, <span class="math notranslate nohighlight">\({\bf \delta \bf  A}\in\mathcal{M}_n(\mathbb R)\)</span> et <span class="math notranslate nohighlight">\({\bf \delta \bf b}\in\mathbb R^n\)</span>. On suppose que <span class="math notranslate nohighlight">\(\|\bf \delta \bf A\|&lt;\frac{1}{\|{\bf A^{-1}}\|}\)</span>.</p>
 <p>Alors la matrice <span class="math notranslate nohighlight">\((\bf A + {\bf \delta {\bf A}})\)</span> est inversible et si <span class="math notranslate nohighlight">\({\bf x}\)</span> est solution de <span class="math notranslate nohighlight">\({\bf Ax} = {\bf b}\)</span> et <span class="math notranslate nohighlight">\((\bf x+\bf \delta x)\)</span> est solution de <span class="math notranslate nohighlight">\(({\bf A + {\bf \delta {\bf A}})(\bf x+\bf \delta x)}={\bf b+\bf \delta b}\)</span>, alors</p>
 <p><span class="math notranslate nohighlight">\(\frac{\|{\bf \delta \bf x}\|}{\|{\bf x}\|}\leq\frac{\sigma(\bf A)}{1-\|{\bf A^{-1}}\|\|{\bf \delta \bf A}}\|\left (\frac{\|{\bf \delta \bf b}\|}{\|{\bf b}\|} +\frac{\|{\bf \delta {\bf A}}\|}{\|{\bf A}\|}\right )\)</span></p>
-</div>
+</section>
 </div><div class="proof property admonition" id="property-8">
 <p class="admonition-title"><span class="caption-number">Property 10 </span></p>
-<div class="property-content section" id="proof-content">
+<section class="property-content" id="proof-content">
 <p>Pour toutes matrices <span class="math notranslate nohighlight">\({\bf A}\)</span>, <span class="math notranslate nohighlight">\({\bf B}\)</span> inversibles :</p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(\sigma(\mathbb I)\geq 1\)</span> et <span class="math notranslate nohighlight">\(\sigma(\mathbb I)= 1\)</span> si et seulement si la norme de calcul de la condition est subordonnée.</p></li>
@@ -810,10 +814,10 @@ et</p>
 <li><p><span class="math notranslate nohighlight">\(\sigma({\bf AB})\leq \sigma ({\bf A})\sigma( {\bf B})\)</span>.</p></li>
 <li><p>Si <span class="math notranslate nohighlight">\({\bf H}\)</span> est une matrice orthogonale <span class="math notranslate nohighlight">\(\sigma_2({\bf H})=1\)</span>.</p></li>
 </ol>
-</div>
+</section>
 </div><div class="proof example admonition" id="example-9">
 <p class="admonition-title"><span class="caption-number">Example 3 </span> (Premier exemple)</p>
-<div class="example-content section" id="proof-content">
+<section class="example-content" id="proof-content">
 <p>Soit
 <span class="math notranslate nohighlight">\({\bf A}=\begin{pmatrix}
     10 &amp;7&amp; 8&amp; 7\\
@@ -849,7 +853,7 @@ et
 </ul>
 <p><span class="math notranslate nohighlight">\(\Rightarrow {\bf x'''}=\begin{pmatrix} -1.83\\5.50\\0.065\\1.57\end{pmatrix}\)</span></p>
 <p><span class="math notranslate nohighlight">\(\Rightarrow\)</span> Une petite variation de <span class="math notranslate nohighlight">\({\bf b}\)</span> et/ou <span class="math notranslate nohighlight">\({\bf A}\)</span>  entraîne une grande variation de <span class="math notranslate nohighlight">\({\bf x}\)</span>.</p>
-</div>
+</section>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">init_printing</span><span class="p">,</span> <span class="n">Matrix</span>
@@ -867,6 +871,18 @@ et
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">init_printing</span><span class="p">,</span> <span class="n">Matrix</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">sympy.solvers.solveset</span> <span class="kn">import</span> <span class="n">linsolve</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">filterwarnings</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;sympy&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -874,10 +890,6 @@ et
 <span class="n">x_1</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \left\{\left( 1, \  1, \  1, \  1\right)\right\}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -887,10 +899,6 @@ et
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \left\{\left( 1.82000000000001, \  -0.360000000000021, \  1.35, \  0.789999999999998\right)\right\}\]</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -898,10 +906,6 @@ et
 <span class="n">x_3</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \left\{\left( -1.91734708097775, \  5.63520081425947, \  0.0789600378770681, \  1.53992900043846\right)\right\}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -911,10 +915,6 @@ et
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\displaystyle \left\{\left( -1.83740079314526, \  5.5073371018571, \  0.0658714766362358, \  1.56931795245825\right)\right\}\]</div>
-</div>
 </div>
 <p>La condition de la matrice peut être facilement calculée</p>
 <div class="cell docutils container">
@@ -923,15 +923,10 @@ et
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Condition de la  matrice : 2984.0927016757555
-</pre></div>
-</div>
-</div>
 </div>
 <div class="proof example admonition" id="example-10">
 <p class="admonition-title"><span class="caption-number">Example 4 </span> (Deuxième exemple)</p>
-<div class="example-content section" id="proof-content">
+<section class="example-content" id="proof-content">
 <p>Soient
 <span class="math notranslate nohighlight">\({\bf A}=\begin{pmatrix}
         0.780 &amp;0.563\\
@@ -943,7 +938,7 @@ et
 <p>La solution approchée <span class="math notranslate nohighlight">\({\bf x_1}=\begin{pmatrix} 0.999\\-1\end{pmatrix}\)</span> fournit le résidu <span class="math notranslate nohighlight">\({\bf Ax_1-b}=\begin{pmatrix} -7.8.10^{-4}\\-9.1.10^{-4}\end{pmatrix}\)</span></p>
 <p>Le vecteur <span class="math notranslate nohighlight">\({\bf x_2}=\begin{pmatrix} 0.341\\-0.087\end{pmatrix}\)</span> fournit le résidu <span class="math notranslate nohighlight">\({\bf Ax_2-b}=\begin{pmatrix} -10^{-6}\\0\end{pmatrix}\)</span></p>
 <p><span class="math notranslate nohighlight">\(\Rightarrow\)</span> Un vecteur <span class="math notranslate nohighlight">\({\bf x_2}\)</span> « loin » de la solution théorique fournit un résidu plus faible.</p>
-</div>
+</section>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">init_printing</span><span class="p">,</span> <span class="n">Matrix</span>
@@ -973,19 +968,10 @@ et
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}-0.00078\\-0.000913\end{matrix}\right]\end{split}\]</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;norme : &#39;</span><span class="p">,</span><span class="n">r</span><span class="o">.</span><span class="n">norm</span><span class="p">()</span><span class="o">.</span><span class="n">evalf</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>norme :  0.001201
 </pre></div>
 </div>
 </div>
@@ -999,19 +985,10 @@ et
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}-1.0 \cdot 10^{-6}\\0\end{matrix}\right]\end{split}\]</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;norme : &#39;</span><span class="p">,</span><span class="n">r2</span><span class="o">.</span><span class="n">norm</span><span class="p">()</span><span class="o">.</span><span class="n">evalf</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>norme :  1.000e-6
 </pre></div>
 </div>
 </div>
@@ -1039,9 +1016,6 @@ et
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="_images/sl_16_0.png" src="_images/sl_16_0.png" />
-</div>
 </div>
 <p>La condition de la matrice est</p>
 <div class="cell docutils container">
@@ -1050,14 +1024,9 @@ et
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Condition de la matrice : 2193218.99965077
-</pre></div>
 </div>
-</div>
-</div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

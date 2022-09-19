@@ -4,7 +4,8 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Transformations élémentaires &#8212; Analyse numérique</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -20,7 +21,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -35,10 +36,13 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script src="_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
@@ -48,8 +52,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Elimination de Gauss" href="gauss.html" />
@@ -113,7 +117,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p class="caption">
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Tutoriels
  </span>
@@ -140,7 +144,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Introduction au calcul matriciel
  </span>
@@ -167,7 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Elimination de Gauss
  </span>
@@ -189,7 +193,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Moindres carrés linéaires
  </span>
@@ -216,7 +220,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Analyse spectrale
  </span>
@@ -263,7 +267,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Index
  </span>
@@ -546,14 +550,14 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="transformations-elementaires">
+  <section class="tex2jax_ignore mathjax_ignore" id="transformations-elementaires">
 <h1>Transformations élémentaires<a class="headerlink" href="#transformations-elementaires" title="Lien permanent vers ce titre">#</a></h1>
 <p>Parmi toutes les méthodes de résolution de systèmes linéaires, nous étudions dans la suite deux algorithmes largement utilisés : l’élimination de Gauss et la méthode LU.</p>
-<div class="section" id="definition">
+<section id="definition">
 <h2>Définition<a class="headerlink" href="#definition" title="Lien permanent vers ce titre">#</a></h2>
 <div class="proof definition admonition" id="definition-0">
 <p class="admonition-title"><span class="caption-number">Definition 27 </span> (Transformation élémentaire)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p id="index-0">Soit <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{mn}(\mathbb R)\)</span>. On appelle transformation élémentaire
 des lignes (respectivement des colonnes) de <span class="math notranslate nohighlight">\({\bf A}\)</span> une combinaison des trois transformations
 suivantes :</p>
@@ -563,7 +567,7 @@ suivantes :</p>
 (resp. colonne);</p></li>
 <li><p>permutation de deux lignes (resp. colonnes).</p></li>
 </ul>
-</div>
+</section>
 </div><p>Une transformation élémentaire sur les lignes (resp. colonnes) de <span class="math notranslate nohighlight">\({\bf A}\)</span>
 équivaut à multiplier <span class="math notranslate nohighlight">\({\bf A}\)</span> à gauche (resp. à droite) par une matrice
 élémentaire obtenue en appliquant la même transformation à la matrice
@@ -577,13 +581,13 @@ identité (de taille <span class="math notranslate nohighlight">\(m\)</span> pou
 <p>Alors on a le résultat :</p>
 <div class="proof theorem admonition" id="theorem-1">
 <p class="admonition-title"><span class="caption-number">Theorem 4 </span></p>
-<div class="theorem-content section" id="proof-content">
+<section class="theorem-content" id="proof-content">
 <p>Les matrices <span class="math notranslate nohighlight">\({\bf M_i(\alpha)}\)</span>, <span class="math notranslate nohighlight">\({\bf C_{ij}(\alpha)}\)</span> et <span class="math notranslate nohighlight">\({\bf P_{ij}}\)</span> sont inversibles et :</p>
 <p><span class="math notranslate nohighlight">\(({\bf M_i(\alpha))^{-1}} = {\bf M_i(\alpha^{-1})}\quad ({\bf C_{ij}(\alpha))^{-1}} =  {\bf C_{ij}(-\alpha)} \quad {\bf P_{ij}^{-1}}=  {\bf P_{ij}}\)</span></p>
-</div>
+</section>
 </div><div class="proof example admonition" id="example-2">
 <p class="admonition-title"><span class="caption-number">Example 5 </span></p>
-<div class="example-content section" id="proof-content">
+<section class="example-content" id="proof-content">
 <p>Soit <span class="math notranslate nohighlight">\(
 {\bf A}=
 \begin{pmatrix}1 &amp; 0 &amp; 0 &amp; 2\\ 1 &amp; 2 &amp; 0 &amp; 1\\ 2 &amp; 1 &amp; 3 &amp; 4\end{pmatrix}
@@ -602,23 +606,23 @@ sur la première ligne sans changer les deux autres, on obtient
 <span class="math notranslate nohighlight">\({\bf P_{14}}=
 \begin{pmatrix}0&amp;0&amp;0 &amp; 1  \\ 0 &amp; 1 &amp; 0&amp;0\\ 0 &amp; 0 &amp; 1&amp;0\\1&amp;0&amp;0&amp;0\end{pmatrix}
 \)</span></p>
-</div>
-</div></div>
-<div class="section" id="pivotage-d-une-colonne">
+</section>
+</div></section>
+<section id="pivotage-d-une-colonne">
 <h2>Pivotage d’une colonne<a class="headerlink" href="#pivotage-d-une-colonne" title="Lien permanent vers ce titre">#</a></h2>
 <p id="index-1">C’est une séquence de transformations élémentaires qui transforme une colonne
 d’une matrice <span class="math notranslate nohighlight">\({\bf A}\)</span> en vecteur unitaire. L’élément qui doit se transformer en 1 est le <code class="docutils literal notranslate"><span class="pre">pivot</span></code>.</p>
 <p id="index-2">L’algorithme <a class="reference internal" href="#pivotage">Algorithm 1</a> décrit la transformation d’une colonne <span class="math notranslate nohighlight">\({\bf A_{\bullet s}}\)</span> en le <span class="math notranslate nohighlight">\(s^e\)</span> vecteur de la base canonique.</p>
 <div class="proof algorithm admonition" id="pivotage">
 <p class="admonition-title"><span class="caption-number">Algorithm 1 </span> (Pivotage d’une colonne <span class="math notranslate nohighlight">\({\bf A_{\bullet s}}\)</span> suivant le pivot <span class="math notranslate nohighlight">\(a_{rs}\ne 0\)</span>)</p>
-<div class="algorithm-content section" id="proof-content">
+<section class="algorithm-content" id="proof-content">
 <p>**Entrée : ** <span class="math notranslate nohighlight">\({\bf A}\)</span>, <span class="math notranslate nohighlight">\(s\)</span> l’indice de la colonne à pivoter, <span class="math notranslate nohighlight">\(r\)</span> l’indice de ligne du pivot</p>
 <p>**Sortie : ** La colonne transformée</p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\({\bf A_{r \bullet}}\leftarrow \frac{1}{a_{rs}}\bf A_{r \bullet}\)</span></p></li>
 <li><p>Pour <span class="math notranslate nohighlight">\(i \ne r\)</span> : <span class="math notranslate nohighlight">\({\bf A_{i \bullet}}\leftarrow {\bf A_{i \bullet}} -a_{is}{\bf A_{r \bullet}}\)</span></p></li>
 </ol>
-</div>
+</section>
 </div><p>Pour <span class="math notranslate nohighlight">\(m=n\)</span>, il est clair que, si tous les pivots successifs sont non nuls, une séquence de
 <span class="math notranslate nohighlight">\(n\)</span> pivotages effectués sur les <span class="math notranslate nohighlight">\(n\)</span> colonnes de la matrice avec le pivot
 sur la diagonale transformera la matrice en l’identité. Si <span class="math notranslate nohighlight">\({\bf E_i}\)</span> est la
@@ -642,7 +646,7 @@ des pivotages successifs de la matrice, mais plus robustes et moins
 coûteuses.</p>
 <div class="proof example admonition" id="example-4">
 <p class="admonition-title"><span class="caption-number">Example 6 </span></p>
-<div class="example-content section" id="proof-content">
+<section class="example-content" id="proof-content">
 <p>Pivotons la première colonne de
 <span class="math notranslate nohighlight">\(
 {\bf A}=
@@ -657,9 +661,9 @@ et le résultat est
 <span class="math notranslate nohighlight">\({\bf A'}={\bf E}{\bf A}=
 \begin{pmatrix}1 &amp; 1 &amp; 1\\ 0 &amp; -1 &amp; -2\\ 0 &amp; 3 &amp; 5\end{pmatrix}
 \)</span></p>
-</div>
-</div></div>
-</div>
+</section>
+</div></section>
+</section>
 
     <script type="text/x-thebe-config">
     {
