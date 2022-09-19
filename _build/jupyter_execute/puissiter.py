@@ -207,6 +207,8 @@ plt.tight_layout()
 # In[3]:
 
 
+from sympy import Matrix
+
 A = Matrix([[1, 1], [1, 0]])
 A.eigenvals()
 
@@ -245,7 +247,7 @@ A.eigenvals()
 # avec $\|q_0\|=1$, et $q_0$ n'est pas orthogonal à $v^1$, converge vers la direction du vecteur propre associé à la plus 
 # petite valeur propre en module. On remarquera le coût de calcul en $O(n^2)$.
 
-# In[ ]:
+# In[4]:
 
 
 import matplotlib.pyplot as plt
