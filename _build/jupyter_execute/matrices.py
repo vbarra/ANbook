@@ -5,7 +5,7 @@
 
 
 # n'exécuter qu'une fois
-get_ipython().system('pip3 install sympy numpy matplotlib fractions warnings')
+get_ipython().system('pip3 install sympy numpy matplotlib warnings')
 
 
 # # Matrices
