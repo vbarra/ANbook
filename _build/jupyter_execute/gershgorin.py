@@ -1,6 +1,13 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# In[1]:
+
+
+# n'exécuter qu'une fois
+get_ipython().system('pip3 install sympy numpy matplotlib')
+
+
 # # Disques de Gershgorin
 # 
 # Avant d'aborder quelques algorithmes de calcul des valeurs propres d'une matrice, donnons une alternative pratique à ces algorithmes . Le théorème suivant  permet de localiser les valeurs propres dans des disques, dits disques de Gershgorin, du plan complexe.
@@ -45,7 +52,7 @@
 # \end{align*}$
 # ```
 
-# In[1]:
+# In[2]:
 
 
 import numpy as np
