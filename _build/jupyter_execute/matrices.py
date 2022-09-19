@@ -5,7 +5,7 @@
 
 
 # n'exécuter qu'une fois
-get_ipython().system('pip3 install sympy numpy matplotlib warnings')
+get_ipython().system('pip3 install sympy numpy matplotlib')
 
 
 # # Matrices
@@ -671,7 +671,7 @@ imA
 # $\mathrm{rang}({\bf A})\le \min\{m,n\}.$
 # ````
 
-# In[ ]:
+# In[17]:
 
 
 A = np.array([[2, 0, 7],[-1, -2, -5],[1, 4, -2]])
