@@ -213,27 +213,29 @@ A = Matrix([[1, 1], [1, 0]])
 A.eigenvals()
 
 
-# ```
-# {code-cell} ipython3
-# A.eigenvects()
-# ```
-# 
-# ```
-# {code-cell} ipython3
-# S, D = A.diagonalize()
-# ```
-# 
+# In[4]:
+
+
+A.eigenvects()
+
+
+# In[5]:
+
+
+S, D = A.diagonalize()
+
+
 # Et puisque ${u}_{k} = {A}^{k}{u}_{0}={\Lambda}^{k}{S}{c}$ 
 # et $u_0=\begin{bmatrix}1\\0\end{bmatrix}$
-# 
-# 
-# ```
-# {code-cell} ipython3
-# u_zero =  Matrix([1, 0])
-# u_100 = A ** 100 * u_zero
-# u_100
-# ```
-# 
+
+# In[6]:
+
+
+u_zero =  Matrix([1, 0])
+u_100 = A ** 100 * u_zero
+u_100
+
+
 # ## Méthode des puissances inverses
 # 
 # Pour les mêmes raisons, l'itération 
@@ -246,7 +248,7 @@ A.eigenvals()
 # avec $\|q_0\|=1$, et $q_0$ n'est pas orthogonal à $v^1$, converge vers la direction du vecteur propre associé à la plus 
 # petite valeur propre en module. On remarquera le coût de calcul en $O(n^2)$.
 
-# In[4]:
+# In[7]:
 
 
 import matplotlib.pyplot as plt
