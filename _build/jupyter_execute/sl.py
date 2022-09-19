@@ -1,6 +1,13 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# In[1]:
+
+
+# n'exécuter qu'une fois
+get_ipython().system('pip3 install sympy numpy matplotlib')
+
+
 # # Systèmes d'équations linéaires
 # ```{index} Système linéaire
 # ```
@@ -323,16 +330,13 @@
 # 
 # ```
 
-# In[1]:
+# In[2]:
 
 
 from sympy import init_printing, Matrix
 from sympy.solvers.solveset import linsolve
-from warnings import filterwarnings
 import numpy as np
 import matplotlib.pyplot as plt
-get_ipython().run_line_magic('matplotlib', 'inline')
-filterwarnings('ignore')
 
 A = Matrix([[10, 7, 8, 7], [7, 5, 6, 5], [8, 6, 10, 9], [7, 5, 9, 10]])
 deltaA = Matrix([[0, 0, 0.1, 0.2], [2/25., 1/25., 0, 0], [0, -1/50., -11/100., 0], [-0.01, -0.1, 9, -1/50.]])
@@ -340,28 +344,28 @@ b_1 = Matrix([32, 23, 33, 31])
 b_2 = Matrix([32.01, 22.99, 33.01, 30.99])
 
 
-# In[ ]:
+# In[3]:
 
 
 x_1 = linsolve([A,b_1])
 x_1
 
 
-# In[ ]:
+# In[4]:
 
 
 x_2 = linsolve([A,b_2])
 x_2
 
 
-# In[ ]:
+# In[5]:
 
 
 x_3 = linsolve([A+deltaA,b_1])
 x_3
 
 
-# In[ ]:
+# In[6]:
 
 
 x_4 = linsolve([A+deltaA,b_2])
@@ -370,7 +374,7 @@ x_4
 
 # La condition de la matrice peut être facilement calculée
 
-# In[ ]:
+# In[7]:
 
 
 print('Condition de la  matrice :', np.linalg.cond(np.matrix(A, dtype='float'),p=2))
@@ -399,19 +403,16 @@ print('Condition de la  matrice :', np.linalg.cond(np.matrix(A, dtype='float'),p
 # 
 # ```
 
-# In[ ]:
+# In[8]:
 
 
 from sympy import init_printing, Matrix
 from sympy.solvers.solveset import linsolve
-from warnings import filterwarnings
 import numpy as np
 
 get_ipython().run_line_magic('matplotlib', 'inline')
 import matplotlib.pyplot as plt
 init_printing(use_latex = 'mathjax')
-get_ipython().run_line_magic('matplotlib', 'inline')
-filterwarnings('ignore')
 
 A = Matrix([[0.78,0.563], [0.913,0.659]])
 b = Matrix([0.217,0.254])
@@ -421,7 +422,7 @@ b = Matrix([0.217,0.254])
 # 
 # La solution approchée $(0.999,-1)^\top$ fournit un résidu
 
-# In[ ]:
+# In[9]:
 
 
 x_app = Matrix([0.999,-1])
@@ -429,7 +430,7 @@ r = A*x_app -b
 r.evalf(4)
 
 
-# In[ ]:
+# In[10]:
 
 
 print('norme : ',r.norm().evalf(4))
@@ -437,7 +438,7 @@ print('norme : ',r.norm().evalf(4))
 
 # Le vecteur $(0.341,-0.087)^\top$, éloigné de la solution théorique, fournit lui un résidu
 
-# In[ ]:
+# In[11]:
 
 
 x_app2 = Matrix([0.341,-0.087])
@@ -445,13 +446,13 @@ r2 = A*x_app2 -b
 r2.evalf(4)
 
 
-# In[ ]:
+# In[12]:
 
 
 print('norme : ',r2.norm().evalf(4))
 
 
-# In[ ]:
+# In[13]:
 
 
 def plot_vector2d(vector2d, origin=[0, 0], **options):
@@ -476,7 +477,7 @@ plt.tight_layout()
 
 # La condition de la matrice est
 
-# In[ ]:
+# In[14]:
 
 
 print('Condition de la matrice :', np.linalg.cond(np.matrix(A, dtype='float'),p=2))

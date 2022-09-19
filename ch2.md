@@ -86,9 +86,9 @@ L'algorithme {prf:ref}`pivotage` décrit la transformation d'une colonne ${\bf A
 ```{prf:algorithm} Pivotage d'une colonne ${\bf A_{\bullet s}}$ suivant le pivot $a_{rs}\ne 0$
 :label: pivotage
 
-**Entrée : ** ${\bf A}$, $s$ l'indice de la colonne à pivoter, $r$ l'indice de ligne du pivot
+**Entrée :** ${\bf A}$, $s$ l'indice de la colonne à pivoter, $r$ l'indice de ligne du pivot
 
-**Sortie : ** La colonne transformée
+**Sortie :** La colonne transformée
 
 1. ${\bf A_{r \bullet}}\leftarrow \frac{1}{a_{rs}}\bf A_{r \bullet}$
 2. Pour $i \ne r$ : ${\bf A_{i \bullet}}\leftarrow {\bf A_{i \bullet}} -a_{is}{\bf A_{r \bullet}}$
