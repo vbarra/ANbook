@@ -17,22 +17,15 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-from sympy import init_printing, Matrix, symbols
-init_printing(use_latex = 'mathjax') 
+# n'exécuter qu'une fois
+pip3 install sympy numpy matplotlib fractions warnings
 
-A = Matrix([[1, 2, 3, 1], [1, 1, 2, 1], [1, 2, 3, 1]])
-imA = A.columnspace() 
-print("L'image de A est le sous-espace engendré par ")
-imA
 ------------------
 
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [0;32mIn [15], line 1[0m
-[0;32m----> 1[0m [38;5;28;01mfrom[39;00m [38;5;21;01msympy[39;00m [38;5;28;01mimport[39;00m init_printing, Matrix, symbols
-[1;32m      2[0m init_printing(use_latex [38;5;241m=[39m [38;5;124m'[39m[38;5;124mmathjax[39m[38;5;124m'[39m) 
-[1;32m      4[0m A [38;5;241m=[39m Matrix([[[38;5;241m1[39m, [38;5;241m2[39m, [38;5;241m3[39m, [38;5;241m1[39m], [[38;5;241m1[39m, [38;5;241m1[39m, [38;5;241m2[39m, [38;5;241m1[39m], [[38;5;241m1[39m, [38;5;241m2[39m, [38;5;241m3[39m, [38;5;241m1[39m]])
+[0;36m  Cell [0;32mIn [1], line 2[0;36m[0m
+[0;31m    pip3 install sympy numpy matplotlib fractions warnings[0m
+[0m         ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
 
-[0;31mModuleNotFoundError[0m: No module named 'sympy'
-ModuleNotFoundError: No module named 'sympy'
+SyntaxError: invalid syntax (822045961.py, line 2)
 

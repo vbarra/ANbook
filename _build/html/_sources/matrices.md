@@ -10,6 +10,13 @@ kernelspec:
   name: python3
 ---
 
+```{code-cell} ipython3
+# n'exécuter qu'une fois
+pip3 install sympy numpy matplotlib fractions warnings
+
+```
+
+
 # Matrices
 
 ## Définitions
@@ -89,7 +96,8 @@ Voici quelques exemples de transformations linéaires.
 ### Addition
 
 ```{code-cell} ipython3
-
+import matplotlib.pyplot as plt
+import numpy as np
 from matplotlib.patches import Polygon
 
 def plot_vector2d(vector2d, origin=[0, 0], **options):
@@ -128,6 +136,9 @@ plt.show()
 
 ### Multiplication par un scalaire
 ```{code-cell} ipython3
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.patches import Polygon
 def plot_transformation(P_before, P_after, text_before, text_after, axis = [0, 5, 0, 4], arrows=False):
     if arrows:
         for vector_before, vector_after in zip(P_before.T, P_after.T):
@@ -148,6 +159,9 @@ plt.show()
 
 ### Rotation
 ```{code-cell} ipython3
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.patches import Polygon
 angle30 = 30 * np.pi / 180  
 R = np.array([
         [np.cos(angle30), np.sin(angle30)],
@@ -162,6 +176,9 @@ plt.show()
 ### Transvection
 
 ```{code-cell} ipython3
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.patches import Polygon
 F_transvection = np.array([
         [1, 1.5],
         [0, 1]
@@ -175,6 +192,9 @@ plt.show()
 ### Compression
 
 ```{code-cell} ipython3
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.patches import Polygon
 F_compression = np.array([
         [1.8, 0],
         [0, 1/1.4]
@@ -188,6 +208,9 @@ plt.show()
 ### Réflexion
 
 ```{code-cell} ipython3
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.patches import Polygon
 F_reflex = np.array([
         [1, 0],
         [0, -1]
@@ -278,7 +301,7 @@ ${\bf A} = \begin{pmatrix}
 
 ```{code-cell} ipython3
 :tags: [transpose]
-
+import numpy as np
 A = np.array([[5, 4, 0],[1, 8, 3],[6, 7, 2]])
 print('A = \n',A,'\n' 
 )
@@ -400,6 +423,7 @@ de lignes de ${\bf B}$ pour que l'opération puisse être réalisée.
 
 ```{code-cell} ipython3
 :tags: [prod]
+import numpy as np
 A = np.array([[1, 3],[2,1]])
 B = np.array([[3, 0, 7],[-1, -2, -5]])
 C = A@B
@@ -458,6 +482,8 @@ résolution d'un système linéaire à $n$ inconnues.
 Le produit matriciel correspond à une composition de transformations linéaires.
 
 ```{code-cell} ipython3
+import numpy as np
+import matplotlib.pyplot as plt
 A = np.array([[1, 3],[2,1]])
 B = np.array([[-2, 1],[1, 1]])
 
@@ -532,6 +558,7 @@ ${\bf A}{\bf x}={\bf 0}\quad\Leftrightarrow\quad {\bf x}={\bf 0}.$
 
 ```{code-cell} ipython3
 :tags: [inv]
+import numpy as np
 A = np.array([[2, 0, 7],[-1, -2, -5],[1, 4, -2]])
 B = np.linalg.inv(A)
 print(B)

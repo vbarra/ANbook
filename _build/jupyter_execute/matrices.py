@@ -1,6 +1,13 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# In[1]:
+
+
+# n'exécuter qu'une fois
+pip3 install sympy numpy matplotlib fractions warnings
+
+
 # # Matrices
 # 
 # ## Définitions
@@ -14,7 +21,7 @@
 # 
 # La définition de matrice se fait simplement en Python à l'aide de la librairie <a href="https://numpy.org" target="_blank">numpy</a>
 
-# In[1]:
+# In[ ]:
 
 
 import numpy as np
@@ -62,7 +69,7 @@ D = np.array([[2],[6]])
 # 
 # et en Python
 
-# In[2]:
+# In[ ]:
 
 
 import numpy as np
@@ -79,9 +86,11 @@ print(A+C,'\n')
 # 
 # ### Addition
 
-# In[3]:
+# In[ ]:
 
 
+import matplotlib.pyplot as plt
+import numpy as np
 from matplotlib.patches import Polygon
 
 def plot_vector2d(vector2d, origin=[0, 0], **options):
@@ -120,9 +129,12 @@ plt.show()
 
 # ### Multiplication par un scalaire
 
-# In[4]:
+# In[ ]:
 
 
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.patches import Polygon
 def plot_transformation(P_before, P_after, text_before, text_after, axis = [0, 5, 0, 4], arrows=False):
     if arrows:
         for vector_before, vector_after in zip(P_before.T, P_after.T):
@@ -143,9 +155,12 @@ plt.show()
 
 # ### Rotation
 
-# In[5]:
+# In[ ]:
 
 
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.patches import Polygon
 angle30 = 30 * np.pi / 180  
 R = np.array([
         [np.cos(angle30), np.sin(angle30)],
@@ -159,9 +174,12 @@ plt.show()
 
 # ### Transvection
 
-# In[6]:
+# In[ ]:
 
 
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.patches import Polygon
 F_transvection = np.array([
         [1, 1.5],
         [0, 1]
@@ -174,9 +192,12 @@ plt.show()
 
 # ### Compression
 
-# In[7]:
+# In[ ]:
 
 
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.patches import Polygon
 F_compression = np.array([
         [1.8, 0],
         [0, 1/1.4]
@@ -189,9 +210,12 @@ plt.show()
 
 # ### Réflexion
 
-# In[8]:
+# In[ ]:
 
 
+import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.patches import Polygon
 F_reflex = np.array([
         [1, 0],
         [0, -1]
@@ -278,9 +302,10 @@ plt.tight_layout()
 # 1&4&7\\2&5&8\\3&6&9
 # \end{pmatrix}$
 
-# In[9]:
+# In[ ]:
 
 
+import numpy as np
 A = np.array([[5, 4, 0],[1, 8, 3],[6, 7, 2]])
 print('A = \n',A,'\n' 
 )
@@ -302,7 +327,7 @@ print('A^\top = \n',A.transpose())
 # $Tr({\bf A}) = \displaystyle\sum_{i=1}^n a_{ii}$
 # ````
 
-# In[10]:
+# In[ ]:
 
 
 print("Trace de A : ", np.trace(A))
@@ -337,7 +362,7 @@ print("Trace de A : ", np.trace(A))
 # ${\bf A}$ en supprimant la première ligne et la $j^e$ colonne.
 # ````
 
-# In[11]:
+# In[ ]:
 
 
 print("Déterminant de A : ", np.linalg.det(A))
@@ -396,9 +421,10 @@ print("Déterminant de A : ", np.linalg.det(A))
 # On note que le nombre de colonnes de ${\bf A}$ doit être égal au nombre
 # de lignes de ${\bf B}$ pour que l'opération puisse être réalisée.
 
-# In[12]:
+# In[ ]:
 
 
+import numpy as np
 A = np.array([[1, 3],[2,1]])
 B = np.array([[3, 0, 7],[-1, -2, -5]])
 C = A@B
@@ -455,9 +481,11 @@ print(C)
 # 
 # Le produit matriciel correspond à une composition de transformations linéaires.
 
-# In[13]:
+# In[ ]:
 
 
+import numpy as np
+import matplotlib.pyplot as plt
 A = np.array([[1, 3],[2,1]])
 B = np.array([[-2, 1],[1, 1]])
 
@@ -528,9 +556,10 @@ plt.tight_layout()
 # assurer l'existence, il faut et il suffit que
 # ${\bf A}{\bf x}={\bf 0}\quad\Leftrightarrow\quad {\bf x}={\bf 0}.$
 
-# In[14]:
+# In[ ]:
 
 
+import numpy as np
 A = np.array([[2, 0, 7],[-1, -2, -5],[1, 4, -2]])
 B = np.linalg.inv(A)
 print(B)
@@ -618,7 +647,7 @@ print(B)
 # $\mathrm{Im}({\bf A})$ est clairement un sous-espace vectoriel de
 # $\mathbb R^m$.
 
-# In[15]:
+# In[ ]:
 
 
 from sympy import init_printing, Matrix, symbols
