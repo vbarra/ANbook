@@ -12,7 +12,7 @@ kernelspec:
 
 ```{code-cell} ipython3
 # n'exécuter qu'une fois
-!pip3 install numpy matplotlib
+!pip3 install numpy matplotlib sympy
 
 ```
 

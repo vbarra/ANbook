@@ -222,15 +222,15 @@ A.eigenvals()
 # ```
 # 
 # Et puisque 
-# $$ {F}_{k} = {A}^{k}{F}_{0}={\Lambda}^{k}{S}{c} $$
-# et $F_0=\begin{bmatrix}1\\0\end{bmatrix}$
+# $$ {u}_{k} = {A}^{k}{u}_{0}={\Lambda}^{k}{S}{c} $$
+# et $u_0=\begin{bmatrix}1\\0\end{bmatrix}$
 # 
 # 
 # ```
 # {code-cell} ipython3
-# F_zero =  Matrix([1, 0])
-# F_100 = A ** 100 * F_zero
-# F_100
+# u_zero =  Matrix([1, 0])
+# u_100 = A ** 100 * u_zero
+# u_100
 # ```
 # 
 # ## Méthode des puissances inverses
