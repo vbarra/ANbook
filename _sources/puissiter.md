@@ -9,6 +9,13 @@ kernelspec:
   language: python
   name: python3
 ---
+
+```{code-cell} ipython3
+# n'exécuter qu'une fois
+!pip3 install numpy matplotlib
+
+```
+
 # Méthode des puissances itérées
 
 
