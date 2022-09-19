@@ -1,6 +1,13 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# In[1]:
+
+
+# n'exécuter qu'une fois
+get_ipython().system('pip3 install sympy numpy matplotlib')
+
+
 # # Similitudes
 # 
 # L'objectif est encore une fois de transformer une matrice par des transformations simples en une matrice dont on connaît les valeurs propres, c'est-à-dire, une matrice triangulaire ou diagonale. Les transformations qui maintiennent le spectre d'une matrice sont des similitudes.
@@ -22,7 +29,7 @@
 # ```
 # En effet, soit $x$ un vecteur propre de $A$ associé à la valeur propre $\lambda$. On a donc $Ax=\lambda x$, qui s'écrit $SBS^{-1}x=\lambda x$, ce qui veut dire que $\lambda$ est valeur propre de $B$ associé au vecteur propre $S^{-1}x$.
 
-# In[1]:
+# In[2]:
 
 
 from sympy import Matrix
@@ -32,7 +39,7 @@ S = Matrix([[1, 4], [0, 1]])
 
 # Pour $\bf S$ inversible, on construit donc $\bf{B=S^{-1}AS}$ semblable.
 
-# In[ ]:
+# In[3]:
 
 
 B = S.inv() * A * S
@@ -40,7 +47,7 @@ B = S.inv() * A * S
 
 # On vérifie que $\bf A$ et $\bf B$ ont le même spectre
 
-# In[ ]:
+# In[4]:
 
 
 A.eigenvals(), B.eigenvals()
@@ -50,13 +57,13 @@ A.eigenvals(), B.eigenvals()
 # 
 # En revanche, les vecteurs propres sont différents
 
-# In[ ]:
+# In[5]:
 
 
 Matrix(A.eigenvects())
 
 
-# In[ ]:
+# In[6]:
 
 
 Matrix(B.eigenvects())

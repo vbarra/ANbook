@@ -9,6 +9,13 @@ kernelspec:
   language: python
   name: python3
 ---
+
+```{code-cell} ipython3
+# n'exécuter qu'une fois
+!pip3 install sympy numpy matplotlib
+
+```
+
 # Similitudes
 
 L'objectif est encore une fois de transformer une matrice par des transformations simples en une matrice dont on connaît les valeurs propres, c'est-à-dire, une matrice triangulaire ou diagonale. Les transformations qui maintiennent le spectre d'une matrice sont des similitudes.
