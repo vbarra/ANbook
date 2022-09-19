@@ -109,9 +109,9 @@ Le principe de Gram-Schmidt est de calculer, pour $j\in[\![2,p]\!]$,  chaque vec
 
 ```{prf:algorithm} Procédé d'orthonormalisation de Gram-Schmidt - version de base
 :label: GS
-**Entrée : **  ${\bf A}\in\mathcal{M}_{n,p}(\mathbb R)$ de rang $p$
+**Entrée :**  ${\bf A}\in\mathcal{M}_{n,p}(\mathbb R)$ de rang $p$
 
-**Sortie : ** ${\bf Q_1}\in\mathcal{M}_{n,p}(\mathbb R)$ à colonnes orthonormées, ${\bf R_1}\in\mathcal{M}_{p}(\mathbb R)$ triangulaire supérieure
+**Sortie :** ${\bf Q_1}\in\mathcal{M}_{n,p}(\mathbb R)$ à colonnes orthonormées, ${\bf R_1}\in\mathcal{M}_{p}(\mathbb R)$ triangulaire supérieure
 
 1. $r_{11} = \\{\bf A_{\bullet,1}}\|$
 2. ${\bf q_{{1}}} = \frac{{\bf A_{\bullet,1}}}{r_{11}}$
@@ -336,9 +336,9 @@ On l'illustre dans la suite (algorithme {prf:ref}`QR`) dans le cas où ${\bf A}\
 
 ```{prf:algorithm} Factorisation QR par matrices de Householder
 :label: QR
-**Entrée : **  ${\bf A}\in\mathcal{M}_n(\mathbb R)$
+**Entrée :**  ${\bf A}\in\mathcal{M}_n(\mathbb R)$
 
-**Sortie : **  ${\bf Q}\in\mathcal{M}_n(\mathbb R)$ orthogonale, ${\bf R}\in\mathcal{M}_n(\mathbb R)$ triangulaire supérieure
+**Sortie :**  ${\bf Q}\in\mathcal{M}_n(\mathbb R)$ orthogonale, ${\bf R}\in\mathcal{M}_n(\mathbb R)$ triangulaire supérieure
 
 1. ${\bf A^{(1)}}={\bf A}$
 2. Pour $j=1$ à $n-1$

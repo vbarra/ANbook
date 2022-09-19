@@ -80,7 +80,7 @@
 # 
 # 
 # ````{prf:example}
-#  Le système $\mathcal{S}$ produit pour les entrées $t_i =\{-2,-1,0,1,2\}$ les sorties \\$Y_i=\{3,1,-0.5,1.5,4\}$.
+#  Le système $\mathcal{S}$ produit pour les entrées $t_i =\{-2,-1,0,1,2\}$ les sorties $Y_i=\{3,1,-0.5,1.5,4\}$.
 # 
 # On modélise $\mathcal{S}$ par un polynôme $P(t)=\alpha+\beta t+\gamma t^2 = {\bf a^\top}{\bf x}$, où ${\bf x}=\begin{pmatrix}\alpha\\\beta\\\gamma\end{pmatrix} $et ${\bf a}=\begin{pmatrix}1\\t\\t^2\end{pmatrix}$. On recherche les valeurs de $\alpha,\beta,\gamma$ qui minimisent la somme des carrés des erreurs entre les valeurs théoriques et les valeurs mesurées.
 # 
@@ -121,16 +121,12 @@
 # In[1]:
 
 
-import warnings
-warnings.filterwarnings('ignore')
 import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 from mpl_toolkits.mplot3d import Axes3D
 from numpy.linalg import inv
 from numpy import dot,power
-
-get_ipython().run_line_magic('matplotlib', 'inline')
 
 
 # In[2]:

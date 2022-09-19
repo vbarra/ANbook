@@ -125,7 +125,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Installation.html">
-   Requirement
+   Installation
   </a>
  </li>
  <li class="toctree-l1">
@@ -648,7 +648,7 @@ Le vecteur des erreurs <span class="math notranslate nohighlight">\({\bf Y}-{\bf
 </div><div class="proof example admonition" id="example-1">
 <p class="admonition-title"><span class="caption-number">Example 12 </span></p>
 <section class="example-content" id="proof-content">
-<p>Le système <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> produit pour les entrées <span class="math notranslate nohighlight">\(t_i =\{-2,-1,0,1,2\}\)</span> les sorties \<span class="math notranslate nohighlight">\(Y_i=\{3,1,-0.5,1.5,4\}\)</span>.</p>
+<p>Le système <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> produit pour les entrées <span class="math notranslate nohighlight">\(t_i =\{-2,-1,0,1,2\}\)</span> les sorties <span class="math notranslate nohighlight">\(Y_i=\{3,1,-0.5,1.5,4\}\)</span>.</p>
 <p>On modélise <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> par un polynôme <span class="math notranslate nohighlight">\(P(t)=\alpha+\beta t+\gamma t^2 = {\bf a^\top}{\bf x}\)</span>, où <span class="math notranslate nohighlight">\({\bf x}=\begin{pmatrix}\alpha\\\beta\\\gamma\end{pmatrix} \)</span>et <span class="math notranslate nohighlight">\({\bf a}=\begin{pmatrix}1\\t\\t^2\end{pmatrix}\)</span>. On recherche les valeurs de <span class="math notranslate nohighlight">\(\alpha,\beta,\gamma\)</span> qui minimisent la somme des carrés des erreurs entre les valeurs théoriques et les valeurs mesurées.</p>
 <table class="colwidths-auto table">
 <thead>
@@ -707,16 +707,12 @@ On a alors</p>
 <h2>Un exemple de régression polynomiale par moindres carrés<a class="headerlink" href="#un-exemple-de-regression-polynomiale-par-moindres-carres" title="Lien permanent vers ce titre">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d.art3d</span> <span class="kn">import</span> <span class="n">Poly3DCollection</span>
 <span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
 <span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">inv</span>
 <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">dot</span><span class="p">,</span><span class="n">power</span>
-
-<span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
 </div>
@@ -863,7 +859,7 @@ On a alors</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Erreur :  5.337964359727497
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Erreur :  4.385611897726286
 </pre></div>
 </div>
 <img alt="_images/mcl_12_1.png" src="_images/mcl_12_1.png" />
@@ -908,7 +904,15 @@ On a alors</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/mcl_14_0.png" src="_images/mcl_14_0.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages/numpy/core/shape_base.py:121: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify &#39;dtype=object&#39; when creating the ndarray.
+  ary = asanyarray(ary)
+/Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages/numpy/core/fromnumeric.py:2009: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify &#39;dtype=object&#39; when creating the ndarray.
+  result = asarray(a).shape
+/Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages/numpy/lib/stride_tricks.py:342: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify &#39;dtype=object&#39; when creating the ndarray.
+  array = np.array(array, copy=False, subok=subok)
+</pre></div>
+</div>
+<img alt="_images/mcl_14_1.png" src="_images/mcl_14_1.png" />
 </div>
 </div>
 </section>
