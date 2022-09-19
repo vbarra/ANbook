@@ -64,7 +64,7 @@ A.eigenvects()
 ```
 
 ```{code-cell} ipython3
-Matrix(B.eigenvects())
+B.eigenvects()
 ```
 
 

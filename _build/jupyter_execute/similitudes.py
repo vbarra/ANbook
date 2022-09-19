@@ -66,7 +66,7 @@ A.eigenvects()
 # In[6]:
 
 
-Matrix(B.eigenvects())
+B.eigenvects()
 
 
 # L'intérêt de ces transformations est double : 
