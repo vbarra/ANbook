@@ -43,9 +43,9 @@ En résumé, $Q$ est la matrice orthogonale qui permet de triangulariser $A_k$ e
 
 ```{prf:algorithm} Algorithme QR
 :label: QR
-**Entrée : ** La matrice ${\bf A}$
+**Entrée :** La matrice ${\bf A}$
 
-**Sortie : ** Les matrices ${\bf Q}$ et ${\bf R}$
+**Sortie :** Les matrices ${\bf Q}$ et ${\bf R}$
 
 1. $A_0=A$
 2. k=0
@@ -61,6 +61,7 @@ Observons que $A_{k+1}=Q^\top A_kQ$, ce qui implique que les matrices sont toute
 
 
 ```{prf:remark}
+:class: dropdown
 Les performances sont considérablement améliorées si on intègre deux modifications :
 - décalage de la matrice en prenant comme approximation de la plus petite valeur propre l'élément ($n\times n$) de $A_k$
 - transformation préalable de $A$ en une matrice tridiagonale. Les matrices $A_k$ restent tridiagonales et l'orthogonalisation s'effectue en $O(n)$ flops.

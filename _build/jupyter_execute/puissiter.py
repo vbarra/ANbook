@@ -1,6 +1,13 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# In[1]:
+
+
+# n'exécuter qu'une fois
+get_ipython().system('pip3 install numpy matplotlib')
+
+
 # # Méthode des puissances itérées
 # 
 # 
@@ -64,7 +71,7 @@
 #  ce qui signifie que la suite des itérés $\{q_k\}$ converge vers le vecteur propre $v^n$ ou $-v^n$. 
 #  On peut montrer de plus que $\|Aq_k\|$ tend vers $|\lambda_n|$ et que la convergence est linéaire de taux $\left |\frac{\lambda_{n-1}}{\lambda_n}\right |$ si $\alpha_{n-1}\neq 0$.
 
-# In[1]:
+# In[2]:
 
 
 import matplotlib.pyplot as plt
@@ -197,7 +204,7 @@ plt.tight_layout()
 # avec $\|q_0\|=1$, et $q_0$ n'est pas orthogonal à $v^1$, converge vers la direction du vecteur propre associé à la plus 
 # petite valeur propre en module. On remarquera le coût de calcul en $O(n^2)$.
 
-# In[2]:
+# In[3]:
 
 
 import matplotlib.pyplot as plt
