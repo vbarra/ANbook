@@ -60,7 +60,7 @@ A.eigenvals(), B.eigenvals()
 # In[5]:
 
 
-Matrix(A.eigenvects())
+A.eigenvects()
 
 
 # In[6]:
