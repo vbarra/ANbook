@@ -216,6 +216,8 @@ $ {u}_{k+1}=\begin{bmatrix} 1 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} {F}_{k+
 ```
 
 ```{code-cell} ipython3
+from sympy import Matrix
+
 A = Matrix([[1, 1], [1, 0]])
 A.eigenvals()
 ```
