@@ -206,7 +206,8 @@ plt.tight_layout()
 ```{prf:example} Suite de Fibonacci
 Considérons la suite de  Fibonacci : 0, 1, 1, 2, 3, 5, 8, 13, ...
 On cherche, sans calculer explicitement le terme, quelle va être la valeur du 100-ième terme 
-La suite est définie par $ {F}_{k+2}={F}_{k+1}+{F}_{k} $.  En ajoutant l'équation  $F_{k+1}=F_{k+1}$, on note alors  $u_{k}$ 
+La suite est définie par $ {F}_{k+2}={F}_{k+1}+{F}_{k} $, avec 
+$F_0=0, F_1=1$.  En ajoutant l'équation  $F_{k+1}=F_{k+1}$, on note alors  $u_{k}$ 
 
 ${u}_{k}=\begin{bmatrix} {F}_{k+1} \\ {F}_{k} \end{bmatrix} $
 Ainsi
@@ -214,6 +215,33 @@ Ainsi
 $ {u}_{k+1}=\begin{bmatrix} 1 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} {F}_{k+1} \\ {F}_{k} \end{bmatrix}=\begin{bmatrix} {F}_{k+1}+{F}_{k} \\ {F}_{k+1} \end{bmatrix} \\ {u}_{k+1}=\begin{bmatrix} 1 & 1 \\ 1 & 0 \end{bmatrix}{u}_{k} $
 ```
 
+```{code-cell} ipython3
+A = Matrix([[1, 1], [1, 0]])
+A.eigenvals()
+```
+
+
+```
+{code-cell} ipython3
+A.eigenvects()
+```
+
+```
+{code-cell} ipython3
+S, D = A.diagonalize()
+```
+
+Et puisque 
+$$ {F}_{k} = {A}^{k}{F}_{0}={\Lambda}^{k}{S}{c} $$
+et $F_0=\begin{bmatrix}1\\0\end{bmatrix}$
+
+
+```
+{code-cell} ipython3
+F_zero =  Matrix([1, 0])
+F_100 = A ** 100 * F_zero
+F_100
+```
 
 ## Méthode des puissances inverses
 

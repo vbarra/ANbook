@@ -570,13 +570,13 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (1.23.3)
 Requirement already satisfied: matplotlib in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (3.5.3)
-Requirement already satisfied: pillow&gt;=6.2.0 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (9.2.0)
-Requirement already satisfied: pyparsing&gt;=2.2.1 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (3.0.9)
-Requirement already satisfied: kiwisolver&gt;=1.0.1 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (1.4.4)
 Requirement already satisfied: fonttools&gt;=4.22.0 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (4.37.1)
-Requirement already satisfied: cycler&gt;=0.10 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (0.11.0)
+Requirement already satisfied: pyparsing&gt;=2.2.1 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (3.0.9)
 Requirement already satisfied: packaging&gt;=20.0 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (21.3)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (1.4.4)
 Requirement already satisfied: python-dateutil&gt;=2.7 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (2.8.2)
+Requirement already satisfied: cycler&gt;=0.10 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (0.11.0)
+Requirement already satisfied: pillow&gt;=6.2.0 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (9.2.0)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six&gt;=1.5 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib) (1.16.0)
@@ -771,12 +771,49 @@ On peut montrer de plus que <span class="math notranslate nohighlight">\(\|Aq_k\
 <section class="example-content" id="proof-content">
 <p>Considérons la suite de  Fibonacci : 0, 1, 1, 2, 3, 5, 8, 13, …
 On cherche, sans calculer explicitement le terme, quelle va être la valeur du 100-ième terme
-La suite est définie par <span class="math notranslate nohighlight">\( {F}_{k+2}={F}_{k+1}+{F}_{k} \)</span>.  En ajoutant l’équation  <span class="math notranslate nohighlight">\(F_{k+1}=F_{k+1}\)</span>, on note alors  <span class="math notranslate nohighlight">\(u_{k}\)</span></p>
+La suite est définie par <span class="math notranslate nohighlight">\( {F}_{k+2}={F}_{k+1}+{F}_{k} \)</span>, avec
+<span class="math notranslate nohighlight">\(F_0=0, F_1=1\)</span>.  En ajoutant l’équation  <span class="math notranslate nohighlight">\(F_{k+1}=F_{k+1}\)</span>, on note alors  <span class="math notranslate nohighlight">\(u_{k}\)</span></p>
 <p><span class="math notranslate nohighlight">\({u}_{k}=\begin{bmatrix} {F}_{k+1} \\ {F}_{k} \end{bmatrix} \)</span>
 Ainsi</p>
 <p><span class="math notranslate nohighlight">\( {u}_{k+1}=\begin{bmatrix} 1 &amp; 1 \\ 1 &amp; 0 \end{bmatrix} \begin{bmatrix} {F}_{k+1} \\ {F}_{k} \end{bmatrix}=\begin{bmatrix} {F}_{k+1}+{F}_{k} \\ {F}_{k+1} \end{bmatrix} \\ {u}_{k+1}=\begin{bmatrix} 1 &amp; 1 \\ 1 &amp; 0 \end{bmatrix}{u}_{k} \)</span></p>
 </section>
-</div></section>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="n">A</span><span class="o">.</span><span class="n">eigenvals</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">A</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">A</span><span class="o">.</span><span class="n">eigenvals</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;Matrix&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">code</span><span class="o">-</span><span class="n">cell</span><span class="p">}</span> <span class="n">ipython3</span>
+<span class="n">A</span><span class="o">.</span><span class="n">eigenvects</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">code</span><span class="o">-</span><span class="n">cell</span><span class="p">}</span> <span class="n">ipython3</span>
+<span class="n">S</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">diagonalize</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Et puisque
+$<span class="math notranslate nohighlight">\( {F}_{k} = {A}^{k}{F}_{0}={\Lambda}^{k}{S}{c} \)</span><span class="math notranslate nohighlight">\(
+et \)</span>F_0=\begin{bmatrix}1\0\end{bmatrix}$</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">code</span><span class="o">-</span><span class="n">cell</span><span class="p">}</span> <span class="n">ipython3</span>
+<span class="n">F_zero</span> <span class="o">=</span>  <span class="n">Matrix</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">F_100</span> <span class="o">=</span> <span class="n">A</span> <span class="o">**</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">F_zero</span>
+<span class="n">F_100</span>
+</pre></div>
+</div>
+</section>
 <section id="methode-des-puissances-inverses">
 <h2>Méthode des puissances inverses<a class="headerlink" href="#methode-des-puissances-inverses" title="Lien permanent vers ce titre">#</a></h2>
 <p>Pour les mêmes raisons, l’itération</p>
