@@ -570,14 +570,16 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (1.23.3)
 Requirement already satisfied: matplotlib in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (3.5.3)
-Requirement already satisfied: packaging&gt;=20.0 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (21.3)
 Requirement already satisfied: cycler&gt;=0.10 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (0.11.0)
 Requirement already satisfied: fonttools&gt;=4.22.0 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (4.37.1)
-Requirement already satisfied: pillow&gt;=6.2.0 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (9.2.0)
-Requirement already satisfied: kiwisolver&gt;=1.0.1 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (1.4.4)
 Requirement already satisfied: pyparsing&gt;=2.2.1 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (3.0.9)
 Requirement already satisfied: python-dateutil&gt;=2.7 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (2.8.2)
-Requirement already satisfied: six&gt;=1.5 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib) (1.16.0)
+Requirement already satisfied: pillow&gt;=6.2.0 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (9.2.0)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (1.4.4)
+Requirement already satisfied: packaging&gt;=20.0 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (21.3)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six&gt;=1.5 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib) (1.16.0)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: You are using pip version 21.3.1; however, version 22.2.2 is available.</span>
@@ -764,7 +766,18 @@ On peut montrer de plus que <span class="math notranslate nohighlight">\(\|Aq_k\
 <img alt="_images/puissiter_2_2.png" src="_images/puissiter_2_2.png" />
 </div>
 </div>
+<div class="proof example admonition" id="example-2">
+<p class="admonition-title"><span class="caption-number">Example 15 </span> (Considérons la suite de  Fibonacci : 0, 1, 1, 2, 3, 5, 8, 13, …)</p>
+<section class="example-content" id="proof-content">
+<p>On cherche, sans calculer explicitement le terme, quelle va être la valeur du 100-ième terme
+La suite est définie par
+$<span class="math notranslate nohighlight">\( {F}_{k+2}={F}_{k+1}+{F}_{k} \)</span><span class="math notranslate nohighlight">\(
+En ajoutant l'équation  \)</span>F_{k+1}=F_{k+1}<span class="math notranslate nohighlight">\(, on note alors  \)</span>u_{k}<span class="math notranslate nohighlight">\( 
+\)</span><span class="math notranslate nohighlight">\( {u}_{k}=\begin{bmatrix} {F}_{k+1} \\ {F}_{k} \end{bmatrix} \)</span><span class="math notranslate nohighlight">\(
+Ainsi
+\)</span><span class="math notranslate nohighlight">\( {u}_{k+1}=\begin{bmatrix} 1 &amp; 1 \\ 1 &amp; 0 \end{bmatrix} \begin{bmatrix} {F}_{k+1} \\ {F}_{k} \end{bmatrix}=\begin{bmatrix} {F}_{k+1}+{F}_{k} \\ {F}_{k+1} \end{bmatrix} \\ {u}_{k+1}=\begin{bmatrix} 1 &amp; 1 \\ 1 &amp; 0 \end{bmatrix}{u}_{k} \)</span>$</p>
 </section>
+</div></section>
 <section id="methode-des-puissances-inverses">
 <h2>Méthode des puissances inverses<a class="headerlink" href="#methode-des-puissances-inverses" title="Lien permanent vers ce titre">#</a></h2>
 <p>Pour les mêmes raisons, l’itération</p>
@@ -797,7 +810,7 @@ petite valeur propre en module. On remarquera le coût de calcul en <span class=
 </div>
 </div>
 </div>
-<div class="proof remark dropdown admonition" id="remark-2">
+<div class="proof remark dropdown admonition" id="remark-3">
 <p class="admonition-title"><span class="caption-number">Remark 11 </span></p>
 <section class="remark-content" id="proof-content">
 <ol class="simple">
