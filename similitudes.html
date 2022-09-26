@@ -4,8 +4,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Similitudes &#8212; Analyse numérique</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -21,7 +20,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -36,13 +35,10 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script src="_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
@@ -52,8 +48,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Méthode de Jacobi" href="jacobi.html" />
@@ -117,7 +113,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
+        <p class="caption">
  <span class="caption-text">
   Tutoriels
  </span>
@@ -144,7 +140,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Introduction au calcul matriciel
  </span>
@@ -171,7 +167,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Elimination de Gauss
  </span>
@@ -193,7 +189,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Moindres carrés linéaires
  </span>
@@ -220,7 +216,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Analyse spectrale
  </span>
@@ -267,7 +263,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Index
  </span>
@@ -511,44 +507,52 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: sympy in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (1.11.1)
-Requirement already satisfied: numpy in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (1.23.3)
-Requirement already satisfied: matplotlib in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (3.5.3)
-Requirement already satisfied: mpmath&gt;=0.19 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from sympy) (1.2.1)
-Requirement already satisfied: python-dateutil&gt;=2.7 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (2.8.2)
-Requirement already satisfied: cycler&gt;=0.10 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (0.11.0)
-Requirement already satisfied: fonttools&gt;=4.22.0 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (4.37.1)
-Requirement already satisfied: packaging&gt;=20.0 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (21.3)
-Requirement already satisfied: pillow&gt;=6.2.0 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (9.2.0)
-Requirement already satisfied: pyparsing&gt;=2.2.1 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (3.0.9)
-Requirement already satisfied: kiwisolver&gt;=1.0.1 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (1.4.4)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">DEPRECATION: Configuring installation scheme with distutils config files is deprecated and will no longer work in the near future. If you are using a Homebrew or Linuxbrew Python, please see discussion at https://github.com/Homebrew/homebrew-core/issues/76621</span>
+
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six&gt;=1.5 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib) (1.16.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: sympy in /usr/local/lib/python3.9/site-packages (1.8)
+Requirement already satisfied: numpy in /usr/local/lib/python3.9/site-packages (1.22.0)
+Requirement already satisfied: matplotlib in /usr/local/lib/python3.9/site-packages (3.5.2)
+Requirement already satisfied: mpmath&gt;=0.19 in /usr/local/lib/python3.9/site-packages (from sympy) (1.2.1)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: You are using pip version 21.3.1; however, version 22.2.2 is available.</span>
-<span class=" -Color -Color-Yellow">You should consider upgrading via the &#39;/Users/vibarra/Documents/Cours/FISA/envbook/bin/python3.9 -m pip install --upgrade pip&#39; command.</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: cycler&gt;=0.10 in /usr/local/lib/python3.9/site-packages (from matplotlib) (0.10.0)
+Requirement already satisfied: packaging&gt;=20.0 in /usr/local/lib/python3.9/site-packages (from matplotlib) (20.9)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /usr/local/lib/python3.9/site-packages (from matplotlib) (2.8.1)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /usr/local/lib/python3.9/site-packages (from matplotlib) (1.3.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /usr/local/lib/python3.9/site-packages (from matplotlib) (4.29.1)
+Requirement already satisfied: pyparsing&gt;=2.2.1 in /usr/local/lib/python3.9/site-packages (from matplotlib) (2.4.7)
+Requirement already satisfied: pillow&gt;=6.2.0 in /usr/local/lib/python3.9/site-packages (from matplotlib) (9.1.0)
+Requirement already satisfied: six in /usr/local/lib/python3.9/site-packages (from cycler&gt;=0.10-&gt;matplotlib) (1.15.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">DEPRECATION: Configuring installation scheme with distutils config files is deprecated and will no longer work in the near future. If you are using a Homebrew or Linuxbrew Python, please see discussion at https://github.com/Homebrew/homebrew-core/issues/76621</span>
+
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: There was an error checking the latest version of pip.</span>
+
 </pre></div>
 </div>
 </div>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="similitudes">
+<div class="tex2jax_ignore mathjax_ignore section" id="similitudes">
 <h1>Similitudes<a class="headerlink" href="#similitudes" title="Lien permanent vers ce titre">#</a></h1>
 <p>L’objectif est encore une fois de transformer une matrice par des transformations simples en une matrice dont on connaît les valeurs propres, c’est-à-dire, une matrice triangulaire ou diagonale. Les transformations qui maintiennent le spectre d’une matrice sont des similitudes.</p>
 <div class="proof definition admonition" id="definition-0">
 <p class="admonition-title"><span class="caption-number">Definition 30 </span> (Similitude)</p>
-<section class="definition-content" id="proof-content">
+<div class="definition-content section" id="proof-content">
 <p>Deux matrices carrées <span class="math notranslate nohighlight">\(A\)</span> et <span class="math notranslate nohighlight">\(B\)</span> sont dites <em>semblables</em>
 s’il existe une matrice <span class="math notranslate nohighlight">\(S\)</span> non singulière telle que</p>
 <p><span class="math notranslate nohighlight">\(B=S^{-1}AS\)</span></p>
-</section>
+</div>
 </div><p id="index-0">La transformation de <span class="math notranslate nohighlight">\(A\)</span> vers <span class="math notranslate nohighlight">\(B\)</span> est une <em>similitude</em>. En l’écrivant sous la forme <span class="math notranslate nohighlight">\(AS=SB\)</span>, on retrouve une généralisation de la définition des valeurs propres et des vecteurs propres. On a d’ailleurs le résultat fondamental :</p>
 <div class="proof property admonition" id="property-1">
 <p class="admonition-title"><span class="caption-number">Property 12 </span></p>
-<section class="property-content" id="proof-content">
+<div class="property-content section" id="proof-content">
 <p>Deux matrices semblables ont les mêmes valeurs propres</p>
-</section>
+</div>
 </div><p>En effet, soit <span class="math notranslate nohighlight">\(x\)</span> un vecteur propre de <span class="math notranslate nohighlight">\(A\)</span> associé à la valeur propre <span class="math notranslate nohighlight">\(\lambda\)</span>. On a donc <span class="math notranslate nohighlight">\(Ax=\lambda x\)</span>, qui s’écrit <span class="math notranslate nohighlight">\(SBS^{-1}x=\lambda x\)</span>, ce qui veut dire que <span class="math notranslate nohighlight">\(\lambda\)</span> est valeur propre de <span class="math notranslate nohighlight">\(B\)</span> associé au vecteur propre <span class="math notranslate nohighlight">\(S^{-1}x\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -665,7 +669,7 @@ y &amp;= Px\\
 Rv&amp;= PRu\\ \Rightarrow v&amp;=R^{-1}PRu=Qu
 \end{align*}\)</span></p>
 <p>et donc <span class="math notranslate nohighlight">\(Q=R^{-1}PR\)</span> et <span class="math notranslate nohighlight">\(P\)</span> et <span class="math notranslate nohighlight">\(Q\)</span> ont les mêmes valeurs propres. Comme <span class="math notranslate nohighlight">\(Q\)</span> est diagonale, on retrouve ici le résultat connu : toute matrice de projection sur une droite dans <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> a pour valeurs propres 1 et 0, et pour vecteurs propres associés les colonnes de la matrice de rotation <span class="math notranslate nohighlight">\(R\)</span>, c’est-à-dire les directions de <span class="math notranslate nohighlight">\(L\)</span> et <span class="math notranslate nohighlight">\(L^{\bot}\)</span> respectivement.</p>
-</section>
+</div>
 
     <script type="text/x-thebe-config">
     {

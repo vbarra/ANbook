@@ -4,8 +4,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tutoriel Jupyter &#8212; Analyse numérique</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -21,7 +20,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -36,13 +35,10 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script src="_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
@@ -115,7 +111,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
+        <p class="caption">
  <span class="caption-text">
   Tutoriels
  </span>
@@ -142,7 +138,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Introduction au calcul matriciel
  </span>
@@ -169,7 +165,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Elimination de Gauss
  </span>
@@ -191,7 +187,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Moindres carrés linéaires
  </span>
@@ -218,7 +214,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Analyse spectrale
  </span>
@@ -265,7 +261,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Index
  </span>
@@ -551,10 +547,10 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="tutoriel-jupyter">
+  <div class="tex2jax_ignore mathjax_ignore section" id="tutoriel-jupyter">
 <h1>Tutoriel Jupyter<a class="headerlink" href="#tutoriel-jupyter" title="Lien permanent vers ce titre">#</a></h1>
 <p><a class="reference external" href="https://jupyter.org/">Jupyter</a> est une application web qui permet aux utilisateurs de créer et de partager des documents appelés notebooks. Les notebooks Jupyter peuvent contenir du texte, des équations et des graphiques, ainsi que du code Python en direct avec lequel l’utilisateur peut interagir.</p>
-<section id="cellules">
+<div class="section" id="cellules">
 <h2>Cellules<a class="headerlink" href="#cellules" title="Lien permanent vers ce titre">#</a></h2>
 <p>Chaque notebook est constitué d’un certain nombre de cellules. Chaque cellule est soit une cellule de texte (en <a class="reference external" href="https://www.markdownguide.org">Markdown</a>), soit une cellule de code. Les cellules markdown contiennent principalement du texte et des instructions [LaTex]. Lorsqu’elles sont exécutées, ces cellules génèrent l’ensemble du texte formaté et des formules. Les cellules de code contiennent des instructions, écrites (ici) en Python, qui doivent être exécutées par le Notebook.
 Toutes les cellules des notebooks, qu’elles soient de type markdown ou de type code, doivent être exécutées afin de produire des résultats. Pour exécuter une cellule, sélectionnez-la et appuyez sur « Shift + Enter ». Vous pouvez sélectionner une cellule en cliquant dessus, ou en vous déplaçant vers le haut ou vers le bas avec les touches fléchées. Pour modifier une cellule, vous devez passer en mode édition. Lorsqu’il n’est pas en mode édition, on dit que le notebook est en mode commande.</p>
@@ -563,8 +559,8 @@ Toutes les cellules des notebooks, qu’elles soient de type markdown ou de type
 <li><p>Une erreur Python s’affiche si le code Python n’est pas correct. Dans une cellule Markdown, il n’y a pas de message d’erreur, bien que le texte ou la formule affichés puissent sembler incorrects. Les cellules Markdown ne sont pas exécutées dans le même sens que les cellules de code.</p></li>
 <li><p>Toutes les cellules Markdown sont exécutées lorsque le notebook est ouvert, mais pas les cellules de code, qui doivent être explicitement exécutées en appuyant sur “Shift + Enter”.</p></li>
 </ul>
-</section>
-<section id="menus">
+</div>
+<div class="section" id="menus">
 <h2>Menus<a class="headerlink" href="#menus" title="Lien permanent vers ce titre">#</a></h2>
 <p>Plusieurs menus déroulants sont disponibles dans un notebook.</p>
 <ul class="simple">
@@ -576,18 +572,18 @@ Toutes les cellules des notebooks, qu’elles soient de type markdown ou de type
 <li><p>Le menu Widget interagit avec les widgets, qui sont des éléments dynamiques qui peuvent être ajoutés aux Notebooks.</p></li>
 <li><p>Le menu Aide offre de la documentation sur l’environnement du Notebook ainsi que des liens vers des références externes.</p></li>
 </ul>
-</section>
-<section id="jupyter-book">
+</div>
+<div class="section" id="jupyter-book">
 <h2>Jupyter book<a class="headerlink" href="#jupyter-book" title="Lien permanent vers ce titre">#</a></h2>
 <p>Le cours est proposé en format <a class="reference external" href="https://jupyterbook.org/en/stable/intro.html">Jupyterbook</a>, ce qui vous permet, en plus des notions théoriques, de voir des exemples de codes en Python et de les modifier (en cliquant sur la petite fusée en haut, les cellules de codes deviennent exécutables)</p>
-</section>
-<section id="resources">
+</div>
+<div class="section" id="resources">
 <h2>Resources<a class="headerlink" href="#resources" title="Lien permanent vers ce titre">#</a></h2>
 <p><a class="reference external" href="https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks">A Gallery of Interesting Jupyter Notebooks</a></p>
 <p><a class="reference external" href="https://programminghistorian.org/en/lessons/jupyter-notebooks">The Programming Historian</a></p>
 <p><a class="reference external" href="https://jupyter-notebook.readthedocs.io/en/stable/notebook.html">Jupyter Notebook Documentation</a></p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

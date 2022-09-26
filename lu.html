@@ -4,8 +4,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Facteurs LU d’une matrice non singulière &#8212; Analyse numérique</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -21,7 +20,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -36,13 +35,10 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script src="_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
@@ -52,8 +48,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Projections orthogonales" href="projections.html" />
@@ -117,7 +113,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
+        <p class="caption">
  <span class="caption-text">
   Tutoriels
  </span>
@@ -144,7 +140,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Introduction au calcul matriciel
  </span>
@@ -171,7 +167,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Elimination de Gauss
  </span>
@@ -193,7 +189,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Moindres carrés linéaires
  </span>
@@ -220,7 +216,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Analyse spectrale
  </span>
@@ -267,7 +263,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Index
  </span>
@@ -650,31 +646,39 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: sympy in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (1.11.1)
-Requirement already satisfied: numpy in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (1.23.3)
-Requirement already satisfied: matplotlib in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (3.5.3)
-Requirement already satisfied: mpmath&gt;=0.19 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from sympy) (1.2.1)
-Requirement already satisfied: packaging&gt;=20.0 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (21.3)
-Requirement already satisfied: pillow&gt;=6.2.0 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (9.2.0)
-Requirement already satisfied: python-dateutil&gt;=2.7 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (2.8.2)
-Requirement already satisfied: kiwisolver&gt;=1.0.1 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (1.4.4)
-Requirement already satisfied: cycler&gt;=0.10 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (0.11.0)
-Requirement already satisfied: pyparsing&gt;=2.2.1 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (3.0.9)
-Requirement already satisfied: fonttools&gt;=4.22.0 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (4.37.1)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">DEPRECATION: Configuring installation scheme with distutils config files is deprecated and will no longer work in the near future. If you are using a Homebrew or Linuxbrew Python, please see discussion at https://github.com/Homebrew/homebrew-core/issues/76621</span>
+
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six&gt;=1.5 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib) (1.16.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: sympy in /usr/local/lib/python3.9/site-packages (1.8)
+Requirement already satisfied: numpy in /usr/local/lib/python3.9/site-packages (1.22.0)
+Requirement already satisfied: matplotlib in /usr/local/lib/python3.9/site-packages (3.5.2)
+Requirement already satisfied: mpmath&gt;=0.19 in /usr/local/lib/python3.9/site-packages (from sympy) (1.2.1)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: You are using pip version 21.3.1; however, version 22.2.2 is available.</span>
-<span class=" -Color -Color-Yellow">You should consider upgrading via the &#39;/Users/vibarra/Documents/Cours/FISA/envbook/bin/python3.9 -m pip install --upgrade pip&#39; command.</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pyparsing&gt;=2.2.1 in /usr/local/lib/python3.9/site-packages (from matplotlib) (2.4.7)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /usr/local/lib/python3.9/site-packages (from matplotlib) (4.29.1)
+Requirement already satisfied: cycler&gt;=0.10 in /usr/local/lib/python3.9/site-packages (from matplotlib) (0.10.0)
+Requirement already satisfied: pillow&gt;=6.2.0 in /usr/local/lib/python3.9/site-packages (from matplotlib) (9.1.0)
+Requirement already satisfied: packaging&gt;=20.0 in /usr/local/lib/python3.9/site-packages (from matplotlib) (20.9)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /usr/local/lib/python3.9/site-packages (from matplotlib) (1.3.1)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /usr/local/lib/python3.9/site-packages (from matplotlib) (2.8.1)
+Requirement already satisfied: six in /usr/local/lib/python3.9/site-packages (from cycler&gt;=0.10-&gt;matplotlib) (1.15.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">DEPRECATION: Configuring installation scheme with distutils config files is deprecated and will no longer work in the near future. If you are using a Homebrew or Linuxbrew Python, please see discussion at https://github.com/Homebrew/homebrew-core/issues/76621</span>
+
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: There was an error checking the latest version of pip.</span>
+
 </pre></div>
 </div>
 </div>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="facteurs-lu-d-une-matrice-non-singuliere">
+<div class="tex2jax_ignore mathjax_ignore section" id="facteurs-lu-d-une-matrice-non-singuliere">
 <h1>Facteurs LU d’une matrice non singulière<a class="headerlink" href="#facteurs-lu-d-une-matrice-non-singuliere" title="Lien permanent vers ce titre">#</a></h1>
-<section id="methode">
+<div class="section" id="methode">
 <h2>Méthode<a class="headerlink" href="#methode" title="Lien permanent vers ce titre">#</a></h2>
 <p>Quand on a plusieurs systèmes linéaires à résoudre avec la même matrice
 et des seconds membres différents, on a intérêt lors de la première
@@ -707,7 +711,7 @@ vecteurs <span class="math notranslate nohighlight">\({\bf \eta_k}\)</span> et <
 diagonaux sont égaux à 1 et les éléments sous la diagonale sont <span class="math notranslate nohighlight">\(l_{ij}=\eta_{ij}.\)</span></p>
 <div class="proof example admonition" id="example-0">
 <p class="admonition-title"><span class="caption-number">Example 8 </span></p>
-<section class="example-content" id="proof-content">
+<div class="example-content section" id="proof-content">
 <p>Soit <span class="math notranslate nohighlight">\({\bf A} = \begin{pmatrix}1&amp;4&amp;7\\2&amp;5&amp;8\\3&amp;6&amp;10\end{pmatrix}\)</span>.</p>
 <ol class="simple">
 <li><p>On pivote tout d’abord selon <span class="math notranslate nohighlight">\(a_{11}\)</span>. La matrice de transformation élémentaire est
@@ -717,7 +721,7 @@ avec <span class="math notranslate nohighlight">\({\bf \eta_1} = \begin{pmatrix}
 <span class="math notranslate nohighlight">\({\bf E_2} = \begin{pmatrix}1&amp;0&amp;0\\0&amp;1&amp;0\\0&amp;\textcolor{blue}{-2}&amp;1\end{pmatrix}\)</span>, avec <span class="math notranslate nohighlight">\({\bf \eta_2} = \begin{pmatrix} \textcolor{blue}{2}\end{pmatrix}\)</span> et <span class="math notranslate nohighlight">\( {\bf E_2E_1A} =\begin{pmatrix}1&amp;4&amp;7\\0&amp;-3&amp;-6\\0&amp;0&amp;1\end{pmatrix}={\bf U}\)</span></p></li>
 <li><p>Finalement <span class="math notranslate nohighlight">\({\bf L} = \begin{pmatrix}1&amp;0&amp;0\\\textcolor{red}{2}&amp;1&amp;0\\\textcolor{red}{3}&amp;\textcolor{blue}{2}&amp;1\end{pmatrix}\)</span></p></li>
 </ol>
-</section>
+</div>
 </div><p>Observons que les éléments non diagonaux de <span class="math notranslate nohighlight">\({\bf L}\)</span> peuvent être rangés
 directement à la place des éléments de <span class="math notranslate nohighlight">\({\bf A}\)</span> correspondants. La matrice <span class="math notranslate nohighlight">\({\bf A}\)</span>
 est donc recouverte par sa factorisation <span class="math notranslate nohighlight">\({\bf LU}\)</span> et le coût de stockage est
@@ -728,12 +732,12 @@ résolu par la résolution de deux systèmes triangulaires (donc en <span class=
 En effet, pour résoudre <span class="math notranslate nohighlight">\({\bf LUx}={\bf b'}\)</span>, on résout d’abord <span class="math notranslate nohighlight">\({\bf Ly}={\bf b'}\)</span> puis <span class="math notranslate nohighlight">\({\bf Ux}={\bf y}\)</span>.</p>
 <div class="proof example admonition" id="example-1">
 <p class="admonition-title"><span class="caption-number">Example 9 </span></p>
-<section class="example-content" id="proof-content">
+<div class="example-content section" id="proof-content">
 <p>Soit <span class="math notranslate nohighlight">\({\bf A} = \begin{pmatrix}1&amp;4&amp;7\\2&amp;5&amp;8\\3&amp;6&amp;10\end{pmatrix}\)</span>.</p>
 <p>En appliquant l’algorithme de factorisation <span class="math notranslate nohighlight">\({\bf LU}\)</span> (cf. ci-dessus), on obtient</p>
 <p><span class="math notranslate nohighlight">\({\bf L} = \begin{pmatrix}1&amp;0&amp;0\\2&amp;1&amp;0\\3&amp;2&amp;1\end{pmatrix}\quad {\bf U} = \begin{pmatrix}1&amp;4&amp;7\\0&amp;-3&amp;-6\\0&amp;0&amp;1\end{pmatrix}\)</span></p>
 <p>Si <span class="math notranslate nohighlight">\({\bf b} = \begin{pmatrix}1\\1\\1\end{pmatrix}\)</span>, <span class="math notranslate nohighlight">\({\bf Ly}={\bf b}\)</span> donne <span class="math notranslate nohighlight">\({\bf y} = \begin{pmatrix}1\\-1\\0\end{pmatrix}\)</span> et <span class="math notranslate nohighlight">\({\bf Ux}={\bf y}\)</span> donne <span class="math notranslate nohighlight">\({\bf x} =\frac{1}{3} \begin{pmatrix}-1\\1\\0\end{pmatrix}\)</span></p>
-</section>
+</div>
 </div><p>Quand aucun pivot nul n’est rencontré, <span class="math notranslate nohighlight">\({\bf A}\)</span> peut se mettre sous la forme <span class="math notranslate nohighlight">\({\bf LU}\)</span>
 et cette factorisation est unique. En effet, s’il existe deux factorisations
 <span class="math notranslate nohighlight">\({\bf L_1U_1}\)</span> et <span class="math notranslate nohighlight">\({\bf L_2U_2}\)</span> de <span class="math notranslate nohighlight">\({\bf A}\)</span>, on a alors
@@ -749,19 +753,19 @@ permutation des lignes à l’itération <span class="math notranslate nohighlig
 <p>et on obtient la décomposition générale suivante :</p>
 <div class="proof theorem admonition" id="theorem-2">
 <p class="admonition-title"><span class="caption-number">Theorem 5 </span> (Factorisation <span class="math notranslate nohighlight">\({\bf PA} = {\bf LU}\)</span>)</p>
-<section class="theorem-content" id="proof-content">
+<div class="theorem-content section" id="proof-content">
 <p>Pour toute matrice <span class="math notranslate nohighlight">\({\bf A}\)</span> non singulière de taille <span class="math notranslate nohighlight">\(n\)</span>, il existe
 une matrice de permutation <span class="math notranslate nohighlight">\({\bf P}\)</span>, une matrice triangulaire inférieure <span class="math notranslate nohighlight">\({\bf L}\)</span> telle
 que <span class="math notranslate nohighlight">\(l_{ii}=1\)</span>, pour tout <span class="math notranslate nohighlight">\(i\)</span>, et une matrice triangulaire supérieure <span class="math notranslate nohighlight">\({\bf U}\)</span>, telles
 que</p>
 <p><span class="math notranslate nohighlight">\({\bf PA}={\bf LU}.\)</span></p>
-</section>
+</div>
 </div><p>L’algorithme <a class="reference internal" href="#FactLU">Algorithm 4</a> montre les différentes étapes de la factorisation <span class="math notranslate nohighlight">\({\bf LU}\)</span>
 avec recherche du pivot partiel. En sortie, <span class="math notranslate nohighlight">\({\bf A}\)</span> contient les facteurs <span class="math notranslate nohighlight">\({\bf L}\)</span> et <span class="math notranslate nohighlight">\({\bf U}\)</span> de la matrice
 et <span class="math notranslate nohighlight">\(\sigma\)</span> les permutations de lignes éventuelles.</p>
 <div class="proof algorithm admonition" id="FactLU">
 <p class="admonition-title"><span class="caption-number">Algorithm 4 </span> (Factorisation LU)</p>
-<section class="algorithm-content" id="proof-content">
+<div class="algorithm-content section" id="proof-content">
 <p><strong>Entrée :</strong> La matrice <span class="math notranslate nohighlight">\({\bf A}\)</span></p>
 <p><strong>Sortie :</strong> Les facteurs <span class="math notranslate nohighlight">\({\bf L}\)</span> et <span class="math notranslate nohighlight">\({\bf U}\)</span>, les permutations <span class="math notranslate nohighlight">\(\sigma\)</span></p>
 <ol>
@@ -807,12 +811,12 @@ et <span class="math notranslate nohighlight">\(\sigma\)</span> les permutations
 </ol>
 </li>
 </ol>
-</section>
+</div>
 </div><p>Si <span class="math notranslate nohighlight">\(\sigma_i=j\)</span> alors les lignes
 <span class="math notranslate nohighlight">\(i\)</span> et <span class="math notranslate nohighlight">\(j\)</span> ont été permutées. Les permutations doivent être repercutées sur le second
 membre lors de la résolution de <span class="math notranslate nohighlight">\({\bf Ly}={\bf b}\)</span>.</p>
-</section>
-<section id="exemple-numerique">
+</div>
+<div class="section" id="exemple-numerique">
 <h2>Exemple numérique<a class="headerlink" href="#exemple-numerique" title="Lien permanent vers ce titre">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -937,18 +941,18 @@ de sorte que <span class="math notranslate nohighlight">\(A=LU\)</span></p>
 \[\begin{split}\displaystyle \left( \left[\begin{matrix}1.0 &amp; -1.0 &amp; 1.0\\3.0 &amp; 2.0 &amp; -2.0\\6.0 &amp; -1.0 &amp; -1.0\end{matrix}\right], \  \left[\begin{matrix}1.0 &amp; -1.0 &amp; 1.0\\3.0 &amp; 2.0 &amp; -2.0\\6.0 &amp; -1.0 &amp; -1.0\end{matrix}\right]\right)\end{split}\]</div>
 </div>
 </div>
-</section>
-<section id="cas-particuliers">
+</div>
+<div class="section" id="cas-particuliers">
 <h2>Cas particuliers<a class="headerlink" href="#cas-particuliers" title="Lien permanent vers ce titre">#</a></h2>
-<section id="matrices-symetriques">
+<div class="section" id="matrices-symetriques">
 <h3>Matrices symétriques<a class="headerlink" href="#matrices-symetriques" title="Lien permanent vers ce titre">#</a></h3>
 <p>Dans ce cas, <span class="math notranslate nohighlight">\({\bf U}\)</span> peut s’écrire <span class="math notranslate nohighlight">\({\bf U}={\bf DL^\top} \)</span> où
 <span class="math notranslate nohighlight">\({\bf D}\)</span> est la matrice diagonale contenant les pivots successifs.  On a donc
 la factorisation <span class="math notranslate nohighlight">\({\bf A}={\bf LDL^\top }\)</span>.</p>
 <p id="index-2">La complexité de
 l’algorithme est alors de <span class="math notranslate nohighlight">\(n^3/6\)</span> flops.</p>
-</section>
-<section id="matrices-bandes">
+</div>
+<div class="section" id="matrices-bandes">
 <h3>Matrices bandes<a class="headerlink" href="#matrices-bandes" title="Lien permanent vers ce titre">#</a></h3>
 <p>Ce sont des matrices symétriques telles que
 <span class="math notranslate nohighlight">\(a_{ij}=0\)</span> pour <span class="math notranslate nohighlight">\(|i-j|&gt;p\)</span> (<span class="math notranslate nohighlight">\(p\)</span> est la largeur de bande de la matrice, <span class="math notranslate nohighlight">\(p&lt;n\)</span>).
@@ -957,18 +961,18 @@ différentielles.  Il est alors facile de montrer que les facteurs <span class="
 la bande. On a alors intérêt de stocker la matrice (et ses facteurs <span class="math notranslate nohighlight">\({\bf LU}\)</span>) sous
 la forme de tableau à <span class="math notranslate nohighlight">\(n\)</span> lignes et <span class="math notranslate nohighlight">\(p\)</span> colonnes et la complexité est en <span class="math notranslate nohighlight">\(np^2/2\)</span>
 flops.</p>
-</section>
-<section id="matrices-symetriques-definies-positives">
+</div>
+<div class="section" id="matrices-symetriques-definies-positives">
 <h3>Matrices symétriques définies positives<a class="headerlink" href="#matrices-symetriques-definies-positives" title="Lien permanent vers ce titre">#</a></h3>
 <p>Les matrices définies positives possèdent une factorisation unique <span class="math notranslate nohighlight">\({\bf LDL^\top} \)</span> avec des pivots
 successifs strictement positifs. La factorisation peut s’effectuer directement sans
 pivotage par identification terme à terme en <span class="math notranslate nohighlight">\(n^3/6\)</span> flops par l’algorithme de Cholesky.</p>
-</section>
-</section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="autres-applications">
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="autres-applications">
 <h1>Autres applications<a class="headerlink" href="#autres-applications" title="Lien permanent vers ce titre">#</a></h1>
-<section id="calcul-de-l-inverse-d-une-matrice">
+<div class="section" id="calcul-de-l-inverse-d-une-matrice">
 <h2>Calcul de l’inverse d’une matrice<a class="headerlink" href="#calcul-de-l-inverse-d-une-matrice" title="Lien permanent vers ce titre">#</a></h2>
 <p>On a vu précédemment que la résolution d’un système linéaire ne nécessite pas le
 calcul explicite de l’inverse d’une matrice. Quand on a besoin néanmoins de la
@@ -990,8 +994,8 @@ complètement le système paramétré <span class="math notranslate nohighlight"
 en un système diagonal <span class="math notranslate nohighlight">\({\bf x}-{\bf A^{-1}y}={\bf 0}\)</span>. On peut observer que cette technique consiste
 à effectuer en parallèle à partir de la matrice identité les pivotages nécessaires
 à la transformation de <span class="math notranslate nohighlight">\({\bf A}\)</span> en la matrice identité.</p>
-</section>
-<section id="calcul-du-determinant">
+</div>
+<div class="section" id="calcul-du-determinant">
 <h2>Calcul du déterminant<a class="headerlink" href="#calcul-du-determinant" title="Lien permanent vers ce titre">#</a></h2>
 <p>Le calcul du déterminant d’une  matrice <span class="math notranslate nohighlight">\(2\times 2\)</span> est bien connu:</p>
 <p><span class="math notranslate nohighlight">\(\begin{equation}
@@ -1014,8 +1018,8 @@ le coût n’est que de <span class="math notranslate nohighlight">\(3\cdot 10^{
 \)</span></p>
 <p>où les <span class="math notranslate nohighlight">\(u_{ii}\)</span> (<span class="math notranslate nohighlight">\(1\le i\le n\)</span>) sont les pivots et <span class="math notranslate nohighlight">\(p\)</span> le nombre de permutations
 effectuées au cours de la factorisation.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

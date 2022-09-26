@@ -4,8 +4,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Méthode de Jacobi &#8212; Analyse numérique</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -21,7 +20,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -36,13 +35,10 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script src="_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
@@ -52,8 +48,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Méthode des puissances itérées" href="puissiter.html" />
@@ -117,7 +113,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
+        <p class="caption">
  <span class="caption-text">
   Tutoriels
  </span>
@@ -144,7 +140,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Introduction au calcul matriciel
  </span>
@@ -171,7 +167,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Elimination de Gauss
  </span>
@@ -193,7 +189,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Moindres carrés linéaires
  </span>
@@ -220,7 +216,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Analyse spectrale
  </span>
@@ -267,7 +263,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Index
  </span>
@@ -550,19 +546,19 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="methode-de-jacobi">
+  <div class="tex2jax_ignore mathjax_ignore section" id="methode-de-jacobi">
 <h1>Méthode de Jacobi<a class="headerlink" href="#methode-de-jacobi" title="Lien permanent vers ce titre">#</a></h1>
 <p>L’intérêt principal des matrices réelles symétriques est qu’il existe une base de vecteurs propres orthonormés. On peut donc la diagonaliser par une transformation orthogonale : soient <span class="math notranslate nohighlight">\(A\)</span> une telle matrice et <span class="math notranslate nohighlight">\(Q\)</span> la matrice orthogonale dont les colonnes sont les vecteurs propres de <span class="math notranslate nohighlight">\(A\)</span>, alors <span class="math notranslate nohighlight">\(Q^\top AQ=diag\{\lambda_1\cdots \lambda_n\}\)</span>.</p>
-<aside class="margin sidebar">
+<div class="margin sidebar">
 <p class="sidebar-title"></p>
 <p><img alt="" src="_images/jacobi.png" /></p>
-</aside>
+</div>
 <p>La méthode de Jacobi est une méthode d’élimination symétrique itérative utilisant des similitudes</p>
 <ul class="simple">
 <li><p>la matrice transformée tend vers une matrice diagonale</p></li>
 <li><p>le produit des transformations orthogonales tend vers la matrice des vecteurs propres.</p></li>
 </ul>
-<section id="principe-d-elimination-symetrique">
+<div class="section" id="principe-d-elimination-symetrique">
 <h2>Principe d’élimination symétrique<a class="headerlink" href="#principe-d-elimination-symetrique" title="Lien permanent vers ce titre">#</a></h2>
 <p>Ce principe, basé sur des rotations successives, sera illustré tout d’abord sur une matrice (2<span class="math notranslate nohighlight">\(\times\)</span>2) : soit <span class="math notranslate nohighlight">\(A\)</span> la sous-matrice (2<span class="math notranslate nohighlight">\(\times\)</span>2) symétrique</p>
 <p><span class="math notranslate nohighlight">\(A=\begin{pmatrix}a_{pp}\quad a_{pq}\\
@@ -603,8 +599,8 @@ a'_{pp}&amp;=a_{pp}-ta_{pq}\\
 a'_{qq}&amp;=a_{qq}+ta_{pq}
 \end{align*}\)</span></p>
 <p>Un choix classique pour <span class="math notranslate nohighlight">\(p\)</span> et <span class="math notranslate nohighlight">\(q\)</span> est celui qui permet d’éliminer l’élément non diagonal de plus grand module : <span class="math notranslate nohighlight">\(|a_{pq}|=\displaystyle\max_{i\neq j}|a_{ij}|\)</span></p>
-</section>
-<section id="convergence">
+</div>
+<div class="section" id="convergence">
 <h2>Convergence<a class="headerlink" href="#convergence" title="Lien permanent vers ce titre">#</a></h2>
 <p>Soit <span class="math notranslate nohighlight">\(\{A_k\}\)</span> la suite de matrices engendrée par l’algorithme en éliminant à chaque itération un élément non diagonal non nul (<span class="math notranslate nohighlight">\(A_0=A\)</span>) et son symétrique. Comme la transformation est orthogonale, la norme de Frobenius de la matrice est conservée :</p>
 <p><span class="math notranslate nohighlight">\(\displaystyle\sum{i,j}a_{ij}'^2=\displaystyle\sum_{i,j}a_{ij}^2\)</span></p>
@@ -614,9 +610,9 @@ a'_{qq}&amp;=a_{qq}+ta_{pq}
 <p>On démontre alors le théorème suivant :</p>
 <div class="proof theorem admonition" id="theorem-0">
 <p class="admonition-title"><span class="caption-number">Theorem 9 </span> (Convergence de la méthode de Jacobi)</p>
-<section class="theorem-content" id="proof-content">
+<div class="theorem-content section" id="proof-content">
 <p>La suite de matrices <span class="math notranslate nohighlight">\(\{A_k\}\)</span> engendrée par la méthode de Jacobi classique converge vers une matrice diagonale contenant toutes les valeurs propres de <span class="math notranslate nohighlight">\(A\)</span> sur la diagonale</p>
-</section>
+</div>
 </div><p>On peut également démontrer que, si les valeurs propres sont toutes distinctes, la suite des matrices <span class="math notranslate nohighlight">\(Q_k=\Omega_1\cdots \Omega_k\)</span> converge vers la matrice orthogonale contenant les vecteurs propres.</p>
 <div class="admonition warning">
 <p class="admonition-title">Avertissement</p>
@@ -624,14 +620,14 @@ a'_{qq}&amp;=a_{qq}+ta_{pq}
 </div>
 <div class="proof remark dropdown admonition" id="remark-1">
 <p class="admonition-title"><span class="caption-number">Remark 10 </span></p>
-<section class="remark-content" id="proof-content">
+<div class="remark-content section" id="proof-content">
 <ul class="simple">
 <li><p>Le tri du plus grand élément parmi <span class="math notranslate nohighlight">\(n(n-1)/2\)</span> coûtant relativement cher, on lui préfère d’autres stratégies plus économiques (balayage cyclique ou choix avec seuil)</p></li>
 <li><p>La méthode de Jacobi présente d’excellentes performances pour des matrices pleines de faible dimension (typiquement inférieure à 100). Dans le cas général, on lui préférera la méthode QR.</p></li>
 </ul>
-</section>
-</div></section>
-</section>
+</div>
+</div></div>
+</div>
 
     <script type="text/x-thebe-config">
     {
