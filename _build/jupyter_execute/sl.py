@@ -96,7 +96,7 @@ get_ipython().system('pip3 install sympy numpy matplotlib')
 # que $\lambda {\bf x}$, $\lambda\in\mathbb R$.
 # 
 # ```{important}
-# On s'aperçoit alors que tout  peut être représenté de deux manières
+# On s'aperçoit alors que tout sous-espace peut être représenté de deux manières
 # distinctes :
 # 
 # -   comme ensemble de combinaisons linéaires d'un nombre fini de

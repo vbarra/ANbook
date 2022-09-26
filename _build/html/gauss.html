@@ -4,8 +4,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Elimination de Gauss &#8212; Analyse numérique</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -21,7 +20,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -36,13 +35,10 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script src="_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
@@ -52,8 +48,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Facteurs LU d’une matrice non singulière" href="lu.html" />
@@ -117,7 +113,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
+        <p class="caption">
  <span class="caption-text">
   Tutoriels
  </span>
@@ -144,7 +140,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Introduction au calcul matriciel
  </span>
@@ -171,7 +167,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Elimination de Gauss
  </span>
@@ -193,7 +189,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Moindres carrés linéaires
  </span>
@@ -220,7 +216,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Analyse spectrale
  </span>
@@ -267,7 +263,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Index
  </span>
@@ -628,9 +624,9 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="elimination-de-gauss">
+  <div class="tex2jax_ignore mathjax_ignore section" id="elimination-de-gauss">
 <h1>Elimination de Gauss<a class="headerlink" href="#elimination-de-gauss" title="Lien permanent vers ce titre">#</a></h1>
-<section id="exemple-introductif">
+<div class="section" id="exemple-introductif">
 <h2>Exemple introductif<a class="headerlink" href="#exemple-introductif" title="Lien permanent vers ce titre">#</a></h2>
 <p>Soit le système de 3 équations à 3 inconnues</p>
 <p><span class="math notranslate nohighlight">\(\left \{\begin{eqnarray}
@@ -664,8 +660,8 @@ x_3=0\\ x_2=1\\ x_1=3
 <p>On remarque qu’à une étape donnée, l’élimination d’une variable peut se faire
 dans n’importe quelle équation, à condition, bien sûr, que cette équation
 contienne la variable en question.</p>
-</section>
-<section id="systemes-triangulaires">
+</div>
+<div class="section" id="systemes-triangulaires">
 <h2>Systèmes triangulaires<a class="headerlink" href="#systemes-triangulaires" title="Lien permanent vers ce titre">#</a></h2>
 <p>On constatera au paragraphe suivant que la phase d’élimination consiste à
 transformer le système original en un système triangulaire. Un système
@@ -718,8 +714,8 @@ k\in[\![2, n]\!].\label{FwdSub2}
 \end{eqnarray}\right .\)</span></p>
 <p>Le coût de l’algorithme de substitution directe est
 le même que celui de substitution inverse.</p>
-</section>
-<section id="methode-de-gauss-ou-du-pivot-pour-les-systemes-lineaires">
+</div>
+<div class="section" id="methode-de-gauss-ou-du-pivot-pour-les-systemes-lineaires">
 <h2>Méthode de Gauss (ou du pivot) pour les systèmes linéaires<a class="headerlink" href="#methode-de-gauss-ou-du-pivot-pour-les-systemes-lineaires" title="Lien permanent vers ce titre">#</a></h2>
 <p>Montrons d’abord que la technique d’élimination
 correspond à une opération de pivotage.</p>
@@ -730,7 +726,7 @@ la troisième équation revient à faire la somme de la première multipliée pa
 colonne (celle de <span class="math notranslate nohighlight">\(x_1\)</span>) en utilisant la première ligne comme ligne du pivot.</p>
 <div class="proof remark dropdown admonition" id="remark-0">
 <span id="index-2"></span><p class="admonition-title"><span class="caption-number">Remark 5 </span></p>
-<section class="remark-content" id="proof-content">
+<div class="remark-content section" id="proof-content">
 <p>Lors de l’exécution de l’algorithme :</p>
 <ol class="simple">
 <li><p>A chaque itération, l’élément de la colonne dans la ligne du pivot
@@ -740,10 +736,10 @@ effectuées en parallèle sur le second membre.</p></li>
 <li><p>A la fin de l’élimination (si tout se passe bien!), on obtient un système
 triangulaire avec les pivots sur la diagonale.</p></li>
 </ol>
-</section>
+</div>
 </div><div class="proof example admonition" id="example-1">
 <p class="admonition-title"><span class="caption-number">Example 7 </span></p>
-<section class="example-content" id="proof-content">
+<div class="example-content section" id="proof-content">
 <p>Les transformations successives sont décrites ci-dessous pour l’exemple
 du  paragraphe précédent.</p>
 <p>Itération 1 :</p>
@@ -770,7 +766,7 @@ du  paragraphe précédent.</p>
       \end{array} 
 \right)
 \)</span></p>
-</section>
+</div>
 </div><p>On pose alors
 <span class="math notranslate nohighlight">\(
 \begin{eqnarray*}
@@ -810,13 +806,13 @@ Le second membre est stocké dans la dernière colonne de <span class="math notr
 transforme la matrice <span class="math notranslate nohighlight">\({\bf A}\)</span> en une matrice triangulaire supérieure (étape 1).
 Le système triangulaire supérieur est ensuite résolu par substitution inverse
 (étape 2).</p>
-<aside class="margin sidebar">
+<div class="margin sidebar">
 <p class="sidebar-title"></p>
 <p><img alt="" src="_images/gaussKF.png" /></p>
-</aside>
+</div>
 <div class="proof algorithm admonition" id="AlgoGauss">
 <p class="admonition-title"><span class="caption-number">Algorithm 2 </span> (Méthode de Gauss)</p>
-<section class="algorithm-content" id="proof-content">
+<div class="algorithm-content section" id="proof-content">
 <p><strong>Entrée :</strong> <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{n,n+1}(\mathbb R)\)</span> (la dernière colonne représente
 le second membre du système)</p>
 <p><strong>Sortie :</strong> Solution <span class="math notranslate nohighlight">\({\bf x}\)</span> du système <span class="math notranslate nohighlight">\({\bf Ax}={\bf b}\)</span></p>
@@ -847,22 +843,22 @@ le second membre du système)</p>
 </ol>
 </li>
 </ol>
-</section>
-</div></section>
-<section id="strategies-pour-les-pivots-nuls">
+</div>
+</div></div>
+<div class="section" id="strategies-pour-les-pivots-nuls">
 <h2>Stratégies pour les pivots nuls<a class="headerlink" href="#strategies-pour-les-pivots-nuls" title="Lien permanent vers ce titre">#</a></h2>
 <p>Si le pivot est nul (en pratique, on évitera aussi les pivots de valeur
 absolue trop petite), on le remplace en effectuant une
 permutation avec un
 élément non nul parmi les éléments sous lui et/ou à sa droite. On distingue
 généralement deux stratégies :</p>
-<section id="pivotage-total">
+<div class="section" id="pivotage-total">
 <h3>Pivotage total<a class="headerlink" href="#pivotage-total" title="Lien permanent vers ce titre">#</a></h3>
 <p id="index-3">On permute lignes et colonnes pour
 choisir le plus grand élément en valeur absolue dans la sous-matrice en bas à
 droite : <span class="math notranslate nohighlight">\(\max\left\{\left|a^{(k)}_{ij}\right|\ ; \ i,j\in [\![k,n]\!]\right\}\)</span></p>
-</section>
-<section id="pivotage-partiel">
+</div>
+<div class="section" id="pivotage-partiel">
 <h3>Pivotage partiel<a class="headerlink" href="#pivotage-partiel" title="Lien permanent vers ce titre">#</a></h3>
 <p id="index-4">On ne permute que les lignes sous le
 pivot en  choisissant le plus grand élément en valeur absolue : <span class="math notranslate nohighlight">\(\max\left\{\left|a^{(k)}_{ik}\right|\ ; \ i\in [\![k,n]\!]\right\}\)</span></p>
@@ -874,7 +870,7 @@ décrit dans l’algorithme <a class="reference internal" href="#AlgoGaussPartie
 stocké dans la dernière colonne de <span class="math notranslate nohighlight">\({\bf A}\)</span>.</p>
 <div class="proof algorithm admonition" id="AlgoGaussPartiel">
 <p class="admonition-title"><span class="caption-number">Algorithm 3 </span> (Méthode de Gauss avec pivot partiel)</p>
-<section class="algorithm-content" id="proof-content">
+<div class="algorithm-content section" id="proof-content">
 <p><strong>Entrée :</strong> <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{n,n+1}(\mathbb R)\)</span> (la dernière colonne représente
 le second membre du système)</p>
 <p><strong>Sortie :</strong> Solution <span class="math notranslate nohighlight">\({\bf x}\)</span> du système <span class="math notranslate nohighlight">\({\bf Ax}={\bf b}\)</span></p>
@@ -921,12 +917,12 @@ le second membre du système)</p>
 </ol>
 </li>
 </ol>
-</section>
-</div></section>
-</section>
-<section id="cas-singulier-et-calcul-du-rang-d-une-matrice">
+</div>
+</div></div>
+</div>
+<div class="section" id="cas-singulier-et-calcul-du-rang-d-une-matrice">
 <h2>Cas singulier et calcul du rang d’une matrice<a class="headerlink" href="#cas-singulier-et-calcul-du-rang-d-une-matrice" title="Lien permanent vers ce titre">#</a></h2>
-<section id="id1">
+<div class="section" id="id1">
 <h3>Pivotage total<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">#</a></h3>
 <p>Si, à l’itération <span class="math notranslate nohighlight">\(k\)</span> de la méthode de Gauss
 avec pivot total, <span class="math notranslate nohighlight">\(\max\left\{\left|a^{(k)}_{ij}\right|\ ; \ i,j\in [\![k,n]\!]\right\}=0\)</span>
@@ -934,8 +930,8 @@ avec pivot total, <span class="math notranslate nohighlight">\(\max\left\{\left|
 le rang de la matrice <span class="math notranslate nohighlight">\({\bf A}\)</span> est égal à <span class="math notranslate nohighlight">\(k-1\)</span>. S’il existe un élément
 <span class="math notranslate nohighlight">\(b^{(k)}_i\)</span>, <span class="math notranslate nohighlight">\(k\le i\le n\)</span>, du second membre différent de zéro, alors le
 système n’a pas de solution.</p>
-</section>
-<section id="id2">
+</div>
+<div class="section" id="id2">
 <h3>Pivotage partiel<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">#</a></h3>
 <p>Si <span class="math notranslate nohighlight">\(\max\left\{\left|a^{(k)}_{ik}\right|\ ; \ \ i\in [\![k,n]\!]\right\}=0\)</span>
 on peut seulement affirmer que la colonne <span class="math notranslate nohighlight">\(k\)</span> est linéairement dépendante des
@@ -944,13 +940,13 @@ probablement pas de solution. Toutefois, on ne peut en être sûr que sur
 le test du pivot total nul.</p>
 <div class="proof remark dropdown admonition" id="remark-4">
 <p class="admonition-title"><span class="caption-number">Remark 6 </span></p>
-<section class="remark-content" id="proof-content">
+<div class="remark-content section" id="proof-content">
 <p>La méthode de Gauss et le test du pivot total nul apparaissent donc comme
 la meilleure stratégie pour calculer le rang d’une matrice.</p>
-</section>
-</div></section>
-</section>
-</section>
+</div>
+</div></div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

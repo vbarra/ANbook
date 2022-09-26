@@ -4,8 +4,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Moindres carrés linéaires &#8212; Analyse numérique</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -21,7 +20,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -36,13 +35,10 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script src="_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
@@ -52,8 +48,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Transformations orthogonales" href="transfoortho.html" />
@@ -117,7 +113,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
+        <p class="caption">
  <span class="caption-text">
   Tutoriels
  </span>
@@ -144,7 +140,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Introduction au calcul matriciel
  </span>
@@ -171,7 +167,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Elimination de Gauss
  </span>
@@ -193,7 +189,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Moindres carrés linéaires
  </span>
@@ -220,7 +216,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Analyse spectrale
  </span>
@@ -267,7 +263,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Index
  </span>
@@ -570,9 +566,9 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="moindres-carres-lineaires">
+  <div class="tex2jax_ignore mathjax_ignore section" id="moindres-carres-lineaires">
 <h1>Moindres carrés linéaires<a class="headerlink" href="#moindres-carres-lineaires" title="Lien permanent vers ce titre">#</a></h1>
-<section id="modelisation">
+<div class="section" id="modelisation">
 <h2>Modélisation<a class="headerlink" href="#modelisation" title="Lien permanent vers ce titre">#</a></h2>
 <p>On observe un système <span class="math notranslate nohighlight">\(\mathcal S\)</span> qui produit, pour une sollicitation en entrée <span class="math notranslate nohighlight">\(t\)</span> donnée, une sortie <span class="math notranslate nohighlight">\(Y\)</span> (par exemple la vitesse d’un coureur en fonction du temps, la température d’une pièce mesurée chaque seconde,…). L’objectif est de construire un modèle théorique de <span class="math notranslate nohighlight">\(\mathcal S\)</span>, qui reproduise aussi fidèlement que possible le comportement du système.</p>
 <p>On se donne donc un modèle (une fonction) <span class="math notranslate nohighlight">\(f_{\bf x}\)</span>, paramétrée par <span class="math notranslate nohighlight">\(n\)</span> paramètres <span class="math notranslate nohighlight">\({\bf x}=\left (x_1\cdots x_n\right )^\top\in\mathbb R^n\)</span>, qui calcule pour chaque entrée <span class="math notranslate nohighlight">\(t\)</span> la valeur <span class="math notranslate nohighlight">\(f_{\bf x}(t) = y\)</span>.</p>
@@ -588,13 +584,13 @@ consiste à choisir  <span class="math notranslate nohighlight">\({\bf x}\)</spa
 <p>Si <span class="math notranslate nohighlight">\(rang({\bf A})=n\)</span> (hypothèse raisonnable car <span class="math notranslate nohighlight">\(m&gt;&gt;n\)</span> et les <span class="math notranslate nohighlight">\({\bf a_i}\)</span> dépendent des entrées <span class="math notranslate nohighlight">\(t_i\)</span>), ce système a une solution unique</p>
 <p><span class="math notranslate nohighlight">\({\bf x}={\bf (A^\top A)^{-1}A^\top Y}\)</span></p>
 <p>dite solution aux moindres carrés. La matrice <span class="math notranslate nohighlight">\({\bf A^+}={\bf (A^\top A)^{-1}A^\top}\)</span> (Attention !! ce n’est pas la matrice de projection) est la pseudo inverse de la matrice rectangulaire <span class="math notranslate nohighlight">\({\bf A}\)</span>. Elle satisfait <span class="math notranslate nohighlight">\({\bf A^+A}=\mathbb I\)</span> et <span class="math notranslate nohighlight">\({\bf AA^+}={\bf P}\)</span>.</p>
-<aside class="margin sidebar">
+<div class="margin sidebar">
 <p class="sidebar-title"></p>
 <p><img alt="" src="_images/mcl1.png" /></p>
-</aside>
+</div>
 <div class="proof example admonition" id="example-0">
 <p class="admonition-title"><span class="caption-number">Example 11 </span></p>
-<section class="example-content" id="proof-content">
+<div class="example-content section" id="proof-content">
 <p>Le système <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> produit pour les entrées <span class="math notranslate nohighlight">\(t_i =\{-1,0,1\}\)</span> les sorties <span class="math notranslate nohighlight">\(Y_i=\{4,5,9\}\)</span></p>
 <p>On modélise <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> à l’aide d’un modèle affine <span class="math notranslate nohighlight">\(y=\alpha+\beta t\)</span>, où <span class="math notranslate nohighlight">\(\alpha\)</span> et <span class="math notranslate nohighlight">\(\beta\)</span> sont deux paramètres à déterminer pour minimiser au sens des moindres carrés l’erreur des trois mesures.</p>
 <table class="colwidths-auto table">
@@ -644,10 +640,10 @@ le système par
 \)</span>
 la solution aux moindres carrés est donc <span class="math notranslate nohighlight">\(\alpha=6\)</span> et <span class="math notranslate nohighlight">\(\beta=5/2\)</span>.
 Le vecteur des erreurs <span class="math notranslate nohighlight">\({\bf Y}-{\bf Ax}=(1/2\)</span> <span class="math notranslate nohighlight">\(-1\)</span> <span class="math notranslate nohighlight">\(1/2)^\top \)</span> est bien orthogonal dans <span class="math notranslate nohighlight">\(R^3\)</span> aux colonnes de <span class="math notranslate nohighlight">\({\bf A}\)</span>. Chaque erreur peut être également représentée par la distance verticale entre la mesure <span class="math notranslate nohighlight">\({ Y_i}\)</span> et la droite <span class="math notranslate nohighlight">\(f(t)=6+\frac{5}{2}t\)</span> pour <span class="math notranslate nohighlight">\(t=t_i\)</span> (segments rouges).</p>
-</section>
+</div>
 </div><div class="proof example admonition" id="example-1">
 <p class="admonition-title"><span class="caption-number">Example 12 </span></p>
-<section class="example-content" id="proof-content">
+<div class="example-content section" id="proof-content">
 <p>Le système <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> produit pour les entrées <span class="math notranslate nohighlight">\(t_i =\{-2,-1,0,1,2\}\)</span> les sorties <span class="math notranslate nohighlight">\(Y_i=\{3,1,-0.5,1.5,4\}\)</span>.</p>
 <p>On modélise <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> par un polynôme <span class="math notranslate nohighlight">\(P(t)=\alpha+\beta t+\gamma t^2 = {\bf a^\top}{\bf x}\)</span>, où <span class="math notranslate nohighlight">\({\bf x}=\begin{pmatrix}\alpha\\\beta\\\gamma\end{pmatrix} \)</span>et <span class="math notranslate nohighlight">\({\bf a}=\begin{pmatrix}1\\t\\t^2\end{pmatrix}\)</span>. On recherche les valeurs de <span class="math notranslate nohighlight">\(\alpha,\beta,\gamma\)</span> qui minimisent la somme des carrés des erreurs entre les valeurs théoriques et les valeurs mesurées.</p>
 <table class="colwidths-auto table">
@@ -694,16 +690,16 @@ Le vecteur des erreurs <span class="math notranslate nohighlight">\({\bf Y}-{\bf
 \)</span>, on cherche <span class="math notranslate nohighlight">\({\bf x}\)</span> qui minimise <span class="math notranslate nohighlight">\(\|{\bf Ax}-{\bf Y}\|^2\)</span>, soit encore <span class="math notranslate nohighlight">\({\bf x}\)</span> solution du système aux équations normales <span class="math notranslate nohighlight">\({\bf A^\top Ax}={\bf A^\top Y}\)</span>\
 On a alors</p>
 <p><span class="math notranslate nohighlight">\({\bf A^\top A}=\begin{pmatrix}5&amp;0&amp;10\\0&amp;10&amp;0\\10&amp;0&amp;34\end{pmatrix}\quad{\bf A^\top Y}=\begin{pmatrix}9\\2.5\\30.5\end{pmatrix}\textrm{ d'où } P(t)=\frac{1}{70}+\frac{1}{4}t+\frac{25}{28}t^2\)</span></p>
-</section>
-</div></section>
-<section id="systemes-incompatibles">
+</div>
+</div></div>
+<div class="section" id="systemes-incompatibles">
 <h2>Systèmes incompatibles<a class="headerlink" href="#systemes-incompatibles" title="Lien permanent vers ce titre">#</a></h2>
 <p id="index-0">Soit un système linéaire incompatible <span class="math notranslate nohighlight">\({\bf Ax}={\bf b}\)</span>, où <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{mn}(\mathbb R)\)</span> est telle que <span class="math notranslate nohighlight">\(rang({\bf A})&lt;m\)</span> et <span class="math notranslate nohighlight">\({\bf b}\notin Im({\bf A})\)</span>. On supposera par exemple (comme dans le cas des moindres carrés) que <span class="math notranslate nohighlight">\(m&gt;n\)</span> et <span class="math notranslate nohighlight">\(rang({\bf A})=n\)</span>. Le système n’a donc pas de solution, et on le remplace par le système aux équations normales obtenu en le multipliant par <span class="math notranslate nohighlight">\({\bf A^\top} \)</span> :</p>
 <p><span class="math notranslate nohighlight">\({\bf A^\top Ax}={\bf A^\top b}\)</span></p>
 <p>Ce système est en général mal conditionné car <span class="math notranslate nohighlight">\(\sigma({\bf A^\top A}) = \sigma^2({\bf A})\)</span> dans le cas d’une matrice carrée <span class="math notranslate nohighlight">\({\bf A}\)</span>. La méthode de Gauss risque d’être inefficace et on lui préférera des méthodes basées sur des transformations orthogonales qui ont l’avantage d’être numériquement stables.</p>
 <p>Finalement, si les colonnes de <span class="math notranslate nohighlight">\({\bf A}\)</span> sont orthonormées i.e. orthogonales deux à deux et de norme 1) <span class="math notranslate nohighlight">\({\bf A^\top A}=\mathbb I\)</span> (l’identité dans la « petite » dimension <span class="math notranslate nohighlight">\(n\)</span>) et la solution des équations normales est simplement <span class="math notranslate nohighlight">\({\bf x^*}={\bf A^\top b}\)</span>. La  « bonne » stratégie pour résoudre le problème des moindres carrés est donc de construire une base orthonormée de <span class="math notranslate nohighlight">\(Im({\bf A})\)</span> pour calculer explicitement la projection. On verra que cette construction revient à triangulariser la matrice par des transformations orthogonales.</p>
-</section>
-<section id="un-exemple-de-regression-polynomiale-par-moindres-carres">
+</div>
+<div class="section" id="un-exemple-de-regression-polynomiale-par-moindres-carres">
 <h2>Un exemple de régression polynomiale par moindres carrés<a class="headerlink" href="#un-exemple-de-regression-polynomiale-par-moindres-carres" title="Lien permanent vers ce titre">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -817,8 +813,8 @@ On a alors</p>
 <img alt="_images/mcl_8_0.png" src="_images/mcl_8_0.png" />
 </div>
 </div>
-</section>
-<section id="un-exemple-de-regression-lineaire">
+</div>
+<div class="section" id="un-exemple-de-regression-lineaire">
 <h2>Un exemple de régression linéaire<a class="headerlink" href="#un-exemple-de-regression-lineaire" title="Lien permanent vers ce titre">#</a></h2>
 <p>On construit un nuage de points dans <span class="math notranslate nohighlight">\(\mathbb R^3\)</span>, initialement sur un plan, et bruité par un bruit suivant une loi centré d’écart-type <span class="math notranslate nohighlight">\(\sigma\)</span>.</p>
 <div class="cell docutils container">
@@ -859,7 +855,7 @@ On a alors</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Erreur :  4.862693252652804
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Erreur :  4.366775744049604
 </pre></div>
 </div>
 <img alt="_images/mcl_12_1.png" src="_images/mcl_12_1.png" />
@@ -904,19 +900,19 @@ On a alors</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages/numpy/core/shape_base.py:121: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify &#39;dtype=object&#39; when creating the ndarray.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.9/site-packages/numpy/core/shape_base.py:121: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify &#39;dtype=object&#39; when creating the ndarray.
   ary = asanyarray(ary)
-/Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages/numpy/core/fromnumeric.py:2009: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify &#39;dtype=object&#39; when creating the ndarray.
+/usr/local/lib/python3.9/site-packages/numpy/core/fromnumeric.py:2007: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify &#39;dtype=object&#39; when creating the ndarray.
   result = asarray(a).shape
-/Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages/numpy/lib/stride_tricks.py:342: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify &#39;dtype=object&#39; when creating the ndarray.
+/usr/local/lib/python3.9/site-packages/numpy/lib/stride_tricks.py:341: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify &#39;dtype=object&#39; when creating the ndarray.
   array = np.array(array, copy=False, subok=subok)
 </pre></div>
 </div>
 <img alt="_images/mcl_14_1.png" src="_images/mcl_14_1.png" />
 </div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

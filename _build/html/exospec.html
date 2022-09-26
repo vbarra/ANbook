@@ -4,8 +4,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Exercices &#8212; Analyse numérique</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -21,7 +20,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -36,13 +35,10 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script src="_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
@@ -52,8 +48,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Index" href="genindex.html" />
@@ -117,7 +113,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
+        <p class="caption">
  <span class="caption-text">
   Tutoriels
  </span>
@@ -144,7 +140,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Introduction au calcul matriciel
  </span>
@@ -171,7 +167,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Elimination de Gauss
  </span>
@@ -193,7 +189,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Moindres carrés linéaires
  </span>
@@ -220,7 +216,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Analyse spectrale
  </span>
@@ -267,7 +263,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Index
  </span>
@@ -610,9 +606,9 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="exercices">
+  <div class="tex2jax_ignore mathjax_ignore section" id="exercices">
 <h1>Exercices<a class="headerlink" href="#exercices" title="Lien permanent vers ce titre">#</a></h1>
-<section id="exercice-1">
+<div class="section" id="exercice-1">
 <h2>Exercice 1<a class="headerlink" href="#exercice-1" title="Lien permanent vers ce titre">#</a></h2>
 <p>Soit les matrices
 <span class="math notranslate nohighlight">\(\begin{pmatrix}
@@ -665,8 +661,8 @@ title="Print to PDF"
 <li><p>Multiplicité géométrique des valeurs propres ?</p></li>
 <li><p>La matrice est-elle diagonalisable ?  Si oui, la diagonaliser.</p></li>
 </ul>
-</section>
-<section id="exercice-2">
+</div>
+<div class="section" id="exercice-2">
 <h2>Exercice 2<a class="headerlink" href="#exercice-2" title="Lien permanent vers ce titre">#</a></h2>
 <p>Que peut-on dire de la diagonalisabilité, des valeurs propres et des vecteurs propres</p>
 <ul class="simple">
@@ -674,8 +670,8 @@ title="Print to PDF"
 <li><p>d’un projecteur ?</p></li>
 <li><p>d’une rotation?</p></li>
 </ul>
-</section>
-<section id="exercice-3">
+</div>
+<div class="section" id="exercice-3">
 <h2>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien permanent vers ce titre">#</a></h2>
 <ol class="simple">
 <li><p>Soit <span class="math notranslate nohighlight">\(A=\begin{pmatrix}  
@@ -713,8 +709,8 @@ z'(t)=y(t)
 \)</span>
 }</p></li>
 </ol>
-</section>
-<section id="exercice-4">
+</div>
+<div class="section" id="exercice-4">
 <h2>Exercice 4<a class="headerlink" href="#exercice-4" title="Lien permanent vers ce titre">#</a></h2>
 <ol class="simple">
 <li><p>Soit <span class="math notranslate nohighlight">\(a\)</span> et <span class="math notranslate nohighlight">\(b\)</span> deux réels et <span class="math notranslate nohighlight">\(D\)</span> une matrice carrée. Montrer que si
@@ -750,16 +746,16 @@ A=\left[\begin{array}{rrrr}
 \right]
 \)</span></p></li>
 </ol>
-</section>
-<section id="exercice-5">
+</div>
+<div class="section" id="exercice-5">
 <h2>Exercice 5<a class="headerlink" href="#exercice-5" title="Lien permanent vers ce titre">#</a></h2>
 <p>Soit <span class="math notranslate nohighlight">\(a\)</span> et <span class="math notranslate nohighlight">\(b\)</span> deux vecteurs non colinéaires de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>, <span class="math notranslate nohighlight">\(\|a\|=\|b\|=1\)</span>. Déterminer
 les vecteurs propres et les valeurs propres de la matrice <span class="math notranslate nohighlight">\(n\times n\)</span>
 <span class="math notranslate nohighlight">\(
 A=aa^\top +bb^\top .
 \)</span></p>
-</section>
-<section id="exercice-6">
+</div>
+<div class="section" id="exercice-6">
 <h2>Exercice 6<a class="headerlink" href="#exercice-6" title="Lien permanent vers ce titre">#</a></h2>
 <p>Soit <span class="math notranslate nohighlight">\(A'=A+E\)</span>, la somme de deux matrices symétriques. Les valeurs propres
 de ces trois matrices sont notées
@@ -787,8 +783,8 @@ montrer que <span class="math notranslate nohighlight">\(E^{(k)}\)</span> tend v
 <li><p>chaque <span class="math notranslate nohighlight">\(a_{ii}^{(k)}\longrightarrow \lambda_i\)</span>, o`u <span class="math notranslate nohighlight">\(\lambda_i\)</span>
 est une valeur propre de <span class="math notranslate nohighlight">\(A\)</span>.</p></li>
 </ul>
-</section>
-<section id="exercice-7">
+</div>
+<div class="section" id="exercice-7">
 <h2>Exercice 7<a class="headerlink" href="#exercice-7" title="Lien permanent vers ce titre">#</a></h2>
 <p>Supposons calculée la plus grande valeur propre <span class="math notranslate nohighlight">\(\lambda_n\)</span> d’une
 matrice symétrique <span class="math notranslate nohighlight">\(A\)</span> et le vecteur propre associé <span class="math notranslate nohighlight">\(v_n\)</span>.</p>
@@ -800,8 +796,8 @@ l’exception de <span class="math notranslate nohighlight">\(v_n\)</span>. Quel
 En déduire une première méthode de calcul des plus grandes valeurs
 propres de <span class="math notranslate nohighlight">\(A\)</span>.</p></li>
 </ol>
-</section>
-<section id="exercice-8">
+</div>
+<div class="section" id="exercice-8">
 <h2>Exercice 8<a class="headerlink" href="#exercice-8" title="Lien permanent vers ce titre">#</a></h2>
 <p>Chaque année, une proportion <span class="math notranslate nohighlight">\(a\)</span> de clermontois quitte Clermont-Ferrand pour s’installer
 dans le Puy de Dôme (hors Clermont-Ferrand), une proportion <span class="math notranslate nohighlight">\(b\)</span> de non clermontois
@@ -816,8 +812,8 @@ de flux migratoire du Puy de Dôme vers l’extérieur, et vice versa.</p>
 <li><p>Application numérique: calculer cette limite en fonction de <span class="math notranslate nohighlight">\(x_0\)</span> et <span class="math notranslate nohighlight">\(y_0\)</span> lorsque
 <span class="math notranslate nohighlight">\(a=0.1\)</span> et <span class="math notranslate nohighlight">\(b=0.2\)</span>.</p></li>
 </ol>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

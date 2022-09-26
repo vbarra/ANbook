@@ -4,8 +4,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Transformations orthogonales &#8212; Analyse numérique</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -21,7 +20,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -36,13 +35,10 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
-    <script>let toggleHintShow = 'Click to show';</script>
-    <script>let toggleHintHide = 'Click to hide';</script>
-    <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script src="_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
@@ -52,8 +48,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Exercices" href="exomcl.html" />
@@ -117,7 +113,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
+        <p class="caption">
  <span class="caption-text">
   Tutoriels
  </span>
@@ -144,7 +140,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Introduction au calcul matriciel
  </span>
@@ -171,7 +167,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Elimination de Gauss
  </span>
@@ -193,7 +189,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Moindres carrés linéaires
  </span>
@@ -220,7 +216,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Analyse spectrale
  </span>
@@ -267,7 +263,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
+<p class="caption">
  <span class="caption-text">
   Index
  </span>
@@ -608,47 +604,55 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: sympy in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (1.11.1)
-Requirement already satisfied: numpy in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (1.23.3)
-Requirement already satisfied: matplotlib in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (3.5.3)
-Requirement already satisfied: mpmath&gt;=0.19 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from sympy) (1.2.1)
-Requirement already satisfied: pyparsing&gt;=2.2.1 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (3.0.9)
-Requirement already satisfied: pillow&gt;=6.2.0 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (9.2.0)
-Requirement already satisfied: python-dateutil&gt;=2.7 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (2.8.2)
-Requirement already satisfied: packaging&gt;=20.0 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (21.3)
-Requirement already satisfied: cycler&gt;=0.10 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (0.11.0)
-Requirement already satisfied: kiwisolver&gt;=1.0.1 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (1.4.4)
-Requirement already satisfied: fonttools&gt;=4.22.0 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from matplotlib) (4.37.1)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">DEPRECATION: Configuring installation scheme with distutils config files is deprecated and will no longer work in the near future. If you are using a Homebrew or Linuxbrew Python, please see discussion at https://github.com/Homebrew/homebrew-core/issues/76621</span>
+
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six&gt;=1.5 in /Users/vibarra/Documents/Cours/FISA/envbook/lib/python3.9/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib) (1.16.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: sympy in /usr/local/lib/python3.9/site-packages (1.8)
+Requirement already satisfied: numpy in /usr/local/lib/python3.9/site-packages (1.22.0)
+Requirement already satisfied: matplotlib in /usr/local/lib/python3.9/site-packages (3.5.2)
+Requirement already satisfied: mpmath&gt;=0.19 in /usr/local/lib/python3.9/site-packages (from sympy) (1.2.1)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: You are using pip version 21.3.1; however, version 22.2.2 is available.</span>
-<span class=" -Color -Color-Yellow">You should consider upgrading via the &#39;/Users/vibarra/Documents/Cours/FISA/envbook/bin/python3.9 -m pip install --upgrade pip&#39; command.</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pillow&gt;=6.2.0 in /usr/local/lib/python3.9/site-packages (from matplotlib) (9.1.0)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /usr/local/lib/python3.9/site-packages (from matplotlib) (1.3.1)
+Requirement already satisfied: cycler&gt;=0.10 in /usr/local/lib/python3.9/site-packages (from matplotlib) (0.10.0)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /usr/local/lib/python3.9/site-packages (from matplotlib) (4.29.1)
+Requirement already satisfied: packaging&gt;=20.0 in /usr/local/lib/python3.9/site-packages (from matplotlib) (20.9)
+Requirement already satisfied: pyparsing&gt;=2.2.1 in /usr/local/lib/python3.9/site-packages (from matplotlib) (2.4.7)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /usr/local/lib/python3.9/site-packages (from matplotlib) (2.8.1)
+Requirement already satisfied: six in /usr/local/lib/python3.9/site-packages (from cycler&gt;=0.10-&gt;matplotlib) (1.15.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">DEPRECATION: Configuring installation scheme with distutils config files is deprecated and will no longer work in the near future. If you are using a Homebrew or Linuxbrew Python, please see discussion at https://github.com/Homebrew/homebrew-core/issues/76621</span>
+
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: There was an error checking the latest version of pip.</span>
+
 </pre></div>
 </div>
 </div>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="transformations-orthogonales">
+<div class="tex2jax_ignore mathjax_ignore section" id="transformations-orthogonales">
 <h1>Transformations orthogonales<a class="headerlink" href="#transformations-orthogonales" title="Lien permanent vers ce titre">#</a></h1>
-<section id="matrices-orthogonales">
+<div class="section" id="matrices-orthogonales">
 <h2>Matrices orthogonales<a class="headerlink" href="#matrices-orthogonales" title="Lien permanent vers ce titre">#</a></h2>
 <div class="proof definition admonition" id="definition-0">
 <p class="admonition-title"><span class="caption-number">Definition 28 </span> (Matrice orthogonale)</p>
-<section class="definition-content" id="proof-content">
+<div class="definition-content section" id="proof-content">
 <p>Une matrice carrée <span class="math notranslate nohighlight">\({\bf H}\)</span> est dite {orthogonale}
 si et seulement si <span class="math notranslate nohighlight">\({\bf H^\top}{\bf H}={\bf H}{\bf H^\top} = \mathbb I\)</span></p>
-</section>
+</div>
 </div><span class="target" id="index-0"></span><p id="index-1">Une matrice orthogonale est donc une matrice carrée dont les colonnes sont orthonormées. Les matrices de rotation, de symétrie, de permutation et l’identité sont des exemples de matrices orthogonales.</p>
 <p>Une matrice orthogonale <span class="math notranslate nohighlight">\({\bf H}\)</span> est naturellement inversible par définition, et l’inverse est <span class="math notranslate nohighlight">\({\bf H^{-1}}={\bf H^\top} \)</span>.</p>
 <div class="proof property admonition" id="property-1">
 <p class="admonition-title"><span class="caption-number">Property 11 </span> (Propriété fondamentale)</p>
-<section class="property-content" id="proof-content">
+<div class="property-content section" id="proof-content">
 <p>Les transformations orthogonales
 sont des isométries, les normes (euclidiennes), les produits scalaires et les angles sont conservés :</p>
 <p><span class="math notranslate nohighlight">\(({\bf H} \textrm{ orthogonale}) \Leftrightarrow (\forall {\bf x}\in \mathbb R^n)\\|{\bf Hx}\|=\|{\bf x}\|\)</span></p>
-</section>
+</div>
 </div><span class="target" id="index-2"></span><p id="index-3">En effet, <span class="math notranslate nohighlight">\(\|{\bf Hx}\|^2=({\bf Hx)^\top} ({\bf Hx})={\bf x^\top H^\top Hx}={\bf x^\top x}=\|{\bf x}\|^2\)</span>.</p>
 <p>Cette propriété entraîne une stabilité numérique des méthodes utilisant ces transformations. On les utilise principalement pour :</p>
 <ul class="simple">
@@ -718,22 +722,22 @@ orthonormée telle que</p>
 <p><span class="math notranslate nohighlight">\({\bf x}=\displaystyle\sum_{i=1}^n ({\bf q_i^\top} {\bf x}){\bf q_i}\)</span></p>
 <p><span class="math notranslate nohighlight">\(({\bf q_i^\top} {\bf x}){\bf q_i}\)</span> est la projection orthogonale de <span class="math notranslate nohighlight">\({\bf x}\)</span> sur l’axe <span class="math notranslate nohighlight">\({\bf q_i}\)</span>. Cette représentation se
 généralise aisement à une base orthonormée quelconque <span class="math notranslate nohighlight">\({\bf q_1},{\bf q_2},\ldots,{\bf q_r}\)</span> d’un sous-espace de dimension <span class="math notranslate nohighlight">\(r\)</span>.</p>
-</section>
-<section id="orthogonalisation-de-gram-schmidt">
+</div>
+<div class="section" id="orthogonalisation-de-gram-schmidt">
 <h2>Orthogonalisation de Gram-Schmidt<a class="headerlink" href="#orthogonalisation-de-gram-schmidt" title="Lien permanent vers ce titre">#</a></h2>
-<span class="target" id="index-4"></span><section id="algorithme">
+<span class="target" id="index-4"></span><div class="section" id="algorithme">
 <span id="index-5"></span><h3>Algorithme<a class="headerlink" href="#algorithme" title="Lien permanent vers ce titre">#</a></h3>
 <p>A partir d’une famille de <span class="math notranslate nohighlight">\(p\)</span> vecteurs linéairement indépendants de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>, représentés par une matrice <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{n,p}(\mathbb R)\)</span> de rang <span class="math notranslate nohighlight">\(p\)</span>, on peut construire une famille <span class="math notranslate nohighlight">\(\{{\bf q_1}\cdots {\bf q_p}\}\)</span>, base orthonormée de <span class="math notranslate nohighlight">\(Im({\bf A})\)</span>. C’est un outil fondamental pour la résolution de systèmes surdéterminés.</p>
 <p>L’idée générale est donc de construire une base orthonormée du sous-espace image d’un ensemble de vecteurs. L’intérêt numérique est que cette construction équivaut à triangulariser la matrice formée par ces vecteurs. L’algorithme <a class="reference internal" href="#GS">Algorithm 5</a> et la figure suivante présentent le procédé d’orthonormalisation de Gram-Schmidt qui, s’il est simple à comprendre, ne présente qu’un intérêt académique puisqu’il est très coûteux. En pratique, on utilise la méthode de factorisation QR qui permet d’atteindre le même objectif grâce à des transformations orthogonales élémentaires (rotations de Givens ou transformations de  Householder) numériquement stables et seulement deux fois plus chères que la méthode de Gauss.</p>
 <p>Le principe de Gram-Schmidt est de calculer, pour <span class="math notranslate nohighlight">\(j\in[\![2,p]\!]\)</span>,  chaque vecteur <span class="math notranslate nohighlight">\({\bf q_j}\)</span> en soustrayant à  <span class="math notranslate nohighlight">\({\bf  A_{\bullet,j}}\)</span> ses projections orthogonales sur les <span class="math notranslate nohighlight">\(j-1\)</span>
 premiers vecteurs de la base orthonormée déjà calculés, puis en normant le résultat.</p>
-<aside class="margin sidebar">
+<div class="margin sidebar">
 <p class="sidebar-title"></p>
 <p><img alt="" src="_images/SchmidtE.png" /></p>
-</aside>
+</div>
 <div class="proof algorithm admonition" id="GS">
 <p class="admonition-title"><span class="caption-number">Algorithm 5 </span> (Procédé d’orthonormalisation de Gram-Schmidt - version de base)</p>
-<section class="algorithm-content" id="proof-content">
+<div class="algorithm-content section" id="proof-content">
 <p><strong>Entrée :</strong>  <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{n,p}(\mathbb R)\)</span> de rang <span class="math notranslate nohighlight">\(p\)</span></p>
 <p><strong>Sortie :</strong> <span class="math notranslate nohighlight">\({\bf Q_1}\in\mathcal{M}_{n,p}(\mathbb R)\)</span> à colonnes orthonormées, <span class="math notranslate nohighlight">\({\bf R_1}\in\mathcal{M}_{p}(\mathbb R)\)</span> triangulaire supérieure</p>
 <ol class="simple">
@@ -753,13 +757,13 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </ol>
 </li>
 </ol>
-</section>
+</div>
 </div><p><img alt="" src="_images/gs.png" /></p>
 <p>On remarque (voir boucles de l’algorithme) que la matrice <span class="math notranslate nohighlight">\({\bf R_1}\)</span> est triangulaire supérieure.</p>
 <p>Gram-Schmidt construit donc une matrice <span class="math notranslate nohighlight">\({\bf Q_1}\in\mathcal{M}_{n,p}(\mathbb R)\)</span> à colonnes orthormées et une matrice <span class="math notranslate nohighlight">\({\bf R_1}\in\mathcal{M}_{p}(\mathbb R)\)</span> telles que <span class="math notranslate nohighlight">\({\bf Q_1^\top}{\bf A} = {\bf R_1}\)</span> soit <span class="math notranslate nohighlight">\({\bf A}\)</span>=<span class="math notranslate nohighlight">\({\bf Q_1R_1}\)</span>.</p>
 <div class="proof example admonition" id="example-3">
 <p class="admonition-title"><span class="caption-number">Example 13 </span></p>
-<section class="example-content" id="proof-content">
+<div class="example-content section" id="proof-content">
 <p>Soit <span class="math notranslate nohighlight">\({\bf A} = \begin{pmatrix} 1&amp;1\\1&amp;0\\1&amp;1\end{pmatrix}\)</span>.</p>
 <p>Alors <span class="math notranslate nohighlight">\({\bf A} ={\bf QR}\)</span> avec <span class="math notranslate nohighlight">\({\bf Q} = \begin{pmatrix} \textcolor{blue}{\frac{1}{\sqrt{3}}}&amp;\textcolor{magenta}{\frac{1}{\sqrt{6}}}\\\textcolor{blue}{\frac{1}{\sqrt{3}}}&amp;\textcolor{magenta}{-\frac{\sqrt 2}{\sqrt 3}}\\\textcolor{blue}{\frac{1}{\sqrt{3}}}&amp;\textcolor{magenta}{\frac{1}{\sqrt{6}}}\end{pmatrix}\)</span> et <span class="math notranslate nohighlight">\({\bf R} = \begin{pmatrix} \textcolor{red}{\sqrt{3}}&amp;\textcolor{orange}{\frac{2}{\sqrt{3}}}\\0&amp;\textcolor{cyan}{\sqrt{\frac{2}{3}}}\end{pmatrix}\)</span>. En effet :</p>
 <ol class="simple">
@@ -770,7 +774,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 <li><p><span class="math notranslate nohighlight">\(\textcolor{cyan}{r_{22}} = \|{\bf p_2}\|= \textcolor{cyan}{\sqrt{\frac{2}{3}}}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(\textcolor{magenta}{{\bf q_{2}}} = \frac{{\bf p_2}}{r_{22}} = \textcolor{magenta}{\begin{pmatrix}\frac{1}{\sqrt{6}}\\-\frac{\sqrt 2}{\sqrt 3}\\\frac{1}{\sqrt{6}}\end{pmatrix}}\)</span></p></li>
 </ol>
-</section>
+</div>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -808,7 +812,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}0.01267 &amp; 0.4271 &amp; 0.988 &amp; 0.3129\\0.8805 &amp; 0.5848 &amp; 0.9402 &amp; 0.1149\\0.3752 &amp; 0.7033 &amp; 0.2562 &amp; 0.4639\\0.3842 &amp; 0.8718 &amp; 0.5622 &amp; 0.8565\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}0.1249 &amp; 0.9928 &amp; 0.4779 &amp; 0.5881\\0.3586 &amp; 0.5863 &amp; 0.1686 &amp; 0.6057\\0.1568 &amp; 0.2387 &amp; 0.3232 &amp; 0.1812\\0.2902 &amp; 0.4014 &amp; 0.2376 &amp; 0.8199\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -819,7 +823,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}0.01228 &amp; 0.5334 &amp; 0.8193 &amp; -0.2099\\0.8537 &amp; -0.4402 &amp; 0.2778 &amp; 0.01559\\0.3637 &amp; 0.3979 &amp; -0.4473 &amp; -0.7137\\0.3725 &amp; 0.6029 &amp; -0.2268 &amp; 0.6681\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}0.2482 &amp; 0.9661 &amp; 0.03303 &amp; 0.06254\\0.713 &amp; -0.1357 &amp; -0.5057 &amp; -0.4664\\0.3117 &amp; -0.08192 &amp; 0.8485 &amp; -0.4198\\0.577 &amp; -0.2037 &amp; 0.1524 &amp; 0.7761\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -830,7 +834,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}1.031 &amp; 1.085 &amp; 1.117 &amp; 0.5897\\0 &amp; 0.7758 &amp; 0.5539 &amp; 0.8172\\0 &amp; 0 &amp; 0.8285 &amp; -0.1135\\0 &amp; 0 &amp; 0 &amp; 0.1772\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}0.5029 &amp; 0.9704 &amp; 0.4767 &amp; 1.107\\0 &amp; 0.7783 &amp; 0.3639 &amp; 0.3041\\0 &amp; 0 &amp; 0.241 &amp; -0.008186\\0 &amp; 0 &amp; 0 &amp; 0.3146\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -841,7 +845,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}1.0 &amp; -1.984 \cdot 10^{-16} &amp; 6.752 \cdot 10^{-17} &amp; 1.068 \cdot 10^{-15}\\-1.984 \cdot 10^{-16} &amp; 1.0 &amp; 1.558 \cdot 10^{-16} &amp; 1.813 \cdot 10^{-16}\\6.752 \cdot 10^{-17} &amp; 1.558 \cdot 10^{-16} &amp; 1.0 &amp; -4.724 \cdot 10^{-16}\\1.068 \cdot 10^{-15} &amp; 1.813 \cdot 10^{-16} &amp; -4.724 \cdot 10^{-16} &amp; 1.0\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}1.0 &amp; 2.238 \cdot 10^{-17} &amp; -1.739 \cdot 10^{-16} &amp; 3.116 \cdot 10^{-16}\\2.238 \cdot 10^{-17} &amp; 1.0 &amp; 1.056 \cdot 10^{-16} &amp; 6.56 \cdot 10^{-17}\\-1.739 \cdot 10^{-16} &amp; 1.056 \cdot 10^{-16} &amp; 1.0 &amp; 5.96 \cdot 10^{-16}\\3.116 \cdot 10^{-16} &amp; 6.56 \cdot 10^{-17} &amp; 5.96 \cdot 10^{-16} &amp; 1.0\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -855,7 +859,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Norme de I-Q^TQ =  1.0684241964223191e-15
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Norme de I-Q^TQ =  5.959500174553674e-16
 Norme infinie de QR-A =  1.1102230246251565e-16
 </pre></div>
 </div>
@@ -889,7 +893,7 @@ Norme infinie de QR-A =  1.1102230246251565e-16
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Norme de QR-A =  5.551115123125783e-17 
 
-Norme de Q^T*Q-I =  0.9999679832111513
+Norme de Q^T*Q-I =  0.9999670638304938
 </pre></div>
 </div>
 </div>
@@ -903,11 +907,11 @@ Norme de Q^T*Q-I =  0.9999679832111513
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}-3.3 \cdot 10^{-16} &amp; 1.9 \cdot 10^{-15} &amp; -8.8 \cdot 10^{-15} &amp; 6.5 \cdot 10^{-14} &amp; -8.7 \cdot 10^{-13} &amp; 6.8 \cdot 10^{-12} &amp; 1.0 \cdot 10^{-10} &amp; 1.0 \cdot 10^{-10}\\1.9 \cdot 10^{-15} &amp; 0 &amp; -8.3 \cdot 10^{-14} &amp; 1.1 \cdot 10^{-12} &amp; -1.1 \cdot 10^{-11} &amp; 8.2 \cdot 10^{-11} &amp; 1.4 \cdot 10^{-10} &amp; 1.2 \cdot 10^{-10}\\-8.8 \cdot 10^{-15} &amp; -8.3 \cdot 10^{-14} &amp; -1.1 \cdot 10^{-16} &amp; 2.3 \cdot 10^{-11} &amp; -5.6 \cdot 10^{-10} &amp; 1.1 \cdot 10^{-8} &amp; -2.0 \cdot 10^{-7} &amp; -2.0 \cdot 10^{-7}\\6.5 \cdot 10^{-14} &amp; 1.1 \cdot 10^{-12} &amp; 2.3 \cdot 10^{-11} &amp; 0 &amp; -2.0 \cdot 10^{-8} &amp; 8.0 \cdot 10^{-7} &amp; -2.5 \cdot 10^{-5} &amp; -2.4 \cdot 10^{-5}\\-8.7 \cdot 10^{-13} &amp; -1.1 \cdot 10^{-11} &amp; -5.6 \cdot 10^{-10} &amp; -2.0 \cdot 10^{-8} &amp; 0 &amp; 4.3 \cdot 10^{-5} &amp; -0.0027 &amp; -0.0027\\6.8 \cdot 10^{-12} &amp; 8.2 \cdot 10^{-11} &amp; 1.1 \cdot 10^{-8} &amp; 8.0 \cdot 10^{-7} &amp; 4.3 \cdot 10^{-5} &amp; -1.1 \cdot 10^{-16} &amp; -0.22 &amp; -0.21\\1.0 \cdot 10^{-10} &amp; 1.4 \cdot 10^{-10} &amp; -2.0 \cdot 10^{-7} &amp; -2.5 \cdot 10^{-5} &amp; -0.0027 &amp; -0.22 &amp; 2.2 \cdot 10^{-16} &amp; 1.0\\1.0 \cdot 10^{-10} &amp; 1.2 \cdot 10^{-10} &amp; -2.0 \cdot 10^{-7} &amp; -2.4 \cdot 10^{-5} &amp; -0.0027 &amp; -0.21 &amp; 1.0 &amp; -1.1 \cdot 10^{-16}\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}2.2 \cdot 10^{-16} &amp; -7.2 \cdot 10^{-16} &amp; 2.1 \cdot 10^{-16} &amp; 1.3 \cdot 10^{-13} &amp; -3.9 \cdot 10^{-12} &amp; 6.3 \cdot 10^{-11} &amp; 9.4 \cdot 10^{-10} &amp; -1.1 \cdot 10^{-9}\\-7.2 \cdot 10^{-16} &amp; -1.1 \cdot 10^{-16} &amp; 3.3 \cdot 10^{-14} &amp; -3.9 \cdot 10^{-13} &amp; 2.9 \cdot 10^{-12} &amp; -4.7 \cdot 10^{-12} &amp; -7.9 \cdot 10^{-10} &amp; 8.4 \cdot 10^{-10}\\2.1 \cdot 10^{-16} &amp; 3.3 \cdot 10^{-14} &amp; -2.2 \cdot 10^{-16} &amp; -7.5 \cdot 10^{-12} &amp; 1.8 \cdot 10^{-10} &amp; -3.4 \cdot 10^{-9} &amp; 6.5 \cdot 10^{-8} &amp; -6.7 \cdot 10^{-8}\\1.3 \cdot 10^{-13} &amp; -3.9 \cdot 10^{-13} &amp; -7.5 \cdot 10^{-12} &amp; -2.2 \cdot 10^{-16} &amp; 5.2 \cdot 10^{-9} &amp; -2.0 \cdot 10^{-7} &amp; 6.2 \cdot 10^{-6} &amp; -6.5 \cdot 10^{-6}\\-3.9 \cdot 10^{-12} &amp; 2.9 \cdot 10^{-12} &amp; 1.8 \cdot 10^{-10} &amp; 5.2 \cdot 10^{-9} &amp; -1.1 \cdot 10^{-16} &amp; -1.1 \cdot 10^{-5} &amp; 0.0007 &amp; -0.00075\\6.3 \cdot 10^{-11} &amp; -4.7 \cdot 10^{-12} &amp; -3.4 \cdot 10^{-9} &amp; -2.0 \cdot 10^{-7} &amp; -1.1 \cdot 10^{-5} &amp; 0 &amp; 0.058 &amp; -0.066\\9.4 \cdot 10^{-10} &amp; -7.9 \cdot 10^{-10} &amp; 6.5 \cdot 10^{-8} &amp; 6.2 \cdot 10^{-6} &amp; 0.0007 &amp; 0.058 &amp; -3.3 \cdot 10^{-16} &amp; -1.0\\-1.1 \cdot 10^{-9} &amp; 8.4 \cdot 10^{-10} &amp; -6.7 \cdot 10^{-8} &amp; -6.5 \cdot 10^{-6} &amp; -0.00075 &amp; -0.066 &amp; -1.0 &amp; 0\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
-</section>
-<section id="gram-schmidt-sur-mathbb-r-n">
+</div>
+<div class="section" id="gram-schmidt-sur-mathbb-r-n">
 <h3>Gram-Schmidt sur <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span><a class="headerlink" href="#gram-schmidt-sur-mathbb-r-n" title="Lien permanent vers ce titre">#</a></h3>
 <p>Il est possible de compléter <span class="math notranslate nohighlight">\({\bf q_1}\cdots {\bf q_p}\)</span> en une base orthonormée de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>, en continuant la procédure de Gram-Schmidt avec <span class="math notranslate nohighlight">\(n-p\)</span> vecteurs arbitraires, mais tels que les <span class="math notranslate nohighlight">\(n\)</span> colonnes formées avec les <span class="math notranslate nohighlight">\({\bf A_{\bullet,j}}\)</span> soient linéairement indépendantes. Soit <span class="math notranslate nohighlight">\({\bf Q_2}\)</span> la matrice des <span class="math notranslate nohighlight">\(n-p\)</span> derniers vecteurs orthonormés. On a alors bien :</p>
 <p><span class="math notranslate nohighlight">\({\bf A^\top} {\bf Q_2}={\bf R_1^\top} {\bf Q_1^\top} {\bf Q_2}=0\)</span> ce qui montre que :</p>
@@ -942,8 +946,8 @@ une base orthonormée de <span class="math notranslate nohighlight">\(Ker({\bf A
 \[\begin{split}\displaystyle \left[\begin{matrix}\frac{1}{3} &amp; - \frac{2}{3} &amp; \frac{2}{3}\\\frac{2}{3} &amp; - \frac{1}{3} &amp; - \frac{2}{3}\\\frac{2}{3} &amp; \frac{2}{3} &amp; \frac{1}{3}\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
-</section>
-<section id="retour-sur-le-probleme-aux-moindres-carres">
+</div>
+<div class="section" id="retour-sur-le-probleme-aux-moindres-carres">
 <h3>Retour sur le problème aux moindres carrés<a class="headerlink" href="#retour-sur-le-probleme-aux-moindres-carres" title="Lien permanent vers ce titre">#</a></h3>
 <p>Appliqué au problème des moindres carrés, le système aux équations normales s’écrit donc</p>
 <p><span class="math notranslate nohighlight">\(\begin{eqnarray*}
@@ -958,37 +962,37 @@ problème des moindres carrés est solution du système triangulaire</p>
 <p><span class="math notranslate nohighlight">\({\bf R_1x}= {\bf Q_1^\top b}\)</span>
 et le calcul de l’erreur donne</p>
 <p><span class="math notranslate nohighlight">\(\|{\bf e}\|^2=\|{\bf b}\|^2-\displaystyle\sum_{i=1}^p  ({\bf b^\top} {\bf q_i})^2\)</span></p>
-</section>
-</section>
-<section id="transformations-de-householder">
+</div>
+</div>
+<div class="section" id="transformations-de-householder">
 <h2>Transformations de Householder<a class="headerlink" href="#transformations-de-householder" title="Lien permanent vers ce titre">#</a></h2>
 <p id="index-6">On peut interpréter la méthode de Gram-Schmidt comme une méthode de triangularisation de la matrice <span class="math notranslate nohighlight">\({\bf A}\)</span>, au même titre que la méthode de Gauss. Il est possible de réorganiser les calculs en construisant des transformations élémentaires orthogonales qui effectuent cette triangularisation colonne par colonne (ou élément par élément). Les symétries de Householder
 et les rotations de Givens sont des exemples simples et intéressants de telles transformations, car elles conduisent à des algorithmes numériquement plus stables que la méthode de Gram-Schmidt.</p>
-<aside class="margin sidebar">
+<div class="margin sidebar">
 <p class="sidebar-title"></p>
 <p><img alt="" src="_images/householder.png" /></p>
-</aside>
+</div>
 <div class="proof definition admonition" id="definition-4">
 <p class="admonition-title"><span class="caption-number">Definition 29 </span> (Matrice de Householder)</p>
-<section class="definition-content" id="proof-content">
+<div class="definition-content section" id="proof-content">
 <p>Une matrice de Householder
 est une matrice carrée <span class="math notranslate nohighlight">\({\bf H}\)</span> qui s’écrit <span class="math notranslate nohighlight">\({\bf H}=\mathbb I-2{\bf P}\)</span>, où <span class="math notranslate nohighlight">\({\bf P}\)</span> est
 la matrice de projection
 sur la droite engendrée par un vecteur <span class="math notranslate nohighlight">\({\bf v}\)</span> non nul.</p>
-</section>
+</div>
 </div><span class="target" id="index-7"></span><p id="index-8">On vérifie  que <span class="math notranslate nohighlight">\({\bf H}\)</span> représente une symétrie
 par rapport au sous-espace <span class="math notranslate nohighlight">\({\bf v^\perp}\)</span>.</p>
 <p id="index-9">Le théorème suivant montre qu’il est toujours possible de trouver une matrice de Householder
 permettant de transformer un vecteur quelconque en un vecteur colinéaire à un vecteur donné.</p>
 <div class="proof theorem admonition" id="theorem-5">
 <p class="admonition-title"><span class="caption-number">Theorem 7 </span></p>
-<section class="theorem-content" id="proof-content">
+<div class="theorem-content section" id="proof-content">
 <p>Soient <span class="math notranslate nohighlight">\({\bf f}\)</span> et <span class="math notranslate nohighlight">\({\bf e}\)</span> deux vecteurs non colinéaires de <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>; avec <span class="math notranslate nohighlight">\(\|{\bf e}\|_2=1\)</span>. Il est alors possible de trouver <span class="math notranslate nohighlight">\({\bf u}\in \mathbb{R}^n\)</span> tel que :</p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(\|{\bf u}\|_2=1\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\({\bf H(u)f}=\alpha {\bf e}\)</span></p></li>
 </ol>
-</section>
+</div>
 </div><div class="proof admonition" id="proof">
 <p>Proof. Remarquons tout d’abord que si <span class="math notranslate nohighlight">\({\bf H(u)}\)</span> est une matrice de Householder, alors <span class="math notranslate nohighlight">\({\bf H(u)f}={\bf f-2u(u^\top f)}\)</span> et <span class="math notranslate nohighlight">\(\|{\bf H(u)f}\|_2=\|{\bf f}\|_2\)</span>.</p>
 <p>Posons alors <span class="math notranslate nohighlight">\(\mid\alpha\mid=\|{\bf f}\|_2\)</span>. On cherche alors <span class="math notranslate nohighlight">\({\bf u}\)</span> tel que <span class="math notranslate nohighlight">\({\bf H(u)f}=\alpha {\bf e}\)</span>, soit</p>
@@ -1005,14 +1009,14 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 </div>
 <div class="proof remark dropdown admonition" id="remark-6">
 <p class="admonition-title"><span class="caption-number">Remark 9 </span></p>
-<section class="remark-content" id="proof-content">
+<div class="remark-content section" id="proof-content">
 <p>Si <span class="math notranslate nohighlight">\({\bf f}\)</span> et <span class="math notranslate nohighlight">\({\bf  e}\)</span> sont colinéaires, <span class="math notranslate nohighlight">\({\bf H}=\mathbb I\)</span> ou <span class="math notranslate nohighlight">\({\bf H}=\mathbb I-2{\bf ee^\top }\)</span> répondent à la question.</p>
-</section>
+</div>
 </div><p>L’algorithme d’orthonormalisation  de <span class="math notranslate nohighlight">\({\bf A}\)</span> par matrices de Householder  opère alors colonne par colonne, et transforme itérativement <span class="math notranslate nohighlight">\({\bf A}\)</span> en une matrice triangulaire supérieure.</p>
 <p>On l’illustre dans la suite (algorithme <a class="reference internal" href="#QR">Algorithm 6</a>) dans le cas où <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_n(\mathbb R)\)</span> est de rang plein.</p>
 <div class="proof algorithm admonition" id="QR">
 <p class="admonition-title"><span class="caption-number">Algorithm 6 </span> (Factorisation QR par matrices de Householder)</p>
-<section class="algorithm-content" id="proof-content">
+<div class="algorithm-content section" id="proof-content">
 <p><strong>Entrée :</strong>  <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_n(\mathbb R)\)</span></p>
 <p><strong>Sortie :</strong>  <span class="math notranslate nohighlight">\({\bf Q}\in\mathcal{M}_n(\mathbb R)\)</span> orthogonale, <span class="math notranslate nohighlight">\({\bf R}\in\mathcal{M}_n(\mathbb R)\)</span> triangulaire supérieure</p>
 <ol class="simple">
@@ -1028,7 +1032,7 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 </li>
 <li><p><span class="math notranslate nohighlight">\({\bf R}={\bf A^{(n-1)}}\)</span> et <span class="math notranslate nohighlight">\({\bf Q} =  {\bf {H^{(1)}}^\top}{\bf {H^{(2)}}^\top} \cdots  {\bf {H^{(n-1)}}^\top}\)</span></p></li>
 </ol>
-</section>
+</div>
 </div><p>A l’issue des <span class="math notranslate nohighlight">\(n-1\)</span> itérations, on a effectué les produits <span class="math notranslate nohighlight">\({\bf H^{(n-1)}} \cdots {\bf H^{(2)}} {\bf H^{(1)}}\)</span> pour obtenir une matrice triangulaire supérieure <span class="math notranslate nohighlight">\({\bf R}\in\mathcal{M}_n(\mathbb R)\)</span> à partir de <span class="math notranslate nohighlight">\({\bf A}\)</span>. Donc :</p>
 <p><span class="math notranslate nohighlight">\({\bf H^{(n-1)}} \cdots {\bf H^{(2)}} {\bf H^{(1)}}{\bf A} = {\bf R}\)</span></p>
 <p>De plus les <span class="math notranslate nohighlight">\({\bf H^{(j)}}, j\in[\![1, n-1]\!]\)</span> sont orthogonales donc</p>
@@ -1121,8 +1125,8 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 \[\begin{split}\displaystyle \left[\begin{matrix}-0.8571 &amp; 0.3943 &amp; 0.3314\\-0.4286 &amp; -0.9029 &amp; -0.03429\\0.2857 &amp; -0.1714 &amp; 0.9429\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
