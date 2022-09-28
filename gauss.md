@@ -250,7 +250,7 @@ Le système triangulaire supérieur est ensuite résolu par substitution inverse
 :label: AlgoGauss
 
 **Entrée :** ${\bf A}\in\mathcal{M}_{n,n+1}(\mathbb R)$ (la dernière colonne représente
-le second membre du système)
+le second membre)
 
 **Sortie :** Solution ${\bf x}$ du système ${\bf Ax}={\bf b}$
 
@@ -305,7 +305,7 @@ stocké dans la dernière colonne de ${\bf A}$.
 :label: AlgoGaussPartiel
 
 **Entrée :** ${\bf A}\in\mathcal{M}_{n,n+1}(\mathbb R)$ (la dernière colonne représente
-le second membre du système)
+le second membre)
 
 **Sortie :** Solution ${\bf x}$ du système ${\bf Ax}={\bf b}$
 
