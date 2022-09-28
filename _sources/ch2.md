@@ -55,7 +55,7 @@ Soit $
 \begin{pmatrix}1 & 0 & 0 & 2\\ 1 & 2 & 0 & 1\\ 2 & 1 & 3 & 4\end{pmatrix}
 $
 
-Si on additionne les deux premières lignes et que l'on inscrive le résultat
+Si on additionne les deux premières lignes et que l'on inscrit le résultat
 sur la première ligne sans changer les deux autres, on obtient
 $
 {\bf A'}=
