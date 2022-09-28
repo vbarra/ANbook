@@ -46,7 +46,7 @@ Alors on a le résultat :
 ```` {prf:theorem} 
 Les matrices ${\bf M_i(\alpha)}$, ${\bf C_{ij}(\alpha)}$ et ${\bf P_{ij}}$ sont inversibles et :
 
-$({\bf M_i(\alpha))^{-1}} = {\bf M_i(\alpha^{-1})},\quad ({\bf C_{ij}(\alpha))^{-1}} =  {\bf C_{ij}(-\alpha)} \quad et  {\bf P_{ij}^{-1}}=  {\bf P_{ij}}$
+$({\bf M_i(\alpha))^{-1}} = {\bf M_i(\alpha^{-1})},\quad ({\bf C_{ij}(\alpha))^{-1}} =  {\bf C_{ij}(-\alpha)} \quad \textrm{et}\;   {\bf P_{ij}^{-1}}=  {\bf P_{ij}}$
 ````
 
 ````{prf:example}
