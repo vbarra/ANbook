@@ -783,12 +783,12 @@ sont triangulaires supérieures.</p>
 <div class="math notranslate nohighlight">
 \[
 {\bf A^{(k)}_{i \bullet}}\ \leftarrow\ 
-{\bf A^{(k)}_{i \bullet}}+\frac{-a^{(k)}_{ik}}{{a_{kk}}^{(k)}}\times {\bf A^{(k)}_{k \bullet}}
+{\bf A^{(k)}_{i \bullet}}+\frac{-a^{(k)}_{ik}}{{a_{kk}}^{(k)}_{kk}}\times {\bf A^{(k)}_{k \bullet}}
 \]</div>
 <p>L’élément <span class="math notranslate nohighlight">\(a^{(k)}_{ij}\)</span> pour <span class="math notranslate nohighlight">\(i\in [\![k+1,n]\!]\)</span> et <span class="math notranslate nohighlight">\(j\in [\![k+1,n+1]\!]\)</span> devient</p>
 <div class="math notranslate nohighlight">
 \[
-a^{(k+1)}_{ij}=a^{(k)}_{ij}-\frac{a^{(k)}_{ik}}{{a_{kk}}^{(k)}}a^{(k)}_{kj}
+a^{(k+1)}_{ij}=a^{(k)}_{ij}-\frac{a^{(k)}_{ik}}{{a_{kk}}^{(k)}_{kk}}a^{(k)}_{kj}
 \]</div>
 <p>La mise à jour de la ligne <span class="math notranslate nohighlight">\(i\)</span> requiert donc <span class="math notranslate nohighlight">\(n-k+1\)</span> flops et 1 division. Donc
 l’étape <span class="math notranslate nohighlight">\(k\)</span> coûte <span class="math notranslate nohighlight">\((n-k)(n-k+1)\)</span> flops et <span class="math notranslate nohighlight">\(n-k\)</span> divisions. On en déduit le
