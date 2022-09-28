@@ -339,5 +339,5 @@ A, L * U
 # \det({\bf A})=(-1)^p\prod_{i=1}^nu_{ii}
 # $
 # 
-# où les $u_{ii}$ ($i\in[\![1, n]\!]$) sont les pivots et $p$ le nombre de permutations
+# où les $u_{ii}, i\in[\![1, n]\!]$ sont les pivots et $p$ le nombre de permutations
 # effectuées au cours de la factorisation.
