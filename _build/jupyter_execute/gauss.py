@@ -240,7 +240,7 @@ def SubstitutionInverse(A,b):
 # :label: AlgoGauss
 # 
 # **Entrée :** ${\bf A}\in\mathcal{M}_{n,n+1}(\mathbb R)$ (la dernière colonne représente
-# le second membre du système)
+# le second membre)
 # 
 # **Sortie :** Solution ${\bf x}$ du système ${\bf Ax}={\bf b}$
 # 
@@ -295,7 +295,7 @@ def SubstitutionInverse(A,b):
 # :label: AlgoGaussPartiel
 # 
 # **Entrée :** ${\bf A}\in\mathcal{M}_{n,n+1}(\mathbb R)$ (la dernière colonne représente
-# le second membre du système)
+# le second membre)
 # 
 # **Sortie :** Solution ${\bf x}$ du système ${\bf Ax}={\bf b}$
 # 
