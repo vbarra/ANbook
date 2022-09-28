@@ -246,7 +246,7 @@ get_ipython().system('pip3 install sympy numpy matplotlib')
 # 
 # et on peut écrire l'estimation de l'erreur relative en norme sur $\bf x$ en fonction de la perturbation relative sur ${\bf b}$ :
 # 
-# $\frac{\|\bf\delta \bf x\|}{\|\bf x}\|\leq \|\bf A\|\|\bf A^{-1}\|\frac{\|\bf \delta \bf b\|}{\|\bf b\|}$
+# $\frac{\|\bf\delta \bf x\|}{\|\bf x\|}\|\leq \|\bf A\|\|\bf A^{-1}\|\frac{\|\bf \delta \bf b\|}{\|\bf b\|}$
 # 
 # ````{prf:definition} Condition d'une matrice
 # La quantité $\|{\bf A}\|\|{\bf A^{-1}}\|$ est appelée la condition de la matrice est notée $\sigma({\bf A})$.
@@ -271,7 +271,7 @@ get_ipython().system('pip3 install sympy numpy matplotlib')
 # 
 # Alors la matrice $(\bf A + {\bf \delta {\bf A}})$ est inversible et si ${\bf x}$ est solution de ${\bf Ax} = {\bf b}$ et $(\bf x+\bf \delta x)$ est solution de $({\bf A + {\bf \delta {\bf A}})(\bf x+\bf \delta x)}={\bf b+\bf \delta b}$, alors 
 # 
-# $\frac{\|{\bf \delta \bf x}\|}{\|{\bf x}\|}\leq\frac{\sigma(\bf A)}{1-\|{\bf A^{-1}}\|\|{\bf \delta \bf A}}\|\left (\frac{\|{\bf \delta \bf b}\|}{\|{\bf b}\|} +\frac{\|{\bf \delta {\bf A}}\|}{\|{\bf A}\|}\right )$
+# $\frac{\|{\bf \delta \bf x}\|}{\|{\bf x}\|}\leq\frac{\sigma(\bf A)}{1-\|{\bf A^{-1}}\|\|{\bf \delta \bf A}\|}\left (\frac{\|{\bf \delta \bf b}\|}{\|{\bf b}\|} +\frac{\|{\bf \delta {\bf A}}\|}{\|{\bf A}\|}\right )$
 # ````
 # 
 # 
