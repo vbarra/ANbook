@@ -283,9 +283,9 @@ pivotage par identification terme à terme en $n^3/6$ flops par l'algorithme de 
 On a vu précédemment que la résolution d'un système linéaire ne nécessite pas le
 calcul explicite de l'inverse d'une matrice. Quand on a besoin néanmoins de la 
 calculer, on peut procéder de la manière suivante, basée sur la factorisation ${\bf LU}$
-de la matrice:
+de la matrice :
 
-- Calculer les facteurs ${\bf LU}$ de la matrice: ${\bf PA}={\bf LU}$
+- Calculer les facteurs ${\bf LU}$ de la matrice : ${\bf PA}={\bf LU}$
 - Résoudre les $n$ systèmes linéaires ${\bf LUx^i}={\bf Pe_i}$, où ${\bf e_i}$, $i\in [\![1, n]\!]$,
 est le $i^e$ vecteur de la base canonique de $\mathbb R^n$. La solution ${\bf x^i}$ est la
 $i^e$ colonne de ${\bf A^{-1}}$. 
@@ -315,7 +315,7 @@ $\begin{equation}
 \det\left[\begin{array}{rr} a & b \\ c & d\end{array}\right]=ad-bc \label{DetMat2x2}
 \end{equation}$
 
-ce qui permet de déterminer explicitement l'inverse d'une matrice $2\times 2$:
+ce qui permet de déterminer explicitement l'inverse d'une matrice $2\times 2$ :
 $\begin{equation}
 \left[\begin{array}{rr} a & b \\ c & d\end{array}\right]^{-1}=\frac{1}{ad-bc}
 \left[\begin{array}{rr} d & -b \\ -c & a\end{array}\right]. \label{InvMat2x2}
@@ -334,7 +334,7 @@ $
 \det({\bf A})=(-1)^p\prod_{i=1}^nu_{ii}
 $
 
-où les $u_{ii}$ ($1\le i\le n$) sont les pivots et $p$ le nombre de permutations
+où les $u_{ii}$ ($[\![1, n]\!]$) sont les pivots et $p$ le nombre de permutations
 effectuées au cours de la factorisation.
 
 
