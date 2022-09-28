@@ -202,7 +202,7 @@ def SubstitutionInverse(A,b):
 # 
 # $$
 # {\bf A^{(k)}_{i \bullet}}\ \leftarrow\ 
-# {\bf A^{(k)}_{i \bullet}}+\frac{-a^{(k)}_{ik}}{{a_{kk}}^{(k)}_{kk}}\times {\bf A^{(k)}_{k \bullet}}
+# {\bf A^{(k)}_{i \bullet}}+\frac{-a^{(k)}_{ik}}{{a_{kk}}^{(k)}}\times {\bf A^{(k)}_{k \bullet}}
 # $$
 # 
 # L'élément $a^{(k)}_{ij}$ pour $i\in [\![k+1,n]\!]$ et $j\in [\![k+1,n+1]\!]$ devient
