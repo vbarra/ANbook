@@ -331,7 +331,7 @@ $\Rightarrow {\bf x'}=\begin{pmatrix} 1.82\\-0.36\\1.35\\-0.79\end{pmatrix}$
 
 $\Rightarrow {\bf x''}=\begin{pmatrix} -1.91\\5.63\\0.078\\1.54\end{pmatrix}$ 
 
-- ${\bf (A+\textcolor{red}{{\bf \delta A})}x'''}={\bf b +\textcolor{red}{{\bf \delta b}}} $ donne la solution 
+- ${\bf (A+\textcolor{red}{{\bf \delta A}})x'''}={\bf b +\textcolor{red}{{\bf \delta b}}} $ donne la solution 
 
 $\Rightarrow {\bf x'''}=\begin{pmatrix} -1.83\\5.50\\0.065\\1.57\end{pmatrix}$ 
 
