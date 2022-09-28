@@ -653,14 +653,16 @@ title="Print to PDF"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: sympy in /usr/local/lib/python3.9/site-packages (1.8)
 Requirement already satisfied: numpy in /usr/local/lib/python3.9/site-packages (1.22.0)
 Requirement already satisfied: matplotlib in /usr/local/lib/python3.9/site-packages (3.5.2)
-Requirement already satisfied: mpmath&gt;=0.19 in /usr/local/lib/python3.9/site-packages (from sympy) (1.2.1)
-Requirement already satisfied: python-dateutil&gt;=2.7 in /usr/local/lib/python3.9/site-packages (from matplotlib) (2.8.1)
-Requirement already satisfied: packaging&gt;=20.0 in /usr/local/lib/python3.9/site-packages (from matplotlib) (20.9)
-Requirement already satisfied: fonttools&gt;=4.22.0 in /usr/local/lib/python3.9/site-packages (from matplotlib) (4.29.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: mpmath&gt;=0.19 in /usr/local/lib/python3.9/site-packages (from sympy) (1.2.1)
 Requirement already satisfied: pillow&gt;=6.2.0 in /usr/local/lib/python3.9/site-packages (from matplotlib) (9.1.0)
-Requirement already satisfied: cycler&gt;=0.10 in /usr/local/lib/python3.9/site-packages (from matplotlib) (0.10.0)
 Requirement already satisfied: kiwisolver&gt;=1.0.1 in /usr/local/lib/python3.9/site-packages (from matplotlib) (1.3.1)
+Requirement already satisfied: packaging&gt;=20.0 in /usr/local/lib/python3.9/site-packages (from matplotlib) (20.9)
 Requirement already satisfied: pyparsing&gt;=2.2.1 in /usr/local/lib/python3.9/site-packages (from matplotlib) (2.4.7)
+Requirement already satisfied: cycler&gt;=0.10 in /usr/local/lib/python3.9/site-packages (from matplotlib) (0.10.0)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /usr/local/lib/python3.9/site-packages (from matplotlib) (4.29.1)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /usr/local/lib/python3.9/site-packages (from matplotlib) (2.8.1)
 Requirement already satisfied: six in /usr/local/lib/python3.9/site-packages (from cycler&gt;=0.10-&gt;matplotlib) (1.15.0)
 </pre></div>
 </div>
@@ -975,9 +977,9 @@ pivotage par identification terme à terme en <span class="math notranslate nohi
 <p>On a vu précédemment que la résolution d’un système linéaire ne nécessite pas le
 calcul explicite de l’inverse d’une matrice. Quand on a besoin néanmoins de la
 calculer, on peut procéder de la manière suivante, basée sur la factorisation <span class="math notranslate nohighlight">\({\bf LU}\)</span>
-de la matrice:</p>
+de la matrice :</p>
 <ul class="simple">
-<li><p>Calculer les facteurs <span class="math notranslate nohighlight">\({\bf LU}\)</span> de la matrice: <span class="math notranslate nohighlight">\({\bf PA}={\bf LU}\)</span></p></li>
+<li><p>Calculer les facteurs <span class="math notranslate nohighlight">\({\bf LU}\)</span> de la matrice : <span class="math notranslate nohighlight">\({\bf PA}={\bf LU}\)</span></p></li>
 <li><p>Résoudre les <span class="math notranslate nohighlight">\(n\)</span> systèmes linéaires <span class="math notranslate nohighlight">\({\bf LUx^i}={\bf Pe_i}\)</span>, où <span class="math notranslate nohighlight">\({\bf e_i}\)</span>, <span class="math notranslate nohighlight">\(i\in [\![1, n]\!]\)</span>,
 est le <span class="math notranslate nohighlight">\(i^e\)</span> vecteur de la base canonique de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>. La solution <span class="math notranslate nohighlight">\({\bf x^i}\)</span> est la
 <span class="math notranslate nohighlight">\(i^e\)</span> colonne de <span class="math notranslate nohighlight">\({\bf A^{-1}}\)</span>.</p></li>
@@ -999,7 +1001,7 @@ en un système diagonal <span class="math notranslate nohighlight">\({\bf x}-{\b
 <p><span class="math notranslate nohighlight">\(\begin{equation}
 \det\left[\begin{array}{rr} a &amp; b \\ c &amp; d\end{array}\right]=ad-bc \label{DetMat2x2}
 \end{equation}\)</span></p>
-<p>ce qui permet de déterminer explicitement l’inverse d’une matrice <span class="math notranslate nohighlight">\(2\times 2\)</span>:
+<p>ce qui permet de déterminer explicitement l’inverse d’une matrice <span class="math notranslate nohighlight">\(2\times 2\)</span> :
 <span class="math notranslate nohighlight">\(\begin{equation}
 \left[\begin{array}{rr} a &amp; b \\ c &amp; d\end{array}\right]^{-1}=\frac{1}{ad-bc}
 \left[\begin{array}{rr} d &amp; -b \\ -c &amp; a\end{array}\right]. \label{InvMat2x2}
@@ -1014,7 +1016,7 @@ le coût n’est que de <span class="math notranslate nohighlight">\(3\cdot 10^{
 <p><span class="math notranslate nohighlight">\(
 \det({\bf A})=(-1)^p\prod_{i=1}^nu_{ii}
 \)</span></p>
-<p>où les <span class="math notranslate nohighlight">\(u_{ii}\)</span> (<span class="math notranslate nohighlight">\(1\le i\le n\)</span>) sont les pivots et <span class="math notranslate nohighlight">\(p\)</span> le nombre de permutations
+<p>où les <span class="math notranslate nohighlight">\(u_{ii}\)</span> (<span class="math notranslate nohighlight">\([\![1, n]\!]\)</span>) sont les pivots et <span class="math notranslate nohighlight">\(p\)</span> le nombre de permutations
 effectuées au cours de la factorisation.</p>
 </div>
 </div>
