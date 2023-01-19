@@ -503,7 +503,7 @@ diagR = []
 diagRs = []
 diagRh = []
 
-x = np.arange(10, 1000,300)
+x = np.arange(10, 500,100)
 for n in x:
     H = hilbert(n)
     Q, R = GramSchmidt(H)
