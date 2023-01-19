@@ -612,17 +612,17 @@ title="Print to PDF"
 Requirement already satisfied: numpy in /usr/local/lib/python3.9/site-packages (1.21.4)
 Requirement already satisfied: matplotlib in /usr/local/lib/python3.9/site-packages (3.6.3)
 Requirement already satisfied: mpmath&gt;=0.19 in /usr/local/lib/python3.9/site-packages (from sympy) (1.2.1)
+Requirement already satisfied: packaging&gt;=20.0 in /usr/local/lib/python3.9/site-packages (from matplotlib) (20.9)
+Requirement already satisfied: cycler&gt;=0.10 in /usr/local/lib/python3.9/site-packages (from matplotlib) (0.10.0)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /usr/local/lib/python3.9/site-packages (from matplotlib) (4.29.1)
+Requirement already satisfied: python-dateutil&gt;=2.7 in /usr/local/lib/python3.9/site-packages (from matplotlib) (2.8.1)
+Requirement already satisfied: pillow&gt;=6.2.0 in /usr/local/lib/python3.9/site-packages (from matplotlib) (9.1.0)
+Requirement already satisfied: contourpy&gt;=1.0.1 in /usr/local/lib/python3.9/site-packages (from matplotlib) (1.0.6)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /usr/local/lib/python3.9/site-packages (from matplotlib) (1.3.1)
+Requirement already satisfied: pyparsing&gt;=2.2.1 in /usr/local/lib/python3.9/site-packages (from matplotlib) (2.4.7)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: kiwisolver&gt;=1.0.1 in /usr/local/lib/python3.9/site-packages (from matplotlib) (1.3.1)
-Requirement already satisfied: python-dateutil&gt;=2.7 in /usr/local/lib/python3.9/site-packages (from matplotlib) (2.8.1)
-Requirement already satisfied: cycler&gt;=0.10 in /usr/local/lib/python3.9/site-packages (from matplotlib) (0.10.0)
-Requirement already satisfied: pillow&gt;=6.2.0 in /usr/local/lib/python3.9/site-packages (from matplotlib) (9.1.0)
-Requirement already satisfied: fonttools&gt;=4.22.0 in /usr/local/lib/python3.9/site-packages (from matplotlib) (4.29.1)
-Requirement already satisfied: packaging&gt;=20.0 in /usr/local/lib/python3.9/site-packages (from matplotlib) (20.9)
-Requirement already satisfied: pyparsing&gt;=2.2.1 in /usr/local/lib/python3.9/site-packages (from matplotlib) (2.4.7)
-Requirement already satisfied: contourpy&gt;=1.0.1 in /usr/local/lib/python3.9/site-packages (from matplotlib) (1.0.6)
-Requirement already satisfied: six in /usr/local/lib/python3.9/site-packages (from cycler&gt;=0.10-&gt;matplotlib) (1.15.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six in /usr/local/lib/python3.9/site-packages (from cycler&gt;=0.10-&gt;matplotlib) (1.15.0)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">DEPRECATION: Configuring installation scheme with distutils config files is deprecated and will no longer work in the near future. If you are using a Homebrew or Linuxbrew Python, please see discussion at https://github.com/Homebrew/homebrew-core/issues/76621</span>
@@ -813,7 +813,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}0.7865 &amp; 0.9783 &amp; 0.3493 &amp; 0.1893\\0.1747 &amp; 0.8154 &amp; 0.9343 &amp; 0.1975\\0.5428 &amp; 0.6051 &amp; 0.9145 &amp; 0.9252\\0.2451 &amp; 0.4074 &amp; 0.4864 &amp; 0.7884\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}0.03849 &amp; 0.7848 &amp; 0.1187 &amp; 0.5211\\0.3037 &amp; 0.7583 &amp; 0.7981 &amp; 0.2892\\0.05611 &amp; 0.583 &amp; 0.2463 &amp; 0.04451\\0.3921 &amp; 0.3421 &amp; 0.2495 &amp; 0.5646\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -824,7 +824,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}0.785 &amp; -0.1188 &amp; -0.6054 &amp; -0.05636\\0.1744 &amp; 0.9639 &amp; 0.05496 &amp; -0.1937\\0.5417 &amp; -0.198 &amp; 0.7675 &amp; -0.2798\\0.2446 &amp; 0.1327 &amp; 0.2038 &amp; 0.9386\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}0.07688 &amp; 0.7502 &amp; -0.4701 &amp; 0.4586\\0.6067 &amp; 0.2507 &amp; 0.7197 &amp; 0.226\\0.1121 &amp; 0.5083 &amp; -0.003506 &amp; -0.8538\\0.7832 &amp; -0.3406 &amp; -0.5108 &amp; -0.09786\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -835,7 +835,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}1.002 &amp; 1.338 &amp; 1.052 &amp; 0.8771\\0 &amp; 0.6039 &amp; 0.7425 &amp; 0.0893\\0 &amp; 0 &amp; 0.6408 &amp; 0.767\\0 &amp; 0 &amp; 0 &amp; 0.4322\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}0.5006 &amp; 0.8536 &amp; 0.7164 &amp; 0.6628\\0 &amp; 0.9587 &amp; 0.3293 &amp; 0.2938\\0 &amp; 0 &amp; 0.3903 &amp; -0.3254\\0 &amp; 0 &amp; 0 &amp; 0.2111\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -846,7 +846,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}1.0 &amp; -1.103 \cdot 10^{-16} &amp; 2.784 \cdot 10^{-17} &amp; -3.389 \cdot 10^{-17}\\-1.103 \cdot 10^{-16} &amp; 1.0 &amp; 3.104 \cdot 10^{-16} &amp; -3.114 \cdot 10^{-16}\\2.784 \cdot 10^{-17} &amp; 3.104 \cdot 10^{-16} &amp; 1.0 &amp; -2.601 \cdot 10^{-16}\\-3.389 \cdot 10^{-17} &amp; -3.114 \cdot 10^{-16} &amp; -2.601 \cdot 10^{-16} &amp; 1.0\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}1.0 &amp; -1.831 \cdot 10^{-16} &amp; -2.637 \cdot 10^{-16} &amp; -5.06 \cdot 10^{-16}\\-1.831 \cdot 10^{-16} &amp; 1.0 &amp; 4.834 \cdot 10^{-16} &amp; 1.11 \cdot 10^{-15}\\-2.637 \cdot 10^{-16} &amp; 4.834 \cdot 10^{-16} &amp; 1.0 &amp; 2.201 \cdot 10^{-16}\\-5.06 \cdot 10^{-16} &amp; 1.11 \cdot 10^{-15} &amp; 2.201 \cdot 10^{-16} &amp; 1.0\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -860,8 +860,8 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Norme de I-Q^TQ =  3.1140370435881875e-16
-Norme infinie de QR-A =  1.1102230246251565e-16
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Norme de I-Q^TQ =  1.1100437175329179e-15
+Norme infinie de QR-A =  5.551115123125783e-17
 </pre></div>
 </div>
 </div>
@@ -1175,7 +1175,7 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 <span class="n">diagRs</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">diagRh</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
     <span class="n">H</span> <span class="o">=</span> <span class="n">hilbert</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
     <span class="n">Q</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">GramSchmidt</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
@@ -1210,45 +1210,7 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">21</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">49</span> <span class="n">H</span> <span class="o">=</span> <span class="n">hilbert</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">50</span> <span class="n">Q</span><span class="p">,</span> <span class="n">R</span> <span class="o">=</span> <span class="n">GramSchmidt</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">51</span> <span class="n">Qs</span><span class="p">,</span><span class="n">Rs</span> <span class="o">=</span> <span class="n">ModifiedGramSchmidt</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="n">Qh</span><span class="p">,</span> <span class="n">Rh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">qr</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">53</span> <span class="n">ortho</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Q</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">Q</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span>
-
-<span class="nn">Input In [21],</span> in <span class="ni">ModifiedGramSchmidt</span><span class="nt">(A)</span>
-<span class="g g-Whitespace">     </span><span class="mi">31</span>     <span class="n">Q</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">V</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">32</span>     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">33</span>         <span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Q</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">V</span><span class="p">[:,</span><span class="n">j</span><span class="p">])</span>
-<span class="g g-Whitespace">     </span><span class="mi">34</span>         <span class="n">V</span><span class="p">[:,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">V</span><span class="p">[:,</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">R</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">*</span><span class="n">Q</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">35</span> <span class="k">return</span> <span class="n">Q</span><span class="p">,</span> <span class="n">R</span>
-
-<span class="nn">File &lt;__array_function__ internals&gt;:4,</span> in <span class="ni">dot</span><span class="nt">(*args, **kwargs)</span>
-
-<span class="nn">File /usr/local/lib/python3.9/site-packages/numpy/core/multiarray.py:736,</span> in <span class="ni">dot</span><span class="nt">(a, b, out)</span>
-<span class="g g-Whitespace">    </span><span class="mi">666</span>     <span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">667</span><span class="sd">     result_type(*arrays_and_dtypes)</span>
-<span class="g g-Whitespace">    </span><span class="mi">668</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">731</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">732</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">733</span>     <span class="k">return</span> <span class="n">arrays_and_dtypes</span>
-<span class="ne">--&gt; </span><span class="mi">736</span> <span class="nd">@array_function_from_c_func_and_dispatcher</span><span class="p">(</span><span class="n">_multiarray_umath</span><span class="o">.</span><span class="n">dot</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">737</span> <span class="k">def</span> <span class="nf">dot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">738</span>     <span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">739</span><span class="sd">     dot(a, b, out=None)</span>
-<span class="g g-Whitespace">    </span><span class="mi">740</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">820</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">821</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">822</span>     <span class="k">return</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
-</pre></div>
-</div>
+<img alt="_images/transfoortho_31_0.png" src="_images/transfoortho_31_0.png" />
 </div>
 </div>
 </div>
