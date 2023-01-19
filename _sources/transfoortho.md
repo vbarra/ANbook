@@ -423,10 +423,9 @@ Matrix(R1).evalf(4)
 Matrix(Q1).evalf(4)
 ```
 
-Terminons par une question de stabilité : comparons l'algorithme de Gram-Schmidt vu précécemment, un algorithme de Gram-Schmidt modifié et une factorisation QR par Householder sur la factorisation QR d'une matrice de Hilbert de taille croissante.
+Terminons par une question de stabilité : comparons l'algorithme de Gram-Schmidt vu précécemment
 
 ```{code-cell} ipython3
-#Gram Schmidt classique
 def GramSchmidt(A):
 
     n = A.shape[1] 
@@ -444,8 +443,11 @@ def GramSchmidt(A):
         Q[:,j] = V[:,j]/R[j,j]            
     
     return Q, R
+```
 
-#Gram Schmidt modifié
+un algorithme de Gram-Schmidt modifié 
+
+```{code-cell} ipython3
 def ModifiedGramSchmidt(A):
 
     n = A.shape[1]
@@ -461,6 +463,8 @@ def ModifiedGramSchmidt(A):
             R[i,j] = np.dot(Q[:,i].T,V[:,j])
             V[:,j] = V[:,j] - R[i,j]*Q[:,i]
     return Q, R
+``
+et une factorisation QR par Householder sur la factorisation QR d'une matrice de Hilbert de taille croissante.
 
 import matplotlib.pyplot as plt
 from scipy.linalg import hilbert
@@ -472,7 +476,7 @@ diagR = []
 diagRs = []
 diagRh = []
 
-x = np.arange(10, 500,100)
+x = np.arange(10, 200,100)
 for n in x:
     H = hilbert(n)
     Q, R = GramSchmidt(H)
