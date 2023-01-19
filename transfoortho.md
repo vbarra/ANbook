@@ -223,6 +223,8 @@ La factorisation est précise, mais $\bf Q$ est loin d'être orthogonale.
 Matrix(np.dot(Q.T,Q)-np.eye(n)).evalf(2)
 ```
 
+
+
 ### Gram-Schmidt sur $\mathbb{R}^n$
 Il est possible de compléter ${\bf q_1}\cdots {\bf q_p}$ en une base orthonormée de $\mathbb R^n$, en continuant la procédure de Gram-Schmidt avec $n-p$ vecteurs arbitraires, mais tels que les $n$ colonnes formées avec les ${\bf A_{\bullet,j}}$ soient linéairement indépendantes. Soit ${\bf Q_2}$ la matrice des $n-p$ derniers vecteurs orthonormés. On a alors bien :
 
@@ -420,6 +422,89 @@ Matrix(R1).evalf(4)
 ```{code-cell} ipython3
 Matrix(Q1).evalf(4)
 ```
+
+Terminons par une question de stabilité : comparons l'algorithme de Gram-Schmidt vu précécemment, un algorithme de Gram-Schmidt modifié et une factorisation QR par Householder sur la factorisation QR d'une matrice de Hilbert de taille croissante.
+
+```{code-cell} ipython3
+#Gram Schmidt classique
+def GramSchmidt(A):
+
+    n = A.shape[1] 
+    R = np.zeros([n,n])
+    V = np.zeros(A.shape)
+    Q = np.zeros(A.shape)
+    
+    for j in range(n):      
+        V[:,j] = A[:,j]
+        for i in range(j):  
+            R[i,j] = np.dot(Q[:,i].T,A[:,j])
+            V[:,j] = V[:,j] - R[i,j]*Q[:,i]
+        
+        R[j,j] = np.linalg.norm(V[:,j],2)
+        Q[:,j] = V[:,j]/R[j,j]            
+    
+    return Q, R
+
+#Gram Schmidt modifié
+def ModifiedGramSchmidt(A):
+
+    n = A.shape[1]
+    R = np.zeros([n,n])
+    V = np.zeros(A.shape)
+    Q = np.zeros(A.shape)
+    for i in range(n):
+        V[:,i] = A[:,i]
+    for i in range(n):
+        R[i,i] = np.linalg.norm(V[:,i],2)
+        Q[:,i] = V[:,i]/R[i,i]
+        for j in range(i,n):
+            R[i,j] = np.dot(Q[:,i].T,V[:,j])
+            V[:,j] = V[:,j] - R[i,j]*Q[:,i]
+    return Q, R
+
+import matplotlib.pyplot as plt
+from scipy.linalg import hilbert
+ortho =[]
+orthos = []
+orthoh = []
+
+diagR = []
+diagRs = []
+diagRh = []
+
+x = np.arange(10, 1000,300)
+for n in x:
+    H = hilbert(n)
+    Q, R = GramSchmidt(H)
+    Qs,Rs = ModifiedGramSchmidt(H)
+    Qh, Rh = np.linalg.qr(H)
+    ortho.append(np.linalg.norm(np.dot(Q.T,Q)-np.eye(n)))
+    orthos.append(np.linalg.norm(np.dot(Qs.T,Qs)-np.eye(n)))
+    orthoh.append(np.linalg.norm(np.dot(Qh.T,Qh)-np.eye(n)))
+    diagR.append(np.diag(R))
+    diagR.append(np.diag(Rs))
+    diagR.append(np.diag(Rh))
+
+
+
+fig, axs = plt.subplots(1, 2, figsize=(12, 3))
+axs[0].plot(x,ortho,'r',label='GS classique')
+axs[0].plot(x,orthoh,'b',label='Householder')
+axs[0].plot(x,orthos,'g',label='GS modifié')
+axs[0].legend()
+axs[0].set_xlabel('$n$')
+axs[0].set_ylabel('$||Q^TQ-I||$')
+plt.tight_layout()
+
+axs[1].semilogy(x,orthoh,'b',label='Householder')
+axs[1].semilogy(x,orthos,'g',label='GS modifié')
+axs[1].legend()
+plt.xlabel('$n$')
+plt.ylabel('log($||Q^TQ-I||$)')
+plt.suptitle("Test d'orthogonalité de $Q^TQ : log(||Q^TQ-I||)(n)$")
+plt.tight_layout()
+```
+
 
 
  
