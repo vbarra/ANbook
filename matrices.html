@@ -681,33 +681,12 @@ title="Print to PDF"
                 
   <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># n&#39;exécuter qu&#39;une fois</span>
-<span class="o">!</span>pip3 install sympy numpy matplotlib
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: sympy in /usr/local/lib/python3.11/site-packages (1.12)
-Requirement already satisfied: numpy in /usr/local/lib/python3.11/site-packages (1.23.5)
-Requirement already satisfied: matplotlib in /usr/local/lib/python3.11/site-packages (3.8.1)
-Requirement already satisfied: mpmath&gt;=0.19 in /usr/local/lib/python3.11/site-packages (from sympy) (1.3.0)
-Requirement already satisfied: contourpy&gt;=1.0.1 in /usr/local/lib/python3.11/site-packages (from matplotlib) (1.0.7)
-Requirement already satisfied: cycler&gt;=0.10 in /usr/local/lib/python3.11/site-packages (from matplotlib) (0.11.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: fonttools&gt;=4.22.0 in /usr/local/lib/python3.11/site-packages (from matplotlib) (4.39.4)
-Requirement already satisfied: kiwisolver&gt;=1.3.1 in /usr/local/lib/python3.11/site-packages (from matplotlib) (1.4.4)
-Requirement already satisfied: packaging&gt;=20.0 in /usr/local/lib/python3.11/site-packages (from matplotlib) (23.1)
-Requirement already satisfied: pillow&gt;=8 in /usr/local/lib/python3.11/site-packages (from matplotlib) (10.1.0)
-Requirement already satisfied: pyparsing&gt;=2.3.1 in /usr/local/lib/python3.11/site-packages (from matplotlib) (3.0.9)
-Requirement already satisfied: python-dateutil&gt;=2.7 in /usr/local/lib/python3.11/site-packages (from matplotlib) (2.8.2)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.11/site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib) (1.16.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">23.2.1</span> -&gt; <span class=" -Color -Color-Green">23.3.1</span>
-<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">python3.11 -m pip install --upgrade pip</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">sympy</span> 
+<span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span> 
+    <span class="o">!</span>pip3 install --quiet sympy
+    <span class="kn">import</span> <span class="nn">sympy</span>
+<span class="kn">import</span> <span class="nn">numpy</span><span class="o">,</span> <span class="nn">matplotlib</span>
 </pre></div>
 </div>
 </div>
@@ -1343,23 +1322,23 @@ taille <span class="math notranslate nohighlight">\(n\)</span>, on obtient une s
 des sous-matrices principales sont les mineurs de la matrice.</p></li>
 </ul>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="52b6438b-7902-4431-b28f-6c6a674a21a8" name="431153f4-2907-464f-b135-79f23c082183" type="radio">
-</input><label class="sd-tab-label" for="52b6438b-7902-4431-b28f-6c6a674a21a8">
+<input checked="checked" id="e21321cc-ce06-44f4-8db6-045b70b2429f" name="06a56c3b-d2ab-4fe5-ab22-bec68d68d4c5" type="radio">
+</input><label class="sd-tab-label" for="e21321cc-ce06-44f4-8db6-045b70b2429f">
 Diagonale</label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;0&amp;0\\0&amp;-4&amp;0\\0&amp;0&amp;1\end{pmatrix}\)</span></p>
 </div>
-<input id="d046c58a-b87a-4f29-aa7c-f75569b672d6" name="431153f4-2907-464f-b135-79f23c082183" type="radio">
-</input><label class="sd-tab-label" for="d046c58a-b87a-4f29-aa7c-f75569b672d6">
+<input id="67a96f14-fd5d-4d3c-9155-68c1cb2fb66b" name="06a56c3b-d2ab-4fe5-ab22-bec68d68d4c5" type="radio">
+</input><label class="sd-tab-label" for="67a96f14-fd5d-4d3c-9155-68c1cb2fb66b">
 Triang. sup. </label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix} 3&amp;2&amp;1\\0&amp;-4&amp;2\\0&amp;0&amp;1 \end{pmatrix}\)</span></p>
 </div>
-<input id="05c3a811-5914-46fc-a5cb-ca81e0c291fc" name="431153f4-2907-464f-b135-79f23c082183" type="radio">
-</input><label class="sd-tab-label" for="05c3a811-5914-46fc-a5cb-ca81e0c291fc">
+<input id="6faa7ef7-e96c-46b5-b119-b43f5357e167" name="06a56c3b-d2ab-4fe5-ab22-bec68d68d4c5" type="radio">
+</input><label class="sd-tab-label" for="6faa7ef7-e96c-46b5-b119-b43f5357e167">
 Triang. inf.</label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;0&amp;0\\1&amp;-4&amp;0\\5&amp;8&amp;1 \end{pmatrix}\)</span></p>
 </div>
-<input id="e640b235-c473-4b95-a7b0-750d8442fd8f" name="431153f4-2907-464f-b135-79f23c082183" type="radio">
-</input><label class="sd-tab-label" for="e640b235-c473-4b95-a7b0-750d8442fd8f">
+<input id="e8728e10-1333-4b39-8ae5-d53b67941171" name="06a56c3b-d2ab-4fe5-ab22-bec68d68d4c5" type="radio">
+</input><label class="sd-tab-label" for="e8728e10-1333-4b39-8ae5-d53b67941171">
 Vecteur ligne </label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;2&amp;1&amp;-4&amp;0&amp;3.5 \end{pmatrix}\)</span></p>
 </div>

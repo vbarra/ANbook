@@ -12,9 +12,12 @@ kernelspec:
 
 
 ```{code-cell} ipython3
-# n'exécuter qu'une fois
-!pip3 install sympy numpy matplotlib
-
+try:
+    import sympy 
+except ModuleNotFoundError: 
+    !pip3 install --quiet sympy
+    import sympy
+import numpy, matplotlib
 ```
 
 
