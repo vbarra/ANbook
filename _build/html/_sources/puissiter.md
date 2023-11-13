@@ -11,9 +11,12 @@ kernelspec:
 ---
 
 ```{code-cell} ipython3
-# n'exécuter qu'une fois
-!pip3 install numpy matplotlib sympy
-
+try:
+    import sympy 
+except ModuleNotFoundError: 
+    !pip3 install --quiet sympy
+    import sympy
+import numpy, matplotlib
 ```
 
 # Méthode des puissances itérées

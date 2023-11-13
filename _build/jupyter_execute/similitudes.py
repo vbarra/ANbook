@@ -4,8 +4,12 @@
 # In[1]:
 
 
-# n'exécuter qu'une fois
-get_ipython().system('pip3 install sympy numpy matplotlib')
+try:
+    import sympy 
+except ModuleNotFoundError: 
+    get_ipython().system('pip3 install --quiet sympy')
+    import sympy
+import numpy, matplotlib
 
 
 # # Similitudes
