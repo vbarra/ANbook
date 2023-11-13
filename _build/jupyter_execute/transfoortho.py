@@ -5,20 +5,11 @@
 
 
 try:
-    import numpy 
-except ModuleNotFoundError: 
-    get_ipython().system('pip3 install --quiet numpy')
-    import numpy
-try:
     import sympy 
 except ModuleNotFoundError: 
     get_ipython().system('pip3 install --quiet sympy')
     import sympy
-try:
-    import matplotlib
-except ModuleNotFoundError: 
-    get_ipython().system('pip3 install --quiet matplotlib')
-    import matplotlib
+import numpy, matplotlib
 
 
 # # Transformations orthogonales

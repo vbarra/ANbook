@@ -602,20 +602,11 @@ title="Print to PDF"
   <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">numpy</span> 
-<span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span> 
-    <span class="o">!</span>pip3 install --quiet numpy
-    <span class="kn">import</span> <span class="nn">numpy</span>
-<span class="k">try</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">sympy</span> 
 <span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span> 
     <span class="o">!</span>pip3 install --quiet sympy
     <span class="kn">import</span> <span class="nn">sympy</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">matplotlib</span>
-<span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span> 
-    <span class="o">!</span>pip3 install --quiet matplotlib
-    <span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">numpy</span><span class="o">,</span> <span class="nn">matplotlib</span>
 </pre></div>
 </div>
 </div>
@@ -798,7 +789,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}0.8382 &amp; 0.8388 &amp; 0.1831 &amp; 0.1248\\0.6706 &amp; 0.7052 &amp; 0.6991 &amp; 0.5869\\0.8928 &amp; 0.6982 &amp; 0.3575 &amp; 0.5832\\0.7545 &amp; 0.04625 &amp; 0.4521 &amp; 0.5904\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}0.2321 &amp; 0.248 &amp; 0.2215 &amp; 0.6118\\0.4856 &amp; 0.8562 &amp; 0.4406 &amp; 0.8338\\0.538 &amp; 0.2446 &amp; 0.8377 &amp; 0.4803\\0.6234 &amp; 0.9629 &amp; 0.7525 &amp; 0.6168\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -809,7 +800,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}0.5282 &amp; 0.3834 &amp; -0.52 &amp; -0.551\\0.4226 &amp; 0.3641 &amp; 0.8217 &amp; -0.1171\\0.5625 &amp; 0.08062 &amp; -0.2117 &amp; 0.7951\\0.4754 &amp; -0.8449 &amp; 0.09789 &amp; -0.2246\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}0.2359 &amp; -0.07748 &amp; -0.6902 &amp; 0.6796\\0.4937 &amp; 0.4746 &amp; -0.4494 &amp; -0.5737\\0.5469 &amp; -0.803 &amp; 0.04872 &amp; -0.2319\\0.6337 &amp; 0.3521 &amp; 0.565 &amp; 0.394\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -820,7 +811,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}1.587 &amp; 1.156 &amp; 0.8082 &amp; 0.9227\\0 &amp; 0.5956 &amp; -0.02841 &amp; -0.1903\\0 &amp; 0 &amp; 0.4478 &amp; 0.3517\\0 &amp; 0 &amp; 0 &amp; 0.1936\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}0.9837 &amp; 1.225 &amp; 1.205 &amp; 1.21\\0 &amp; 0.5298 &amp; -0.2157 &amp; 0.1798\\0 &amp; 0 &amp; 0.1151 &amp; -0.4251\\0 &amp; 0 &amp; 0 &amp; 0.06909\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -831,7 +822,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}1.0 &amp; 1.866 \cdot 10^{-16} &amp; 4.28 \cdot 10^{-16} &amp; -2.227 \cdot 10^{-16}\\1.866 \cdot 10^{-16} &amp; 1.0 &amp; -3.837 \cdot 10^{-16} &amp; 3.086 \cdot 10^{-17}\\4.28 \cdot 10^{-16} &amp; -3.837 \cdot 10^{-16} &amp; 1.0 &amp; -2.298 \cdot 10^{-15}\\-2.227 \cdot 10^{-16} &amp; 3.086 \cdot 10^{-17} &amp; -2.298 \cdot 10^{-15} &amp; 1.0\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}1.0 &amp; 3.747 \cdot 10^{-16} &amp; 2.811 \cdot 10^{-15} &amp; 1.738 \cdot 10^{-14}\\3.747 \cdot 10^{-16} &amp; 1.0 &amp; -4.536 \cdot 10^{-15} &amp; -3.339 \cdot 10^{-14}\\2.811 \cdot 10^{-15} &amp; -4.536 \cdot 10^{-15} &amp; 1.0 &amp; -3.735 \cdot 10^{-14}\\1.738 \cdot 10^{-14} &amp; -3.339 \cdot 10^{-14} &amp; -3.735 \cdot 10^{-14} &amp; 1.0\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -845,8 +836,8 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Norme de I-Q^TQ =  2.2980955929689064e-15
-Norme infinie de QR-A =  1.1102230246251565e-16
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Norme de I-Q^TQ =  3.7351846132164155e-14
+Norme infinie de QR-A =  5.551115123125783e-17
 </pre></div>
 </div>
 </div>
