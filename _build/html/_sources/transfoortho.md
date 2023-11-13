@@ -11,9 +11,21 @@ kernelspec:
 ---
 
 ```{code-cell} ipython3
-# n'exécuter qu'une fois
-!pip3 install sympy numpy matplotlib
-
+try:
+    import numpy 
+except ModuleNotFoundError: 
+    !pip3 install --quiet numpy
+    import numpy
+try:
+    import sympy 
+except ModuleNotFoundError: 
+    !pip3 install --quiet sympy
+    import sympy
+try:
+    import matplotlib
+except ModuleNotFoundError: 
+    !pip3 install --quiet matplotlib
+    import matplotlib
 ```
 
 # Transformations orthogonales

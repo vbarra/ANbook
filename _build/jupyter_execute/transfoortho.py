@@ -4,8 +4,21 @@
 # In[1]:
 
 
-# n'exécuter qu'une fois
-get_ipython().system('pip3 install sympy numpy matplotlib')
+try:
+    import numpy 
+except ModuleNotFoundError: 
+    get_ipython().system('pip3 install --quiet numpy')
+    import numpy
+try:
+    import sympy 
+except ModuleNotFoundError: 
+    get_ipython().system('pip3 install --quiet sympy')
+    import sympy
+try:
+    import matplotlib
+except ModuleNotFoundError: 
+    get_ipython().system('pip3 install --quiet matplotlib')
+    import matplotlib
 
 
 # # Transformations orthogonales

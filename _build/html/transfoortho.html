@@ -20,7 +20,7 @@
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -35,10 +35,13 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script src="_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
@@ -48,8 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Exercices" href="exomcl.html" />
@@ -113,7 +116,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p class="caption">
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Tutoriels
  </span>
@@ -140,7 +143,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Introduction au calcul matriciel
  </span>
@@ -167,7 +170,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Elimination de Gauss
  </span>
@@ -189,7 +192,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Moindres carrés linéaires
  </span>
@@ -216,7 +219,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Analyse spectrale
  </span>
@@ -263,7 +266,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Index
  </span>
@@ -598,37 +601,21 @@ title="Print to PDF"
                 
   <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># n&#39;exécuter qu&#39;une fois</span>
-<span class="o">!</span>pip3 install sympy numpy matplotlib
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">DEPRECATION: Configuring installation scheme with distutils config files is deprecated and will no longer work in the near future. If you are using a Homebrew or Linuxbrew Python, please see discussion at https://github.com/Homebrew/homebrew-core/issues/76621</span>
-
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: sympy in /usr/local/lib/python3.9/site-packages (1.8)
-Requirement already satisfied: numpy in /usr/local/lib/python3.9/site-packages (1.21.4)
-Requirement already satisfied: matplotlib in /usr/local/lib/python3.9/site-packages (3.6.3)
-Requirement already satisfied: mpmath&gt;=0.19 in /usr/local/lib/python3.9/site-packages (from sympy) (1.2.1)
-Requirement already satisfied: cycler&gt;=0.10 in /usr/local/lib/python3.9/site-packages (from matplotlib) (0.10.0)
-Requirement already satisfied: packaging&gt;=20.0 in /usr/local/lib/python3.9/site-packages (from matplotlib) (20.9)
-Requirement already satisfied: contourpy&gt;=1.0.1 in /usr/local/lib/python3.9/site-packages (from matplotlib) (1.0.6)
-Requirement already satisfied: python-dateutil&gt;=2.7 in /usr/local/lib/python3.9/site-packages (from matplotlib) (2.8.1)
-Requirement already satisfied: kiwisolver&gt;=1.0.1 in /usr/local/lib/python3.9/site-packages (from matplotlib) (1.3.1)
-Requirement already satisfied: fonttools&gt;=4.22.0 in /usr/local/lib/python3.9/site-packages (from matplotlib) (4.29.1)
-Requirement already satisfied: pyparsing&gt;=2.2.1 in /usr/local/lib/python3.9/site-packages (from matplotlib) (2.4.7)
-Requirement already satisfied: pillow&gt;=6.2.0 in /usr/local/lib/python3.9/site-packages (from matplotlib) (9.1.0)
-Requirement already satisfied: six in /usr/local/lib/python3.9/site-packages (from cycler&gt;=0.10-&gt;matplotlib) (1.15.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">DEPRECATION: Configuring installation scheme with distutils config files is deprecated and will no longer work in the near future. If you are using a Homebrew or Linuxbrew Python, please see discussion at https://github.com/Homebrew/homebrew-core/issues/76621</span>
-
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: There was an error checking the latest version of pip.</span>
-
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">numpy</span> 
+<span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span> 
+    <span class="o">!</span>pip3 install --quiet numpy
+    <span class="kn">import</span> <span class="nn">numpy</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">sympy</span> 
+<span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span> 
+    <span class="o">!</span>pip3 install --quiet sympy
+    <span class="kn">import</span> <span class="nn">sympy</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span> 
+    <span class="o">!</span>pip3 install --quiet matplotlib
+    <span class="kn">import</span> <span class="nn">matplotlib</span>
 </pre></div>
 </div>
 </div>
@@ -811,7 +798,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}0.1365 &amp; 0.2547 &amp; 0.9111 &amp; 0.7031\\0.8175 &amp; 0.9266 &amp; 0.3025 &amp; 0.853\\0.02475 &amp; 0.4561 &amp; 0.8617 &amp; 0.1384\\0.1247 &amp; 0.08998 &amp; 0.7158 &amp; 0.17\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}0.8382 &amp; 0.8388 &amp; 0.1831 &amp; 0.1248\\0.6706 &amp; 0.7052 &amp; 0.6991 &amp; 0.5869\\0.8928 &amp; 0.6982 &amp; 0.3575 &amp; 0.5832\\0.7545 &amp; 0.04625 &amp; 0.4521 &amp; 0.5904\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -822,7 +809,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}0.1628 &amp; 0.2185 &amp; 0.6201 &amp; 0.7357\\0.9749 &amp; -0.04691 &amp; -0.2166 &amp; -0.01916\\0.02951 &amp; 0.9669 &amp; -0.05464 &amp; -0.2476\\0.1488 &amp; -0.1234 &amp; 0.752 &amp; -0.6302\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}0.5282 &amp; 0.3834 &amp; -0.52 &amp; -0.551\\0.4226 &amp; 0.3641 &amp; 0.8217 &amp; -0.1171\\0.5625 &amp; 0.08062 &amp; -0.2117 &amp; 0.7951\\0.4754 &amp; -0.8449 &amp; 0.09789 &amp; -0.2246\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -833,7 +820,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}0.8385 &amp; 0.9717 &amp; 0.5751 &amp; 0.9755\\0 &amp; 0.4421 &amp; 0.9297 &amp; 0.2264\\0 &amp; 0 &amp; 0.9907 &amp; 0.3716\\0 &amp; 0 &amp; 0 &amp; 0.3595\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}1.587 &amp; 1.156 &amp; 0.8082 &amp; 0.9227\\0 &amp; 0.5956 &amp; -0.02841 &amp; -0.1903\\0 &amp; 0 &amp; 0.4478 &amp; 0.3517\\0 &amp; 0 &amp; 0 &amp; 0.1936\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -844,7 +831,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}1.0 &amp; -5.428 \cdot 10^{-17} &amp; 6.613 \cdot 10^{-18} &amp; -1.601 \cdot 10^{-16}\\-5.428 \cdot 10^{-17} &amp; 1.0 &amp; -4.522 \cdot 10^{-17} &amp; 2.858 \cdot 10^{-16}\\6.613 \cdot 10^{-18} &amp; -4.522 \cdot 10^{-17} &amp; 1.0 &amp; -4.729 \cdot 10^{-17}\\-1.601 \cdot 10^{-16} &amp; 2.858 \cdot 10^{-16} &amp; -4.729 \cdot 10^{-17} &amp; 1.0\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}1.0 &amp; 1.866 \cdot 10^{-16} &amp; 4.28 \cdot 10^{-16} &amp; -2.227 \cdot 10^{-16}\\1.866 \cdot 10^{-16} &amp; 1.0 &amp; -3.837 \cdot 10^{-16} &amp; 3.086 \cdot 10^{-17}\\4.28 \cdot 10^{-16} &amp; -3.837 \cdot 10^{-16} &amp; 1.0 &amp; -2.298 \cdot 10^{-15}\\-2.227 \cdot 10^{-16} &amp; 3.086 \cdot 10^{-17} &amp; -2.298 \cdot 10^{-15} &amp; 1.0\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -858,7 +845,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Norme de I-Q^TQ =  2.8580196272661294e-16
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Norme de I-Q^TQ =  2.2980955929689064e-15
 Norme infinie de QR-A =  1.1102230246251565e-16
 </pre></div>
 </div>
