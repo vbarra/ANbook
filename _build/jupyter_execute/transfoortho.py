@@ -496,8 +496,12 @@ def ModifiedGramSchmidt(A):
             R[i,j] = np.dot(Q[:,i].T,V[:,j])
             V[:,j] = V[:,j] - R[i,j]*Q[:,i]
     return Q, R
-``
-et une factorisation QR par Householder sur la factorisation QR d'une matrice de Hilbert de taille croissante.
+
+
+# et une factorisation QR par Householder sur la factorisation QR d'une matrice de Hilbert de taille croissante.
+
+# In[23]:
+
 
 import matplotlib.pyplot as plt
 from scipy.linalg import hilbert
