@@ -95,7 +95,7 @@ On modélise $\mathcal{S}$ par un polynôme $P(t)=\alpha+\beta t+\gamma t^2 = {\
 | Point | $t_i$ | $Y_i$ | $y_i$          |
 |-------|-------|-------|----------------|
 | $P_1$ | -2    | 3     | $\alpha-2\beta+4\gamma$ |
-| $P_2$ | 1     | 1     | $\alpha-\beta+\gamma$      |
+| $P_2$ | -1     | 1     | $\alpha-\beta+\gamma$      |
 | $P_3$ | 0     | -0.5     | $\alpha$  |
 | $P_4$ | 1     | 1.5     | $\alpha+\beta+\gamma$ |
 | $P_5$ | 2     | 4     | $\alpha+2\beta+4\gamma$ |
