@@ -971,13 +971,15 @@ dans <span class="math notranslate nohighlight">\(\mathbb R^n\)</span> pour les 
 valeur propre de <span class="math notranslate nohighlight">\({\bf A^\top} {\bf A}\)</span>.</p></li>
 <li><p>La norme euclidienne étant difficile à calculer, on lui préfère souvent
 la norme de la trace ou norme de Frobenius (ou de Hilbert-Schmidt) :</p></li>
-<li><p>Si <span class="math notranslate nohighlight">\(A\)</span> est diagonale, alors pour tout <span class="math notranslate nohighlight">\(p\in\mathbb{N}^*,\; \|A\|_p = \displaystyle\max_{i}|a_{ii}|\)</span></p></li>
 </ol>
 <p><span class="math notranslate nohighlight">\(
 \|{\bf A}\|_F=\left (Tr({\bf A^\top} {\bf A})\right)^\frac{1}{2}
            =\left (\displaystyle\sum_i\displaystyle\sum_ja_{ij}^2\right )^\frac{1}{2}.
 \)</span></p>
 <p>Cette norme n’est subordonnée à aucune norme vectorielle sur <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>.</p>
+<ol class="simple">
+<li><p>Si <span class="math notranslate nohighlight">\(A\)</span> est diagonale, alors pour tout <span class="math notranslate nohighlight">\(p\in\mathbb{N}^*,\; \|A\|_p = \displaystyle\max_{i}|a_{ii}|\)</span></p></li>
+</ol>
 </div>
 </div><span class="target" id="index-2"></span><p id="index-3">La <a class="reference internal" href="#effetnorme"><span class="std std-numref">Fig. 1</span></a> montre l’effet d’une transformation linéaire sur la boule unité des normes <span class="math notranslate nohighlight">\(L_1,L_2\)</span> et <span class="math notranslate nohighlight">\(L_\infty\)</span>. La matrice <span class="math notranslate nohighlight">\(A\)</span> utilisée est égale à <span class="math notranslate nohighlight">\(A=\begin{pmatrix} 1&amp;2\\0&amp;2\end{pmatrix}\)</span>. Les points rouge et verts sont les points de coordonnées respectives <span class="math notranslate nohighlight">\((1,0)^\top\)</span>  et <span class="math notranslate nohighlight">\((0,1)^\top\)</span> (gauche) et leur image par <span class="math notranslate nohighlight">\(A\)</span> (droite). Le vecteur en pointillés est le vecteur dont la norme est la plus amplifiée par <span class="math notranslate nohighlight">\(A\)</span>. On remarque alors par exemple, pour la norme <span class="math notranslate nohighlight">\(L_1\)</span>, que l’image de ce vecteur par <span class="math notranslate nohighlight">\(A\)</span> est le vecteur <span class="math notranslate nohighlight">\((2,2)^\top\)</span>, dont la norme <span class="math notranslate nohighlight">\(L_1\)</span> vaut 4, ce qui est exactement la valeur de <span class="math notranslate nohighlight">\(\|A\|_1 = max(1+0,2+2) = 4\)</span>.</p>
 <div class="figure align-default" id="effetnorme">
@@ -1328,23 +1330,23 @@ taille <span class="math notranslate nohighlight">\(n\)</span>, on obtient une s
 des sous-matrices principales sont les mineurs de la matrice.</p></li>
 </ul>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="53d3170c-48a8-49d5-9854-f684791e2374" name="05651c00-99cf-4caa-b2bd-9d0d805d2e68" type="radio">
-</input><label class="sd-tab-label" for="53d3170c-48a8-49d5-9854-f684791e2374">
+<input checked="checked" id="6a2d8072-42a6-4e7c-9d67-6b06afcdace1" name="81f8e0f9-b20f-4721-a2d9-060348ef35d7" type="radio">
+</input><label class="sd-tab-label" for="6a2d8072-42a6-4e7c-9d67-6b06afcdace1">
 Diagonale</label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;0&amp;0\\0&amp;-4&amp;0\\0&amp;0&amp;1\end{pmatrix}\)</span></p>
 </div>
-<input id="0798632f-4a5c-49ac-b1bf-4c10d210aab3" name="05651c00-99cf-4caa-b2bd-9d0d805d2e68" type="radio">
-</input><label class="sd-tab-label" for="0798632f-4a5c-49ac-b1bf-4c10d210aab3">
+<input id="e0488c39-ba28-4930-a8de-f49704193765" name="81f8e0f9-b20f-4721-a2d9-060348ef35d7" type="radio">
+</input><label class="sd-tab-label" for="e0488c39-ba28-4930-a8de-f49704193765">
 Triang. sup. </label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix} 3&amp;2&amp;1\\0&amp;-4&amp;2\\0&amp;0&amp;1 \end{pmatrix}\)</span></p>
 </div>
-<input id="b8e1e570-bb30-4ca1-9384-ea403d6923f8" name="05651c00-99cf-4caa-b2bd-9d0d805d2e68" type="radio">
-</input><label class="sd-tab-label" for="b8e1e570-bb30-4ca1-9384-ea403d6923f8">
+<input id="c26d54d8-5e76-437e-b6a3-63a1af008b47" name="81f8e0f9-b20f-4721-a2d9-060348ef35d7" type="radio">
+</input><label class="sd-tab-label" for="c26d54d8-5e76-437e-b6a3-63a1af008b47">
 Triang. inf.</label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;0&amp;0\\1&amp;-4&amp;0\\5&amp;8&amp;1 \end{pmatrix}\)</span></p>
 </div>
-<input id="fe0a70f1-8ed6-413c-8dcb-c01eab5bbb1e" name="05651c00-99cf-4caa-b2bd-9d0d805d2e68" type="radio">
-</input><label class="sd-tab-label" for="fe0a70f1-8ed6-413c-8dcb-c01eab5bbb1e">
+<input id="ae0e9fdf-ccc3-43c2-b0af-a9d35f900c83" name="81f8e0f9-b20f-4721-a2d9-060348ef35d7" type="radio">
+</input><label class="sd-tab-label" for="ae0e9fdf-ccc3-43c2-b0af-a9d35f900c83">
 Vecteur ligne </label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;2&amp;1&amp;-4&amp;0&amp;3.5 \end{pmatrix}\)</span></p>
 </div>
