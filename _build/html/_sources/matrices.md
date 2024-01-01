@@ -274,20 +274,12 @@ Cette norme n'est subordonnée à aucune norme vectorielle sur $\mathbb R^n$.
 ```{index} Frobenius;Norme de 
 ```
 
+La {numref}`hyp-effetnorme` suivante montre l'effet d'une transformation linéaire sur la boule unité des normes $L_1,L_2 et L_\infty$. La matrice $A$ utilisée est égale à $A=\begin{pmatrix} 1&2\\0&2\end{pmatrix}$. Les points rouge et verts sont les points de coordonnées respectives $(1,0)^\top$  et $(0,1)^\top$ (gauche) et leur image par $A$ (droite). Le vecteur en pointillés est le vecteur dont la norme est la plus amplifiée par $A$. On remarque alors par exemple, pour la norme $L_1$, que l'image de ce vecteur par $A$ est le vecteur $(2,2)^\top$, dont la norme $L_1$ vaut 4, ce qui est exactement la valeur de $\|A\|_1 = max(1+0,2+2) = 4$.
 
-```{tikz} 
-\draw [->] (-4,0)--(4,0);
-\draw [->] (0,-4)--(0,4);
-\draw[blue] (-3,0) 
-            to[bend right] (0,3) 
-            to[bend right] (3,0) 
-            to[bend right] (0,-3) 
-            to[bend right] (-3,0);
-\node at (0,-4.5) {};
+```{figure} ./images/effetnorme.png
+:name: effetnorme
+Effet d'une transformation linéaire sur la boule unité des trois normes classiques.
 ```
-
-
-
 
 ## Matrice transposée
 
