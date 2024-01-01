@@ -537,44 +537,6 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#matrice-transposee">
-   Matrice transposée
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#trace-determinant">
-   Trace, déterminant
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#produit-matriciel">
-   Produit matriciel
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#produit-par-blocs">
-   Produit par blocs
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#inverse-d-une-matrice">
-   Inverse d’une matrice
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#matrices-particulieres">
-   Matrices particulières
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#image-de-bf-a">
-   Image de
-   <span class="math notranslate nohighlight">
-    \({\bf A}\)
-   </span>
-  </a>
- </li>
 </ul>
 
     </nav>
@@ -630,44 +592,6 @@ title="Print to PDF"
     </a>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#matrice-transposee">
-   Matrice transposée
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#trace-determinant">
-   Trace, déterminant
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#produit-matriciel">
-   Produit matriciel
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#produit-par-blocs">
-   Produit par blocs
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#inverse-d-une-matrice">
-   Inverse d’une matrice
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#matrices-particulieres">
-   Matrices particulières
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#image-de-bf-a">
-   Image de
-   <span class="math notranslate nohighlight">
-    \({\bf A}\)
-   </span>
-  </a>
  </li>
 </ul>
 
@@ -976,456 +900,444 @@ la norme de la trace ou norme de Frobenius (ou de Hilbert-Schmidt) :</p></li>
 \|{\bf A}\|_F=\left (Tr({\bf A^\top} {\bf A})\right)^\frac{1}{2}
            =\left (\displaystyle\sum_i\displaystyle\sum_ja_{ij}^2\right )^\frac{1}{2}.
 \)</span></p>
-<p>Cette norme n’est subordonnée à aucune norme vectorielle sur <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>.</p>
-<ol class="simple">
-<li><p>Si <span class="math notranslate nohighlight">\(A\)</span> est diagonale, alors pour tout <span class="math notranslate nohighlight">\(p\in\mathbb{N}^*,\; \|A\|_p = \displaystyle\max_{i}|a_{ii}|\)</span></p></li>
-</ol>
-</div>
-</div><span class="target" id="index-2"></span><p id="index-3">La <a class="reference internal" href="#effetnorme"><span class="std std-numref">Fig. 1</span></a> montre l’effet d’une transformation linéaire sur la boule unité des normes <span class="math notranslate nohighlight">\(L_1,L_2\)</span> et <span class="math notranslate nohighlight">\(L_\infty\)</span>. La matrice <span class="math notranslate nohighlight">\(A\)</span> utilisée est égale à <span class="math notranslate nohighlight">\(A=\begin{pmatrix} 1&amp;2\\0&amp;2\end{pmatrix}\)</span>. Les points rouge et verts sont les points de coordonnées respectives <span class="math notranslate nohighlight">\((1,0)^\top\)</span>  et <span class="math notranslate nohighlight">\((0,1)^\top\)</span> (gauche) et leur image par <span class="math notranslate nohighlight">\(A\)</span> (droite). Le vecteur en pointillés est le vecteur dont la norme est la plus amplifiée par <span class="math notranslate nohighlight">\(A\)</span>. On remarque alors par exemple, pour la norme <span class="math notranslate nohighlight">\(L_1\)</span>, que l’image de ce vecteur par <span class="math notranslate nohighlight">\(A\)</span> est le vecteur <span class="math notranslate nohighlight">\((2,2)^\top\)</span>, dont la norme <span class="math notranslate nohighlight">\(L_1\)</span> vaut 4, ce qui est exactement la valeur de <span class="math notranslate nohighlight">\(\|A\|_1 = max(1+0,2+2) = 4\)</span>.</p>
-<div class="figure align-default" id="effetnorme">
-<img alt="_images/effetnorme.png" src="_images/effetnorme.png" />
-<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Effet d’une transformation linéaire sur la boule unité des trois normes classiques.</span><a class="headerlink" href="#effetnorme" title="Lien permanent vers cette image">#</a></p>
-</div>
-</div>
-</div>
-<div class="section" id="matrice-transposee">
-<h2>Matrice transposée<a class="headerlink" href="#matrice-transposee" title="Lien permanent vers ce titre">#</a></h2>
-<div class="proof definition admonition" id="definition-4">
-<p class="admonition-title"><span class="caption-number">Definition 15 </span> (Transposée)</p>
-<div class="definition-content section" id="proof-content">
-<span class="target" id="index-4"></span><p id="index-5">Soit <span class="math notranslate nohighlight">\({\bf A}\in \mathcal{M}_{m,n}(\mathbb{R})\)</span>. On appelle
-matrice transposée de <span class="math notranslate nohighlight">\({\bf A}\)</span>, et on note <span class="math notranslate nohighlight">\({\bf A^\top}\)</span>, l’unique
-matrice de <span class="math notranslate nohighlight">\(\mathcal{M}_{n,m}(\mathbb{R})\)</span> telle que :
-<span class="math notranslate nohighlight">\((\forall  {\bf x} \in\mathbb R^n)\ (\forall  {\bf y} \in\mathbb R^m)\quad{\bf y}^\top ({\bf A}{\bf x})=({\bf A^\top }{\bf y})^\top {\bf x} 
-\label{MatriceTransposee}\)</span></p>
-</div>
-</div><p>Le premier produit scalaire est dans <span class="math notranslate nohighlight">\(\mathbb R^m\)</span> et le second dans
-<span class="math notranslate nohighlight">\(\mathbb R^n\)</span>. On montre alors que la matrice <span class="math notranslate nohighlight">\({\bf A^\top}\)</span> a pour lignes
-les colonnes de <span class="math notranslate nohighlight">\({\bf A}\)</span> (et donc pour colonnes les lignes de
-<span class="math notranslate nohighlight">\({\bf A}\)</span>). On remarque que la notation dans est cohérente avec celle du produit
-scalaire.</p>
-<p><span class="math notranslate nohighlight">\({\bf A} = \begin{pmatrix}
+<span class="target" id="index-2"></span></div>
+</div><p id="index-3">Cette norme n’est subordonnée à aucune norme vectorielle sur <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```{prf:remark}
+:class: dropdownSi $A$ est diagonale, alors pour tout $p\in\mathbb{N}^*,\; \|A\|_p = \displaystyle\max_{i}|a_{ii}|$
+```
+
+
+La {numref}`effetnorme` montre l&#39;effet d&#39;une transformation linéaire sur la boule unité des normes $L_1,L_2$ et $L_\infty$. La matrice $A$ utilisée est égale à $A=\begin{pmatrix} 1&amp;2\\0&amp;2\end{pmatrix}$. Les points rouge et verts sont les points de coordonnées respectives $(1,0)^\top$  et $(0,1)^\top$ (gauche) et leur image par $A$ (droite). Le vecteur en pointillés est le vecteur dont la norme est la plus amplifiée par $A$. On remarque alors par exemple, pour la norme $L_1$, que l&#39;image de ce vecteur par $A$ est le vecteur $(2,2)^\top$, dont la norme $L_1$ vaut 4, ce qui est exactement la valeur de $\|A\|_1 = max(1+0,2+2) = 4$.
+
+```{figure} ./images/effetnorme.png
+:name: effetnorme
+Effet d&#39;une transformation linéaire sur la boule unité des trois normes classiques.
+```
+
+## Matrice transposée
+
+````{prf:definition} Transposée 
+```{index} Matrice ; transposée
+```
+```{index} Transposée
+```
+Soit ${\bf A}\in \mathcal{M}_{m,n}(\mathbb{R})$. On appelle
+matrice transposée de ${\bf A}$, et on note ${\bf A^\top}$, l&#39;unique
+matrice de $\mathcal{M}_{n,m}(\mathbb{R})$ telle que :
+$(\forall  {\bf x} \in\mathbb R^n)\ (\forall  {\bf y} \in\mathbb R^m)\quad{\bf y}^\top ({\bf A}{\bf x})=({\bf A^\top }{\bf y})^\top {\bf x} 
+\label{MatriceTransposee}$
+````
+
+Le premier produit scalaire est dans $\mathbb R^m$ et le second dans
+$\mathbb R^n$. On montre alors que la matrice ${\bf A^\top}$ a pour lignes
+les colonnes de ${\bf A}$ (et donc pour colonnes les lignes de
+${\bf A}$). On remarque que la notation dans est cohérente avec celle du produit
+scalaire.
+
+${\bf A} = \begin{pmatrix}
 1&amp;2&amp;3\\4&amp;5&amp;6\\7&amp;8&amp;9
-\end{pmatrix}\)</span> <span class="math notranslate nohighlight">\({\bf A^\top} = \begin{pmatrix}
+\end{pmatrix}$ ${\bf A^\top} = \begin{pmatrix}
 1&amp;4&amp;7\\2&amp;5&amp;8\\3&amp;6&amp;9
-\end{pmatrix}\)</span></p>
-<div class="cell tag_transpose docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">],[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> 
-<span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;transposée de A = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">A</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A = 
- [[5 4 0]
- [1 8 3]
- [6 7 2]] 
+\end{pmatrix}$
 
-transposée de A = 
- [[5 1 6]
- [4 8 7]
- [0 3 2]]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="proof remark dropdown admonition" id="remark-5">
-<p class="admonition-title"><span class="caption-number">Remark 2 </span></p>
-<div class="remark-content section" id="proof-content">
-<p>Dans le cas d’une matrice symétrique, on a <span class="math notranslate nohighlight">\({\bf A} = {\bf A^\top}\)</span>.</p>
-</div>
-</div></div>
-<div class="section" id="trace-determinant">
-<h2>Trace, déterminant<a class="headerlink" href="#trace-determinant" title="Lien permanent vers ce titre">#</a></h2>
-<div class="proof definition admonition" id="definition-6">
-<p class="admonition-title"><span class="caption-number">Definition 16 </span> (Trace)</p>
-<div class="definition-content section" id="proof-content">
-<p id="index-6">Soit <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_n(\mathbb R)\)</span>. La trace de <span class="math notranslate nohighlight">\({\bf A}\)</span>,
-notée <span class="math notranslate nohighlight">\(Tr({\bf A})\)</span>, est par définition :
-<span class="math notranslate nohighlight">\(Tr({\bf A}) = \displaystyle\sum_{i=1}^n a_{ii}\)</span></p>
-</div>
-</div><div class="cell tag_trace docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Trace de A : &quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Trace de A :  15
-</pre></div>
-</div>
-</div>
-</div>
-<p>On démontre sans difficulté les propriétés suivantes pour toutes
-matrices <span class="math notranslate nohighlight">\({\bf A}\)</span> et <span class="math notranslate nohighlight">\({\bf B}\)</span> avec les bonnes dimensions :</p>
-<div class="proof property admonition" id="property-7">
-<p class="admonition-title"><span class="caption-number">Property 5 </span> (Propriétés de la trace)</p>
-<div class="property-content section" id="proof-content">
-<ol class="simple">
-<li><p><span class="math notranslate nohighlight">\(Tr({\bf A})\)</span>=<span class="math notranslate nohighlight">\(Tr({\bf A^\top})\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(Tr({\bf AB})\)</span>=<span class="math notranslate nohighlight">\(Tr({\bf BA})\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(Tr({\bf A+B})\)</span>=<span class="math notranslate nohighlight">\(Tr({\bf A}) + Tr({\bf B})\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\((\forall {\bf x}\in \mathbb R^n)\ {\bf x^\topx} = Tr({\bf xx^\top})\)</span></p></li>
-</ol>
-</div>
-</div><div class="proof definition admonition" id="definition-8">
-<p class="admonition-title"><span class="caption-number">Definition 17 </span> (Déterminant)</p>
-<div class="definition-content section" id="proof-content">
-<p id="index-7">oit <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_n(\mathbb R)\)</span>. Le déterminant de
-<span class="math notranslate nohighlight">\({\bf A}\)</span>, noté <span class="math notranslate nohighlight">\(det({\bf A})\)</span> est défini récursivement comme suit :</p>
-<ol class="simple">
-<li><p>si <span class="math notranslate nohighlight">\(n=1\)</span>, <span class="math notranslate nohighlight">\(det({\bf A})=a_{11}\)</span></p></li>
-<li><p>si <span class="math notranslate nohighlight">\(n&gt;1\)</span>
-<span class="math notranslate nohighlight">\(det({\bf A})=\displaystyle\sum_{j=1}^n (-1)^{j+1}det ({\bf A_{1j}})\)</span></p></li>
-</ol>
-<p>où <span class="math notranslate nohighlight">\({\bf A_{1j}}\in \mathcal{M}_{n-1}(\mathbb R)\)</span> est obtenue à partir de
-<span class="math notranslate nohighlight">\({\bf A}\)</span> en supprimant la première ligne et la <span class="math notranslate nohighlight">\(j^e\)</span> colonne.</p>
-</div>
-</div><div class="cell tag_det docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Déterminant de A : &quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Déterminant de A :  39.000000000000014
-</pre></div>
-</div>
-</div>
-</div>
-<p>Le déterminant est la valeur d’une forme multilinéaire sur un ensemble
-de <span class="math notranslate nohighlight">\(n\)</span> vecteurs qui change de signe à chaque permutation des vecteurs et
-qui vaut 1 pour les <span class="math notranslate nohighlight">\(n\)</span> vecteurs d’une base orthonormée. C’est aussi le
-volume du <span class="math notranslate nohighlight">\(n\)</span>-parallélépipède engendré par <span class="math notranslate nohighlight">\(n\)</span> vecteurs dans <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>.
-L’une des applications principales des déterminants est de mesurer la
-liberté d’une famille.</p>
-<div class="proof property admonition" id="property-9">
-<p class="admonition-title"><span class="caption-number">Property 6 </span> (Propriétés du déterminant)</p>
-<div class="property-content section" id="proof-content">
-<ol class="simple">
-<li><p><span class="math notranslate nohighlight">\(\det(\mathbb I)=1\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\det({\bf A})=0\ \Leftrightarrow\)</span> <span class="math notranslate nohighlight">\({\bf A}\)</span> est singulière.</p></li>
-<li><p><span class="math notranslate nohighlight">\((\forall \lambda\in \mathbb R)\ \det({\bf \lambda.A})\)</span> =
-<span class="math notranslate nohighlight">\(\lambda^n\det({\bf A})\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\det({\bf AB})=\det({\bf A})\det({\bf B})\)</span> (donc
-<span class="math notranslate nohighlight">\(\det({\bf A^{-1}})=(\det({\bf A}))^{-1}\)</span>).</p></li>
-<li><p><span class="math notranslate nohighlight">\(\det({\bf A^\top} )=\det({\bf A})\)</span>.</p></li>
-<li><p>Si <span class="math notranslate nohighlight">\({\bf A}\)</span> est triangulaire,
-<span class="math notranslate nohighlight">\(\det({\bf A})=\displaystyle\prod^n_{i=1}a_{ii}.\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\det({\bf A})\)</span> change de signe si on permute deux lignes (ou
-colonnes) de <span class="math notranslate nohighlight">\({\bf A}\)</span></p></li>
-</ol>
-</div>
-</div></div>
-<div class="section" id="produit-matriciel">
-<h2>Produit matriciel<a class="headerlink" href="#produit-matriciel" title="Lien permanent vers ce titre">#</a></h2>
-<p>Le produit matriciel correspond à la composition de deux transformations
-linéaires.</p>
-<div class="margin sidebar">
-<p class="sidebar-title"></p>
-<p><img alt="" src="_images/prodmat.png" /></p>
-</div>
-<div class="proof definition admonition" id="definition-10">
-<p class="admonition-title"><span class="caption-number">Definition 18 </span> (Produit matriciel )</p>
-<div class="definition-content section" id="proof-content">
-<span class="target" id="index-8"></span><p id="index-9">Soient <span class="math notranslate nohighlight">\({\bf A}\in \mathcal{M}_{m,n}(\mathbb{R})\)</span> et
-<span class="math notranslate nohighlight">\({\bf B}\in \mathcal{M}_{n,p}(\mathbb{R})\)</span>. Le produit <span class="math notranslate nohighlight">\({\bf C = AB}\)</span>
-est une matrice de <span class="math notranslate nohighlight">\(\mathcal{M}_{m,p}(\mathbb{R})\)</span> avec
-<span class="math notranslate nohighlight">\((\forall i\in  [\![ 1, m]\!])(\forall j\in [\![ 1, p]\!])\quad c_{ij}=\sum_{k=1}^n a_{ik}b_{kj} = {\bf A_{i,\bullet}^\top B_{\bullet,j}}
-\label{ProduitMatriciel}\)</span></p>
-</div>
-</div><p>On note que le nombre de colonnes de <span class="math notranslate nohighlight">\({\bf A}\)</span> doit être égal au nombre
-de lignes de <span class="math notranslate nohighlight">\({\bf B}\)</span> pour que l’opération puisse être réalisée.</p>
-<div class="cell tag_prod docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
-<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">]])</span>
-<span class="n">C</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@B</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0 -6 -8]
- [ 5 -2  9]]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="proof remark dropdown admonition" id="remark-11">
-<p class="admonition-title"><span class="caption-number">Remark 3 </span></p>
-<div class="remark-content section" id="proof-content">
-<p>Plusieurs points d’attention doivent être soulignés :</p>
-<ol class="simple">
-<li><p>En général le produit n’est pas commutatif.</p></li>
-<li><p><span class="math notranslate nohighlight">\({\bf AB}\)</span>=<span class="math notranslate nohighlight">\({\bf 0}\)</span> n’implique pas <span class="math notranslate nohighlight">\({\bf A}\)</span>=<span class="math notranslate nohighlight">\({\bf 0}\)</span> ou
-<span class="math notranslate nohighlight">\({\bf B}\)</span>=<span class="math notranslate nohighlight">\({\bf 0}\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\({\bf AB}\)</span>=<span class="math notranslate nohighlight">\({\bf AC}\)</span> n’implique pas <span class="math notranslate nohighlight">\({\bf B}\)</span>=<span class="math notranslate nohighlight">\({\bf C}\)</span></p></li>
-</ol>
-</div>
-</div><p>On trouve là le premier calcul sérieux du point de vue de la complexité.
-Ce qui permet d’introduire une unité de mesure de la complexité d’une
-opération et d’un algorithme.</p>
-<div class="proof definition admonition" id="definition-12">
-<p class="admonition-title"><span class="caption-number">Definition 19 </span> (Flop)</p>
-<div class="definition-content section" id="proof-content">
-<p id="index-10">On appelle flop l’opération élémentaire d’un produit scalaire : une
-multiplication suivie d’une addition et d’une substitution.</p>
-</div>
-</div><p>Un flop revient donc à mettre à jour une somme <span class="math notranslate nohighlight">\(s\)</span> en lui rajoutant le
-produit de deux nombres <span class="math notranslate nohighlight">\(a\)</span> et <span class="math notranslate nohighlight">\(b\)</span>, <em>i.e.</em> <span class="math notranslate nohighlight">\(s:=s+a\ast b.\)</span> Le coût
-d’un produit scalaire de deux vecteurs de longueur <span class="math notranslate nohighlight">\(n\)</span> est donc de <span class="math notranslate nohighlight">\(n\)</span>
-flops.</p>
-<p>Avec cette définition, le nombre d’opérations nécessaires pour effectuer
-le produit est de l’ordre de <span class="math notranslate nohighlight">\(n^3\)</span> flops. On verra
+
+```{code-cell} ipython3
+:tags: [transpose]
+import numpy as np
+A = np.array([[5, 4, 0],[1, 8, 3],[6, 7, 2]])
+print(&#39;A = \n&#39;,A,&#39;\n&#39; 
+)
+print(&#39;transposée de A = \n&#39;,A.transpose())
+```
+
+```{prf:remark}
+:class: dropdown
+Dans le cas d&#39;une matrice symétrique, on a ${\bf A} = {\bf A^\top}$.
+```
+
+## Trace, déterminant
+
+````{prf:definition} Trace 
+```{index} Trace
+```
+Soit ${\bf A}\in\mathcal{M}_n(\mathbb R)$. La trace de ${\bf A}$,
+notée $Tr({\bf A})$, est par définition :
+$Tr({\bf A}) = \displaystyle\sum_{i=1}^n a_{ii}$
+````
+
+```{code-cell} ipython3
+:tags: [trace]
+
+print(&quot;Trace de A : &quot;, np.trace(A))
+```
+
+On démontre sans difficulté les propriétés suivantes pour toutes
+matrices ${\bf A}$ et ${\bf B}$ avec les bonnes dimensions :
+
+````{prf:property} Propriétés de la trace
+
+1.  $Tr({\bf A})$=$Tr({\bf A^\top})$
+
+2.  $Tr({\bf AB})$=$Tr({\bf BA})$
+
+3.  $Tr({\bf A+B})$=$Tr({\bf A}) + Tr({\bf B})$
+
+4.  $(\forall {\bf x}\in \mathbb R^n)\ {\bf x^\topx} = Tr({\bf xx^\top})$
+````
+
+````{prf:definition} Déterminant 
+```{index} Déterminant
+```
+oit ${\bf A}\in\mathcal{M}_n(\mathbb R)$. Le déterminant de
+${\bf A}$, noté $det({\bf A})$ est défini récursivement comme suit :
+
+1.  si $n=1$, $det({\bf A})=a_{11}$
+
+2.  si $n&gt;1$
+    $det({\bf A})=\displaystyle\sum_{j=1}^n (-1)^{j+1}det ({\bf A_{1j}})$
+
+où ${\bf A_{1j}}\in \mathcal{M}_{n-1}(\mathbb R)$ est obtenue à partir de
+${\bf A}$ en supprimant la première ligne et la $j^e$ colonne.
+````
+
+
+```{code-cell} ipython3
+:tags: [det]
+
+print(&quot;Déterminant de A : &quot;, np.linalg.det(A))
+```
+
+
+
+Le déterminant est la valeur d&#39;une forme multilinéaire sur un ensemble
+de $n$ vecteurs qui change de signe à chaque permutation des vecteurs et
+qui vaut 1 pour les $n$ vecteurs d&#39;une base orthonormée. C&#39;est aussi le
+volume du $n$-parallélépipède engendré par $n$ vecteurs dans $\mathbb R^n$.
+L&#39;une des applications principales des déterminants est de mesurer la
+liberté d&#39;une famille.
+
+````{prf:property} Propriétés du déterminant
+
+1.  $\det(\mathbb I)=1$
+
+2.  $\det({\bf A})=0\ \Leftrightarrow$ ${\bf A}$ est singulière.
+
+3.  $(\forall \lambda\in \mathbb R)\ \det({\bf \lambda.A})$ =
+    $\lambda^n\det({\bf A})$
+
+4.  $\det({\bf AB})=\det({\bf A})\det({\bf B})$ (donc
+    $\det({\bf A^{-1}})=(\det({\bf A}))^{-1}$).
+
+5.  $\det({\bf A^\top} )=\det({\bf A})$.
+
+6.  Si ${\bf A}$ est triangulaire,
+    $\det({\bf A})=\displaystyle\prod^n_{i=1}a_{ii}.$
+
+7.  $\det({\bf A})$ change de signe si on permute deux lignes (ou
+    colonnes) de ${\bf A}$
+````
+
+## Produit matriciel
+
+Le produit matriciel correspond à la composition de deux transformations
+linéaires.
+
+```{margin} 
+![](./images/prodmat.png)
+```
+
+````{prf:definition} Produit matriciel 
+```{index} Matrice ; produit
+```
+```{index} Produit  ; matriciel
+```
+
+Soient ${\bf A}\in \mathcal{M}_{m,n}(\mathbb{R})$ et
+${\bf B}\in \mathcal{M}_{n,p}(\mathbb{R})$. Le produit ${\bf C = AB}$
+est une matrice de $\mathcal{M}_{m,p}(\mathbb{R})$ avec
+$(\forall i\in  [\![ 1, m]\!])(\forall j\in [\![ 1, p]\!])\quad c_{ij}=\sum_{k=1}^n a_{ik}b_{kj} = {\bf A_{i,\bullet}^\top B_{\bullet,j}}
+\label{ProduitMatriciel}$
+````
+
+On note que le nombre de colonnes de ${\bf A}$ doit être égal au nombre
+de lignes de ${\bf B}$ pour que l&#39;opération puisse être réalisée.
+
+
+```{code-cell} ipython3
+:tags: [prod]
+import numpy as np
+A = np.array([[1, 3],[2,1]])
+B = np.array([[3, 0, 7],[-1, -2, -5]])
+C = A@B
+print(C)
+```
+
+
+```{prf:remark}
+:class: dropdown
+Plusieurs points d&#39;attention doivent être soulignés :
+
+1.  En général le produit n&#39;est pas commutatif.
+
+2.  ${\bf AB}$=${\bf 0}$ n&#39;implique pas ${\bf A}$=${\bf 0}$ ou
+    ${\bf B}$=${\bf 0}$
+
+3.  ${\bf AB}$=${\bf AC}$ n&#39;implique pas ${\bf B}$=${\bf C}$
+````
+
+On trouve là le premier calcul sérieux du point de vue de la complexité.
+Ce qui permet d&#39;introduire une unité de mesure de la complexité d&#39;une
+opération et d&#39;un algorithme.
+
+````{prf:definition} Flop 
+```{index} Flop
+```
+On appelle flop l&#39;opération élémentaire d&#39;un produit scalaire : une
+multiplication suivie d&#39;une addition et d&#39;une substitution.
+````
+
+Un flop revient donc à mettre à jour une somme $s$ en lui rajoutant le
+produit de deux nombres $a$ et $b$, *i.e.* $s:=s+a\ast b.$ Le coût
+d&#39;un produit scalaire de deux vecteurs de longueur $n$ est donc de $n$
+flops.
+
+Avec cette définition, le nombre d&#39;opérations nécessaires pour effectuer
+le produit est de l&#39;ordre de $n^3$ flops. On verra
 plus loin que ce coût, très élevé, est en fait équivalent au coût de la
-résolution d’un système linéaire à <span class="math notranslate nohighlight">\(n\)</span> inconnues.</p>
-<div class="proof property admonition" id="property-13">
-<p class="admonition-title"><span class="caption-number">Property 7 </span> (Propriétés du produit matriciel)</p>
-<div class="property-content section" id="proof-content">
-<ol class="simple">
-<li><p><span class="math notranslate nohighlight">\({\bf A(BC)}\)</span> = <span class="math notranslate nohighlight">\({\bf (AB)C}\)</span> [associativité du produit]</p></li>
-<li><p><span class="math notranslate nohighlight">\({\bf A(B+C)}\)</span> = <span class="math notranslate nohighlight">\({\bf AB}\)</span> + <span class="math notranslate nohighlight">\({\bf AC}\)</span> [distributivité par
-rapport à la somme]</p></li>
-<li><p><span class="math notranslate nohighlight">\(({\bf AB})^\top ={\bf B}^\top {\bf A}^\top\)</span> [transposition du
-produit]</p></li>
-<li><p>Si <span class="math notranslate nohighlight">\({\bf A}\in \mathcal{M}_{m,n}(\mathbb{R})\)</span>, <span class="math notranslate nohighlight">\({\bf A\mathbb I}\)</span> =
-<span class="math notranslate nohighlight">\({\bf\mathbb I A}\)</span> = <span class="math notranslate nohighlight">\({\bf A}\)</span> [la première matrice identité est de
-taille <span class="math notranslate nohighlight">\(n\)</span>, la seconde de taille <span class="math notranslate nohighlight">\(m\)</span>]</p></li>
-</ol>
-</div>
-</div><p>Le produit matriciel correspond à une composition de transformations linéaires.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
-<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+résolution d&#39;un système linéaire à $n$ inconnues.
 
-<span class="k">def</span> <span class="nf">plot_vector2d</span><span class="p">(</span><span class="n">vector2d</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="o">**</span><span class="n">options</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">plt</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="n">origin</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">origin</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">vector2d</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vector2d</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-              <span class="n">head_width</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">head_length</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">length_includes_head</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-              <span class="o">**</span><span class="n">options</span><span class="p">)</span>
-<span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
-<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">u</span><span class="p">)</span>
-<span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
-<span class="n">C</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@B</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="n">u</span><span class="p">)</span>
+````{prf:property}  Propriétés du produit matriciel
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  
-<span class="n">plot_vector2d</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">2.1</span><span class="p">,</span> <span class="mf">5.1</span><span class="p">,</span> <span class="s2">&quot;u&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
-<span class="n">plot_vector2d</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">7.1</span><span class="p">,</span> <span class="s2">&quot;v=Bu&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
-<span class="n">plot_vector2d</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mf">8.5</span><span class="p">,</span> <span class="s2">&quot;Av&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+1.  ${\bf A(BC)}$ = ${\bf (AB)C}$ \[associativité du produit\]
+
+2.  ${\bf A(B+C)}$ = ${\bf AB}$ + ${\bf AC}$ \[distributivité par
+    rapport à la somme\]
+
+3.  $({\bf AB})^\top ={\bf B}^\top {\bf A}^\top$ \[transposition du
+    produit\]
+
+4.  Si ${\bf A}\in \mathcal{M}_{m,n}(\mathbb{R})$, ${\bf A\mathbb I}$ =
+    ${\bf\mathbb I A}$ = ${\bf A}$ \[la première matrice identité est de
+    taille $n$, la seconde de taille $m$\]
+````
+
+Le produit matriciel correspond à une composition de transformations linéaires.
+
+```{code-cell} ipython3
+import numpy as np
+import matplotlib.pyplot as plt
+A = np.array([[1, 3],[2,1]])
+B = np.array([[-2, 1],[1, 1]])
+
+def plot_vector2d(vector2d, origin=[0, 0], **options):
+    return plt.arrow(origin[0], origin[1], vector2d[0], vector2d[1],
+              head_width=0.2, head_length=0.3, length_includes_head=True,
+              **options)
+u = np.array([2, 5])
+v = np.dot(B,u)
+w = np.dot(A,v)
+C = A@B
+z = np.dot(C,u)
+
+fig, ax = plt.subplots(figsize=(10,5))
+plt.subplot(1, 2, 1)  
+plot_vector2d(u, color=&quot;r&quot;)
+plt.text(2.1, 5.1, &quot;u&quot;, color=&quot;r&quot;, fontsize=18)
+plot_vector2d(v, color=&quot;g&quot;)
+plt.text(1.1, 7.1, &quot;v=Bu&quot;, color=&quot;g&quot;, fontsize=18)
+plot_vector2d(w, color=&quot;b&quot;)
+plt.text(18,8.5, &quot;Av&quot;, color=&quot;b&quot;, fontsize=18)
 
 
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  
-<span class="n">plot_vector2d</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">2.1</span><span class="p">,</span> <span class="mf">5.1</span><span class="p">,</span> <span class="s2">&quot;u&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
-<span class="n">plot_vector2d</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mf">8.5</span><span class="p">,</span> <span class="s2">&quot;ABu&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+plt.grid()
+plt.subplot(1, 2, 2)  
+plot_vector2d(u, color=&quot;r&quot;)
+plt.text(2.1, 5.1, &quot;u&quot;, color=&quot;r&quot;, fontsize=18)
+plot_vector2d(z, color=&quot;y&quot;)
+plt.text(18,8.5, &quot;ABu&quot;, color=&quot;y&quot;, fontsize=18)
 
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-14-74a4e34dd205&gt;:17: MatplotlibDeprecationWarning: Auto-removal of overlapping axes is deprecated since 3.6 and will be removed two minor releases later; explicitly call ax.remove() as needed.
-  plt.subplot(1, 2, 1)
-</pre></div>
-</div>
-<img alt="_images/matrices_26_1.png" src="_images/matrices_26_1.png" />
-</div>
-</div>
-</div>
-<div class="section" id="produit-par-blocs">
-<h2>Produit par blocs<a class="headerlink" href="#produit-par-blocs" title="Lien permanent vers ce titre">#</a></h2>
-<p>Soient deux matrices :</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\({\bf A} = ({\bf A_{ij}}), i\in[\![1,m]\!], j\in[\![1, n]\!]\)</span> où <span class="math notranslate nohighlight">\({\bf A_{ij}}\in \mathcal{M}_{m_i,n_j}(\mathbb R)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\({\bf B} = ({\bf B_{kl}}),   k\in[\![1, n]\!], l\in[\![1, p]\!]\)</span> où <span class="math notranslate nohighlight">\({\bf B_{kl}}\in \mathcal{M}_{n_k,p_l}(\mathbb R)\)</span></p></li>
-</ul>
-<p id="index-11">Tous les produits <span class="math notranslate nohighlight">\({\bf A_{ik}}{\bf B_{kl}}\)</span> sont bien définis. Le
-produit par blocs des matrices <span class="math notranslate nohighlight">\({\bf A}\)</span> et <span class="math notranslate nohighlight">\({\bf B}\)</span> est défini par
-<span class="math notranslate nohighlight">\({\bf AB}= (({\bf AB})_{il})\)</span> avec :
-<span class="math notranslate nohighlight">\((\forall i\in  [\![ 1, m]\!])(\forall l\in  [\![ 1, p]\!])\quad ({\bf AB})_{il}  = \displaystyle\sum_{k=1}^n {\bf A_{ik}B_{kl}}\)</span></p>
-<p>L’écriture du produit est la même que dans le paragraphe précédent, mais
+plt.grid()
+plt.tight_layout()
+```
+
+## Produit par blocs
+
+Soient deux matrices :
+
+- ${\bf A} = ({\bf A_{ij}}), i\in[\![1,m]\!], j\in[\![1, n]\!]$ où ${\bf A_{ij}}\in \mathcal{M}_{m_i,n_j}(\mathbb R)$
+- ${\bf B} = ({\bf B_{kl}}),   k\in[\![1, n]\!], l\in[\![1, p]\!]$ où ${\bf B_{kl}}\in \mathcal{M}_{n_k,p_l}(\mathbb R)$
+```{index} Produit  ; par blocs
+```
+
+Tous les produits ${\bf A_{ik}}{\bf B_{kl}}$ sont bien définis. Le
+produit par blocs des matrices ${\bf A}$ et ${\bf B}$ est défini par
+${\bf AB}= (({\bf AB})_{il})$ avec :
+$(\forall i\in  [\![ 1, m]\!])(\forall l\in  [\![ 1, p]\!])\quad ({\bf AB})_{il}  = \displaystyle\sum_{k=1}^n {\bf A_{ik}B_{kl}}$
+
+L&#39;écriture du produit est la même que dans le paragraphe précédent, mais
 la somme fait intervenir des produits de matrices, et non de scalaires.
-C’est pourquoi il faut prendre garde à la non commutativité des produits
-<span class="math notranslate nohighlight">\({\bf A_{ik}B_{kl}}\)</span> et respecter l’ordre des facteurs.</p>
-</div>
-<div class="section" id="inverse-d-une-matrice">
-<h2>Inverse d’une matrice<a class="headerlink" href="#inverse-d-une-matrice" title="Lien permanent vers ce titre">#</a></h2>
-<div class="proof definition admonition" id="definition-14">
-<p class="admonition-title"><span class="caption-number">Definition 20 </span> (Inverse)</p>
-<div class="definition-content section" id="proof-content">
-<span class="target" id="index-12"></span><p id="index-13">Soit <span class="math notranslate nohighlight">\({\bf A}\in \mathcal{M}_{n}(\mathbb{R})\)</span> une matrice carrée
-de taille <span class="math notranslate nohighlight">\(n\)</span>. L’inverse de <span class="math notranslate nohighlight">\({\bf A}\)</span>, notée <span class="math notranslate nohighlight">\({\bf A^{-1}}\)</span>, est
-l’unique matrice (lorsqu’elle existe) telle que
-<span class="math notranslate nohighlight">\({\bf A}{\bf A^{-1}}={\bf A^{-1}}{\bf A}=\mathbb I.\)</span></p>
-</div>
-</div><p>A noter que l’inverse d’une matrice (carrée) n’existe pas toujours. Pour
-assurer l’existence, il faut et il suffit que
-<span class="math notranslate nohighlight">\({\bf A}{\bf x}={\bf 0}\quad\Leftrightarrow\quad {\bf x}={\bf 0}.\)</span></p>
-<div class="cell tag_inv docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]])</span>
-<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0.70588235  0.82352941  0.41176471]
- [-0.20588235 -0.32352941  0.08823529]
- [-0.05882353 -0.23529412 -0.11764706]]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="proof property admonition" id="property-15">
-<p class="admonition-title"><span class="caption-number">Property 8 </span> (Propriétés de l’inverse)</p>
-<div class="property-content section" id="proof-content">
-<ol class="simple">
-<li><p>(<span class="math notranslate nohighlight">\({\bf A^{-1}})^{-1}={\bf A}\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(({\bf AB})^{-1}={\bf B^{-1}}{\bf A^{-1}}\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(({\bf A^\top )^{-1}}=({\bf A^{-1}})^\top\)</span></p></li>
-<li><p>Si <span class="math notranslate nohighlight">\({\bf C}\)</span> inversible et <span class="math notranslate nohighlight">\({\bf AC}={\bf BC}\)</span> alors
-<span class="math notranslate nohighlight">\({\bf A}={\bf B}\)</span>.</p></li>
-</ol>
-</div>
-</div></div>
-<div class="section" id="matrices-particulieres">
-<h2>Matrices particulières<a class="headerlink" href="#matrices-particulieres" title="Lien permanent vers ce titre">#</a></h2>
-<ul class="simple">
-<li><p>Quand <span class="math notranslate nohighlight">\(m=n\)</span>, on parle de matrice carrée.</p></li>
-<li><p>Si <span class="math notranslate nohighlight">\(m=n\)</span>, la matrice <span class="math notranslate nohighlight">\({\bf A}\)</span> telle que <span class="math notranslate nohighlight">\((\forall i\neq j) a_{ij}=0\)</span> est une matrice diagonale.</p></li>
-<li><p>Si <span class="math notranslate nohighlight">\(m=n\)</span>, la matrice <span class="math notranslate nohighlight">\({\bf A}\)</span> telle que
-<span class="math notranslate nohighlight">\((\forall i\in  [\![ 1,n]\!]) (\forall j\in  [\![ 1, i-1]\!])\)</span>
-(resp. <span class="math notranslate nohighlight">\((\forall j\in  [\![ i+1,n]\!])\)</span>) <span class="math notranslate nohighlight">\(a_{ij}=0\)</span> est une matrice
-triangulaire supérieure (resp. inférieure).</p></li>
-<li><p>Si <span class="math notranslate nohighlight">\(m=n\)</span> et <span class="math notranslate nohighlight">\((\forall i,j\in  [\![ 1, m]\!]) a_{ij} = a_{ji}\)</span>, la
-matrice <span class="math notranslate nohighlight">\({\bf A}\)</span> est dite symétrique.</p></li>
-<li><p>Si <span class="math notranslate nohighlight">\(m=n\)</span> et <span class="math notranslate nohighlight">\({\bf A^\top}{\bf A} = {\bf A}{\bf A^\top} = \mathbb I\)</span>,
-<span class="math notranslate nohighlight">\({\bf A}\)</span> est une matrice orthogonale</p></li>
-<li><p>si <span class="math notranslate nohighlight">\(m=1\)</span>, la matrice est un vecteur ligne. C’est la transposée d’un
-vecteur de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>.</p></li>
-<li><p>si <span class="math notranslate nohighlight">\(n=1\)</span>, la matrice est un vecteur de <span class="math notranslate nohighlight">\(\mathbb R^m\)</span>.</p></li>
-<li><p>Une sous-matrice d’une matrice <span class="math notranslate nohighlight">\({\bf A}\)</span> est une matrice obtenue en
-supprimant certaines lignes et certaines colonnes de <span class="math notranslate nohighlight">\({\bf A}\)</span>. En
-particulier, si on supprime les lignes et colonnes associées au même
-sous-ensemble d’indices de <span class="math notranslate nohighlight">\([\![1,n]\!]\)</span> d’une matrice carrée de
-taille <span class="math notranslate nohighlight">\(n\)</span>, on obtient une sous-matrice principale. Les déterminants
-des sous-matrices principales sont les mineurs de la matrice.</p></li>
-</ul>
-<div class="sd-tab-set docutils">
-<input checked="checked" id="6a2d8072-42a6-4e7c-9d67-6b06afcdace1" name="81f8e0f9-b20f-4721-a2d9-060348ef35d7" type="radio">
-</input><label class="sd-tab-label" for="6a2d8072-42a6-4e7c-9d67-6b06afcdace1">
-Diagonale</label><div class="sd-tab-content docutils">
-<p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;0&amp;0\\0&amp;-4&amp;0\\0&amp;0&amp;1\end{pmatrix}\)</span></p>
-</div>
-<input id="e0488c39-ba28-4930-a8de-f49704193765" name="81f8e0f9-b20f-4721-a2d9-060348ef35d7" type="radio">
-</input><label class="sd-tab-label" for="e0488c39-ba28-4930-a8de-f49704193765">
-Triang. sup. </label><div class="sd-tab-content docutils">
-<p><span class="math notranslate nohighlight">\(\begin{pmatrix} 3&amp;2&amp;1\\0&amp;-4&amp;2\\0&amp;0&amp;1 \end{pmatrix}\)</span></p>
-</div>
-<input id="c26d54d8-5e76-437e-b6a3-63a1af008b47" name="81f8e0f9-b20f-4721-a2d9-060348ef35d7" type="radio">
-</input><label class="sd-tab-label" for="c26d54d8-5e76-437e-b6a3-63a1af008b47">
-Triang. inf.</label><div class="sd-tab-content docutils">
-<p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;0&amp;0\\1&amp;-4&amp;0\\5&amp;8&amp;1 \end{pmatrix}\)</span></p>
-</div>
-<input id="ae0e9fdf-ccc3-43c2-b0af-a9d35f900c83" name="81f8e0f9-b20f-4721-a2d9-060348ef35d7" type="radio">
-</input><label class="sd-tab-label" for="ae0e9fdf-ccc3-43c2-b0af-a9d35f900c83">
-Vecteur ligne </label><div class="sd-tab-content docutils">
-<p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;2&amp;1&amp;-4&amp;0&amp;3.5 \end{pmatrix}\)</span></p>
-</div>
-</div>
-</div>
-<div class="section" id="image-de-bf-a">
-<h2>Image de <span class="math notranslate nohighlight">\({\bf A}\)</span><a class="headerlink" href="#image-de-bf-a" title="Lien permanent vers ce titre">#</a></h2>
-<p>Une matrice <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{m,n}(\mathbb{R})\)</span> représente une
-transformation linéaire de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span> dans <span class="math notranslate nohighlight">\(\mathbb R^m\)</span>. Pour tout
-<span class="math notranslate nohighlight">\({\bf x}\in\mathbb R^n\)</span>, on définit l’image de <span class="math notranslate nohighlight">\({\bf x}\)</span> par la
-transformation <span class="math notranslate nohighlight">\({\bf A}\)</span> comme le vecteur <span class="math notranslate nohighlight">\({\bf y}\in \mathbb R^m\)</span> tel que
-<span class="math notranslate nohighlight">\({\bf y}={\bf A}{\bf x}=\sum_{j=1}^n {\bf A_{\bullet j}}x_j,\quad {\bf A_{\bullet j}}\in\mathbb R^m,\ j\in  [\![ 1, n]\!].\)</span></p>
-<div class="proof definition admonition" id="definition-16">
-<p class="admonition-title"><span class="caption-number">Definition 21 </span> (Image d’une matrice )</p>
-<div class="definition-content section" id="proof-content">
-<span class="target" id="index-14"></span><p id="index-15">Le sous-espace de <span class="math notranslate nohighlight">\(\mathbb R^m\)</span> engendré par les
-colonnes de <span class="math notranslate nohighlight">\({\bf A}\)</span> est appelé <em>sous-espace image</em> de <span class="math notranslate nohighlight">\({\bf A}\)</span>, noté
-<span class="math notranslate nohighlight">\(\mathrm{Im}({\bf A})\)</span>.</p>
-</div>
-</div><p>C’est donc l’ensemble des <span class="math notranslate nohighlight">\({\bf y}\)</span> de <span class="math notranslate nohighlight">\(\mathbb R^m\)</span> qui s’écrivent sous la
-forme <span class="math notranslate nohighlight">\({\bf A}{\bf x}\)</span> pour un certain <span class="math notranslate nohighlight">\({\bf x}\)</span> de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>.<br />
-<span class="math notranslate nohighlight">\(\mathrm{Im}({\bf A})\)</span> est clairement un sous-espace vectoriel de
-<span class="math notranslate nohighlight">\(\mathbb R^m\)</span>.</p>
-<div class="cell tag_im docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">init_printing</span><span class="p">,</span> <span class="n">Matrix</span><span class="p">,</span> <span class="n">symbols</span>
-<span class="n">init_printing</span><span class="p">(</span><span class="n">use_latex</span> <span class="o">=</span> <span class="s1">&#39;mathjax&#39;</span><span class="p">)</span> 
+C&#39;est pourquoi il faut prendre garde à la non commutativité des produits
+${\bf A_{ik}B_{kl}}$ et respecter l&#39;ordre des facteurs.
 
-<span class="n">A</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
-<span class="n">imA</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">columnspace</span><span class="p">()</span> 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L&#39;image de A est le sous-espace engendré par &quot;</span><span class="p">)</span>
-<span class="n">imA</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>L&#39;image de A est le sous-espace engendré par 
-</pre></div>
-</div>
-<div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[ \left[\begin{matrix}1\\1\\1\end{matrix}\right], \  \left[\begin{matrix}2\\1\\2\end{matrix}\right]\right]\end{split}\]</div>
-</div>
-</div>
-<div class="proof definition admonition" id="definition-17">
-<p class="admonition-title"><span class="caption-number">Definition 22 </span> (Rang d’une matrice )</p>
-<div class="definition-content section" id="proof-content">
-<span class="target" id="index-16"></span><p id="index-17">Soit <span class="math notranslate nohighlight">\({\bf A}\in \mathcal{M}_{m,n}(\mathbb{R})\)</span> Le
-rang de <span class="math notranslate nohighlight">\({\bf A}\)</span>, noté <span class="math notranslate nohighlight">\(\mathrm{rang}({\bf A})\)</span>, est le nombre maximal
-de colonnes de <span class="math notranslate nohighlight">\({\bf A}\)</span> linéairement indépendantes. C’est aussi le
+## Inverse d&#39;une matrice
+
+````{prf:definition} Inverse 
+```{index} Inverse
+```
+```{index} Matrice ; inverse
+```
+Soit ${\bf A}\in \mathcal{M}_{n}(\mathbb{R})$ une matrice carrée
+de taille $n$. L&#39;inverse de ${\bf A}$, notée ${\bf A^{-1}}$, est
+l&#39;unique matrice (lorsqu&#39;elle existe) telle que
+${\bf A}{\bf A^{-1}}={\bf A^{-1}}{\bf A}=\mathbb I.$
+````
+
+A noter que l&#39;inverse d&#39;une matrice (carrée) n&#39;existe pas toujours. Pour
+assurer l&#39;existence, il faut et il suffit que
+${\bf A}{\bf x}={\bf 0}\quad\Leftrightarrow\quad {\bf x}={\bf 0}.$
+
+
+
+```{code-cell} ipython3
+:tags: [inv]
+import numpy as np
+A = np.array([[2, 0, 7],[-1, -2, -5],[1, 4, -2]])
+B = np.linalg.inv(A)
+print(B)
+```
+
+
+````{prf:property} Propriétés de l&#39;inverse
+
+1.  (${\bf A^{-1}})^{-1}={\bf A}$
+
+2.  $({\bf AB})^{-1}={\bf B^{-1}}{\bf A^{-1}}$
+
+3.  $({\bf A^\top )^{-1}}=({\bf A^{-1}})^\top$
+
+4.  Si ${\bf C}$ inversible et ${\bf AC}={\bf BC}$ alors
+    ${\bf A}={\bf B}$.
+````
+
+## Matrices particulières
+
+-   Quand $m=n$, on parle de matrice carrée.
+
+-   Si $m=n$, la matrice ${\bf A}$ telle que $(\forall i\neq j) a_{ij}=0$ est une matrice diagonale.
+
+-   Si $m=n$, la matrice ${\bf A}$ telle que
+    $(\forall i\in  [\![ 1,n]\!]) (\forall j\in  [\![ 1, i-1]\!])$
+    (resp. $(\forall j\in  [\![ i+1,n]\!])$) $a_{ij}=0$ est une matrice
+    triangulaire supérieure (resp. inférieure).
+
+-   Si $m=n$ et $(\forall i,j\in  [\![ 1, m]\!]) a_{ij} = a_{ji}$, la
+    matrice ${\bf A}$ est dite symétrique.
+
+-   Si $m=n$ et ${\bf A^\top}{\bf A} = {\bf A}{\bf A^\top} = \mathbb I$,
+    ${\bf A}$ est une matrice orthogonale
+
+-   si $m=1$, la matrice est un vecteur ligne. C&#39;est la transposée d&#39;un
+    vecteur de $\mathbb R^n$.
+
+-   si $n=1$, la matrice est un vecteur de $\mathbb R^m$.
+
+-   Une sous-matrice d&#39;une matrice ${\bf A}$ est une matrice obtenue en
+    supprimant certaines lignes et certaines colonnes de ${\bf A}$. En
+    particulier, si on supprime les lignes et colonnes associées au même
+    sous-ensemble d&#39;indices de $[\![1,n]\!]$ d&#39;une matrice carrée de
+    taille $n$, on obtient une sous-matrice principale. Les déterminants
+    des sous-matrices principales sont les mineurs de la matrice.
+
+````{tab-set}
+```{tab-item} Diagonale 
+$\begin{pmatrix}3&amp;0&amp;0\\0&amp;-4&amp;0\\0&amp;0&amp;1\end{pmatrix}$ 
+```
+
+```{tab-item} Triang. sup. 
+$\begin{pmatrix} 3&amp;2&amp;1\\0&amp;-4&amp;2\\0&amp;0&amp;1 \end{pmatrix}$
+
+```
+
+```{tab-item} Triang. inf.
+$\begin{pmatrix}3&amp;0&amp;0\\1&amp;-4&amp;0\\5&amp;8&amp;1 \end{pmatrix}$
+```
+```{tab-item} Vecteur ligne 
+$\begin{pmatrix}3&amp;2&amp;1&amp;-4&amp;0&amp;3.5 \end{pmatrix}$ 
+```
+````
+
+## Image de ${\bf A}$
+
+Une matrice ${\bf A}\in\mathcal{M}_{m,n}(\mathbb{R})$ représente une
+transformation linéaire de $\mathbb R^n$ dans $\mathbb R^m$. Pour tout
+${\bf x}\in\mathbb R^n$, on définit l&#39;image de ${\bf x}$ par la
+transformation ${\bf A}$ comme le vecteur ${\bf y}\in \mathbb R^m$ tel que
+${\bf y}={\bf A}{\bf x}=\sum_{j=1}^n {\bf A_{\bullet j}}x_j,\quad {\bf A_{\bullet j}}\in\mathbb R^m,\ j\in  [\![ 1, n]\!].$
+
+````{prf:definition}  Image d&#39;une matrice 
+```{index} Image
+```
+```{index} Matrice ; image
+```
+Le sous-espace de $\mathbb R^m$ engendré par les
+colonnes de ${\bf A}$ est appelé *sous-espace image* de ${\bf A}$, noté
+$\mathrm{Im}({\bf A})$.
+````
+
+C&#39;est donc l&#39;ensemble des ${\bf y}$ de $\mathbb R^m$ qui s&#39;écrivent sous la
+forme ${\bf A}{\bf x}$ pour un certain ${\bf x}$ de $\mathbb R^n$.\
+$\mathrm{Im}({\bf A})$ est clairement un sous-espace vectoriel de
+$\mathbb R^m$.
+
+```{code-cell} ipython3
+:tags: [im]
+
+from sympy import init_printing, Matrix, symbols
+init_printing(use_latex = &#39;mathjax&#39;) 
+
+A = Matrix([[1, 2, 3, 1], [1, 1, 2, 1], [1, 2, 3, 1]])
+imA = A.columnspace() 
+print(&quot;L&#39;image de A est le sous-espace engendré par &quot;)
+imA
+```
+
+
+````{prf:definition} Rang d&#39;une matrice 
+```{index} Rang
+```
+```{index} Matrice ; rang
+```
+Soit ${\bf A}\in \mathcal{M}_{m,n}(\mathbb{R})$ Le
+rang de ${\bf A}$, noté $\mathrm{rang}({\bf A})$, est le nombre maximal
+de colonnes de ${\bf A}$ linéairement indépendantes. C&#39;est aussi le
 nombre maximal de lignes linéairement indépendantes. On a donc
-<span class="math notranslate nohighlight">\(\mathrm{rang}({\bf A})\le \min\{m,n\}.\)</span></p>
-</div>
-</div><div class="cell tag_im docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">],[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rang de A = &quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">matrix_rank</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rang de A =  3
-</pre></div>
-</div>
-</div>
-</div>
-<p>De la définition précédente, on tire le résultat fondamental suivant
-<span class="math notranslate nohighlight">\(\dim\left(\mathrm{Im}({\bf A})\right)=\mathrm{rang}({\bf A}).\)</span></p>
-<div class="proof example admonition" id="example-18">
-<p class="admonition-title"><span class="caption-number">Example 2 </span></p>
-<div class="example-content section" id="proof-content">
-<p>Soit <span class="math notranslate nohighlight">\({\bf A}=\begin{pmatrix} 1&amp;0&amp;-2\\0&amp;1&amp;0\\-1&amp;0&amp;2\end{pmatrix}\)</span>.<br />
+$\mathrm{rang}({\bf A})\le \min\{m,n\}.$
+````
+
+
+```{code-cell} ipython3
+:tags: [im]
+A = np.array([[2, 0, 7],[-1, -2, -5],[1, 4, -2]])
+print(&quot;Rang de A = &quot;,np.linalg.matrix_rank(A))
+```
+
+De la définition précédente, on tire le résultat fondamental suivant
+$\dim\left(\mathrm{Im}({\bf A})\right)=\mathrm{rang}({\bf A}).$
+
+````{prf:example} 
+
+Soit ${\bf A}=\begin{pmatrix} 1&amp;0&amp;-2\\0&amp;1&amp;0\\-1&amp;0&amp;2\end{pmatrix}$.\
 Manifestement, la première et la troisième colonne sont liées, tandis que
-les deux premières sont linéairement indépendantes. <span class="math notranslate nohighlight">\({\bf A}\)</span>, qui
-réalise une transformation linéaire de <span class="math notranslate nohighlight">\(\mathbb R^3\)</span> dans <span class="math notranslate nohighlight">\(\mathbb R^3\)</span>, a
+les deux premières sont linéairement indépendantes. ${\bf A}$, qui
+réalise une transformation linéaire de $\mathbb R^3$ dans $\mathbb R^3$, a
 donc pour image le plan
-<span class="math notranslate nohighlight">\(lin\left (\begin{pmatrix}1\\0\\-1 \end{pmatrix},\begin{pmatrix} 0\\1\\0 \end{pmatrix}  \right )\)</span>.<br />
-<span class="math notranslate nohighlight">\({\bf A}\)</span> est donc de rang 2.</p>
+$lin\left (\begin{pmatrix}1\\0\\-1 \end{pmatrix},\begin{pmatrix} 0\\1\\0 \end{pmatrix}  \right )$.\
+${\bf A}$ est donc de rang 2.
+````
+</pre></div>
 </div>
-</div></div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
