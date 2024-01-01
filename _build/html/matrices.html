@@ -967,10 +967,11 @@ dans <span class="math notranslate nohighlight">\(\mathbb R^n\)</span> pour les 
 <span class="math notranslate nohighlight">\(L_1\)</span> et <span class="math notranslate nohighlight">\(L_\infty\)</span> sont données par <span class="math notranslate nohighlight">\(\|{\bf A}\|_1=\displaystyle\max_j\displaystyle\sum_i|a_{ij}|\)</span> et
 <span class="math notranslate nohighlight">\(\|{\bf A}\|_\infty=\displaystyle\max_i\displaystyle\sum_j|a_{ij}|\)</span></p></li>
 <li><p>La norme matricielle subordonnée à la norme euclidienne est
-<span class="math notranslate nohighlight">\(\|{\bf A}\|_2=\left[\lambda_{max}\right]^\frac{1}{2}\)</span>, où <span class="math notranslate nohighlight">\(\lambda_{max}\)</span> est la plus grande
+<span class="math notranslate nohighlight">\(\|{\bf A}\|_2=\left[|\lambda_{max}|\right]^\frac{1}{2}\)</span>, où <span class="math notranslate nohighlight">\(\lambda_{max}\)</span> est la plus grande
 valeur propre de <span class="math notranslate nohighlight">\({\bf A^\top} {\bf A}\)</span>.</p></li>
 <li><p>La norme euclidienne étant difficile à calculer, on lui préfère souvent
-la norme de la trace ou norme de Frobenius :</p></li>
+la norme de la trace ou norme de Frobenius (ou de Hilbert-Schmidt) :</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(A\)</span> est diagonale, alors pour tout <span class="math notranslate nohighlight">\(p\in\mathbb{N}^*,\; \|A\|_p = \displaystyle\max_{i}|a_{ii}|\)</span></p></li>
 </ol>
 <p><span class="math notranslate nohighlight">\(
 \|{\bf A}\|_F=\left (Tr({\bf A^\top} {\bf A})\right)^\frac{1}{2}
@@ -1327,23 +1328,23 @@ taille <span class="math notranslate nohighlight">\(n\)</span>, on obtient une s
 des sous-matrices principales sont les mineurs de la matrice.</p></li>
 </ul>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="fb9f228d-7160-4cd9-839b-2824d5489975" name="5df1f0fa-fa77-4685-9041-f63a1cea68c3" type="radio">
-</input><label class="sd-tab-label" for="fb9f228d-7160-4cd9-839b-2824d5489975">
+<input checked="checked" id="53d3170c-48a8-49d5-9854-f684791e2374" name="05651c00-99cf-4caa-b2bd-9d0d805d2e68" type="radio">
+</input><label class="sd-tab-label" for="53d3170c-48a8-49d5-9854-f684791e2374">
 Diagonale</label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;0&amp;0\\0&amp;-4&amp;0\\0&amp;0&amp;1\end{pmatrix}\)</span></p>
 </div>
-<input id="7b816587-e6d7-4f5c-b33e-0ba5fe0be4eb" name="5df1f0fa-fa77-4685-9041-f63a1cea68c3" type="radio">
-</input><label class="sd-tab-label" for="7b816587-e6d7-4f5c-b33e-0ba5fe0be4eb">
+<input id="0798632f-4a5c-49ac-b1bf-4c10d210aab3" name="05651c00-99cf-4caa-b2bd-9d0d805d2e68" type="radio">
+</input><label class="sd-tab-label" for="0798632f-4a5c-49ac-b1bf-4c10d210aab3">
 Triang. sup. </label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix} 3&amp;2&amp;1\\0&amp;-4&amp;2\\0&amp;0&amp;1 \end{pmatrix}\)</span></p>
 </div>
-<input id="5d636e10-d274-434d-bbcf-4279f28665fe" name="5df1f0fa-fa77-4685-9041-f63a1cea68c3" type="radio">
-</input><label class="sd-tab-label" for="5d636e10-d274-434d-bbcf-4279f28665fe">
+<input id="b8e1e570-bb30-4ca1-9384-ea403d6923f8" name="05651c00-99cf-4caa-b2bd-9d0d805d2e68" type="radio">
+</input><label class="sd-tab-label" for="b8e1e570-bb30-4ca1-9384-ea403d6923f8">
 Triang. inf.</label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;0&amp;0\\1&amp;-4&amp;0\\5&amp;8&amp;1 \end{pmatrix}\)</span></p>
 </div>
-<input id="06ac96de-5158-46a5-b6a5-047ae8e1f916" name="5df1f0fa-fa77-4685-9041-f63a1cea68c3" type="radio">
-</input><label class="sd-tab-label" for="06ac96de-5158-46a5-b6a5-047ae8e1f916">
+<input id="fe0a70f1-8ed6-413c-8dcb-c01eab5bbb1e" name="05651c00-99cf-4caa-b2bd-9d0d805d2e68" type="radio">
+</input><label class="sd-tab-label" for="fe0a70f1-8ed6-413c-8dcb-c01eab5bbb1e">
 Vecteur ligne </label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;2&amp;1&amp;-4&amp;0&amp;3.5 \end{pmatrix}\)</span></p>
 </div>

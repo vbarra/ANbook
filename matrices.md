@@ -261,7 +261,6 @@ $\|{\bf A}\|_2=\left[|\lambda_{max}|\right]^\frac{1}{2}$, où $\lambda_{max}$ es
 valeur propre de ${\bf A^\top} {\bf A}$.
 3. La norme euclidienne étant difficile à calculer, on lui préfère souvent 
 la norme de la trace ou norme de Frobenius (ou de Hilbert-Schmidt) : 
-4. Si $A$ est diagonale, alors pour tout $p\in\mathbb{N}^*,\; \|A\|_p = \displaystyle\max_{i}|a_{ii}|$
 
 $
 \|{\bf A}\|_F=\left (Tr({\bf A^\top} {\bf A})\right)^\frac{1}{2}
@@ -269,6 +268,9 @@ $
 $ 
 
 Cette norme n'est subordonnée à aucune norme vectorielle sur $\mathbb R^n$.
+
+4. Si $A$ est diagonale, alors pour tout $p\in\mathbb{N}^*,\; \|A\|_p = \displaystyle\max_{i}|a_{ii}|$
+
 ```
 ```{index} Norme matricielle;de Frobenius
 ```
