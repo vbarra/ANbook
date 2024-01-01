@@ -277,7 +277,6 @@ plt.tight_layout()
 # ```
 # Cette norme n'est subordonnée à aucune norme vectorielle sur $\mathbb R^n$.
 # ```
-# ```
 # 
 # ```{prf:remark}
 # :class: dropdown

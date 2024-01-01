@@ -259,7 +259,8 @@ $\|{\bf A}\|_\infty=\displaystyle\max_i\displaystyle\sum_j|a_{ij}|$
  2. La norme matricielle subordonnée à la norme euclidienne est 
 $\|{\bf A}\|_2=\left[|\lambda_{max}|\right]^\frac{1}{2}$, où $\lambda_{max}$ est la plus grande 
 valeur propre de ${\bf A^\top} {\bf A}$.
-3. La norme euclidienne étant difficile à calculer, on lui préfère souvent 
+```
+La norme euclidienne étant difficile à calculer, on lui préfère souvent 
 la norme de la trace ou norme de Frobenius (ou de Hilbert-Schmidt) : 
 
 $
@@ -271,7 +272,7 @@ $
 ```{index} Frobenius;Norme de 
 ```
 Cette norme n'est subordonnée à aucune norme vectorielle sur $\mathbb R^n$.
-```
+
 
 ```{prf:remark}
 :class: dropdown
