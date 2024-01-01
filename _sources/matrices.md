@@ -275,8 +275,7 @@ Cette norme n'est subordonnée à aucune norme vectorielle sur $\mathbb R^n$.
 ```
 
 
-{tikz} 
-
+```{tikz} 
 \draw [->] (-4,0)--(4,0);
 \draw [->] (0,-4)--(0,4);
 \draw[blue] (-3,0) 
@@ -285,7 +284,7 @@ Cette norme n'est subordonnée à aucune norme vectorielle sur $\mathbb R^n$.
             to[bend right] (0,-3) 
             to[bend right] (-3,0);
 \node at (0,-4.5) {};
-
+```
 
 
 
