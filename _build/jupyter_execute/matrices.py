@@ -281,7 +281,10 @@ plt.tight_layout()
 # ```{prf:remark}
 # :class: dropdown
 # Si $A$ est diagonale, alors pour tout $p\in\mathbb{N}^*,\; \|A\|_p = \displaystyle\max_{i}|a_{ii}|$
+# 
 # ```
+# 
+# 
 # 
 # 
 # La {numref}`effetnorme` montre l'effet d'une transformation linéaire sur la boule unité des normes $L_1,L_2$ et $L_\infty$. La matrice $A$ utilisée est égale à $A=\begin{pmatrix} 1&2\\0&2\end{pmatrix}$. Les points rouge et verts sont les points de coordonnées respectives $(1,0)^\top$  et $(0,1)^\top$ (gauche) et leur image par $A$ (droite). Le vecteur en pointillés est le vecteur dont la norme est la plus amplifiée par $A$. On remarque alors par exemple, pour la norme $L_1$, que l'image de ce vecteur par $A$ est le vecteur $(2,2)^\top$, dont la norme $L_1$ vaut 4, ce qui est exactement la valeur de $\|A\|_1 = max(1+0,2+2) = 4$.
