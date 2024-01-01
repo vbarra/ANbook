@@ -280,7 +280,9 @@ plt.tight_layout()
 # 
 # ```{prf:remark}
 # :class: dropdown
-# Si $A$ est diagonale, alors pour tout $p\in\mathbb{N}^*,\; \|A\|_p = \displaystyle\max_{i}|a_{ii}|$
+# Si $A$ est diagonale, alors  
+# 
+# $$(\forall p\in\mathbb{N}^*),\; \|A\|_p = \displaystyle\max_{i}|a_{ii}|$$
 # 
 # ```
 # 
