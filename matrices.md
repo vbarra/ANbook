@@ -257,10 +257,11 @@ dans $\mathbb R^n$ pour les normes $L_1,L_2$ et $L_\infty$.
 $L_1$ et $L_\infty$ sont données par $\|{\bf A}\|_1=\displaystyle\max_j\displaystyle\sum_i|a_{ij}|$ et
 $\|{\bf A}\|_\infty=\displaystyle\max_i\displaystyle\sum_j|a_{ij}|$
  2. La norme matricielle subordonnée à la norme euclidienne est 
-$\|{\bf A}\|_2=\left[\lambda_{max}\right]^\frac{1}{2}$, où $\lambda_{max}$ est la plus grande 
+$\|{\bf A}\|_2=\left[|\lambda_{max}|\right]^\frac{1}{2}$, où $\lambda_{max}$ est la plus grande 
 valeur propre de ${\bf A^\top} {\bf A}$.
 3. La norme euclidienne étant difficile à calculer, on lui préfère souvent 
-la norme de la trace ou norme de Frobenius : 
+la norme de la trace ou norme de Frobenius (ou de Hilbert-Schmidt) : 
+4. Si $A$ est diagonale, alors pour tout $p\in\mathbb{N}^*,\; \|A\|_p = \displaystyle\max_{i}|a_{ii}|$
 
 $
 \|{\bf A}\|_F=\left (Tr({\bf A^\top} {\bf A})\right)^\frac{1}{2}
