@@ -276,7 +276,8 @@ plt.tight_layout()
 # ```{index} Frobenius;Norme de 
 # ```
 # Cette norme n'est subordonnée à aucune norme vectorielle sur $\mathbb R^n$.
-# ``````
+# ```
+# 
 # ```{prf:remark}
 # :class: dropdownSi $A$ est diagonale, alors pour tout $p\in\mathbb{N}^*,\; \|A\|_p = \displaystyle\max_{i}|a_{ii}|$
 # ```
@@ -314,17 +315,17 @@ plt.tight_layout()
 # \end{pmatrix}$ ${\bf A^\top} = \begin{pmatrix}
 # 1&4&7\\2&5&8\\3&6&9
 # \end{pmatrix}$
-# 
-# 
-# ```{code-cell} ipython3
-# :tags: [transpose]
-# import numpy as np
-# A = np.array([[5, 4, 0],[1, 8, 3],[6, 7, 2]])
-# print('A = \n',A,'\n' 
-# )
-# print('transposée de A = \n',A.transpose())
-# ```
-# 
+
+# In[10]:
+
+
+import numpy as np
+A = np.array([[5, 4, 0],[1, 8, 3],[6, 7, 2]])
+print('A = \n',A,'\n' 
+)
+print('transposée de A = \n',A.transpose())
+
+
 # ```{prf:remark}
 # :class: dropdown
 # Dans le cas d'une matrice symétrique, on a ${\bf A} = {\bf A^\top}$.
@@ -339,13 +340,13 @@ plt.tight_layout()
 # notée $Tr({\bf A})$, est par définition :
 # $Tr({\bf A}) = \displaystyle\sum_{i=1}^n a_{ii}$
 # ````
-# 
-# ```{code-cell} ipython3
-# :tags: [trace]
-# 
-# print("Trace de A : ", np.trace(A))
-# ```
-# 
+
+# In[11]:
+
+
+print("Trace de A : ", np.trace(A))
+
+
 # On démontre sans difficulté les propriétés suivantes pour toutes
 # matrices ${\bf A}$ et ${\bf B}$ avec les bonnes dimensions :
 # 
@@ -374,16 +375,13 @@ plt.tight_layout()
 # où ${\bf A_{1j}}\in \mathcal{M}_{n-1}(\mathbb R)$ est obtenue à partir de
 # ${\bf A}$ en supprimant la première ligne et la $j^e$ colonne.
 # ````
-# 
-# 
-# ```{code-cell} ipython3
-# :tags: [det]
-# 
-# print("Déterminant de A : ", np.linalg.det(A))
-# ```
-# 
-# 
-# 
+
+# In[12]:
+
+
+print("Déterminant de A : ", np.linalg.det(A))
+
+
 # Le déterminant est la valeur d'une forme multilinéaire sur un ensemble
 # de $n$ vecteurs qui change de signe à chaque permutation des vecteurs et
 # qui vaut 1 pour les $n$ vecteurs d'une base orthonormée. C'est aussi le
@@ -436,18 +434,17 @@ plt.tight_layout()
 # 
 # On note que le nombre de colonnes de ${\bf A}$ doit être égal au nombre
 # de lignes de ${\bf B}$ pour que l'opération puisse être réalisée.
-# 
-# 
-# ```{code-cell} ipython3
-# :tags: [prod]
-# import numpy as np
-# A = np.array([[1, 3],[2,1]])
-# B = np.array([[3, 0, 7],[-1, -2, -5]])
-# C = A@B
-# print(C)
-# ```
-# 
-# 
+
+# In[13]:
+
+
+import numpy as np
+A = np.array([[1, 3],[2,1]])
+B = np.array([[3, 0, 7],[-1, -2, -5]])
+C = A@B
+print(C)
+
+
 # ```{prf:remark}
 # :class: dropdown
 # Plusieurs points d'attention doivent être soulignés :
@@ -497,44 +494,46 @@ plt.tight_layout()
 # ````
 # 
 # Le produit matriciel correspond à une composition de transformations linéaires.
-# 
-# ```{code-cell} ipython3
-# import numpy as np
-# import matplotlib.pyplot as plt
-# A = np.array([[1, 3],[2,1]])
-# B = np.array([[-2, 1],[1, 1]])
-# 
-# def plot_vector2d(vector2d, origin=[0, 0], **options):
-#     return plt.arrow(origin[0], origin[1], vector2d[0], vector2d[1],
-#               head_width=0.2, head_length=0.3, length_includes_head=True,
-#               **options)
-# u = np.array([2, 5])
-# v = np.dot(B,u)
-# w = np.dot(A,v)
-# C = A@B
-# z = np.dot(C,u)
-# 
-# fig, ax = plt.subplots(figsize=(10,5))
-# plt.subplot(1, 2, 1)  
-# plot_vector2d(u, color="r")
-# plt.text(2.1, 5.1, "u", color="r", fontsize=18)
-# plot_vector2d(v, color="g")
-# plt.text(1.1, 7.1, "v=Bu", color="g", fontsize=18)
-# plot_vector2d(w, color="b")
-# plt.text(18,8.5, "Av", color="b", fontsize=18)
-# 
-# 
-# plt.grid()
-# plt.subplot(1, 2, 2)  
-# plot_vector2d(u, color="r")
-# plt.text(2.1, 5.1, "u", color="r", fontsize=18)
-# plot_vector2d(z, color="y")
-# plt.text(18,8.5, "ABu", color="y", fontsize=18)
-# 
-# plt.grid()
-# plt.tight_layout()
-# ```
-# 
+
+# In[14]:
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+A = np.array([[1, 3],[2,1]])
+B = np.array([[-2, 1],[1, 1]])
+
+def plot_vector2d(vector2d, origin=[0, 0], **options):
+    return plt.arrow(origin[0], origin[1], vector2d[0], vector2d[1],
+              head_width=0.2, head_length=0.3, length_includes_head=True,
+              **options)
+u = np.array([2, 5])
+v = np.dot(B,u)
+w = np.dot(A,v)
+C = A@B
+z = np.dot(C,u)
+
+fig, ax = plt.subplots(figsize=(10,5))
+plt.subplot(1, 2, 1)  
+plot_vector2d(u, color="r")
+plt.text(2.1, 5.1, "u", color="r", fontsize=18)
+plot_vector2d(v, color="g")
+plt.text(1.1, 7.1, "v=Bu", color="g", fontsize=18)
+plot_vector2d(w, color="b")
+plt.text(18,8.5, "Av", color="b", fontsize=18)
+
+
+plt.grid()
+plt.subplot(1, 2, 2)  
+plot_vector2d(u, color="r")
+plt.text(2.1, 5.1, "u", color="r", fontsize=18)
+plot_vector2d(z, color="y")
+plt.text(18,8.5, "ABu", color="y", fontsize=18)
+
+plt.grid()
+plt.tight_layout()
+
+
 # ## Produit par blocs
 # 
 # Soient deux matrices :
@@ -570,18 +569,16 @@ plt.tight_layout()
 # A noter que l'inverse d'une matrice (carrée) n'existe pas toujours. Pour
 # assurer l'existence, il faut et il suffit que
 # ${\bf A}{\bf x}={\bf 0}\quad\Leftrightarrow\quad {\bf x}={\bf 0}.$
-# 
-# 
-# 
-# ```{code-cell} ipython3
-# :tags: [inv]
-# import numpy as np
-# A = np.array([[2, 0, 7],[-1, -2, -5],[1, 4, -2]])
-# B = np.linalg.inv(A)
-# print(B)
-# ```
-# 
-# 
+
+# In[15]:
+
+
+import numpy as np
+A = np.array([[2, 0, 7],[-1, -2, -5],[1, 4, -2]])
+B = np.linalg.inv(A)
+print(B)
+
+
 # ````{prf:property} Propriétés de l'inverse
 # 
 # 1.  (${\bf A^{-1}})^{-1}={\bf A}$
@@ -663,20 +660,19 @@ plt.tight_layout()
 # forme ${\bf A}{\bf x}$ pour un certain ${\bf x}$ de $\mathbb R^n$.\
 # $\mathrm{Im}({\bf A})$ est clairement un sous-espace vectoriel de
 # $\mathbb R^m$.
-# 
-# ```{code-cell} ipython3
-# :tags: [im]
-# 
-# from sympy import init_printing, Matrix, symbols
-# init_printing(use_latex = 'mathjax') 
-# 
-# A = Matrix([[1, 2, 3, 1], [1, 1, 2, 1], [1, 2, 3, 1]])
-# imA = A.columnspace() 
-# print("L'image de A est le sous-espace engendré par ")
-# imA
-# ```
-# 
-# 
+
+# In[16]:
+
+
+from sympy import init_printing, Matrix, symbols
+init_printing(use_latex = 'mathjax') 
+
+A = Matrix([[1, 2, 3, 1], [1, 1, 2, 1], [1, 2, 3, 1]])
+imA = A.columnspace() 
+print("L'image de A est le sous-espace engendré par ")
+imA
+
+
 # ````{prf:definition} Rang d'une matrice 
 # ```{index} Rang
 # ```
@@ -688,14 +684,14 @@ plt.tight_layout()
 # nombre maximal de lignes linéairement indépendantes. On a donc
 # $\mathrm{rang}({\bf A})\le \min\{m,n\}.$
 # ````
-# 
-# 
-# ```{code-cell} ipython3
-# :tags: [im]
-# A = np.array([[2, 0, 7],[-1, -2, -5],[1, 4, -2]])
-# print("Rang de A = ",np.linalg.matrix_rank(A))
-# ```
-# 
+
+# In[17]:
+
+
+A = np.array([[2, 0, 7],[-1, -2, -5],[1, 4, -2]])
+print("Rang de A = ",np.linalg.matrix_rank(A))
+
+
 # De la définition précédente, on tire le résultat fondamental suivant
 # $\dim\left(\mathrm{Im}({\bf A})\right)=\mathrm{rang}({\bf A}).$
 # 
