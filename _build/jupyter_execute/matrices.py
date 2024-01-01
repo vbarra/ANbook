@@ -280,8 +280,8 @@ plt.tight_layout()
 # ```
 # 
 # 
+# {tikz} 
 # 
-# \begin{tikzpicture}[scale=0.3]
 # \draw [->] (-4,0)--(4,0);
 # \draw [->] (0,-4)--(0,4);
 # \draw[blue] (-3,0) 
@@ -290,7 +290,7 @@ plt.tight_layout()
 #             to[bend right] (0,-3) 
 #             to[bend right] (-3,0);
 # \node at (0,-4.5) {};
-# \end{tikzpicture}
+# 
 # 
 # 
 # 
