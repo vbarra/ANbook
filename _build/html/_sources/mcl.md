@@ -135,7 +135,7 @@ Si $\bf A$ est de rang plein, le problème aux moindres carrés a la condition s
 
 |  | $\bf y$          | $\bf x$ |
 | :---------------: |:---------------:| -----:|
-| $\bf b$  |   $\frac{1}{cos\theta}$        |  $\frac{\sigma_A}{}\eta cos\theta}$|
+| $\bf b$  |   $\frac{1}{cos\theta}$        |  $\frac{\sigma_A}{\eta cos\theta}$|
 |$\bf A$ | \frac{\sigma_1}{cos\theta}$             |   $\sigma_A+\frac{\sigma_A^2tan\theta}{\eta} |
 ````
 
