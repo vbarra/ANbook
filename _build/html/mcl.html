@@ -724,7 +724,7 @@ On a alors</p>
 <div class="proof theorem admonition" id="theorem-2">
 <p class="admonition-title"><span class="caption-number">Theorem 7 </span> (admis)</p>
 <div class="theorem-content section" id="proof-content">
-<p>Si <span class="math notranslate nohighlight">\(\bf A\)</span> est de rang plein, le problème aux moindres carrés a la condition suivante relative à la norme 2, décrivant la sensibilité de <span class="math notranslate nohighlight">\(\bf y\)</span> aux perturbations sur <span class="math notranslate nohighlight">\(\bf A\)</span> et <span class="math notranslate nohighlight">\(\bf b\)</span> :</p>
+<p>Si <span class="math notranslate nohighlight">\(\bf A\in\mathcal{M}_{mn}(\mathbb{R})\)</span> est de rang plein, le problème aux moindres carrés a la condition suivante relative à la norme 2, décrivant la sensibilité de <span class="math notranslate nohighlight">\(\bf y\)</span> aux perturbations sur <span class="math notranslate nohighlight">\(\bf A\)</span> et <span class="math notranslate nohighlight">\(\bf b\)</span> :</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="text-align:center head"><p></p></th>
@@ -743,8 +743,10 @@ On a alors</p>
 </tr>
 </tbody>
 </table>
+<p>Les résultats de la première ligne sont exacts, et atteints pour une certaine perturbation <span class="math notranslate nohighlight">\(\delta\bf b\)</span>, ceux de la seconde ligne sont des bornes supérieures.</p>
 </div>
-</div></div>
+</div><p>si <span class="math notranslate nohighlight">\(m=n\)</span>, <span class="math notranslate nohighlight">\(\bf A\)</span> est inversible et donc <span class="math notranslate nohighlight">\(\theta=0\)</span>.</p>
+</div>
 <div class="section" id="systemes-incompatibles">
 <h2>Systèmes incompatibles<a class="headerlink" href="#systemes-incompatibles" title="Lien permanent vers ce titre">#</a></h2>
 <p id="index-0">Soit un système linéaire incompatible <span class="math notranslate nohighlight">\({\bf Ax}={\bf b}\)</span>, où <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{mn}(\mathbb R)\)</span> est telle que <span class="math notranslate nohighlight">\(rang({\bf A})&lt;m\)</span> et <span class="math notranslate nohighlight">\({\bf b}\notin Im({\bf A})\)</span>. On supposera par exemple (comme dans le cas des moindres carrés) que <span class="math notranslate nohighlight">\(m&gt;n\)</span> et <span class="math notranslate nohighlight">\(rang({\bf A})=n\)</span>. Le système n’a donc pas de solution, et on le remplace par le système aux équations normales obtenu en le multipliant par <span class="math notranslate nohighlight">\({\bf A^\top} \)</span> :</p>
@@ -908,7 +910,7 @@ On a alors</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Erreur :  4.716094302386696
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Erreur :  4.291079639149281
 </pre></div>
 </div>
 <img alt="_images/mcl_12_1.png" src="_images/mcl_12_1.png" />
