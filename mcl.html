@@ -506,6 +506,11 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stabilite-du-probleme-aux-moindres-carres">
+   Stabilité du problème aux moindres carrés.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#systemes-incompatibles">
    Systèmes incompatibles
   </a>
@@ -542,6 +547,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#modelisation">
    Modélisation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stabilite-du-probleme-aux-moindres-carres">
+   Stabilité du problème aux moindres carrés.
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -693,6 +703,46 @@ Le vecteur des erreurs <span class="math notranslate nohighlight">\({\bf Y}-{\bf
 \)</span>, on cherche <span class="math notranslate nohighlight">\({\bf x}\)</span> qui minimise <span class="math notranslate nohighlight">\(\|{\bf Ax}-{\bf Y}\|^2\)</span>, soit encore <span class="math notranslate nohighlight">\({\bf x}\)</span> solution du système aux équations normales <span class="math notranslate nohighlight">\({\bf A^\top Ax}={\bf A^\top Y}\)</span>\
 On a alors</p>
 <p><span class="math notranslate nohighlight">\({\bf A^\top A}=\begin{pmatrix}5&amp;0&amp;10\\0&amp;10&amp;0\\10&amp;0&amp;34\end{pmatrix}\quad{\bf A^\top Y}=\begin{pmatrix}9\\2.5\\30.5\end{pmatrix}\textrm{ d'où } P(t)=\frac{1}{70}+\frac{1}{4}t+\frac{25}{28}t^2\)</span></p>
+</div>
+</div></div>
+<div class="section" id="stabilite-du-probleme-aux-moindres-carres">
+<h2>Stabilité du problème aux moindres carrés.<a class="headerlink" href="#stabilite-du-probleme-aux-moindres-carres" title="Lien permanent vers ce titre">#</a></h2>
+<p>Soit le problème aux moindres carrés</p>
+<div class="math notranslate nohighlight">
+\[\displaystyle\max_x \|\mathbf{Ax}-\mathbf b\|^2\]</div>
+<p>Nous avons vu que la solution <span class="math notranslate nohighlight">\(\mathbf x\)</span> était telle que <span class="math notranslate nohighlight">\(\mathbf{Ax}\)</span> soit la projection de <span class="math notranslate nohighlight">\(\bf b\)</span> sur <span class="math notranslate nohighlight">\(Im \bf A\)</span>. ce qui s’écrit</p>
+<div class="math notranslate nohighlight">
+\[\bf x = \bf A^+\bf b\quad \textrm{ou}\quad \bf y=\bf{Pb}=\mathbf A\mathbf x\]</div>
+<p>avec <span class="math notranslate nohighlight">\(\bf P=\bf{A(A^\top A)^{-1}A^\top}\)</span> la matrice de projection sur <span class="math notranslate nohighlight">\(Im \bf A\)</span>.</p>
+<p>Pour étudier la stabilité du problème aux moindres carrés par rapport à des perturbations sur <span class="math notranslate nohighlight">\(\bf A\)</span> et <span class="math notranslate nohighlight">\(\bf b\)</span>, on s’intéresse à trois quantités sans dimension :</p>
+<ol class="simple">
+<li><p>la condition <span class="math notranslate nohighlight">\(\sigma_A\in[1,+\infty[\)</span>, égale à <span class="math notranslate nohighlight">\(\|\bf A\|\|\bf A^{-1}\|\)</span> dans le cas d’une matrice carrée (et égale à  <span class="math notranslate nohighlight">\(\|\bf A\|\|\bf A^{+}\|\)</span> dans le cas général)</p></li>
+<li><p>l’angle <span class="math notranslate nohighlight">\(\theta\in[0,\pi/2[\)</span> entre <span class="math notranslate nohighlight">\(\bf b\)</span> et <span class="math notranslate nohighlight">\(y\)</span> : <span class="math notranslate nohighlight">\(\theta = cos^{-1}\frac{\|\bf y\|}{\|\bf b\|}\)</span></p></li>
+<li><p>une mesure <span class="math notranslate nohighlight">\(\eta\)</span> quantifiant l’écart entre  <span class="math notranslate nohighlight">\(\|\bf y\|\)</span> et sa valeur macximum possible, étant donnés <span class="math notranslate nohighlight">\(\|\bf A\|\)</span> et <span class="math notranslate nohighlight">\(\|\bf x\|\)</span> : <span class="math notranslate nohighlight">\(\eta = \frac{\|\bf A\|\|\bf x\|}{\|\bf y\|}=\frac{\|\bf A\|\|\bf x\|}{\|\bf{Ax}\|}\)</span></p></li>
+</ol>
+<p>On montre alors le théorème suivant.</p>
+<div class="proof theorem admonition" id="theorem-2">
+<p class="admonition-title"><span class="caption-number">Theorem 7 </span> ((admis)))</p>
+<div class="theorem-content section" id="proof-content">
+<p>Si <span class="math notranslate nohighlight">\(\bf A\)</span> est de rang plein, le problème aux moindres carrés a la condition suivante relative à la norme 2, décrivant la sensibilité de <span class="math notranslate nohighlight">\(\bf y\)</span> aux perturbations sur <span class="math notranslate nohighlight">\(\bf A\)</span> et <span class="math notranslate nohighlight">\(\bf b\)</span> :</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p></p></th>
+<th class="text-align:center head"><p><span class="math notranslate nohighlight">\(\bf y\)</span></p></th>
+<th class="text-align:right head"><p><span class="math notranslate nohighlight">\(\bf x\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p><span class="math notranslate nohighlight">\(\bf b\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\frac{1}{cos\theta}\)</span></p></td>
+<td class="text-align:right"><p><span class="math notranslate nohighlight">\(\frac{\sigma_A}{}\eta cos\theta}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p><span class="math notranslate nohighlight">\(\bf A\)</span></p></td>
+<td class="text-align:center"><p>\frac{\sigma_1}{cos\theta}$</p></td>
+<td class="text-align:right"><p>$\sigma_A+\frac{\sigma_A^2tan\theta}{\eta}</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div></div>
 <div class="section" id="systemes-incompatibles">
@@ -858,7 +908,7 @@ On a alors</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Erreur :  5.673782705061517
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Erreur :  3.726950892089324
 </pre></div>
 </div>
 <img alt="_images/mcl_12_1.png" src="_images/mcl_12_1.png" />
