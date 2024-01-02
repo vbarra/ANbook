@@ -112,6 +112,35 @@ On a alors
 ${\bf A^\top A}=\begin{pmatrix}5&0&10\\0&10&0\\10&0&34\end{pmatrix}\quad{\bf A^\top Y}=\begin{pmatrix}9\\2.5\\30.5\end{pmatrix}\textrm{ d'où } P(t)=\frac{1}{70}+\frac{1}{4}t+\frac{25}{28}t^2$
 ````
 
+## Stabilité du problème aux moindres carrés.
+
+Soit le problème aux moindres carrés 
+
+$$\displaystyle\max_x \|\mathbf{Ax}-\mathbf b\|^2$$
+
+Nous avons vu que la solution $\mathbf x$ était telle que $\mathbf{Ax}$ soit la projection de $\bf b$ sur $Im \bf A$. ce qui s'écrit
+
+$$\bf x = \bf A^+\bf b\quad \textrm{ou}\quad \bf y=\bf{Pb}=\mathbf A\mathbf x$$
+avec $\bf P=\bf{A(A^\top A)^{-1}A^\top}$ la matrice de projection sur $Im \bf A$. 
+
+Pour étudier la stabilité du problème aux moindres carrés par rapport à des perturbations sur $\bf A$ et $\bf b$, on s'intéresse à trois quantités sans dimension : 
+1. la condition $\sigma_A\in[1,+\infty[$, égale à $\|\bf A\|\|\bf A^{-1}\|$ dans le cas d'une matrice carrée (et égale à  $\|\bf A\|\|\bf A^{+}\|$ dans le cas général)
+2. l'angle $\theta\in[0,\pi/2[$ entre $\bf b$ et $y$ : $\theta = cos^{-1}\frac{\|\bf y\|}{\|\bf b\|}$
+3. une mesure $\eta$ quantifiant l'écart entre  $\|\bf y\|$ et sa valeur macximum possible, étant donnés $\|\bf A\|$ et $\|\bf x\|$ : $\eta = \frac{\|\bf A\|\|\bf x\|}{\|\bf y\|}=\frac{\|\bf A\|\|\bf x\|}{\|\bf{Ax}\|}$
+
+On montre alors le théorème suivant.
+
+```` {prf:theorem} (admis))
+Si $\bf A$ est de rang plein, le problème aux moindres carrés a la condition suivante relative à la norme 2, décrivant la sensibilité de $\bf y$ aux perturbations sur $\bf A$ et $\bf b$ : 
+
+|  | $\bf y$          | $\bf x$ |
+| :---------------: |:---------------:| -----:|
+| $\bf b$  |   $\frac{1}{cos\theta}$        |  $\frac{\sigma_A}{}\eta cos\theta}$|
+|$\bf A$ | \frac{\sigma_1}{cos\theta}$             |   $\sigma_A+\frac{\sigma_A^2tan\theta}{\eta} |
+````
+
+
+
 ## Systèmes incompatibles
 ```{index} Système ; incompatible
 ```

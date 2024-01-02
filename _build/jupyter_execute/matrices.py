@@ -268,10 +268,10 @@ plt.tight_layout()
 # La norme euclidienne étant difficile à calculer, on lui préfère souvent 
 # la norme de la trace ou norme de Frobenius (ou de Hilbert-Schmidt) : 
 # 
-# $
+# $$
 # \|{\bf A}\|_F=\left (Tr({\bf A^\top} {\bf A})\right)^\frac{1}{2}
 #            =\left (\displaystyle\sum_i\displaystyle\sum_ja_{ij}^2\right )^\frac{1}{2}.
-# $ 
+# $$ 
 # ```{index} Norme matricielle;de Frobenius
 # ```
 # ```{index} Frobenius;Norme de 
@@ -290,7 +290,7 @@ plt.tight_layout()
 # 
 # 
 # 
-# La {numref}`effetnorme` montre l'effet d'une transformation linéaire sur la boule unité des normes $L_1,L_2$ et $L_\infty$. La matrice $A$ utilisée est égale à $A=\begin{pmatrix} 1&2\\0&2\end{pmatrix}$. Les points rouge et verts sont les points de coordonnées respectives $(1,0)^\top$  et $(0,1)^\top$ (gauche) et leur image par $A$ (droite). Le vecteur en pointillés est le vecteur dont la norme est la plus amplifiée par $A$. On remarque alors par exemple, pour la norme $L_1$, que l'image de ce vecteur par $A$ est le vecteur $(2,2)^\top$, dont la norme $L_1$ vaut 4, ce qui est exactement la valeur de $\|A\|_1 = max(1+0,2+2) = 4$.
+# La {numref}`effetnorme` montre l'effet d'une transformation linéaire sur la boule unité des normes $L_1,L_2$ et $L_\infty$. La matrice $A$ utilisée est égale à $A=\begin{pmatrix} 1&2\\0&2\end{pmatrix}$. Les points rouge et vert sont les points de coordonnées respectives $(1,0)^\top$  et $(0,1)^\top$ (gauche) et leur image par $A$ (droite). Le vecteur en pointillés est le vecteur dont la norme est la plus amplifiée par $A$. On remarque alors par exemple, pour la norme $L_1$, que l'image de ce vecteur par $A$ est le vecteur $(2,2)^\top$, dont la norme $L_1$ vaut 4, ce qui est exactement la valeur de $\|A\|_1 = max(1+0,2+2) = 4$.
 # 
 # ```{figure} ./images/effetnorme.png
 # :name: effetnorme
