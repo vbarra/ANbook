@@ -131,15 +131,17 @@ Pour étudier la stabilité du problème aux moindres carrés par rapport à des
 On montre alors le théorème suivant.
 
 ```` {prf:theorem} admis
-Si $\bf A$ est de rang plein, le problème aux moindres carrés a la condition suivante relative à la norme 2, décrivant la sensibilité de $\bf y$ aux perturbations sur $\bf A$ et $\bf b$ : 
+Si $\bf A\in\mathcal{M}_{mn}(\mathbb{R})$ est de rang plein, le problème aux moindres carrés a la condition suivante relative à la norme 2, décrivant la sensibilité de $\bf y$ aux perturbations sur $\bf A$ et $\bf b$ : 
 
 |  | $\bf y$          | $\bf x$ |
 | :---------------: |:---------------:| -----:|
 | $\bf b$  |   $\frac{1}{cos\theta}$        |  $\frac{\sigma_A}{\eta cos\theta}$|
 |$\bf A$ | $\frac{\sigma_A}{cos\theta}$             |   $\sigma_A+\frac{\sigma_A^2tan\theta}{\eta}$ |
+
+Les résultats de la première ligne sont exacts, et atteints pour une certaine perturbation $\delta\bf b$, ceux de la seconde ligne sont des bornes supérieures.
 ````
 
-
+si $m=n$, $\bf A$ est inversible et donc $\theta=0$. 
 
 ## Systèmes incompatibles
 ```{index} Système ; incompatible
