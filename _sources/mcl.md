@@ -130,13 +130,13 @@ Pour étudier la stabilité du problème aux moindres carrés par rapport à des
 
 On montre alors le théorème suivant.
 
-```` {prf:theorem} (admis))
+```` {prf:theorem} admis
 Si $\bf A$ est de rang plein, le problème aux moindres carrés a la condition suivante relative à la norme 2, décrivant la sensibilité de $\bf y$ aux perturbations sur $\bf A$ et $\bf b$ : 
 
 |  | $\bf y$          | $\bf x$ |
 | :---------------: |:---------------:| -----:|
 | $\bf b$  |   $\frac{1}{cos\theta}$        |  $\frac{\sigma_A}{\eta cos\theta}$|
-|$\bf A$ | $\frac{\sigma_1}{cos\theta}$             |   $\sigma_A+\frac{\sigma_A^2tan\theta}{\eta}$ |
+|$\bf A$ | $\frac{\sigma_A}{cos\theta}$             |   $\sigma_A+\frac{\sigma_A^2tan\theta}{\eta}$ |
 ````
 
 
