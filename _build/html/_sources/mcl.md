@@ -112,7 +112,7 @@ On a alors
 ${\bf A^\top A}=\begin{pmatrix}5&0&10\\0&10&0\\10&0&34\end{pmatrix}\quad{\bf A^\top Y}=\begin{pmatrix}9\\2.5\\30.5\end{pmatrix}\textrm{ d'où } P(t)=\frac{1}{70}+\frac{1}{4}t+\frac{25}{28}t^2$
 ````
 
-## Stabilité du problème aux moindres carrés.
+## Stabilité
 
 Soit le problème aux moindres carrés 
 
