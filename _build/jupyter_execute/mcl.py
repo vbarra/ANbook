@@ -108,7 +108,7 @@
 # 
 # Soit le problème aux moindres carrés 
 # 
-# $$\displaystyle\max_x \|\mathbf{Ax}-\mathbf b\|^2$$
+# $$\displaystyle\min_x \|\mathbf{Ax}-\mathbf b\|^2$$
 # 
 # Nous avons vu que la solution $\mathbf x$ était telle que $\mathbf{Ax}$ soit la projection de $\bf b$ sur $Im \bf A$. ce qui s'écrit
 # 
