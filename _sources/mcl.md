@@ -126,7 +126,7 @@ avec $\bf P=\bf{A(A^\top A)^{-1}A^\top}$ la matrice de projection sur $Im \bf A$
 Pour étudier la stabilité du problème aux moindres carrés par rapport à des perturbations sur $\bf A$ et $\bf b$, on s'intéresse à trois quantités sans dimension : 
 1. la condition $\sigma_A\in[1,+\infty[$, égale à $\|\bf A\|\|\bf A^{-1}\|$ dans le cas d'une matrice carrée (et égale à  $\|\bf A\|\|\bf A^{+}\|$ dans le cas général)
 2. l'angle $\theta\in[0,\pi/2[$ entre $\bf b$ et $y$ : $\theta = cos^{-1}\frac{\|\bf y\|}{\|\bf b\|}$
-3. une mesure $\eta\in[1,\sigma_A]$ quantifiant l'écart entre  $\|\bf y\|$ et sa valeur macximum possible, étant donnés $\|\bf A\|$ et $\|\bf x\|$ : $\eta = \frac{\|\bf A\|\|\bf x\|}{\|\bf y\|}=\frac{\|\bf A\|\|\bf x\|}{\|\bf{Ax}\|}$
+3. une mesure $\eta\in[1,\sigma_A]$ quantifiant l'écart entre  $\|\bf y\|$ et sa valeur maximum possible, étant donnés $\|\bf A\|$ et $\|\bf x\|$ : $\eta = \frac{\|\bf A\|\|\bf x\|}{\|\bf y\|}=\frac{\|\bf A\|\|\bf x\|}{\|\bf{Ax}\|}$
 
 On montre alors le théorème suivant.
 
