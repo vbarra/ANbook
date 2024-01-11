@@ -119,7 +119,7 @@ Q
 # 
 # **Sortie :** ${\bf Q_1}\in\mathcal{M}_{n,p}(\mathbb R)$ à colonnes orthonormées, ${\bf R_1}\in\mathcal{M}_{p}(\mathbb R)$ triangulaire supérieure
 # 
-# 1. $r_{11} = \\{\bf A_{\bullet,1}}\|$
+# 1. $r_{11} = \|{\bf A_{\bullet,1}}\|$
 # 2. ${\bf q_{{1}}} = \frac{{\bf A_{\bullet,1}}}{r_{11}}$
 # 3. Pour $j$=2 à $p$
 #     1. ${\bf p_j}={\bf A_{\bullet,j}}$
