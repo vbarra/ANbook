@@ -1,49 +1,62 @@
 
+
 <!DOCTYPE html>
 
-<html lang="fr">
+
+<html lang="fr" data-content_root="" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Elimination de Gauss &#8212; Analyse numérique</title>
-    
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    <title>Elimination de Gauss &#8212; Analyse numérique</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/translations.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -53,439 +66,274 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'gauss';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Facteurs LU d’une matrice non singulière" href="lu.html" />
     <link rel="prev" title="Transformations élémentaires" href="ch2.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="fr">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="fr"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Passer au contenu principal</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="_static/isimainp.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Analyse numérique</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Tutoriels
- </span>
-</p>
+    
+    
+    <img src="_static/isimainp.png" class="logo__image only-light" alt="Analyse numérique - Home"/>
+    <script>document.write(`<img src="_static/isimainp.png" class="logo__image only-dark" alt="Analyse numérique - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutoriels</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Installation.html">
-   Installation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Tutoriel-jupyter.html">
-   Tutoriel Jupyter
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Tutoriel-numpy.html">
-   Tutoriel Numpy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Tutoriel-matplotlib.html">
-   Tutoriel Matplotlib
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutoriel-jupyter.html">Tutoriel Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutoriel-numpy.html">Tutoriel Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutoriel-matplotlib.html">Tutoriel Matplotlib</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Introduction au calcul matriciel
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction au calcul matriciel</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="ev.html">
-   Espaces Vectoriels
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="matrices.html">
-   Matrices
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="sl.html">
-   Systèmes d’équations linéaires
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ch1exos.html">
-   Exercices
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="ev.html">Espaces Vectoriels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrices.html">Matrices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sl.html">Systèmes d’équations linéaires</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch1exos.html">Exercices</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Elimination de Gauss
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Elimination de Gauss</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="ch2.html">
-   Transformations élémentaires
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Elimination de Gauss
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lu.html">
-   Facteurs LU d’une matrice non singulière
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="ch2.html">Transformations élémentaires</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Elimination de Gauss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lu.html">Facteurs LU d’une matrice non singulière</a></li>
+
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Moindres carrés linéaires
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Moindres carrés linéaires</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="projections.html">
-   Projections orthogonales
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="mcl.html">
-   Moindres carrés linéaires
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="transfoortho.html">
-   Transformations orthogonales
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="exomcl.html">
-   Exercices
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="projections.html">Projections orthogonales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcl.html">Moindres carrés linéaires</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transfoortho.html">Transformations orthogonales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exomcl.html">Exercices</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Analyse spectrale
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Analyse spectrale</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="introspect.html">
-   Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="resspec.html">
-   Résultats généraux
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="gershgorin.html">
-   Disques de Gershgorin
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="similitudes.html">
-   Similitudes
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="jacobi.html">
-   Méthode de Jacobi
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="puissiter.html">
-   Méthode des puissances itérées
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="QRspec.html">
-   Puissances groupées et méthode QR
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="exospec.html">
-   Exercices
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="introspect.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resspec.html">Résultats généraux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gershgorin.html">Disques de Gershgorin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="similitudes.html">Similitudes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jacobi.html">Méthode de Jacobi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="puissiter.html">Méthode des puissances itérées</a></li>
+<li class="toctree-l1"><a class="reference internal" href="QRspec.html">Puissances groupées et méthode QR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exospec.html">Exercices</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Index
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Index</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="genindex.html">
-   Index
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
-          
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
 
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
-    <div class="header-article__right">
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Mode plein écran"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
 
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="clair/sombre" aria-label="clair/sombre" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exemple-introductif">
-   Exemple introductif
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#systemes-triangulaires">
-   Systèmes triangulaires
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#methode-de-gauss-ou-du-pivot-pour-les-systemes-lineaires">
-   Méthode de Gauss (ou du pivot) pour les systèmes linéaires
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#strategies-pour-les-pivots-nuls">
-   Stratégies pour les pivots nuls
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pivotage-total">
-     Pivotage total
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pivotage-partiel">
-     Pivotage partiel
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#cas-singulier-et-calcul-du-rang-d-une-matrice">
-   Cas singulier et calcul du rang d’une matrice
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Pivotage total
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Pivotage partiel
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Elimination de Gauss</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exemple-introductif">
-   Exemple introductif
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#systemes-triangulaires">
-   Systèmes triangulaires
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#methode-de-gauss-ou-du-pivot-pour-les-systemes-lineaires">
-   Méthode de Gauss (ou du pivot) pour les systèmes linéaires
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#strategies-pour-les-pivots-nuls">
-   Stratégies pour les pivots nuls
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pivotage-total">
-     Pivotage total
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pivotage-partiel">
-     Pivotage partiel
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#cas-singulier-et-calcul-du-rang-d-une-matrice">
-   Cas singulier et calcul du rang d’une matrice
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     Pivotage total
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     Pivotage partiel
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Elimination de Gauss</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenu </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-introductif">Exemple introductif</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#systemes-triangulaires">Systèmes triangulaires</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methode-de-gauss-ou-du-pivot-pour-les-systemes-lineaires">Méthode de Gauss (ou du pivot) pour les systèmes linéaires</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strategies-pour-les-pivots-nuls">Stratégies pour les pivots nuls</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pivotage-total">Pivotage total</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pivotage-partiel">Pivotage partiel</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cas-singulier-et-calcul-du-rang-d-une-matrice">Cas singulier et calcul du rang d’une matrice</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Pivotage total</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Pivotage partiel</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
-  <div class="tex2jax_ignore mathjax_ignore section" id="elimination-de-gauss">
-<h1>Elimination de Gauss<a class="headerlink" href="#elimination-de-gauss" title="Lien permanent vers ce titre">#</a></h1>
-<div class="section" id="exemple-introductif">
-<h2>Exemple introductif<a class="headerlink" href="#exemple-introductif" title="Lien permanent vers ce titre">#</a></h2>
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="elimination-de-gauss">
+<h1>Elimination de Gauss<a class="headerlink" href="#elimination-de-gauss" title="Lien permanent vers cette rubrique">#</a></h1>
+<section id="exemple-introductif">
+<h2>Exemple introductif<a class="headerlink" href="#exemple-introductif" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Soit le système de 3 équations à 3 inconnues</p>
 <p><span class="math notranslate nohighlight">\(\left \{\begin{eqnarray}
 2x_1-3x_2\phantom{-3x_3}&amp;=&amp; 3\label{SL1}\\ 
@@ -518,9 +366,9 @@ x_3=0\\ x_2=1\\ x_1=3
 <p>On remarque qu’à une étape donnée, l’élimination d’une variable peut se faire
 dans n’importe quelle équation, à condition, bien sûr, que cette équation
 contienne la variable en question.</p>
-</div>
-<div class="section" id="systemes-triangulaires">
-<h2>Systèmes triangulaires<a class="headerlink" href="#systemes-triangulaires" title="Lien permanent vers ce titre">#</a></h2>
+</section>
+<section id="systemes-triangulaires">
+<h2>Systèmes triangulaires<a class="headerlink" href="#systemes-triangulaires" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>On constatera au paragraphe suivant que la phase d’élimination consiste à
 transformer le système original en un système triangulaire. Un système
 triangulaire est un système dont la matrice est triangulaire.</p>
@@ -572,9 +420,9 @@ k\in[\![2, n]\!].\label{FwdSub2}
 \end{eqnarray}\right .\)</span></p>
 <p>Le coût de l’algorithme de substitution directe est
 le même que celui de substitution inverse.</p>
-</div>
-<div class="section" id="methode-de-gauss-ou-du-pivot-pour-les-systemes-lineaires">
-<h2>Méthode de Gauss (ou du pivot) pour les systèmes linéaires<a class="headerlink" href="#methode-de-gauss-ou-du-pivot-pour-les-systemes-lineaires" title="Lien permanent vers ce titre">#</a></h2>
+</section>
+<section id="methode-de-gauss-ou-du-pivot-pour-les-systemes-lineaires">
+<h2>Méthode de Gauss (ou du pivot) pour les systèmes linéaires<a class="headerlink" href="#methode-de-gauss-ou-du-pivot-pour-les-systemes-lineaires" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Montrons d’abord que la technique d’élimination
 correspond à une opération de pivotage.</p>
 <p>Eliminer <span class="math notranslate nohighlight">\(x_1\)</span> de la seconde équation revient à faire la somme de la première équation
@@ -584,9 +432,9 @@ la troisième équation revient à faire la somme de la première multipliée pa
 colonne (celle de <span class="math notranslate nohighlight">\(x_1\)</span>) en utilisant la première ligne comme ligne du pivot.</p>
 <div class="proof remark dropdown admonition" id="remark-0">
 <span id="index-2"></span><p class="admonition-title"><span class="caption-number">Remark 6 </span></p>
-<div class="remark-content section" id="proof-content">
+<section class="remark-content" id="proof-content">
 <p>Lors de l’exécution de l’algorithme :</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>A chaque itération, l’élément de la colonne dans la ligne du pivot
 doit être non nul.</p></li>
 <li><p>Les transformations élémentaires effectuées sur la matrice sont
@@ -594,10 +442,10 @@ effectuées en parallèle sur le second membre.</p></li>
 <li><p>A la fin de l’élimination (si tout se passe bien!), on obtient un système
 triangulaire avec les pivots sur la diagonale.</p></li>
 </ol>
-</div>
+</section>
 </div><div class="proof example admonition" id="example-1">
 <p class="admonition-title"><span class="caption-number">Example 7 </span></p>
-<div class="example-content section" id="proof-content">
+<section class="example-content" id="proof-content">
 <p>Les transformations successives sont décrites ci-dessous pour l’exemple
 du  paragraphe précédent.</p>
 <p>Itération 1 :</p>
@@ -624,7 +472,7 @@ du  paragraphe précédent.</p>
       \end{array} 
 \right)
 \)</span></p>
-</div>
+</section>
 </div><p>On pose alors
 <span class="math notranslate nohighlight">\(
 \begin{eqnarray*}
@@ -664,24 +512,24 @@ Le second membre est stocké dans la dernière colonne de <span class="math notr
 transforme la matrice <span class="math notranslate nohighlight">\({\bf A}\)</span> en une matrice triangulaire supérieure (étape 1).
 Le système triangulaire supérieur est ensuite résolu par substitution inverse
 (étape 2).</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p><img alt="" src="_images/gaussKF.png" /></p>
-</div>
+</aside>
 <div class="proof algorithm admonition" id="AlgoGauss">
 <p class="admonition-title"><span class="caption-number">Algorithm 2 </span> (Méthode de Gauss)</p>
-<div class="algorithm-content section" id="proof-content">
+<section class="algorithm-content" id="proof-content">
 <p><strong>Entrée :</strong> <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{n,n+1}(\mathbb R)\)</span> (la dernière colonne représente
 le second membre)</p>
 <p><strong>Sortie :</strong> Solution <span class="math notranslate nohighlight">\({\bf x}\)</span> du système <span class="math notranslate nohighlight">\({\bf Ax}={\bf b}\)</span></p>
 <p><code class="docutils literal notranslate"><span class="pre">étape</span> <span class="pre">1.</span> <span class="pre">Elimination</span></code></p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Pour <span class="math notranslate nohighlight">\(k=1,\ldots, n-1\)</span></p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Pour <span class="math notranslate nohighlight">\(i=k+1,\ldots, n\)</span></p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Pour <span class="math notranslate nohighlight">\(j=k+1,\ldots,n+1\)</span></p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\({a_{ij} \leftarrow  a_{ij}-\frac{a_{ik}}{a_{kk}}a_{kj}}\)</span></p></li>
 </ol>
 </li>
@@ -691,33 +539,33 @@ le second membre)</p>
 </li>
 </ol>
 <p><code class="docutils literal notranslate"><span class="pre">étape</span> <span class="pre">2.</span> <span class="pre">Résolution</span> <span class="pre">du</span> <span class="pre">système</span> <span class="pre">triangulaire</span></code></p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(\displaystyle\sum{x_n\leftarrow \frac{a_{n,n+1}}{a_{nn}}}\)</span></p></li>
 <li><p>Pour <span class="math notranslate nohighlight">\(k=n-1,\ldots,1\)</span></p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(x_k\leftarrow \frac{1}{a_{kk}}\left[
                            a_{k,n+1}-\sum_{j=k+1}^na_{kj}x_j
                                         \right]\)</span></p></li>
 </ol>
 </li>
 </ol>
-</div>
-</div></div>
-<div class="section" id="strategies-pour-les-pivots-nuls">
-<h2>Stratégies pour les pivots nuls<a class="headerlink" href="#strategies-pour-les-pivots-nuls" title="Lien permanent vers ce titre">#</a></h2>
+</section>
+</div></section>
+<section id="strategies-pour-les-pivots-nuls">
+<h2>Stratégies pour les pivots nuls<a class="headerlink" href="#strategies-pour-les-pivots-nuls" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Si le pivot est nul (en pratique, on évitera aussi les pivots de valeur
 absolue trop petite), on le remplace en effectuant une
 permutation avec un
 élément non nul parmi les éléments sous lui et/ou à sa droite. On distingue
 généralement deux stratégies :</p>
-<div class="section" id="pivotage-total">
-<h3>Pivotage total<a class="headerlink" href="#pivotage-total" title="Lien permanent vers ce titre">#</a></h3>
+<section id="pivotage-total">
+<h3>Pivotage total<a class="headerlink" href="#pivotage-total" title="Lien permanent vers cette rubrique">#</a></h3>
 <p id="index-3">On permute lignes et colonnes pour
 choisir le plus grand élément en valeur absolue dans la sous-matrice en bas à
 droite : <span class="math notranslate nohighlight">\(\max\left\{\left|a^{(k)}_{ij}\right|\ ; \ i,j\in [\![k,n]\!]\right\}\)</span></p>
-</div>
-<div class="section" id="pivotage-partiel">
-<h3>Pivotage partiel<a class="headerlink" href="#pivotage-partiel" title="Lien permanent vers ce titre">#</a></h3>
+</section>
+<section id="pivotage-partiel">
+<h3>Pivotage partiel<a class="headerlink" href="#pivotage-partiel" title="Lien permanent vers cette rubrique">#</a></h3>
 <p id="index-4">On ne permute que les lignes sous le
 pivot en  choisissant le plus grand élément en valeur absolue : <span class="math notranslate nohighlight">\(\max\left\{\left|a^{(k)}_{ik}\right|\ ; \ i\in [\![k,n]\!]\right\}\)</span></p>
 <p>La stratégie du pivotage partiel est la plus utilisée car la plus économique
@@ -728,20 +576,20 @@ décrit dans l’algorithme <a class="reference internal" href="#AlgoGaussPartie
 stocké dans la dernière colonne de <span class="math notranslate nohighlight">\({\bf A}\)</span>.</p>
 <div class="proof algorithm admonition" id="AlgoGaussPartiel">
 <p class="admonition-title"><span class="caption-number">Algorithm 3 </span> (Méthode de Gauss avec pivot partiel)</p>
-<div class="algorithm-content section" id="proof-content">
+<section class="algorithm-content" id="proof-content">
 <p><strong>Entrée :</strong> <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{n,n+1}(\mathbb R)\)</span> (la dernière colonne représente
 le second membre)</p>
 <p><strong>Sortie :</strong> Solution <span class="math notranslate nohighlight">\({\bf x}\)</span> du système <span class="math notranslate nohighlight">\({\bf Ax}={\bf b}\)</span></p>
 <p><code class="docutils literal notranslate"><span class="pre">étape</span> <span class="pre">1.</span> <span class="pre">Elimination</span></code></p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Pour <span class="math notranslate nohighlight">\(k=1,\ldots, n-1\)</span></p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(c_p\leftarrow |a_{kk}|\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(i_p\leftarrow k\)</span></p></li>
 <li><p>Pour <span class="math notranslate nohighlight">\(i=k+1,\ldots, n\)</span></p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Si <span class="math notranslate nohighlight">\( |a_{ik}|&gt; c_p\)</span></p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(c_p\leftarrow |a_{ik}|\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(i_p\leftarrow i\)</span></p></li>
 </ol>
@@ -749,11 +597,11 @@ le second membre)</p>
 </ol>
 </li>
 <li><p>Si <span class="math notranslate nohighlight">\(i_p\ne k\)</span></p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Pour <span class="math notranslate nohighlight">\(i=k+1,\ldots, n\)</span></p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Pour <span class="math notranslate nohighlight">\(j=k+1,\ldots,n+1\)</span></p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(a_{ij} \leftarrow  a_{ij}-\frac{a_{ik}}{a_{kk}}a_{kj}\)</span></p></li>
 </ol>
 </li>
@@ -765,32 +613,32 @@ le second membre)</p>
 </li>
 </ol>
 <p><code class="docutils literal notranslate"><span class="pre">étape</span> <span class="pre">2.</span> <span class="pre">Résolution</span> <span class="pre">du</span> <span class="pre">système</span> <span class="pre">triangulaire</span></code></p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(\displaystyle\sum{x_n\leftarrow \frac{a_{n,n+1}}{a_{nn}}}\)</span></p></li>
 <li><p>Pour <span class="math notranslate nohighlight">\(k=n-1,\ldots,1\)</span></p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(x_k\leftarrow \frac{1}{a_{kk}}\left[
                            a_{k,n+1}-\sum_{j=k+1}^na_{kj}x_j
                                         \right]\)</span></p></li>
 </ol>
 </li>
 </ol>
-</div>
-</div></div>
-</div>
-<div class="section" id="cas-singulier-et-calcul-du-rang-d-une-matrice">
-<h2>Cas singulier et calcul du rang d’une matrice<a class="headerlink" href="#cas-singulier-et-calcul-du-rang-d-une-matrice" title="Lien permanent vers ce titre">#</a></h2>
-<div class="section" id="id1">
-<h3>Pivotage total<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">#</a></h3>
+</section>
+</div></section>
+</section>
+<section id="cas-singulier-et-calcul-du-rang-d-une-matrice">
+<h2>Cas singulier et calcul du rang d’une matrice<a class="headerlink" href="#cas-singulier-et-calcul-du-rang-d-une-matrice" title="Lien permanent vers cette rubrique">#</a></h2>
+<section id="id1">
+<h3>Pivotage total<a class="headerlink" href="#id1" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Si, à l’itération <span class="math notranslate nohighlight">\(k\)</span> de la méthode de Gauss
 avec pivot total, <span class="math notranslate nohighlight">\(\max\left\{\left|a^{(k)}_{ij}\right|\ ; \ i,j\in [\![k,n]\!]\right\}=0\)</span>
 (donc tous les éléments de la sous-matrice sont nuls), on peut affirmer que
 le rang de la matrice <span class="math notranslate nohighlight">\({\bf A}\)</span> est égal à <span class="math notranslate nohighlight">\(k-1\)</span>. S’il existe un élément
 <span class="math notranslate nohighlight">\(b^{(k)}_i\)</span>, <span class="math notranslate nohighlight">\(k\le i\le n\)</span>, du second membre différent de zéro, alors le
 système n’a pas de solution.</p>
-</div>
-<div class="section" id="id2">
-<h3>Pivotage partiel<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">#</a></h3>
+</section>
+<section id="id2">
+<h3>Pivotage partiel<a class="headerlink" href="#id2" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>Si <span class="math notranslate nohighlight">\(\max\left\{\left|a^{(k)}_{ik}\right|\ ; \ \ i\in [\![k,n]\!]\right\}=0\)</span>
 on peut seulement affirmer que la colonne <span class="math notranslate nohighlight">\(k\)</span> est linéairement dépendante des
 <span class="math notranslate nohighlight">\(k-1\)</span> premières. Cela implique que <span class="math notranslate nohighlight">\(\mathrm{rang}({\bf A})&lt;n\)</span> et que le système n’a
@@ -798,13 +646,13 @@ probablement pas de solution. Toutefois, on ne peut en être sûr que sur
 le test du pivot total nul.</p>
 <div class="proof remark dropdown admonition" id="remark-4">
 <p class="admonition-title"><span class="caption-number">Remark 7 </span></p>
-<div class="remark-content section" id="proof-content">
+<section class="remark-content" id="proof-content">
 <p>La méthode de Gauss et le test du pivot total nul apparaissent donc comme
 la meilleure stratégie pour calculer le rang d’une matrice.</p>
-</div>
-</div></div>
-</div>
-</div>
+</section>
+</div></section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -818,7 +666,7 @@ la meilleure stratégie pour calculer le rang d’une matrice.</p>
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -826,50 +674,114 @@ la meilleure stratégie pour calculer le rang d’une matrice.</p>
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="ch2.html" title="précédent page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">précédent</p>
-            <p class="prev-next-title">Transformations élémentaires</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="ch2.html"
+       title="page précédente">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">précédent</p>
+        <p class="prev-next-title">Transformations élémentaires</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="lu.html" title="suivant page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="lu.html"
+       title="page suivante">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
         <p class="prev-next-title">Facteurs LU d’une matrice non singulière</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenu
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemple-introductif">Exemple introductif</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#systemes-triangulaires">Systèmes triangulaires</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methode-de-gauss-ou-du-pivot-pour-les-systemes-lineaires">Méthode de Gauss (ou du pivot) pour les systèmes linéaires</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strategies-pour-les-pivots-nuls">Stratégies pour les pivots nuls</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pivotage-total">Pivotage total</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pivotage-partiel">Pivotage partiel</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cas-singulier-et-calcul-du-rang-d-une-matrice">Cas singulier et calcul du rang d’une matrice</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Pivotage total</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Pivotage partiel</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Vincent BARRA<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+Par Vincent BARRA
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

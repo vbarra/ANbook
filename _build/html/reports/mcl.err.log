@@ -1,0 +1,117 @@
+Traceback (most recent call last):
+  File "/Users/vibarra/Venv/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/vibarra/Venv/lib/python3.9/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/vibarra/Venv/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 173, in wrapped
+    return loop.run_until_complete(inner)
+  File "/opt/homebrew/Cellar/python@3.9/3.9.18_1/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/Users/vibarra/Venv/lib/python3.9/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/Users/vibarra/Venv/lib/python3.9/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/vibarra/Venv/lib/python3.9/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+Y = np.dot(A,A0) + np.random.normal(scale = 0.7, size=(nb_data, dim_o))
+X = dot(inv(dot(A.T,A)),dot(A.T, Y)) 
+err.append(np.linalg.norm(np.dot(A,X)-Y,2))
+fig = plt.figure(figsize=(10,20))
+
+ax1 = fig.add_subplot(1, 2, 1, projection='3d')
+ax1.scatter(A[:,0],A[:,1],Y.flatten())
+ax1.set_xlabel('x')
+ax1.set_ylabel('y')
+ax1.set_zlabel('z')
+ax1.set_title("Nuage de points")
+
+ax2 = fig.add_subplot(1, 2, 2, projection='3d')
+
+x = [0,1,1,0]
+y = [0,0,1,1]
+z = [0,dot(np.array([1,0]),X),dot(np.array([1,1]),X),dot(np.array([0,1]),X)]
+verts = [list(zip(x,y,z))]
+predicted_plane = Poly3DCollection(verts,alpha=0.2)
+predicted_plane.set_facecolor([1.,0.1,0.])
+ax2.add_collection3d(predicted_plane)
+
+for t in range(nb_data):
+    ax2.plot3D([A[t,0], A[t,0]], [A[t,1], A[t,1]], [Y[t,0], dot(A[t,:],X)], '-b', linewidth=2)
+    ax2.plot3D(A[t,0:1], A[t,1:2], Y[t,0:1], '.k', markersize=14)
+    
+ax2.set_xlabel('x')
+ax2.set_ylabel('y')
+ax2.set_zlabel('z')
+ax2.set_title("Moindres carrés linéaires")
+
+plt.tight_layout()
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+Cell [0;32mIn[8], line 19[0m
+[1;32m     17[0m z [38;5;241m=[39m [[38;5;241m0[39m,dot(np[38;5;241m.[39marray([[38;5;241m1[39m,[38;5;241m0[39m]),X),dot(np[38;5;241m.[39marray([[38;5;241m1[39m,[38;5;241m1[39m]),X),dot(np[38;5;241m.[39marray([[38;5;241m0[39m,[38;5;241m1[39m]),X)]
+[1;32m     18[0m verts [38;5;241m=[39m [[38;5;28mlist[39m([38;5;28mzip[39m(x,y,z))]
+[0;32m---> 19[0m predicted_plane [38;5;241m=[39m [43mPoly3DCollection[49m[43m([49m[43mverts[49m[43m,[49m[43malpha[49m[38;5;241;43m=[39;49m[38;5;241;43m0.2[39;49m[43m)[49m
+[1;32m     20[0m predicted_plane[38;5;241m.[39mset_facecolor([[38;5;241m1.[39m,[38;5;241m0.1[39m,[38;5;241m0.[39m])
+[1;32m     21[0m ax2[38;5;241m.[39madd_collection3d(predicted_plane)
+
+File [0;32m~/Venv/lib/python3.9/site-packages/mpl_toolkits/mplot3d/art3d.py:913[0m, in [0;36mPoly3DCollection.__init__[0;34m(self, verts, zsort, shade, lightsource, *args, **kwargs)[0m
+[1;32m    909[0m     [38;5;28;01mif[39;00m facecolors [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m [38;5;129;01mand[39;00m edgecolors [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[1;32m    910[0m         [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(
+[1;32m    911[0m             [38;5;124m"[39m[38;5;124mYou must provide facecolors, edgecolors, or both for [39m[38;5;124m"[39m
+[1;32m    912[0m             [38;5;124m"[39m[38;5;124mshade to work.[39m[38;5;124m"[39m)
+[0;32m--> 913[0m [38;5;28;43msuper[39;49m[43m([49m[43m)[49m[38;5;241;43m.[39;49m[38;5;21;43m__init__[39;49m[43m([49m[43mverts[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+[1;32m    914[0m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(verts, np[38;5;241m.[39mndarray):
+[1;32m    915[0m     [38;5;28;01mif[39;00m verts[38;5;241m.[39mndim [38;5;241m!=[39m [38;5;241m3[39m:
+
+File [0;32m~/Venv/lib/python3.9/site-packages/matplotlib/collections.py:1200[0m, in [0;36mPolyCollection.__init__[0;34m(self, verts, sizes, closed, **kwargs)[0m
+[1;32m   1198[0m [38;5;28msuper[39m()[38;5;241m.[39m[38;5;21m__init__[39m([38;5;241m*[39m[38;5;241m*[39mkwargs)
+[1;32m   1199[0m [38;5;28mself[39m[38;5;241m.[39mset_sizes(sizes)
+[0;32m-> 1200[0m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mset_verts[49m[43m([49m[43mverts[49m[43m,[49m[43m [49m[43mclosed[49m[43m)[49m
+[1;32m   1201[0m [38;5;28mself[39m[38;5;241m.[39mstale [38;5;241m=[39m [38;5;28;01mTrue[39;00m
+
+File [0;32m~/Venv/lib/python3.9/site-packages/mpl_toolkits/mplot3d/art3d.py:969[0m, in [0;36mPoly3DCollection.set_verts[0;34m(self, verts, closed)[0m
+[1;32m    955[0m [38;5;28;01mdef[39;00m [38;5;21mset_verts[39m([38;5;28mself[39m, verts, closed[38;5;241m=[39m[38;5;28;01mTrue[39;00m):
+[1;32m    956[0m [38;5;250m    [39m[38;5;124;03m"""[39;00m
+[1;32m    957[0m [38;5;124;03m    Set 3D vertices.[39;00m
+[1;32m    958[0m 
+[0;32m   (...)[0m
+[1;32m    967[0m [38;5;124;03m        connection at the end.[39;00m
+[1;32m    968[0m [38;5;124;03m    """[39;00m
+[0;32m--> 969[0m     [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mget_vector[49m[43m([49m[43mverts[49m[43m)[49m
+[1;32m    970[0m     [38;5;66;03m# 2D verts will be updated at draw time[39;00m
+[1;32m    971[0m     [38;5;28msuper[39m()[38;5;241m.[39mset_verts([], [38;5;28;01mFalse[39;00m)
+
+File [0;32m~/Venv/lib/python3.9/site-packages/mpl_toolkits/mplot3d/art3d.py:946[0m, in [0;36mPoly3DCollection.get_vector[0;34m(self, segments3d)[0m
+[1;32m    944[0m [38;5;250m[39m[38;5;124;03m"""Optimize points for projection."""[39;00m
+[1;32m    945[0m [38;5;28;01mif[39;00m [38;5;28mlen[39m(segments3d):
+[0;32m--> 946[0m     xs, ys, zs [38;5;241m=[39m [43mnp[49m[38;5;241;43m.[39;49m[43mvstack[49m[43m([49m[43msegments3d[49m[43m)[49m[38;5;241m.[39mT
+[1;32m    947[0m [38;5;28;01melse[39;00m:  [38;5;66;03m# vstack can't stack zero arrays.[39;00m
+[1;32m    948[0m     xs, ys, zs [38;5;241m=[39m [], [], []
+
+File [0;32m~/Venv/lib/python3.9/site-packages/numpy/core/shape_base.py:286[0m, in [0;36mvstack[0;34m(tup, dtype, casting)[0m
+[1;32m    219[0m [38;5;129m@array_function_dispatch[39m(_vhstack_dispatcher)
+[1;32m    220[0m [38;5;28;01mdef[39;00m [38;5;21mvstack[39m(tup, [38;5;241m*[39m, dtype[38;5;241m=[39m[38;5;28;01mNone[39;00m, casting[38;5;241m=[39m[38;5;124m"[39m[38;5;124msame_kind[39m[38;5;124m"[39m):
+[1;32m    221[0m [38;5;250m    [39m[38;5;124;03m"""[39;00m
+[1;32m    222[0m [38;5;124;03m    Stack arrays in sequence vertically (row wise).[39;00m
+[1;32m    223[0m 
+[0;32m   (...)[0m
+[1;32m    284[0m 
+[1;32m    285[0m [38;5;124;03m    """[39;00m
+[0;32m--> 286[0m     arrs [38;5;241m=[39m [43matleast_2d[49m[43m([49m[38;5;241;43m*[39;49m[43mtup[49m[43m)[49m
+[1;32m    287[0m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28misinstance[39m(arrs, [38;5;28mlist[39m):
+[1;32m    288[0m         arrs [38;5;241m=[39m [arrs]
+
+File [0;32m~/Venv/lib/python3.9/site-packages/numpy/core/shape_base.py:121[0m, in [0;36matleast_2d[0;34m(*arys)[0m
+[1;32m    119[0m res [38;5;241m=[39m []
+[1;32m    120[0m [38;5;28;01mfor[39;00m ary [38;5;129;01min[39;00m arys:
+[0;32m--> 121[0m     ary [38;5;241m=[39m [43masanyarray[49m[43m([49m[43mary[49m[43m)[49m
+[1;32m    122[0m     [38;5;28;01mif[39;00m ary[38;5;241m.[39mndim [38;5;241m==[39m [38;5;241m0[39m:
+[1;32m    123[0m         result [38;5;241m=[39m ary[38;5;241m.[39mreshape([38;5;241m1[39m, [38;5;241m1[39m)
+
+[0;31mValueError[0m: setting an array element with a sequence. The requested array has an inhomogeneous shape after 2 dimensions. The detected shape was (4, 3) + inhomogeneous part.
+
