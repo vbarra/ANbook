@@ -1,49 +1,62 @@
 
+
 <!DOCTYPE html>
 
-<html lang="fr">
+
+<html lang="fr" data-content_root="" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Espaces Vectoriels &#8212; Analyse numérique</title>
-    
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    <title>Espaces Vectoriels &#8212; Analyse numérique</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/translations.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -53,438 +66,274 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ev';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Matrices" href="matrices.html" />
     <link rel="prev" title="Tutoriel Matplotlib" href="Tutoriel-matplotlib.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="fr">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="fr"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <a class="skip-link" href="#main-content">Passer au contenu principal</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-    
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="_static/isimainp.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Analyse numérique</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Tutoriels
- </span>
-</p>
+    
+    
+    <img src="_static/isimainp.png" class="logo__image only-light" alt="Analyse numérique - Home"/>
+    <script>document.write(`<img src="_static/isimainp.png" class="logo__image only-dark" alt="Analyse numérique - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutoriels</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Installation.html">
-   Installation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Tutoriel-jupyter.html">
-   Tutoriel Jupyter
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Tutoriel-numpy.html">
-   Tutoriel Numpy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Tutoriel-matplotlib.html">
-   Tutoriel Matplotlib
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutoriel-jupyter.html">Tutoriel Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutoriel-numpy.html">Tutoriel Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutoriel-matplotlib.html">Tutoriel Matplotlib</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Introduction au calcul matriciel
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction au calcul matriciel</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Espaces Vectoriels
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="matrices.html">
-   Matrices
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="sl.html">
-   Systèmes d’équations linéaires
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ch1exos.html">
-   Exercices
-  </a>
- </li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Espaces Vectoriels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrices.html">Matrices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sl.html">Systèmes d’équations linéaires</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch1exos.html">Exercices</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Elimination de Gauss
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Elimination de Gauss</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="ch2.html">
-   Transformations élémentaires
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="gauss.html">
-   Elimination de Gauss
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lu.html">
-   Facteurs LU d’une matrice non singulière
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="ch2.html">Transformations élémentaires</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gauss.html">Elimination de Gauss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lu.html">Facteurs LU d’une matrice non singulière</a></li>
+
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Moindres carrés linéaires
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Moindres carrés linéaires</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="projections.html">
-   Projections orthogonales
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="mcl.html">
-   Moindres carrés linéaires
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="transfoortho.html">
-   Transformations orthogonales
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="exomcl.html">
-   Exercices
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="projections.html">Projections orthogonales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcl.html">Moindres carrés linéaires</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transfoortho.html">Transformations orthogonales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exomcl.html">Exercices</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Analyse spectrale
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Analyse spectrale</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="introspect.html">
-   Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="resspec.html">
-   Résultats généraux
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="gershgorin.html">
-   Disques de Gershgorin
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="similitudes.html">
-   Similitudes
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="jacobi.html">
-   Méthode de Jacobi
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="puissiter.html">
-   Méthode des puissances itérées
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="QRspec.html">
-   Puissances groupées et méthode QR
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="exospec.html">
-   Exercices
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="introspect.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resspec.html">Résultats généraux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gershgorin.html">Disques de Gershgorin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="similitudes.html">Similitudes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jacobi.html">Méthode de Jacobi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="puissiter.html">Méthode des puissances itérées</a></li>
+<li class="toctree-l1"><a class="reference internal" href="QRspec.html">Puissances groupées et méthode QR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exospec.html">Exercices</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Index
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Index</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="genindex.html">
-   Index
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
-          
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
 
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
-    <div class="header-article__right">
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Mode plein écran"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
 
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="clair/sombre" aria-label="clair/sombre" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#definition">
-   Définition
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sous-espace-vectoriel">
-   Sous-espace vectoriel
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exemples-fondamentaux">
-   Exemples fondamentaux
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#le-mathbb-r-espace-vectoriel-mathbb-r-n">
-     Le
-     <span class="math notranslate nohighlight">
-      \(\mathbb{R}\)
-     </span>
-     -espace vectoriel
-     <span class="math notranslate nohighlight">
-      \(\mathbb R^n\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#le-mathbb-r-espace-vectoriel-mathcal-m-m-n-mathbb-r">
-     Le
-     <span class="math notranslate nohighlight">
-      \(\mathbb{R}\)
-     </span>
-     -espace vectoriel
-     <span class="math notranslate nohighlight">
-      \(\mathcal{M}_{m,n}(\mathbb{R})\)
-     </span>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#famille-libre-generatrice-base">
-   Famille libre, génératrice, base
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Espaces Vectoriels</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#definition">
-   Définition
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sous-espace-vectoriel">
-   Sous-espace vectoriel
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exemples-fondamentaux">
-   Exemples fondamentaux
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#le-mathbb-r-espace-vectoriel-mathbb-r-n">
-     Le
-     <span class="math notranslate nohighlight">
-      \(\mathbb{R}\)
-     </span>
-     -espace vectoriel
-     <span class="math notranslate nohighlight">
-      \(\mathbb R^n\)
-     </span>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#le-mathbb-r-espace-vectoriel-mathcal-m-m-n-mathbb-r">
-     Le
-     <span class="math notranslate nohighlight">
-      \(\mathbb{R}\)
-     </span>
-     -espace vectoriel
-     <span class="math notranslate nohighlight">
-      \(\mathcal{M}_{m,n}(\mathbb{R})\)
-     </span>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#famille-libre-generatrice-base">
-   Famille libre, génératrice, base
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Espaces Vectoriels</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenu </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">Définition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sous-espace-vectoriel">Sous-espace vectoriel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemples-fondamentaux">Exemples fondamentaux</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#le-mathbb-r-espace-vectoriel-mathbb-r-n">Le <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>-espace vectoriel <span class="math notranslate nohighlight">\(\mathbb R^n\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#le-mathbb-r-espace-vectoriel-mathcal-m-m-n-mathbb-r">Le <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>-espace vectoriel <span class="math notranslate nohighlight">\(\mathcal{M}_{m,n}(\mathbb{R})\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#famille-libre-generatrice-base">Famille libre, génératrice, base</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
-  <div class="tex2jax_ignore mathjax_ignore section" id="espaces-vectoriels">
-<h1>Espaces Vectoriels<a class="headerlink" href="#espaces-vectoriels" title="Lien permanent vers ce titre">#</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="espaces-vectoriels">
+<h1>Espaces Vectoriels<a class="headerlink" href="#espaces-vectoriels" title="Lien permanent vers cette rubrique">#</a></h1>
 <p>Dans toute la suite, on s’intéresse à la notion d’espace vectoriel sur
 le corps <span class="math notranslate nohighlight">\(\mathbb R\)</span> des réels.</p>
-<div class="section" id="definition">
-<h2>Définition<a class="headerlink" href="#definition" title="Lien permanent vers ce titre">#</a></h2>
+<section id="definition">
+<h2>Définition<a class="headerlink" href="#definition" title="Lien permanent vers cette rubrique">#</a></h2>
 <div class="proof definition admonition" id="definition-0">
 <p class="admonition-title"><span class="caption-number">Definition 1 </span> (Espace vectoriel )</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p id="index-0">Un <span class="math notranslate nohighlight">\(\mathbb R\)</span>-espace vectoriel <span class="math notranslate nohighlight">\(E\)</span> est un ensemble non vide muni :
 :</p>
 <ul class="simple">
@@ -494,7 +343,7 @@ le corps <span class="math notranslate nohighlight">\(\mathbb R\)</span> des ré
 <span class="math notranslate nohighlight">\({\bf x}\in E\)</span> associe <span class="math notranslate nohighlight">\(\lambda. {\bf x}\in E\)</span></p></li>
 </ul>
 <p>qui vérifie les propriétés suivantes :</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\((\forall  {\bf x}, {\bf y}\in E)\quad  {\bf x}+ {\bf y} =  {\bf y} +  {\bf x}\)</span>
 [symétrie]</p></li>
 <li><p><span class="math notranslate nohighlight">\((\forall  {\bf x}, {\bf y}, {\bf z}\in E)\quad  {\bf x}+( {\bf y}+ {\bf z})= ( {\bf x}+ {\bf y}) +  {\bf z}\)</span>
@@ -510,86 +359,86 @@ le corps <span class="math notranslate nohighlight">\(\mathbb R\)</span> des ré
 <li><p><span class="math notranslate nohighlight">\((\forall \lambda,\mu\in \mathbb{R})(\forall  {\bf x}\in E),  (\lambda + \mu). {\bf x} = \lambda. {\bf x} + \mu. {\bf x}\)</span>
 [Distributivité de “+” sur “.”]</p></li>
 </ol>
-</div>
+</section>
 </div><p>Les éléments de <span class="math notranslate nohighlight">\(E\)</span> sont des vecteurs</p>
 <div class="proof definition admonition" id="definition-1">
 <span id="index-1"></span><p class="admonition-title"><span class="caption-number">Definition 2 </span> (Produit scalaire )</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <span class="target" id="index-2"></span><p id="index-3">Un produit scalaire sur un espace vectoriel <span class="math notranslate nohighlight">\(E\)</span> est une
 application <span class="math notranslate nohighlight">\(&lt;\cdot,\cdot&gt;\)</span> de <span class="math notranslate nohighlight">\(E\times E\)</span> dans <span class="math notranslate nohighlight">\(\mathbb R\)</span> qui vérifie les
 propriétés suivantes :</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Pour tout <span class="math notranslate nohighlight">\({\bf y}\in E\)</span> l’application
 <span class="math notranslate nohighlight">\({\bf x}\rightarrow  &lt;{\bf x},{\bf y}&gt;\)</span> est linéaire</p></li>
 <li><p><span class="math notranslate nohighlight">\((\forall {\bf x},{\bf y}\in E)\ &lt;{\bf x},{\bf y}&gt;=&lt;{\bf y},{\bf x}&gt;\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\((\forall {\bf x}\in E)\ &lt;{\bf x},{\bf x}&gt;\geq 0\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\((\forall {\bf x}\in E)\ &lt;{\bf x},{\bf x}&gt;= 0\Leftrightarrow  {\bf x}= {\bf 0}\)</span></p></li>
 </ol>
-</div>
+</section>
 </div><p><span class="math notranslate nohighlight">\(E\)</span> muni du produit scalaire définit un espace préhilbertien. Si <span class="math notranslate nohighlight">\(E\)</span> est
 de dimension finie, c’est même un espace euclidien.</p>
 <div class="proof definition admonition" id="definition-2">
 <p class="admonition-title"><span class="caption-number">Definition 3 </span> (Norme vectorielle )</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p id="index-4">Une norme vectorielle est une fonction notée <span class="math notranslate nohighlight">\(\|.\|\)</span> définie sur un espace vectoriel <span class="math notranslate nohighlight">\(E\)</span> et satisfaisant aux trois axiomes suivants :</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\((\forall {\bf x}\in E)\ \|{\bf x}\|\geq 0\)</span> et <span class="math notranslate nohighlight">\(\|{\bf x}\|= 0 \Leftrightarrow {\bf x}={\bf 0}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\((\forall {\bf x}\in E)\ (\forall\lambda \in \mathbb R)\ \|\lambda.{\bf x}\|=|\lambda|\|{\bf x}\|\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\((\forall {\bf x},{\bf y}\in E)\ \|{\bf x+y}\|\leq \|{\bf x}\|+\|{\bf y}\|\)</span></p></li>
 </ol>
-</div>
+</section>
 </div><div class="proof property admonition" id="property-3">
 <p class="admonition-title"><span class="caption-number">Property 1 </span> (Inégalité de Cauchy-Schwarz )</p>
-<div class="property-content section" id="proof-content">
+<section class="property-content" id="proof-content">
 <p><span class="math notranslate nohighlight">\((\forall {\bf x,y}\in\mathbb R^n)\ {\bf x^\top}{\bf y}\le \|{\bf x}\|_2 \|{\bf y}\|_2\)</span></p>
 <p>et l’égalité est vérifiée si et seulement si <span class="math notranslate nohighlight">\({\bf x}\)</span> et <span class="math notranslate nohighlight">\({\bf y}\)</span> sont colinéaires.</p>
-</div>
+</section>
 </div><p>L’inégalté triangulaire est un résultat important de l’analyse fonctionnelle
 dû à Minkowski et sa démonstration découle de l’inégalité fondamentale suivante dite
 inégalité de Hölder :</p>
-<div class="margin sidebar" id="index-5">
+<aside class="margin sidebar" id="index-5">
 <p class="sidebar-title"></p>
 <p><img alt="" src="_images/holder.png" /></p>
-</div>
+</aside>
 <div class="proof property admonition" id="property-4">
 <p class="admonition-title"><span class="caption-number">Property 2 </span> (Inégalité de Hölder)</p>
-<div class="property-content section" id="proof-content">
+<section class="property-content" id="proof-content">
 <p><span class="math notranslate nohighlight">\(
 (\forall {\bf x,y}\in\mathbb R^n)\ (\forall p,q&gt;1\ /\ \frac{1}{p}+\frac{1}{q}=1)\)</span></p>
 <p><span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1}^n|x_iy_i|\leq \|{\bf x}\|_p\|{\bf y}\|_q.
 \)</span></p>
-</div>
+</section>
 </div><p>On observera également que dans <span class="math notranslate nohighlight">\(\mathbb R^n\)</span> (et plus généralement dans tout espace vectoriel de dimension finie), toutes les normes sont équivalente dans le sens où,
 pour deux normes <span class="math notranslate nohighlight">\(\|.\|_a\)</span> et <span class="math notranslate nohighlight">\(\|.\|_b\)</span>, il existe deux constantes positives <span class="math notranslate nohighlight">\(\alpha\)</span> et <span class="math notranslate nohighlight">\(\beta\)</span> satisfaisant</p>
 <p><span class="math notranslate nohighlight">\((\forall {\bf x}\in \mathbb R^n)\ \alpha\|{\bf x}\|_a\leq \|{\bf x}\|_b\leq \beta\|{\bf x}\|_a.\)</span></p>
-</div>
-<div class="section" id="sous-espace-vectoriel">
-<span id="index-6"></span><h2>Sous-espace vectoriel<a class="headerlink" href="#sous-espace-vectoriel" title="Lien permanent vers ce titre">#</a></h2>
+</section>
+<section id="sous-espace-vectoriel">
+<span id="index-6"></span><h2>Sous-espace vectoriel<a class="headerlink" href="#sous-espace-vectoriel" title="Lien permanent vers cette rubrique">#</a></h2>
 <span class="target" id="index-7"></span><div class="proof definition admonition" id="definition-5">
 <span id="index-8"></span><p class="admonition-title"><span class="caption-number">Definition 4 </span> (Sous-espace vectoriel )</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>Soit <span class="math notranslate nohighlight">\(E\)</span> un espace vectoriel. Une partie <span class="math notranslate nohighlight">\(F\)</span> de
 <span class="math notranslate nohighlight">\(E\)</span> est un sous-espace vectoriel si :</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\({\bf 0}\in F\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\((\forall {\bf x},{\bf y}\in F)(\forall \lambda\in\mathbb R)\quad ({\bf x}+\lambda.{\bf y})\in F\)</span></p></li>
 </ul>
-</div>
+</section>
 </div><p>Tout sous-espace vectoriel d’un -espace vectoriel <span class="math notranslate nohighlight">\(E\)</span> est un espace
 vectoriel pour les lois “+” et “.” induites par <span class="math notranslate nohighlight">\(E\)</span> . Soient maintenant
 <span class="math notranslate nohighlight">\(F\)</span> et <span class="math notranslate nohighlight">\(G\)</span> deux sous-espaces vectoriels de <span class="math notranslate nohighlight">\(E\)</span>. Alors :</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(F\cap G\)</span> est un sous-espace vectoriel de <span class="math notranslate nohighlight">\(E\)</span>.</p></li>
 <li><p><span class="math notranslate nohighlight">\(F+G = \{{\bf z}\in E\mid{\bf z} = {\bf x} + {\bf y}, {\bf x}\in F, {\bf y}\in G\}\)</span>
 est un sous-espace vectoriel de <span class="math notranslate nohighlight">\(E\)</span>.</p></li>
 <li><p>si <span class="math notranslate nohighlight">\(F\cap G=\emptyset\)</span> et <span class="math notranslate nohighlight">\(F+G=E\)</span>, alors <span class="math notranslate nohighlight">\(F\)</span> et <span class="math notranslate nohighlight">\(G\)</span> sont dits supplémentaires.</p></li>
 </ol>
-</div>
-<div class="section" id="exemples-fondamentaux">
-<h2>Exemples fondamentaux<a class="headerlink" href="#exemples-fondamentaux" title="Lien permanent vers ce titre">#</a></h2>
+</section>
+<section id="exemples-fondamentaux">
+<h2>Exemples fondamentaux<a class="headerlink" href="#exemples-fondamentaux" title="Lien permanent vers cette rubrique">#</a></h2>
 <p>Nous utiliserons dans ce cours deux espaces vectoriels fondamentaux.</p>
-<div class="section" id="le-mathbb-r-espace-vectoriel-mathbb-r-n">
-<h3>Le <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>-espace vectoriel <span class="math notranslate nohighlight">\(\mathbb R^n\)</span><a class="headerlink" href="#le-mathbb-r-espace-vectoriel-mathbb-r-n" title="Lien permanent vers ce titre">#</a></h3>
+<section id="le-mathbb-r-espace-vectoriel-mathbb-r-n">
+<h3>Le <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>-espace vectoriel <span class="math notranslate nohighlight">\(\mathbb R^n\)</span><a class="headerlink" href="#le-mathbb-r-espace-vectoriel-mathbb-r-n" title="Lien permanent vers cette rubrique">#</a></h3>
 <p><span class="math notranslate nohighlight">\(\mathbb R^n\)</span>, <span class="math notranslate nohighlight">\(n\ge 1\)</span>, est l’espace des vecteurs à <span class="math notranslate nohighlight">\(n\)</span> composantes
 réelles. On note
 <span class="math notranslate nohighlight">\({\bf x}=\left(\begin{array}{c}x_1\\ \vdots\\ x_n\end{array}\right)\in\mathbb R^n\)</span>
@@ -607,19 +456,19 @@ définies par :</p>
 {\bf x},{\bf y} &amp;\mapsto&amp;{\bf x}^\top  {\bf y}=x_1y_1+\cdots+x_ny_n = \displaystyle\sum_{i=1}^n x_iy_i\end{aligned}\)</span></p>
 <p>Pour <span class="math notranslate nohighlight">\({\bf x}\)</span>, <span class="math notranslate nohighlight">\({\bf y}\)</span> et <span class="math notranslate nohighlight">\({\bf z}\)</span> des vecteurs de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span> et
 <span class="math notranslate nohighlight">\(\alpha\in\mathbb R\)</span> on a de plus les propriétés suivantes :</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\({\bf x}^\top  {\bf 0}= {\bf 0}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\({\bf x}^\top ( {\bf y}+ {\bf z})= {\bf x}^\top  {\bf y}+ {\bf x}^\top  {\bf z}\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\((\alpha  {\bf x})^\top  {\bf y}=\alpha ( {\bf x}^\top  {\bf y})\)</span></p></li>
 </ol>
 <p>En utilisant ce produit scalaire, on définit alors par exemple les normes suivantes :</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><span class="math notranslate nohighlight">\(\|{\bf x}\|_1=\displaystyle\sum_{i=1}^n|x_i|\)</span> est la norme <span class="math notranslate nohighlight">\(L_1\)</span> (ou city block).</p></li>
 </ol>
-<ol class="simple" id="index-9">
+<ol class="arabic simple" id="index-9" start="2">
 <li><p><span class="math notranslate nohighlight">\(\|{\bf x}\|_2=\left ( {\bf x}^\top {\bf x}\right )^\frac{1}{2}=\sqrt{\displaystyle\sum_{i=1}^nx_i^2}\)</span> est la norme <span class="math notranslate nohighlight">\(L_2\)</span> (ou norme euclidienne).</p></li>
 </ol>
-<ol class="simple" id="index-10">
+<ol class="arabic simple" id="index-10" start="3">
 <li><p><span class="math notranslate nohighlight">\(\|{\bf x}\|_\infty = \displaystyle\max_{1\leq i\leq n}\{|x_i|\}\)</span> est la norme du max (ou norme de Tchebychev, ou norme <span class="math notranslate nohighlight">\(L_\infty\)</span>)</p></li>
 </ol>
 <p id="index-11">Les trois normes de l’exemple sont des cas particuliers des normes
@@ -663,31 +512,31 @@ définies par :</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ev_1_0.png" src="_images/ev_1_0.png" />
+<img alt="_images/478fff5faffa0213e5ab25b617e936aac3926ae51228d90432542b0e87cf117d.png" src="_images/478fff5faffa0213e5ab25b617e936aac3926ae51228d90432542b0e87cf117d.png" />
 </div>
 </div>
 <div class="proof definition admonition" id="definition-6">
 <p class="admonition-title"><span class="caption-number">Definition 5 </span> (Orthogonalité)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p>On dit que deux vecteurs <span class="math notranslate nohighlight">\({\bf x}\)</span> et <span class="math notranslate nohighlight">\({\bf y}\)</span> de
 <span class="math notranslate nohighlight">\(\mathbb R^n\)</span> sont orthogonaux si <span class="math notranslate nohighlight">\({\bf x}^\top  {\bf y}=0\)</span>.</p>
-</div>
+</section>
 </div><div class="proof definition admonition" id="definition-7">
 <p class="admonition-title"><span class="caption-number">Definition 6 </span> (Orthogonal d’un ensemble de vecteurs )</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p id="index-13">Soit <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> un sous-ensemble
 de vecteurs de <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>. L’orthogonal de <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> est est un
 , noté <span class="math notranslate nohighlight">\(S^\perp\)</span>, composé des vecteurs orthogonaux à tous les vecteurs
 de <span class="math notranslate nohighlight">\(\mathcal{S}\)</span>, <em>i.e.</em> <span class="math notranslate nohighlight">\(\mathcal{S}^\perp=\left\{
     {\bf x}\in\mathbb R^n\ \mid\ (\forall {\bf s}\in \mathcal{S}){\bf x}^\top{\bf s}=0
         \right\}.\)</span></p>
-</div>
+</section>
 </div><p>Soit par exemple <span class="math notranslate nohighlight">\(\mathcal{S} = \left \{ {\bf x}\in \mathbb R^3\ \mid\ x_3=0\right \}\)</span>.
 Alors <span class="math notranslate nohighlight">\(\mathcal{S}^\perp\)</span> est l’axe <span class="math notranslate nohighlight">\(x_3\)</span>.</p>
 <img alt="_images/ortho.png" class="align-center" src="_images/ortho.png" />
-</div>
-<div class="section" id="le-mathbb-r-espace-vectoriel-mathcal-m-m-n-mathbb-r">
-<h3>Le <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>-espace vectoriel <span class="math notranslate nohighlight">\(\mathcal{M}_{m,n}(\mathbb{R})\)</span><a class="headerlink" href="#le-mathbb-r-espace-vectoriel-mathcal-m-m-n-mathbb-r" title="Lien permanent vers ce titre">#</a></h3>
+</section>
+<section id="le-mathbb-r-espace-vectoriel-mathcal-m-m-n-mathbb-r">
+<h3>Le <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>-espace vectoriel <span class="math notranslate nohighlight">\(\mathcal{M}_{m,n}(\mathbb{R})\)</span><a class="headerlink" href="#le-mathbb-r-espace-vectoriel-mathcal-m-m-n-mathbb-r" title="Lien permanent vers cette rubrique">#</a></h3>
 <p>L’ensemble <span class="math notranslate nohighlight">\(\mathcal{M}_{m,n}(\mathbb{R})\)</span> des matrices à <span class="math notranslate nohighlight">\(m\)</span>
 lignes et <span class="math notranslate nohighlight">\(n\)</span> colonnes, à coefficients dans <span class="math notranslate nohighlight">\(\mathbb R\)</span> est un espace
 vectoriel pour les lois “+” et “.” définies par :</p>
@@ -699,66 +548,66 @@ vectoriel pour les lois “+” et “.” définies par :</p>
 En plus des trois axiomes des normes vectorielles, on exige  que ces normes vérifient une condition supplémentaire, dite condition
 de norme {sous-multiplicative} :</p>
 <p id="index-14"><span class="math notranslate nohighlight">\((\forall{\bf A},{\bf B}\in\mathcal{M}_n(\mathbb R))\quad \|{\bf AB}\|\leq \|{\bf A}\|\|{\bf B}\|\)</span></p>
-</div>
-</div>
-<div class="section" id="famille-libre-generatrice-base">
-<h2>Famille libre, génératrice, base<a class="headerlink" href="#famille-libre-generatrice-base" title="Lien permanent vers ce titre">#</a></h2>
+</section>
+</section>
+<section id="famille-libre-generatrice-base">
+<h2>Famille libre, génératrice, base<a class="headerlink" href="#famille-libre-generatrice-base" title="Lien permanent vers cette rubrique">#</a></h2>
 <div class="proof definition admonition" id="definition-8">
 <p class="admonition-title"><span class="caption-number">Definition 7 </span> (Combinaison linéaire )</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p id="index-15">Soient <span class="math notranslate nohighlight">\(\bf{x_1}\cdots  {\bf x_p}\)</span> <span class="math notranslate nohighlight">\(p\)</span> vecteurs de
 <span class="math notranslate nohighlight">\(E\)</span>.</p>
 <p>Tout vecteur de la forme
 <span class="math notranslate nohighlight">\({\bf y} = \displaystyle\sum_{i=1}^p \lambda_i {\bf x_i},\quad \lambda_1\cdots \lambda_p \in \mathbb R\)</span>
 est appelé combinaison linéaire des vecteurs <span class="math notranslate nohighlight">\(\bf{x_i}\)</span></p>
-</div>
+</section>
 </div><div class="proof definition admonition" id="definition-9">
 <p class="admonition-title"><span class="caption-number">Definition 8 </span> (Famille libre )</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p id="index-16">Une famille <span class="math notranslate nohighlight">\(\mathcal{F} = (\bf{x_1}\cdots  {\bf x_p})\)</span> de
 <span class="math notranslate nohighlight">\(p\)</span> vecteurs de <span class="math notranslate nohighlight">\(E\)</span> est libre (ou indépendante) si et seulement si
 <span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1}^p \lambda_i {\bf x_i} = 0 \Leftrightarrow (\forall i\in \ [\![ 1, p]\!])   \textrm{  }\lambda_i=0\)</span></p>
-</div>
+</section>
 </div><p>Dans le cas où la combinaison linéaire nulle amène un ou plusieurs
 coefficients non nuls, la famille est liée. Une famille est donc liée si
 et seulement si au moins un des vecteurs de la famille est combinaison
 linéaire des autres.</p>
 <div class="proof definition admonition" id="definition-10">
 <p class="admonition-title"><span class="caption-number">Definition 9 </span> (Famille génératrice )</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p id="index-17">Soit une famille
 <span class="math notranslate nohighlight">\(\mathcal{F} = (\bf{x_1}\cdots  {\bf x_p})\)</span> de <span class="math notranslate nohighlight">\(p\)</span> vecteurs de <span class="math notranslate nohighlight">\(E\)</span>.
 <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> est génératrice de <span class="math notranslate nohighlight">\(E\)</span> si :
 <span class="math notranslate nohighlight">\((\forall  {\bf x}\in E) (\exists \lambda_1\cdots \lambda_p\in \mathbb R) \quad {\bf x} = \displaystyle\sum_{i=1}^p \lambda_i {\bf x_i}\)</span></p>
-</div>
+</section>
 </div><p>Cette notion est liée à la notion de sous-espace vectoriel engendré.</p>
 <div class="proof definition admonition" id="definition-11">
 <p class="admonition-title"><span class="caption-number">Definition 10 </span> (Sous-espace engendré )</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p id="index-18">L’ensemble de toutes les combinaisons linéaires
 d’un ensemble <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> de vecteurs de <span class="math notranslate nohighlight">\(E\)</span> est le sous-espace
 engendré par <span class="math notranslate nohighlight">\(\mathcal{F}\)</span>, noté <span class="math notranslate nohighlight">\(\mathrm{lin}\{\mathcal{F}\}\)</span> :
 <span class="math notranslate nohighlight">\(\mathrm{lin}\{\mathcal{F}\}=\left\{{\bf x}\in E \mid {\bf x}=\alpha_1{\bf x_1}+\cdots+\alpha_p {\bf x_p},\ 
                   \alpha_i\in\mathbb R,\ {\bf x_i}\in \mathcal{F},\ \forall i\in [\![1,p]\!]
                  \right\}.\)</span></p>
-</div>
+</section>
 </div><p>On vérifie facilement que <span class="math notranslate nohighlight">\(\mathrm{lin}\{\mathcal{F}\}\)</span> est bien un
 sous-espace vectoriel de <span class="math notranslate nohighlight">\(E\)</span>.</p>
 <div class="proof definition admonition" id="definition-12">
 <p class="admonition-title"><span class="caption-number">Definition 11 </span> (Base)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p id="index-19">Une famille <span class="math notranslate nohighlight">\(\mathcal{B} = (\bf{x_1}\cdots  {\bf x_p})\)</span> de <span class="math notranslate nohighlight">\(p\)</span>
 vecteurs de <span class="math notranslate nohighlight">\(E\)</span> est une base de <span class="math notranslate nohighlight">\(E\)</span> si elle est libre et génératrice.</p>
-</div>
+</section>
 </div><p>Dans le cas où <span class="math notranslate nohighlight">\(E=\mathbb R^n\)</span>, un exemple important de base est la base
 dite canonique.</p>
 <div class="proof definition admonition" id="definition-13">
 <p class="admonition-title"><span class="caption-number">Definition 12 </span> (Base canonique )</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <p id="index-20">On appelle base canonique de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span> l’ensemble des
 vecteurs <span class="math notranslate nohighlight">\({\bf e_i}\)</span>, <span class="math notranslate nohighlight">\(i\in[\![1,n]\!]\)</span>, dont les composantes sont
 toutes nulles sauf la <span class="math notranslate nohighlight">\(i\)</span>–ème qui vaut 1.</p>
-</div>
+</section>
 </div><p>Les éléments de la base canonique sont aussi appelés vecteurs unitaires.
 Tout vecteur de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span> peut donc s’écrire de manière unique comme
 une combinaison linéaire des vecteurs de la base canonique, <em>i.e.</em>
@@ -768,32 +617,32 @@ montrer que tout espace vectoriel admettant une famille finie
 génératrice admet une base et que, plus généralement :</p>
 <div class="proof theorem admonition" id="theorem-14">
 <p class="admonition-title"><span class="caption-number">Theorem 1 </span> (Théorème de la base incomplète )</p>
-<div class="theorem-content section" id="proof-content">
+<section class="theorem-content" id="proof-content">
 <p>Soit <span class="math notranslate nohighlight">\(E\)</span> un espace vectoriel admettant
 une famille génératrice. Alors :</p>
 <ul class="simple">
 <li><p>Toute famille libre de <span class="math notranslate nohighlight">\(E\)</span> peut être complétée en une base</p></li>
 <li><p>De toute famille génératrice, on peut extraire une base de <span class="math notranslate nohighlight">\(E\)</span>.</p></li>
 </ul>
-</div>
+</section>
 </div><p>De la notion de base on en déduit la définition de la dimension d’un
 espace vectoriel.</p>
 <div class="proof definition admonition" id="definition-15">
 <p class="admonition-title"><span class="caption-number">Definition 13 </span> (Dimension)</p>
-<div class="definition-content section" id="proof-content">
+<section class="definition-content" id="proof-content">
 <span class="target" id="index-21"></span><p id="index-22">La dimension d’un espace vectoriel <span class="math notranslate nohighlight">\(E\)</span>, notée <span class="math notranslate nohighlight">\(dim(E)\)</span>, est le
 nombre d’éléments d’une base de <span class="math notranslate nohighlight">\(E\)</span>.</p>
-</div>
+</section>
 </div><p>Du théorème de la base incomplète, on en déduit qu’une famille
 génératrice de <span class="math notranslate nohighlight">\(E\)</span> a un nombre de vecteurs supérieur ou égal à la
 dimension de <span class="math notranslate nohighlight">\(E\)</span>, tandis qu’une famille libre a un nombre de vecteurs
 inférieur ou égal à la dimension de <span class="math notranslate nohighlight">\(E\)</span>. On en déduit également :</p>
 <div class="proof property admonition" id="property-16">
 <p class="admonition-title"><span class="caption-number">Property 3 </span></p>
-<div class="property-content section" id="proof-content">
+<section class="property-content" id="proof-content">
 <p>Soit <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> une famille de <span class="math notranslate nohighlight">\(p\)</span> vecteurs dans un espace vectoriel
 <span class="math notranslate nohighlight">\(E\)</span> de dimension <span class="math notranslate nohighlight">\(dim(E)&gt;p\)</span>. Alors <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> est liée.</p>
-</div>
+</section>
 </div><p>Tous sous-espaces vectoriels <span class="math notranslate nohighlight">\(F,G\)</span> d’un espace vectoriel <span class="math notranslate nohighlight">\(E\)</span> sont enfin
 tels que :</p>
 <ul class="simple">
@@ -801,8 +650,8 @@ tels que :</p>
 <li><p><span class="math notranslate nohighlight">\(F=E \Leftrightarrow dim(F)=dim(E)\)</span></p></li>
 <li><p>si <span class="math notranslate nohighlight">\(G\subset F\)</span> alors <span class="math notranslate nohighlight">\(F=G\Leftrightarrow dim(F)=dim(G)\)</span></p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -816,7 +665,7 @@ tels que :</p>
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -824,50 +673,109 @@ tels que :</p>
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="Tutoriel-matplotlib.html" title="précédent page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">précédent</p>
-            <p class="prev-next-title">Tutoriel Matplotlib</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Tutoriel-matplotlib.html"
+       title="page précédente">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">précédent</p>
+        <p class="prev-next-title">Tutoriel Matplotlib</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="matrices.html" title="suivant page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="matrices.html"
+       title="page suivante">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
         <p class="prev-next-title">Matrices</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenu
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">Définition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sous-espace-vectoriel">Sous-espace vectoriel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exemples-fondamentaux">Exemples fondamentaux</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#le-mathbb-r-espace-vectoriel-mathbb-r-n">Le <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>-espace vectoriel <span class="math notranslate nohighlight">\(\mathbb R^n\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#le-mathbb-r-espace-vectoriel-mathcal-m-m-n-mathbb-r">Le <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>-espace vectoriel <span class="math notranslate nohighlight">\(\mathcal{M}_{m,n}(\mathbb{R})\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#famille-libre-generatrice-base">Famille libre, génératrice, base</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Vincent BARRA<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+Par Vincent BARRA
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
