@@ -98,7 +98,7 @@
 # \end{pmatrix}$ et ${\bf Y}\begin{pmatrix}
 # 3\\1\\-0.5\\1.5\\4
 # \end{pmatrix}
-# $, on cherche ${\bf x}$ qui minimise $\|{\bf Ax}-{\bf Y}\|^2$, soit encore ${\bf x}$ solution du système aux équations normales ${\bf A^\top Ax}={\bf A^\top Y}$
+# $, on cherche ${\bf x}$ qui minimise $\|{\bf Ax}-{\bf Y}\|^2$, soit encore ${\bf x}$ solution du système aux équations normales ${\bf A^\top Ax}={\bf A^\top Y}$.
 # 
 # On a alors 
 # 
