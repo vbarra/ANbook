@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="fr" data-content_root="" >
+<html lang="fr" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Espaces Vectoriels &#8212; Analyse numérique</title>
   
@@ -15,55 +14,51 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=72dce1d2"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
-    <script src="_static/translations.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/translations.js?v=bf059b8c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ev';</script>
@@ -80,28 +75,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Passer au contenu principal</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Passer au contenu principal</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Haut de page</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -123,12 +113,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -162,7 +160,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Recherche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutoriels</span></p>
 <ul class="nav bd-sidenav">
@@ -221,7 +230,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -230,7 +239,7 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -323,16 +332,16 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="espaces-vectoriels">
-<h1>Espaces Vectoriels<a class="headerlink" href="#espaces-vectoriels" title="Lien permanent vers cette rubrique">#</a></h1>
+<h1>Espaces Vectoriels<a class="headerlink" href="#espaces-vectoriels" title="Lien vers cette rubrique">#</a></h1>
 <p>Dans toute la suite, on s’intéresse à la notion d’espace vectoriel sur
 le corps <span class="math notranslate nohighlight">\(\mathbb R\)</span> des réels.</p>
 <section id="definition">
-<h2>Définition<a class="headerlink" href="#definition" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Définition<a class="headerlink" href="#definition" title="Lien vers cette rubrique">#</a></h2>
 <div class="proof definition admonition" id="definition-0">
-<p class="admonition-title"><span class="caption-number">Definition 1 </span> (Espace vectoriel )</p>
+<p class="admonition-title"><span class="caption-number">Definition 1 </span> (Espace vectoriel)</p>
 <section class="definition-content" id="proof-content">
 <p id="index-0">Un <span class="math notranslate nohighlight">\(\mathbb R\)</span>-espace vectoriel <span class="math notranslate nohighlight">\(E\)</span> est un ensemble non vide muni :
 :</p>
@@ -362,9 +371,9 @@ le corps <span class="math notranslate nohighlight">\(\mathbb R\)</span> des ré
 </section>
 </div><p>Les éléments de <span class="math notranslate nohighlight">\(E\)</span> sont des vecteurs</p>
 <div class="proof definition admonition" id="definition-1">
-<span id="index-1"></span><p class="admonition-title"><span class="caption-number">Definition 2 </span> (Produit scalaire )</p>
+<span id="index-1"></span><p class="admonition-title"><span class="caption-number">Definition 2 </span> (Produit scalaire)</p>
 <section class="definition-content" id="proof-content">
-<span class="target" id="index-2"></span><p id="index-3">Un produit scalaire sur un espace vectoriel <span class="math notranslate nohighlight">\(E\)</span> est une
+<p id="index-3"><span id="index-2"></span>Un produit scalaire sur un espace vectoriel <span class="math notranslate nohighlight">\(E\)</span> est une
 application <span class="math notranslate nohighlight">\(&lt;\cdot,\cdot&gt;\)</span> de <span class="math notranslate nohighlight">\(E\times E\)</span> dans <span class="math notranslate nohighlight">\(\mathbb R\)</span> qui vérifie les
 propriétés suivantes :</p>
 <ol class="arabic simple">
@@ -378,7 +387,7 @@ propriétés suivantes :</p>
 </div><p><span class="math notranslate nohighlight">\(E\)</span> muni du produit scalaire définit un espace préhilbertien. Si <span class="math notranslate nohighlight">\(E\)</span> est
 de dimension finie, c’est même un espace euclidien.</p>
 <div class="proof definition admonition" id="definition-2">
-<p class="admonition-title"><span class="caption-number">Definition 3 </span> (Norme vectorielle )</p>
+<p class="admonition-title"><span class="caption-number">Definition 3 </span> (Norme vectorielle)</p>
 <section class="definition-content" id="proof-content">
 <p id="index-4">Une norme vectorielle est une fonction notée <span class="math notranslate nohighlight">\(\|.\|\)</span> définie sur un espace vectoriel <span class="math notranslate nohighlight">\(E\)</span> et satisfaisant aux trois axiomes suivants :</p>
 <ol class="arabic simple">
@@ -388,7 +397,7 @@ de dimension finie, c’est même un espace euclidien.</p>
 </ol>
 </section>
 </div><div class="proof property admonition" id="property-3">
-<p class="admonition-title"><span class="caption-number">Property 1 </span> (Inégalité de Cauchy-Schwarz )</p>
+<p class="admonition-title"><span class="caption-number">Property 1 </span> (Inégalité de Cauchy-Schwarz)</p>
 <section class="property-content" id="proof-content">
 <p><span class="math notranslate nohighlight">\((\forall {\bf x,y}\in\mathbb R^n)\ {\bf x^\top}{\bf y}\le \|{\bf x}\|_2 \|{\bf y}\|_2\)</span></p>
 <p>et l’égalité est vérifiée si et seulement si <span class="math notranslate nohighlight">\({\bf x}\)</span> et <span class="math notranslate nohighlight">\({\bf y}\)</span> sont colinéaires.</p>
@@ -413,9 +422,9 @@ pour deux normes <span class="math notranslate nohighlight">\(\|.\|_a\)</span> e
 <p><span class="math notranslate nohighlight">\((\forall {\bf x}\in \mathbb R^n)\ \alpha\|{\bf x}\|_a\leq \|{\bf x}\|_b\leq \beta\|{\bf x}\|_a.\)</span></p>
 </section>
 <section id="sous-espace-vectoriel">
-<span id="index-6"></span><h2>Sous-espace vectoriel<a class="headerlink" href="#sous-espace-vectoriel" title="Lien permanent vers cette rubrique">#</a></h2>
-<span class="target" id="index-7"></span><div class="proof definition admonition" id="definition-5">
-<span id="index-8"></span><p class="admonition-title"><span class="caption-number">Definition 4 </span> (Sous-espace vectoriel )</p>
+<span id="index-6"></span><h2>Sous-espace vectoriel<a class="headerlink" href="#sous-espace-vectoriel" title="Lien vers cette rubrique">#</a></h2>
+<div class="proof definition admonition" id="definition-5">
+<span id="index-8"></span><span id="index-7"></span><p class="admonition-title"><span class="caption-number">Definition 4 </span> (Sous-espace vectoriel)</p>
 <section class="definition-content" id="proof-content">
 <p>Soit <span class="math notranslate nohighlight">\(E\)</span> un espace vectoriel. Une partie <span class="math notranslate nohighlight">\(F\)</span> de
 <span class="math notranslate nohighlight">\(E\)</span> est un sous-espace vectoriel si :</p>
@@ -435,10 +444,10 @@ est un sous-espace vectoriel de <span class="math notranslate nohighlight">\(E\)
 </ol>
 </section>
 <section id="exemples-fondamentaux">
-<h2>Exemples fondamentaux<a class="headerlink" href="#exemples-fondamentaux" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Exemples fondamentaux<a class="headerlink" href="#exemples-fondamentaux" title="Lien vers cette rubrique">#</a></h2>
 <p>Nous utiliserons dans ce cours deux espaces vectoriels fondamentaux.</p>
 <section id="le-mathbb-r-espace-vectoriel-mathbb-r-n">
-<h3>Le <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>-espace vectoriel <span class="math notranslate nohighlight">\(\mathbb R^n\)</span><a class="headerlink" href="#le-mathbb-r-espace-vectoriel-mathbb-r-n" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Le <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>-espace vectoriel <span class="math notranslate nohighlight">\(\mathbb R^n\)</span><a class="headerlink" href="#le-mathbb-r-espace-vectoriel-mathbb-r-n" title="Lien vers cette rubrique">#</a></h3>
 <p><span class="math notranslate nohighlight">\(\mathbb R^n\)</span>, <span class="math notranslate nohighlight">\(n\ge 1\)</span>, est l’espace des vecteurs à <span class="math notranslate nohighlight">\(n\)</span> composantes
 réelles. On note
 <span class="math notranslate nohighlight">\({\bf x}=\left(\begin{array}{c}x_1\\ \vdots\\ x_n\end{array}\right)\in\mathbb R^n\)</span>
@@ -512,7 +521,7 @@ définies par :</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/478fff5faffa0213e5ab25b617e936aac3926ae51228d90432542b0e87cf117d.png" src="_images/478fff5faffa0213e5ab25b617e936aac3926ae51228d90432542b0e87cf117d.png" />
+<img alt="_images/3ba51094f7d1144711b5852a535b3207c2d75d93bd2d306a4023e17afc119cc1.png" src="_images/3ba51094f7d1144711b5852a535b3207c2d75d93bd2d306a4023e17afc119cc1.png" />
 </div>
 </div>
 <div class="proof definition admonition" id="definition-6">
@@ -522,7 +531,7 @@ définies par :</p>
 <span class="math notranslate nohighlight">\(\mathbb R^n\)</span> sont orthogonaux si <span class="math notranslate nohighlight">\({\bf x}^\top  {\bf y}=0\)</span>.</p>
 </section>
 </div><div class="proof definition admonition" id="definition-7">
-<p class="admonition-title"><span class="caption-number">Definition 6 </span> (Orthogonal d’un ensemble de vecteurs )</p>
+<p class="admonition-title"><span class="caption-number">Definition 6 </span> (Orthogonal d’un ensemble de vecteurs)</p>
 <section class="definition-content" id="proof-content">
 <p id="index-13">Soit <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> un sous-ensemble
 de vecteurs de <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>. L’orthogonal de <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> est est un
@@ -536,7 +545,7 @@ Alors <span class="math notranslate nohighlight">\(\mathcal{S}^\perp\)</span> es
 <img alt="_images/ortho.png" class="align-center" src="_images/ortho.png" />
 </section>
 <section id="le-mathbb-r-espace-vectoriel-mathcal-m-m-n-mathbb-r">
-<h3>Le <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>-espace vectoriel <span class="math notranslate nohighlight">\(\mathcal{M}_{m,n}(\mathbb{R})\)</span><a class="headerlink" href="#le-mathbb-r-espace-vectoriel-mathcal-m-m-n-mathbb-r" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Le <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>-espace vectoriel <span class="math notranslate nohighlight">\(\mathcal{M}_{m,n}(\mathbb{R})\)</span><a class="headerlink" href="#le-mathbb-r-espace-vectoriel-mathcal-m-m-n-mathbb-r" title="Lien vers cette rubrique">#</a></h3>
 <p>L’ensemble <span class="math notranslate nohighlight">\(\mathcal{M}_{m,n}(\mathbb{R})\)</span> des matrices à <span class="math notranslate nohighlight">\(m\)</span>
 lignes et <span class="math notranslate nohighlight">\(n\)</span> colonnes, à coefficients dans <span class="math notranslate nohighlight">\(\mathbb R\)</span> est un espace
 vectoriel pour les lois “+” et “.” définies par :</p>
@@ -551,9 +560,9 @@ de norme {sous-multiplicative} :</p>
 </section>
 </section>
 <section id="famille-libre-generatrice-base">
-<h2>Famille libre, génératrice, base<a class="headerlink" href="#famille-libre-generatrice-base" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Famille libre, génératrice, base<a class="headerlink" href="#famille-libre-generatrice-base" title="Lien vers cette rubrique">#</a></h2>
 <div class="proof definition admonition" id="definition-8">
-<p class="admonition-title"><span class="caption-number">Definition 7 </span> (Combinaison linéaire )</p>
+<p class="admonition-title"><span class="caption-number">Definition 7 </span> (Combinaison linéaire)</p>
 <section class="definition-content" id="proof-content">
 <p id="index-15">Soient <span class="math notranslate nohighlight">\(\bf{x_1}\cdots  {\bf x_p}\)</span> <span class="math notranslate nohighlight">\(p\)</span> vecteurs de
 <span class="math notranslate nohighlight">\(E\)</span>.</p>
@@ -562,7 +571,7 @@ de norme {sous-multiplicative} :</p>
 est appelé combinaison linéaire des vecteurs <span class="math notranslate nohighlight">\(\bf{x_i}\)</span></p>
 </section>
 </div><div class="proof definition admonition" id="definition-9">
-<p class="admonition-title"><span class="caption-number">Definition 8 </span> (Famille libre )</p>
+<p class="admonition-title"><span class="caption-number">Definition 8 </span> (Famille libre)</p>
 <section class="definition-content" id="proof-content">
 <p id="index-16">Une famille <span class="math notranslate nohighlight">\(\mathcal{F} = (\bf{x_1}\cdots  {\bf x_p})\)</span> de
 <span class="math notranslate nohighlight">\(p\)</span> vecteurs de <span class="math notranslate nohighlight">\(E\)</span> est libre (ou indépendante) si et seulement si
@@ -573,7 +582,7 @@ coefficients non nuls, la famille est liée. Une famille est donc liée si
 et seulement si au moins un des vecteurs de la famille est combinaison
 linéaire des autres.</p>
 <div class="proof definition admonition" id="definition-10">
-<p class="admonition-title"><span class="caption-number">Definition 9 </span> (Famille génératrice )</p>
+<p class="admonition-title"><span class="caption-number">Definition 9 </span> (Famille génératrice)</p>
 <section class="definition-content" id="proof-content">
 <p id="index-17">Soit une famille
 <span class="math notranslate nohighlight">\(\mathcal{F} = (\bf{x_1}\cdots  {\bf x_p})\)</span> de <span class="math notranslate nohighlight">\(p\)</span> vecteurs de <span class="math notranslate nohighlight">\(E\)</span>.
@@ -582,7 +591,7 @@ linéaire des autres.</p>
 </section>
 </div><p>Cette notion est liée à la notion de sous-espace vectoriel engendré.</p>
 <div class="proof definition admonition" id="definition-11">
-<p class="admonition-title"><span class="caption-number">Definition 10 </span> (Sous-espace engendré )</p>
+<p class="admonition-title"><span class="caption-number">Definition 10 </span> (Sous-espace engendré)</p>
 <section class="definition-content" id="proof-content">
 <p id="index-18">L’ensemble de toutes les combinaisons linéaires
 d’un ensemble <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> de vecteurs de <span class="math notranslate nohighlight">\(E\)</span> est le sous-espace
@@ -602,7 +611,7 @@ vecteurs de <span class="math notranslate nohighlight">\(E\)</span> est une base
 </div><p>Dans le cas où <span class="math notranslate nohighlight">\(E=\mathbb R^n\)</span>, un exemple important de base est la base
 dite canonique.</p>
 <div class="proof definition admonition" id="definition-13">
-<p class="admonition-title"><span class="caption-number">Definition 12 </span> (Base canonique )</p>
+<p class="admonition-title"><span class="caption-number">Definition 12 </span> (Base canonique)</p>
 <section class="definition-content" id="proof-content">
 <p id="index-20">On appelle base canonique de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span> l’ensemble des
 vecteurs <span class="math notranslate nohighlight">\({\bf e_i}\)</span>, <span class="math notranslate nohighlight">\(i\in[\![1,n]\!]\)</span>, dont les composantes sont
@@ -616,7 +625,7 @@ les <span class="math notranslate nohighlight">\(x_i\)</span> sont les coordonn�
 montrer que tout espace vectoriel admettant une famille finie
 génératrice admet une base et que, plus généralement :</p>
 <div class="proof theorem admonition" id="theorem-14">
-<p class="admonition-title"><span class="caption-number">Theorem 1 </span> (Théorème de la base incomplète )</p>
+<p class="admonition-title"><span class="caption-number">Theorem 1 </span> (Théorème de la base incomplète)</p>
 <section class="theorem-content" id="proof-content">
 <p>Soit <span class="math notranslate nohighlight">\(E\)</span> un espace vectoriel admettant
 une famille génératrice. Alors :</p>
@@ -630,7 +639,7 @@ espace vectoriel.</p>
 <div class="proof definition admonition" id="definition-15">
 <p class="admonition-title"><span class="caption-number">Definition 13 </span> (Dimension)</p>
 <section class="definition-content" id="proof-content">
-<span class="target" id="index-21"></span><p id="index-22">La dimension d’un espace vectoriel <span class="math notranslate nohighlight">\(E\)</span>, notée <span class="math notranslate nohighlight">\(dim(E)\)</span>, est le
+<p id="index-22"><span id="index-21"></span>La dimension d’un espace vectoriel <span class="math notranslate nohighlight">\(E\)</span>, notée <span class="math notranslate nohighlight">\(dim(E)\)</span>, est le
 nombre d’éléments d’une base de <span class="math notranslate nohighlight">\(E\)</span>.</p>
 </section>
 </div><p>Du théorème de la base incomplète, on en déduit qu’une famille
@@ -680,7 +689,7 @@ tels que :</p>
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -709,6 +718,7 @@ tels que :</p>
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -748,7 +758,7 @@ Par Vincent BARRA
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -772,8 +782,8 @@ Par Vincent BARRA
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>

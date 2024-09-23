@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="fr" data-content_root="" >
+<html lang="fr" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Elimination de Gauss &#8212; Analyse numérique</title>
   
@@ -15,55 +14,51 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=72dce1d2"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
-    <script src="_static/translations.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/translations.js?v=bf059b8c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'gauss';</script>
@@ -80,28 +75,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Passer au contenu principal</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Passer au contenu principal</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Haut de page</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -123,12 +113,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -162,7 +160,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Recherche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutoriels</span></p>
 <ul class="nav bd-sidenav">
@@ -221,7 +230,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -230,7 +239,7 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -328,12 +337,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="elimination-de-gauss">
-<h1>Elimination de Gauss<a class="headerlink" href="#elimination-de-gauss" title="Lien permanent vers cette rubrique">#</a></h1>
+<h1>Elimination de Gauss<a class="headerlink" href="#elimination-de-gauss" title="Lien vers cette rubrique">#</a></h1>
 <section id="exemple-introductif">
-<h2>Exemple introductif<a class="headerlink" href="#exemple-introductif" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Exemple introductif<a class="headerlink" href="#exemple-introductif" title="Lien vers cette rubrique">#</a></h2>
 <p>Soit le système de 3 équations à 3 inconnues</p>
 <p><span class="math notranslate nohighlight">\(\left \{\begin{eqnarray}
 2x_1-3x_2\phantom{-3x_3}&amp;=&amp; 3\label{SL1}\\ 
@@ -368,7 +377,7 @@ dans n’importe quelle équation, à condition, bien sûr, que cette équation
 contienne la variable en question.</p>
 </section>
 <section id="systemes-triangulaires">
-<h2>Systèmes triangulaires<a class="headerlink" href="#systemes-triangulaires" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Systèmes triangulaires<a class="headerlink" href="#systemes-triangulaires" title="Lien vers cette rubrique">#</a></h2>
 <p>On constatera au paragraphe suivant que la phase d’élimination consiste à
 transformer le système original en un système triangulaire. Un système
 triangulaire est un système dont la matrice est triangulaire.</p>
@@ -422,7 +431,7 @@ k\in[\![2, n]\!].\label{FwdSub2}
 le même que celui de substitution inverse.</p>
 </section>
 <section id="methode-de-gauss-ou-du-pivot-pour-les-systemes-lineaires">
-<h2>Méthode de Gauss (ou du pivot) pour les systèmes linéaires<a class="headerlink" href="#methode-de-gauss-ou-du-pivot-pour-les-systemes-lineaires" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Méthode de Gauss (ou du pivot) pour les systèmes linéaires<a class="headerlink" href="#methode-de-gauss-ou-du-pivot-pour-les-systemes-lineaires" title="Lien vers cette rubrique">#</a></h2>
 <p>Montrons d’abord que la technique d’élimination
 correspond à une opération de pivotage.</p>
 <p>Eliminer <span class="math notranslate nohighlight">\(x_1\)</span> de la seconde équation revient à faire la somme de la première équation
@@ -552,20 +561,20 @@ le second membre)</p>
 </section>
 </div></section>
 <section id="strategies-pour-les-pivots-nuls">
-<h2>Stratégies pour les pivots nuls<a class="headerlink" href="#strategies-pour-les-pivots-nuls" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Stratégies pour les pivots nuls<a class="headerlink" href="#strategies-pour-les-pivots-nuls" title="Lien vers cette rubrique">#</a></h2>
 <p>Si le pivot est nul (en pratique, on évitera aussi les pivots de valeur
 absolue trop petite), on le remplace en effectuant une
 permutation avec un
 élément non nul parmi les éléments sous lui et/ou à sa droite. On distingue
 généralement deux stratégies :</p>
 <section id="pivotage-total">
-<h3>Pivotage total<a class="headerlink" href="#pivotage-total" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Pivotage total<a class="headerlink" href="#pivotage-total" title="Lien vers cette rubrique">#</a></h3>
 <p id="index-3">On permute lignes et colonnes pour
 choisir le plus grand élément en valeur absolue dans la sous-matrice en bas à
 droite : <span class="math notranslate nohighlight">\(\max\left\{\left|a^{(k)}_{ij}\right|\ ; \ i,j\in [\![k,n]\!]\right\}\)</span></p>
 </section>
 <section id="pivotage-partiel">
-<h3>Pivotage partiel<a class="headerlink" href="#pivotage-partiel" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Pivotage partiel<a class="headerlink" href="#pivotage-partiel" title="Lien vers cette rubrique">#</a></h3>
 <p id="index-4">On ne permute que les lignes sous le
 pivot en  choisissant le plus grand élément en valeur absolue : <span class="math notranslate nohighlight">\(\max\left\{\left|a^{(k)}_{ik}\right|\ ; \ i\in [\![k,n]\!]\right\}\)</span></p>
 <p>La stratégie du pivotage partiel est la plus utilisée car la plus économique
@@ -627,9 +636,9 @@ le second membre)</p>
 </div></section>
 </section>
 <section id="cas-singulier-et-calcul-du-rang-d-une-matrice">
-<h2>Cas singulier et calcul du rang d’une matrice<a class="headerlink" href="#cas-singulier-et-calcul-du-rang-d-une-matrice" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Cas singulier et calcul du rang d’une matrice<a class="headerlink" href="#cas-singulier-et-calcul-du-rang-d-une-matrice" title="Lien vers cette rubrique">#</a></h2>
 <section id="id1">
-<h3>Pivotage total<a class="headerlink" href="#id1" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Pivotage total<a class="headerlink" href="#id1" title="Lien vers cette rubrique">#</a></h3>
 <p>Si, à l’itération <span class="math notranslate nohighlight">\(k\)</span> de la méthode de Gauss
 avec pivot total, <span class="math notranslate nohighlight">\(\max\left\{\left|a^{(k)}_{ij}\right|\ ; \ i,j\in [\![k,n]\!]\right\}=0\)</span>
 (donc tous les éléments de la sous-matrice sont nuls), on peut affirmer que
@@ -638,7 +647,7 @@ le rang de la matrice <span class="math notranslate nohighlight">\({\bf A}\)</sp
 système n’a pas de solution.</p>
 </section>
 <section id="id2">
-<h3>Pivotage partiel<a class="headerlink" href="#id2" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Pivotage partiel<a class="headerlink" href="#id2" title="Lien vers cette rubrique">#</a></h3>
 <p>Si <span class="math notranslate nohighlight">\(\max\left\{\left|a^{(k)}_{ik}\right|\ ; \ \ i\in [\![k,n]\!]\right\}=0\)</span>
 on peut seulement affirmer que la colonne <span class="math notranslate nohighlight">\(k\)</span> est linéairement dépendante des
 <span class="math notranslate nohighlight">\(k-1\)</span> premières. Cela implique que <span class="math notranslate nohighlight">\(\mathrm{rang}({\bf A})&lt;n\)</span> et que le système n’a
@@ -681,7 +690,7 @@ la meilleure stratégie pour calculer le rang d’une matrice.</p>
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -710,6 +719,7 @@ la meilleure stratégie pour calculer le rang d’une matrice.</p>
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -754,7 +764,7 @@ Par Vincent BARRA
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -778,8 +788,8 @@ Par Vincent BARRA
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="fr" data-content_root="" >
+<html lang="fr" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Transformations orthogonales &#8212; Analyse numérique</title>
   
@@ -15,55 +14,51 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=72dce1d2"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
-    <script src="_static/translations.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/translations.js?v=bf059b8c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'transfoortho';</script>
@@ -80,28 +75,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Passer au contenu principal</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Passer au contenu principal</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Haut de page</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -123,12 +113,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -162,7 +160,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Recherche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutoriels</span></p>
 <ul class="nav bd-sidenav">
@@ -221,7 +230,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -230,7 +239,7 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -323,7 +332,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -338,16 +347,16 @@ document.write(`
 </div>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="transformations-orthogonales">
-<h1>Transformations orthogonales<a class="headerlink" href="#transformations-orthogonales" title="Lien permanent vers cette rubrique">#</a></h1>
+<h1>Transformations orthogonales<a class="headerlink" href="#transformations-orthogonales" title="Lien vers cette rubrique">#</a></h1>
 <section id="matrices-orthogonales">
-<h2>Matrices orthogonales<a class="headerlink" href="#matrices-orthogonales" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Matrices orthogonales<a class="headerlink" href="#matrices-orthogonales" title="Lien vers cette rubrique">#</a></h2>
 <div class="proof definition admonition" id="definition-0">
 <p class="admonition-title"><span class="caption-number">Definition 28 </span> (Matrice orthogonale)</p>
 <section class="definition-content" id="proof-content">
 <p>Une matrice carrée <span class="math notranslate nohighlight">\({\bf H}\)</span> est dite {orthogonale}
 si et seulement si <span class="math notranslate nohighlight">\({\bf H^\top}{\bf H}={\bf H}{\bf H^\top} = \mathbb I\)</span></p>
 </section>
-</div><span class="target" id="index-0"></span><p id="index-1">Une matrice orthogonale est donc une matrice carrée dont les colonnes sont orthonormées. Les matrices de rotation, de symétrie, de permutation et l’identité sont des exemples de matrices orthogonales.</p>
+</div><p id="index-1"><span id="index-0"></span>Une matrice orthogonale est donc une matrice carrée dont les colonnes sont orthonormées. Les matrices de rotation, de symétrie, de permutation et l’identité sont des exemples de matrices orthogonales.</p>
 <p>Une matrice orthogonale <span class="math notranslate nohighlight">\({\bf H}\)</span> est naturellement inversible par définition, et l’inverse est <span class="math notranslate nohighlight">\({\bf H^{-1}}={\bf H^\top} \)</span>.</p>
 <div class="proof property admonition" id="property-1">
 <p class="admonition-title"><span class="caption-number">Property 11 </span> (Propriété fondamentale)</p>
@@ -356,7 +365,7 @@ si et seulement si <span class="math notranslate nohighlight">\({\bf H^\top}{\bf
 sont des isométries, les normes (euclidiennes), les produits scalaires et les angles sont conservés :</p>
 <p><span class="math notranslate nohighlight">\(({\bf H} \textrm{ orthogonale}) \Leftrightarrow (\forall {\bf x}\in \mathbb R^n)\\|{\bf Hx}\|=\|{\bf x}\|\)</span></p>
 </section>
-</div><span class="target" id="index-2"></span><p id="index-3">En effet, <span class="math notranslate nohighlight">\(\|{\bf Hx}\|^2=({\bf Hx)^\top} ({\bf Hx})={\bf x^\top H^\top Hx}={\bf x^\top x}=\|{\bf x}\|^2\)</span>.</p>
+</div><p id="index-3"><span id="index-2"></span>En effet, <span class="math notranslate nohighlight">\(\|{\bf Hx}\|^2=({\bf Hx)^\top} ({\bf Hx})={\bf x^\top H^\top Hx}={\bf x^\top x}=\|{\bf x}\|^2\)</span>.</p>
 <p>Cette propriété entraîne une stabilité numérique des méthodes utilisant ces transformations. On les utilise principalement pour :</p>
 <ul class="simple">
 <li><p>orthonormaliser un système de générateurs,</p></li>
@@ -427,9 +436,9 @@ orthonormée telle que</p>
 généralise aisement à une base orthonormée quelconque <span class="math notranslate nohighlight">\({\bf q_1},{\bf q_2},\ldots,{\bf q_r}\)</span> d’un sous-espace de dimension <span class="math notranslate nohighlight">\(r\)</span>.</p>
 </section>
 <section id="orthogonalisation-de-gram-schmidt">
-<h2>Orthogonalisation de Gram-Schmidt<a class="headerlink" href="#orthogonalisation-de-gram-schmidt" title="Lien permanent vers cette rubrique">#</a></h2>
-<span class="target" id="index-4"></span><section id="algorithme">
-<span id="index-5"></span><h3>Algorithme<a class="headerlink" href="#algorithme" title="Lien permanent vers cette rubrique">#</a></h3>
+<h2>Orthogonalisation de Gram-Schmidt<a class="headerlink" href="#orthogonalisation-de-gram-schmidt" title="Lien vers cette rubrique">#</a></h2>
+<section id="algorithme">
+<span id="index-5"></span><span id="index-4"></span><h3>Algorithme<a class="headerlink" href="#algorithme" title="Lien vers cette rubrique">#</a></h3>
 <p>A partir d’une famille de <span class="math notranslate nohighlight">\(p\)</span> vecteurs linéairement indépendants de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>, représentés par une matrice <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{n,p}(\mathbb R)\)</span> de rang <span class="math notranslate nohighlight">\(p\)</span>, on peut construire une famille <span class="math notranslate nohighlight">\(\{{\bf q_1}\cdots {\bf q_p}\}\)</span>, base orthonormée de <span class="math notranslate nohighlight">\(Im({\bf A})\)</span>. C’est un outil fondamental pour la résolution de systèmes surdéterminés.</p>
 <p>L’idée générale est donc de construire une base orthonormée du sous-espace image d’un ensemble de vecteurs. L’intérêt numérique est que cette construction équivaut à triangulariser la matrice formée par ces vecteurs. L’algorithme <a class="reference internal" href="#GS">Algorithm 5</a> et la figure suivante présentent le procédé d’orthonormalisation de Gram-Schmidt qui, s’il est simple à comprendre, ne présente qu’un intérêt académique puisqu’il est très coûteux. En pratique, on utilise la méthode de factorisation QR qui permet d’atteindre le même objectif grâce à des transformations orthogonales élémentaires (rotations de Givens ou transformations de  Householder) numériquement stables et seulement deux fois plus chères que la méthode de Gauss.</p>
 <p>Le principe de Gram-Schmidt est de calculer, pour <span class="math notranslate nohighlight">\(j\in[\![2,p]\!]\)</span>,  chaque vecteur <span class="math notranslate nohighlight">\({\bf q_j}\)</span> en soustrayant à  <span class="math notranslate nohighlight">\({\bf  A_{\bullet,j}}\)</span> ses projections orthogonales sur les <span class="math notranslate nohighlight">\(j-1\)</span>
@@ -515,7 +524,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}0.008214 &amp; 0.8878 &amp; 0.9578 &amp; 0.9715\\0.00664 &amp; 0.3332 &amp; 0.4693 &amp; 0.1872\\0.01157 &amp; 0.4155 &amp; 0.3705 &amp; 0.2901\\0.7874 &amp; 0.3445 &amp; 0.05922 &amp; 0.2771\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}0.5437 &amp; 0.4091 &amp; 0.5909 &amp; 0.813\\0.03958 &amp; 0.008846 &amp; 0.1675 &amp; 0.3716\\0.07007 &amp; 0.8839 &amp; 0.7827 &amp; 0.3436\\0.08631 &amp; 0.7311 &amp; 0.7144 &amp; 0.9045\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -526,7 +535,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}0.01043 &amp; 0.859 &amp; -0.03814 &amp; 0.5104\\0.008432 &amp; 0.3208 &amp; 0.817 &amp; -0.479\\0.01469 &amp; 0.3986 &amp; -0.5753 &amp; -0.7141\\0.9998 &amp; -0.01752 &amp; 0.00196 &amp; 0.009208\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}0.9772 &amp; -0.1931 &amp; -0.08551 &amp; -0.01969\\0.07115 &amp; -0.0341 &amp; 0.9556 &amp; -0.2841\\0.1259 &amp; 0.7704 &amp; -0.1614 &amp; -0.6039\\0.1551 &amp; 0.6067 &amp; 0.2314 &amp; 0.7445\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -537,7 +546,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}0.7875 &amp; 0.3626 &amp; 0.0786 &amp; 0.293\\0 &amp; 1.029 &amp; 1.12 &amp; 1.005\\0 &amp; 0 &amp; 0.1339 &amp; -0.0505\\0 &amp; 0 &amp; 0 &amp; 0.2016\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}0.5563 &amp; 0.6252 &amp; 0.7987 &amp; 1.005\\0 &amp; 1.045 &amp; 0.9166 &amp; 0.6438\\0 &amp; 0 &amp; 0.1485 &amp; 0.4394\\0 &amp; 0 &amp; 0 &amp; 0.3444\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -548,7 +557,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}1.0 &amp; -1.226 \cdot 10^{-17} &amp; 9.328 \cdot 10^{-17} &amp; 1.502 \cdot 10^{-16}\\-1.226 \cdot 10^{-17} &amp; 1.0 &amp; -5.79 \cdot 10^{-16} &amp; -3.758 \cdot 10^{-16}\\9.328 \cdot 10^{-17} &amp; -5.79 \cdot 10^{-16} &amp; 1.0 &amp; 2.891 \cdot 10^{-15}\\1.502 \cdot 10^{-16} &amp; -3.758 \cdot 10^{-16} &amp; 2.891 \cdot 10^{-15} &amp; 1.0\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}1.0 &amp; -4.42 \cdot 10^{-17} &amp; 2.509 \cdot 10^{-16} &amp; -3.471 \cdot 10^{-16}\\-4.42 \cdot 10^{-17} &amp; 1.0 &amp; -5.979 \cdot 10^{-16} &amp; 8.862 \cdot 10^{-16}\\2.509 \cdot 10^{-16} &amp; -5.979 \cdot 10^{-16} &amp; 1.0 &amp; 4.427 \cdot 10^{-16}\\-3.471 \cdot 10^{-16} &amp; 8.862 \cdot 10^{-16} &amp; 4.427 \cdot 10^{-16} &amp; 1.0\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -562,7 +571,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Norme de I-Q^TQ =  2.8913347222332935e-15
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Norme de I-Q^TQ =  8.861899084352446e-16
 Norme infinie de QR-A =  1.1102230246251565e-16
 </pre></div>
 </div>
@@ -615,7 +624,7 @@ Norme de Q^T*Q-I =  0.9999679832111513
 </div>
 </section>
 <section id="gram-schmidt-sur-mathbb-r-n">
-<h3>Gram-Schmidt sur <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span><a class="headerlink" href="#gram-schmidt-sur-mathbb-r-n" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Gram-Schmidt sur <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span><a class="headerlink" href="#gram-schmidt-sur-mathbb-r-n" title="Lien vers cette rubrique">#</a></h3>
 <p>Il est possible de compléter <span class="math notranslate nohighlight">\({\bf q_1}\cdots {\bf q_p}\)</span> en une base orthonormée de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>, en continuant la procédure de Gram-Schmidt avec <span class="math notranslate nohighlight">\(n-p\)</span> vecteurs arbitraires, mais tels que les <span class="math notranslate nohighlight">\(n\)</span> colonnes formées avec les <span class="math notranslate nohighlight">\({\bf A_{\bullet,j}}\)</span> soient linéairement indépendantes. Soit <span class="math notranslate nohighlight">\({\bf Q_2}\)</span> la matrice des <span class="math notranslate nohighlight">\(n-p\)</span> derniers vecteurs orthonormés. On a alors bien :</p>
 <p><span class="math notranslate nohighlight">\({\bf A^\top} {\bf Q_2}={\bf R_1^\top} {\bf Q_1^\top} {\bf Q_2}=0\)</span> ce qui montre que :</p>
 <p><span class="math notranslate nohighlight">\({\bf A}={\bf QR}=[{\bf Q_1}\ {\bf Q_2}]\cdot\left [\begin{array}{c}{\bf R_1} \\{\bf 0} \\\end{array}\right]={\bf Q_1R_1}\)</span>.</p>
@@ -651,7 +660,7 @@ une base orthonormée de <span class="math notranslate nohighlight">\(Ker({\bf A
 </div>
 </section>
 <section id="retour-sur-le-probleme-aux-moindres-carres">
-<h3>Retour sur le problème aux moindres carrés<a class="headerlink" href="#retour-sur-le-probleme-aux-moindres-carres" title="Lien permanent vers cette rubrique">#</a></h3>
+<h3>Retour sur le problème aux moindres carrés<a class="headerlink" href="#retour-sur-le-probleme-aux-moindres-carres" title="Lien vers cette rubrique">#</a></h3>
 <p>Appliqué au problème des moindres carrés, le système aux équations normales s’écrit donc</p>
 <p><span class="math notranslate nohighlight">\(\begin{eqnarray*}
 {\bf A^\top Ax}&amp;=&amp; {\bf A^\top b}\\
@@ -668,7 +677,7 @@ et le calcul de l’erreur donne</p>
 </section>
 </section>
 <section id="transformations-de-householder">
-<h2>Transformations de Householder<a class="headerlink" href="#transformations-de-householder" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Transformations de Householder<a class="headerlink" href="#transformations-de-householder" title="Lien vers cette rubrique">#</a></h2>
 <p id="index-6">On peut interpréter la méthode de Gram-Schmidt comme une méthode de triangularisation de la matrice <span class="math notranslate nohighlight">\({\bf A}\)</span>, au même titre que la méthode de Gauss. Il est possible de réorganiser les calculs en construisant des transformations élémentaires orthogonales qui effectuent cette triangularisation colonne par colonne (ou élément par élément). Les symétries de Householder
 et les rotations de Givens sont des exemples simples et intéressants de telles transformations, car elles conduisent à des algorithmes numériquement plus stables que la méthode de Gram-Schmidt.</p>
 <aside class="margin sidebar">
@@ -683,7 +692,7 @@ est une matrice carrée <span class="math notranslate nohighlight">\({\bf H}\)</
 la matrice de projection
 sur la droite engendrée par un vecteur <span class="math notranslate nohighlight">\({\bf v}\)</span> non nul.</p>
 </section>
-</div><span class="target" id="index-7"></span><p id="index-8">On vérifie  que <span class="math notranslate nohighlight">\({\bf H}\)</span> représente une symétrie
+</div><p id="index-8"><span id="index-7"></span>On vérifie  que <span class="math notranslate nohighlight">\({\bf H}\)</span> représente une symétrie
 par rapport au sous-espace <span class="math notranslate nohighlight">\({\bf v^\perp}\)</span>.</p>
 <p id="index-9">Le théorème suivant montre qu’il est toujours possible de trouver une matrice de Householder
 permettant de transformer un vecteur quelconque en un vecteur colinéaire à un vecteur donné.</p>
@@ -922,7 +931,7 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/9cb68d3303d7966db125dc896c1d6394916bfcd42b24f3eed3c05d2d57be40ad.png" src="_images/9cb68d3303d7966db125dc896c1d6394916bfcd42b24f3eed3c05d2d57be40ad.png" />
+<img alt="_images/e44f6c794746ab138e12c4ebdd72afbf190ba4bf1f7ef2273ea5d271fc2f85ad.png" src="_images/e44f6c794746ab138e12c4ebdd72afbf190ba4bf1f7ef2273ea5d271fc2f85ad.png" />
 </div>
 </div>
 </section>
@@ -955,7 +964,7 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -984,6 +993,7 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1023,7 +1033,7 @@ Par Vincent BARRA
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -1047,8 +1057,8 @@ Par Vincent BARRA
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>

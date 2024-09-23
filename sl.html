@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="fr" data-content_root="" >
+<html lang="fr" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Systèmes d’équations linéaires &#8212; Analyse numérique</title>
   
@@ -15,55 +14,51 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=72dce1d2"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
-    <script src="_static/translations.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/translations.js?v=bf059b8c"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'sl';</script>
@@ -80,28 +75,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Passer au contenu principal</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Passer au contenu principal</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Haut de page</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -123,12 +113,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -162,7 +160,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Recherche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutoriels</span></p>
 <ul class="nav bd-sidenav">
@@ -221,7 +230,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -230,7 +239,7 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -319,7 +328,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -334,7 +343,7 @@ document.write(`
 </div>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="systemes-d-equations-lineaires">
-<h1>Systèmes d’équations linéaires<a class="headerlink" href="#systemes-d-equations-lineaires" title="Lien permanent vers cette rubrique">#</a></h1>
+<h1>Systèmes d’équations linéaires<a class="headerlink" href="#systemes-d-equations-lineaires" title="Lien vers cette rubrique">#</a></h1>
 <p id="index-0">Les systèmes linéaires interviennent dans de nombreux contextes
 d’applications (physique, mécanique, sciences du vivant, chimie,
 économie,…).</p>
@@ -352,7 +361,7 @@ système linéaire.</p>
 solution ou s’il a une infinité de solutions.</p>
 </section>
 </div><section id="representations-des-systemes-d-equations-lineaires">
-<h2>Représentations des systèmes d’équations linéaires<a class="headerlink" href="#representations-des-systemes-d-equations-lineaires" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Représentations des systèmes d’équations linéaires<a class="headerlink" href="#representations-des-systemes-d-equations-lineaires" title="Lien vers cette rubrique">#</a></h2>
 <p>Considérons le système de 2 équations à 2 inconnues <span class="math notranslate nohighlight">\(\begin{aligned}
 2x_1-x_2&amp;=&amp;1\label{explsl1}\\
 x_1+x_2&amp;=&amp;5 \label{explsl2}\end{aligned}\)</span></p>
@@ -389,9 +398,9 @@ vecteurs qui donnent un troisième.</p></li>
 <span class="math notranslate nohighlight">\({\bf A}\)</span>, et donc de savoir si <span class="math notranslate nohighlight">\({\bf y}\in {Im(\bf A})\)</span>.</p>
 </section>
 <section id="systemes-d-equations-lineaires-homogenes">
-<h2>Systèmes d’équations linéaires homogènes<a class="headerlink" href="#systemes-d-equations-lineaires-homogenes" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Systèmes d’équations linéaires homogènes<a class="headerlink" href="#systemes-d-equations-lineaires-homogenes" title="Lien vers cette rubrique">#</a></h2>
 <div class="proof definition admonition" id="definition-1">
-<p class="admonition-title"><span class="caption-number">Definition 24 </span> (Système homogène )</p>
+<p class="admonition-title"><span class="caption-number">Definition 24 </span> (Système homogène)</p>
 <section class="definition-content" id="proof-content">
 <p id="index-2">Un système d’équations linéaires est dit homogène si le
 second membre est nul.</p>
@@ -402,9 +411,9 @@ d’équations linéaires homogène
 <span class="math notranslate nohighlight">\({\bf A}{\bf x}={\bf 0}\)</span>. Il est clair que <span class="math notranslate nohighlight">\({\bf 0}\)</span>
 est toujours solution.</p>
 <div class="proof definition admonition" id="definition-2">
-<p class="admonition-title"><span class="caption-number">Definition 25 </span> (Noyau d’une matrice )</p>
+<p class="admonition-title"><span class="caption-number">Definition 25 </span> (Noyau d’une matrice)</p>
 <section class="definition-content" id="proof-content">
-<span class="target" id="index-3"></span><p id="index-4">L’ensemble des solutions du système linéaire est un sous-espace vectoriel de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>. Ce
+<p id="index-4"><span id="index-3"></span>L’ensemble des solutions du système linéaire est un sous-espace vectoriel de <span class="math notranslate nohighlight">\(\mathbb R^n\)</span>. Ce
 sous-espace est appelé noyau de <span class="math notranslate nohighlight">\({\bf A}\)</span>, noté <span class="math notranslate nohighlight">\(Ker({\bf A})\)</span>.</p>
 </section>
 </div><p>En effet, si <span class="math notranslate nohighlight">\({\bf x}\)</span> et <span class="math notranslate nohighlight">\({\bf y}\)</span> sont solutions de
@@ -430,7 +439,7 @@ de la matrice dont les lignes contiennent les coefficients des
 <p><img alt="" src="_images/ssesp.png" /></p>
 </aside>
 <div class="proof property admonition" id="property-3">
-<p class="admonition-title"><span class="caption-number">Property 9 </span> (Sous-espaces supplémentaires d’une matrice )</p>
+<p class="admonition-title"><span class="caption-number">Property 9 </span> (Sous-espaces supplémentaires d’une matrice)</p>
 <section class="property-content" id="proof-content">
 <p id="index-5">Soit
 <span class="math notranslate nohighlight">\({\bf A}\in \mathcal{M}_{m,n}(\mathbb{R})\)</span>. On a :</p>
@@ -461,7 +470,7 @@ Dans ce cas <span class="math notranslate nohighlight">\(Im(A)=Im({\bf A^\top} )
 <span class="math notranslate nohighlight">\(Ker({\bf A})=Ker({\bf A^\top} )=\{0\}\)</span>.</p>
 </section>
 <section id="id1">
-<h2>Systèmes d’équations linéaires<a class="headerlink" href="#id1" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Systèmes d’équations linéaires<a class="headerlink" href="#id1" title="Lien vers cette rubrique">#</a></h2>
 <p>Terminons par le problème général de la résolution d’un système linéaire
 <span class="math notranslate nohighlight">\({\bf A}{\bf x}={\bf b}\)</span> où <span class="math notranslate nohighlight">\({\bf A}\in \mathcal{M}_{m,n}(\mathbb{R})\)</span>,
 <span class="math notranslate nohighlight">\({\bf x}\in \mathbb R^n\)</span> et <span class="math notranslate nohighlight">\({\bf b}\in \mathbb R^m\)</span></p>
@@ -498,7 +507,7 @@ général.</p>
 <p><img alt="" src="_images/incomp.png" /></p>
 </aside>
 <div class="proof theorem admonition" id="theorem-4">
-<p class="admonition-title"><span class="caption-number">Theorem 2 </span> (Existence d’une solution )</p>
+<p class="admonition-title"><span class="caption-number">Theorem 2 </span> (Existence d’une solution)</p>
 <section class="theorem-content" id="proof-content">
 <p>Le système linéaire
 <span class="math notranslate nohighlight">\({\bf A}{\bf x}={\bf b}\)</span> possède au moins une solution si, et seulement
@@ -537,7 +546,7 @@ comme elle permet de calculer le rang de <span class="math notranslate nohighlig
 </section>
 </div></section>
 <section id="condition-d-une-matrice">
-<h2>Condition d’une matrice<a class="headerlink" href="#condition-d-une-matrice" title="Lien permanent vers cette rubrique">#</a></h2>
+<h2>Condition d’une matrice<a class="headerlink" href="#condition-d-une-matrice" title="Lien vers cette rubrique">#</a></h2>
 <p>Etudions les variations de la solution d’un système d’équations linéaires quand le second membre subit une perturbation :</p>
 <p><span class="math notranslate nohighlight">\({\bf Ax}={\bf b} \Rightarrow {\bf A(x+\bf \delta x)}={\bf b+\bf \delta\bf b}
 \)</span></p>
@@ -801,7 +810,7 @@ et
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0c61cde24aea422013834042095cf47657863cc77e3fc85df32968e9fcda1ec9.png" src="_images/0c61cde24aea422013834042095cf47657863cc77e3fc85df32968e9fcda1ec9.png" />
+<img alt="_images/d407deb22830d9385fc5cf4f8f537dc6e0df45178a1dce19cff23cd76a24d972.png" src="_images/d407deb22830d9385fc5cf4f8f537dc6e0df45178a1dce19cff23cd76a24d972.png" />
 </div>
 </div>
 <p>La condition de la matrice est</p>
@@ -847,7 +856,7 @@ et
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -876,6 +885,7 @@ et
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -911,7 +921,7 @@ Par Vincent BARRA
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
@@ -935,8 +945,8 @@ Par Vincent BARRA
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>
