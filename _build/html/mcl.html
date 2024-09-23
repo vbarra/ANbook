@@ -1,443 +1,340 @@
 
 <!DOCTYPE html>
 
-<html lang="fr">
+
+<html lang="fr" data-content_root="./" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Moindres carrés linéaires &#8212; Analyse numérique</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="_static/documentation_options.js?v=72dce1d2"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
-    <script src="_static/translations.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="_static/translations.js?v=bf059b8c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'mcl';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Transformations orthogonales" href="transfoortho.html" />
     <link rel="prev" title="Projections orthogonales" href="projections.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="fr">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="fr"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Passer au contenu principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Haut de page</button>
 
-    
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="_static/isimainp.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Analyse numérique</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Tutoriels
- </span>
-</p>
+    
+    
+    <img src="_static/isimainp.png" class="logo__image only-light" alt="Analyse numérique - Home"/>
+    <script>document.write(`<img src="_static/isimainp.png" class="logo__image only-dark" alt="Analyse numérique - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Recherche</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutoriels</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="Installation.html">
-   Installation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Tutoriel-jupyter.html">
-   Tutoriel Jupyter
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Tutoriel-numpy.html">
-   Tutoriel Numpy
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Tutoriel-matplotlib.html">
-   Tutoriel Matplotlib
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutoriel-jupyter.html">Tutoriel Jupyter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutoriel-numpy.html">Tutoriel Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutoriel-matplotlib.html">Tutoriel Matplotlib</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Introduction au calcul matriciel
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction au calcul matriciel</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="ev.html">
-   Espaces Vectoriels
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="matrices.html">
-   Matrices
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="sl.html">
-   Systèmes d’équations linéaires
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ch1exos.html">
-   Exercices
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="ev.html">Espaces Vectoriels</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrices.html">Matrices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sl.html">Systèmes d’équations linéaires</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch1exos.html">Exercices</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Elimination de Gauss
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Elimination de Gauss</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="ch2.html">
-   Transformations élémentaires
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="gauss.html">
-   Elimination de Gauss
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lu.html">
-   Facteurs LU d’une matrice non singulière
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="ch2.html">Transformations élémentaires</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gauss.html">Elimination de Gauss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lu.html">Facteurs LU d’une matrice non singulière</a></li>
+
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Moindres carrés linéaires
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Moindres carrés linéaires</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="projections.html">
-   Projections orthogonales
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Moindres carrés linéaires
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="transfoortho.html">
-   Transformations orthogonales
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="exomcl.html">
-   Exercices
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="projections.html">Projections orthogonales</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Moindres carrés linéaires</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transfoortho.html">Transformations orthogonales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exomcl.html">Exercices</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Analyse spectrale
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Analyse spectrale</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="introspect.html">
-   Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="resspec.html">
-   Résultats généraux
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="gershgorin.html">
-   Disques de Gershgorin
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="similitudes.html">
-   Similitudes
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="jacobi.html">
-   Méthode de Jacobi
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="puissiter.html">
-   Méthode des puissances itérées
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="QRspec.html">
-   Puissances groupées et méthode QR
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="exospec.html">
-   Exercices
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="introspect.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resspec.html">Résultats généraux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gershgorin.html">Disques de Gershgorin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="similitudes.html">Similitudes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jacobi.html">Méthode de Jacobi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="puissiter.html">Méthode des puissances itérées</a></li>
+<li class="toctree-l1"><a class="reference internal" href="QRspec.html">Puissances groupées et méthode QR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exospec.html">Exercices</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Index
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Index</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="genindex.html">
-   Index
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
-          
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
 
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
-    <div class="header-article__right">
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Mode plein écran"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
 
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="clair/sombre" aria-label="clair/sombre" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#modelisation">
-   Modélisation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#stabilite">
-   Stabilité
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#systemes-incompatibles">
-   Systèmes incompatibles
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#un-exemple-de-regression-polynomiale-par-moindres-carres">
-   Un exemple de régression polynomiale par moindres carrés
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#un-exemple-de-regression-lineaire">
-   Un exemple de régression linéaire
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Moindres carrés linéaires</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#modelisation">
-   Modélisation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#stabilite">
-   Stabilité
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#systemes-incompatibles">
-   Systèmes incompatibles
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#un-exemple-de-regression-polynomiale-par-moindres-carres">
-   Un exemple de régression polynomiale par moindres carrés
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#un-exemple-de-regression-lineaire">
-   Un exemple de régression linéaire
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Moindres carrés linéaires</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenu </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelisation">Modélisation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stabilite">Stabilité</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#systemes-incompatibles">Systèmes incompatibles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#un-exemple-de-regression-polynomiale-par-moindres-carres">Un exemple de régression polynomiale par moindres carrés</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#un-exemple-de-regression-lineaire">Un exemple de régression linéaire</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
-  <div class="tex2jax_ignore mathjax_ignore section" id="moindres-carres-lineaires">
-<h1>Moindres carrés linéaires<a class="headerlink" href="#moindres-carres-lineaires" title="Lien permanent vers ce titre">#</a></h1>
-<div class="section" id="modelisation">
-<h2>Modélisation<a class="headerlink" href="#modelisation" title="Lien permanent vers ce titre">#</a></h2>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="moindres-carres-lineaires">
+<h1>Moindres carrés linéaires<a class="headerlink" href="#moindres-carres-lineaires" title="Lien vers cette rubrique">#</a></h1>
+<section id="modelisation">
+<h2>Modélisation<a class="headerlink" href="#modelisation" title="Lien vers cette rubrique">#</a></h2>
 <p>On observe un système <span class="math notranslate nohighlight">\(\mathcal S\)</span> qui produit, pour une sollicitation en entrée <span class="math notranslate nohighlight">\(t\)</span> donnée, une sortie <span class="math notranslate nohighlight">\(Y\)</span> (par exemple la vitesse d’un coureur en fonction du temps, la température d’une pièce mesurée chaque seconde,…). L’objectif est de construire un modèle théorique de <span class="math notranslate nohighlight">\(\mathcal S\)</span>, qui reproduise aussi fidèlement que possible le comportement du système.</p>
 <p>On se donne donc un modèle (une fonction) <span class="math notranslate nohighlight">\(f_{\bf x}\)</span>, paramétrée par <span class="math notranslate nohighlight">\(n\)</span> paramètres <span class="math notranslate nohighlight">\({\bf x}=\left (x_1\cdots x_n\right )^\top\in\mathbb R^n\)</span>, qui calcule pour chaque entrée <span class="math notranslate nohighlight">\(t\)</span> la valeur <span class="math notranslate nohighlight">\(f_{\bf x}(t) = y\)</span>.</p>
 <p>Pour <span class="math notranslate nohighlight">\(m\)</span> entrées <span class="math notranslate nohighlight">\(t_i, 1\leq i\leq m\)</span>, on souhaite donc que les valeurs <span class="math notranslate nohighlight">\(y_i=f_{\bf x}(t_i)\)</span> calculées par le modèle soient les plus proches possibles des valeurs théoriques <span class="math notranslate nohighlight">\(Y_i\)</span> mesurées sur <span class="math notranslate nohighlight">\(\mathcal S\)</span>. L’ajustement du modèle se fait à l’aide du vecteur de paramètres <span class="math notranslate nohighlight">\({\bf x}\)</span>.</p>
@@ -452,16 +349,16 @@ consiste à choisir  <span class="math notranslate nohighlight">\({\bf x}\)</spa
 <p>Si <span class="math notranslate nohighlight">\(rang({\bf A})=n\)</span> (hypothèse raisonnable car <span class="math notranslate nohighlight">\(m&gt;&gt;n\)</span> et les <span class="math notranslate nohighlight">\({\bf a_i}\)</span> dépendent des entrées <span class="math notranslate nohighlight">\(t_i\)</span>), ce système a une solution unique</p>
 <p><span class="math notranslate nohighlight">\({\bf x}={\bf (A^\top A)^{-1}A^\top Y}\)</span></p>
 <p>dite solution aux moindres carrés. La matrice <span class="math notranslate nohighlight">\({\bf A^+}={\bf (A^\top A)^{-1}A^\top}\)</span> (Attention !! ce n’est pas la matrice de projection) est la pseudo inverse de la matrice rectangulaire <span class="math notranslate nohighlight">\({\bf A}\)</span>. Elle satisfait <span class="math notranslate nohighlight">\({\bf A^+A}=\mathbb I\)</span> et <span class="math notranslate nohighlight">\({\bf AA^+}={\bf P}\)</span>.</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p><img alt="" src="_images/mcl1.png" /></p>
-</div>
+</aside>
 <div class="proof example admonition" id="example-0">
 <p class="admonition-title"><span class="caption-number">Example 11 </span></p>
-<div class="example-content section" id="proof-content">
+<section class="example-content" id="proof-content">
 <p>Le système <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> produit pour les entrées <span class="math notranslate nohighlight">\(t_i =\{-1,0,1\}\)</span> les sorties <span class="math notranslate nohighlight">\(Y_i=\{4,5,9\}\)</span></p>
 <p>On modélise <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> à l’aide d’un modèle affine <span class="math notranslate nohighlight">\(y=\alpha+\beta t\)</span>, où <span class="math notranslate nohighlight">\(\alpha\)</span> et <span class="math notranslate nohighlight">\(\beta\)</span> sont deux paramètres à déterminer pour minimiser au sens des moindres carrés l’erreur des trois mesures.</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Point</p></th>
 <th class="head"><p><span class="math notranslate nohighlight">\(t_i\)</span></p></th>
@@ -487,6 +384,7 @@ consiste à choisir  <span class="math notranslate nohighlight">\({\bf x}\)</spa
 </tr>
 </tbody>
 </table>
+</div>
 <p>Le système
 <span class="math notranslate nohighlight">\({\bf Ax} = {\bf Y} :
 \left \{
@@ -508,13 +406,13 @@ le système par
 \)</span>
 la solution aux moindres carrés est donc <span class="math notranslate nohighlight">\(\alpha=6\)</span> et <span class="math notranslate nohighlight">\(\beta=5/2\)</span>.
 Le vecteur des erreurs <span class="math notranslate nohighlight">\({\bf Y}-{\bf Ax}=(1/2\)</span> <span class="math notranslate nohighlight">\(-1\)</span> <span class="math notranslate nohighlight">\(1/2)^\top \)</span> est bien orthogonal dans <span class="math notranslate nohighlight">\(R^3\)</span> aux colonnes de <span class="math notranslate nohighlight">\({\bf A}\)</span>. Chaque erreur peut être également représentée par la distance verticale entre la mesure <span class="math notranslate nohighlight">\({ Y_i}\)</span> et la droite <span class="math notranslate nohighlight">\(f(t)=6+\frac{5}{2}t\)</span> pour <span class="math notranslate nohighlight">\(t=t_i\)</span> (segments rouges).</p>
-</div>
+</section>
 </div><div class="proof example admonition" id="example-1">
 <p class="admonition-title"><span class="caption-number">Example 12 </span></p>
-<div class="example-content section" id="proof-content">
+<section class="example-content" id="proof-content">
 <p>Le système <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> produit pour les entrées <span class="math notranslate nohighlight">\(t_i =\{-2,-1,0,1,2\}\)</span> les sorties <span class="math notranslate nohighlight">\(Y_i=\{3,1,-0.5,1.5,4\}\)</span>.</p>
 <p>On modélise <span class="math notranslate nohighlight">\(\mathcal{S}\)</span> par un polynôme <span class="math notranslate nohighlight">\(P(t)=\alpha+\beta t+\gamma t^2 = {\bf a^\top}{\bf x}\)</span>, où <span class="math notranslate nohighlight">\({\bf x}=\begin{pmatrix}\alpha\\\beta\\\gamma\end{pmatrix} \)</span>et <span class="math notranslate nohighlight">\({\bf a}=\begin{pmatrix}1\\t\\t^2\end{pmatrix}\)</span>. On recherche les valeurs de <span class="math notranslate nohighlight">\(\alpha,\beta,\gamma\)</span> qui minimisent la somme des carrés des erreurs entre les valeurs théoriques et les valeurs mesurées.</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Point</p></th>
 <th class="head"><p><span class="math notranslate nohighlight">\(t_i\)</span></p></th>
@@ -550,6 +448,7 @@ Le vecteur des erreurs <span class="math notranslate nohighlight">\({\bf Y}-{\bf
 </tr>
 </tbody>
 </table>
+</div>
 <p>En posant <span class="math notranslate nohighlight">\({\bf A}=\begin{pmatrix}
 1&amp;-2&amp;4\\1&amp;-1&amp;1\\1&amp;0&amp;0\\1&amp;1&amp;1\\1&amp;2&amp;4
 \end{pmatrix}\)</span> et <span class="math notranslate nohighlight">\({\bf Y}\begin{pmatrix}
@@ -558,10 +457,10 @@ Le vecteur des erreurs <span class="math notranslate nohighlight">\({\bf Y}-{\bf
 \)</span>, on cherche <span class="math notranslate nohighlight">\({\bf x}\)</span> qui minimise <span class="math notranslate nohighlight">\(\|{\bf Ax}-{\bf Y}\|^2\)</span>, soit encore <span class="math notranslate nohighlight">\({\bf x}\)</span> solution du système aux équations normales <span class="math notranslate nohighlight">\({\bf A^\top Ax}={\bf A^\top Y}\)</span>.</p>
 <p>On a alors</p>
 <p><span class="math notranslate nohighlight">\({\bf A^\top A}=\begin{pmatrix}5&amp;0&amp;10\\0&amp;10&amp;0\\10&amp;0&amp;34\end{pmatrix}\quad{\bf A^\top Y}=\begin{pmatrix}9\\2.5\\30.5\end{pmatrix}\textrm{ d'où } P(t)=\frac{1}{70}+\frac{1}{4}t+\frac{25}{28}t^2\)</span></p>
-</div>
-</div></div>
-<div class="section" id="stabilite">
-<h2>Stabilité<a class="headerlink" href="#stabilite" title="Lien permanent vers ce titre">#</a></h2>
+</section>
+</div></section>
+<section id="stabilite">
+<h2>Stabilité<a class="headerlink" href="#stabilite" title="Lien vers cette rubrique">#</a></h2>
 <p>Soit le problème aux moindres carrés</p>
 <div class="math notranslate nohighlight">
 \[\displaystyle\min_x \|\mathbf{Ax}-\mathbf b\|^2\]</div>
@@ -570,7 +469,7 @@ Le vecteur des erreurs <span class="math notranslate nohighlight">\({\bf Y}-{\bf
 \[\bf x = \bf A^+\bf b\quad \textrm{ou}\quad \bf y=\bf{Pb}=\mathbf A\mathbf x\]</div>
 <p>avec <span class="math notranslate nohighlight">\(\bf P=\bf{A(A^\top A)^{-1}A^\top}\)</span> la matrice de projection sur <span class="math notranslate nohighlight">\(Im \bf A\)</span>.</p>
 <p>Pour étudier la stabilité du problème aux moindres carrés par rapport à des perturbations sur <span class="math notranslate nohighlight">\(\bf A\)</span> et <span class="math notranslate nohighlight">\(\bf b\)</span>, on s’intéresse à trois quantités sans dimension :</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>la condition <span class="math notranslate nohighlight">\(\sigma_A\in[1,+\infty[\)</span>, égale à <span class="math notranslate nohighlight">\(\|\bf A\|\|\bf A^{-1}\|\)</span> dans le cas d’une matrice carrée (et égale à  <span class="math notranslate nohighlight">\(\|\bf A\|\|\bf A^{+}\|\)</span> dans le cas général)</p></li>
 <li><p>l’angle <span class="math notranslate nohighlight">\(\theta\in[0,\pi/2[\)</span> entre <span class="math notranslate nohighlight">\(\bf b\)</span> et <span class="math notranslate nohighlight">\(y\)</span> : <span class="math notranslate nohighlight">\(\theta = cos^{-1}\frac{\|\bf y\|}{\|\bf b\|}\)</span></p></li>
 <li><p>une mesure <span class="math notranslate nohighlight">\(\eta\in[1,\sigma_A]\)</span> quantifiant l’écart entre  <span class="math notranslate nohighlight">\(\|\bf y\|\)</span> et sa valeur maximum possible, étant données <span class="math notranslate nohighlight">\(\|\bf A\|\)</span> et <span class="math notranslate nohighlight">\(\|\bf x\|\)</span> : <span class="math notranslate nohighlight">\(\eta = \frac{\|\bf A\|\|\bf x\|}{\|\bf y\|}=\frac{\|\bf A\|\|\bf x\|}{\|\bf{Ax}\|}\)</span></p></li>
@@ -578,39 +477,40 @@ Le vecteur des erreurs <span class="math notranslate nohighlight">\({\bf Y}-{\bf
 <p>On montre alors le théorème suivant.</p>
 <div class="proof theorem admonition" id="theorem-2">
 <p class="admonition-title"><span class="caption-number">Theorem 7 </span> (admis)</p>
-<div class="theorem-content section" id="proof-content">
+<section class="theorem-content" id="proof-content">
 <p>Si <span class="math notranslate nohighlight">\(\bf A\in\mathcal{M}_{mn}(\mathbb{R})\)</span> est de rang plein, le problème aux moindres carrés a la condition suivante relative à la norme 2, décrivant la sensibilité de <span class="math notranslate nohighlight">\(\bf y\)</span> aux perturbations sur <span class="math notranslate nohighlight">\(\bf A\)</span> et <span class="math notranslate nohighlight">\(\bf b\)</span> :</p>
-<table class="colwidths-auto table">
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd"><th class="text-align:center head"><p></p></th>
-<th class="text-align:center head"><p><span class="math notranslate nohighlight">\(\bf y\)</span></p></th>
-<th class="text-align:right head"><p><span class="math notranslate nohighlight">\(\bf x\)</span></p></th>
+<tr class="row-odd"><th class="head text-center"><p></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(\bf y\)</span></p></th>
+<th class="head text-right"><p><span class="math notranslate nohighlight">\(\bf x\)</span></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:center"><p><span class="math notranslate nohighlight">\(\bf b\)</span></p></td>
-<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\frac{1}{cos\theta}\)</span></p></td>
-<td class="text-align:right"><p><span class="math notranslate nohighlight">\(\frac{\sigma_A}{\eta cos\theta}\)</span></p></td>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(\bf b\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\frac{1}{cos\theta}\)</span></p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(\frac{\sigma_A}{\eta cos\theta}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><span class="math notranslate nohighlight">\(\bf A\)</span></p></td>
-<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\frac{\sigma_A}{cos\theta}\)</span></p></td>
-<td class="text-align:right"><p><span class="math notranslate nohighlight">\(\sigma_A+\frac{\sigma_A^2tan\theta}{\eta}\)</span></p></td>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(\bf A\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\frac{\sigma_A}{cos\theta}\)</span></p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(\sigma_A+\frac{\sigma_A^2tan\theta}{\eta}\)</span></p></td>
 </tr>
 </tbody>
 </table>
+</div>
 <p>Les résultats de la première ligne sont exacts, et atteints pour une certaine perturbation <span class="math notranslate nohighlight">\(\delta\bf b\)</span>, ceux de la seconde ligne sont des bornes supérieures.</p>
-</div>
+</section>
 </div><p>si <span class="math notranslate nohighlight">\(m=n\)</span>, <span class="math notranslate nohighlight">\(\bf A\)</span> est inversible et donc <span class="math notranslate nohighlight">\(\theta=0\)</span>.</p>
-</div>
-<div class="section" id="systemes-incompatibles">
-<h2>Systèmes incompatibles<a class="headerlink" href="#systemes-incompatibles" title="Lien permanent vers ce titre">#</a></h2>
+</section>
+<section id="systemes-incompatibles">
+<h2>Systèmes incompatibles<a class="headerlink" href="#systemes-incompatibles" title="Lien vers cette rubrique">#</a></h2>
 <p id="index-0">Soit un système linéaire incompatible <span class="math notranslate nohighlight">\({\bf Ax}={\bf b}\)</span>, où <span class="math notranslate nohighlight">\({\bf A}\in\mathcal{M}_{mn}(\mathbb R)\)</span> est telle que <span class="math notranslate nohighlight">\(rang({\bf A})&lt;m\)</span> et <span class="math notranslate nohighlight">\({\bf b}\notin Im({\bf A})\)</span>. On supposera par exemple (comme dans le cas des moindres carrés) que <span class="math notranslate nohighlight">\(m&gt;n\)</span> et <span class="math notranslate nohighlight">\(rang({\bf A})=n\)</span>. Le système n’a donc pas de solution, et on le remplace par le système aux équations normales obtenu en le multipliant par <span class="math notranslate nohighlight">\({\bf A^\top} \)</span> :</p>
 <p><span class="math notranslate nohighlight">\({\bf A^\top Ax}={\bf A^\top b}\)</span></p>
 <p>Ce système est en général mal conditionné car <span class="math notranslate nohighlight">\(\sigma({\bf A^\top A}) = \sigma^2({\bf A})\)</span> dans le cas d’une matrice carrée <span class="math notranslate nohighlight">\({\bf A}\)</span>. La méthode de Gauss risque d’être inefficace et on lui préférera des méthodes basées sur des transformations orthogonales qui ont l’avantage d’être numériquement stables.</p>
 <p>Finalement, si les colonnes de <span class="math notranslate nohighlight">\({\bf A}\)</span> sont orthonormées i.e. orthogonales deux à deux et de norme 1) <span class="math notranslate nohighlight">\({\bf A^\top A}=\mathbb I\)</span> (l’identité dans la « petite » dimension <span class="math notranslate nohighlight">\(n\)</span>) et la solution des équations normales est simplement <span class="math notranslate nohighlight">\({\bf x^*}={\bf A^\top b}\)</span>. La  « bonne » stratégie pour résoudre le problème des moindres carrés est donc de construire une base orthonormée de <span class="math notranslate nohighlight">\(Im({\bf A})\)</span> pour calculer explicitement la projection. On verra que cette construction revient à triangulariser la matrice par des transformations orthogonales.</p>
-</div>
-<div class="section" id="un-exemple-de-regression-polynomiale-par-moindres-carres">
-<h2>Un exemple de régression polynomiale par moindres carrés<a class="headerlink" href="#un-exemple-de-regression-polynomiale-par-moindres-carres" title="Lien permanent vers ce titre">#</a></h2>
+</section>
+<section id="un-exemple-de-regression-polynomiale-par-moindres-carres">
+<h2>Un exemple de régression polynomiale par moindres carrés<a class="headerlink" href="#un-exemple-de-regression-polynomiale-par-moindres-carres" title="Lien vers cette rubrique">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -646,7 +546,7 @@ Le vecteur des erreurs <span class="math notranslate nohighlight">\({\bf Y}-{\bf
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;y&#39;)
 </pre></div>
 </div>
-<img alt="_images/mcl_2_1.png" src="_images/mcl_2_1.png" />
+<img alt="_images/f0d186cdf753317624ee7bf59a62ef2b90f65f3e59f7b752910c1ed049a4a6bf.png" src="_images/f0d186cdf753317624ee7bf59a62ef2b90f65f3e59f7b752910c1ed049a4a6bf.png" />
 </div>
 </div>
 <p>On fait passer un polynome de degré <span class="math notranslate nohighlight">\(d\)</span> par moindres carrés.</p>
@@ -695,7 +595,7 @@ Le vecteur des erreurs <span class="math notranslate nohighlight">\({\bf Y}-{\bf
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/mcl_6_0.png" src="_images/mcl_6_0.png" />
+<img alt="_images/d39795fa3e888e426c8b156b23090254cda92d12caa75d485990d80c079e345f.png" src="_images/d39795fa3e888e426c8b156b23090254cda92d12caa75d485990d80c079e345f.png" />
 </div>
 </div>
 <p>et on teste la précision du modèle en fonction du degré du polynôme</p>
@@ -720,12 +620,12 @@ Le vecteur des erreurs <span class="math notranslate nohighlight">\({\bf Y}-{\bf
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/mcl_8_0.png" src="_images/mcl_8_0.png" />
+<img alt="_images/095b36e79a9b754a6bf4c6bdc7b6cc358c1c4911d2717572ee1ce5613009ea61.png" src="_images/095b36e79a9b754a6bf4c6bdc7b6cc358c1c4911d2717572ee1ce5613009ea61.png" />
 </div>
 </div>
-</div>
-<div class="section" id="un-exemple-de-regression-lineaire">
-<h2>Un exemple de régression linéaire<a class="headerlink" href="#un-exemple-de-regression-lineaire" title="Lien permanent vers ce titre">#</a></h2>
+</section>
+<section id="un-exemple-de-regression-lineaire">
+<h2>Un exemple de régression linéaire<a class="headerlink" href="#un-exemple-de-regression-lineaire" title="Lien vers cette rubrique">#</a></h2>
 <p>On construit un nuage de points dans <span class="math notranslate nohighlight">\(\mathbb R^3\)</span>, initialement sur un plan, et bruité par un bruit suivant une loi centré d’écart-type <span class="math notranslate nohighlight">\(\sigma\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -765,10 +665,10 @@ Le vecteur des erreurs <span class="math notranslate nohighlight">\({\bf Y}-{\bf
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Erreur :  4.881553908282092
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Erreur :  5.406642282579403
 </pre></div>
 </div>
-<img alt="_images/mcl_12_1.png" src="_images/mcl_12_1.png" />
+<img alt="_images/b940650720006ee45fcaa72cfe22f356de65c1902b67d9a23ead9edb9a530dce.png" src="_images/b940650720006ee45fcaa72cfe22f356de65c1902b67d9a23ead9edb9a530dce.png" />
 </div>
 </div>
 <p>On affiche le modèle pour un niveau de bruit <span class="math notranslate nohighlight">\(s\sigma\)</span>=0.7</p>
@@ -810,19 +710,77 @@ Le vecteur des erreurs <span class="math notranslate nohighlight">\({\bf Y}-{\bf
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.9/site-packages/numpy/core/shape_base.py:121: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify &#39;dtype=object&#39; when creating the ndarray.
-  ary = asanyarray(ary)
-/usr/local/lib/python3.9/site-packages/numpy/core/fromnumeric.py:1970: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify &#39;dtype=object&#39; when creating the ndarray.
-  result = asarray(a).shape
-/usr/local/lib/python3.9/site-packages/numpy/lib/stride_tricks.py:341: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify &#39;dtype=object&#39; when creating the ndarray.
-  array = np.array(array, copy=False, subok=subok)
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">19</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="n">z</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]),</span><span class="n">X</span><span class="p">),</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]),</span><span class="n">X</span><span class="p">),</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]),</span><span class="n">X</span><span class="p">)]</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="n">verts</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">))]</span>
+<span class="ne">---&gt; </span><span class="mi">19</span> <span class="n">predicted_plane</span> <span class="o">=</span> <span class="n">Poly3DCollection</span><span class="p">(</span><span class="n">verts</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="n">predicted_plane</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="n">ax2</span><span class="o">.</span><span class="n">add_collection3d</span><span class="p">(</span><span class="n">predicted_plane</span><span class="p">)</span>
+
+<span class="nn">File ~/Venv/lib/python3.9/site-packages/mpl_toolkits/mplot3d/art3d.py:921,</span> in <span class="ni">Poly3DCollection.__init__</span><span class="nt">(self, verts, zsort, shade, lightsource, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">917</span>     <span class="k">if</span> <span class="n">facecolors</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">edgecolors</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">918</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">919</span>             <span class="s2">&quot;You must provide facecolors, edgecolors, or both for &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">920</span>             <span class="s2">&quot;shade to work.&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">921</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">verts</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">922</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">verts</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">923</span>     <span class="k">if</span> <span class="n">verts</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
+
+<span class="nn">File ~/Venv/lib/python3.9/site-packages/matplotlib/collections.py:1200,</span> in <span class="ni">PolyCollection.__init__</span><span class="nt">(self, verts, sizes, closed, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1198</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1199</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_sizes</span><span class="p">(</span><span class="n">sizes</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1200</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_verts</span><span class="p">(</span><span class="n">verts</span><span class="p">,</span> <span class="n">closed</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1201</span> <span class="bp">self</span><span class="o">.</span><span class="n">stale</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="nn">File ~/Venv/lib/python3.9/site-packages/mpl_toolkits/mplot3d/art3d.py:977,</span> in <span class="ni">Poly3DCollection.set_verts</span><span class="nt">(self, verts, closed)</span>
+<span class="g g-Whitespace">    </span><span class="mi">963</span> <span class="k">def</span> <span class="nf">set_verts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verts</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">964</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">965</span><span class="sd">     Set 3D vertices.</span>
+<span class="g g-Whitespace">    </span><span class="mi">966</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">975</span><span class="sd">         connection at the end.</span>
+<span class="g g-Whitespace">    </span><span class="mi">976</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">977</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_vector</span><span class="p">(</span><span class="n">verts</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">978</span>     <span class="c1"># 2D verts will be updated at draw time</span>
+<span class="g g-Whitespace">    </span><span class="mi">979</span>     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">set_verts</span><span class="p">([],</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="nn">File ~/Venv/lib/python3.9/site-packages/mpl_toolkits/mplot3d/art3d.py:954,</span> in <span class="ni">Poly3DCollection.get_vector</span><span class="nt">(self, segments3d)</span>
+<span class="g g-Whitespace">    </span><span class="mi">952</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Optimize points for projection.&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">953</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">segments3d</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">954</span>     <span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">,</span> <span class="n">zs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">segments3d</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<span class="g g-Whitespace">    </span><span class="mi">955</span> <span class="k">else</span><span class="p">:</span>  <span class="c1"># vstack can&#39;t stack zero arrays.</span>
+<span class="g g-Whitespace">    </span><span class="mi">956</span>     <span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">,</span> <span class="n">zs</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
+
+<span class="nn">File ~/Venv/lib/python3.9/site-packages/numpy/core/shape_base.py:286,</span> in <span class="ni">vstack</span><span class="nt">(tup, dtype, casting)</span>
+<span class="g g-Whitespace">    </span><span class="mi">219</span> <span class="nd">@array_function_dispatch</span><span class="p">(</span><span class="n">_vhstack_dispatcher</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span> <span class="k">def</span> <span class="nf">vstack</span><span class="p">(</span><span class="n">tup</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">casting</span><span class="o">=</span><span class="s2">&quot;same_kind&quot;</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">221</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">222</span><span class="sd">     Stack arrays in sequence vertically (row wise).</span>
+<span class="g g-Whitespace">    </span><span class="mi">223</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">284</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">285</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">286</span>     <span class="n">arrs</span> <span class="o">=</span> <span class="n">atleast_2d</span><span class="p">(</span><span class="o">*</span><span class="n">tup</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">287</span>     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arrs</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">288</span>         <span class="n">arrs</span> <span class="o">=</span> <span class="p">[</span><span class="n">arrs</span><span class="p">]</span>
+
+<span class="nn">File ~/Venv/lib/python3.9/site-packages/numpy/core/shape_base.py:121,</span> in <span class="ni">atleast_2d</span><span class="nt">(*arys)</span>
+<span class="g g-Whitespace">    </span><span class="mi">119</span> <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">    </span><span class="mi">120</span> <span class="k">for</span> <span class="n">ary</span> <span class="ow">in</span> <span class="n">arys</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">121</span>     <span class="n">ary</span> <span class="o">=</span> <span class="n">asanyarray</span><span class="p">(</span><span class="n">ary</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">122</span>     <span class="k">if</span> <span class="n">ary</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">123</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">ary</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: setting an array element with a sequence. The requested array has an inhomogeneous shape after 2 dimensions. The detected shape was (4, 3) + inhomogeneous part.
 </pre></div>
 </div>
-<img alt="_images/mcl_14_1.png" src="_images/mcl_14_1.png" />
+<img alt="_images/9d8dfdda5880eed8b51b0d143ce0a8fef0be7f90e4655d0fe9018b0ce6572260.png" src="_images/9d8dfdda5880eed8b51b0d143ce0a8fef0be7f90e4655d0fe9018b0ce6572260.png" />
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -836,7 +794,7 @@ Le vecteur des erreurs <span class="math notranslate nohighlight">\({\bf Y}-{\bf
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -844,50 +802,107 @@ Le vecteur des erreurs <span class="math notranslate nohighlight">\({\bf Y}-{\bf
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="projections.html" title="précédent page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">précédent</p>
-            <p class="prev-next-title">Projections orthogonales</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="projections.html"
+       title="page précédente">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">précédent</p>
+        <p class="prev-next-title">Projections orthogonales</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="transfoortho.html" title="suivant page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="transfoortho.html"
+       title="page suivante">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
         <p class="prev-next-title">Transformations orthogonales</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenu
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelisation">Modélisation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stabilite">Stabilité</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#systemes-incompatibles">Systèmes incompatibles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#un-exemple-de-regression-polynomiale-par-moindres-carres">Un exemple de régression polynomiale par moindres carrés</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#un-exemple-de-regression-lineaire">Un exemple de régression linéaire</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By Vincent BARRA<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+Par Vincent BARRA
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
