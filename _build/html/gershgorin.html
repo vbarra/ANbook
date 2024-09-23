@@ -1,62 +1,49 @@
 
-
 <!DOCTYPE html>
 
-
-<html lang="fr" data-content_root="" >
-
+<html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Disques de Gershgorin &#8212; Analyse numérique</title>
-  
-  
-  
-  <script data-cfasync="false">
-    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
-  </script>
-  
+    
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
-  
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/proof.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
-  
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script src="_static/translations.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -66,248 +53,310 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'gershgorin';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Recherche" href="search.html" />
     <link rel="next" title="Similitudes" href="similitudes.html" />
     <link rel="prev" title="Résultats généraux" href="resspec.html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="fr"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="fr">
+    
+
+    <!-- Google Analytics -->
+    
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
 
-  
-  
-  <a class="skip-link" href="#main-content">Passer au contenu principal</a>
-  
-  <div id="pst-scroll-pixel-helper"></div>
+    
+    <div class="container-fluid" id="banner"></div>
 
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    
 
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
-<form class="bd-search d-flex align-items-center"
-      action="search.html"
-      method="get">
-  <i class="fa-solid fa-magnifying-glass"></i>
-  <input type="search"
-         class="form-control"
-         name="q"
-         id="search-input"
-         placeholder="Search..."
-         aria-label="Search..."
-         autocomplete="off"
-         autocorrect="off"
-         autocapitalize="off"
-         spellcheck="false"/>
-  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
-  
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
-  
-  <div class="bd-container">
-    <div class="bd-container__inner bd-page-width">
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
         
-
-  
-  <div class="sidebar-header-items sidebar-primary__section">
-    
-    
-    
-    
-  </div>
-  
-    <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item">
-
-  
-
-<a class="navbar-brand logo" href="intro.html">
-  
-  
-  
-  
-  
-    
-    
       
-    
-    
-    <img src="_static/isimainp.png" class="logo__image only-light" alt="Analyse numérique - Home"/>
-    <script>document.write(`<img src="_static/isimainp.png" class="logo__image only-dark" alt="Analyse numérique - Home"/>`);</script>
-  
-  
-</a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutoriels</span></p>
+      
+      <img src="_static/isimainp.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Analyse numérique</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutoriels
+ </span>
+</p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tutoriel-jupyter.html">Tutoriel Jupyter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tutoriel-numpy.html">Tutoriel Numpy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tutoriel-matplotlib.html">Tutoriel Matplotlib</a></li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Installation.html">
+   Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tutoriel-jupyter.html">
+   Tutoriel Jupyter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tutoriel-numpy.html">
+   Tutoriel Numpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Tutoriel-matplotlib.html">
+   Tutoriel Matplotlib
+  </a>
+ </li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction au calcul matriciel</span></p>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction au calcul matriciel
+ </span>
+</p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ev.html">Espaces Vectoriels</a></li>
-<li class="toctree-l1"><a class="reference internal" href="matrices.html">Matrices</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sl.html">Systèmes d’équations linéaires</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch1exos.html">Exercices</a></li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ev.html">
+   Espaces Vectoriels
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="matrices.html">
+   Matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sl.html">
+   Systèmes d’équations linéaires
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch1exos.html">
+   Exercices
+  </a>
+ </li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Elimination de Gauss</span></p>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Elimination de Gauss
+ </span>
+</p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ch2.html">Transformations élémentaires</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gauss.html">Elimination de Gauss</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lu.html">Facteurs LU d’une matrice non singulière</a></li>
-
+ <li class="toctree-l1">
+  <a class="reference internal" href="ch2.html">
+   Transformations élémentaires
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gauss.html">
+   Elimination de Gauss
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lu.html">
+   Facteurs LU d’une matrice non singulière
+  </a>
+ </li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Moindres carrés linéaires</span></p>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Moindres carrés linéaires
+ </span>
+</p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="projections.html">Projections orthogonales</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mcl.html">Moindres carrés linéaires</a></li>
-<li class="toctree-l1"><a class="reference internal" href="transfoortho.html">Transformations orthogonales</a></li>
-<li class="toctree-l1"><a class="reference internal" href="exomcl.html">Exercices</a></li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="projections.html">
+   Projections orthogonales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mcl.html">
+   Moindres carrés linéaires
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="transfoortho.html">
+   Transformations orthogonales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exomcl.html">
+   Exercices
+  </a>
+ </li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Analyse spectrale</span></p>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Analyse spectrale
+ </span>
+</p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="introspect.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="resspec.html">Résultats généraux</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Disques de Gershgorin</a></li>
-<li class="toctree-l1"><a class="reference internal" href="similitudes.html">Similitudes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jacobi.html">Méthode de Jacobi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="puissiter.html">Méthode des puissances itérées</a></li>
-<li class="toctree-l1"><a class="reference internal" href="QRspec.html">Puissances groupées et méthode QR</a></li>
-<li class="toctree-l1"><a class="reference internal" href="exospec.html">Exercices</a></li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="introspect.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="resspec.html">
+   Résultats généraux
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Disques de Gershgorin
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="similitudes.html">
+   Similitudes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="jacobi.html">
+   Méthode de Jacobi
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="puissiter.html">
+   Méthode des puissances itérées
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="QRspec.html">
+   Puissances groupées et méthode QR
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exospec.html">
+   Exercices
+  </a>
+ </li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Index</span></p>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Index
+ </span>
+</p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="genindex.html">
+   Index
+  </a>
+ </li>
 </ul>
 
     </div>
 </nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
     </div>
-  
-  
-  <div class="sidebar-primary-items__end sidebar-primary__section">
-  </div>
-  
-  <div id="rtd-footer-container"></div>
+    <div id="rtd-footer-container"></div>
+</div>
 
 
-      </div>
-      
-      <main id="main-content" class="bd-main">
-        
-        
+          
 
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
-
-          <div class="bd-content">
-            <div class="bd-article-container">
-              
-              <div class="bd-header-article">
-<div class="header-article-items header-article__inner">
-  
-    <div class="header-article-items__start">
-      
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <span class="fa-solid fa-bars"></span>
-</label></div>
-      
-    </div>
-  
-  
-    <div class="header-article-items__end">
-      
-        <div class="header-article-item">
-
-<div class="article-header-buttons">
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
 
 
 
-<button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
-  title="Mode plein écran"
-  data-bs-placement="bottom" data-bs-toggle="tooltip"
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
 >
   
 
-<span class="btn__icon-container">
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-
-
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="clair/sombre" aria-label="clair/sombre" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
-
-
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Recherche" aria-label="Recherche" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-
-</div></div>
-      
-    </div>
-  
-</div>
-</div>
-              
-              
-
-<div id="jb-print-docs-body" class="onlyprint">
-    <h1>Disques de Gershgorin</h1>
-    <!-- Table of contents -->
-    <div id="print-main-content">
-        <div id="jb-print-toc">
-            
-        </div>
     </div>
 </div>
 
-              
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Disques de Gershgorin</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
                 
-<div id="searchbox"></div>
-                <article class="bd-article" role="main">
-                  
+              <div>
+                
   <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
@@ -320,23 +369,23 @@ document.write(`
 </div>
 </div>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="disques-de-gershgorin">
-<h1>Disques de Gershgorin<a class="headerlink" href="#disques-de-gershgorin" title="Lien permanent vers cette rubrique">#</a></h1>
+<div class="tex2jax_ignore mathjax_ignore section" id="disques-de-gershgorin">
+<h1>Disques de Gershgorin<a class="headerlink" href="#disques-de-gershgorin" title="Lien permanent vers ce titre">#</a></h1>
 <p>Avant d’aborder quelques algorithmes de calcul des valeurs propres d’une matrice, donnons une alternative pratique à ces algorithmes . Le théorème suivant  permet de localiser les valeurs propres dans des disques, dits disques de Gershgorin, du plan complexe.</p>
-<aside class="margin sidebar">
+<div class="margin sidebar">
 <p class="sidebar-title"></p>
 <p><img alt="" src="_images/gershgorinsemyon.png" /></p>
-</aside>
+</div>
 <div class="proof theorem admonition" id="theorem-0">
 <p class="admonition-title"><span class="caption-number">Theorem 9 </span> (Théorème de Gershgorin)</p>
-<section class="theorem-content" id="proof-content">
+<div class="theorem-content section" id="proof-content">
 <p>Si on représente une matrice <span class="math notranslate nohighlight">\(A\)</span> (ou toute matrice semblable à <span class="math notranslate nohighlight">\(A\)</span>) sous la forme <span class="math notranslate nohighlight">\(A=diag\{d_1\cdots d_n\}+F\)</span>, où <span class="math notranslate nohighlight">\(F\)</span> est une matrice de diagonale nulle, alors le spectre de <span class="math notranslate nohighlight">\(A\)</span> est contenu dans l’union des disques <span class="math notranslate nohighlight">\(D_i,1\leq i\leq n\)</span> du plan complexe, tels que</p>
 <p><span class="math notranslate nohighlight">\(D_i=\left \{ z\in \mathbb{C}, |z-d_i|\leq \displaystyle\sum_{j=1}^n|f_{ij}|\right \}\)</span></p>
-</section>
+</div>
 </div><p id="index-0">Une application intéressante de ce résultat est l’estimation des valeurs propres d’une matrice obtenue en perturbant une matrice dont on connaît le spectre.</p>
 <div class="proof example admonition" id="example-1">
 <p class="admonition-title"><span class="caption-number">Example 14 </span></p>
-<section class="example-content" id="proof-content">
+<div class="example-content section" id="proof-content">
 <p><span class="math notranslate nohighlight">\(A =
 \left[
 \begin{array}{ccc}
@@ -352,7 +401,7 @@ D_1&amp;=\left \{ z\in \mathbb{C}, |z-1|\leq 0.2\right\}\\
 D_2&amp;=\left \{ z\in \mathbb{C}, |z-2|\leq 0.4\right\}\\
 D_3&amp;=\left \{ z\in \mathbb{C}, |z-3|\leq 0.2\right\}
 \end{align*}\)</span></p>
-</section>
+</div>
 </div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -390,11 +439,11 @@ D_3&amp;=\left \{ z\in \mathbb{C}, |z-3|\leq 0.2\right\}
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}0 &amp; 0.8636 &amp; 0.8554 &amp; 0.9662 &amp; 0.4622\\0.5749 &amp; -1.0 &amp; 0.1621 &amp; 0.9676 &amp; 0.5943\\0.5194 &amp; 0.3326 &amp; 4.0 &amp; 0.6352 &amp; 0.4691\\0.6921 &amp; 0.8987 &amp; 0.6935 &amp; 1.0 &amp; 0.7538\\0.6584 &amp; 0.02776 &amp; 0.6304 &amp; 0.7277 &amp; 7.0\end{matrix}\right]\end{split}\]</div>
-<img alt="_images/4554d005ef81ee35bfc45a105a08d6bd11ba6902a231e855dfeea7eb47784879.png" src="_images/4554d005ef81ee35bfc45a105a08d6bd11ba6902a231e855dfeea7eb47784879.png" />
+\[\begin{split}\displaystyle \left[\begin{matrix}0 &amp; 0.357 &amp; 0.5219 &amp; 0.7576 &amp; 0.6853\\0.6853 &amp; -1.0 &amp; 0.9409 &amp; 0.3401 &amp; 0.3519\\0.8643 &amp; 0.2548 &amp; 4.0 &amp; 0.9416 &amp; 0.7581\\0.4052 &amp; 0.4093 &amp; 0.6728 &amp; 1.0 &amp; 0.0296\\0.3996 &amp; 0.9747 &amp; 0.06149 &amp; 0.7529 &amp; 7.0\end{matrix}\right]\end{split}\]</div>
+<img alt="_images/gershgorin_2_1.png" src="_images/gershgorin_2_1.png" />
 </div>
 </div>
-</section>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -408,7 +457,7 @@ D_3&amp;=\left \{ z\in \mathbb{C}, |z-3|\leq 0.2\right\}
             mode: "python"
         },
         kernelOptions: {
-            name: "python3",
+            kernelName: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -416,88 +465,50 @@ D_3&amp;=\left \{ z\in \mathbb{C}, |z-3|\leq 0.2\right\}
     </script>
     <script>kernelName = 'python3'</script>
 
-                </article>
+              </div>
               
-
-              
-              
-              
-              
-                <footer class="prev-next-footer">
-                  
-<div class="prev-next-area">
-    <a class="left-prev"
-       href="resspec.html"
-       title="page précédente">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">précédent</p>
-        <p class="prev-next-title">Résultats généraux</p>
-      </div>
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="resspec.html" title="précédent page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">précédent</p>
+            <p class="prev-next-title">Résultats généraux</p>
+        </div>
     </a>
-    <a class="right-next"
-       href="similitudes.html"
-       title="page suivante">
-      <div class="prev-next-info">
+    <a class='right-next' id="next-link" href="similitudes.html" title="suivant page">
+    <div class="prev-next-info">
         <p class="prev-next-subtitle">suivant</p>
         <p class="prev-next-title">Similitudes</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
-                </footer>
-              
-            </div>
-            
-            
-              
-            
-          </div>
-          <footer class="bd-footer-content">
-            
-<div class="bd-footer-content__inner container">
-  
-  <div class="footer-item">
-    
-<p class="component-author">
-Par Vincent BARRA
-</p>
-
-  </div>
-  
-  <div class="footer-item">
-    
-
-  <p class="copyright">
-    
-      © Copyright 2022.
-      <br/>
-    
-  </p>
-
-  </div>
-  
-  <div class="footer-item">
-    
-  </div>
-  
-  <div class="footer-item">
-    
-  </div>
-  
-</div>
-          </footer>
-        
-
-      </main>
+            </footer>
+        </div>
     </div>
-  </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Vincent BARRA<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  <footer class="bd-footer">
-  </footer>
+
   </body>
 </html>
