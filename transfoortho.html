@@ -14,19 +14,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
@@ -34,13 +34,13 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script src="_static/documentation_options.js?v=72dce1d2"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -75,23 +75,27 @@
 
   
   
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Passer au contenu principal</a></div>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Passer au contenu principal</a>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Haut de page</button>
+    <i class="fa-solid fa-arrow-up"></i>
+    Haut de page
+  </button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -113,13 +117,8 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
-
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-</div>
-
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
     </header>
   
 
@@ -230,7 +229,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main" role="main">
+      <main id="main-content" class="bd-main">
         
         
 
@@ -239,7 +238,7 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article d-print-none">
+              <div class="bd-header-article">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -524,7 +523,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}0.5437 &amp; 0.4091 &amp; 0.5909 &amp; 0.813\\0.03958 &amp; 0.008846 &amp; 0.1675 &amp; 0.3716\\0.07007 &amp; 0.8839 &amp; 0.7827 &amp; 0.3436\\0.08631 &amp; 0.7311 &amp; 0.7144 &amp; 0.9045\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}0.9378 &amp; 0.1216 &amp; 0.816 &amp; 0.4752\\0.5789 &amp; 0.1475 &amp; 0.3183 &amp; 0.4968\\0.09431 &amp; 0.4265 &amp; 0.108 &amp; 0.4636\\0.2638 &amp; 0.6648 &amp; 0.5966 &amp; 0.4991\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -535,7 +534,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}0.9772 &amp; -0.1931 &amp; -0.08551 &amp; -0.01969\\0.07115 &amp; -0.0341 &amp; 0.9556 &amp; -0.2841\\0.1259 &amp; 0.7704 &amp; -0.1614 &amp; -0.6039\\0.1551 &amp; 0.6067 &amp; 0.2314 &amp; 0.7445\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}0.8247 &amp; -0.2471 &amp; 0.3204 &amp; 0.3952\\0.5091 &amp; -0.05279 &amp; -0.628 &amp; -0.5862\\0.08294 &amp; 0.5457 &amp; -0.5575 &amp; 0.6201\\0.232 &amp; 0.799 &amp; 0.4383 &amp; -0.34\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -546,7 +545,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}0.5563 &amp; 0.6252 &amp; 0.7987 &amp; 1.005\\0 &amp; 1.045 &amp; 0.9166 &amp; 0.6438\\0 &amp; 0 &amp; 0.1485 &amp; 0.4394\\0 &amp; 0 &amp; 0 &amp; 0.3444\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}1.137 &amp; 0.3649 &amp; 0.9823 &amp; 0.7991\\0 &amp; 0.7261 &amp; 0.3173 &amp; 0.5081\\0 &amp; 0 &amp; 0.2629 &amp; -0.1994\\0 &amp; 0 &amp; 0 &amp; 0.01432\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -557,7 +556,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}1.0 &amp; -4.42 \cdot 10^{-17} &amp; 2.509 \cdot 10^{-16} &amp; -3.471 \cdot 10^{-16}\\-4.42 \cdot 10^{-17} &amp; 1.0 &amp; -5.979 \cdot 10^{-16} &amp; 8.862 \cdot 10^{-16}\\2.509 \cdot 10^{-16} &amp; -5.979 \cdot 10^{-16} &amp; 1.0 &amp; 4.427 \cdot 10^{-16}\\-3.471 \cdot 10^{-16} &amp; 8.862 \cdot 10^{-16} &amp; 4.427 \cdot 10^{-16} &amp; 1.0\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}1.0 &amp; 1.09 \cdot 10^{-16} &amp; -1.244 \cdot 10^{-16} &amp; -3.024 \cdot 10^{-15}\\1.09 \cdot 10^{-16} &amp; 1.0 &amp; -5.327 \cdot 10^{-16} &amp; -1.866 \cdot 10^{-14}\\-1.244 \cdot 10^{-16} &amp; -5.327 \cdot 10^{-16} &amp; 1.0 &amp; 2.404 \cdot 10^{-14}\\-3.024 \cdot 10^{-15} &amp; -1.866 \cdot 10^{-14} &amp; 2.404 \cdot 10^{-14} &amp; 1.0\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -571,7 +570,7 @@ premiers vecteurs de la base orthonormée déjà calculés, puis en normant le r
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Norme de I-Q^TQ =  8.861899084352446e-16
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Norme de I-Q^TQ =  2.4037722460469304e-14
 Norme infinie de QR-A =  1.1102230246251565e-16
 </pre></div>
 </div>
@@ -605,7 +604,7 @@ Norme infinie de QR-A =  1.1102230246251565e-16
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Norme de QR-A =  5.551115123125783e-17 
 
-Norme de Q^T*Q-I =  0.9999679832111513
+Norme de Q^T*Q-I =  0.9999670638304938
 </pre></div>
 </div>
 </div>
@@ -619,7 +618,7 @@ Norme de Q^T*Q-I =  0.9999679832111513
 </div>
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
-\[\begin{split}\displaystyle \left[\begin{matrix}-3.3 \cdot 10^{-16} &amp; 1.9 \cdot 10^{-15} &amp; -8.8 \cdot 10^{-15} &amp; 6.5 \cdot 10^{-14} &amp; -8.7 \cdot 10^{-13} &amp; 6.8 \cdot 10^{-12} &amp; 1.0 \cdot 10^{-10} &amp; 1.0 \cdot 10^{-10}\\1.9 \cdot 10^{-15} &amp; 0 &amp; -8.3 \cdot 10^{-14} &amp; 1.1 \cdot 10^{-12} &amp; -1.1 \cdot 10^{-11} &amp; 8.2 \cdot 10^{-11} &amp; 1.4 \cdot 10^{-10} &amp; 1.2 \cdot 10^{-10}\\-8.8 \cdot 10^{-15} &amp; -8.3 \cdot 10^{-14} &amp; -1.1 \cdot 10^{-16} &amp; 2.3 \cdot 10^{-11} &amp; -5.6 \cdot 10^{-10} &amp; 1.1 \cdot 10^{-8} &amp; -2.0 \cdot 10^{-7} &amp; -2.0 \cdot 10^{-7}\\6.5 \cdot 10^{-14} &amp; 1.1 \cdot 10^{-12} &amp; 2.3 \cdot 10^{-11} &amp; 0 &amp; -2.0 \cdot 10^{-8} &amp; 8.0 \cdot 10^{-7} &amp; -2.5 \cdot 10^{-5} &amp; -2.4 \cdot 10^{-5}\\-8.7 \cdot 10^{-13} &amp; -1.1 \cdot 10^{-11} &amp; -5.6 \cdot 10^{-10} &amp; -2.0 \cdot 10^{-8} &amp; 0 &amp; 4.3 \cdot 10^{-5} &amp; -0.0027 &amp; -0.0027\\6.8 \cdot 10^{-12} &amp; 8.2 \cdot 10^{-11} &amp; 1.1 \cdot 10^{-8} &amp; 8.0 \cdot 10^{-7} &amp; 4.3 \cdot 10^{-5} &amp; -1.1 \cdot 10^{-16} &amp; -0.22 &amp; -0.21\\1.0 \cdot 10^{-10} &amp; 1.4 \cdot 10^{-10} &amp; -2.0 \cdot 10^{-7} &amp; -2.5 \cdot 10^{-5} &amp; -0.0027 &amp; -0.22 &amp; 2.2 \cdot 10^{-16} &amp; 1.0\\1.0 \cdot 10^{-10} &amp; 1.2 \cdot 10^{-10} &amp; -2.0 \cdot 10^{-7} &amp; -2.4 \cdot 10^{-5} &amp; -0.0027 &amp; -0.21 &amp; 1.0 &amp; -1.1 \cdot 10^{-16}\end{matrix}\right]\end{split}\]</div>
+\[\begin{split}\displaystyle \left[\begin{matrix}2.2 \cdot 10^{-16} &amp; -7.2 \cdot 10^{-16} &amp; 2.1 \cdot 10^{-16} &amp; 1.3 \cdot 10^{-13} &amp; -3.9 \cdot 10^{-12} &amp; 6.3 \cdot 10^{-11} &amp; 9.4 \cdot 10^{-10} &amp; -1.1 \cdot 10^{-9}\\-7.2 \cdot 10^{-16} &amp; -1.1 \cdot 10^{-16} &amp; 3.3 \cdot 10^{-14} &amp; -3.9 \cdot 10^{-13} &amp; 2.9 \cdot 10^{-12} &amp; -4.7 \cdot 10^{-12} &amp; -7.9 \cdot 10^{-10} &amp; 8.4 \cdot 10^{-10}\\2.1 \cdot 10^{-16} &amp; 3.3 \cdot 10^{-14} &amp; -2.2 \cdot 10^{-16} &amp; -7.5 \cdot 10^{-12} &amp; 1.8 \cdot 10^{-10} &amp; -3.4 \cdot 10^{-9} &amp; 6.5 \cdot 10^{-8} &amp; -6.7 \cdot 10^{-8}\\1.3 \cdot 10^{-13} &amp; -3.9 \cdot 10^{-13} &amp; -7.5 \cdot 10^{-12} &amp; -2.2 \cdot 10^{-16} &amp; 5.2 \cdot 10^{-9} &amp; -2.0 \cdot 10^{-7} &amp; 6.2 \cdot 10^{-6} &amp; -6.5 \cdot 10^{-6}\\-3.9 \cdot 10^{-12} &amp; 2.9 \cdot 10^{-12} &amp; 1.8 \cdot 10^{-10} &amp; 5.2 \cdot 10^{-9} &amp; -1.1 \cdot 10^{-16} &amp; -1.1 \cdot 10^{-5} &amp; 0.0007 &amp; -0.00075\\6.3 \cdot 10^{-11} &amp; -4.7 \cdot 10^{-12} &amp; -3.4 \cdot 10^{-9} &amp; -2.0 \cdot 10^{-7} &amp; -1.1 \cdot 10^{-5} &amp; 0 &amp; 0.058 &amp; -0.066\\9.4 \cdot 10^{-10} &amp; -7.9 \cdot 10^{-10} &amp; 6.5 \cdot 10^{-8} &amp; 6.2 \cdot 10^{-6} &amp; 0.0007 &amp; 0.058 &amp; -3.3 \cdot 10^{-16} &amp; -1.0\\-1.1 \cdot 10^{-9} &amp; 8.4 \cdot 10^{-10} &amp; -6.7 \cdot 10^{-8} &amp; -6.5 \cdot 10^{-6} &amp; -0.00075 &amp; -0.066 &amp; -1.0 &amp; 0\end{matrix}\right]\end{split}\]</div>
 </div>
 </div>
 </section>
@@ -931,7 +930,7 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e44f6c794746ab138e12c4ebdd72afbf190ba4bf1f7ef2273ea5d271fc2f85ad.png" src="_images/e44f6c794746ab138e12c4ebdd72afbf190ba4bf1f7ef2273ea5d271fc2f85ad.png" />
+<img alt="_images/9f2585734a222f909f6d4ea0108ac4244998750c7532c732dc3ee2903436d787.png" src="_images/9f2585734a222f909f6d4ea0108ac4244998750c7532c732dc3ee2903436d787.png" />
 </div>
 </div>
 </section>
@@ -964,7 +963,7 @@ permettant de transformer un vecteur quelconque en un vecteur colinéaire à un 
               
               
               
-                <footer class="prev-next-footer d-print-none">
+                <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1057,8 +1056,8 @@ Par Vincent BARRA
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

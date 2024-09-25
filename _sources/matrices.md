@@ -360,7 +360,7 @@ matrices ${\bf A}$ et ${\bf B}$ avec les bonnes dimensions :
 
 3.  $Tr({\bf A+B})$=$Tr({\bf A}) + Tr({\bf B})$
 
-4.  $(\forall {\bf x}\in \mathbb R^n)\ {\bf x^\topx} = Tr({\bf xx^\top})$
+4.  $(\forall {\bf x}\in \mathbb R^n)\ {\bf x^\top x} = Tr({\bf xx^\top})$
 ````
 
 ````{prf:definition} Déterminant 
