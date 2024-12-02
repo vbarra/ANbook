@@ -14,19 +14,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
@@ -34,13 +34,13 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=b4b7a797" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script src="_static/documentation_options.js?v=72dce1d2"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -75,23 +75,27 @@
 
   
   
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Passer au contenu principal</a></div>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Passer au contenu principal</a>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Haut de page</button>
+    <i class="fa-solid fa-arrow-up"></i>
+    Haut de page
+  </button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -113,13 +117,8 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
-
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-</div>
-
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
     </header>
   
 
@@ -230,7 +229,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main" role="main">
+      <main id="main-content" class="bd-main">
         
         
 
@@ -239,7 +238,7 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article d-print-none">
+              <div class="bd-header-article">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -471,7 +470,7 @@ taille <span class="math notranslate nohighlight">\(n\)</span>.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3488f76ce9baf292088d9444c8df456fdf4b3b9d771ea6f9cddea3eb7412fa90.png" src="_images/3488f76ce9baf292088d9444c8df456fdf4b3b9d771ea6f9cddea3eb7412fa90.png" />
+<img alt="_images/5beb28f9b1d49e2872e9c4bddf576388addbf42232655bb6ef7ae9f35ce549f6.png" src="_images/5beb28f9b1d49e2872e9c4bddf576388addbf42232655bb6ef7ae9f35ce549f6.png" />
 </div>
 </div>
 </section>
@@ -502,7 +501,7 @@ taille <span class="math notranslate nohighlight">\(n\)</span>.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e923a6b9a398a437ac38445606af3a0957e791a846329050905c6f14e1edee6e.png" src="_images/e923a6b9a398a437ac38445606af3a0957e791a846329050905c6f14e1edee6e.png" />
+<img alt="_images/1bad46d770c4ade4dd638faa719088bae7268dd98e0c43f8db7a499afea2470f.png" src="_images/1bad46d770c4ade4dd638faa719088bae7268dd98e0c43f8db7a499afea2470f.png" />
 </div>
 </div>
 </section>
@@ -526,7 +525,7 @@ taille <span class="math notranslate nohighlight">\(n\)</span>.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6bfe40bb4ed0be99aba1247c64105cb639f38f0ba75268ae5a86ce2f1a9096e3.png" src="_images/6bfe40bb4ed0be99aba1247c64105cb639f38f0ba75268ae5a86ce2f1a9096e3.png" />
+<img alt="_images/ebf2f34a42d4da0f6046b6db5d1bf5d60f85cb4a153d5f67fe73c237206961e0.png" src="_images/ebf2f34a42d4da0f6046b6db5d1bf5d60f85cb4a153d5f67fe73c237206961e0.png" />
 </div>
 </div>
 </section>
@@ -549,7 +548,7 @@ taille <span class="math notranslate nohighlight">\(n\)</span>.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/39e9db931d4d74ef597878a6f38496de89a32e065d67eea4685407c98c4593ab.png" src="_images/39e9db931d4d74ef597878a6f38496de89a32e065d67eea4685407c98c4593ab.png" />
+<img alt="_images/64283e45c337789f6b6f001a5e35c892f3fd9c6c7cd184ac79f4159ddc7bcf67.png" src="_images/64283e45c337789f6b6f001a5e35c892f3fd9c6c7cd184ac79f4159ddc7bcf67.png" />
 </div>
 </div>
 </section>
@@ -572,7 +571,7 @@ taille <span class="math notranslate nohighlight">\(n\)</span>.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2838f1e56ce493c7dcb27a0d558af920baa4e2d0a5c9665e79e775606cbfde24.png" src="_images/2838f1e56ce493c7dcb27a0d558af920baa4e2d0a5c9665e79e775606cbfde24.png" />
+<img alt="_images/92f0145e4d3c2dedb7dba9bd5806484fc798ad07b1f403b308d36ce0439433bd.png" src="_images/92f0145e4d3c2dedb7dba9bd5806484fc798ad07b1f403b308d36ce0439433bd.png" />
 </div>
 </div>
 </section>
@@ -595,7 +594,7 @@ taille <span class="math notranslate nohighlight">\(n\)</span>.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/a15fd09d835e801b71d49c2e6803b73f107ca8f9eaac3ab6ab516c5cba9fb02d.png" src="_images/a15fd09d835e801b71d49c2e6803b73f107ca8f9eaac3ab6ab516c5cba9fb02d.png" />
+<img alt="_images/23f90052f6eb3e54b227126776c5a9fec69b2dea58fdc0f9122c6aeb090198cc.png" src="_images/23f90052f6eb3e54b227126776c5a9fec69b2dea58fdc0f9122c6aeb090198cc.png" />
 </div>
 </div>
 <p>Pour évaluer les effets d’une transformation linéaire sur la norme d’un vecteur,
@@ -739,7 +738,7 @@ matrices <span class="math notranslate nohighlight">\({\bf A}\)</span> et <span 
 <li><p><span class="math notranslate nohighlight">\(Tr({\bf A})\)</span>=<span class="math notranslate nohighlight">\(Tr({\bf A^\top})\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(Tr({\bf AB})\)</span>=<span class="math notranslate nohighlight">\(Tr({\bf BA})\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(Tr({\bf A+B})\)</span>=<span class="math notranslate nohighlight">\(Tr({\bf A}) + Tr({\bf B})\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\((\forall {\bf x}\in \mathbb R^n)\ {\bf x^\topx} = Tr({\bf xx^\top})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\((\forall {\bf x}\in \mathbb R^n)\ {\bf x^\top x} = Tr({\bf xx^\top})\)</span></p></li>
 </ol>
 </section>
 </div><div class="proof definition admonition" id="definition-9">
@@ -910,7 +909,7 @@ taille <span class="math notranslate nohighlight">\(n\)</span>, la seconde de ta
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ad1ba85aca426aff120aa2a3901e9b11972b87a0bc2494e06e5a088f68e53d2b.png" src="_images/ad1ba85aca426aff120aa2a3901e9b11972b87a0bc2494e06e5a088f68e53d2b.png" />
+<img alt="_images/91467ec75e026fc38a86882c958aabd18c881ebf40d3492b22e4d370ee39a9de.png" src="_images/91467ec75e026fc38a86882c958aabd18c881ebf40d3492b22e4d370ee39a9de.png" />
 </div>
 </div>
 </section>
@@ -997,22 +996,22 @@ des sous-matrices principales sont les mineurs de la matrice.</p></li>
 </ul>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-0">
+</input><label class="sd-tab-label" for="sd-tab-item-0">
 Diagonale</label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;0&amp;0\\0&amp;-4&amp;0\\0&amp;0&amp;1\end{pmatrix}\)</span></p>
 </div>
 <input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-1">
+</input><label class="sd-tab-label" for="sd-tab-item-1">
 Triang. sup.</label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix} 3&amp;2&amp;1\\0&amp;-4&amp;2\\0&amp;0&amp;1 \end{pmatrix}\)</span></p>
 </div>
 <input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-2">
+</input><label class="sd-tab-label" for="sd-tab-item-2">
 Triang. inf.</label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;0&amp;0\\1&amp;-4&amp;0\\5&amp;8&amp;1 \end{pmatrix}\)</span></p>
 </div>
 <input id="sd-tab-item-3" name="sd-tab-set-0" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-3">
+</input><label class="sd-tab-label" for="sd-tab-item-3">
 Vecteur ligne</label><div class="sd-tab-content docutils">
 <p><span class="math notranslate nohighlight">\(\begin{pmatrix}3&amp;2&amp;1&amp;-4&amp;0&amp;3.5 \end{pmatrix}\)</span></p>
 </div>
@@ -1121,7 +1120,7 @@ donc pour image le plan
               
               
               
-                <footer class="prev-next-footer d-print-none">
+                <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1222,8 +1221,8 @@ Par Vincent BARRA
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
