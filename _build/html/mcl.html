@@ -318,7 +318,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stabilite">Stabilité</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#systemes-incompatibles">Systèmes incompatibles</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#un-exemple-de-regression-polynomiale-par-moindres-carres">Un exemple de régression polynomiale par moindres carrés</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#un-exemple-de-regression-lineaire">Un exemple de régression linéaire</a></li>
 </ul>
             </nav>
         </div>
@@ -521,85 +520,60 @@ Le vecteur des erreurs <span class="math notranslate nohighlight">\({\bf Y}-{\bf
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dim_i</span> <span class="o">=</span> <span class="mi">1</span> 
-<span class="n">dim_o</span> <span class="o">=</span> <span class="mi">1</span> 
-<span class="n">nb_data</span> <span class="o">=</span> <span class="mi">40</span>  
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">40</span>  
 
+<span class="c1"># Vous pouvez changer la fonction</span>
 <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="n">x</span><span class="p">)[:,</span><span class="kc">None</span><span class="p">]</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">5</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">x</span><span class="p">)[:,</span><span class="kc">None</span><span class="p">]</span>
 
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">nb_data</span><span class="p">)</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">nb_data</span><span class="p">,</span> <span class="n">dim_o</span><span class="p">))</span><span class="o">*</span><span class="mf">2e-1</span> 
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="mf">2e-1</span> 
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span> <span class="s1">&#39;.b&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;y&#39;)
-</pre></div>
-</div>
-<img alt="_images/db3a2cfd19b3dcbe8267670bdba04fd530d4e614647d34b4db3cf36e56cf9da6.png" src="_images/db3a2cfd19b3dcbe8267670bdba04fd530d4e614647d34b4db3cf36e56cf9da6.png" />
+<img alt="_images/79ef5f430bd281146755b194260bc7f4be7cac46104d50c39fd4dc23f7816254.png" src="_images/79ef5f430bd281146755b194260bc7f4be7cac46104d50c39fd4dc23f7816254.png" />
 </div>
 </div>
-<p>On fait passer un polynome de degré <span class="math notranslate nohighlight">\(d\)</span> par moindres carrés.</p>
+<p>On se donne une fonction d’affichage</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">A</span><span class="p">,</span> <span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">i</span><span class="p">)])</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">T</span>
-
-<span class="n">X</span> <span class="o">=</span> <span class="n">dot</span><span class="p">(</span><span class="n">inv</span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">A</span><span class="p">)),</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span><span class="p">))</span> 
-<span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">X</span><span class="p">)</span><span class="o">-</span><span class="n">Y</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>On calcule le modèle et les erreurs</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Y_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">X</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">plot_data_2D</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
-    <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###############################################</span>
+<span class="c1"># Fonction d&#39;affichage fournie</span>
+<span class="c1"># x,y : données</span>
+<span class="c1"># y_pred: y calculé par le modèle </span>
+<span class="c1">###############################################</span>
+<span class="k">def</span> <span class="nf">plot_data_2D</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span><span class="n">ax</span><span class="p">):</span>
     <span class="n">alphas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
- 
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y_pred</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y_pred</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
     
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">y_true</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s1">&#39;.&#39;</span> <span class="o">+</span> <span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> <span class="p">[</span><span class="n">y_true</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y_pred</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> <span class="s1">&#39;-&#39;</span><span class="o">+</span><span class="n">colors</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">alpha</span> <span class="o">=</span> <span class="n">alphas</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">y_true</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s1">&#39;.&#39;</span> <span class="o">+</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> <span class="p">[</span><span class="n">y_true</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">y_pred</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span> <span class="s1">&#39;-&#39;</span><span class="o">+</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="n">alphas</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
     
     <span class="n">xp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">300</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">f</span><span class="p">(</span><span class="n">xp</span><span class="p">),</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
-    
-    <span class="k">return</span>
-
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">plot_title</span> <span class="o">=</span> <span class="s1">&#39;Degré &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; (erreur =</span><span class="si">{0:0.2f}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-<span class="n">plot_data_2D</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Y_pred</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">plot_title</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">f</span><span class="p">(</span><span class="n">xp</span><span class="p">),</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/9343a22b498a31e13f470b96d9211c7e9c9a0c4b82f700c8e6e39e98ce04d434.png" src="_images/9343a22b498a31e13f470b96d9211c7e9c9a0c4b82f700c8e6e39e98ce04d434.png" />
 </div>
 </div>
 <p>et on teste la précision du modèle en fonction du degré du polynôme</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">degre</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">100</span><span class="p">]</span>
+<span class="n">col</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">degre</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="n">col</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">err</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="n">degre</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">50</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">ind</span><span class="p">,</span><span class="n">d</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">degre</span><span class="p">):</span>
     <span class="n">A</span> <span class="o">=</span> <span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">d</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
@@ -607,182 +581,24 @@ Le vecteur des erreurs <span class="math notranslate nohighlight">\({\bf Y}-{\bf
     <span class="n">A</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">T</span> 
     <span class="n">X</span> <span class="o">=</span> <span class="n">dot</span><span class="p">(</span><span class="n">inv</span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">A</span><span class="p">)),</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span><span class="p">))</span> 
     <span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">X</span><span class="p">)</span><span class="o">-</span><span class="n">Y</span><span class="p">)</span>
+    <span class="n">err</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
     <span class="n">Y_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">X</span><span class="p">)</span>
 
-    <span class="n">plot_title</span> <span class="o">=</span> <span class="s1">&#39;Degré &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; (erreur =</span><span class="si">{0:0.2f}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">degre</span><span class="p">),</span> <span class="n">ind</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">plot_data_2D</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Y_pred</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="n">plot_title</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/37ab9edfcc10d65b1f6d70679f3b232b08f76f212e460e7d8c9bb07b8faa1b19.png" src="_images/37ab9edfcc10d65b1f6d70679f3b232b08f76f212e460e7d8c9bb07b8faa1b19.png" />
-</div>
-</div>
-</section>
-<section id="un-exemple-de-regression-lineaire">
-<h2>Un exemple de régression linéaire<a class="headerlink" href="#un-exemple-de-regression-lineaire" title="Lien vers cette rubrique">#</a></h2>
-<p>On construit un nuage de points dans <span class="math notranslate nohighlight">\(\mathbb R^3\)</span>, initialement sur un plan, et bruité par un bruit suivant une loi centré d’écart-type <span class="math notranslate nohighlight">\(\sigma\)</span>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dim_i</span> <span class="o">=</span> <span class="mi">2</span> 
-<span class="n">dim_o</span> <span class="o">=</span> <span class="mi">1</span> 
-<span class="n">nb_data</span> <span class="o">=</span> <span class="mi">50</span>  
+    <span class="n">titre</span> <span class="o">=</span> <span class="s1">&#39;Degré &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; erreur =</span><span class="si">{0:0.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+    <span class="n">plot_data_2D</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Y_pred</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="n">titre</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">ind</span><span class="o">/</span><span class="n">col</span><span class="p">)][</span><span class="n">ind</span><span class="o">%</span><span class="k">col</span>])
 
-<span class="c1"># Construction d&#39;un modèle linéaire bruité</span>
-<span class="n">A0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">nb_data</span><span class="p">,</span> <span class="n">dim_i</span><span class="p">)</span>
-<span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">A0</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">scale</span> <span class="o">=</span> <span class="mf">7e-1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">nb_data</span><span class="p">,</span> <span class="n">dim_o</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>On résout le systèmes aux équations normales et on regarde l’erreur  du modèle en fonction du bruit</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">dot</span><span class="p">(</span><span class="n">inv</span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">A</span><span class="p">)),</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span><span class="p">))</span> 
-
-<span class="c1"># Erreur </span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Erreur : &quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">X</span><span class="p">)</span><span class="o">-</span><span class="n">Y</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-<span class="n">err</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">sigma</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">/</span><span class="mi">50</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">50</span><span class="p">)]</span>
-<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sigma</span><span class="p">:</span>
-    <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">A0</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">scale</span> <span class="o">=</span> <span class="n">s</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">nb_data</span><span class="p">,</span> <span class="n">dim_o</span><span class="p">))</span>
-    <span class="n">X</span> <span class="o">=</span> <span class="n">dot</span><span class="p">(</span><span class="n">inv</span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">A</span><span class="p">)),</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span><span class="p">))</span> 
-    <span class="n">err</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">X</span><span class="p">)</span><span class="o">-</span><span class="n">Y</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sigma</span><span class="p">,</span><span class="n">err</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Erreur en fonction du bruit introduit $\mathcal</span><span class="si">{N}</span><span class="s2">(0,\sigma)$&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$\sigma$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">degre</span><span class="p">,</span><span class="n">err</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Erreur en fonction du degré&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Degré&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Erreur&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:14: SyntaxWarning: invalid escape sequence &#39;\m&#39;
-&lt;&gt;:15: SyntaxWarning: invalid escape sequence &#39;\s&#39;
-&lt;&gt;:14: SyntaxWarning: invalid escape sequence &#39;\m&#39;
-&lt;&gt;:15: SyntaxWarning: invalid escape sequence &#39;\s&#39;
-/var/folders/x4/250fr1v51tgfhyjmj63qtg_w0000gp/T/ipykernel_3080/379632569.py:14: SyntaxWarning: invalid escape sequence &#39;\m&#39;
-  plt.title(&quot;Erreur en fonction du bruit introduit $\mathcal{N}(0,\sigma)$&quot;)
-/var/folders/x4/250fr1v51tgfhyjmj63qtg_w0000gp/T/ipykernel_3080/379632569.py:15: SyntaxWarning: invalid escape sequence &#39;\s&#39;
-  plt.xlabel(&quot;$\sigma$&quot;)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Erreur :  4.7831839947941175
-</pre></div>
-</div>
-<img alt="_images/41a2634968cf6777a2f9bfeafa59e3160eab867e7aeecac4a99a7ecef3e08e57.png" src="_images/41a2634968cf6777a2f9bfeafa59e3160eab867e7aeecac4a99a7ecef3e08e57.png" />
-</div>
-</div>
-<p>On affiche le modèle pour un niveau de bruit <span class="math notranslate nohighlight">\(s\sigma\)</span>=0.7</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">A0</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">scale</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">nb_data</span><span class="p">,</span> <span class="n">dim_o</span><span class="p">))</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">dot</span><span class="p">(</span><span class="n">inv</span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">A</span><span class="p">)),</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">Y</span><span class="p">))</span> 
-<span class="n">err</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">X</span><span class="p">)</span><span class="o">-</span><span class="n">Y</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
-
-<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">A</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">A</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span><span class="n">Y</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Nuage de points&quot;</span><span class="p">)</span>
-
-<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
-
-<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">z</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]),</span><span class="n">X</span><span class="p">),</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]),</span><span class="n">X</span><span class="p">),</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]),</span><span class="n">X</span><span class="p">)]</span>
-<span class="n">verts</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">))]</span>
-<span class="n">predicted_plane</span> <span class="o">=</span> <span class="n">Poly3DCollection</span><span class="p">(</span><span class="n">verts</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
-<span class="n">predicted_plane</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.</span><span class="p">])</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">add_collection3d</span><span class="p">(</span><span class="n">predicted_plane</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nb_data</span><span class="p">):</span>
-    <span class="n">ax2</span><span class="o">.</span><span class="n">plot3D</span><span class="p">([</span><span class="n">A</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="mi">0</span><span class="p">]],</span> <span class="p">[</span><span class="n">A</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="mi">1</span><span class="p">]],</span> <span class="p">[</span><span class="n">Y</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">t</span><span class="p">,:],</span><span class="n">X</span><span class="p">)],</span> <span class="s1">&#39;-b&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">ax2</span><span class="o">.</span><span class="n">plot3D</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">Y</span><span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;.k&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-    
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Moindres carrés linéaires&quot;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">19</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="n">z</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]),</span><span class="n">X</span><span class="p">),</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]),</span><span class="n">X</span><span class="p">),</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]),</span><span class="n">X</span><span class="p">)]</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="n">verts</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">))]</span>
-<span class="ne">---&gt; </span><span class="mi">19</span> <span class="n">predicted_plane</span> <span class="o">=</span> <span class="n">Poly3DCollection</span><span class="p">(</span><span class="n">verts</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="n">predicted_plane</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.</span><span class="p">])</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="n">ax2</span><span class="o">.</span><span class="n">add_collection3d</span><span class="p">(</span><span class="n">predicted_plane</span><span class="p">)</span>
-
-<span class="nn">File /usr/local/lib/python3.12/site-packages/mpl_toolkits/mplot3d/art3d.py:913,</span> in <span class="ni">Poly3DCollection.__init__</span><span class="nt">(self, verts, zsort, shade, lightsource, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">909</span>     <span class="k">if</span> <span class="n">facecolors</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">edgecolors</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">910</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">911</span>             <span class="s2">&quot;You must provide facecolors, edgecolors, or both for &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">912</span>             <span class="s2">&quot;shade to work.&quot;</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">913</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">verts</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">914</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">verts</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">915</span>     <span class="k">if</span> <span class="n">verts</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
-
-<span class="nn">File /usr/local/lib/python3.12/site-packages/matplotlib/collections.py:1200,</span> in <span class="ni">PolyCollection.__init__</span><span class="nt">(self, verts, sizes, closed, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1198</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1199</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_sizes</span><span class="p">(</span><span class="n">sizes</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1200</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_verts</span><span class="p">(</span><span class="n">verts</span><span class="p">,</span> <span class="n">closed</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1201</span> <span class="bp">self</span><span class="o">.</span><span class="n">stale</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="nn">File /usr/local/lib/python3.12/site-packages/mpl_toolkits/mplot3d/art3d.py:969,</span> in <span class="ni">Poly3DCollection.set_verts</span><span class="nt">(self, verts, closed)</span>
-<span class="g g-Whitespace">    </span><span class="mi">955</span> <span class="k">def</span> <span class="nf">set_verts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verts</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">956</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">957</span><span class="sd">     Set 3D vertices.</span>
-<span class="g g-Whitespace">    </span><span class="mi">958</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">967</span><span class="sd">         connection at the end.</span>
-<span class="g g-Whitespace">    </span><span class="mi">968</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">969</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_vector</span><span class="p">(</span><span class="n">verts</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">970</span>     <span class="c1"># 2D verts will be updated at draw time</span>
-<span class="g g-Whitespace">    </span><span class="mi">971</span>     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">set_verts</span><span class="p">([],</span> <span class="kc">False</span><span class="p">)</span>
-
-<span class="nn">File /usr/local/lib/python3.12/site-packages/mpl_toolkits/mplot3d/art3d.py:946,</span> in <span class="ni">Poly3DCollection.get_vector</span><span class="nt">(self, segments3d)</span>
-<span class="g g-Whitespace">    </span><span class="mi">944</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Optimize points for projection.&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">945</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">segments3d</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">946</span>     <span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">,</span> <span class="n">zs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">segments3d</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
-<span class="g g-Whitespace">    </span><span class="mi">947</span> <span class="k">else</span><span class="p">:</span>  <span class="c1"># vstack can&#39;t stack zero arrays.</span>
-<span class="g g-Whitespace">    </span><span class="mi">948</span>     <span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">,</span> <span class="n">zs</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
-
-<span class="nn">File /usr/local/lib/python3.12/site-packages/numpy/core/shape_base.py:286,</span> in <span class="ni">vstack</span><span class="nt">(tup, dtype, casting)</span>
-<span class="g g-Whitespace">    </span><span class="mi">219</span> <span class="nd">@array_function_dispatch</span><span class="p">(</span><span class="n">_vhstack_dispatcher</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">220</span> <span class="k">def</span> <span class="nf">vstack</span><span class="p">(</span><span class="n">tup</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">casting</span><span class="o">=</span><span class="s2">&quot;same_kind&quot;</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">221</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">222</span><span class="sd">     Stack arrays in sequence vertically (row wise).</span>
-<span class="g g-Whitespace">    </span><span class="mi">223</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">284</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">285</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">286</span>     <span class="n">arrs</span> <span class="o">=</span> <span class="n">atleast_2d</span><span class="p">(</span><span class="o">*</span><span class="n">tup</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">287</span>     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arrs</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">288</span>         <span class="n">arrs</span> <span class="o">=</span> <span class="p">[</span><span class="n">arrs</span><span class="p">]</span>
-
-<span class="nn">File /usr/local/lib/python3.12/site-packages/numpy/core/shape_base.py:121,</span> in <span class="ni">atleast_2d</span><span class="nt">(*arys)</span>
-<span class="g g-Whitespace">    </span><span class="mi">119</span> <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="g g-Whitespace">    </span><span class="mi">120</span> <span class="k">for</span> <span class="n">ary</span> <span class="ow">in</span> <span class="n">arys</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">121</span>     <span class="n">ary</span> <span class="o">=</span> <span class="n">asanyarray</span><span class="p">(</span><span class="n">ary</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">122</span>     <span class="k">if</span> <span class="n">ary</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">123</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">ary</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-
-<span class="ne">ValueError</span>: setting an array element with a sequence. The requested array has an inhomogeneous shape after 2 dimensions. The detected shape was (4, 3) + inhomogeneous part.
-</pre></div>
-</div>
-<img alt="_images/5453204e36909678df6438b513f18e27cf80eba2703eccaf0d286ed1a4e61da8.png" src="_images/5453204e36909678df6438b513f18e27cf80eba2703eccaf0d286ed1a4e61da8.png" />
+<img alt="_images/d3f7c89092db62a8abadf8c0a006a63ede2ac250927156691ad21091b3465ce2.png" src="_images/d3f7c89092db62a8abadf8c0a006a63ede2ac250927156691ad21091b3465ce2.png" />
+<img alt="_images/a202aeeb72816aad17816ad536ead49605d559a2e77b473b0353b32bd994de52.png" src="_images/a202aeeb72816aad17816ad536ead49605d559a2e77b473b0353b32bd994de52.png" />
 </div>
 </div>
 </section>
@@ -856,7 +672,6 @@ Le vecteur des erreurs <span class="math notranslate nohighlight">\({\bf Y}-{\bf
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stabilite">Stabilité</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#systemes-incompatibles">Systèmes incompatibles</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#un-exemple-de-regression-polynomiale-par-moindres-carres">Un exemple de régression polynomiale par moindres carrés</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#un-exemple-de-regression-lineaire">Un exemple de régression linéaire</a></li>
 </ul>
   </nav></div>
 

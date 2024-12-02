@@ -169,71 +169,53 @@ from numpy import dot,power
 ```
 
 ```{code-cell} ipython3
-dim_i = 1 
-dim_o = 1 
-nb_data = 40  
+n = 40  
 
+# Vous pouvez changer la fonction
 def f(x):
-    return np.sin(5*x)[:,None]
+    return (np.sin(5*x)/x)[:,None]
 
 
-x = np.linspace(-1,1,nb_data)
-Y = f(x) + np.random.normal(size=(nb_data, dim_o))*2e-1 
+x = np.linspace(-4,4,n)
+Y = f(x) + np.random.normal(size=(n, 1))*2e-1 
 
 plt.plot(x,Y, '.b')
 plt.xlabel('x')
 plt.ylabel('y')
-```
-On fait passer un polynome de degré $d$ par moindres carrés.
-
-```{code-cell} ipython3
-d = 5
-A = power(x,0)
-for i in range(1,d+1):
-    A = np.vstack([A, power(x,i)])
-A = A.T
-
-X = dot(inv(dot(A.T,A)),dot(A.T, Y)) 
-e = np.linalg.norm(dot(A,X)-Y)
-
+plt.tight_layout()
 ```
 
-On calcule le modèle et les erreurs
-
+On se donne une fonction d'affichage
 ```{code-cell} ipython3
-Y_pred = np.dot(A,X)
-
-def plot_data_2D(x, y_true, y_pred, title):
-    colors = ['r', 'k', 'b']
+###############################################
+# Fonction d'affichage fournie
+# x,y : données
+# y_pred: y calculé par le modèle 
+###############################################
+def plot_data_2D(x, y_true, y_pred, title,ax):
     alphas = np.ones(len(x))
- 
-    plt.plot(x,y_pred, '-' + colors[0])
+    ax.plot(x,y_pred, '-' + 'r')
     
     for i in range(len(x)):
-        plt.plot(x[i],y_true[i], '.' + colors[1])
-        plt.plot([x[i],x[i]], [y_true[i], y_pred[i]], '-'+colors[2], alpha = alphas[i])
-    plt.xlabel('x')
-    plt.ylabel('y')
+        ax.plot(x[i],y_true[i], '.' + 'k')
+        ax.plot([x[i],x[i]], [y_true[i], y_pred[i]], '-'+'b', alpha = alphas[i])
+    ax.set_xlabel('x')
+    ax.set_ylabel('y')
     
     xp = np.linspace(-1,1,300)
-    plt.plot(xp,f(xp),'g')
-    plt.title(title)
-    
-    return
-
-fig = plt.figure()
-ax = fig.add_subplot(1, 1, 1)
-plot_title = 'Degré ' + str(d) + ' (erreur ={0:0.2f})'.format(e)
-plot_data_2D(x,Y,Y_pred, title=plot_title)
+    ax.plot(xp,f(xp),'g')
+    ax.set_title(title)
 ```
 et on teste la précision du modèle en fonction du degré du polynôme
 
 
 
 ```{code-cell} ipython3
-fig = plt.figure(figsize=(25,8))
+degre = [1,3,5,10,20,35,50,100]
+col = int(len(degre)/2)
+fig, axs = plt.subplots(2, ncols=col,figsize=(25,8))
+err = []
 
-degre = [1,3,5,10,20,35,50]
 for ind,d in enumerate(degre):
     A = power(x,0)
     for i in range(1,d+1):
@@ -241,81 +223,18 @@ for ind,d in enumerate(degre):
     A = A.T 
     X = dot(inv(dot(A.T,A)),dot(A.T, Y)) 
     e = np.linalg.norm(dot(A,X)-Y)
+    err.append(e)
     Y_pred = np.dot(A,X)
 
-    plot_title = 'Degré ' + str(d) + ' (erreur ={0:0.2f})'.format(e)
-    plt.subplot(1, len(degre), ind+1)
-    plot_data_2D(x,Y,Y_pred,title=plot_title)
-```
+    titre = 'Degré ' + str(d) + ' erreur ={0:0.2f}'.format(e)
+    plot_data_2D(x,Y,Y_pred,title=titre,ax=axs[int(ind/col)][ind%col])
 
-## Un exemple de régression linéaire
-
-On construit un nuage de points dans $\mathbb R^3$, initialement sur un plan, et bruité par un bruit suivant une loi centré d'écart-type $\sigma$.
-```{code-cell} ipython3
-dim_i = 2 
-dim_o = 1 
-nb_data = 50  
-
-# Construction d'un modèle linéaire bruité
-A0 = np.array([[3], [1]])
-A = np.random.rand(nb_data, dim_i)
-Y = np.dot(A,A0) + np.random.normal(scale = 7e-1, size=(nb_data, dim_o))
-```
-
-On résout le systèmes aux équations normales et on regarde l'erreur  du modèle en fonction du bruit 
-
-```{code-cell} ipython3
-X = dot(inv(dot(A.T,A)),dot(A.T, Y)) 
-
-# Erreur 
-print("Erreur : ",np.linalg.norm(np.dot(A,X)-Y,2))
-err = []
-sigma = [i/50 for i in range(0,50)]
-for s in sigma:
-    Y = np.dot(A,A0) + np.random.normal(scale = s, size=(nb_data, dim_o))
-    X = dot(inv(dot(A.T,A)),dot(A.T, Y)) 
-    err.append(np.linalg.norm(np.dot(A,X)-Y,2))
-
-plt.figure(figsize=(8,4))
-plt.plot(sigma,err)
-plt.title("Erreur en fonction du bruit introduit $\mathcal{N}(0,\sigma)$")
-plt.xlabel("$\sigma$")
+plt.figure()
+plt.plot(degre,err)
+plt.title("Erreur en fonction du degré")
+plt.xlabel("Degré")
 plt.ylabel("Erreur")
 plt.tight_layout()
 ```
 
-On affiche le modèle pour un niveau de bruit $s\sigma$=0.7
-```{code-cell} ipython3
-Y = np.dot(A,A0) + np.random.normal(scale = 0.7, size=(nb_data, dim_o))
-X = dot(inv(dot(A.T,A)),dot(A.T, Y)) 
-err.append(np.linalg.norm(np.dot(A,X)-Y,2))
-fig = plt.figure(figsize=(10,20))
 
-ax1 = fig.add_subplot(1, 2, 1, projection='3d')
-ax1.scatter(A[:,0],A[:,1],Y.flatten())
-ax1.set_xlabel('x')
-ax1.set_ylabel('y')
-ax1.set_zlabel('z')
-ax1.set_title("Nuage de points")
-
-ax2 = fig.add_subplot(1, 2, 2, projection='3d')
-
-x = [0,1,1,0]
-y = [0,0,1,1]
-z = [0,dot(np.array([1,0]),X),dot(np.array([1,1]),X),dot(np.array([0,1]),X)]
-verts = [list(zip(x,y,z))]
-predicted_plane = Poly3DCollection(verts,alpha=0.2)
-predicted_plane.set_facecolor([1.,0.1,0.])
-ax2.add_collection3d(predicted_plane)
-
-for t in range(nb_data):
-    ax2.plot3D([A[t,0], A[t,0]], [A[t,1], A[t,1]], [Y[t,0], dot(A[t,:],X)], '-b', linewidth=2)
-    ax2.plot3D(A[t,0:1], A[t,1:2], Y[t,0:1], '.k', markersize=14)
-    
-ax2.set_xlabel('x')
-ax2.set_ylabel('y')
-ax2.set_zlabel('z')
-ax2.set_title("Moindres carrés linéaires")
-
-plt.tight_layout()
-```
