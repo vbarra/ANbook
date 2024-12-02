@@ -1,5 +1,8 @@
 # Exercices
 
+## TP
+Télécharger le [notebook du TP](./TP_etudiant.zip)
+
 ## Exercice 1
 Trouver la meilleure approximation, $\bar x$, au sens des moindres carrés, du
 système
