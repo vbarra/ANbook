@@ -1,7 +1,7 @@
 # Exercices
 
 ## TP
-Télécharger le [notebook du TP](./TP_etudiant.zip)
+Télécharger le [notebook du TP à compléter](./TP_etudiants.zip).
 
 ## Exercice 1
 Trouver la meilleure approximation, $\bar x$, au sens des moindres carrés, du
