@@ -229,7 +229,7 @@ for ind,d in enumerate(degre):
     titre = 'Degré ' + str(d) + ' erreur ={0:0.2f}'.format(e)
     plot_data_2D(x,Y,Y_pred,title=titre,ax=axs[int(ind/col)][ind%col])
 
-plt.figure()
+plt.figure(figsize=(5,5))
 plt.plot(degre,err)
 plt.title("Erreur en fonction du degré")
 plt.xlabel("Degré")
